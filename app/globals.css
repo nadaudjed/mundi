@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #101d30;
+  --color-night-2: #16273f;
+  --color-night-3: #1f3352;
+  --color-blue: #246bce;
+  --color-blue-soft: #5b93e0;
+  --color-ivory: #f3f0e8;
+  --color-ivory-2: #e9e4d8;
+  --color-paper: #fbfaf6;
+  --color-mint: #20b99a;
+  --color-mint-soft: #7fdcc6;
+  --color-ink: #101d30;
+  --color-muted: #5b6678;
+  --color-amber: #e0a43a;
+
+  --font-sans: "DM Sans Variable", "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
+
+  --animate-rise: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+:root {
+  --nav-h: 4.25rem;
+  --header-h: 0rem;
+  color-scheme: light;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-h: 0rem;
+    --header-h: 4rem;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-mint);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hauteur utile du fil : écran moins l'en-tête (ordinateur) ou la barre d'onglets (mobile). */
+.feed-h {
+  height: calc(100dvh - var(--nav-h) - var(--header-h));
+}
+
+.grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}

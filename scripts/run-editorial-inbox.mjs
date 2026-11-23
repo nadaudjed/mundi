@@ -27,6 +27,11 @@ mkdirSync(reportDir,{recursive:true});
 writeFileSync(resolve(reportDir, "editorial-inbox.json"),JSON.stringify(result,null,2)+"\n");
 writeFileSync(resolve(reportDir, "editorial-inbox.html"),makeReport(result));
 console.log("Internal newsroom: "+result.count+" candidate metadata items; "+result.errors.length+" notices; "+enabled.length+" enabled feeds.");
+for(const entry of result.sourceHealth??[]){
+  console.log("MUNDI feed health:",entry.sourceId,
+    entry.status,"items:",entry.count,
+    entry.error?"error: "+String(entry.error).slice(0,120):"");
+}
 console.log("No content was added to content/publications.json. No publication took place.");
 
 // Produire les fichiers de diagnostic même quand les sources échouent ; signaler le problème dans Actions.

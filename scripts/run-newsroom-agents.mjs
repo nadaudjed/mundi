@@ -165,6 +165,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
   if(!cfg.ready)console.warn("MUNDI planning-only: missing",cfg.missing.join(", "));
   const rejected=result.outputs.filter(x=>x.error).length;
   if(result.generated===0&&cfg.ready)console.warn("MUNDI configured, but 0 drafts: inspect report outputs (blocked topics or API errors).");
+  // Errors are already scrubbed of keys in agent-providers; show them so a failed run can be diagnosed from the log.
+  for(const x of result.outputs.filter(o=>o.error))console.warn("MUNDI task",x.id,"("+x.topic+"):",x.error);
   if(process.env.GITHUB_STEP_SUMMARY){
     const md=[
       "## MUNDI newsroom — "+result.date,

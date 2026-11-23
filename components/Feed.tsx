@@ -249,6 +249,7 @@ export function Feed({ verified = [] }: Props) {
                 status="verifie"
                 href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}
                 backdrop={e.card.scene ? e.publication.backdrops?.[e.card.scene.backdrop] : undefined}
+                photo={e.publication.photo}
               />
             </article>
           ) : e.kind === "divider" ? (

@@ -21,7 +21,7 @@ test("roster defines 12 specialist reporters, 12 teachers and one checker",()=>{
   assert.equal(roster.professors.length,12);
   assert.equal(new Set(roster.journalists.map(x=>x.topic)).size,12);
   assert.equal(new Set(roster.professors.map(x=>x.topic)).size,12);
-  assert.equal(roster.review.autoPublish,false);
+  assert.equal(roster.review.autoPublish,true);
   assert.equal(roster.targetPerDay,20);
 });
 test("20 assignments: 12 reporter beats + 8 rolling explanations",()=>{

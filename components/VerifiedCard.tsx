@@ -89,7 +89,7 @@ export function VerifiedCard({ publication: p, index, position, total, active, r
                   · actualisé le <time dateTime={p.updatedAt}>{formatDate(p.updatedAt)}</time>
                 </>
               )}{" "}
-              · relu par {p.reviewedBy}
+              · {p.aiVerified ? "vérifié par l'IA, sans relecture humaine" : `relu par ${p.reviewedBy}`}
               {backdrop && (
                 <>
                   {" "}

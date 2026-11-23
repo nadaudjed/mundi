@@ -65,6 +65,18 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(first.getByText("illustratif")).toHaveCount(0);
   });
 
+  test("une publication automatique dit clairement qu'elle n'a pas été relue par un humain", async ({ page }) => {
+    await page.goto("/");
+    const card = page.locator(`[data-publication="${SECOND}"]`);
+    await expect(card.getByTestId("verified-meta")).toContainText("vérifié par l'IA, sans relecture humaine");
+    await expect(card.getByTestId("verified-meta")).not.toContainText("relu par");
+    await page.goto(`/actualites/${SECOND}/`);
+    await expect(page.getByTestId("ai-verified")).toHaveText("vérification automatique par l'IA MUNDI, sans relecture humaine");
+    // Une publication relue par une personne garde sa mention habituelle.
+    await page.goto(`/actualites/${FIRST}/`);
+    await expect(page.getByTestId("ai-verified")).toHaveCount(0);
+  });
+
   test("les sources restent visibles et cliquables dans la carte immersive", async ({ page }) => {
     await page.goto("/");
     const sources = page.locator('[data-index="0"]').getByTestId("verified-sources");

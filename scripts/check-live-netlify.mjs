@@ -17,7 +17,9 @@ export function checkTargets(publications){
     throw new Error("Unsafe published slug");
   return [
     {path:"/",needle:"MUNDI",label:"Accueil"},
-    {path:"/actualites/",needle:"MUNDI",label:"Actualités"},
+    {path:"/actualites/",needle:"Les publications documentées",label:"Galerie Actualités"},
+    {path:"/explorer/",needle:"Explorer les sujets et les publications",label:"Recherche publique"},
+    {path:"/reviser/",needle:"Réviser les actualités et les cours",label:"Révision des publications"},
     ...news.slice(0,5).map(p=>({
       path:"/actualites/"+encodeURIComponent(p.slug)+"/",
       needle:p.title.slice(0,12),label:p.slug

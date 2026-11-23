@@ -99,6 +99,30 @@ test.describe("MUNDI Studio : import d'une fiche de veille", () => {
     });
   }
 
+  test("importer une autre piste efface le texte et les sources du brouillon précédent", async ({ page }) => {
+    await upload(page, VALID);
+    await page.getByLabel("Résumé").fill("Ancienne synthèse qui ne doit pas être réutilisée.");
+    await page.getByLabel("Idée 1", { exact: true }).fill("Une idée d'un autre article.");
+    await page.getByLabel("Faits vérifiés").fill("Anciens faits de la piste précédente.");
+    await page.getByLabel("Source 2 — nom").fill("Deuxième média ancien");
+    await page.getByLabel("Source 2 — lien HTTPS").fill("https://sources.mundi.test/ancien");
+
+    const next = {
+      ...base,
+      headline: "Deuxième titre inventé pour un sujet distinct",
+      topicHint: "finance",
+      source: { label: "Autre média fictif", url: "https://sources.mundi.test/deuxieme" },
+    };
+    await upload(page, json(next));
+    await expect(page.getByLabel("Titre de la publication")).toHaveValue(next.headline);
+    await expect(page.getByLabel("Rubrique")).toHaveValue("finance");
+    await expect(page.getByLabel("Source 1 — nom")).toHaveValue("Autre média fictif");
+    for (const label of ["Résumé", "Idée 1", "Faits vérifiés", "Source 2 — nom", "Source 2 — lien HTTPS"]) {
+      await expect(page.getByLabel(label, { exact: true })).toHaveValue("");
+    }
+    await expect(page.getByTestId("status-steps")).toHaveAttribute("data-stage", "candidat");
+  });
+
   test("un titre contenant du HTML est affiché comme du texte, jamais exécuté", async ({ page }) => {
     let dialog = false;
     page.on("dialog", (d) => {

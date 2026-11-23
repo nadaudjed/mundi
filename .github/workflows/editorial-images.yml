@@ -1,0 +1,73 @@
+name: MUNDI — photos documentaires pour les sujets publiés
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/publications.json'
+      - '.github/workflows/editorial-images.yml'
+  schedule:
+    - cron: '35 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mundi-photo-selection
+  cancel-in-progress: false
+
+jobs:
+  licensed-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout published articles
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check metadata, licensing and image URL tests
+        run: node --test tests/editorial-images.test.mjs
+      - name: Search openly licensed documentary images without AI costs
+        env:
+          MUNDI_IMAGES_MAX: '8'
+        run: node scripts/collect-editorial-images.mjs
+      - name: Publish local images and their permanent source credits
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public/media/editorial
+          git add content/editorial-images.json public/media/editorial/
+          if git diff --cached --quiet; then
+            echo "No newly licensed image; keep current approved imagery."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "visuals: licensed Wikimedia photographs for published topics"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              echo "New editorial photographs deployed from main"
+              break
+            fi
+            if [ "$attempt" -eq 4 ]; then
+              echo "::error::Failed to push licensed images without force; manual resolution needed."
+              exit 1
+            fi
+            sleep 2
+          done
+      - name: Upload retrieval report for visual audit
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mundi-editorial-images
+          path: reports/editorial-images.json
+          if-no-files-found: warn
+          retention-days: 14

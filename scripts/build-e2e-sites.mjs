@@ -8,13 +8,17 @@
  * jamais de données de test.
  */
 import { execSync } from "node:child_process";
-import { existsSync, renameSync, rmSync } from "node:fs";
+import { cpSync, existsSync, renameSync, rmSync } from "node:fs";
 
 const FIXTURES = "tests/fixtures/publications.fixture.json";
+/** Registre de fonds INVENTÉS (ticket #30) : seul le site de test les reçoit. */
+const SCENES = "tests/fixtures/scenes.fixture.json";
 const run = (env = {}) => execSync("npx next build", { stdio: "inherit", env: { ...process.env, ...env } });
 
 rmSync("out-fixtures", { recursive: true, force: true });
-run({ MUNDI_TEST_PUBLICATIONS: FIXTURES });
+run({ MUNDI_TEST_PUBLICATIONS: FIXTURES, MUNDI_TEST_SCENES: process.env.MUNDI_TEST_SCENES ?? SCENES });
 renameSync("out", "out-fixtures");
+// Les fichiers des fonds de test ne sont copiés que dans le site de test, jamais dans public/.
+cpSync(process.env.MUNDI_TEST_SCENES_DIR ?? "tests/fixtures/scenes", "out-fixtures/media/scenes", { recursive: true });
 run();
 if (!existsSync("out/index.html")) throw new Error("Le site normal n'a pas été construit.");

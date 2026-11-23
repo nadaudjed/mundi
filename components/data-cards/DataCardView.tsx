@@ -13,7 +13,11 @@ import {
   type VisualSlot,
 } from "@/lib/data-cards";
 import { formatDate } from "@/lib/format";
+import type { SceneBackdrop } from "@/lib/scenes";
 import { inkOn, luminance } from "@/lib/topics";
+import { RevealWords } from "../scene/RevealWords";
+import { MotionToggle } from "../scene/MotionToggle";
+import { SceneCredit, SceneLayer } from "../scene/SceneLayer";
 import { Icon } from "../Icon";
 
 /**
@@ -39,11 +43,15 @@ type Props = {
   topicColor: string;
   /** Lance l'animation d'apparition (seulement si l'appareil l'autorise). */
   active: boolean;
+  /** Texte déjà révélé (scène vue au moins une fois). Par défaut : scène active. */
+  revealed?: boolean;
   status: Status;
   /** Lien « Comprendre » vers la publication complète (absent en brouillon). */
   href?: string;
   /** Afficher un cadre d'attente quand aucun visuel n'est fourni (atelier uniquement). */
   showVisualPlaceholder?: boolean;
+  /** Fond plein écran approuvé (résolu au build depuis `card.scene`). Impose le ton nuit. */
+  backdrop?: SceneBackdrop;
 };
 
 function accentOf(style: DataCardStyle | undefined, topicColor: string) {
@@ -57,8 +65,9 @@ function textAccentOnNight(color: string) {
   return ratio >= 4.5 ? color : "#F3F0E8";
 }
 
-export function DataCardView({ card, position, total, topicColor, active, status, href, showVisualPlaceholder = false }: Props) {
-  const light = card.style?.tone === "ivory";
+export function DataCardView({ card, position, total, topicColor, active, revealed = active, status, href, showVisualPlaceholder = false, backdrop }: Props) {
+  // Un texte sur un fond d'ambiance reste clair sur voile sombre : le ton ivoire est alors ignoré.
+  const light = !backdrop && card.style?.tone === "ivory";
   const accent = accentOf(card.style, topicColor);
   const textAccent = light ? undefined : textAccentOnNight(accent);
   const display = card.style?.emphasis !== "sans";
@@ -69,10 +78,12 @@ export function DataCardView({ card, position, total, topicColor, active, status
       className={`relative flex h-full flex-col overflow-hidden px-5 pt-28 pb-6 md:px-6 md:pt-20 ${light ? "bg-ivory text-night" : "bg-night text-ivory"}`}
       data-card-kind={card.kind}
       data-tone={light ? "ivory" : "night"}
+      data-scene={backdrop ? backdrop.id : undefined}
       aria-labelledby={titleId}
       role="group"
     >
-      <div className="flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">
+      {backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} active={active} />}
+      <div className="relative flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">
         <span style={{ color: textAccent }} className={light ? "text-night/70" : ""}>
           Données · carte {position + 1} sur {total}
         </span>
@@ -82,23 +93,27 @@ export function DataCardView({ card, position, total, topicColor, active, status
           </span>
         )}
       </div>
-      <div className="mt-2 flex gap-1" aria-hidden="true">
+      <div className="relative mt-2 flex gap-1" aria-hidden="true">
         {Array.from({ length: total }, (_, i) => (
           <span key={i} className={`h-1 flex-1 rounded-full ${i <= position ? "" : light ? "bg-night/15" : "bg-ivory/20"}`} style={i <= position ? { background: accent } : undefined} />
         ))}
       </div>
 
-      <h2 id={titleId} className={`mt-5 text-balance ${display ? "font-display text-[1.6rem] leading-[1.15]" : "text-[1.4rem] leading-snug"} font-semibold`}>
-        {card.headline}
-      </h2>
+      <RevealWords
+        as="h2"
+        id={titleId}
+        text={card.headline}
+        active={revealed}
+        className={`relative mt-5 text-balance ${display ? "font-display text-[1.6rem] leading-[1.15]" : "text-[1.45rem] leading-[1.12] tracking-[-0.02em]"} font-semibold`}
+      />
 
       <VisualArea visual={card.visual} placeholder={showVisualPlaceholder} light={light} />
 
-      <div className="mt-auto pt-4">
+      <div className="relative mt-auto pt-4" data-fade={revealed ? "on" : "off"}>
         {card.kind === "stat" && <StatBody card={card} accent={textAccent} active={active} display={display} light={light} />}
         {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} active={active} light={light} />}
         {card.kind === "explication" && <ExplanationBody card={card} accent={accent} light={light} />}
-        <Footer card={card} light={light} href={href} />
+        <Footer card={card} light={light} href={href} backdrop={backdrop} />
       </div>
     </div>
   );
@@ -107,7 +122,7 @@ export function DataCardView({ card, position, total, topicColor, active, status
 function VisualArea({ visual, placeholder, light }: { visual?: VisualSlot; placeholder: boolean; light: boolean }) {
   if (visual) {
     return (
-      <figure className="mt-4 min-h-0 flex-1" data-testid="data-visual">
+      <figure className="relative mt-4 min-h-0 flex-1" data-testid="data-visual">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={visual.src}
@@ -126,7 +141,7 @@ function VisualArea({ visual, placeholder, light }: { visual?: VisualSlot; place
   if (!placeholder) return null;
   return (
     <div
-      className={`mt-4 flex min-h-24 flex-1 items-center justify-center rounded-2xl border-2 border-dashed p-4 text-center text-xs ${light ? "border-night/25 text-night/70" : "border-ivory/25 text-ivory/70"}`}
+      className={`relative mt-4 flex min-h-24 flex-1 items-center justify-center rounded-2xl border-2 border-dashed p-4 text-center text-xs ${light ? "border-night/25 text-night/70" : "border-ivory/25 text-ivory/70"}`}
       data-testid="data-visual-placeholder"
     >
       Emplacement du visuel : fourni par la direction artistique (facultatif)
@@ -195,7 +210,7 @@ function ComparisonBody({ card, accent, active, light }: { card: ComparisonCard;
         ))}
       </ul>
       {!common && (
-        <p className={`mt-3 rounded-xl p-2.5 text-xs leading-snug ${light ? "bg-night/5 text-night/80" : "bg-ivory/5 text-ivory/80"}`} data-testid="distinct-note">
+        <p className={`mt-3 border-l-2 border-amber pl-3 text-xs leading-snug ${light ? "text-night/80" : "text-ivory/80"}`} data-testid="distinct-note">
           Ces valeurs n&apos;ont pas le même dénominateur : elles ne se comparent pas sur une même échelle.
         </p>
       )}
@@ -223,13 +238,13 @@ function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accen
     const [start, ...options] = card.steps;
     return (
       <div data-testid="explanation" data-layout="alternatives">
-        <p className="rounded-xl p-2.5" style={{ boxShadow: `inset 3px 0 0 ${accent}` }}>
+        <p className="border-l-2 pl-3" style={{ borderColor: accent }}>
           <StepText s={start} light={light} />
         </p>
         <p className={`mt-3 text-xs font-bold uppercase tracking-[0.18em] ${light ? "text-night/70" : "text-ivory/70"}`}>Ensuite, selon les cas :</p>
         <ul className="mt-2 space-y-2">
           {options.map((s, i) => (
-            <li key={i} className={`rounded-xl border p-2.5 ${light ? "border-night/15" : "border-ivory/15"}`}>
+            <li key={i} className={`border-t pt-2 ${light ? "border-night/15" : "border-ivory/20"}`}>
               {i > 0 && <span className="sr-only">ou </span>}
               <StepText s={s} light={light} />
             </li>
@@ -252,7 +267,7 @@ function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accen
   );
 }
 
-function Footer({ card, light, href }: { card: DataCard; light: boolean; href?: string }): ReactNode {
+function Footer({ card, light, href, backdrop }: { card: DataCard; light: boolean; href?: string; backdrop?: SceneBackdrop }): ReactNode {
   const muted = light ? "text-night/75" : "text-ivory/75";
   return (
     <div className={`mt-4 border-t pt-3 text-xs ${light ? "border-night/15" : "border-ivory/15"}`} data-testid="data-footer">
@@ -265,6 +280,11 @@ function Footer({ card, light, href }: { card: DataCard; light: boolean; href?: 
         </a>{" "}
         · données du <time dateTime={card.asOf}>{formatDate(card.asOf)}</time>
       </p>
+      {backdrop && (
+        <p className={`mt-1 text-[0.65rem] ${muted}`}>
+          <SceneCredit backdrop={backdrop} /> · <MotionToggle />
+        </p>
+      )}
       {href && (
         <Link href={href} className="mt-3 inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-sm font-semibold text-night hover:bg-mint-soft">
           Comprendre

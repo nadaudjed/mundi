@@ -96,6 +96,10 @@ Si une maquette demande un réglage absent de cette liste, ChatGPT le signale da
 - Le visuel occupe au plus 14 rem de haut et garde ses proportions (`object-contain`). Prévoir un cadrage vertical, lisible sur un écran de 360 px de large.
 - Un SVG animé doit respecter `prefers-reduced-motion`.
 
+## Fond plein écran (ticket #30)
+
+Une carte peut demander `"scene": { "backdrop": "<id>", "focus": "haut" }`, un fond choisi dans le registre approuvé. Le ton nuit est alors imposé. Voir `docs/SCENES.md`.
+
 ## Animations et accessibilité
 
 - Le chiffre clé apparaît en fondu (`animate-rise`) et les barres se remplissent (`animate-grow-x`), **seulement sur la carte visible** et seulement si l'appareil autorise les animations. En mouvement réduit, tout est affiché immédiatement, à sa taille finale.

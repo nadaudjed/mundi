@@ -53,6 +53,11 @@ type Props = {
 export function Feed({ verified = [] }: Props) {
   const [filter, setFilter] = useState<TopicSlug | "all">("all");
   const [active, setActive] = useState(0);
+  /** Écrans déjà révélés : leur texte reste affiché quand on revient en arrière. */
+  const [seen, setSeen] = useState<ReadonlySet<number>>(() => new Set([0]));
+  // Les révélations typographiques ne masquent le texte qu'une fois le fil interactif.
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => root.current?.setAttribute("data-motion", "ready"), []);
   const scroller = useRef<HTMLDivElement>(null);
   const { interests } = useInterests();
 
@@ -91,7 +96,10 @@ export function Feed({ verified = [] }: Props) {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) setActive(Number((entry.target as HTMLElement).dataset.index));
+          if (!entry.isIntersecting) continue;
+          const index = Number((entry.target as HTMLElement).dataset.index);
+          setActive(index);
+          setSeen((prev) => (prev.has(index) ? prev : new Set(prev).add(index)));
         }
       },
       { root, threshold: 0.6 },
@@ -128,11 +136,12 @@ export function Feed({ verified = [] }: Props) {
   function changeFilter(next: TopicSlug | "all") {
     setFilter(next);
     setActive(0);
+    setSeen(new Set([0]));
     scroller.current?.scrollTo({ top: 0 });
   }
 
   return (
-    <div className="feed-h relative bg-night md:bg-ivory">
+    <div ref={root} className="feed-h relative bg-night md:bg-ivory">
       {/* Barre supérieure superposée (mobile) / au-dessus de la carte (ordinateur) */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 bg-gradient-to-b from-night/90 via-night/50 to-transparent pb-6 pt-[max(env(safe-area-inset-top),0.75rem)] md:hidden">
         <div className="pointer-events-auto mx-auto flex max-w-[30rem] items-center justify-between px-4 md:hidden">
@@ -184,7 +193,7 @@ export function Feed({ verified = [] }: Props) {
         >
           {entries.map((e, i) =>
             e.kind === "verified" ? (
-              <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} visual={e.visual} />
+              <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} revealed={seen.has(i)} visual={e.visual} />
             ) : e.kind === "data" ? (
               <article
                 key={e.key}
@@ -201,8 +210,10 @@ export function Feed({ verified = [] }: Props) {
                   total={e.total}
                   topicColor={getTopic(e.publication.topic)?.color ?? "#20B99A"}
                   active={i === active}
+                  revealed={seen.has(i)}
                   status="verifie"
                   href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}
+                  backdrop={e.card.scene ? e.publication.backdrops?.[e.card.scene.backdrop] : undefined}
                 />
               </article>
             ) : e.kind === "divider" ? (

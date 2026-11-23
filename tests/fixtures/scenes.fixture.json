@@ -1,0 +1,10 @@
+[
+  {
+    "id": "test-fond-neutre",
+    "src": "/media/scenes/test-fond-neutre.svg",
+    "credit": "Fond de test MUNDI (dégradé neutre)",
+    "license": "Usage interne aux tests",
+    "approvedBy": "Personne fictive (test)",
+    "approvedAt": "2026-11-23"
+  }
+]

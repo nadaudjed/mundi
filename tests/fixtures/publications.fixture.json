@@ -57,7 +57,11 @@
           "decimals": 1
         },
         "context": "Valeur inventée pour vérifier l’affichage d’un chiffre clé.",
-        "note": "Donnée fictive : aucune mesure réelle."
+        "note": "Donnée fictive : aucune mesure réelle.",
+        "scene": {
+          "backdrop": "test-fond-neutre",
+          "focus": "haut"
+        }
       },
       {
         "id": "test-comparaison-commune",
@@ -148,7 +152,10 @@
             "text": "Une seconde issue inventée, non successive.",
             "nature": "hypothese"
           }
-        ]
+        ],
+        "scene": {
+          "backdrop": "test-fond-neutre"
+        }
       }
     ]
   },
@@ -182,6 +189,10 @@
         "label": "Source fictive F (test)",
         "url": "https://sources.mundi.test/f"
       }
-    ]
+    ],
+    "scene": {
+      "backdrop": "test-fond-neutre",
+      "focus": "bas"
+    }
   }
 ]

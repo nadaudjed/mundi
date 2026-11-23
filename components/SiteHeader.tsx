@@ -15,7 +15,7 @@ import { isActive, navItems } from "./navItems";
 export function SiteHeader() {
   const pathname = usePathname();
   return (
-    <header className="sticky top-0 z-40 hidden h-16 border-b border-night/10 bg-ivory/85 backdrop-blur-md md:block">
+    <header data-site-header className="sticky top-0 z-40 hidden h-16 border-b border-night/10 bg-ivory/85 backdrop-blur-md md:block">
       <div className="mx-auto flex h-full max-w-6xl items-center gap-4 px-5 lg:gap-6 lg:px-6">
         <Logo />
         <span className="hidden lg:inline-flex">

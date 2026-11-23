@@ -16,9 +16,10 @@ export function BottomNav() {
     <nav
       aria-label="Navigation principale"
       data-testid="dock"
-      className="fixed bottom-[calc(var(--dock-gap)+env(safe-area-inset-bottom))] left-[max(0.5rem,env(safe-area-inset-left))] right-[calc(max(0.5rem,env(safe-area-inset-right))+var(--corner-safe))] z-40 md:hidden"
+      data-dock
+      className="fixed bottom-[calc(var(--dock-gap)+env(safe-area-inset-bottom))] left-[max(0.5rem,env(safe-area-inset-left))] right-[calc(max(0.5rem,env(safe-area-inset-right))+var(--corner-safe))] z-40"
     >
-      <ul className="mx-auto grid h-[var(--dock-h)] max-w-[30rem] grid-cols-5 gap-0.5 rounded-[1.35rem] bg-night/92 p-1 shadow-[0_10px_30px_-8px_rgba(16,29,48,0.55)] ring-1 ring-white/10 backdrop-blur-xl">
+      <ul className="mx-auto grid h-[var(--dock-h)] max-w-[30rem] grid-cols-5 md:max-w-[28rem] gap-0.5 rounded-[1.35rem] bg-night/92 p-1 shadow-[0_10px_30px_-8px_rgba(16,29,48,0.55)] ring-1 ring-white/10 backdrop-blur-xl">
         {navItems.map((item) => {
           const active = isActive(pathname, item.href);
           return (

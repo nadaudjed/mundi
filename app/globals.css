@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Écran large et couché (tablette en paysage, ordinateur) : mise en page en deux zones. */
+@custom-variant wide (@media (min-width: 900px) and (min-aspect-ratio: 5/4));
+
 @theme {
   --color-night: #101d30;
   --color-night-2: #16273f;
@@ -76,10 +79,25 @@ html[data-netlify-preview] {
   }
 }
 
-/* Sous le fil (mobile), le fond reste sombre derrière la barre flottante. */
-@media (max-width: 767.98px) {
+/* Le fil occupe tout l'écran, sur toutes les tailles : fond sombre, pas d'en-tête,
+   seule la barre d'onglets flottante reste visible. */
+body:has([data-feed]) {
+  background: var(--color-night);
+}
+@media (min-width: 768px) {
   body:has([data-feed]) {
-    background: var(--color-night);
+    --dock-gap: 0.75rem;
+    --nav-h: calc(var(--dock-h) + var(--dock-gap) + env(safe-area-inset-bottom));
+    --header-h: 0rem;
+  }
+  body:has([data-feed]) [data-site-header] {
+    display: none;
+  }
+  [data-dock] {
+    display: none;
+  }
+  body:has([data-feed]) [data-dock] {
+    display: block;
   }
 }
 
@@ -124,6 +142,27 @@ body {
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Colonne de texte des écrans du fil : pleine largeur sur téléphone, centrée sur
+   tablette, à gauche sur écran large (le média occupe alors la droite). */
+.feed-column {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .feed-column {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding-inline: 2.5rem;
+  }
+}
+@media (min-width: 900px) and (min-aspect-ratio: 5/4) {
+  .feed-column {
+    max-width: 38rem;
+    margin-left: max(1.5rem, calc((100% - 80rem) / 2));
+    margin-right: auto;
+    padding-inline: 2rem;
+  }
 }
 
 /* Hauteur utile du fil : écran moins l'en-tête (ordinateur) ou la barre d'onglets (mobile). */

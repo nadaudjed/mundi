@@ -53,6 +53,7 @@ type Props = {
 export function Feed({ verified = [] }: Props) {
   const [filter, setFilter] = useState<TopicSlug | "all">("all");
   const [active, setActive] = useState(0);
+  const [topicsOpen, setTopicsOpen] = useState(false);
   /** Écrans déjà révélés : leur texte reste affiché quand on revient en arrière. */
   const [seen, setSeen] = useState<ReadonlySet<number>>(() => new Set([0]));
   // Les révélations typographiques ne masquent le texte qu'une fois le fil interactif.
@@ -116,203 +117,181 @@ export function Feed({ verified = [] }: Props) {
     (root.children[clamped] as HTMLElement | undefined)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   }, []);
 
+  /** Écran réellement à l'écran (fiable même pendant un défilement en cours). */
+  const currentIndex = useCallback(() => {
+    const root = scroller.current;
+    return root && root.clientHeight > 0 ? Math.round(root.scrollTop / root.clientHeight) : active;
+  }, [active]);
+
   // Navigation au clavier : flèches, j/k, Page suivante/précédente.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       const target = e.target as HTMLElement;
       if (target.closest("input, textarea, [contenteditable]")) return;
+      if (e.key === "Escape") {
+        setTopicsOpen(false);
+        return;
+      }
       if (["ArrowDown", "PageDown", "j"].includes(e.key)) {
         e.preventDefault();
-        goTo(active + 1);
+        goTo(currentIndex() + 1);
       } else if (["ArrowUp", "PageUp", "k"].includes(e.key)) {
         e.preventDefault();
-        goTo(active - 1);
+        goTo(currentIndex() - 1);
       }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [active, goTo]);
+  }, [currentIndex, goTo]);
 
   function changeFilter(next: TopicSlug | "all") {
     setFilter(next);
+    setTopicsOpen(false);
     setActive(0);
     setSeen(new Set([0]));
     scroller.current?.scrollTo({ top: 0 });
   }
 
+  const filterLabel = filter === "all" ? "Pour vous" : (getTopic(filter)?.name ?? "Pour vous");
+
   return (
-    <div ref={root} data-feed className="feed-h relative bg-night md:bg-ivory">
-      {/* Barre supérieure superposée (mobile) / au-dessus de la carte (ordinateur) */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 bg-gradient-to-b from-night/90 via-night/50 to-transparent pb-6 pt-[max(env(safe-area-inset-top),0.75rem)] md:hidden">
-        <div className="pointer-events-auto mx-auto flex max-w-[30rem] items-center justify-between px-4 md:hidden">
-          <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-[0.22em] text-ivory" aria-label="MUNDI">
+    <div ref={root} data-feed className="feed-h relative bg-night">
+      {/* Barre supérieure légère, superposée au fil sur tous les écrans. */}
+      <div
+        data-testid="feed-topbar"
+        className="pointer-events-none absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-night/85 via-night/40 to-transparent pb-8 pt-[max(env(safe-area-inset-top),0.75rem)]"
+      >
+        <div className="pointer-events-auto flex items-center justify-between gap-2 px-4 md:px-8">
+          <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.22em] text-ivory" aria-label="MUNDI">
             <LogoMark className="size-6" />
-            MUNDI
+            <span className="max-[359px]:sr-only">MUNDI</span>
           </Link>
-          <div className="flex items-center gap-2">
-            <InstallChip />
+          <div className="flex min-w-0 items-center gap-2">
+            <InstallChip compact />
             {entry?.kind === "verified" || entry?.kind === "data" ? <VerifiedBadge /> : <DemoBadge tone="light" />}
+            <button
+              type="button"
+              onClick={() => setTopicsOpen((o) => !o)}
+              aria-expanded={topicsOpen}
+              aria-controls="feed-topics"
+              className="flex shrink-0 items-center gap-1.5 rounded-full bg-ivory/10 px-3 py-1.5 text-[0.8rem] font-semibold text-ivory ring-1 ring-ivory/25 backdrop-blur-md transition hover:bg-ivory/20"
+            >
+              <Icon name="sliders" className="size-4" />
+              <span className="sr-only">Choisir un sujet : </span>
+              <span className="max-w-[7rem] truncate max-[399px]:sr-only">{filterLabel}</span>
+              <Icon name="chevron-down" className={`size-3.5 transition-transform ${topicsOpen ? "rotate-180" : ""}`} />
+            </button>
           </div>
         </div>
-        <div
-          role="group"
-          aria-label="Filtrer le fil par sujet"
-          className="no-scrollbar pointer-events-auto mx-auto mt-3 flex max-w-[30rem] gap-2 overflow-x-auto px-4"
-        >
-          <FilterChip label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />
-          <Link href="/mes-sujets/" className="shrink-0 rounded-full border border-mint/60 px-3.5 py-1.5 text-[0.8rem] font-medium text-mint-soft hover:bg-mint/15">Personnaliser</Link>
-          {feedTopics.map((t) => (
-            <FilterChip key={t.slug} label={t.name} color={t.color} active={filter === t.slug} onClick={() => changeFilter(t.slug)} />
-          ))}
-        </div>
+        {topicsOpen && (
+          <div className="pointer-events-auto mt-3 flex justify-end px-4 md:px-8">
+            <div
+              id="feed-topics"
+              role="group"
+              aria-label="Filtrer le fil par sujet"
+              className="w-full max-w-sm rounded-3xl bg-night/90 p-4 shadow-2xl shadow-black/40 ring-1 ring-ivory/15 backdrop-blur-xl"
+            >
+              <p className="text-[0.7rem] font-bold uppercase tracking-[0.18em] text-mint-soft">Sujets du fil</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <FilterChip label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />
+                {feedTopics.map((t) => (
+                  <FilterChip key={t.slug} label={t.name} color={t.color} active={filter === t.slug} onClick={() => changeFilter(t.slug)} />
+                ))}
+              </div>
+              <Link href="/mes-sujets/" className="mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-semibold text-mint-soft underline-offset-2 hover:underline">
+                Personnaliser mon fil
+                <Icon name="arrow-right" className="size-3.5" />
+              </Link>
+              {interests.length > 0 && <p className="mt-1 text-xs text-ivory/60">{interests.length} centre{interests.length > 1 ? "s" : ""} d’intérêt · des découvertes restent proposées</p>}
+            </div>
+          </div>
+        )}
       </div>
 
-      <div className="relative mx-auto flex h-full max-w-6xl items-stretch justify-center md:gap-6 md:px-6 md:py-5 lg:gap-8 lg:py-6">
-        {/* Filtres par sujet (ordinateur) */}
-        <aside className="hidden w-52 shrink-0 flex-col lg:flex" aria-label="Filtrer le fil par sujet">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">Votre fil</p>
-          <p className="mt-2 font-display text-2xl leading-tight font-semibold text-night">Comprendre le monde, un récit à la fois.</p>
-          <Link href="/mes-sujets/" className="mt-4 inline-flex items-center gap-2 self-start rounded-full border border-blue/30 px-3 py-1.5 text-xs font-semibold text-blue hover:bg-blue/10"><Icon name="sliders" className="size-4" /> Personnaliser mon fil</Link>
-          {interests.length > 0 && <p className="mt-2 text-xs text-muted">{interests.length} centre{interests.length > 1 ? "s" : ""} d’intérêt · des découvertes restent proposées</p>}
-          <ul className="no-scrollbar mt-5 -ml-3 space-y-0.5 overflow-y-auto">
-            <li>
-              <SideFilter label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />
-            </li>
-            {feedTopics.map((t) => (
-              <li key={t.slug}>
-                <SideFilter label={t.name} color={t.color} active={filter === t.slug} onClick={() => changeFilter(t.slug)} />
-              </li>
-            ))}
-          </ul>
-        </aside>
+      <div
+        ref={scroller}
+        aria-label="Fil de découverte"
+        className="no-scrollbar h-full w-full touch-pan-y snap-y snap-mandatory overflow-y-scroll overscroll-y-contain"
+      >
+        {entries.map((e, i) =>
+          e.kind === "verified" ? (
+            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} revealed={seen.has(i)} visual={e.visual} />
+          ) : e.kind === "data" ? (
+            <article
+              key={e.key}
+              data-index={i}
+              data-testid="data-card"
+              data-publication={e.publication.slug}
+              aria-roledescription="carte de données"
+              aria-label={`${e.publication.title} : données, carte ${e.position + 1} sur ${e.total}`}
+              className="relative h-full snap-start snap-always"
+            >
+              <DataCardView
+                card={e.card}
+                position={e.position}
+                total={e.total}
+                topicColor={getTopic(e.publication.topic)?.color ?? "#20B99A"}
+                active={i === active}
+                revealed={seen.has(i)}
+                status="verifie"
+                href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}
+                backdrop={e.card.scene ? e.publication.backdrops?.[e.card.scene.backdrop] : undefined}
+              />
+            </article>
+          ) : e.kind === "divider" ? (
+            <DemoDivider key={e.key} index={i} count={items.length} />
+          ) : (
+            <FeedCard key={e.key} slide={e.slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 1} />
+          ),
+        )}
+        <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />
+      </div>
 
-        <div className="flex h-full w-full min-w-0 flex-col md:max-w-[30rem] lg:max-w-[27rem]">
-        {/* Filtres par sujet (tablette) : une ligne au-dessus de la carte. */}
-        <div
-          role="group"
-          aria-label="Filtrer par sujet"
-          className="no-scrollbar -mx-1 mb-3 hidden shrink-0 gap-2 overflow-x-auto px-1 py-0.5 md:flex lg:hidden"
+      {/* Commandes discrètes (tablette et ordinateur), sur le bord droit. */}
+      <div className="pointer-events-none absolute inset-y-0 right-3 z-20 hidden flex-col items-center justify-center gap-2 md:flex lg:right-6">
+        <button
+          type="button"
+          onClick={() => goTo(currentIndex() - 1)}
+          disabled={active === 0}
+          className="pointer-events-auto flex size-11 items-center justify-center rounded-full bg-ivory/10 text-ivory ring-1 ring-ivory/20 backdrop-blur-md transition hover:bg-ivory/25 disabled:opacity-30"
+          aria-label="Écran précédent"
         >
-          <FilterChip label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />
-          <Link href="/mes-sujets/" className="flex shrink-0 items-center gap-1.5 rounded-full border border-blue/30 px-3.5 py-1.5 text-[0.8rem] font-semibold text-blue-ink hover:bg-blue/10">
-            <Icon name="sliders" className="size-3.5" /> Personnaliser
-          </Link>
-          {feedTopics.map((t) => (
-            <FilterChip key={t.slug} label={t.name} color={t.color} active={filter === t.slug} onClick={() => changeFilter(t.slug)} />
-          ))}
-        </div>
-        <div
-          ref={scroller}
-          aria-label="Fil de découverte"
-          className="no-scrollbar min-h-0 w-full flex-1 touch-pan-y snap-y snap-mandatory overflow-y-scroll overscroll-y-contain md:rounded-[2rem] md:shadow-2xl md:shadow-night/30 md:ring-1 md:ring-night/10"
-        >
-          {entries.map((e, i) =>
-            e.kind === "verified" ? (
-              <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} revealed={seen.has(i)} visual={e.visual} />
-            ) : e.kind === "data" ? (
-              <article
-                key={e.key}
-                data-index={i}
-                data-testid="data-card"
-                data-publication={e.publication.slug}
-                aria-roledescription="carte de données"
-                aria-label={`${e.publication.title} : données, carte ${e.position + 1} sur ${e.total}`}
-                className="relative h-full snap-start snap-always"
-              >
-                <DataCardView
-                  card={e.card}
-                  position={e.position}
-                  total={e.total}
-                  topicColor={getTopic(e.publication.topic)?.color ?? "#20B99A"}
-                  active={i === active}
-                  revealed={seen.has(i)}
-                  status="verifie"
-                  href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}
-                  backdrop={e.card.scene ? e.publication.backdrops?.[e.card.scene.backdrop] : undefined}
-                />
-              </article>
-            ) : e.kind === "divider" ? (
-              <DemoDivider key={e.key} index={i} count={items.length} />
-            ) : (
-              <FeedCard key={e.key} slide={e.slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 1} />
-            ),
+          <Icon name="chevron-up" className="size-5" />
+        </button>
+        <p className="pointer-events-auto min-w-11 text-center text-[0.7rem] font-semibold text-ivory/75 tabular-nums" aria-live="polite" data-testid="feed-counter">
+          {atEnd ? (
+            "Fin"
+          ) : entry?.kind === "verified" ? (
+            <>
+              <span className="sr-only">Publications vérifiées : </span>
+              {entry.position + 1}/{publications.length}
+            </>
+          ) : entry?.kind === "data" ? (
+            <>
+              <span className="sr-only">Données, carte </span>
+              {entry.position + 1}/{entry.total}
+            </>
+          ) : entry?.kind === "divider" ? (
+            <span className="sr-only">Démonstrations</span>
+          ) : (
+            <>
+              <span className="sr-only">{verified.length > 0 ? "Démonstrations : récit " : "Récit "}</span>
+              {(current?.storyIndex ?? 0) + 1}/{items.length}
+              {current && current.steps > 1 && <span className="sr-only">, écran {current.step + 1} sur {current.steps}</span>}
+            </>
           )}
-          <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />
-        </div>
-        </div>
-
-        {/* Commandes et repères (ordinateur) */}
-        <div className="hidden w-36 shrink-0 flex-col justify-center gap-6 md:flex lg:w-52">
-          <div className="flex flex-col gap-2">
-            <button
-              type="button"
-              onClick={() => goTo(active - 1)}
-              disabled={active === 0}
-              className="flex size-12 items-center justify-center rounded-full bg-night text-ivory shadow-lg transition hover:bg-blue disabled:opacity-30"
-              aria-label="Écran précédent"
-            >
-              <Icon name="chevron-up" className="size-6" />
-            </button>
-            <button
-              type="button"
-              onClick={() => goTo(active + 1)}
-              disabled={active >= entries.length}
-              className="flex size-12 items-center justify-center rounded-full bg-night text-ivory shadow-lg transition hover:bg-blue disabled:opacity-30"
-              aria-label="Écran suivant"
-            >
-              <Icon name="chevron-down" className="size-6" />
-            </button>
-          </div>
-          <p className="text-sm text-muted" aria-live="polite" data-testid="feed-counter">
-            {atEnd ? (
-              <span className="font-display text-2xl text-night">Fin du fil</span>
-            ) : entry?.kind === "verified" ? (
-              <>
-                <span className="font-display text-3xl text-night">{entry.position + 1}</span> / {publications.length}
-                <span className="mt-1 block text-xs font-semibold text-[#0f6e5b]">Publications vérifiées</span>
-              </>
-            ) : entry?.kind === "data" ? (
-              <>
-                <span className="font-display text-2xl text-night">Données</span>
-                <span className="mt-1 block text-xs">Carte {entry.position + 1} sur {entry.total}</span>
-              </>
-            ) : entry?.kind === "divider" ? (
-              <span className="font-display text-2xl text-night">Démonstrations</span>
-            ) : (
-              <>
-                <span className="font-display text-3xl text-night">{(current?.storyIndex ?? 0) + 1}</span> / {items.length}
-                {verified.length > 0 && <span className="mt-1 block text-xs font-semibold text-[#7a5410]">Démonstrations</span>}
-                {current && current.steps > 1 && (
-                  <span className="mt-1 block text-xs">
-                    Écran {current.step + 1} sur {current.steps}
-                  </span>
-                )}
-              </>
-            )}
-          </p>
-          <p className="text-xs leading-relaxed text-muted">
-            Astuce : utilisez les flèches <kbd className="rounded border border-night/20 px-1">↑</kbd>{" "}
-            <kbd className="rounded border border-night/20 px-1">↓</kbd> du clavier.
-          </p>
-        </div>
+        </p>
+        <button
+          type="button"
+          onClick={() => goTo(currentIndex() + 1)}
+          disabled={active >= entries.length}
+          className="pointer-events-auto flex size-11 items-center justify-center rounded-full bg-ivory/10 text-ivory ring-1 ring-ivory/20 backdrop-blur-md transition hover:bg-ivory/25 disabled:opacity-30"
+          aria-label="Écran suivant"
+        >
+          <Icon name="chevron-down" className="size-5" />
+        </button>
       </div>
     </div>
-  );
-}
-
-function SideFilter({ label, active, onClick, color }: { label: string; active: boolean; onClick: () => void; color?: string }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={`flex w-full items-center gap-2.5 rounded-xl px-3 py-1.5 text-left text-sm font-medium transition-colors ${
-        active ? "bg-night text-ivory" : "text-night/75 hover:bg-night/5 hover:text-night"
-      }`}
-    >
-      <span className="size-2 rounded-full" style={{ background: color ?? "#20B99A" }} aria-hidden="true" />
-      {label}
-    </button>
   );
 }
 
@@ -323,9 +302,7 @@ function FilterChip({ label, active, onClick, color }: { label: string; active: 
       onClick={onClick}
       aria-pressed={active}
       className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.8rem] font-medium transition-colors ${
-        active
-          ? "border-ivory bg-ivory text-night md:border-night md:bg-night md:text-ivory"
-          : "border-ivory/25 bg-night/40 text-ivory/85 hover:border-ivory/60 md:border-night/15 md:bg-transparent md:text-night/75 md:hover:border-night/40"
+        active ? "border-ivory bg-ivory text-night" : "border-ivory/25 bg-night/40 text-ivory/85 hover:border-ivory/60"
       }`}
     >
       {color && <span className="size-2 rounded-full" style={{ background: color }} aria-hidden="true" />}
@@ -350,17 +327,17 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
     >
       <MediaStage story={story} active={active} near={near} />
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-25% via-night/70 via-42% to-transparent to-62%" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-25% via-night/70 via-42% to-transparent to-62% wide:bg-gradient-to-r wide:from-night wide:from-30% wide:via-night/75 wide:via-45% wide:to-transparent wide:to-65%" aria-hidden="true" />
 
       {beat && (
-        <div className="absolute inset-x-5 bottom-2.5 z-10 flex gap-1.5" aria-hidden="true" data-testid="narrative-progress">
+        <div className="feed-column absolute inset-x-0 bottom-2.5 z-10 flex gap-1.5 px-5" aria-hidden="true" data-testid="narrative-progress">
           {Array.from({ length: steps }, (_, i) => (
             <span key={i} className={`h-1 flex-1 rounded-full ${i <= step ? "bg-mint" : "bg-ivory/25"}`} />
           ))}
         </div>
       )}
 
-      <div className="pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:px-6 md:pb-8">
+      <div className="feed-column pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:pb-10 wide:my-auto wide:pb-6">
         <div className="pointer-events-auto min-w-0 flex-1">
           <div className="mb-3 flex flex-wrap items-center gap-2 text-[0.75rem] font-semibold">
             <span className="rounded-full px-2.5 py-1" style={{ background: topic.color, color: inkOn(topic.color) }}>
@@ -411,7 +388,7 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
       </div>
 
       {index === 0 && !beat && total > 1 && (
-        <div className="pointer-events-none absolute inset-x-0 bottom-1.5 flex justify-center text-ivory/50 md:hidden" aria-hidden="true">
+        <div className="pointer-events-none absolute inset-x-0 bottom-1.5 flex justify-center text-ivory/50" aria-hidden="true">
           <Icon name="chevron-down" className="size-5 motion-safe:animate-bounce" />
         </div>
       )}
@@ -423,7 +400,7 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
 function SummaryBody({ story }: { story: Story }) {
   return (
     <>
-      <h2 className="font-display text-[1.75rem] leading-[1.12] font-semibold text-balance md:text-[1.9rem]">{story.title}</h2>
+      <h2 className="font-display text-[1.75rem] leading-[1.12] font-semibold text-balance md:text-[2.2rem] lg:text-[2.5rem]">{story.title}</h2>
       <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80 [@media(max-height:700px)]:hidden">{story.dek}</p>
       <ol className="mt-4 space-y-2">
         {story.keyPoints.map((point, i) => (
@@ -451,7 +428,7 @@ function NarrativeBody({ slide }: { slide: Slide }) {
         <p className="mb-3 text-sm font-semibold text-ivory/75">{story.title}</p>
       )}
       <p className="text-xs font-bold uppercase tracking-[0.2em] text-mint-soft">{beat.label}</p>
-      <p className="mt-2 font-display text-[1.7rem] leading-[1.18] font-semibold text-balance md:text-[1.85rem]">{beat.text}</p>
+      <p className="mt-2 font-display text-[1.7rem] leading-[1.18] font-semibold text-balance md:text-[2.1rem] lg:text-[2.4rem]">{beat.text}</p>
     </div>
   );
 }
@@ -466,10 +443,10 @@ function TransitionCard({ index, count, onRestart }: { index: number; count: num
       data-index={index}
       data-testid="feed-transition"
       aria-label="Fin des récits illustratifs"
-      className="relative flex h-full snap-start snap-always flex-col justify-end overflow-hidden bg-night px-6 pt-32 pb-10 text-ivory"
+      className="relative flex h-full snap-start snap-always flex-col justify-end overflow-hidden bg-night pt-32 pb-10 text-ivory md:justify-center md:pb-16"
     >
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="relative">
+      <div className="feed-column relative px-6">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#ffd98f]">Fin des récits illustratifs</p>
         {count === 0 ? (
           <>
@@ -524,10 +501,10 @@ function DemoDivider({ index, count }: { index: number; count: number }) {
       data-index={index}
       data-testid="demo-divider"
       aria-label="Début des récits de démonstration"
-      className="relative flex h-full snap-start snap-always flex-col justify-end overflow-hidden bg-night px-6 pt-32 pb-12 text-ivory"
+      className="relative flex h-full snap-start snap-always flex-col justify-end overflow-hidden bg-night pt-32 pb-12 text-ivory md:justify-center md:pb-16"
     >
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="relative">
+      <div className="feed-column relative px-6">
         <DemoBadge tone="light" />
         <h2 className="mt-4 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">La suite est illustrative</h2>
         <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">

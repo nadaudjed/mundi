@@ -60,11 +60,11 @@ export function VerifiedCard({ publication: p, index, position, total, active, r
           <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
         </>
       )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-35% via-night/80 via-55% to-night/30" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-35% via-night/80 via-55% to-night/30 wide:bg-gradient-to-r wide:from-night wide:from-30% wide:via-night/70 wide:via-50% wide:to-night/10" aria-hidden="true" />
 
       {/* Sur petit écran, le contenu défile dans la carte plutôt que d'être coupé sous la barre d'onglets. */}
       <div className="no-scrollbar relative flex min-h-0 flex-1 flex-col overflow-y-auto" data-testid="card-scroll">
-        <div className="pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:px-6 md:pb-8 [@media(max-height:740px)]:pt-24 [@media(max-height:740px)]:pb-4">
+        <div className="feed-column pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:pb-10 wide:my-auto wide:pb-6 [@media(max-height:740px)]:pt-24 [@media(max-height:740px)]:pb-4">
           <div className="pointer-events-auto min-w-0 flex-1">
             {/* Crédit du visuel dans le flux : il ne recouvre jamais les badges, même à 320 px. */}
             <p className="mb-2 inline-block max-w-full rounded-full bg-night/70 px-2.5 py-1 text-[0.68rem] font-semibold text-ivory/90 ring-1 ring-ivory/20" data-testid="verified-credit">
@@ -78,7 +78,7 @@ export function VerifiedCard({ publication: p, index, position, total, active, r
               {p.fixture && <span className="rounded-full border border-amber/60 px-2.5 py-1 text-[#ffd98f]">Exemple de test</span>}
             </div>
 
-            <RevealWords as="h2" text={p.title} active={revealed} className="font-display text-[1.6rem] leading-[1.12] font-semibold text-balance md:text-[1.75rem] [@media(max-height:740px)]:text-[1.35rem]" />
+            <RevealWords as="h2" text={p.title} active={revealed} className="font-display text-[1.6rem] leading-[1.12] font-semibold text-balance md:text-[2.1rem] lg:text-[2.4rem] [@media(max-height:740px)]:text-[1.35rem]" />
             <p data-fade={revealed ? "on" : "off"} className="mt-3 text-[0.92rem] leading-relaxed text-ivory/80 [@media(max-height:760px)]:line-clamp-2">{p.summary}</p>
 
             <p className="mt-3 text-xs text-ivory/75" data-testid="verified-meta">

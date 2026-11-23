@@ -6,7 +6,7 @@ import { Icon } from "./Icon";
 import { useToast } from "./Toast";
 
 /** Petit bouton « Installer » : ouvre la fenêtre du navigateur, sinon la page d'aide. */
-export function InstallChip({ tone = "light" }: { tone?: "light" | "dark" }) {
+export function InstallChip({ tone = "light", compact = false }: { tone?: "light" | "dark"; compact?: boolean }) {
   const state = useInstallState();
   const toast = useToast();
   if (state === "installed" || state === "unknown") return null;
@@ -17,7 +17,8 @@ export function InstallChip({ tone = "light" }: { tone?: "light" | "dark" }) {
   const content = (
     <>
       <Icon name="download" className="size-3.5" />
-      Installer
+      {/* Version compacte : icône seule sur les petits écrans (le nom reste lu). */}
+      <span className={compact ? "max-sm:sr-only" : ""}>Installer</span>
     </>
   );
   if (state === "available") {

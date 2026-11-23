@@ -25,14 +25,19 @@ export function MediaStage({ story, active, near }: Props) {
 
   return (
     <>
-      {media?.kind === "video" ? (
-        <VideoCard media={media} active={active} near={near} reducedMotion={reducedMotion} saveData={saveData} fallback={visual} />
-      ) : media?.kind === "image" ? (
-        <ImageStory media={media} active={active} near={near} reducedMotion={reducedMotion} fallback={visual} />
+      {media ? (
+        // Sur écran large, la vidéo ou l'image occupe la moitié droite : le texte reste à gauche, sans chevauchement.
+        <div className="absolute inset-0 wide:left-[46%]">
+          {media.kind === "video" ? (
+            <VideoCard media={media} active={active} near={near} reducedMotion={reducedMotion} saveData={saveData} fallback={visual} />
+          ) : (
+            <ImageStory media={media} active={active} near={near} reducedMotion={reducedMotion} fallback={visual} />
+          )}
+        </div>
       ) : (
         visual
       )}
-      {media && <MediaCredit media={media} className="absolute top-[6rem] right-4 z-20 md:top-4" />}
+      {media && <MediaCredit media={media} className="absolute top-[max(4.5rem,calc(env(safe-area-inset-top)+3.75rem))] right-4 z-20 md:right-8" />}
     </>
   );
 }

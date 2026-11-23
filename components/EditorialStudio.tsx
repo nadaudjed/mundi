@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, type ChangeEvent } from "react";
-import { parseCandidate, type Candidate } from "@/lib/candidate";
+import { parseCandidate, MAX_CANDIDATE_BYTES, type Candidate } from "@/lib/candidate";
 import { formatDate } from "@/lib/format";
 import { topics } from "@/lib/topics";
 import type { TopicSlug } from "@/lib/types";
@@ -48,6 +48,10 @@ export function EditorialStudio() {
     e.target.value = "";
     if (!file) return;
     setMessage("");
+    if (file.size > MAX_CANDIDATE_BYTES) {
+      setImportErrors(["Fichier trop volumineux : 20 Ko maximum pour une fiche de veille."]);
+      return;
+    }
     const result = parseCandidate(await file.text());
     if (!result.ok) {
       setImportErrors(result.errors);
@@ -58,14 +62,16 @@ export function EditorialStudio() {
     setCandidate({ ...c, fileName: file.name });
     setReadOrigin(false);
     setCheckedRights(false);
-    // Seuls les éléments attribuables sont préremplis ; le reste reste à rédiger.
-    setDraft((prev) => ({
-      ...prev,
+    setPreview(false);
+    // Un nouveau sujet repart d’un formulaire vide : ne jamais mélanger ses faits
+    // avec ceux d’un autre brouillon en cours de rédaction.
+    setDraft({
+      ...INITIAL,
       title: c.headline,
-      topic: c.topic ?? prev.topic,
+      topic: c.topic ?? INITIAL.topic,
       source1Name: c.source.label,
       source1Url: c.source.url,
-    }));
+    });
   }
 
   function removeCandidate() {
@@ -88,7 +94,7 @@ export function EditorialStudio() {
     if (!draft.source1Name.trim() || !draft.source2Name.trim()) errors.push("Deux noms de sources sont requis.");
     if (candidate && !readOrigin) errors.push("Confirmez que vous avez lu l'article d'origine.");
     if (candidate && !checkedRights) errors.push("Confirmez que vous avez vérifié les conditions de réutilisation de la source.");
-    if (candidate && draft.source2Url.trim() && draft.source2Url.trim() === draft.source1Url.trim()) errors.push("La deuxième source doit être différente de la première.");
+    if (draft.source2Url.trim() && draft.source2Url.trim() === draft.source1Url.trim()) errors.push("La deuxième source doit être différente de la première.");
     for (const address of [draft.source1Url, draft.source2Url]) {
       try { if (new URL(address).protocol !== "https:") errors.push("Utilisez des adresses HTTPS."); }
       catch { errors.push("Une adresse source est invalide."); }

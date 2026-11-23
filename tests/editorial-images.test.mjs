@@ -87,7 +87,7 @@ test("non-Wikimedia thumbnails and fake Creative Commons hosts stay blocked",()=
 });
 
 test("editorial image search never falls back to animals, unrelated national budgets or vandalized containers",()=>{
-  assert.deepEqual(imageQueries({title:"Ménages avec enfants en Europe",topic:"economie"}),["family children","parents with children"]);
+  assert.deepEqual(imageQueries({title:"Ménages avec enfants en Europe",topic:"economie"}),["family children Europe","parents with children Europe"]);
   assert.deepEqual(imageQueries({title:"Dette publique de l'Union européenne",topic:"economie"}),["European Central Bank","European Parliament Brussels"]);
   assert.equal(selectImage([candidate("File:Lions Family Portrait Masai Mara.jpg")],"family children"),null);
   assert.equal(selectImage([candidate("File:Budget of Nepal 2007.jpg")],"European Central Bank"),null);
@@ -126,4 +126,15 @@ test("all 12 editorial subjects retain a non-empty fallback even if no specific 
    const queries=imageQueries({title:"Un sujet du jour",topic});
    assert.ok(queries.length>0&&queries.every(q=>typeof q==="string"&&q.length>3),topic);
  }
+});
+
+test("European demographic subjects cannot use families photographed outside Europe",()=>{
+ const q=imageQueries({title:"Ménages avec enfants dans l'UE : statistiques",topic:"economie"});
+ assert.deepEqual(q,["family children Europe","parents with children Europe"]);
+ assert.equal(selectImage([candidate("File:Pune Maharashtra India Family Mothers Children.jpg")],q[0]),null);
+ assert.equal(selectImage([candidate("File:Family and children in India.jpg")],q[0]),null);
+ const regional=candidate("File:Family with children in France.jpg");
+ assert.equal(selectImage([regional],q[0]).title,"Family with children in France.jpg");
+ // Generic global subject can still illustrate any country, with an illustration label.
+ assert.ok(selectImage([candidate("File:Family and children in India.jpg")],"family children"));
 });

@@ -9,7 +9,7 @@ test("production targets cover home, news index and the published story",()=>{
   assert.throws(()=>checkTargets([{...pages[0],slug:"../evil"}]),/Unsafe/);
 });
 test("smoke passes only with actual news HTML on the expected host",async()=>{
-  const targets=checkTargets(pages),html="<html><head><title>MUNDI Réviser les actualités et les cours</title></head><body>Les publications documentées — Explorer les sujets et les publications — Une actualité vérifiée</body></html>".repeat(6);
+  const targets=checkTargets(pages),html="<html><head><title>MUNDI Réviser les actualités et les cours</title></head><body>Les publications documentées — Explorer les sujets et les publications — Une actualité vérifiée — aucune piste audio</body></html>".repeat(6);
   const fetcher=async url=>({ok:true,status:200,url,text:async()=>html});
   assert.equal((await probe("https://mundiapptest.netlify.app",targets,fetcher)).ok,true);
   assert.equal((await probe("https://mundiapptest.netlify.app",targets,async url=>

@@ -16,7 +16,7 @@ export function checkTargets(publications){
   if(news.some(p=>typeof p?.slug!=="string"||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(p.slug)))
     throw new Error("Unsafe published slug");
   return [
-    {path:"/",needle:"MUNDI",label:"Accueil"},
+    {path:"/",needle:"aucune piste audio",label:"Accueil — lecteur vocal corrigé"},
     {path:"/actualites/",needle:"Les publications documentées",label:"Galerie Actualités"},
     {path:"/explorer/",needle:"Explorer les sujets et les publications",label:"Recherche publique"},
     {path:"/reviser/",needle:"Réviser les actualités et les cours",label:"Révision des publications"},

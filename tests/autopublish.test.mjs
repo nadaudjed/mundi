@@ -17,7 +17,7 @@ const draft = (over = {}) => ({
 });
 const output = (over = {}, d = draft()) => ({
   id: "a1", topic: d.topic, draft: d,
-  checker: { verdict: "pass", sensitiveFlags: [], uncertainties: [] },
+  checker: { verdict: "pass", independentlyChecked: true, sensitiveFlags: [], uncertainties: [] },
   assessment: { status: "machine_checked_pending_policy", sensitive: false },
   ...over,
 });
@@ -40,12 +40,12 @@ test("a fully checked, non-sensitive draft with live links is published, labelle
 test("nothing is published when the checker did not approve", async () => {
   const o = output({ assessment: { status: "needs_human_or_more_research", sensitive: false } });
   assert.equal((await autopublish(results([o]), [], { fetcher: ok })).published.length, 0);
-  assert.match(blockers(output({ checker: { verdict: "pass", sensitiveFlags: [], uncertainties: ["a", "b", "c", "d", "e", "f"] } }), []).join(), /incertitudes/);
+  assert.match(blockers(output({ checker: { verdict: "pass", independentlyChecked: true, sensitiveFlags: [], uncertainties: ["a", "b", "c", "d", "e", "f"] } }), []).join(), /incertitudes/);
 });
 
 test("sensitive subjects are published when sourced and approved (founder's decision)", async () => {
   const war = draft({ topic: "geopolitique", title: "Guerre et élections : ce que disent les sources officielles" });
-  const o = output({ assessment: { status: "machine_checked_pending_policy", sensitive: true }, checker: { verdict: "pass", sensitiveFlags: ["conflit armé"], uncertainties: [] } }, war);
+  const o = output({ assessment: { status: "machine_checked_pending_policy", sensitive: true }, checker: { verdict: "pass", independentlyChecked: true, sensitiveFlags: ["conflit armé"], uncertainties: [] } }, war);
   assert.deepEqual(blockers(o, []), []);
   assert.equal((await autopublish(results([o]), [], { fetcher: ok })).published.length, 1);
 });
@@ -69,4 +69,31 @@ test("slugs are ASCII and cut on a whole word", () => {
   assert.equal(slugify("Énergie : l’éolien en mer, ça avance ?"), "energie-l-eolien-en-mer-ca-avance");
   assert.ok(slugify("mot ".repeat(40)).length <= 80);
   assert.ok(!slugify("mot ".repeat(40)).endsWith("-"));
+});
+
+test("daily quota counts previous AI publications, even across two workflow runs",async()=>{
+  const first=output();
+  const second=output({id:"b"},draft({
+    title:"Le recyclage des métaux dans l'industrie en 2026",
+    sources:[{label:"ADEME",url:"https://www.ademe.fr/b"},{label:"Citeo",url:"https://www.citeo.com/c"}]
+  }));
+  const one=await autopublish(results([first]),[],{max:2,fetcher:ok});
+  assert.equal(one.published.length,1);
+  const next=await autopublish(results([second]),one.published,{max:2,fetcher:ok});
+  assert.equal(next.published.length,1);
+  const third=await autopublish(results([output({id:"c"},draft({
+    title:"Un troisième article pourtant bien vérifié sur les matériaux",
+    sources:[{label:"Source X",url:"https://www.iea.org/x"},{label:"Source Y",url:"https://www.oecd.org/y"}]
+  }))]),[...one.published,...next.published],{max:2,fetcher:ok});
+  assert.equal(third.published.length,0);
+  assert.equal(third.decisions[0].decision,"plafond quotidien atteint");
+  // Yesterday's verified articles do not consume today's quota.
+  const old=[{...one.published[0],publishedAt:"2026-11-23"}];
+  const newDay=await autopublish(results([second]),old,{max:2,fetcher:ok});
+  assert.equal(newDay.published.length,1);
+});
+test("a pass status cannot be forged without an independent checker pass",async()=>{
+  assert.match(blockers(output({checker:{verdict:"needs_review",independentlyChecked:true,uncertainties:[]}}),[]).join(),/non validé/);
+  assert.match(blockers(output({checker:{verdict:"pass",independentlyChecked:false,uncertainties:[]}}),[]).join(),/non validé/);
+  assert.equal((await autopublish(results([output({checker:{verdict:"pass",independentlyChecked:false,uncertainties:[]}})]),[],{fetcher:ok})).published.length,0);
 });

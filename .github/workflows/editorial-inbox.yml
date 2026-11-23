@@ -22,6 +22,8 @@ concurrency:
 
 jobs:
   research:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -46,4 +48,65 @@ jobs:
             reports/editorial-inbox.html
             reports/candidates/
           retention-days: 7
+          if-no-files-found: error
+
+  archive:
+    name: Preserve research stock and report the supply runway
+    needs: research
+    # Never write research metadata to the public site: isolated editorial-stock branch.
+    permissions:
+      contents: write
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout the main application (read scripts only)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Download metadata from the research job
+        uses: actions/download-artifact@v4
+        with:
+          name: mundi-research-inbox
+          path: reports
+      - name: Prepare the isolated private stock branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/mundi-editorial-stock" origin/editorial-stock
+      - name: Accumulate metadata without changing public content
+        env:
+          MUNDI_STOCK_PATH: ${{ runner.temp }}/mundi-editorial-stock/editorial/library/candidates.json
+        run: node scripts/accumulate-editorial-stock.mjs
+      - name: Produce the private stock dashboard
+        env:
+          MUNDI_STOCK_PATH: ${{ runner.temp }}/mundi-editorial-stock/editorial/library/candidates.json
+        run: node scripts/library-inventory.mjs
+      - name: Persist candidate metadata on editorial-stock only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -C "$RUNNER_TEMP/mundi-editorial-stock" config user.name "github-actions[bot]"
+          git -C "$RUNNER_TEMP/mundi-editorial-stock" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$RUNNER_TEMP/mundi-editorial-stock" add editorial/library/candidates.json
+          if git -C "$RUNNER_TEMP/mundi-editorial-stock" diff --cached --quiet; then
+            echo "No stock changes"
+          else
+            git -C "$RUNNER_TEMP/mundi-editorial-stock" commit -m "research: update private unverified candidate stock"
+            git -C "$RUNNER_TEMP/mundi-editorial-stock" push origin HEAD:refs/heads/editorial-stock
+          fi
+      - name: Upload internal inventory dashboard (30 days)
+        uses: actions/upload-artifact@v4
+        with:
+          name: mundi-editorial-library-dashboard
+          path: |
+            reports/library-inventory.json
+            reports/library-inventory.html
+          retention-days: 30
           if-no-files-found: error

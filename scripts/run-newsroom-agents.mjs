@@ -79,9 +79,10 @@ const WRITER_SYSTEM=[
 "Ne te contente pas d'un seul organisme ; privilégie les sources primaires, identifie dates, périodes, unités, dénominateurs, licences, incertitudes.",
 "Si tu ne trouves pas au moins deux organismes réellement pertinents et indépendants, ne crée ni noms, ni chiffres, ni URLs : retourne un brouillon incomplet qui sera refusé.",
 "Évite les longues citations et ne copie pas les articles tiers.",
-"Retourne UNIQUEMENT un objet JSON contenant : topic, contentType (today ou evergreen), title, summary, keyPoints (3 chaînes),",
+"Retourne UNIQUEMENT un objet JSON contenant : topic, contentType (today ou evergreen), title, summary, keyPoints (EXACTEMENT 3 chaînes, chacune de 15 à 350 caractères),",
 "sections (au moins 2 objets {kind: fait/analyse/hypothese,heading,text}), sources (objets {label,url}),",
-"claims (objets {statement,evidenceUrls}). Chaque affirmation vérifiable nécessite ses URL."
+"claims (objets {statement,evidenceUrls}). Chaque affirmation vérifiable nécessite ses URL.",
+"Règle stricte : chaque URL citée dans claims.evidenceUrls doit aussi figurer, à l identique, dans sources ; sinon le brouillon est rejeté automatiquement."
 ].join(" ");
 const CHECKER_SYSTEM=[
 "Tu es le rédacteur en chef vérificateur MUNDI, distinct du rédacteur. Cherche à réfuter les affirmations.",

@@ -11,6 +11,18 @@ type Playback = { utterance: SpeechSynthesisUtterance | null; watchdog: number |
 // "Écouter" somewhere else must stop the previous owner and reset its UI.
 let stopOtherPlayback: { session: Playback; stop: () => void } | null = null;
 
+// Effects may stop the external speech engine, but must never synchronously
+// invoke a React setState callback while doing so.
+function releaseDevicePlayback(ref: { current: Playback | null }): boolean {
+  const session = ref.current;
+  if (!session) return false;
+  ref.current = null;
+  if (stopOtherPlayback?.session === session) stopOtherPlayback = null;
+  if (session.watchdog !== null) window.clearTimeout(session.watchdog);
+  try { window.speechSynthesis?.cancel(); } catch { /* already stopped */ }
+  return true;
+}
+
 /** Keep each utterance short enough for mobile Safari and Android TTS engines. */
 function speechChunks(parts: string[], limit = 240): string[] {
   const result: string[] = [];
@@ -57,28 +69,22 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
   const playback = useRef<Playback | null>(null);
 
   const stop = useCallback((update = true) => {
-    const session = playback.current;
-    if (!session) return;
-    playback.current = null;
-    if (stopOtherPlayback?.session === session) stopOtherPlayback = null;
-    if (session.watchdog !== null) window.clearTimeout(session.watchdog);
-    try { window.speechSynthesis?.cancel(); } catch { /* browser or OS already stopped it */ }
-    if (update) {
+    const wasPlaying = releaseDevicePlayback(playback);
+    if (wasPlaying && update) {
       setPhase("idle");
       setError("");
     }
   }, []);
 
   useEffect(() => {
-    // Feed cards can stay mounted while hidden. A hidden card must not continue
-    // speaking and must release ownership of the global speech engine.
+    // Hide/unmount stops only this card's speech. There is no synchronous
+    // state update in the effect; the next render derives visibility from active.
     if (!active) {
-      stop(false);
-      // Reconcile the button UI without updating React state synchronously in an effect.
+      releaseDevicePlayback(playback);
       queueMicrotask(() => setPhase("idle"));
     }
-    return () => stop(false);
-  }, [active, stop]);
+    return () => { releaseDevicePlayback(playback); };
+  }, [active]);
 
   function toggle() {
     if (playback.current) {

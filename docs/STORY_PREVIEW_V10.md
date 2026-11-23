@@ -24,6 +24,14 @@ Les écrans affichent les chiffres **en texte HTML natif**. Les fonds sont des t
    
 Alternative développeur : `npm run preview:story`, puis ouvrir localement `reports/editorial-story-v10.html`. Le fichier est complètement autonome, sans Internet pour son rendu ; seuls les liens vers les sources ouvrent des pages externes.
 
+## Tester aussi les composants développés par Claude
+
+Le fichier `editorial/reviews/textile-2024/data-cards.draft.json` utilise le format **`mundi-data-cards-v1`** des cartes de données créées par Claude. Il contient les mêmes quatre étapes, les chiffres et leurs périmètres, mais **aucune image de la direction artistique non approuvée**.
+
+Pour vérifier cette autre prévisualisation : ouvrir [MUNDI Studio](https://mundiapptest.netlify.app/atelier/), puis importer ce fichier dans la partie **cartes de données**. Le contenu doit rester marqué **« Brouillon — non publié »**. Le format des cartes est celui de Claude ; le générateur HTML fournit, en parallèle, une proposition de mise en scène destinée à la revue graphique.
+
+**Avertissement :** l'application étant publique, l'import local du fichier ne constitue pas une publication ; ne pas partager publiquement le fichier tant que le fond éditorial n'a pas été approuvé. Vérifier aussi que les données ne sont jamais envoyées à un service externe.
+
 ## Contrôle éditorial et sécurité
 
 - Les sources sont [Eurostat, 12 novembre 2026](https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20261112-1) et [Commission européenne, 16 octobre 2025](https://environment.ec.europa.eu/news/revised-waste-framework-directive-enters-force-2025-10-16_en).

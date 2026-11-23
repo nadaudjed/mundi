@@ -5,7 +5,11 @@ import { getPublication, publishedArticles } from "@/lib/editorial";
 import { getTopic } from "@/lib/topics";
 
 type Params = { slug: string };
-export function generateStaticParams(): Params[] { return publishedArticles.map(a => ({slug: a.slug})); }
+export function generateStaticParams(): Params[] {
+  // Static export requires at least one generated path even before the first verified article.
+  // This sentinel resolves to notFound() and is never linked from the site.
+  return publishedArticles.length ? publishedArticles.map(a => ({ slug: a.slug })) : [{ slug: "aucune-publication" }];
+}
 export const dynamicParams = false;
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;

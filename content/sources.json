@@ -92,5 +92,15 @@
     "rightsStatus": "approved_metadata_collection",
     "rightsUrl": "https://commission.europa.eu/legal-notice_en",
     "rightsNote": "Flux RSS du Joint Research Centre; métadonnées de recherche uniquement. Conditions de réutilisation des contenus UE avec attribution et exceptions pour éléments tiers."
+  },
+  {
+    "id": "nasa-news-releases",
+    "publisher": "NASA",
+    "feedUrl": "https://www.nasa.gov/news-release/feed/",
+    "topic": "sciences-societe",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "rightsNote": "Flux RSS officiel NASA News Releases; collecte UNIQUEMENT des titres, liens, dates et attribution, sans reproduire le corps, les images, logos ni média tiers. Les contenus gouvernementaux de la NASA sont généralement domaine public américain; vérifier les exceptions et crédits spécifiques."
   }
 ]

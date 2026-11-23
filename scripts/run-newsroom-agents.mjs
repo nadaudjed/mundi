@@ -116,8 +116,7 @@ async function runOne(job,configuration){
     if(draftErrors.length)return record(job,draft,null,{
       status:"needs_human_or_more_research",safeForAutopublication:false,reasons:draftErrors},null);
     const checkerResult=await askAgentModel(CHECKER_SYSTEM,{job,draft},checker,"checker");
-    const checker=checkerResult;
-    return record(job,draft,checker,assessReview(draft,checker,job),null);
+    return record(job,draft,checkerResult,assessReview(draft,checkerResult,job),null);
   }catch(error){return record(job,null,null,null,String(error?.message??error));}
 }
 export async function runAgentDesk(plan,{

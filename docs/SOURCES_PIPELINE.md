@@ -38,3 +38,9 @@ La [politique officielle de réutilisation d'Eurostat](https://ec.europa.eu/euro
 MUNDI ne collecte que les *titres, liens, dates et identités des sources* pour identifier des sujets. Le rapport indique le lien vers les conditions de réutilisation. Il ne doit pas être présenté comme une publication d'informations vérifiées par MUNDI. La rédaction doit accéder à la source, vérifier les faits, respecter les licences et croiser les informations si nécessaire.
 
 **Limite de vérification :** la provenance des adresses et la politique de licence ont été vérifiées sur les pages officielles, mais la collecte HTTP réelle depuis GitHub Actions n'a pas encore été exécutée sur les nouvelles URLs. Si un flux change de format ou ne répond plus, le workflow inscrit une erreur, sans inventer de candidats.
+
+## Veille quotidienne interne automatique
+
+Le workflow GitHub Actions `Editorial inbox — manual research export` démarre aussi automatiquement chaque jour à **06:23 UTC** (l'exécution peut être retardée par GitHub). Il reste déclenchable manuellement. Il télécharge uniquement les métadonnées des sources institutionnelles autorisées. Les archives de recherche restent dans l'espace des Actions GitHub pendant sept jours ; elles ne sont pas publiées sur Netlify.
+
+Le rapport indique maintenant, **source par source**, si la collecte a réussi, si un flux était vide, s'il a échoué ou si ses droits étaient insuffisants, ainsi que le nombre de sujets candidats. Si toutes les sources activées échouent, le workflow apparaît en échec, tout en conservant son rapport pour le diagnostic. Aucun titre candidat n'est réputé vérifié et aucune publication n'est créée automatiquement. Les résultats de collecte ne constituent pas un service de notification garanti.

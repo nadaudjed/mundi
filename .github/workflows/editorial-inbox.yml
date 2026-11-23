@@ -2,13 +2,28 @@ name: Editorial inbox — manual research export
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'content/sources.json'
+      - 'scripts/collect-sources.mjs'
+      - 'scripts/run-editorial-inbox.mjs'
+      - 'scripts/export-candidates.mjs'
+      - '.github/workflows/editorial-inbox.yml'
+  schedule:
+    - cron: '23 6 * * *'
 
 permissions:
   contents: read
 
+concurrency:
+  group: mundi-internal-newsroom
+  cancel-in-progress: false
+
 jobs:
   research:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout the newsroom source catalogue
         uses: actions/checkout@v4
@@ -19,8 +34,10 @@ jobs:
       - name: Prepare offline editorial report (no publication)
         run: node scripts/run-editorial-inbox.mjs
       - name: Export individual unverified candidate sheets
+        if: always()
         run: npm run sources:candidates
-      - name: Upload private research artifact (7 days)
+      - name: Upload research artifact (7 days)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mundi-research-inbox

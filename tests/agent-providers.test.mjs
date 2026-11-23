@@ -90,13 +90,31 @@ test("Claude API uses x-api-key, Messages endpoint, and does not send credential
   assert.ok(!request.init.body.includes("top-secret-key"));
 });
 
+test("Claude continues a paused turn and reads the JSON written after the pause",async()=>{
+  const draft={topic:"energie",title:"Suite"};
+  const bodies=[];
+  const replies=[
+    {type:"message",stop_reason:"pause_turn",content:[
+      {type:"server_tool_use",id:"s1",name:"web_search",input:{query:"q"}},
+      {type:"web_search_tool_result",tool_use_id:"s1",content:[]}
+    ]},
+    {type:"message",stop_reason:"end_turn",content:[{type:"text",text:JSON.stringify(draft)}]}
+  ];
+  const fetcher=async(url,init)=>{bodies.push(JSON.parse(init.body));return {ok:true,json:async()=>replies.shift()};};
+  assert.deepEqual(await askAgentModel("Rédige",{},{provider:"anthropic",model:"m",key:"k"},"writer",fetcher),draft);
+  assert.equal(bodies.length,2);
+  assert.equal(bodies[1].messages.length,2);
+  assert.equal(bodies[1].messages[1].role,"assistant");
+  assert.equal(bodies[1].messages[1].content[0].type,"server_tool_use");
+});
+
 test("Claude rejects no-search, incomplete, errored or non-JSON responses",()=>{
   assert.throws(()=>parseAnthropicResponse({
     type:"message",stop_reason:"end_turn",content:[{type:"text",text:"{}"}]
   }),/did not invoke independent web search/);
   assert.throws(()=>parseAnthropicResponse({
     ...modelReply({}),stop_reason:"max_tokens"
-  }),/did not finish/);
+  }),/did not finish \(stop_reason: max_tokens\)/);
   assert.throws(()=>parseAnthropicResponse({
     ...modelReply({}),content:[
       {type:"server_tool_use",name:"web_search"},

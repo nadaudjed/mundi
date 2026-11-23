@@ -3,7 +3,7 @@ import type { Format, FormatSlug, Topic, TopicSlug } from "./types";
 export const topics: Topic[] = [
   { slug: "geopolitique", name: "Géopolitique", description: "Rapports de force, frontières, alliances et routes stratégiques.", color: "#246BCE", pattern: "routes" },
   { slug: "economie", name: "Économie", description: "Prix, croissance, emploi et politiques économiques.", color: "#E0A43A", pattern: "bars" },
-  { slug: "finance", name: "Finance", description: "Marchés, taux, monnaies et circulation des capitaux.", color: "#7C6CF2", pattern: "waves" },
+  { slug: "finance", name: "Finance", description: "Marchés, taux, monnaies et circulation des capitaux.", color: "#8A7CF4", pattern: "waves" },
   { slug: "industrie", name: "Industrie", description: "Usines, chaînes de production et souveraineté industrielle.", color: "#E46B4F", pattern: "grid" },
   { slug: "materiaux-critiques", name: "Matériaux critiques", description: "Métaux, minerais et ressources dont dépendent nos technologies.", color: "#C98A4B", pattern: "rings" },
   { slug: "energie", name: "Énergie", description: "Production, réseaux, stockage et transitions énergétiques.", color: "#F2C14E", pattern: "waves" },
@@ -26,4 +26,20 @@ const topicMap = new Map(topics.map((t) => [t.slug, t]));
 
 export function getTopic(slug: TopicSlug | string): Topic | undefined {
   return topicMap.get(slug as TopicSlug);
+}
+
+function luminance(hex: string): number {
+  const [r, g, b] = [1, 3, 5].map((i) => {
+    const v = parseInt(hex.slice(i, i + 2), 16) / 255;
+    return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+/** Couleur de texte lisible (contraste le plus élevé) sur la couleur d'un sujet. */
+export function inkOn(color: string): string {
+  const l = luminance(color);
+  const onNight = (l + 0.05) / (luminance("#101D30") + 0.05);
+  const onWhite = 1.05 / (l + 0.05);
+  return onWhite > onNight ? "#FFFFFF" : "#101D30";
 }

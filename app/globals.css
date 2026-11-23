@@ -6,6 +6,8 @@
   --color-night-3: #1f3352;
   --color-blue: #246bce;
   --color-blue-soft: #5b93e0;
+  /* Bleu foncé pour du texte sur fond clair (contraste AA). */
+  --color-blue-ink: #1b56a8;
   --color-ivory: #f3f0e8;
   --color-ivory-2: #e9e4d8;
   --color-paper: #fbfaf6;

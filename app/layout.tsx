@@ -3,6 +3,7 @@ import "@fontsource-variable/dm-sans";
 import "@fontsource-variable/fraunces";
 import "./globals.css";
 import { BottomNav } from "@/components/BottomNav";
+import { PwaSetup } from "@/components/PwaSetup";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ToastProvider } from "@/components/Toast";
 
@@ -10,6 +11,13 @@ export const metadata: Metadata = {
   title: { default: "MUNDI — Comprendre le monde", template: "%s · MUNDI" },
   description: "Comprendre le monde n'a jamais été aussi simple. Prototype de démonstration : contenus illustratifs.",
   robots: { index: false, follow: false },
+  applicationName: "MUNDI",
+  appleWebApp: { capable: true, title: "MUNDI", statusBarStyle: "black-translucent" },
+  icons: {
+    icon: [{ url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
@@ -29,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Aller au contenu
         </a>
+        <PwaSetup />
         <ToastProvider>
           <SiteHeader />
           <main id="contenu">{children}</main>

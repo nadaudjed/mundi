@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
     id: "/",
     name: "MUNDI — Comprendre le monde",
     short_name: "MUNDI",
-    description: "Comprendre le monde n'a jamais été aussi simple. Prototype : contenus illustratifs.",
+    description: "Articles sourcés et récits pédagogiques MUNDI. Le mode de vérification de chaque publication est indiqué.",
     lang: "fr",
     dir: "ltr",
     start_url: "/",

@@ -107,3 +107,23 @@ test("NASA source host is allowed but an external source cannot hijack RSS links
   assert.equal(out.items[0].publisher,"NASA");
   assert.equal(out.items[0].link,"https://www.nasa.gov/news-release/test-mission/");
 });
+
+test("USGS national news RSS yields mineral leads but never reproduces full news copy",async()=>{
+  const usgs={...source,id:"usgs-national-news",publisher:"U.S. Geological Survey",
+    feedUrl:"https://www.usgs.gov/news/national-news-release/feed",
+    topic:"materiaux-critiques",
+    rightsUrl:"https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"};
+  const rss='<rss version="2.0"><channel><item>'+
+    '<title>USGS critical minerals world supply outlook</title>'+
+    '<link>https://www.usgs.gov/news/national-news-release/usgs-critical-minerals-outlook</link>'+
+    '<pubDate>Mon, 23 Nov 2026 11:00:00 GMT</pubDate>'+
+    '<description>Unpublished full text must not enter metadata</description>'+
+    '</item><item><title>Outsider</title><link>https://foreign.example/malicious</link></item></channel></rss>';
+  const out=await collectFeeds([usgs],async()=>response(rss));
+  assert.equal(out.errors.length,0);
+  assert.equal(out.count,1);
+  assert.equal(out.items[0].publisher,"U.S. Geological Survey");
+  assert.equal(out.items[0].topicHint,"materiaux-critiques");
+  assert.equal(out.items[0].link,"https://www.usgs.gov/news/national-news-release/usgs-critical-minerals-outlook");
+  assert.ok(!Object.hasOwn(out.items[0],"description"));
+});

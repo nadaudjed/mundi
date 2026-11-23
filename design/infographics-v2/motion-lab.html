@@ -133,12 +133,11 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
   const progress=[...document.querySelectorAll("[data-go]")];
   const pause=document.getElementById("pause");
   let paused=false;
-  function go(i){scenes[(i+scenes.length)%scenes.length].scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"});}
+  function go(i){scenes[(i+scenes.length)%scenes.length].scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});}
   progress.forEach((b,i)=>b.addEventListener("click",()=>go(i)));
   document.querySelectorAll("[data-next]").forEach((b,i)=>b.addEventListener("click",()=>go(i+1)));
   pause.addEventListener("click",()=>{paused=!paused;document.body.classList.toggle("paused",paused);pause.setAttribute("aria-pressed",String(paused));pause.textContent=paused?"Reprendre":"Pause";pause.setAttribute("aria-label",paused?"Reprendre les animations":"Mettre les animations en pause");document.querySelectorAll(".scene__image").forEach(x=>x.style.animationPlayState=paused?"paused":"running");});
-  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.intersectionRatio<.55)return;const i=scenes.indexOf(e.target);scenes.forEach((s,j)=>s.classList.toggle("is-active",j===i));progress.forEach((b,j)=>{if(j===i)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current");});});},{root:stage,threshold:[0,.55,.9]}).observe(scenes[0]);
-  // Each section must be observed; scrolling, buttons and touch all use native scroll-snap.
+  // All sections are observed; touch, buttons and wheel use native scroll-snap.
   const obs=new IntersectionObserver(entries=>{for(const e of entries){if(!e.isIntersecting || e.intersectionRatio<.6)continue;const i=scenes.indexOf(e.target);scenes.forEach((s,j)=>s.classList.toggle("is-active",i===j));progress.forEach((b,j)=>{if(i===j)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current")});}},{root:stage,threshold:[0,.6,1]});
   scenes.forEach(s=>obs.observe(s));
   window.addEventListener("keydown",e=>{if(e.key!=="ArrowDown"&&e.key!=="ArrowUp")return;if(["INPUT","TEXTAREA","SELECT"].includes(document.activeElement?.tagName))return;e.preventDefault();let active=progress.findIndex(x=>x.hasAttribute("aria-current"));go(active+(e.key==="ArrowDown"?1:-1));});

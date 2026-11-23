@@ -19,13 +19,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
-          RUN_ID: ${{ github.event.workflow_run.id }}
+          CHECK_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          PRS_JSON: ${{ toJSON(github.event.workflow_run.pull_requests) }}
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         shell: bash
         run: |
           set -euo pipefail
           # Find PRs associated with the successful workflow run.
-          prs="$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq '.pull_requests[]?.number')"
+          prs="$(jq -r '.[]?.number' <<< "$PRS_JSON")"
           if [ -z "$prs" ]; then
             echo "No associated PR; nothing to merge."
             exit 0
@@ -57,7 +58,7 @@ jobs:
             fi
 
             # Verify the exact SHA's quality check passed.
-            conclusion="$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq '.conclusion')"
+            conclusion="$CHECK_CONCLUSION"
             [ "$conclusion" = success ] || exit 1
             echo "Auto-merging validated PR #$number"
             gh pr merge "$number" --repo "$REPO" --squash --delete-branch

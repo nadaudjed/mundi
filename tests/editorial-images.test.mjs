@@ -8,9 +8,7 @@ function candidate(title="File:Textile recycling facility.jpg",license="CC BY 4.
 }
 test("image search queries use the article first, then a distinct photographic topic fallback",()=>{
  const q=imageQueries({title:"Déchets textiles : comment ils sont recyclés en Europe",topic:"recyclage"});
- assert.equal(q[0],"textile recycling");
- assert.ok(q.some(x=>x.includes("dechets textiles")));
- assert.ok(q.includes("recycling"));
+ assert.deepEqual(q,["textile recycling sorting","clothing recycling"]);
  assert.deepEqual(imageQueries({title:"!!!",topic:"afrique"}),["african city"]);
 });
 test("Commons selector accepts credited CC BY photo and strips HTML safely",()=>{
@@ -86,4 +84,20 @@ test("non-Wikimedia thumbnails and fake Creative Commons hosts stay blocked",()=
  assert.equal(selectImage([foreign],"textile recycling"),null);
  const fake=candidate("File:Textile recycling factory.jpg","CC BY 4.0","https://creativecommons.org.evil.example/licenses/by/4.0/");
  assert.equal(selectImage([fake],"textile recycling"),null);
+});
+
+test("editorial image search never falls back to animals, unrelated national budgets or vandalized containers",()=>{
+  assert.deepEqual(imageQueries({title:"Ménages avec enfants en Europe",topic:"economie"}),["family children","parents with children"]);
+  assert.deepEqual(imageQueries({title:"Dette publique de l'Union européenne",topic:"economie"}),["European Central Bank","European Parliament Brussels"]);
+  assert.equal(selectImage([candidate("File:Lions Family Portrait Masai Mara.jpg")],"family children"),null);
+  assert.equal(selectImage([candidate("File:Budget of Nepal 2007.jpg")],"European Central Bank"),null);
+  assert.equal(selectImage([candidate("File:Textile recycling bin vandalism.jpg")],"textile recycling sorting"),null);
+});
+test("clear visually relevant documentary examples still qualify with attribution",()=>{
+  const sorting=candidate("File:Textile recycling sorting plant workers.jpg");
+  assert.equal(selectImage([sorting],"textile recycling sorting").title,"Textile recycling sorting plant workers.jpg");
+  const finance=candidate("File:European Central Bank office in Frankfurt.jpg");
+  assert.equal(selectImage([finance],"European Central Bank").title,"European Central Bank office in Frankfurt.jpg");
+  const family=candidate("File:Family with children walking in park.jpg");
+  assert.equal(selectImage([family],"family children").title,"Family with children walking in park.jpg");
 });

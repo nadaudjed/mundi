@@ -62,5 +62,35 @@
     "rightsStatus": "approved_metadata_collection",
     "rightsUrl": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
     "rightsNote": "BCE : flux RSS officiel de communiqués statistiques, collecte de métadonnées uniquement. Mentionner la source, préserver l'exactitude et indiquer les modifications; aucun média ou document signé reproduit."
+  },
+  {
+    "id": "ec-presscorner",
+    "publisher": "Commission européenne — Communiqués",
+    "feedUrl": "https://ec.europa.eu/commission/presscorner/api/rss",
+    "topic": "geopolitique",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://commission.europa.eu/legal-notice_en",
+    "rightsNote": "Flux RSS officiel de la Commission européenne; collecte de titres, liens, dates et attribution uniquement. Contenus UE sous CC BY 4.0 si droits détenus; restrictions pour tiers, marques et médias."
+  },
+  {
+    "id": "ec-environment",
+    "publisher": "Commission européenne — Environnement",
+    "feedUrl": "https://environment.ec.europa.eu/node/92/rss_en",
+    "topic": "environnement",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://commission.europa.eu/legal-notice_en",
+    "rightsNote": "Flux RSS institutionnel de DG Environnement; métadonnées uniquement. Crédit à la Commission, exceptions pour droits tiers, aucune republication intégrale."
+  },
+  {
+    "id": "ec-jrc",
+    "publisher": "Commission européenne — Recherche (JRC)",
+    "feedUrl": "https://joint-research-centre.ec.europa.eu/node/2/rss_en",
+    "topic": "sciences-societe",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://commission.europa.eu/legal-notice_en",
+    "rightsNote": "Flux RSS du Joint Research Centre; métadonnées de recherche uniquement. Conditions de réutilisation des contenus UE avec attribution et exceptions pour éléments tiers."
   }
 ]

@@ -141,7 +141,7 @@ export function Feed({ verified = [] }: Props) {
   }
 
   return (
-    <div ref={root} className="feed-h relative bg-night md:bg-ivory">
+    <div ref={root} data-feed className="feed-h relative bg-night md:bg-ivory">
       {/* Barre supérieure superposée (mobile) / au-dessus de la carte (ordinateur) */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 bg-gradient-to-b from-night/90 via-night/50 to-transparent pb-6 pt-[max(env(safe-area-inset-top),0.75rem)] md:hidden">
         <div className="pointer-events-auto mx-auto flex max-w-[30rem] items-center justify-between px-4 md:hidden">
@@ -167,9 +167,9 @@ export function Feed({ verified = [] }: Props) {
         </div>
       </div>
 
-      <div className="relative mx-auto flex h-full max-w-6xl items-stretch justify-center md:gap-8 md:px-6 md:py-6">
+      <div className="relative mx-auto flex h-full max-w-6xl items-stretch justify-center md:gap-6 md:px-6 md:py-5 lg:gap-8 lg:py-6">
         {/* Filtres par sujet (ordinateur) */}
-        <aside className="hidden w-52 shrink-0 flex-col md:flex" aria-label="Filtrer le fil par sujet">
+        <aside className="hidden w-52 shrink-0 flex-col lg:flex" aria-label="Filtrer le fil par sujet">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">Votre fil</p>
           <p className="mt-2 font-display text-2xl leading-tight font-semibold text-night">Comprendre le monde, un récit à la fois.</p>
           <Link href="/mes-sujets/" className="mt-4 inline-flex items-center gap-2 self-start rounded-full border border-blue/30 px-3 py-1.5 text-xs font-semibold text-blue hover:bg-blue/10"><Icon name="sliders" className="size-4" /> Personnaliser mon fil</Link>
@@ -186,10 +186,25 @@ export function Feed({ verified = [] }: Props) {
           </ul>
         </aside>
 
+        <div className="flex h-full w-full min-w-0 flex-col md:max-w-[30rem] lg:max-w-[27rem]">
+        {/* Filtres par sujet (tablette) : une ligne au-dessus de la carte. */}
+        <div
+          role="group"
+          aria-label="Filtrer par sujet"
+          className="no-scrollbar -mx-1 mb-3 hidden shrink-0 gap-2 overflow-x-auto px-1 py-0.5 md:flex lg:hidden"
+        >
+          <FilterChip label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />
+          <Link href="/mes-sujets/" className="flex shrink-0 items-center gap-1.5 rounded-full border border-blue/30 px-3.5 py-1.5 text-[0.8rem] font-semibold text-blue-ink hover:bg-blue/10">
+            <Icon name="sliders" className="size-3.5" /> Personnaliser
+          </Link>
+          {feedTopics.map((t) => (
+            <FilterChip key={t.slug} label={t.name} color={t.color} active={filter === t.slug} onClick={() => changeFilter(t.slug)} />
+          ))}
+        </div>
         <div
           ref={scroller}
           aria-label="Fil de découverte"
-          className="no-scrollbar h-full w-full touch-pan-y snap-y snap-mandatory overflow-y-scroll overscroll-y-contain md:max-w-[27rem] md:rounded-[2rem] md:shadow-2xl md:shadow-night/30 md:ring-1 md:ring-night/10"
+          className="no-scrollbar min-h-0 w-full flex-1 touch-pan-y snap-y snap-mandatory overflow-y-scroll overscroll-y-contain md:rounded-[2rem] md:shadow-2xl md:shadow-night/30 md:ring-1 md:ring-night/10"
         >
           {entries.map((e, i) =>
             e.kind === "verified" ? (
@@ -224,9 +239,10 @@ export function Feed({ verified = [] }: Props) {
           )}
           <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />
         </div>
+        </div>
 
         {/* Commandes et repères (ordinateur) */}
-        <div className="hidden w-52 shrink-0 flex-col justify-center gap-6 md:flex">
+        <div className="hidden w-36 shrink-0 flex-col justify-center gap-6 md:flex lg:w-52">
           <div className="flex flex-col gap-2">
             <button
               type="button"

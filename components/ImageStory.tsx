@@ -25,7 +25,7 @@ export function ImageStory({ media, active, near, reducedMotion, fallback }: Pro
     return (
       <div className="absolute inset-0" data-media="image" data-state="error">
         {fallback}
-        <p role="status" className="absolute inset-x-6 top-[8.75rem] z-10 flex items-center gap-2 rounded-2xl bg-night/85 p-3 text-sm text-ivory ring-1 ring-amber/40 md:top-16">
+        <p role="status" className="absolute inset-x-4 top-14 z-10 flex items-center gap-2 rounded-2xl bg-night/85 p-3 text-sm text-ivory ring-1 ring-amber/40">
           <Icon name="alert" className="size-5 shrink-0 text-amber" />
           Illustration indisponible pour le moment.
         </p>
@@ -37,7 +37,7 @@ export function ImageStory({ media, active, near, reducedMotion, fallback }: Pro
     <div className="absolute inset-0 overflow-hidden bg-night" data-media="image">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={media.src} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full scale-110 object-cover opacity-40 blur-2xl" />
-      <div className="absolute inset-x-6 top-[9.5rem] bottom-[46%] flex items-center justify-center md:top-14">
+      <div className="absolute inset-x-6 top-14 bottom-6 flex items-center justify-center wide:top-24 wide:bottom-16">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={media.src}

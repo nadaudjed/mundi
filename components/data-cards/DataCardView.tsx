@@ -84,7 +84,7 @@ export function DataCardView({ card, position, total, topicColor, active, reveal
     >
       {backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} active={active} />}
       {/* Sur petit écran, la carte défile plutôt que de cacher sa source sous la barre d'onglets. */}
-      <div className="no-scrollbar relative flex h-full flex-col overflow-y-auto px-5 pt-28 pb-6 md:px-6 md:pt-20 [@media(max-height:740px)]:pt-[5.75rem] [@media(max-height:740px)]:pb-4" data-testid="card-scroll">
+      <div className="feed-column no-scrollbar relative flex h-full flex-col overflow-y-auto px-5 pt-28 pb-6 md:pt-24 [@media(max-height:740px)]:pt-[5.75rem] [@media(max-height:740px)]:pb-4" data-testid="card-scroll">
         <div className="relative flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">
           <span style={{ color: textAccent }} className={light ? "text-night/70" : ""}>
             Données · carte {position + 1} sur {total}

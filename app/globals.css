@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Écran large et couché (tablette en paysage, ordinateur) : mise en page en deux zones. */
+@custom-variant wide (@media (min-width: 900px) and (min-aspect-ratio: 5/4));
+
 @theme {
   --color-night: #101d30;
   --color-night-2: #16273f;
@@ -53,9 +56,22 @@
 }
 
 :root {
-  --nav-h: 4.25rem;
+  /* Barre d'onglets flottante (mobile) : hauteur + marge sous la barre + zone système. */
+  --dock-h: 3.75rem;
+  --dock-gap: 0.5rem;
+  /* Place laissée libre sous la barre (bandeau Netlify sur les adresses *.netlify.app). */
+  --badge-safe: 0rem;
+  --nav-h: calc(var(--dock-h) + var(--dock-gap) + var(--badge-safe) + env(safe-area-inset-bottom));
   --header-h: 0rem;
   color-scheme: light;
+}
+
+/* Adresses *.netlify.app (site de test et aperçus) : Netlify y affiche en bas
+   de l'écran son bandeau « Powered by Netlify » ou son outil de relecture.
+   La barre d'onglets passe au-dessus pour qu'aucun onglet ne soit caché.
+   Sur un futur nom de domaine propre, rien ne change. */
+html[data-netlify-host] {
+  --badge-safe: 3.5rem;
 }
 
 @media (min-width: 768px) {
@@ -64,6 +80,29 @@
     --header-h: 4rem;
   }
 }
+
+/* Le fil occupe tout l'écran, sur toutes les tailles : fond sombre, pas d'en-tête,
+   seule la barre d'onglets flottante reste visible. */
+body:has([data-feed]) {
+  background: var(--color-night);
+}
+@media (min-width: 768px) {
+  body:has([data-feed]) {
+    --dock-gap: 0.75rem;
+    --nav-h: calc(var(--dock-h) + var(--dock-gap) + var(--badge-safe) + env(safe-area-inset-bottom));
+    --header-h: 0rem;
+  }
+  body:has([data-feed]) [data-site-header] {
+    display: none;
+  }
+  [data-dock] {
+    display: none;
+  }
+  body:has([data-feed]) [data-dock] {
+    display: block;
+  }
+}
+
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -94,6 +133,27 @@ body {
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Colonne de texte des écrans du fil : pleine largeur sur téléphone, centrée sur
+   tablette, à gauche sur écran large (le média occupe alors la droite). */
+.feed-column {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .feed-column {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding-inline: 2.5rem;
+  }
+}
+@media (min-width: 900px) and (min-aspect-ratio: 5/4) {
+  .feed-column {
+    max-width: 38rem;
+    margin-left: max(1.5rem, calc((100% - 80rem) / 2));
+    margin-right: auto;
+    padding-inline: 2rem;
+  }
 }
 
 /* Hauteur utile du fil : écran moins l'en-tête (ordinateur) ou la barre d'onglets (mobile). */

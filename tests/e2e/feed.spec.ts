@@ -56,8 +56,11 @@ test.describe("Fil de découverte", () => {
 
   test("le filtre par sujet ne garde que ce sujet", async ({ page }) => {
     await page.goto("/");
-    const group = isMobile(page) ? page.getByRole("group", { name: "Filtrer le fil par sujet" }) : page.getByRole("complementary", { name: "Filtrer le fil par sujet" });
+    // Les sujets sont rangés derrière un seul bouton, sur tous les écrans.
+    await page.getByRole("button", { name: /Choisir un sujet/ }).click();
+    const group = page.getByRole("group", { name: "Filtrer le fil par sujet" });
     await group.getByRole("button", { name: "Énergie" }).click();
+    await expect(group).toBeHidden();
     const stories = await page.locator("[data-story]").evaluateAll((els) => [...new Set(els.map((e) => (e as HTMLElement).dataset.story))]);
     expect(stories).toEqual(["equilibre-reseau-electrique"]);
   });

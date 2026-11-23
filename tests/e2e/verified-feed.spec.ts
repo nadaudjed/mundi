@@ -149,16 +149,16 @@ test.describe("Site de test : publications inventées approuvées", () => {
 
   test("le badge de l'en-tête suit la carte : Vérifié, puis Démonstration", async ({ page }) => {
     await page.goto("/");
-    const header = page.locator(".md\\:hidden").first();
-    if (!(await header.isVisible())) test.skip(true, "En-tête du fil propre au mobile");
+    const header = page.getByTestId("feed-topbar");
     await expect(header.getByText("Vérifié", { exact: true })).toBeVisible();
     await scrollFeedTo(page, 7);
-    await expect(header.getByText("Démonstration", { exact: true })).toBeVisible();
+    await expect(header.getByText(/^Démo(nstration)?$/).locator("visible=true")).toBeVisible();
   });
 
   test("filtrer par sujet garde seulement la publication de ce sujet", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("button", { name: "Technologie" }).locator("visible=true").click();
+    await page.getByRole("button", { name: /Choisir un sujet/ }).click();
+    await page.getByRole("group", { name: "Filtrer le fil par sujet" }).getByRole("button", { name: "Technologie" }).click();
     await expect(page.getByTestId("verified-card")).toHaveCount(1);
     await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-publication", SECOND);
   });

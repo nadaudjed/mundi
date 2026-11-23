@@ -10,9 +10,9 @@ export function StoryTile({ story }: { story: Story }) {
   return (
     <Link
       href={`/recit/${story.slug}/`}
-      className="group flex gap-4 rounded-3xl bg-paper p-3 ring-1 ring-night/8 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-night/10 hover:ring-night/15"
+      className="group flex min-w-0 gap-3 rounded-3xl sm:gap-4 bg-paper p-3 ring-1 ring-night/8 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-night/10 hover:ring-night/15"
     >
-      <div className="relative aspect-[3/4] w-24 shrink-0 overflow-hidden rounded-2xl sm:w-28">
+      <div className="relative aspect-[3/4] w-20 shrink-0 overflow-hidden rounded-2xl min-[360px]:w-24 sm:w-28">
         <StoryVisual pattern={topic.pattern} color={topic.color} seed={story.slug} className="h-full w-full transition duration-500 group-hover:scale-105" />
         <span className="absolute bottom-2 left-2 rounded-full bg-night/80 px-2 py-0.5 text-[0.65rem] font-semibold text-ivory">
           {formats[story.format].name}
@@ -23,7 +23,7 @@ export function StoryTile({ story }: { story: Story }) {
           <span className="size-2 rounded-full" style={{ background: topic.color }} aria-hidden="true" />
           {topic.name}
         </p>
-        <h3 className="mt-1.5 font-display text-lg leading-snug font-semibold text-night text-balance group-hover:text-blue">
+        <h3 className="mt-1.5 font-display text-lg leading-snug font-semibold text-night text-balance [overflow-wrap:anywhere] group-hover:text-blue">
           {story.title}
         </h3>
         <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted">{story.dek}</p>

@@ -92,14 +92,21 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
     await expect(card.getByTestId("distinct-note")).toContainText("pas le même dénominateur");
   });
 
-  test("explication : étapes numérotées, faits et hypothèses distingués, lien vers la publication", async ({ page }) => {
+  test("explication en alternatives : un point de départ, des issues sans numéro ni ordre", async ({ page }) => {
     await page.goto("/");
     await scrollFeedTo(page, 4);
     const card = page.locator('[data-index="4"]');
-    const steps = card.getByTestId("explanation").locator("li");
-    await expect(steps).toHaveCount(2);
-    await expect(steps.nth(0)).toContainText("Fait");
-    await expect(steps.nth(1)).toContainText("Hypothèse");
+    const ex = card.getByTestId("explanation");
+    await expect(ex).toHaveAttribute("data-layout", "alternatives");
+    await expect(ex).toContainText("Départ fictif");
+    await expect(ex).toContainText("Ensuite, selon les cas :");
+    const options = ex.locator("li");
+    await expect(options).toHaveCount(2);
+    await expect(options.nth(0)).toContainText("Fait");
+    await expect(options.nth(1)).toContainText("Hypothèse");
+    await expect(options.nth(1).locator(".sr-only")).toHaveText("ou");
+    // Aucune pastille numérotée : rien ne suggère « A puis B ».
+    await expect(ex.locator("ol")).toHaveCount(0);
     // Seule la dernière carte propose « Comprendre ».
     await expect(page.locator('[data-index="1"]').getByRole("link", { name: "Comprendre" })).toHaveCount(0);
     await card.getByRole("link", { name: "Comprendre" }).click();
@@ -161,12 +168,16 @@ test.describe("MUNDI Studio : aperçu des cartes de données", () => {
   test("des cartes valides s'affichent en brouillon, sans badge Vérifié", async ({ page }) => {
     await upload(page, VALID);
     const preview = page.getByTestId("data-cards-preview");
-    await expect(preview.locator("[data-card-kind]")).toHaveCount(3);
-    await expect(preview.getByText("Brouillon — non publié")).toHaveCount(3);
+    await expect(preview.locator("[data-card-kind]")).toHaveCount(4);
+    await expect(preview.getByText("Brouillon — non publié")).toHaveCount(4);
+    // Explication en séquence : étapes numérotées dans l'ordre.
+    const seq = preview.getByTestId("explanation");
+    await expect(seq).toHaveAttribute("data-layout", "sequence");
+    await expect(seq.locator("li")).toHaveCount(2);
     await expect(preview.getByText("Vérifié", { exact: true })).toHaveCount(0);
-    await expect(preview.getByTestId("data-visual-placeholder")).toHaveCount(3);
+    await expect(preview.getByTestId("data-visual-placeholder")).toHaveCount(4);
     await expect(preview.getByRole("link", { name: "Comprendre" })).toHaveCount(0);
-    await expect(page.getByTestId("data-cards-studio")).toContainText("3 cartes importées (cartes-test.json)");
+    await expect(page.getByTestId("data-cards-studio")).toContainText("4 cartes importées (cartes-test.json)");
     const results = await new AxeBuilder({ page }).include('[data-testid="data-cards-studio"]').analyze();
     expect(results.violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
 
@@ -198,6 +209,7 @@ test.describe("MUNDI Studio : aperçu des cartes de données", () => {
     delete bad.cards[1].items[0].denominator;
     bad.cards[2].presentation = "echelle-commune";
     bad.cards[2].source.url = "http://donnees.mundi.test/";
+    bad.cards[3].layout = "alternatives";
     await upload(page, JSON.stringify(bad));
     const alert = page.getByTestId("data-cards-errors");
     await expect(alert).toHaveAttribute("role", "alert");
@@ -205,6 +217,7 @@ test.describe("MUNDI Studio : aperçu des cartes de données", () => {
     await expect(alert).toContainText("Carte 2, valeur 1 : un pourcentage ou un ratio doit indiquer son dénominateur");
     await expect(alert).toContainText("Carte 3 : une échelle commune exige la même unité et le même dénominateur");
     await expect(alert).toContainText("Carte 3 : source HTTPS requise");
+    await expect(alert).toContainText("Carte 4 : des alternatives exigent un point de départ et au moins deux issues");
     await expect(page.getByTestId("data-cards-preview")).toHaveCount(0);
   });
 

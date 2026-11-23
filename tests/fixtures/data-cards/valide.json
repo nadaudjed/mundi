@@ -84,6 +84,31 @@
         }
       ],
       "note": "Les deux taux n’ont pas le même dénominateur."
+    },
+    {
+      "id": "test-explication",
+      "kind": "explication",
+      "headline": "Exemple de test : un mécanisme en étapes",
+      "source": {
+        "label": "Jeu de données fictif (test)",
+        "url": "https://donnees.mundi.test/jeu-fictif"
+      },
+      "asOf": "2026-11-01",
+      "style": {
+        "accent": "topic"
+      },
+      "steps": [
+        {
+          "label": "Étape fictive 1",
+          "text": "Un fait inventé pour le test.",
+          "nature": "fait"
+        },
+        {
+          "label": "Étape fictive 2",
+          "text": "Une hypothèse inventée pour le test.",
+          "nature": "hypothese"
+        }
+      ]
     }
   ]
 }

@@ -28,7 +28,7 @@ export function getTopic(slug: TopicSlug | string): Topic | undefined {
   return topicMap.get(slug as TopicSlug);
 }
 
-function luminance(hex: string): number {
+export function luminance(hex: string): number {
   const [r, g, b] = [1, 3, 5].map((i) => {
     const v = parseInt(hex.slice(i, i + 2), 16) / 255;
     return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;

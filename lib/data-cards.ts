@@ -78,7 +78,16 @@ export type ComparisonCard = CardBase & {
 };
 
 export type ExplanationStep = { label: string; text: string; nature: "fait" | "hypothese" };
-export type ExplanationCard = CardBase & { kind: "explication"; steps: ExplanationStep[] };
+export type ExplanationCard = CardBase & {
+  kind: "explication";
+  steps: ExplanationStep[];
+  /**
+   * « sequence » (par défaut) : étapes numérotées, dans l'ordre.
+   * « alternatives » : la première étape est le point de départ, les suivantes
+   * sont des issues possibles (« ou »), sans ordre ni numéro (ex. : réemploi OU recyclage).
+   */
+  layout?: "sequence" | "alternatives";
+};
 
 export type DataCard = StatCard | ComparisonCard | ExplanationCard;
 
@@ -160,6 +169,8 @@ export function validateDataCards(value: unknown): string[] {
     } else if (c.kind === "explication") {
       const steps = Array.isArray(c.steps) ? c.steps : [];
       if (steps.length < 2 || steps.length > 5) errors.push(`${where} : une explication contient 2 à 5 étapes`);
+      if (c.layout !== undefined && c.layout !== "sequence" && c.layout !== "alternatives") errors.push(`${where} : présentation d'explication inconnue (sequence ou alternatives)`);
+      if (c.layout === "alternatives" && steps.length < 3) errors.push(`${where} : des alternatives exigent un point de départ et au moins deux issues`);
       steps.forEach((st, j) => {
         const x = (st ?? {}) as Record<string, unknown>;
         if (!isText(x.label, 2, 60) || !isText(x.text, 5, 240) || !["fait", "hypothese"].includes(String(x.nature))) {

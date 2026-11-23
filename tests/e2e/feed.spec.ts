@@ -1,12 +1,14 @@
 import { expect, isMobile, scrollFeedTo, test } from "./fixtures";
 
 test.describe("Fil de découverte", () => {
-  test("affiche le premier écran et la mention de démonstration", async ({ page }) => {
+  test("affiche d’abord le récit vérifié puis distingue les démonstrations", async ({ page }) => {
     await page.goto("/");
     const first = page.locator('[data-index="0"]');
     await expect(first).toBeVisible();
-    await expect(page.getByText("Démonstration").locator("visible=true").first()).toBeVisible();
-    await expect(first.getByText(/Contenu illustratif|Faites défiler/)).toBeVisible();
+    await expect(first).toHaveAttribute("data-testid", "verified-card");
+    await expect(first).toContainText("Vérifié");
+    await expect(page.getByTestId("demo-divider")).toHaveCount(1);
+    await expect(page.locator("[data-story]")).not.toHaveCount(0);
   });
 
   test("le défilement passe d'un écran à l'autre (molette et clavier)", async ({ page }) => {

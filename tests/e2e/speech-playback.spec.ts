@@ -37,7 +37,7 @@ test("unsupported speech reports a useful message and offers retry, rather than 
     };
   });
   await page.getByRole("button", { name: "Écouter le résumé" }).click();
-  await expect(page.getByRole("status")).toContainText("navigateur a refusé");
+  await expect(page.getByRole("status").filter({ hasText: "navigateur a refusé" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Écouter le résumé" })).toContainText("Réessayer");
 });
 

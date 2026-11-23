@@ -1,5 +1,82 @@
 [
   {
+    "slug": "dette-publique-la-tchequie-et-la-suede-en-tete-pour-la-part-detenue-par-les",
+    "title": "Dette publique : la Tchéquie et la Suède en tête pour la part détenue par les sociétés financières résidentes",
+    "summary": "Selon Eurostat (publication du 20 novembre 2026), les sociétés financières résidentes détenaient environ 69 % de la dette publique tchèque et de la dette suédoise fin 2025. Elles devancent la Croatie, la Pologne et Malte. Les sources nationales consultées portent sur la dette de l'État central, pas sur celle de l'ensemble des administrations publiques. Elles ne permettent donc pas de reproduire le classement d'Eurostat.",
+    "topic": "economie",
+    "publishedAt": "2026-11-23",
+    "updatedAt": "2026-11-23",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Fin 2025, les sociétés financières résidentes détenaient plus de la moitié de la dette publique dans 7 pays de l'UE, avec 69 % en Tchéquie et en Suède, puis la Croatie (61 %), la Pologne (56 %) et Malte (54 %) (Eurostat).",
+      "À l'inverse, les non-résidents détenaient plus de la moitié de la dette dans 16 pays de l'UE, jusqu'à 90 % à Chypre. Dans la plupart des pays, ménages et entreprises non financières en détiennent moins de 10 %.",
+      "Les données du ministère tchèque des Finances et de Riksgälden concernent la dette de l'État central. Elles ne sont pas directement comparables aux chiffres d'Eurostat, qui couvrent les administrations publiques, et ne prouvent pas les causes du classement."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que publie Eurostat",
+        "text": "Le 20 novembre 2026, Eurostat a publié ses données sur la dette des administrations publiques de l'UE à fin 2025. La part de la dette détenue par les sociétés financières résidentes dépasse la moitié du total dans 7 pays. Elle est la plus élevée en Tchéquie et en Suède (69 % chacune), devant la Croatie (61 %), la Pologne (56 %) et Malte (54 %). Les non-résidents détiennent plus de la moitié de la dette dans 16 pays, avec Chypre (90 %), l'Estonie (78 %), la Lettonie (74 %), la Lituanie (72 %) et la Grèce (71 %). Les secteurs non financiers résidents (entreprises non financières, ménages, institutions sans but lucratif) détiennent moins de 10 % de la dette dans la plupart des pays. Ils dépassent ce seuil à Malte (24 %), en Hongrie (23 %), au Portugal (19 %), en Italie (14 %) et en Irlande (12 %). Le jeu de données source est gov_10dd_ggd."
+      },
+      {
+        "kind": "fait",
+        "heading": "Arrondis et révisions : un classement à égalité",
+        "text": "Le communiqué arrondit les valeurs à l'entier. La page « Structure of government debt » de Statistics Explained donne une décimale. Sa version en ligne le 23 novembre 2026 affiche 68,9 % pour la Tchéquie et la Suède, 61,2 % pour la Croatie, 55,8 % pour la Pologne et 53,9 % pour Malte. Une version PDF en cache de la même page indique 69,1 % pour la Suède et 68,9 % pour la Tchéquie. L'écart entre ces deux versions montre que les chiffres ont été révisés. Dans les deux cas, les deux pays sont pratiquement à égalité, et leur ordre n'est pas significatif. Pour mémoire, le communiqué d'Eurostat portant sur la fin 2021 plaçait la Suède à 74 % et la Tchéquie à 67 %. Des révisions et des différences de couverture éventuelles rendent toutefois les comparaisons entre millésimes à manier avec prudence."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que disent les sources nationales",
+        "text": "Le ministère tchèque des Finances publie des tableaux trimestriels sur la dette de l'État central. Pour les trimestres de 2025 consultés, il précise qu'ils suivent la méthodologie du FMI. Au 4e trimestre 2025, selon ces tableaux, les sociétés financières détenaient 64,32 % de la dette de l'État central et 68,22 % des titres publics émis sur le marché intérieur. Les assureurs en détenaient 4,91 %. Côté suédois, l'Office de la dette (Riksgälden) indique que les assureurs, les institutions de retraite et les investisseurs étrangers ont historiquement détenu la majorité des titres de l'État. Il ajoute que la Riksbank est devenue le premier détenteur en 2020 après ses achats d'obligations. Selon la même page, elle a commencé à vendre ses titres en 2023 mais reste le premier propriétaire. Cette page n'est pas datée précisément (elle cite des chiffres de fin 2023), et ce constat ne vaut pas forcément pour fin 2025. Riksgälden ne donne pas de pourcentage dans ce passage."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Comment lire ce classement : périmètre et limites",
+        "text": "Les chiffres d'Eurostat portent sur la dette brute de l'ensemble des administrations publiques, ventilée par secteur détenteur. Les chiffres tchèques portent sur l'État central, et ceux de Riksgälden également. Il n'y a donc pas de contradiction entre 64 % (État central tchèque) et 69 % (Eurostat), car les périmètres diffèrent. Les sources nationales ne permettent pas pour autant de valider ou d'expliquer le classement d'Eurostat. Les investisseurs étrangers cités par Riksgälden sont d'ailleurs hors du périmètre « résidents » d'Eurostat. Une part élevée de détenteurs résidents ne dit rien en soi du niveau d'endettement ni de sa soutenabilité."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la répartition des détenteurs compte, et ce qu'on ne sait pas",
+        "text": "Une base d'investisseurs résidents peut réduire l'exposition aux retraits de capitaux étrangers. À l'inverse, une forte détention par les institutions financières nationales lie la santé de ce secteur à celle de l'État. Les données consultées ne permettent pas d'établir un lien de cause à effet avec le coût de l'emprunt ou la stabilité financière. Hypothèse : en Suède, les achats passés de la Riksbank pourraient contribuer à la part élevée du secteur financier résident. Les sources consultées ne détaillent pas la composition du secteur pour 2025 et ne permettent pas de le confirmer. Eurostat signale aussi que la part de la dette à échéance résiduelle courte a augmenté dans 18 des 26 pays de l'UE pour lesquels des données existent. Selon le communiqué, la Suède affiche la part la plus élevée de dette à rembourser sous un an (38 %), devant le Portugal (27 %), l'Irlande (26 %) et l'Estonie (20 %). Aucune publication MUNDI antérieure sur ce sujet n'a été identifiée dans le contexte fourni. Il s'agit donc d'un nouveau récit, pas d'une correction."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — Share of government debt held by resident financial corporations highest in Czechia and Sweden (20 novembre 2026)",
+        "url": "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20261120-1"
+      },
+      {
+        "label": "Eurostat — Structure of government debt (Statistics Explained, version en ligne)",
+        "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Structure_of_government_debt"
+      },
+      {
+        "label": "Eurostat — Structure of government debt (Statistics Explained, PDF en cache)",
+        "url": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/1486.pdf?v=6563261564776864"
+      },
+      {
+        "label": "Eurostat — Structure of general government gross debt, end 2021 (15 juin 2022)",
+        "url": "https://ec.europa.eu/eurostat/web/products-eurostat-news/-/ddn-20220615-1"
+      },
+      {
+        "label": "Ministère tchèque des Finances — Tableaux trimestriels sur la dette de l'État central (T4 2025)",
+        "url": "https://mf.gov.cz/en/fiscal-policy/government-finance-statistics/2025/quarterly-tables-on-the-level-and-development-of-t-63068"
+      },
+      {
+        "label": "Ministère tchèque des Finances — Tableaux trimestriels sur la dette de l'État central (T3 2025, méthodologie FMI)",
+        "url": "https://mf.gov.cz/en/fiscal-policy/government-finance-statistics/2025/quarterly-tables-on-the-level-and-development-of-t-61533"
+      },
+      {
+        "label": "Riksgälden — Questions and answers regarding debt",
+        "url": "https://www.riksgalden.se/en/our-operations/central-government-debt/debt-qa/"
+      },
+      {
+        "label": "Brussels Times — Government debt split reveals sharp contrasts in EU ownership patterns",
+        "url": "https://www.brusselstimes.com/eu-affairs/2416101/government-debt-split-reveals-sharp-contrasts-in-eu-ownership-patterns"
+      }
+    ]
+  },
+  {
     "slug": "dechets-textiles-europe-2024-23-millions-tonnes",
     "title": "Déchets textiles : que deviennent les 2,3 millions de tonnes générées dans l’UE ?",
     "summary": "En 2024, l’Union européenne a généré 2,3 millions de tonnes de déchets textiles, tandis que 1,4 million de tonnes ont été traitées, selon Eurostat. Un chiffre de recyclage impressionnant circule : 78 %. Mais que mesure-t-il exactement ?",

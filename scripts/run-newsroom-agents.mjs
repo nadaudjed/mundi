@@ -6,6 +6,7 @@
 import {readFileSync,writeFileSync,mkdirSync} from "node:fs";
 import {resolve,dirname} from "node:path";
 import {pathToFileURL} from "node:url";
+import {askAgentModel,resolveAgentProviders} from "./agent-providers.mjs";
 const TOPICS=["geopolitique","economie","finance","industrie","materiaux-critiques","energie",
 "recyclage","environnement","technologie","entreprises","afrique","sciences-societe"];
 const SENSITIVE=new Set(["geopolitique","finance","sciences-societe"]);
@@ -91,24 +92,6 @@ const CHECKER_SYSTEM=[
 "uncertainties:[string], sensitiveFlags:[string], reason:string}.",
 "Le tableau claimChecks reprend chaque claim du brouillon dans l'ordre. evidenceUrls doit désigner des sources consultées et présentes au brouillon."
 ].join(" ");
-async function askModel(system,payload,model,key){
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),110000);
-  try{
-    const response=await fetch("https://api.openai.com/v1/responses",{
-      method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+key},
-      signal:ctrl.signal,body:JSON.stringify({model,store:false,tools:[{type:"web_search"}],
-        text:{format:{type:"json_object"}},max_output_tokens:2200,
-        input:[{role:"system",content:system},{role:"user",content:JSON.stringify(payload)}]})
-    });
-    if(!response.ok)throw new Error("AI service HTTP "+response.status);
-    const data=await response.json();
-    if(data.status!=="completed")throw new Error("AI response not completed");
-    const content=(data.output??[]).filter(x=>x.type==="message").flatMap(x=>x.content??[])
-      .filter(x=>x.type==="output_text").map(x=>x.text).join("\n");
-    if(!content||content.length>40000)throw new Error("AI returned empty or excessive output");
-    return JSON.parse(content);
-  }finally{clearTimeout(timer);}
-}
 function record(job,draft,review,assessment,error){
   return {format:"mundi-agent-output-v1",id:job.id,date:job.date,role:job.role,topic:job.topic,
     originalAssignment:job.title,recordKey:job.recordKey,sourceLead:job.source,previousPublication:job.previousPublication,
@@ -116,32 +99,44 @@ function record(job,draft,review,assessment,error){
     assessment:assessment??{status:"not_run",safeForAutopublication:false,reasons:["No AI key or valid result"]},
     error:short(error,350)||null,createdAt:now(),status:"draft_not_published"};
 }
-async function runOne(job,key,model,checkerModel){
+async function runOne(job,configuration){
+  const {writer,checker}=configuration;
   if(job.status.startsWith("blocked_"))return record(job,null,null,null,job.status);
-  if(!key||!model)return record(job,null,null,null,"OPENAI_API_KEY or MUNDI_AGENT_MODEL missing; planning only");
+  if(!writer.key||!writer.model||!checker.key||!checker.model)
+    return record(job,null,null,null,"Agent or checker provider/model/API credential missing; planning only");
   try{
-    const draft=await askModel(WRITER_SYSTEM,{
+    const draft=await askAgentModel(WRITER_SYSTEM,{
       role:job.role,topic:job.topic,dateOfResearch:job.date,
       assignment:job.title||("Recherche quotidienne des nouveautés fiables en "+job.topic),angle:job.angle,
       sourceLead:job.source,updateTarget:job.previousPublication,
       previouslyPublishedOnSameBeat:job.relatedPublications??[],
       task:job.role==="journalist"?"Cherche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante.":"Expliquer un mécanisme durable sans inventer de faits."
-    },model,key);
+    },writer,"writer");
     const draftErrors=validateResearchDraft(draft,job);
     if(draftErrors.length)return record(job,draft,null,{
       status:"needs_human_or_more_research",safeForAutopublication:false,reasons:draftErrors},null);
-    const checker=await askModel(CHECKER_SYSTEM,{job,draft},checkerModel,key);
+    const checkerResult=await askAgentModel(CHECKER_SYSTEM,{job,draft},checker,"checker");
+    const checker=checkerResult;
     return record(job,draft,checker,assessReview(draft,checker,job),null);
   }catch(error){return record(job,null,null,null,String(error?.message??error));}
 }
-export async function runAgentDesk(plan,{key=process.env.OPENAI_API_KEY,
-  model=process.env.MUNDI_AGENT_MODEL,checkerModel=process.env.MUNDI_CHECKER_MODEL||model,
-  maximum=Number(process.env.MUNDI_AGENT_MAX_JOBS||2)}={}){
+export async function runAgentDesk(plan,{
+  key=process.env.OPENAI_API_KEY,
+  claudeKey=process.env.ANTHROPIC_API_KEY,
+  provider=process.env.MUNDI_AGENT_PROVIDER||"openai",
+  checkerProvider=process.env.MUNDI_CHECKER_PROVIDER||provider,
+  model=process.env.MUNDI_AGENT_MODEL,
+  checkerModel=process.env.MUNDI_CHECKER_MODEL||"",
+  maximum=Number(process.env.MUNDI_AGENT_MAX_JOBS||2)
+}={}){
   if(plan?.format!=="mundi-daily-agent-plan-v1"||!Array.isArray(plan.jobs)||plan.jobs.length!==20)
     throw new Error("Invalid daily editorial plan");
   const max=Math.min(20,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));
+  const config=resolveAgentProviders({
+    provider,checkerProvider,model,checkerModel,openaiKey:key,anthropicKey:claudeKey
+  });
   const jobs=plan.jobs.slice(0,max),out=new Array(jobs.length);let idx=0;
-  async function worker(){while(idx<jobs.length){const i=idx++;out[i]=await runOne(jobs[i],key,model,checkerModel);}}
+  async function worker(){while(idx<jobs.length){const i=idx++;out[i]=await runOne(jobs[i],config);}}
   await Promise.all(Array.from({length:Math.min(3,jobs.length)},worker));
   return {format:"mundi-agent-day-v1",date:plan.date,target:20,completed:out.length,
     notice:"Internal AI research, not factual proof or publication. Checker verdict is advisory; public publishing remains disabled.",
@@ -155,5 +150,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
   const dest=resolve(process.env.MUNDI_AGENT_REPORT||"reports/agents-results.json");
   mkdirSync(dirname(dest),{recursive:true});writeFileSync(dest,JSON.stringify(result,null,2)+"\n");
   console.log("Agent drafts:",result.generated,"machine checked:",result.machineChecked,
-    "publications:",result.publiclyPublished,"; model configured:",Boolean(process.env.OPENAI_API_KEY&&process.env.MUNDI_AGENT_MODEL));
+    "publications:",result.publiclyPublished,
+    "; writer provider:",process.env.MUNDI_AGENT_PROVIDER||"openai",
+    "; model configured:",Boolean(process.env.MUNDI_AGENT_MODEL&&
+      (process.env.MUNDI_AGENT_PROVIDER==="anthropic"?process.env.ANTHROPIC_API_KEY:process.env.OPENAI_API_KEY)));
 }

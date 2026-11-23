@@ -25,3 +25,7 @@
 ## Validation
 
 Le passage de 2 à 20 missions par jour nécessite un retour d'expérience sur les erreurs, sources accessibles, coût moyen, diversité des sujets et fiabilité des contrôles. Voir les issues #41 et #43.
+
+## Diagnostic API HTTP
+
+Le 23 novembre 2026, la clé Anthropic est bien détectée mais le premier essai a échoué avec deux réponses `HTTP 400` (sans article créé). La PR #49 a renforcé les messages d'erreur sans exposer les secrets. Les détails techniques limités à `error.type` et `error.message` peuvent maintenant être consultés dans les résultats privés du job pour diagnostiquer une requête invalide ou une restriction de recherche Web. Avant d'ajuster les paramètres, distinguer la configuration de l'appel de l'état de facturation et des permissions de l'API. Ne jamais afficher ni copier la clé dans les rapports.

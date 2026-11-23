@@ -75,7 +75,7 @@ export function DataCardView({ card, position, total, topicColor, active, reveal
 
   return (
     <div
-      className={`relative flex h-full flex-col overflow-hidden px-5 pt-28 pb-6 md:px-6 md:pt-20 ${light ? "bg-ivory text-night" : "bg-night text-ivory"}`}
+      className={`relative h-full overflow-hidden ${light ? "bg-ivory text-night" : "bg-night text-ivory"}`}
       data-card-kind={card.kind}
       data-tone={light ? "ivory" : "night"}
       data-scene={backdrop ? backdrop.id : undefined}
@@ -83,37 +83,40 @@ export function DataCardView({ card, position, total, topicColor, active, reveal
       role="group"
     >
       {backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} active={active} />}
-      <div className="relative flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">
-        <span style={{ color: textAccent }} className={light ? "text-night/70" : ""}>
-          Données · carte {position + 1} sur {total}
-        </span>
-        {status === "brouillon" && (
-          <span className={`rounded-full border-2 border-dashed border-amber px-2 py-0.5 text-[0.65rem] ${light ? "text-[#7a5410]" : "text-[#ffd98f]"}`}>
-            Brouillon — non publié
+      {/* Sur petit écran, la carte défile plutôt que de cacher sa source sous la barre d'onglets. */}
+      <div className="no-scrollbar relative flex h-full flex-col overflow-y-auto px-5 pt-28 pb-6 md:px-6 md:pt-20 [@media(max-height:740px)]:pt-[5.75rem] [@media(max-height:740px)]:pb-4" data-testid="card-scroll">
+        <div className="relative flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">
+          <span style={{ color: textAccent }} className={light ? "text-night/70" : ""}>
+            Données · carte {position + 1} sur {total}
           </span>
-        )}
-      </div>
-      <div className="relative mt-2 flex gap-1" aria-hidden="true">
-        {Array.from({ length: total }, (_, i) => (
-          <span key={i} className={`h-1 flex-1 rounded-full ${i <= position ? "" : light ? "bg-night/15" : "bg-ivory/20"}`} style={i <= position ? { background: accent } : undefined} />
-        ))}
-      </div>
+          {status === "brouillon" && (
+            <span className={`rounded-full border-2 border-dashed border-amber px-2 py-0.5 text-[0.65rem] ${light ? "text-[#7a5410]" : "text-[#ffd98f]"}`}>
+              Brouillon — non publié
+            </span>
+          )}
+        </div>
+        <div className="relative mt-2 flex gap-1" aria-hidden="true">
+          {Array.from({ length: total }, (_, i) => (
+            <span key={i} className={`h-1 flex-1 rounded-full ${i <= position ? "" : light ? "bg-night/15" : "bg-ivory/20"}`} style={i <= position ? { background: accent } : undefined} />
+          ))}
+        </div>
 
-      <RevealWords
-        as="h2"
-        id={titleId}
-        text={card.headline}
-        active={revealed}
-        className={`relative mt-5 text-balance ${display ? "font-display text-[1.6rem] leading-[1.15]" : "text-[1.45rem] leading-[1.12] tracking-[-0.02em]"} font-semibold`}
-      />
+        <RevealWords
+          as="h2"
+          id={titleId}
+          text={card.headline}
+          active={revealed}
+          className={`relative mt-5 text-balance [@media(max-height:740px)]:mt-3 ${display ? "font-display text-[1.6rem] leading-[1.15] [@media(max-height:740px)]:text-[1.35rem]" : "text-[1.45rem] leading-[1.12] tracking-[-0.02em] [@media(max-height:740px)]:text-[1.25rem]"} font-semibold`}
+        />
 
-      <VisualArea visual={card.visual} placeholder={showVisualPlaceholder} light={light} />
+        <VisualArea visual={card.visual} placeholder={showVisualPlaceholder} light={light} />
 
-      <div className="relative mt-auto pt-4" data-fade={revealed ? "on" : "off"}>
-        {card.kind === "stat" && <StatBody card={card} accent={textAccent} active={active} display={display} light={light} />}
-        {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} active={active} light={light} />}
-        {card.kind === "explication" && <ExplanationBody card={card} accent={accent} light={light} />}
-        <Footer card={card} light={light} href={href} backdrop={backdrop} />
+        <div className="relative mt-auto pt-4" data-fade={revealed ? "on" : "off"}>
+          {card.kind === "stat" && <StatBody card={card} accent={textAccent} active={active} display={display} light={light} />}
+          {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} active={active} light={light} />}
+          {card.kind === "explication" && <ExplanationBody card={card} accent={accent} light={light} />}
+          <Footer card={card} light={light} href={href} backdrop={backdrop} />
+        </div>
       </div>
     </div>
   );
@@ -152,7 +155,7 @@ function VisualArea({ visual, placeholder, light }: { visual?: VisualSlot; place
 function Value({ m, display, big }: { m: Measure; display: boolean; big?: boolean }) {
   return (
     <span className="whitespace-nowrap">
-      <span className={`${display ? "font-display" : ""} ${big ? "text-[3.4rem] leading-none" : "text-2xl"} font-semibold tabular-nums`}>{formatValue(m)}</span>{" "}
+      <span className={`${display ? "font-display" : ""} ${big ? "text-[3.4rem] leading-none [@media(max-height:740px)]:text-[2.6rem]" : "text-2xl"} font-semibold tabular-nums`}>{formatValue(m)}</span>{" "}
       <span className={big ? "text-lg font-semibold" : "text-sm font-semibold"}>{m.unit}</span>
     </span>
   );
@@ -179,7 +182,7 @@ function StatBody({ card, accent, active, display, light }: { card: StatCard; ac
           <Context m={card.measure} light={light} />
         </span>
       </div>
-      {card.context && <p className={`mt-3 text-[0.95rem] leading-relaxed ${light ? "text-night/85" : "text-ivory/85"}`}>{card.context}</p>}
+      {card.context && <p className={`mt-3 text-[0.95rem] leading-relaxed [@media(max-height:740px)]:text-sm ${light ? "text-night/85" : "text-ivory/85"}`}>{card.context}</p>}
     </div>
   );
 }
@@ -189,7 +192,7 @@ function ComparisonBody({ card, accent, active, light }: { card: ComparisonCard;
   const max = Math.max(...card.items.map((m) => m.value), 0);
   return (
     <div data-testid="comparison" data-presentation={card.presentation}>
-      <ul className="space-y-3">
+      <ul className="space-y-3 [@media(max-height:740px)]:space-y-2">
         {card.items.map((m, i) => (
           <li key={i}>
             <p className="sr-only">{describeMeasure(m)}</p>
@@ -254,7 +257,7 @@ function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accen
     );
   }
   return (
-    <ol className="space-y-2.5" data-testid="explanation" data-layout="sequence">
+    <ol className="space-y-2.5 [@media(max-height:740px)]:space-y-1.5" data-testid="explanation" data-layout="sequence">
       {card.steps.map((s, i) => (
         <li key={i} className="flex gap-3">
           <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold" style={{ background: accent, color: inkOn(accent) }} aria-hidden="true">
@@ -270,7 +273,7 @@ function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accen
 function Footer({ card, light, href, backdrop }: { card: DataCard; light: boolean; href?: string; backdrop?: SceneBackdrop }): ReactNode {
   const muted = light ? "text-night/75" : "text-ivory/75";
   return (
-    <div className={`mt-4 border-t pt-3 text-xs ${light ? "border-night/15" : "border-ivory/15"}`} data-testid="data-footer">
+    <div className={`mt-4 border-t pt-3 text-xs [@media(max-height:740px)]:mt-3 [@media(max-height:740px)]:pt-2 ${light ? "border-night/15" : "border-ivory/15"}`} data-testid="data-footer">
       {card.note && <p className={`mb-2 leading-snug ${muted}`}>À savoir : {card.note}</p>}
       <p className={muted}>
         Source :{" "}

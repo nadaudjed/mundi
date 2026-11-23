@@ -40,3 +40,7 @@ Remplacer les fixtures par un CMS éditorial avec relecture humaine, ajouter les
 - Fin du fil : écran de transition entre les récits illustratifs et les futures publications vérifiées (`TransitionCard` dans `components/Feed.tsx`). Il compte les publications vérifiées sans en publier aucune.
 - Tests : `tests/e2e/pwa.spec.ts`, `mobile-network.spec.ts`, `a11y.spec.ts` (axe-core). Détails et limites : `docs/MOBILE_QA.md`.
 
+## Fil unique : publications vérifiées et démonstrations (ticket #17)
+- Lecture des publications : `lib/verified.ts` (serveur, au moment de la construction). Carte : `components/VerifiedCard.tsx`. Fil : `components/Feed.tsx` reçoit les publications depuis `app/page.tsx`.
+- Tests avec publications inventées (jamais déployées) : `tests/fixtures/`, `scripts/build-e2e-sites.mjs`, `tests/e2e/verified-feed.spec.ts`. Détails : `docs/VERIFIED_FEED.md`.
+

@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPublication, publishedArticles } from "@/lib/editorial";
+import { formatDate } from "@/lib/format";
+import { getVerifiedPublication as getPublication, verifiedPublications as publishedArticles } from "@/lib/verified";
 import { getTopic } from "@/lib/topics";
+import { ListenButton } from "@/components/ListenButton";
+import { SaveButton, ShareButton } from "@/components/StoryActions";
+import { publicationKey, publicationPath } from "@/lib/publication-links";
 
 type Params = { slug: string };
 export function generateStaticParams(): Params[] {
@@ -28,7 +32,12 @@ export default async function PublicationPage({ params }: { params: Promise<Para
       <p className="mt-10 text-xs font-semibold uppercase tracking-wider text-blue">{getTopic(a.topic)?.name} · Publication vérifiée</p>
       <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-night md:text-5xl">{a.title}</h1>
       <p className="mt-5 text-lg leading-relaxed text-muted">{a.summary}</p>
-      <p className="mt-6 border-y border-night/10 py-4 text-sm text-muted">Publié le {a.publishedAt} · Actualisé le {a.updatedAt} · Validation : {a.reviewedBy}</p>
+      <p className="mt-6 border-y border-night/10 py-4 text-sm text-muted" data-testid="publication-meta">{a.fixture && <strong className="mr-2 text-[#7a5410]">Exemple de test, jamais publié.</strong>}Publié le <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time> · Actualisé le <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time> · Validation : {a.reviewedBy}</p>
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <SaveButton slug={publicationKey(a.slug)} title={a.title} />
+        <ShareButton slug={a.slug} path={publicationPath(a.slug)} title={a.title} />
+        <ListenButton title={a.title} summary={a.summary} points={a.keyPoints} tone="light" />
+      </div>
       <section className="mt-10">
         <h2 className="font-display text-2xl font-semibold text-night">Trois idées à retenir</h2>
         <ol className="mt-5 space-y-3">{a.keyPoints.map((point,i) => <li key={i} className="rounded-2xl bg-paper p-5 ring-1 ring-night/10"><strong className="mr-3 text-blue">{i+1}.</strong>{point}</li>)}</ol>

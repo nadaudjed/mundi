@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/PageIntro";
 import { SavedClient } from "@/components/SavedClient";
+import { feedPublications } from "@/lib/verified";
 
 export const metadata: Metadata = { title: "Enregistrés" };
 
@@ -10,7 +11,7 @@ export default function SavedPage() {
       <PageIntro eyebrow="Enregistrés" title="Vos récits à reprendre">
         Ils sont conservés dans ce navigateur, sur cet appareil uniquement. Aucun compte n&apos;est nécessaire.
       </PageIntro>
-      <SavedClient />
+      <SavedClient publications={feedPublications} />
     </div>
   );
 }

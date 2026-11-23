@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type Props = { title: string; summary: string; points: string[]; active?: boolean };
+/** tone « dark » : sur fond sombre (fil) ; « light » : sur fond clair (pages). */
+type Props = { title: string; summary: string; points: string[]; active?: boolean; tone?: "dark" | "light" };
 
-export function ListenButton({ title, summary, points, active = true }: Props) {
+export function ListenButton({ title, summary, points, active = true, tone = "dark" }: Props) {
   const [playing, setPlaying] = useState(false);
   const [supported, setSupported] = useState(true);
   const utterance = useRef<SpeechSynthesisUtterance | null>(null);
@@ -53,7 +54,7 @@ export function ListenButton({ title, summary, points, active = true }: Props) {
       aria-label={playing ? "Arrêter la lecture audio" : "Écouter le résumé"}
       aria-pressed={playing}
       title="Voix synthétique de votre appareil"
-      className="inline-flex items-center gap-2 rounded-full border border-ivory/35 px-4 py-2.5 text-sm font-semibold text-ivory hover:border-ivory/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint">
+      className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint ${tone === "light" ? "border-night/15 py-2 text-night hover:border-night/40" : "border-ivory/35 text-ivory hover:border-ivory/80"}`}>
       <span aria-hidden="true">{playing ? "■" : "▶"}</span>
       {supported ? (playing ? "Arrêter" : "Écouter") : "Audio indisponible"}
     </button>

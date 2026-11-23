@@ -1,0 +1,148 @@
+"use client";
+
+import Link from "next/link";
+import { formatDate } from "@/lib/format";
+import { publicationKey, publicationPath } from "@/lib/publication-links";
+import { getTopic, inkOn } from "@/lib/topics";
+import type { FeedPublication } from "@/lib/verified";
+import { Icon } from "./Icon";
+import { ListenButton } from "./ListenButton";
+import { SaveButton, ShareButton } from "./StoryActions";
+import { StoryVisual } from "./StoryVisual";
+
+/** Variantes visuelles sans photo : aucune image dont les droits seraient incertains. */
+export type CardVisual = "motif" | "sobre";
+
+export function VerifiedBadge({ tone = "light" }: { tone?: "light" | "dark" }) {
+  const styles = tone === "light" ? "border-mint/60 bg-mint/15 text-mint-soft" : "border-mint/60 bg-mint/10 text-[#0f6e5b]";
+  return (
+    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wider ${styles}`}>
+      <Icon name="check" className="size-3.5" />
+      Vérifié
+    </span>
+  );
+}
+
+/**
+ * Fond éditorial original, sans média externe.
+ * - « motif » : motif génératif du sujet, qui dérive lentement (seulement si
+ *   l'appareil n'a pas demandé de réduire les animations) ;
+ * - « sobre » : simple halo de couleur, totalement statique.
+ * Purement décoratif : tout le sens est porté par le texte de la carte.
+ */
+function EditorialBackdrop({ visual, color, pattern, seed }: { visual: CardVisual; color: string; pattern: Parameters<typeof StoryVisual>[0]["pattern"]; seed: string }) {
+  if (visual === "sobre") {
+    return (
+      <div className="absolute inset-0" aria-hidden="true" data-visual="sobre">
+        <div className="absolute inset-0" style={{ background: `radial-gradient(120% 70% at 20% 10%, ${color}55, transparent 60%)` }} />
+      </div>
+    );
+  }
+  return (
+    <div className="absolute inset-0 overflow-hidden" aria-hidden="true" data-visual="motif">
+      <StoryVisual pattern={pattern} color={color} seed={seed} className="h-full w-full scale-110 opacity-70 motion-safe:animate-drift" />
+    </div>
+  );
+}
+
+type Props = {
+  publication: FeedPublication;
+  index: number;
+  position: number;
+  total: number;
+  active: boolean;
+  visual: CardVisual;
+};
+
+export function VerifiedCard({ publication: p, index, position, total, active, visual }: Props) {
+  const topic = getTopic(p.topic)!;
+  const shown = p.sources.slice(0, 3);
+  const more = p.sources.length - shown.length;
+
+  return (
+    <article
+      data-index={index}
+      data-publication={p.slug}
+      data-testid="verified-card"
+      aria-roledescription="publication vérifiée"
+      aria-label={`Publication vérifiée ${position + 1} sur ${total} : ${p.title}`}
+      className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night text-ivory"
+    >
+      <EditorialBackdrop visual={visual} color={topic.color} pattern={topic.pattern} seed={p.slug} />
+      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-35% via-night/80 via-55% to-night/30" aria-hidden="true" />
+
+      <p className="absolute top-[5.75rem] right-4 z-10 rounded-full bg-night/70 px-2.5 py-1 text-[0.68rem] font-semibold text-ivory/90 ring-1 ring-ivory/20 md:top-4" data-testid="verified-credit">
+        Visuel : motif génératif MUNDI
+      </p>
+
+      <div className="pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:px-6 md:pb-8">
+        <div className="pointer-events-auto min-w-0 flex-1">
+          <div className="mb-3 flex flex-wrap items-center gap-2 text-[0.75rem] font-semibold">
+            <VerifiedBadge />
+            <span className="rounded-full px-2.5 py-1" style={{ background: topic.color, color: inkOn(topic.color) }}>
+              {topic.name}
+            </span>
+            {p.fixture && <span className="rounded-full border border-amber/60 px-2.5 py-1 text-[#ffd98f]">Exemple de test</span>}
+          </div>
+
+          <h2 className="font-display text-[1.6rem] leading-[1.12] font-semibold text-balance md:text-[1.75rem]">{p.title}</h2>
+          <p className="mt-3 text-[0.92rem] leading-relaxed text-ivory/80 [@media(max-height:760px)]:line-clamp-2">{p.summary}</p>
+
+          <p className="mt-3 text-xs text-ivory/75" data-testid="verified-meta">
+            Publié le <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>
+            {p.updatedAt !== p.publishedAt && (
+              <>
+                {" "}
+                · actualisé le <time dateTime={p.updatedAt}>{formatDate(p.updatedAt)}</time>
+              </>
+            )}{" "}
+            · relu par {p.reviewedBy}
+          </p>
+
+          <div className="mt-3" data-testid="verified-sources">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-mint-soft">Sources</p>
+            <ul className="mt-1.5 flex flex-wrap gap-1.5">
+              {shown.map((s) => (
+                <li key={s.url}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex max-w-[16rem] items-center gap-1 truncate rounded-full border border-ivory/25 bg-night/60 px-2.5 py-1 text-xs text-ivory underline-offset-2 hover:border-ivory/60 hover:underline"
+                  >
+                    <span className="truncate">{s.label}</span>
+                    <span className="sr-only"> (nouvel onglet)</span>
+                  </a>
+                </li>
+              ))}
+              {more > 0 && (
+                <li>
+                  <Link href={publicationPath(p.slug)} className="inline-flex rounded-full px-2 py-1 text-xs text-ivory/80 underline underline-offset-2">
+                    + {more} autre{more > 1 ? "s" : ""}
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <Link
+              href={publicationPath(p.slug)}
+              className="inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night transition hover:bg-mint-soft"
+            >
+              Lire la publication
+              <Icon name="arrow-right" className="size-4" />
+            </Link>
+            <ListenButton title={p.title} summary={p.summary} points={p.keyPoints} active={active} />
+          </div>
+        </div>
+
+        <div className="pointer-events-auto flex shrink-0 flex-col items-center gap-1 self-end pb-12">
+          <SaveButton slug={publicationKey(p.slug)} title={p.title} variant="rail" />
+          <ShareButton slug={p.slug} path={publicationPath(p.slug)} title={p.title} variant="rail" />
+        </div>
+      </div>
+    </article>
+  );
+}

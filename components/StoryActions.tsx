@@ -28,11 +28,11 @@ export function SaveButton({ slug, title, variant = "inline" }: { slug: string; 
   );
 }
 
-export function ShareButton({ slug, title, variant = "inline" }: { slug: string; title: string; variant?: Variant }) {
+export function ShareButton({ slug, title, path, variant = "inline" }: { slug: string; title: string; path?: string; variant?: Variant }) {
   const toast = useToast();
 
   async function share() {
-    const url = `${window.location.origin}/recit/${slug}/`;
+    const url = `${window.location.origin}${path ?? `/recit/${slug}/`}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: `${title} — MUNDI`, url });

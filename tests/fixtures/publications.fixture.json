@@ -1,0 +1,48 @@
+[
+  {
+    "slug": "test-publication-energie",
+    "title": "Exemple de test : une publication vérifiée sur l'énergie",
+    "summary": "Texte inventé pour les tests automatiques. Il vérifie qu'une publication approuvée apparaît en tête du fil avec ses sources, ses dates et son relecteur.",
+    "topic": "energie",
+    "publishedAt": "2026-11-20",
+    "updatedAt": "2026-11-21",
+    "status": "published",
+    "reviewedBy": "Relecteur fictif (test)",
+    "keyPoints": [
+      "Ceci est un premier point inventé pour le test.",
+      "Ceci est un deuxième point inventé pour le test.",
+      "Ceci est un troisième point inventé pour le test."
+    ],
+    "sections": [
+      { "kind": "fait", "heading": "Section de test", "text": "Paragraphe inventé pour vérifier l'affichage d'une section de faits dans la page de publication." }
+    ],
+    "sources": [
+      { "label": "Source fictive A (test)", "url": "https://sources.mundi.test/a" },
+      { "label": "Source fictive B (test)", "url": "https://sources.mundi.test/b" },
+      { "label": "Source fictive C (test)", "url": "https://sources.mundi.test/c" },
+      { "label": "Source fictive D (test)", "url": "https://sources.mundi.test/d" }
+    ]
+  },
+  {
+    "slug": "test-publication-technologie",
+    "title": "Exemple de test : une seconde publication, sans média",
+    "summary": "Texte inventé pour les tests automatiques. Cette carte utilise la variante visuelle sobre, sans photo ni vidéo, et reste entièrement lisible.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-18",
+    "updatedAt": "2026-11-18",
+    "status": "published",
+    "reviewedBy": "Relectrice fictive (test)",
+    "keyPoints": [
+      "Premier point inventé de la seconde publication.",
+      "Deuxième point inventé de la seconde publication.",
+      "Troisième point inventé de la seconde publication."
+    ],
+    "sections": [
+      { "kind": "analyse", "heading": "Analyse de test", "text": "Paragraphe inventé pour vérifier l'affichage d'une section d'analyse dans la page de publication." }
+    ],
+    "sources": [
+      { "label": "Source fictive E (test)", "url": "https://sources.mundi.test/e" },
+      { "label": "Source fictive F (test)", "url": "https://sources.mundi.test/f" }
+    ]
+  }
+]

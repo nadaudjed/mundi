@@ -51,7 +51,7 @@ jobs:
             # Editorial publications, CI workflow changes and infrastructure
             # are never auto-merged; they require deliberate review.
             changed="$(gh api --paginate "repos/$REPO/pulls/$number/files?per_page=100" --jq '.[].filename')"
-            if grep -Eq '^(content/publications\\.json|\\.github/workflows/|netlify\\.toml|next\\.config\\.ts)' <<< "$changed"; then
+            if grep -Eq '^(content/publications[.]json|[.]github/workflows/|netlify[.]toml|next[.]config[.]ts)' <<< "$changed"; then
               echo "PR #$number touches sensitive files, skipping automatic merge."
               continue
             fi

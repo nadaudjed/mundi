@@ -2,6 +2,14 @@ name: Editorial inbox — manual research export
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'content/sources.json'
+      - 'scripts/collect-sources.mjs'
+      - 'scripts/run-editorial-inbox.mjs'
+      - 'scripts/export-candidates.mjs'
+      - '.github/workflows/editorial-inbox.yml'
   schedule:
     - cron: '23 6 * * *'
 

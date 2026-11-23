@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<title>MUNDI — Laboratoire d'animation éditoriale V2 (hors production)</title>
+<title>MUNDI — Motion Lab V2.1 · scènes immersives sans chiffres dans les visuels</title>
 <style>
 :root {
   --night:#101d30;--ivory:#f3f0e8;--mint:#89e1ca;--blue:#7da8dd;
@@ -24,10 +24,11 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
 .brand{font-weight:780;letter-spacing:.28em;font-size:clamp(16px,2vw,25px);line-height:1;pointer-events:auto}
 .brand span{color:var(--mint)}
 .chrome-end{display:flex;gap:18px;align-items:center;pointer-events:auto}
-.chrome-end button{border:0;background:transparent;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700;opacity:.85;padding:8px 0}
+.chrome-end button{border:0;background:transparent;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700;opacity:.85;padding:12px 3px;min-height:44px;touch-action:manipulation}
 .progress{position:fixed;top:calc(env(safe-area-inset-top) + 2px);left:0;right:0;display:flex;gap:4px;z-index:25;padding:0 clamp(19px,3vw,54px)}
-.progress button{flex:1;border:0;padding:0;height:2px;background:rgba(255,255,255,.25);transition:background .3s}
-.progress button[aria-current="step"]{background:var(--mint)}
+.progress button{flex:1;position:relative;border:0;padding:0;height:22px;background:transparent;touch-action:manipulation}
+.progress button::before{content:"";display:block;position:absolute;left:0;right:0;top:0;height:2px;background:rgba(255,255,255,.25);transition:background .3s}
+.progress button[aria-current="step"]::before{background:var(--mint)}
 .stage{height:100dvh;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior-y:contain;scrollbar-width:none}
 .stage::-webkit-scrollbar{display:none}
 .scene{height:100dvh;min-height:500px;scroll-snap-align:start;scroll-snap-stop:always;position:relative;isolation:isolate;overflow:hidden;background:#0e1a2b}
@@ -46,7 +47,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
 .rule{width:clamp(56px,8vw,100px);height:2px;background:var(--mint);margin:26px 0 0}
 .scene__foot{position:absolute;left:clamp(22px,6vw,116px);right:clamp(22px,6vw,116px);bottom:calc(env(safe-area-inset-bottom) + 30px);display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.07em}
 .scene__foot span{color:#d9e5e5;opacity:.8}
-.scene__foot button{padding:9px 0;border:0;border-bottom:1px solid #87d7c3;background:transparent;font-weight:700;font-size:12px}
+.scene__foot button{padding:12px 0;border:0;border-bottom:1px solid #87d7c3;background:transparent;font-weight:700;font-size:12px;min-height:44px;touch-action:manipulation}
 .line{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.09em}
 .line > span{display:inline-block;opacity:0;transform:translateY(105%);transition:transform .85s var(--ease),opacity .9s}
 .scene.is-active .line > span{opacity:1;transform:translateY(0)}
@@ -62,9 +63,19 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
 @keyframes thread{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:.9}}
 /* Minimal chrome, no rounded cards, no fake controls and no animations that encode data. */
 .legend{position:absolute;right:clamp(22px,6vw,116px);top:27%;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c4d3d4;opacity:.72}
-.story-dots{display:flex;gap:9px}
-.story-dots i{width:5px;height:5px;border:1px solid currentColor;display:block;transform:rotate(45deg)}
-.story-dots i.active{background:var(--mint);border-color:var(--mint)}
+/* Le prototype permet de comparer immersion et lecture sans dépendances externes. */
+body.paused .scene__image, body.reading .scene__image{animation:none!important}
+body.paused .scene__stripe, body.reading .scene__stripe{animation:none!important;opacity:.4;transform:scaleX(1)}
+body.paused .line>span,body.paused .eyebrow,body.paused .description,body.paused .rule,
+body.reading .line>span,body.reading .eyebrow,body.reading .description,body.reading .rule{
+  opacity:1!important;transform:none!important;transition:none!important
+}
+body.reading .scene__image{opacity:.12!important;transform:scale(1.06)!important}
+body.reading .scene__veil{background:linear-gradient(180deg,#08111dbb 0%,#08111de6 65%,#08111d 100%)!important}
+body.reading .scene h1,body.reading .scene h2{letter-spacing:-.05em;line-height:1.0}
+body.reading #reading-mode{color:var(--mint);text-decoration:underline;text-underline-offset:5px}
+@media(max-width:390px){.chrome-end{gap:9px}.chrome-end button{font-size:9px;letter-spacing:.07em}.scene__foot{gap:16px}.scene__foot span{max-width:19ch}}
+
 @media (min-width:900px){.scene__content{bottom:15dvh}.scene__foot{bottom:40px}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
@@ -78,6 +89,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
 <header class="chrome">
   <div class="brand" aria-label="MUNDI">MUNDI<span>.</span></div>
   <div class="chrome-end">
+    <button id="reading-mode" type="button" aria-pressed="false" aria-label="Activer le mode lecture">Lecture</button>
     <button id="pause" type="button" aria-pressed="false" aria-label="Mettre les animations en pause">Pause</button>
     <span aria-hidden="true" style="width:24px;height:1px;background:var(--mint)"></span>
     <span style="font-size:11px;font-weight:700;letter-spacing:.16em">STUDIO</span>
@@ -132,11 +144,24 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offse
   const scenes=[...document.querySelectorAll(".scene")];
   const progress=[...document.querySelectorAll("[data-go]")];
   const pause=document.getElementById("pause");
+  const reading=document.getElementById("reading-mode");
   let paused=false;
+  let readMode=false;
   function go(i){scenes[(i+scenes.length)%scenes.length].scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});}
   progress.forEach((b,i)=>b.addEventListener("click",()=>go(i)));
   document.querySelectorAll("[data-next]").forEach((b,i)=>b.addEventListener("click",()=>go(i+1)));
-  pause.addEventListener("click",()=>{paused=!paused;document.body.classList.toggle("paused",paused);pause.setAttribute("aria-pressed",String(paused));pause.textContent=paused?"Reprendre":"Pause";pause.setAttribute("aria-label",paused?"Reprendre les animations":"Mettre les animations en pause");document.querySelectorAll(".scene__image").forEach(x=>x.style.animationPlayState=paused?"paused":"running");});
+  pause.addEventListener("click",()=>{
+    paused=!paused;document.body.classList.toggle("paused",paused);
+    pause.setAttribute("aria-pressed",String(paused));
+    pause.textContent=paused?"Animer":"Pause";
+    pause.setAttribute("aria-label",paused?"Reprendre les animations":"Mettre les animations en pause");
+  });
+  reading.addEventListener("click",()=>{
+    readMode=!readMode;document.body.classList.toggle("reading",readMode);
+    reading.setAttribute("aria-pressed",String(readMode));
+    reading.setAttribute("aria-label",readMode?"Désactiver le mode lecture":"Activer le mode lecture");
+    reading.textContent=readMode?"Immersif":"Lecture";
+  });
   // All sections are observed; touch, buttons and wheel use native scroll-snap.
   const obs=new IntersectionObserver(entries=>{for(const e of entries){if(!e.isIntersecting || e.intersectionRatio<.6)continue;const i=scenes.indexOf(e.target);scenes.forEach((s,j)=>s.classList.toggle("is-active",i===j));progress.forEach((b,j)=>{if(i===j)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current")});}},{root:stage,threshold:[0,.6,1]});
   scenes.forEach(s=>obs.observe(s));

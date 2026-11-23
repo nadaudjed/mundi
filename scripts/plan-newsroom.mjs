@@ -33,7 +33,7 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
     const previousArticle=candidate?publications.find(p=>(p.sources??[]).some(s=>s.url===candidate.link)):null;
     jobs.push({
       id:hash(today+":"+agent.id),date:today,agentId:agent.id,role:"journalist",topic:agent.topic,
-      status:candidate?"candidate_unverified":"blocked_no_fresh_authorized_source",
+      status:candidate?"candidate_unverified":"research_required_no_lead",
       action:previousArticle?"investigate_update":"investigate_new",
       previousPublication:previousArticle?.slug??null,
       relatedPublications:publications.filter(p=>p.topic===agent.topic).slice(0,8).map(p=>({slug:p.slug,title:p.title,summary:p.summary,updatedAt:p.updatedAt})),
@@ -69,6 +69,7 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
       journalist:jobs.filter(x=>x.role==="journalist").length,
       professors:jobs.filter(x=>x.role==="professor").length,
       journalistGrounded:jobs.filter(x=>x.role==="journalist"&&x.source).length,
+      journalistNeedsFreshResearch:jobs.filter(x=>x.role==="journalist"&&!x.source).length,
       blocked:jobs.filter(x=>x.status.startsWith("blocked_")).length,
       verified:0,published:0
     },
@@ -87,5 +88,5 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
   const plan=makeDailyPlan({roster,ideas,stock,publications,history,now:process.env.MUNDI_RUN_DATE||new Date().toISOString()});
   const out=resolve(process.env.MUNDI_PLAN_PATH||"reports/agents-plan.json");
   mkdirSync(dirname(out),{recursive:true});writeFileSync(out,JSON.stringify(plan,null,2)+"\n");
-  console.log("MUNDI "+plan.date+": "+plan.counts.scheduled+" assignments, "+plan.counts.journalistGrounded+" journalism leads, "+plan.counts.blocked+" blocked; 0 articles published.");
+  console.log("MUNDI "+plan.date+": "+plan.counts.scheduled+" assignments, "+plan.counts.journalistGrounded+" existing journalistic leads, "+plan.counts.journalistNeedsFreshResearch+" must research fresh sources, 0 articles published.");
 }

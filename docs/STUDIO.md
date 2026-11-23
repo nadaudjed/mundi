@@ -33,3 +33,7 @@ Pas de compte, pas de serveur, pas d'écriture dans le dépôt : tout reste dans
 ## Tests
 
 `tests/e2e/studio.spec.ts` (mobile et ordinateur) avec des fiches inventées (`tests/fixtures/candidates/`) : préremplissage limité, étapes, téléchargement et contrôles, dix cas de fiches refusées, titre contenant du HTML, prévisualisation, absence du brouillon dans le fil, accessibilité axe.
+
+## Cartes de données (ticket #25)
+
+Section « 3. Cartes de données » : importer un fichier `mundi-data-cards-v1`. La structure est vérifiée (unités, dénominateurs, sources HTTPS, échelle commune justifiée) et les erreurs s'affichent en français. Chaque carte est prévisualisée avec « Brouillon — non publié » et un cadre d'emplacement pour le visuel. Les cartes sont ajoutées au `.draft.json` téléchargé (champ `dataCards`). Rien n'est publié. Voir `docs/DATA_CARDS.md`.

@@ -6,6 +6,8 @@ import { formatDate } from "@/lib/format";
 import { topics } from "@/lib/topics";
 import type { TopicSlug } from "@/lib/types";
 import { DraftPreview } from "./DraftPreview";
+import { DataCardsImport } from "./data-cards/DataCardsImport";
+import type { DataCard } from "@/lib/data-cards";
 
 type Draft = {
   title: string; summary: string; topic: TopicSlug; keyPoints: string[];
@@ -29,6 +31,7 @@ export function EditorialStudio() {
   const [readOrigin, setReadOrigin] = useState(false);
   const [checkedRights, setCheckedRights] = useState(false);
   const [preview, setPreview] = useState(false);
+  const [dataCards, setDataCards] = useState<DataCard[] | null>(null);
   const fileId = useId();
 
   const started = Boolean(draft.summary.trim() || draft.facts.trim() || draft.source2Name.trim() || draft.keyPoints.some((p) => p.trim()));
@@ -63,6 +66,7 @@ export function EditorialStudio() {
     setReadOrigin(false);
     setCheckedRights(false);
     setPreview(false);
+    setDataCards(null);
     // Un nouveau sujet repart d’un formulaire vide : ne jamais mélanger ses faits
     // avec ceux d’un autre brouillon en cours de rédaction.
     setDraft({
@@ -116,6 +120,8 @@ export function EditorialStudio() {
         { label: draft.source2Name.trim(), url: draft.source2Url.trim() },
       ],
       // Provenance de la piste importée : utile à la relecture, n'autorise aucune publication.
+      // Cartes de données importées : brouillon, chiffres à valider par une personne.
+      ...(dataCards ? { dataCards } : {}),
       ...(candidate ? { origin: { format: "mundi-candidate-v1", reviewStatus: "candidate_unverified", sourceUrl: candidate.source.url, externalPublishedAt: candidate.externalPublishedAt, licenseUrl: candidate.licenseUrl } } : {}),
     };
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
@@ -227,6 +233,7 @@ export function EditorialStudio() {
           </>
         )}
       </div>
+      <DataCardsImport topic={draft.topic} cards={dataCards} onChange={setDataCards} />
       <div className="mt-8 rounded-2xl bg-ivory-2 p-6 text-sm leading-relaxed text-night">
         <strong>Étape suivante :</strong> donnez le fichier téléchargé à Claude Code et demandez une vérification des sources,
         la validation éditoriale, puis une Pull Request. Le bouton ci-dessus ne publie rien.

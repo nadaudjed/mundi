@@ -47,3 +47,7 @@ Remplacer les fixtures par un CMS éditorial avec relecture humaine, ajouter les
 ## MUNDI Studio (ticket #20)
 - Import des fiches `mundi-candidate-v1` : `lib/candidate.ts` ; atelier : `components/EditorialStudio.tsx` ; aperçu : `components/DraftPreview.tsx` ; fond éditorial partagé : `components/EditorialBackdrop.tsx`. Détails : `docs/STUDIO.md`.
 
+
+## Cartes de données (ticket #25)
+
+Schéma typé `mundi-data-cards-v1` (`lib/data-cards.ts`), composant `components/data-cards/DataCardView.tsx`, cartes insérées dans le fil après leur publication approuvée, aperçu « Brouillon — non publié » dans l'atelier. La direction artistique (ticket #26) fournit les visuels et choisit parmi des paramètres de style limités aux jetons de la marque. Détails : `docs/DATA_CARDS.md`.

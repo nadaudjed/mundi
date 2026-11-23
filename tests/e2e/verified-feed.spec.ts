@@ -39,14 +39,16 @@ test.describe("Site de test : publications inventées approuvées", () => {
   test.use({ baseURL: FIXTURES });
 
   test("les publications vérifiées ouvrent le fil, puis un écran sépare les démonstrations", async ({ page }) => {
+    // La première publication est suivie de ses 4 cartes de données (tests/e2e/data-cards.spec.ts).
     await page.goto("/");
     const cards = page.getByTestId("verified-card");
     await expect(cards).toHaveCount(2);
     // Ordre : la plus récente d'abord.
     await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-publication", FIRST);
-    await expect(page.locator('[data-index="1"]')).toHaveAttribute("data-publication", SECOND);
-    await expect(page.locator('[data-index="2"]')).toHaveAttribute("data-testid", "demo-divider");
-    await expect(page.locator('[data-index="3"]')).toHaveAttribute("data-story", /.+/);
+    for (const i of [1, 2, 3, 4]) await expect(page.locator(`[data-index="${i}"]`)).toHaveAttribute("data-testid", "data-card");
+    await expect(page.locator('[data-index="5"]')).toHaveAttribute("data-publication", SECOND);
+    await expect(page.locator('[data-index="6"]')).toHaveAttribute("data-testid", "demo-divider");
+    await expect(page.locator('[data-index="7"]')).toHaveAttribute("data-story", /.+/);
 
     const first = page.locator('[data-index="0"]');
     await expect(first.getByText("Vérifié", { exact: true })).toBeVisible();
@@ -73,7 +75,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
 
   test("les cartes sans média affichent un crédit et un visuel décoratif, dans deux variantes", async ({ page }) => {
     await page.goto("/");
-    for (const [index, visual] of [[0, "motif"], [1, "sobre"]] as const) {
+    for (const [index, visual] of [[0, "motif"], [5, "sobre"]] as const) {
       const card = page.locator(`[data-index="${index}"]`);
       await expect(card.getByTestId("verified-credit")).toHaveText("Visuel : motif génératif MUNDI");
       await expect(card.locator(`[data-visual="${visual}"]`)).toHaveAttribute("aria-hidden", "true");
@@ -125,7 +127,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
     const header = page.locator(".md\\:hidden").first();
     if (!(await header.isVisible())) test.skip(true, "En-tête du fil propre au mobile");
     await expect(header.getByText("Vérifié", { exact: true })).toBeVisible();
-    await scrollFeedTo(page, 3);
+    await scrollFeedTo(page, 7);
     await expect(header.getByText("Démonstration", { exact: true })).toBeVisible();
   });
 

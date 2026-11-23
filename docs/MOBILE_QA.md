@@ -65,3 +65,7 @@ Les tests utilisent l'émulation « Pixel 7 » de Chromium, pas un vrai téléph
 
 Suite Playwright complète relancée (Chromium, profils Pixel 7 et ordinateur) : PWA et hors connexion, réseau lent, économie de données, erreurs de médias, écoute, enregistrements, clavier, sous-titres et analyse axe-core, sur le site normal et sur le site de test avec publications inventées. Safari (iOS et macOS) n'a **pas** été testé : les limites décrites plus haut s'appliquent aussi aux cartes vérifiées.
 
+
+## Cartes de données (ticket #25)
+
+Testé automatiquement dans Chromium (Pixel 7 et ordinateur) : affichage plein écran sans défilement horizontal, animations limitées à la carte visible et coupées en mouvement réduit, axe-core sur fond sombre et clair. **Non testé** sur un vrai iPhone ni un vrai Android. À vérifier à la main sur ces appareils : la lisibilité des grands chiffres sur un écran de 320 px, la fluidité des barres animées et le rendu des visuels SVG fournis par la direction artistique.

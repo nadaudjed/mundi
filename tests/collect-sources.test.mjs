@@ -50,3 +50,26 @@ test("only enabled feeds with documented approved metadata rights are selected",
   const denied = {...eurostat, id:"denied",rightsStatus:"pending_permission_review"};
   assert.deepEqual(authorizedFeeds([denied,{...eurostat,enabled:false},eurostat]),[eurostat]);
 });
+
+test("ECB official RSS press releases provide attributed metadata only",()=>{
+  const ecb={
+    id:"ecb-press",publisher:"Banque centrale européenne",
+    feedUrl:"https://www.ecb.europa.eu/rss/press.html",topic:"economie",
+    rightsUrl:"https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+    enabled:true,rightsStatus:"approved_metadata_collection"
+  };
+  const xml='<rss version="2.0"><channel><title>ECB</title><item>'+
+    '<title><![CDATA[ECB announces interest rates &amp; outlook]]></title>'+
+    '<link>https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261123.en.html</link>'+
+    '<pubDate>Mon, 23 Nov 2026 10:00:00 GMT</pubDate>'+
+    '<description>Sensitive details of an unpublished article must not be copied</description>'+
+    '</item></channel></rss>';
+  const items=parseFeed(xml,ecb);
+  assert.equal(items.length,1);
+  assert.equal(items[0].title,"ECB announces interest rates & outlook");
+  assert.equal(items[0].topicHint,"economie");
+  assert.equal(items[0].publisher,"Banque centrale européenne");
+  assert.equal(items[0].publishedAt,"2026-11-23T10:00:00.000Z");
+  assert.equal(items[0].rightsUrl,ecb.rightsUrl);
+  assert.equal(Object.hasOwn(items[0],"description"),false);
+});

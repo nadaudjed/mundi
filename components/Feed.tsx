@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { formatMinutes } from "@/lib/format";
 import { feedStories } from "@/lib/stories";
+import { personalizedStories, useInterests } from "@/lib/preferences";
 import { formats, getTopic, topics } from "@/lib/topics";
 import type { Story, TopicSlug } from "@/lib/types";
 import { DemoBadge } from "./DemoBadge";
@@ -19,10 +20,11 @@ export function Feed() {
   const [filter, setFilter] = useState<TopicSlug | "all">("all");
   const [active, setActive] = useState(0);
   const scroller = useRef<HTMLDivElement>(null);
+  const { interests } = useInterests();
 
   const items = useMemo(
-    () => (filter === "all" ? feedStories : feedStories.filter((s) => s.topic === filter)),
-    [filter],
+    () => (filter === "all" ? personalizedStories(feedStories, interests) : feedStories.filter((s) => s.topic === filter)),
+    [filter, interests],
   );
 
   // Repère la carte visible pour l'indicateur de progression.
@@ -89,6 +91,7 @@ export function Feed() {
           className="no-scrollbar pointer-events-auto mx-auto mt-3 flex max-w-[30rem] gap-2 overflow-x-auto px-4"
         >
           <FilterChip label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />
+          <Link href="/mes-sujets/" className="shrink-0 rounded-full border border-mint/60 px-3.5 py-1.5 text-[0.8rem] font-medium text-mint-soft hover:bg-mint/15">Personnaliser</Link>
           {feedTopics.map((t) => (
             <FilterChip key={t.slug} label={t.name} color={t.color} active={filter === t.slug} onClick={() => changeFilter(t.slug)} />
           ))}
@@ -100,6 +103,8 @@ export function Feed() {
         <aside className="hidden w-52 shrink-0 flex-col md:flex" aria-label="Filtrer le fil par sujet">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">Votre fil</p>
           <p className="mt-2 font-display text-2xl leading-tight font-semibold text-night">Comprendre le monde, un récit à la fois.</p>
+          <Link href="/mes-sujets/" className="mt-4 inline-flex items-center gap-2 self-start rounded-full border border-blue/30 px-3 py-1.5 text-xs font-semibold text-blue hover:bg-blue/10"><Icon name="sliders" className="size-4" /> Personnaliser mon fil</Link>
+          {interests.length > 0 && <p className="mt-2 text-xs text-muted">{interests.length} centre{interests.length > 1 ? "s" : ""} d’intérêt · des découvertes restent proposées</p>}
           <ul className="no-scrollbar mt-5 -ml-3 space-y-0.5 overflow-y-auto">
             <li>
               <SideFilter label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />

@@ -33,3 +33,10 @@ Remplacer les fixtures par un CMS éditorial avec relecture humaine, ajouter les
 - Médias du fil : `components/MediaStage.tsx`, `VideoCard.tsx`, `ImageStory.tsx`, `MediaCredit.tsx` ; bibliothèque et droits dans `lib/media.ts`. Détails : `docs/MEDIA.md`.
 - Récits découpés en écrans (accroche, fait, explication) : `lib/narratives.ts`.
 - Tests Playwright : `tests/e2e/`, configuration `playwright.config.ts`, commande `npm run test:e2e` (mobile Pixel 7 et ordinateur 1440×900).
+
+## Mobile, PWA et médias accessibles (ticket #13)
+- PWA : `app/manifest.ts`, `public/sw.js`, `components/PwaSetup.tsx`, `lib/install.ts`, `components/InstallButton.tsx`, pages `/application/` et `/hors-ligne/`. Pas de lecture hors ligne des récits.
+- Réseau : `lib/network.ts` (économie de données). Erreurs de médias gérées dans `VideoCard.tsx` et `ImageStory.tsx`.
+- Fin du fil : écran de transition entre les récits illustratifs et les futures publications vérifiées (`TransitionCard` dans `components/Feed.tsx`). Il compte les publications vérifiées sans en publier aucune.
+- Tests : `tests/e2e/pwa.spec.ts`, `mobile-network.spec.ts`, `a11y.spec.ts` (axe-core). Détails et limites : `docs/MOBILE_QA.md`.
+

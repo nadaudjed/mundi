@@ -34,7 +34,12 @@ npm run lint       # ESLint
 npm run typecheck  # TypeScript
 npm run test:e2e   # tests Playwright mobile + ordinateur (construit puis sert le site)
 npm run media:generate  # régénère les médias de démonstration (nécessite ffmpeg)
+npm run icons:generate  # régénère les icônes de l'application installable
 ```
+
+## Application installable
+
+MUNDI peut être ajouté à l'écran d'accueil d'un téléphone (page « Installer l'application »). Ce n'est pas un mode hors ligne : une connexion reste nécessaire. Vérifications et limites (Safari iOS, Android) : `docs/MOBILE_QA.md`.
 
 ## Déploiement
 

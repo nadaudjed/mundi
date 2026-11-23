@@ -4,9 +4,11 @@ import { test as base, expect, type Page } from "@playwright/test";
  * Chaque test échoue si la page produit une erreur JavaScript ou une erreur
  * dans la console. La synthèse vocale est simulée pour rendre l'audio testable.
  */
-export const test = base.extend<{ consoleErrors: string[] }>({
+export const test = base.extend<{ consoleErrors: string[]; allowedErrors: RegExp }>({
+  /** Erreurs attendues dans un test donné (ex. : média volontairement bloqué). */
+  allowedErrors: [/(?!)/, { option: true }],
   consoleErrors: [
-    async ({ page }, use) => {
+    async ({ page, allowedErrors }, use) => {
       const errors: string[] = [];
       page.on("console", (msg) => {
         if (msg.type() === "error") errors.push(msg.text());
@@ -51,7 +53,8 @@ export const test = base.extend<{ consoleErrors: string[] }>({
         });
       });
       await use(errors);
-      expect(errors, "aucune erreur dans la console").toEqual([]);
+      const unexpected = errors.filter((e) => !allowedErrors.test(e));
+      expect(unexpected, "aucune erreur dans la console").toEqual([]);
     },
     { auto: true },
   ],

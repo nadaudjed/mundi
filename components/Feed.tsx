@@ -6,9 +6,11 @@ import { formatMinutes } from "@/lib/format";
 import { getNarrative, type NarrativeBeat } from "@/lib/narratives";
 import { feedStories } from "@/lib/stories";
 import { personalizedStories, useInterests } from "@/lib/preferences";
-import { formats, getTopic, topics } from "@/lib/topics";
+import { formats, getTopic, inkOn, topics } from "@/lib/topics";
 import type { Story, TopicSlug } from "@/lib/types";
+import { publishedArticles } from "@/lib/editorial";
 import { DemoBadge } from "./DemoBadge";
+import { InstallChip } from "./InstallButton";
 import { Icon } from "./Icon";
 import { LogoMark } from "./Logo";
 import { ListenButton } from "./ListenButton";
@@ -43,7 +45,8 @@ export function Feed() {
     [filter, interests],
   );
   const slides = useMemo(() => toSlides(items), [items]);
-  const current = slides[Math.min(active, slides.length - 1)];
+  const current = active < slides.length ? slides[active] : undefined;
+  const atEnd = active >= slides.length;
 
   // Repère la carte visible pour l'indicateur de progression.
   useEffect(() => {
@@ -101,7 +104,10 @@ export function Feed() {
             <LogoMark className="size-6" />
             MUNDI
           </Link>
-          <DemoBadge tone="light" />
+          <div className="flex items-center gap-2">
+            <InstallChip />
+            <DemoBadge tone="light" />
+          </div>
         </div>
         <div
           role="group"
@@ -143,6 +149,7 @@ export function Feed() {
           {slides.map((slide, i) => (
             <FeedCard key={slide.key} slide={slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 1} />
           ))}
+          <TransitionCard index={slides.length} onRestart={() => goTo(0)} />
         </div>
 
         {/* Commandes et repères (ordinateur) */}
@@ -160,7 +167,7 @@ export function Feed() {
             <button
               type="button"
               onClick={() => goTo(active + 1)}
-              disabled={active >= slides.length - 1}
+              disabled={active >= slides.length}
               className="flex size-12 items-center justify-center rounded-full bg-night text-ivory shadow-lg transition hover:bg-blue disabled:opacity-30"
               aria-label="Écran suivant"
             >
@@ -168,11 +175,17 @@ export function Feed() {
             </button>
           </div>
           <p className="text-sm text-muted" aria-live="polite" data-testid="feed-counter">
-            <span className="font-display text-3xl text-night">{(current?.storyIndex ?? 0) + 1}</span> / {items.length}
-            {current && current.steps > 1 && (
-              <span className="mt-1 block text-xs">
-                Écran {current.step + 1} sur {current.steps}
-              </span>
+            {atEnd ? (
+              <span className="font-display text-2xl text-night">Fin du fil</span>
+            ) : (
+              <>
+                <span className="font-display text-3xl text-night">{(current?.storyIndex ?? 0) + 1}</span> / {items.length}
+                {current && current.steps > 1 && (
+                  <span className="mt-1 block text-xs">
+                    Écran {current.step + 1} sur {current.steps}
+                  </span>
+                )}
+              </>
             )}
           </p>
           <p className="text-xs leading-relaxed text-muted">
@@ -248,7 +261,7 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
       <div className="pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:px-6 md:pb-8">
         <div className="pointer-events-auto min-w-0 flex-1">
           <div className="mb-3 flex flex-wrap items-center gap-2 text-[0.75rem] font-semibold">
-            <span className="rounded-full px-2.5 py-1 text-night" style={{ background: topic.color }}>
+            <span className="rounded-full px-2.5 py-1" style={{ background: topic.color, color: inkOn(topic.color) }}>
               {topic.name}
             </span>
             <span className="rounded-full border border-ivory/25 px-2.5 py-1 text-ivory/90">{format.name}</span>
@@ -338,5 +351,55 @@ function NarrativeBody({ slide }: { slide: Slide }) {
       <p className="text-xs font-bold uppercase tracking-[0.2em] text-mint-soft">{beat.label}</p>
       <p className="mt-2 font-display text-[1.7rem] leading-[1.18] font-semibold text-balance md:text-[1.85rem]">{beat.text}</p>
     </div>
+  );
+}
+
+/**
+ * Dernier écran du fil : sépare clairement les récits illustratifs des futurs
+ * récits vérifiés par la rédaction. N'affiche aucune information non revue.
+ */
+function TransitionCard({ index, onRestart }: { index: number; onRestart: () => void }) {
+  const count = publishedArticles.length;
+  return (
+    <article
+      data-index={index}
+      data-testid="feed-transition"
+      aria-label="Fin des récits illustratifs"
+      className="relative flex h-full snap-start snap-always flex-col justify-end overflow-hidden bg-night px-6 pt-32 pb-10 text-ivory"
+    >
+      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="relative">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#ffd98f]">Fin des récits illustratifs</p>
+        <h2 className="mt-3 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">Bientôt : les récits vérifiés de la rédaction</h2>
+        <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
+          Ce que vous venez de parcourir sert à tester MUNDI. Les prochains récits s&apos;appuieront sur des sources réelles,
+          vérifiées et relues par une personne avant publication.
+        </p>
+        <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
+          <div className="rounded-2xl bg-ivory/5 p-3 ring-1 ring-amber/40">
+            <dt className="text-xs font-bold uppercase tracking-wider text-[#ffd98f]">Démonstration</dt>
+            <dd className="mt-1 text-ivory/80">Exemple pédagogique, sources fictives.</dd>
+          </div>
+          <div className="rounded-2xl bg-ivory/5 p-3 ring-1 ring-mint/50">
+            <dt className="text-xs font-bold uppercase tracking-wider text-mint-soft">Vérifié</dt>
+            <dd className="mt-1 text-ivory/80">Sources réelles, date, relecteur nommé.</dd>
+          </div>
+        </dl>
+        <p className="mt-5 text-sm font-medium text-ivory/90" data-testid="verified-count">
+          {count === 0
+            ? "Aucune publication vérifiée pour l'instant."
+            : `${count} publication${count > 1 ? "s" : ""} vérifiée${count > 1 ? "s" : ""} disponible${count > 1 ? "s" : ""}.`}
+        </p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link href="/actualites/" className="inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night hover:bg-mint-soft">
+            Publications vérifiées
+            <Icon name="arrow-right" className="size-4" />
+          </Link>
+          <button type="button" onClick={onRestart} className="rounded-full border border-ivory/35 px-5 py-2.5 text-sm font-semibold text-ivory hover:border-ivory/80">
+            Revoir depuis le début
+          </button>
+        </div>
+      </div>
+    </article>
   );
 }

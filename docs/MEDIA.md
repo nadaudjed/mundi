@@ -13,6 +13,8 @@
 - **Son** : aucune vidéo ne démarre avec le son. Le bouton « Activer le son » n'apparaît que si le fichier a une piste audio (`hasAudio`), et le son est recoupé quand la carte quitte l'écran.
 - **Mouvement** : avec `prefers-reduced-motion: reduce`, aucune lecture automatique ni zoom ; la lecture reste possible à la demande.
 - **Chargement différé** : seules la carte visible et ses voisines immédiates chargent leurs médias (`near`). Les autres n'ont ni `<source>` ni image.
+- **Économie de données** : si l'appareil le demande (ou en 2G), aucune vidéo n'est téléchargée avant un geste.
+- **Erreurs** : vidéo ou image indisponible → aperçu ou visuel de secours, message et bouton « Réessayer » ; le fil n'est jamais bloqué.
 - **Formats** : chaque vidéo existe en WebM (VP9) et MP4 (H.264) ; le navigateur prend le premier qu'il sait lire.
 - **Accessibilité** : `aria-label` descriptif sur chaque vidéo, sous-titres en français, texte alternatif sur chaque image.
 

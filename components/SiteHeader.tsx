@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DemoBadge } from "./DemoBadge";
+import { InstallChip } from "./InstallButton";
 import { Icon } from "./Icon";
 import { Logo } from "./Logo";
 import { isActive, navItems } from "./navItems";
@@ -15,6 +16,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-full max-w-6xl items-center gap-6 px-6">
         <Logo />
         <DemoBadge />
+        <InstallChip tone="dark" />
         <nav aria-label="Navigation principale" className="ml-auto">
           <ul className="flex items-center gap-1">
             {navItems.map((item) => {

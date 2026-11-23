@@ -98,6 +98,9 @@ export default function AboutPage() {
         <Link href="/explorer/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
           Explorer les sujets
         </Link>
+        <Link href="/application/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
+          Installer l&apos;application
+        </Link>
       </div>
     </div>
   );

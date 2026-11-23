@@ -10,7 +10,7 @@ import { StoryTile } from "@/components/StoryTile";
 import { StoryVisual } from "@/components/StoryVisual";
 import { formatDate, formatMinutes } from "@/lib/format";
 import { getStory, relatedStories, stories } from "@/lib/stories";
-import { formats, getTopic } from "@/lib/topics";
+import { formats, getTopic, inkOn } from "@/lib/topics";
 import type { BlockKind } from "@/lib/types";
 
 type Params = { slug: string };
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 }
 
 const kindStyles: Record<BlockKind, { label: string; className: string; hint: string }> = {
-  fait: { label: "Faits", className: "bg-blue/10 text-blue ring-blue/25", hint: "Ce qui est établi et doit être sourcé." },
+  fait: { label: "Faits", className: "bg-blue/10 text-blue-ink ring-blue/25", hint: "Ce qui est établi et doit être sourcé." },
   analyse: { label: "Analyse", className: "bg-mint/12 text-[#0f6e5b] ring-mint/30", hint: "Mécanismes et causes, selon notre lecture." },
   hypothese: { label: "Hypothèses", className: "bg-amber/15 text-[#7a5410] ring-amber/35", hint: "Ce qui pourrait se passer : rien n'est certain." },
 };
@@ -59,7 +59,7 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
           </div>
 
           <div className="mt-16 flex flex-wrap items-center gap-2 text-xs font-semibold md:mt-24">
-            <Link href={`/explorer/?sujet=${topic.slug}`} className="rounded-full px-2.5 py-1 text-night hover:opacity-90" style={{ background: topic.color }}>
+            <Link href={`/explorer/?sujet=${topic.slug}`} className="rounded-full px-2.5 py-1 hover:opacity-90" style={{ background: topic.color, color: inkOn(topic.color) }}>
               {topic.name}
             </Link>
             <span className="rounded-full border border-ivory/30 px-2.5 py-1">

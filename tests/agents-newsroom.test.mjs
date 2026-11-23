@@ -130,3 +130,34 @@ test("mixed-provider checker needs its own model and key; never silently proceed
   assert.equal(out.generated,0);
   assert.equal(out.publiclyPublished,0);
 });
+
+test("live writer and checker pass mocked API responses end-to-end (no checker TDZ)",async()=>{
+  const p=plan();
+  p.jobs[0]={...p.jobs[0],topic:"energie",status:"research_required"};
+  const originalFetch=globalThis.fetch;
+  let calls=0;
+  globalThis.fetch=async()=>{
+    const content=calls++===0?draft:checked();
+    return {ok:true,json:async()=>({
+      type:"message",stop_reason:"end_turn",
+      content:[
+        {type:"server_tool_use",name:"web_search",id:"test-search",input:{query:"energy"}},
+        {type:"text",text:JSON.stringify(content)}
+      ]
+    })};
+  };
+  try{
+    const out=await runAgentDesk(p,{
+      provider:"anthropic",claudeKey:"test-secret",model:"claude-test",maximum:1
+    });
+    assert.equal(calls,2,"one writer call and one independent checker call");
+    assert.equal(out.generated,1);
+    assert.equal(out.machineChecked,1);
+    assert.equal(out.outputs[0].checker.verdict,"pass");
+    assert.equal(out.outputs[0].error,null);
+    assert.equal(out.outputs[0].assessment.safeForAutopublication,false);
+    assert.equal(out.publiclyPublished,0);
+  }finally{
+    globalThis.fetch=originalFetch;
+  }
+});

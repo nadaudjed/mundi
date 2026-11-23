@@ -81,7 +81,13 @@ export function imageQueries(article){
   // Specific subjects must NOT fall back to vague "family", "market", or "recycling":
   // those produced lions for human households, a Nepal budget for European public
   // debt, and vandalized bins for textile sorting. Prefer no photo over deception.
-  if(Array.isArray(hint))return [...hint];
+  if(Array.isArray(hint)){
+    // For a European demographic story, do not silently choose a family in an
+    // unrelated region. Require a Europe-specific query and geographic evidence.
+    if(hint[0]==="family children"&&/europ|\bUE\b/i.test(title))
+      return hint.map(q=>q+" Europe");
+    return [...hint];
+  }
   const fallback=PHOTO_QUERIES[article?.topic]??"documentary";
   return [...new Set([hint,fromTitle.length>=5?fromTitle:null,fallback].filter(Boolean))];
 }
@@ -133,6 +139,13 @@ export function selectImage(pages,query){
     if(/family children|parents with children/.test(q)){
       if(!/family|parent|child|children|people|household/.test(name))continue;
       if(/lion|tiger|cat|dog|wolf|elephant|monkey|bear|animal|gorilla|leopard|cheetah|panda|zebra|horse|hippo/.test(name))continue;
+      if(/\beurope\b/.test(q)){
+        // Strong geographic guard: an illustration labelled as European must
+        // have some supporting geographic metadata and no conflicting place.
+        const geo=(imageTitle+" "+clean(ext.ImageDescription?.value,850)).toLowerCase();
+        if(/\b(pune|maharashtra|india|nepal|pakistan|bangladesh|kenya|nigeria|china|japan|usa|united states|australia|brazil)\b/.test(geo))continue;
+        if(!/\b(europe\w*|europ\w*|france|germany|german|spain|spanish|italy|italian|netherlands|belgium|poland|sweden|czech|austria|portugal|romania|finland|denmark)\b/.test(geo))continue;
+      }
     }
     if(/european central bank|european parliament brussels/.test(q)){
       if(!/europe|europ|brussels|bruxelles|euro|central bank|parliament|ecb/.test(name))continue;

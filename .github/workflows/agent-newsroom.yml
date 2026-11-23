@@ -1,17 +1,10 @@
 name: MUNDI — 20 missions quotidiennes des agents (révision privée)
 
 on:
+  # Schedule and explicit manual launch only: a routine code/docs merge must not
+  # silently spend another 12 Anthropic jobs or race against editorial stock.
   schedule:
     - cron: '41 8 * * *'
-  push:
-    branches: [main]
-    paths:
-      - 'editorial/agents/**'
-      - 'scripts/plan-newsroom.mjs'
-      - 'scripts/run-newsroom-agents.mjs'
-      - 'scripts/agent-providers.mjs'
-      - 'scripts/agent-ledger.mjs'
-      - '.github/workflows/agent-newsroom.yml'
   workflow_dispatch:
 
 permissions:

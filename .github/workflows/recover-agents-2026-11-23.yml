@@ -1,0 +1,122 @@
+name: MUNDI — recover interrupted agent results (no API call)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/recover-agents-2026-11-23.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: mundi-daily-agents
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout stable main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Recover original verified AI results (never call model again)
+        uses: actions/download-artifact@v4
+        with:
+          name: mundi-agents-daily-newsroom
+          run-id: 45217101017
+          github-token: ${{ github.token }}
+          path: reports
+      - name: Validate report provenance, date and review status
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'EOF'
+          import {readFileSync} from 'node:fs';
+          const data=JSON.parse(readFileSync('reports/agents-results.json','utf8'));
+          const plan=JSON.parse(readFileSync('reports/agents-plan.json','utf8'));
+          if(data.format!=='mundi-agent-day-v1'||data.date!=='2026-11-23'||!Array.isArray(data.outputs)||
+            data.outputs.length!==12||data.generated!==9||data.machineChecked!==4||
+            plan.format!=='mundi-daily-agent-plan-v1'||plan.date!==data.date)
+            throw new Error('Unexpected source artifact; no recovery will be published');
+          console.log('Confirmed original run 45217101017:',data.generated,'drafts,',data.machineChecked,'machine passes; no API work repeated.');
+          EOF
+      - name: Checkout current private stock to preserve original research and ledger
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/mundi-editorial-stock" origin/editorial-stock
+          mkdir -p "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days"
+          cp reports/agents-results.json "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days/2026-11-23.json"
+          cp reports/agents-plan.json "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days/2026-11-23-plan.json"
+      - name: Update actual history based on original machine-checked dossiers
+        env:
+          MUNDI_AGENT_HISTORY: ${{ runner.temp }}/mundi-editorial-stock/editorial/agents/ledger.json
+        run: node scripts/agent-ledger.mjs
+      - name: Commit private ledger with rebase after concurrent RSS collection
+        shell: bash
+        run: |
+          set -euo pipefail
+          worktree="$RUNNER_TEMP/mundi-editorial-stock"
+          git -C "$worktree" config user.name "github-actions[bot]"
+          git -C "$worktree" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$worktree" add editorial/agents/ledger.json editorial/agents/days/
+          if git -C "$worktree" diff --cached --quiet; then
+            echo "Original dossiers already saved"
+          else
+            git -C "$worktree" commit -m "agents: recover and archive reviewed dossiers from failed run 45217101017"
+            for attempt in 1 2 3 4; do
+              git -C "$worktree" fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+              git -C "$worktree" rebase origin/editorial-stock
+              if git -C "$worktree" push origin HEAD:refs/heads/editorial-stock; then
+                echo "Recovered dossiers archived, attempt $attempt"
+                break
+              fi
+              if [ "$attempt" -eq 4 ]; then
+                echo "::error::Failed to archive original dossiers; publication blocked."
+                exit 1
+              fi
+              sleep 2
+            done
+          fi
+      - name: Run original strict automatic publication controls
+        env:
+          MUNDI_AUTOPUBLISH: ${{ vars.MUNDI_AUTOPUBLISH }}
+          MUNDI_AUTOPUBLISH_MAX: ${{ vars.MUNDI_AUTOPUBLISH_MAX || '5' }}
+        run: node scripts/autopublish-agents.mjs
+      - name: Validate, build and publish only accepted dossiers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- content/publications.json; then
+            echo "No eligible article in original report; no publication made."
+            exit 0
+          fi
+          npm run validate:editorial
+          npm run build
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/publications.json
+          git commit -m "agents: recover publications verified in original run 45217101017"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Archive replay publication decisions for audit
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mundi-recovered-2026-11-23
+          path: reports/autopublish.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -10,7 +10,7 @@ export default function NewsPage() {
   return (
     <div className="mx-auto max-w-5xl px-5 pb-[calc(var(--nav-h)+3rem)] pt-8 md:px-8 md:pb-20 md:pt-12">
       <PageIntro eyebrow="La rédaction MUNDI" title="Les publications documentées">
-        Des articles sourcés et datés pour comprendre l'essentiel. Le contrôle réalisé par l'IA, ou la validation humaine, est précisé sur chaque publication.
+        Des articles sourcés et datés pour comprendre l&apos;essentiel. Le contrôle réalisé par l&apos;IA, ou la validation humaine, est précisé sur chaque publication.
       </PageIntro>
       {publishedArticles.length ? (
         <>
@@ -22,7 +22,7 @@ export default function NewsPage() {
             {publishedArticles.map((p, i) => <PublicationTile key={p.slug} publication={p} featured={i === 0} />)}
           </div>
           <p className="mt-8 max-w-2xl text-xs leading-relaxed text-muted">
-            Les photographies servent à illustrer un domaine ; elles ne constituent pas une preuve visuelle de l'événement décrit. Retrouvez les sources et les crédits des médias dans chaque publication.
+            Les photographies servent à illustrer un domaine ; elles ne constituent pas une preuve visuelle de l&apos;événement décrit. Retrouvez les sources et les crédits des médias dans chaque publication.
           </p>
         </>
       ) : (

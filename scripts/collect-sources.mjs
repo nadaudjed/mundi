@@ -9,7 +9,7 @@ import { createHash } from "node:crypto";
 
 const MAX_BYTES = 2_000_000;
 const MAX_ITEMS = 30;
-const FEED_HOSTS = new Set(["ec.europa.eu", "www.ecb.europa.eu", "www.lemonde.fr", "www.rfi.fr"]);
+const FEED_HOSTS = new Set(["ec.europa.eu", "www.ecb.europa.eu", "environment.ec.europa.eu", "joint-research-centre.ec.europa.eu", "www.lemonde.fr", "www.rfi.fr"]);
 
 export function plain(value) {
   return (value || "").replace(/^<!\[CDATA\[([\s\S]*?)\]\]>$/i, "$1")

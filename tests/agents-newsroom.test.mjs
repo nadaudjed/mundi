@@ -93,12 +93,14 @@ test("single institutional publisher and fabricated evidence fail the checker",(
   const unsupported=checked();unsupported.claimChecks[0].supported=false;
   assert.equal(assessReview(draft,unsupported,{topic:"energie"}).status,"needs_human_or_more_research");
 });
-test("sensitive domains cannot silently become approved news",()=>{
+test("sensitive domains are flagged but, once sourced and approved, may be published (founder's decision)",()=>{
   const risk=structuredClone(draft);risk.topic="geopolitique";
   const out=assessReview(risk,checked(),{topic:"geopolitique"});
   assert.equal(out.sensitive,true);
   assert.equal(out.safeForAutopublication,false);
-  assert.equal(out.status,"needs_human_or_more_research");
+  assert.equal(out.status,"machine_checked_pending_policy");
+  const unsupported=checked();unsupported.claimChecks[0].supported=false;
+  assert.equal(assessReview(risk,unsupported,{topic:"geopolitique"}).status,"needs_human_or_more_research");
 });
 test("history stores only actually checked drafts, not blocked or no-key runs",()=>{
   const k=plan().jobs.find(x=>x.source);

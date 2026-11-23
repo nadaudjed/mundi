@@ -66,14 +66,15 @@ Le workflow produit l'artefact privé `mundi-agents-daily-newsroom` (14 jours), 
 
 ## Publication automatique (V2, activée le 23/11/2026 à la demande du fondateur)
 
-Le fondateur a demandé que le vérificateur publie seul, sans relecture humaine quotidienne, en écartant les sujets sensibles. `scripts/autopublish-agents.mjs` s'exécute à la fin du workflow et ne publie un brouillon que si **toutes** les conditions sont réunies :
-- statut `machine_checked_pending_policy` : validation déterministe, verdict `pass` du vérificateur, chaque affirmation étayée, aucune alerte de sensibilité ;
-- rubrique non exclue (`geopolitique`, `finance`, `sciences-societe`, `afrique`) et aucun mot sensible dans tout le texte (élections, guerre, santé, justice, attentats, migrations, bourse…) ;
+Le fondateur a demandé que le vérificateur publie seul, sans relecture humaine quotidienne. Le même jour, il a levé l'exclusion des sujets sensibles : « on parle de tout sans tabou tant que c'est sourcé ». `scripts/autopublish-agents.mjs` s'exécute à la fin du workflow et ne publie un brouillon que si **toutes** les conditions sont réunies :
+- statut `machine_checked_pending_policy` : validation déterministe, verdict `pass` du vérificateur, chaque affirmation étayée ;
+- tous les sujets sont admis. Sur les sujets sensibles (élections, conflits, santé, justice, finance, migration, religion), le vérificateur applique des règles renforcées : faits attribués, parties présentées sans parti pris, aucune accusation non établie, aucun conseil médical ou financier. Sinon, verdict `needs_review` ;
+- au plus 5 incertitudes relevées ;
 - au moins deux organismes sources différents, et **chaque lien répond réellement** (contrôlé par le script, pas par l'IA) ;
 - pas de doublon (titre, adresse ou ensemble de sources déjà publiés) ;
 - au plus `MUNDI_AUTOPUBLISH_MAX` publications par jour (défaut 2, maximum 5).
 
-La publication est validée (`validate-editorial`), construite (`next build`) puis poussée sur `main` ; Netlify la met en ligne. Elle porte `aiVerified: true` et le site affiche « vérifié par l'IA, sans relecture humaine » : aucune relecture humaine n'est jamais prétendue. Les missions des rubriques sensibles passent en dernier ; `MUNDI_AGENT_MAX_JOBS` vaut 6 par défaut.
+La publication est validée (`validate-editorial`), construite (`next build`) puis poussée sur `main` ; Netlify la met en ligne. Elle porte `aiVerified: true` et le site affiche « vérifié par l'IA, sans relecture humaine » : aucune relecture humaine n'est jamais prétendue. Les missions alternent reporters et professeurs ; `MUNDI_AGENT_MAX_JOBS` vaut 6 par défaut.
 
 **Interrupteur d'urgence** : variable de dépôt `MUNDI_AUTOPUBLISH=off` (Settings → Secrets and variables → Actions → Variables). **Retirer un article** : supprimer son entrée de `content/publications.json`. Les audits par échantillons et les indicateurs de #43 restent à mettre en place.
 

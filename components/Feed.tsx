@@ -13,6 +13,7 @@ import { DemoBadge } from "./DemoBadge";
 import { InstallChip } from "./InstallButton";
 import { Icon } from "./Icon";
 import { LogoMark } from "./Logo";
+import { getStoryMedia } from "@/lib/media";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
 import { MediaStage } from "./MediaStage";
@@ -161,14 +162,26 @@ export function Feed({ verified = [] }: Props) {
         data-testid="feed-topbar"
         className="pointer-events-none absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-night/85 via-night/40 to-transparent pb-8 pt-[max(env(safe-area-inset-top),0.75rem)]"
       >
-        <div className="pointer-events-auto flex items-center justify-between gap-2 px-4 md:px-8">
-          <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.22em] text-ivory" aria-label="MUNDI">
+        <div className="flex items-center justify-between gap-2 px-4 md:px-8">
+          <Link href="/" className="pointer-events-auto flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.22em] text-ivory" aria-label="MUNDI">
             <LogoMark className="size-6" />
             <span className="max-[359px]:sr-only">MUNDI</span>
           </Link>
-          <div className="flex min-w-0 items-center gap-2">
+          <div className="pointer-events-auto flex min-w-0 items-center gap-1.5 sm:gap-2">
             <InstallChip compact />
-            {entry?.kind === "verified" || entry?.kind === "data" ? <VerifiedBadge /> : <DemoBadge tone="light" />}
+            {entry?.kind === "verified" || entry?.kind === "data" ? (
+              <VerifiedBadge />
+            ) : (
+              <>
+                {/* Libellé court sur téléphone pour que la barre tienne sur une ligne. */}
+                <span className="sm:hidden">
+                  <DemoBadge tone="light" label="Démo" />
+                </span>
+                <span className="hidden sm:inline-flex">
+                  <DemoBadge tone="light" />
+                </span>
+              </>
+            )}
             <button
               type="button"
               onClick={() => setTopicsOpen((o) => !o)}
@@ -178,18 +191,18 @@ export function Feed({ verified = [] }: Props) {
             >
               <Icon name="sliders" className="size-4" />
               <span className="sr-only">Choisir un sujet : </span>
-              <span className="max-w-[7rem] truncate max-[399px]:sr-only">{filterLabel}</span>
+              <span className="max-w-[7rem] truncate max-[419px]:sr-only">{filterLabel}</span>
               <Icon name="chevron-down" className={`size-3.5 transition-transform ${topicsOpen ? "rotate-180" : ""}`} />
             </button>
           </div>
         </div>
         {topicsOpen && (
-          <div className="pointer-events-auto mt-3 flex justify-end px-4 md:px-8">
+          <div className="mt-3 flex justify-end px-4 md:px-8">
             <div
               id="feed-topics"
               role="group"
               aria-label="Filtrer le fil par sujet"
-              className="w-full max-w-sm rounded-3xl bg-night/90 p-4 shadow-2xl shadow-black/40 ring-1 ring-ivory/15 backdrop-blur-xl"
+              className="pointer-events-auto w-full max-w-sm rounded-3xl bg-night/90 p-4 shadow-2xl shadow-black/40 ring-1 ring-ivory/15 backdrop-blur-xl"
             >
               <p className="text-[0.7rem] font-bold uppercase tracking-[0.18em] text-mint-soft">Sujets du fil</p>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -316,6 +329,7 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
   const topic = getTopic(story.topic)!;
   const format = formats[story.format];
   const last = step === steps - 1;
+  const hasMedia = Boolean(getStoryMedia(story.slug));
 
   return (
     <article
@@ -327,7 +341,10 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
     >
       <MediaStage story={story} active={active} near={near} />
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-25% via-night/70 via-42% to-transparent to-62% wide:bg-gradient-to-r wide:from-night wide:from-30% wide:via-night/75 wide:via-45% wide:to-transparent wide:to-65%" aria-hidden="true" />
+      <div
+        className={`pointer-events-none absolute inset-0 wide:bg-gradient-to-r wide:from-night wide:from-30% wide:via-night/75 wide:via-45% wide:to-transparent wide:to-65% ${hasMedia ? "" : "bg-gradient-to-t from-night from-25% via-night/70 via-42% to-transparent to-62%"}`}
+        aria-hidden="true"
+      />
 
       {beat && (
         <div className="feed-column absolute inset-x-0 bottom-2.5 z-10 flex gap-1.5 px-5" aria-hidden="true" data-testid="narrative-progress">
@@ -337,7 +354,11 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
         </div>
       )}
 
-      <div className="feed-column pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:pb-10 wide:my-auto wide:pb-6">
+      {/* Sur très petit écran, le texte défile dans la carte plutôt que d'être coupé. */}
+      <div
+        data-testid="card-scroll"
+        className={`feed-column no-scrollbar pointer-events-none relative flex min-h-0 shrink items-end gap-2 overflow-y-auto px-5 pb-6 md:pb-10 wide:my-auto wide:pb-6 ${hasMedia ? "pt-3 wide:pt-32" : "mt-auto pt-32"}`}
+      >
         <div className="pointer-events-auto min-w-0 flex-1">
           <div className="mb-3 flex flex-wrap items-center gap-2 text-[0.75rem] font-semibold">
             <span className="rounded-full px-2.5 py-1" style={{ background: topic.color, color: inkOn(topic.color) }}>
@@ -374,7 +395,7 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
             </div>
           )}
           {!last && (
-            <p className="mt-5 flex items-center gap-1.5 text-xs font-medium text-ivory/65">
+            <p className="mt-5 flex items-center gap-1.5 text-xs font-medium text-ivory/65 [@media(max-height:680px)]:mt-2">
               <Icon name="chevron-down" className="size-4 motion-safe:animate-bounce" />
               Faites défiler pour la suite
             </p>
@@ -400,7 +421,7 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
 function SummaryBody({ story }: { story: Story }) {
   return (
     <>
-      <h2 className="font-display text-[1.75rem] leading-[1.12] font-semibold text-balance md:text-[2.2rem] lg:text-[2.5rem]">{story.title}</h2>
+      <h2 className="font-display text-[1.75rem] leading-[1.12] font-semibold text-balance md:text-[2.2rem] lg:text-[2.5rem] [@media(max-height:680px)]:text-[1.35rem] max-[359px]:text-[1.3rem]">{story.title}</h2>
       <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80 [@media(max-height:700px)]:hidden">{story.dek}</p>
       <ol className="mt-4 space-y-2">
         {story.keyPoints.map((point, i) => (
@@ -428,7 +449,7 @@ function NarrativeBody({ slide }: { slide: Slide }) {
         <p className="mb-3 text-sm font-semibold text-ivory/75">{story.title}</p>
       )}
       <p className="text-xs font-bold uppercase tracking-[0.2em] text-mint-soft">{beat.label}</p>
-      <p className="mt-2 font-display text-[1.7rem] leading-[1.18] font-semibold text-balance md:text-[2.1rem] lg:text-[2.4rem]">{beat.text}</p>
+      <p className="mt-2 font-display text-[1.7rem] leading-[1.18] font-semibold text-balance md:text-[2.1rem] lg:text-[2.4rem] [@media(max-height:680px)]:text-[1.3rem] max-[359px]:text-[1.25rem]">{beat.text}</p>
     </div>
   );
 }

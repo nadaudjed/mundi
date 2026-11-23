@@ -137,7 +137,7 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
         )}
         <div
           role="status"
-          className="absolute inset-x-6 top-[7.25rem] z-10 flex items-center gap-3 rounded-2xl bg-night/85 p-3 text-sm text-ivory ring-1 ring-amber/40 backdrop-blur"
+          className="absolute inset-x-4 top-16 z-10 flex items-center gap-3 rounded-2xl bg-night/85 p-3 text-sm text-ivory ring-1 ring-amber/40 backdrop-blur"
         >
           <Icon name="alert" className="size-5 shrink-0 text-amber" />
           <span className="flex-1">Vidéo indisponible pour le moment. Le récit reste lisible ci-dessous.</span>
@@ -156,7 +156,7 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
       <video
         key={attempt}
         ref={video}
-        className="relative h-full w-full object-cover wide:object-contain"
+        className="relative h-full w-full object-contain"
         poster={posterFailed || !near ? undefined : media.poster}
         muted={muted}
         playsInline
@@ -178,18 +178,18 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
       )}
 
       {captionsOn && cue && (
-        <p className="pointer-events-none absolute inset-x-6 top-[7.25rem] z-10 text-center wide:top-auto wide:bottom-12" aria-hidden="true">
-          <span className="box-decoration-clone rounded-lg bg-night/85 px-2 py-1 text-[0.95rem] leading-[1.7] font-medium text-ivory">{cue}</span>
+        <p className="pointer-events-none absolute inset-x-4 bottom-4 z-10 text-center wide:bottom-12" aria-hidden="true">
+          <span className="box-decoration-clone rounded-lg bg-night/85 px-2 py-1 text-[0.9rem] leading-[1.65] font-medium text-ivory">{cue}</span>
         </p>
       )}
 
       {saveData && !userStarted && active && (
-        <p className="absolute inset-x-6 top-[7.25rem] z-10 rounded-2xl bg-night/85 p-3 text-center text-sm text-ivory" data-testid="save-data-note">
+        <p className="absolute inset-x-4 top-16 z-10 rounded-2xl bg-night/85 p-3 text-center text-sm text-ivory" data-testid="save-data-note">
           Économie de données : touchez ▶ pour lancer la vidéo.
         </p>
       )}
 
-      <div className="absolute top-[max(4.25rem,calc(env(safe-area-inset-top)+3.5rem))] left-4 z-10 flex gap-2">
+      <div className="absolute top-3 left-4 z-10 flex gap-2">
         <button
           type="button"
           onClick={toggle}

@@ -6,9 +6,9 @@ import { Icon } from "./Icon";
 import { isActive, navItems } from "./navItems";
 
 /**
- * Barre d'onglets flottante (téléphones). Elle laisse libre le coin bas-droit
- * quand la page est un aperçu Netlify (variable --corner-safe), pour que
- * l'outil de relecture de Netlify ne cache jamais un onglet.
+ * Barre d'onglets flottante. Sur les adresses *.netlify.app, elle remonte
+ * au-dessus du bandeau de Netlify (variable --badge-safe), pour qu'il ne
+ * cache jamais un onglet.
  */
 export function BottomNav() {
   const pathname = usePathname();
@@ -17,7 +17,7 @@ export function BottomNav() {
       aria-label="Navigation principale"
       data-testid="dock"
       data-dock
-      className="fixed bottom-[calc(var(--dock-gap)+env(safe-area-inset-bottom))] left-[max(0.5rem,env(safe-area-inset-left))] right-[calc(max(0.5rem,env(safe-area-inset-right))+var(--corner-safe))] z-40"
+      className="fixed bottom-[calc(var(--dock-gap)+var(--badge-safe)+env(safe-area-inset-bottom))] left-[max(0.5rem,env(safe-area-inset-left))] right-[max(0.5rem,env(safe-area-inset-right))] z-40"
     >
       <ul className="mx-auto grid h-[var(--dock-h)] max-w-[30rem] grid-cols-5 md:max-w-[28rem] gap-0.5 rounded-[1.35rem] bg-night/92 p-1 shadow-[0_10px_30px_-8px_rgba(16,29,48,0.55)] ring-1 ring-white/10 backdrop-blur-xl">
         {navItems.map((item) => {
@@ -32,7 +32,7 @@ export function BottomNav() {
                 }`}
               >
                 <Icon name={active && item.icon === "bookmark" ? "bookmark-filled" : item.icon} className="size-[1.3rem] shrink-0" />
-                <span className="dock-label max-w-full truncate">{item.label}</span>
+                <span className="max-w-full truncate">{item.label}</span>
               </Link>
             </li>
           );

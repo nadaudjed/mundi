@@ -7,7 +7,7 @@ import { PreviewHostFlag } from "@/components/PreviewHostFlag";
 import { PwaSetup } from "@/components/PwaSetup";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ToastProvider } from "@/components/Toast";
-import { previewHostScript } from "@/lib/preview-host";
+import { netlifyHostScript } from "@/lib/preview-host";
 import { SITE_URL, SHARE_IMAGE, shareDefaults } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: previewHostScript }} />
+        <script dangerouslySetInnerHTML={{ __html: netlifyHostScript }} />
       </head>
       <body className="min-h-dvh">
         <a

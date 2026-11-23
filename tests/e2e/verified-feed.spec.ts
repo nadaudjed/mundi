@@ -147,7 +147,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
     const header = page.getByTestId("feed-topbar");
     await expect(header.getByText("Vérifié", { exact: true })).toBeVisible();
     await scrollFeedTo(page, 7);
-    await expect(header.getByText("Démonstration", { exact: true })).toBeVisible();
+    await expect(header.getByText(/^Démo(nstration)?$/).locator("visible=true")).toBeVisible();
   });
 
   test("filtrer par sujet garde seulement la publication de ce sujet", async ({ page }) => {

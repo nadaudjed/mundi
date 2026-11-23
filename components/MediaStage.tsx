@@ -23,21 +23,23 @@ export function MediaStage({ story, active, near }: Props) {
   const topic = getTopic(story.topic)!;
   const visual = <StoryVisual pattern={topic.pattern} color={topic.color} seed={story.slug} className="absolute inset-0 h-full w-full" />;
 
+  if (!media) return visual;
+
   return (
-    <>
-      {media ? (
-        // Sur écran large, la vidéo ou l'image occupe la moitié droite : le texte reste à gauche, sans chevauchement.
-        <div className="absolute inset-0 wide:left-[46%]">
-          {media.kind === "video" ? (
-            <VideoCard media={media} active={active} near={near} reducedMotion={reducedMotion} saveData={saveData} fallback={visual} />
-          ) : (
-            <ImageStory media={media} active={active} near={near} reducedMotion={reducedMotion} fallback={visual} />
-          )}
-        </div>
+    // Zone du média : en haut de la carte sur téléphone et tablette (le texte vient
+    // en dessous, sans jamais passer par-dessus), moitié droite sur écran large.
+    <div
+      data-testid="media-region"
+      className="relative mt-[calc(max(env(safe-area-inset-top),0.75rem)+2.75rem)] min-h-[8rem] w-full flex-1 [@media(max-height:680px)]:min-h-[5.5rem] overflow-hidden wide:absolute wide:top-16 wide:bottom-0 wide:right-0 wide:left-[46%] wide:mt-0 wide:w-auto"
+    >
+      {media.kind === "video" ? (
+        <VideoCard media={media} active={active} near={near} reducedMotion={reducedMotion} saveData={saveData} fallback={visual} />
       ) : (
-        visual
+        <ImageStory media={media} active={active} near={near} reducedMotion={reducedMotion} fallback={visual} />
       )}
-      {media && <MediaCredit media={media} className="absolute top-[max(4.5rem,calc(env(safe-area-inset-top)+3.75rem))] right-4 z-20 md:right-8" />}
-    </>
+      {/* Fondu vers le texte, en bas de la zone. */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-night to-transparent wide:hidden" aria-hidden="true" />
+      <MediaCredit media={media} className="absolute top-3 right-4 z-20 md:right-8" />
+    </div>
   );
 }

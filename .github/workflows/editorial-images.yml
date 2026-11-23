@@ -6,6 +6,7 @@ on:
     paths:
       - 'content/publications.json'
       - '.github/workflows/editorial-images.yml'
+      - 'scripts/collect-editorial-images.mjs'
   schedule:
     - cron: '35 11 * * *'
   workflow_dispatch:

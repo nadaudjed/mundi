@@ -33,3 +33,12 @@ test("empty candidate list is allowed; invalid structure is rejected", () => {
   assert.match(makeReport({generatedAt:"",items:[],errors:[]}),/Aucun sujet disponible/);
   assert.throws(()=>makeReport({items:[]}), /Collecte invalide/);
 });
+
+test("attribute Eurostat source licensing without allowing unsafe rights URLs", () => {
+  const common = {generatedAt:"2026-11-23T00:00:00.000Z",errors:[]};
+  const item = {title:"Eurostat News",link:"https://ec.europa.eu/eurostat/news/test",publisher:"Eurostat",topicHint:"energie",publishedAt:null};
+  const allowed = makeReport({...common,items:[{...item,rightsUrl:"https://ec.europa.eu/eurostat/help/copyright-notice"}]});
+  assert.ok(allowed.includes("Conditions de réutilisation"));
+  const denied = makeReport({...common,items:[{...item,rightsUrl:"javascript:alert(1)"}]});
+  assert.ok(!denied.includes("Conditions de réutilisation"));
+});

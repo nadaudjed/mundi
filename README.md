@@ -41,3 +41,7 @@ Le site est exporté en fichiers statiques (`out/`). `netlify.toml` indique à N
 ## Personnalisation du fil (branche en développement)
 
 La page `/mes-sujets/` permet de choisir des thèmes préférés. Le fil « Pour vous » favorise ces thèmes, en réservant régulièrement une place à la découverte. Les choix restent dans le navigateur (localStorage), sans compte et sans suivi serveur.
+
+## Révisions espacées
+
+La page `/reviser/` propose des cartes mémoire à partir des trois idées essentielles de chaque récit. L'utilisateur essaie de les restituer puis s'auto-évalue ; les cartes retenues reviennent après 1, 3, 7, 14 puis 30 jours. Progression locale, aucune inscription requise. Le prototype utilise uniquement les récits illustratifs.

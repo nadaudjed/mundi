@@ -228,7 +228,7 @@ export function Feed({ verified = [] }: Props) {
       >
         {entries.map((e, i) =>
           e.kind === "verified" ? (
-            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} revealed={seen.has(i)} visual={e.visual} />
+            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} near={Math.abs(i - active) <= 1} revealed={seen.has(i)} visual={e.visual} />
           ) : e.kind === "data" ? (
             <article
               key={e.key}
@@ -245,6 +245,7 @@ export function Feed({ verified = [] }: Props) {
                 total={e.total}
                 topicColor={getTopic(e.publication.topic)?.color ?? "#20B99A"}
                 active={i === active}
+                near={Math.abs(i - active) <= 1}
                 revealed={seen.has(i)}
                 status="verifie"
                 href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}

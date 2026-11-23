@@ -23,7 +23,7 @@ Le planificateur utilise :
 - `content/publications.json` pour rechercher les sujets déjà publiés ;
 - `editorial-stock:editorial/agents/ledger.json` pour éviter de relire chaque jour des pistes inchangées.
 
-**Une rubrique sans source d'actualité réellement récente affiche `blocked_no_fresh_authorized_source`.** Elle ne reçoit pas un titre fabriqué. Les sujets de fond sont des **pistes non vérifiées** tant que le professeur n'a pas recherché des preuves.
+**Une rubrique sans source récente dans les flux RSS reste assignée au journaliste**, avec le statut `research_required_no_lead` : il doit rechercher lui-même l'actualité du domaine sur les dernières 48 heures via web search, retrouver une source primaire et une seconde organisation indépendante. Si la recherche échoue, le brouillon est rejeté ; **aucun titre ni chiffre n'est inventé pour atteindre le quota**. La quantité de pistes RSS déjà disponibles et celle des enquêtes sans piste sont suivies séparément. Les sujets de fond sont des **pistes non vérifiées** tant que le professeur n'a pas recherché des preuves.
 
 **Actualisation :** si un flux publie à nouveau une piste reliée à une source déjà utilisée, le journaliste examine la possibilité d'une mise à jour et enregistre `previousPublication`. La signature du titre + date + URL permet aussi d'identifier un nouveau signal sur une source déjà traitée. Cela ne garantit pas de détecter les modifications silencieuses d'une page web : il faudra un moniteur de versions de sources et une file de corrections dédiée.
 

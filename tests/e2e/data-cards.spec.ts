@@ -17,8 +17,12 @@ test.describe("Site normal : cartes vérifiées Eurostat", () => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     await expect(page.getByTestId("data-card")).toHaveCount(4);
-    await expect(page.locator('[data-index="3"]').getByTestId("stat-value")).toContainText("78");
-    await expect(page.locator('[data-index="3"]')).toContainText("déchets textiles traités");
+    // Les publications automatiques peuvent précéder le récit Eurostat : on cible sa carte par son contenu.
+    const card = page
+      .getByTestId("data-card")
+      .filter({ hasText: "déchets textiles traités" })
+      .filter({ has: page.getByTestId("stat-value").filter({ hasText: "78" }) });
+    await expect(card).toHaveCount(1);
     const html = await (await request.get("/")).text();
     expect(html).not.toContain("donnees.mundi.test");
   });

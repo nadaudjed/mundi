@@ -19,7 +19,9 @@ test.describe("Site normal : fonds approuvés, sans médias de test", () => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     await expect(page.getByTestId("scene-backdrop")).toHaveCount(5);
-    await expect(page.locator('[data-index="0"]').getByTestId("scene-backdrop")).toHaveAttribute("data-backdrop", "fond-matiere");
+    // Les publications automatiques n'ont pas de fond : on cible le récit Eurostat par son adresse.
+    const textiles = page.locator('[data-testid="verified-card"][data-publication="dechets-textiles-europe-2024-23-millions-tonnes"]');
+    await expect(textiles.getByTestId("scene-backdrop")).toHaveAttribute("data-backdrop", "fond-matiere");
     expect((await request.get("/media/scenes/test-fond-neutre.svg")).status()).toBe(404);
     expect((await request.get("/media/scenes/fond-matiere.svg")).status()).toBe(200);
   });

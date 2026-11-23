@@ -228,7 +228,7 @@ export function Feed({ verified = [] }: Props) {
       >
         {entries.map((e, i) =>
           e.kind === "verified" ? (
-            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} revealed={seen.has(i)} visual={e.visual} />
+            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} revealed={seen.has(i)} visual={e.visual} near={Math.abs(i - active) <= 1 || seen.has(i)} />
           ) : e.kind === "data" ? (
             <article
               key={e.key}
@@ -250,6 +250,7 @@ export function Feed({ verified = [] }: Props) {
                 href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}
                 backdrop={e.card.scene ? e.publication.backdrops?.[e.card.scene.backdrop] : undefined}
                 photo={e.publication.photo}
+                near={Math.abs(i - active) <= 1 || seen.has(i)}
               />
             </article>
           ) : e.kind === "divider" ? (

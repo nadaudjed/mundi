@@ -14,12 +14,14 @@ const SECOND = 5; // seconde publication, avec fond (cadrage bas)
 
 const opacity = (el: Element) => Number(getComputedStyle(el).opacity);
 
-test.describe("Site normal : aucun fond d'ambiance", () => {
-  test("le registre est vide et aucun fichier de fond n'est publié", async ({ page, request }) => {
+test.describe("Site normal : fonds approuvés, sans médias de test", () => {
+  test("le fil utilise des fonds MUNDI approuvés, mais aucun fond de test", async ({ page, request }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
-    await expect(page.getByTestId("scene-backdrop")).toHaveCount(0);
+    await expect(page.getByTestId("scene-backdrop")).toHaveCount(5);
+    await expect(page.locator('[data-index="0"]').getByTestId("scene-backdrop")).toHaveAttribute("data-backdrop", "fond-matiere");
     expect((await request.get("/media/scenes/test-fond-neutre.svg")).status()).toBe(404);
+    expect((await request.get("/media/scenes/fond-matiere.svg")).status()).toBe(200);
   });
 });
 

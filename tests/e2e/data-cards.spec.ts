@@ -12,11 +12,13 @@ const FIXTURES = `http://localhost:${PORT + 1}`;
 const FIRST = "test-publication-energie";
 const VALID = readFileSync("tests/fixtures/data-cards/valide.json", "utf8");
 
-test.describe("Site normal : aucune carte de données", () => {
-  test("le fil public ne contient aucune carte de données", async ({ page, request }) => {
+test.describe("Site normal : cartes vérifiées Eurostat", () => {
+  test("le fil public présente quatre cartes chiffrées et aucune source fictive", async ({ page, request }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
-    await expect(page.getByTestId("data-card")).toHaveCount(0);
+    await expect(page.getByTestId("data-card")).toHaveCount(4);
+    await expect(page.locator('[data-index="3"]').getByTestId("stat-value")).toContainText("78");
+    await expect(page.locator('[data-index="3"]')).toContainText("déchets textiles traités");
     const html = await (await request.get("/")).text();
     expect(html).not.toContain("donnees.mundi.test");
   });

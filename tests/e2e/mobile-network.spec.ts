@@ -89,7 +89,8 @@ test.describe("Erreurs de médias", () => {
   test("une illustration indisponible est remplacée sans casser la carte", async ({ page }) => {
     await page.route(/\/media\/demo\/correlation\.jpg$/, (route) => route.abort());
     await page.goto("/");
-    const card = page.locator('[data-index="0"]');
+    const card = page.locator('[data-story="correlation-causalite"]').first();
+    await card.scrollIntoViewIfNeeded();
     await expect(card.getByRole("status")).toContainText("Illustration indisponible");
     await expect(card.getByText("L'accroche")).toBeVisible();
   });

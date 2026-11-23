@@ -50,9 +50,13 @@ test("all editorial headings are escaped before insertion into HTML",()=>{
   assert.ok(!html.includes('<img src=x onerror="alert(1)">'));
 });
 
-test("narrative never changes original publications data",()=>{
+test("internal preview stays an unapproved draft even after public launch",()=>{
   const published=JSON.parse(readFileSync("content/publications.json","utf8"));
-  assert.deepEqual(published,[]);
+  assert.ok(published.some(p=>p.slug===draft.slug && p.status==="published"));
+  assert.equal(storyboard.status,"draft");
+  assert.equal(draft.status,"draft");
+  assert.equal(draft.reviewedBy,"");
+  assert.equal(draft.publishedAt,null);
   assert.equal(storyboard.draftPath,"editorial/reviews/textile-2024/draft.json");
 });
 

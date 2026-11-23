@@ -30,14 +30,17 @@ test("20 assignments: 12 reporter beats + 8 rolling explanations",()=>{
   assert.equal(p.counts.journalist,12);
   assert.equal(p.counts.professors,8);
   assert.equal(p.counts.journalistGrounded,1);
-  assert.equal(p.counts.blocked,11);
+  assert.equal(p.counts.blocked,0);
+  assert.equal(p.counts.journalistNeedsFreshResearch,11);
   assert.equal(p.jobs.filter(x=>x.role==="journalist"&&x.source).length,1);
   assert.equal(p.counts.verified,0);
   assert.equal(p.counts.published,0);
   assert.ok(p.jobs.filter(x=>x.role==="professor").every(x=>x.status==="research_required"));
 });
-test("no fake news on an empty, invalid or stale stock",()=>{
+test("reporters without an RSS lead still have an explicit web-research assignment, not fictitious facts",()=>{
   assert.equal(plan([]).jobs.filter(x=>x.role==="journalist"&&x.source).length,0);
+  assert.equal(plan([]).counts.journalistNeedsFreshResearch,12);
+  assert.ok(plan([]).jobs.filter(x=>x.role==="journalist").every(x=>x.status==="research_required_no_lead"));
   const stale={...lead,publishedAt:"2024-11-22T09:00:00Z"};
   assert.equal(plan([stale]).counts.journalistGrounded,0);
   assert.equal(plan([{...lead,link:"javascript:bad"}]).counts.journalistGrounded,0);

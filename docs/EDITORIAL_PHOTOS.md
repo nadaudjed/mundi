@@ -4,7 +4,7 @@
 Chaque journaliste ou professeur produit un article. Une tâche distincte cherche alors une **photo thématique réelle** selon son titre et la rubrique, puis la place dans son fond immersif. Les textes, dates, chiffres et références restent du HTML modifiable, jamais imprimés dans la photo. Les 12 rubriques possèdent des vocabulaires de recherche différents.
 
 ## Sources et droits
-Pilote Wikimedia Commons uniquement, via l'API MediaWiki : recherche d'images et champs de licence, d'auteur, et URL d'origine. Les photos sont limitées aux formats JPEG, PNG, WebP, sous CC0 1.0, CC BY 4.0 ou CC BY-SA 4.0 avec métadonnées de droit cohérentes. Un crédit et des liens vers licence + image originale sont toujours affichés.
+Pilote Wikimedia Commons uniquement, via l'API MediaWiki : recherche d'images et champs de licence, d'auteur, et URL d'origine. Les photos sont limitées aux formats JPEG, PNG, WebP, sous CC0 1.0 et CC BY / CC BY-SA 2.0, 3.0 ou 4.0 avec métadonnées de droit cohérentes. Un crédit et des liens vers licence + image originale sont toujours affichés.
 
 Aucune image reprise automatiquement de Google Images, Getty, Reuters, AFP ou d'un autre média sous droit réservé. Les données Wikimedia peuvent être fausses : le contrôle automatique ne remplace pas un audit humain périodique des crédits. Pour une personnalité, une guerre, un accident ou un fait historique précis, le média doit être traité comme **illustration générique et non comme une photographie de l'événement**, sauf vérification explicite.
 
@@ -20,3 +20,6 @@ Tester : node --test tests/editorial-images.test.mjs.
 Lancer manuellement : node scripts/collect-editorial-images.mjs.
 Limiter les téléchargements : MUNDI_IMAGES_MAX=8.
 Surveiller le rapport dans GitHub Actions après le premier lancement en conditions réelles.
+
+## Recherche V2
+Les recherches Wikimedia trop longues ont été remplacées par des expressions visuelles de 1 à 2 mots ou des indices spécifiques extraits du titre. Le journal de collecte expose le nombre de résultats et quelques métadonnées de licence lorsque rien n'est retenu, sans divulguer de clés. Aucun assouplissement sur le droit à l'image, l'attribution ni les formats acceptés.

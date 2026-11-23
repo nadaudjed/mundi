@@ -73,3 +73,19 @@ test("ECB official RSS press releases provide attributed metadata only",()=>{
   assert.equal(items[0].rightsUrl,ecb.rightsUrl);
   assert.equal(Object.hasOwn(items[0],"description"),false);
 });
+
+test("NASA official RSS news-release yields attributed, dated science metadata only",()=>{
+  const nasa={id:"nasa-news-releases",publisher:"NASA",feedUrl:"https://www.nasa.gov/news-release/feed/",topic:"sciences-societe",
+    rightsUrl:"https://www.nasa.gov/nasa-brand-center/images-and-media/"};
+  const rss='<rss version="2.0"><channel><item><title>NASA investigates Moon climate effects</title>'+
+    '<link>https://www.nasa.gov/news-release/example-mission/</link>'+
+    '<pubDate>Mon, 23 Nov 2026 12:00:00 GMT</pubDate>'+
+    '<description>Do not republish full external materials</description></item></channel></rss>';
+  const items=parseFeed(rss,nasa);
+  assert.equal(items.length,1);
+  assert.equal(items[0].publisher,"NASA");
+  assert.equal(items[0].topicHint,"sciences-societe");
+  assert.equal(items[0].publishedAt,"2026-11-23T12:00:00.000Z");
+  assert.equal(Object.hasOwn(items[0],"description"),false);
+  assert.equal(items[0].link,"https://www.nasa.gov/news-release/example-mission/");
+});

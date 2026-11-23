@@ -110,7 +110,7 @@ async function askModel(system,payload,model,key){
 }
 function record(job,draft,review,assessment,error){
   return {format:"mundi-agent-output-v1",id:job.id,date:job.date,role:job.role,topic:job.topic,
-    originalAssignment:job.title,sourceLead:job.source,previousPublication:job.previousPublication,
+    originalAssignment:job.title,recordKey:job.recordKey,sourceLead:job.source,previousPublication:job.previousPublication,
     draft:draft??null,checker:review??null,
     assessment:assessment??{status:"not_run",safeForAutopublication:false,reasons:["No AI key or valid result"]},
     error:short(error,350)||null,createdAt:now(),status:"draft_not_published"};

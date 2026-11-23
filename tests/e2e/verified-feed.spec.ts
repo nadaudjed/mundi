@@ -5,7 +5,7 @@ import { expect, scrollFeedTo, test } from "./fixtures";
  * Publications vérifiées dans le fil immersif.
  *
  * Deux sites sont construits pour ces tests (scripts/build-e2e-sites.mjs) :
- * - le site normal (port E2E_PORT, 4173 par défaut) : aujourd'hui sans publication ;
+ * - le site normal : premier récit Eurostat approuvé le 23 novembre 2026 ;
  * - un site de test (port suivant) construit avec
  *   tests/fixtures/publications.fixture.json. Ces publications sont INVENTÉES,
  *   ne servent qu'ici et ne sont jamais déployées.
@@ -15,18 +15,22 @@ const FIXTURES = `http://localhost:${PORT + 1}`;
 const FIRST = "test-publication-energie";
 const SECOND = "test-publication-technologie";
 
-test.describe("Site normal : aucune publication approuvée", () => {
-  test("le fil ne montre que des démonstrations, sans écran de séparation", async ({ page }) => {
+test.describe("Site normal : première publication Eurostat approuvée", () => {
+  test("le fil montre la vraie publication, quatre cartes, puis des démonstrations séparées", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
-    await expect(page.getByTestId("verified-card")).toHaveCount(0);
-    await expect(page.getByTestId("demo-divider")).toHaveCount(0);
-    await expect(page.getByTestId("verified-count")).toHaveText("Aucune publication vérifiée pour l'instant.");
+    await expect(page.getByTestId("verified-card")).toHaveCount(1);
+    await expect(page.getByTestId("data-card")).toHaveCount(4);
+    await expect(page.getByTestId("demo-divider")).toHaveCount(1);
+    await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-publication", "dechets-textiles-europe-2024-23-millions-tonnes");
+    await expect(page.getByTestId("verified-count")).toHaveText("1 publication vérifiée disponible.");
   });
 
   test("aucune donnée de test n'est présente dans le site publié", async ({ page, request }) => {
     await page.goto("/actualites/");
-    await expect(page.getByText("Les premiers récits vérifiés seront publiés ici.")).toBeVisible();
+    await expect(page.getByRole("link", { name: /déchets textiles/i }).first()).toBeVisible();
+    const first = await request.get("/actualites/dechets-textiles-europe-2024-23-millions-tonnes/");
+    expect(first.status()).toBe(200);
     const res = await request.get(`/actualites/${FIRST}/`);
     expect(res.status()).toBe(404);
     const html = await (await request.get("/")).text();

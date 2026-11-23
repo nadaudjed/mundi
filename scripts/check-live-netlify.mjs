@@ -18,7 +18,7 @@ export function checkTargets(publications){
   return [
     {path:"/",needle:"MUNDI",label:"Accueil"},
     {path:"/actualites/",needle:"MUNDI",label:"Actualités"},
-    ...news.slice(0,3).map(p=>({
+    ...news.slice(0,5).map(p=>({
       path:"/actualites/"+encodeURIComponent(p.slug)+"/",
       needle:p.title.slice(0,12),label:p.slug
     }))

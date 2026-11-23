@@ -27,10 +27,10 @@ export const PHOTO_QUERIES={
 // Editors' French headlines are converted to short visual cues, NOT treated as
 // exact documentary evidence of a specific person, event, place or date.
 const HINTS=[
-  [/textil|v[eê]tement|tri des d[eé]chets/i,"textile recycling"],
-  [/m[eé]nag|enfant|famill/i,"family"],
-  [/dette|obligation|budget de l[eé]tat/i,"government budget"],
-  [/tr[eé]sorerie|b[eé]n[eé]fice|profit|cash/i,"office finance"],
+  [/textil|v[eê]tement|tri des d[eé]chets/i,["textile recycling sorting","clothing recycling"]],
+  [/m[eé]nag|enfant|famill/i,["family children","parents with children"]],
+  [/dette|obligation|budget de l[eé]tat/i,["European Central Bank","European Parliament Brussels"]],
+  [/tr[eé]sorerie|b[eé]n[eé]fice|profit|cash/i,["accounting office","business finance"]],
   [/batterie|lithium|cobalt/i,"battery recycling"],
   [/hydrog[eè]ne/i,"hydrogen energy"],
   [/p[eé]trole|gaz naturel/i,"oil platform"],
@@ -56,8 +56,11 @@ export function imageQueries(article){
   const fromTitle=String(article?.title??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"")
     .replace(/[^a-zA-Z\s-]/g," ").toLowerCase().split(/\s+/).filter(w=>w.length>=4&&!STOPWORDS.has(w)).slice(0,2).join(" ");
   const hint=HINTS.find(([pattern])=>pattern.test(String(article?.title??"")))?.[1];
+  // Specific subjects must NOT fall back to vague "family", "market", or "recycling":
+  // those produced lions for human households, a Nepal budget for European public
+  // debt, and vandalized bins for textile sorting. Prefer no photo over deception.
+  if(Array.isArray(hint))return [...hint];
   const fallback=PHOTO_QUERIES[article?.topic]??"documentary";
-  // Short, targeted queries give Commons a chance; never claim this is an event photo.
   return [...new Set([hint,fromTitle.length>=5?fromTitle:null,fallback].filter(Boolean))];
 }
 function validCommonsFileURL(raw){
@@ -96,6 +99,26 @@ export function selectImage(pages,query){
     if(!validCommonsFileURL(info.thumburl))continue;
     const imageTitle=clean(page.title,160).replace(/^File:/i,"");
     if(BAD_TITLES.test(imageTitle))continue;
+    // Safety gate: keyword overlap alone is not sufficient for editorial relevance.
+    // The query is an ILLUSTRATION cue, not permission to imply the photographed
+    // people, country or event are those covered in the article.
+    const q=String(query).toLowerCase();
+    const name=imageTitle.toLowerCase();
+    if(/textile recycling|clothing recycling/.test(q)){
+      if(!/textile|clothes|clothing|garment|fabric/.test(name))continue;
+      if(/vandal|graffiti|damaged|destroyed|broken|dumping/.test(name))continue;
+    }
+    if(/family children|parents with children/.test(q)){
+      if(!/family|parent|child|children|people|household/.test(name))continue;
+      if(/lion|tiger|cat|dog|wolf|elephant|monkey|bear|animal|gorilla|leopard|cheetah|panda|zebra|horse|hippo/.test(name))continue;
+    }
+    if(/european central bank|european parliament brussels/.test(q)){
+      if(!/europe|europ|brussels|bruxelles|euro|central bank|parliament|ecb/.test(name))continue;
+      if(/nepal|nepali|india|china|japan|russia|pakistan/.test(name))continue;
+    }
+    if(/accounting office|business finance/.test(q)){
+      if(!/account|office|finance|business|workplace/.test(name))continue;
+    }
     if((info.width??0)<700||(info.height??0)<400)continue;
     const url="https://commons.wikimedia.org/wiki/"+encodeURIComponent(String(page.title).replace(/ /g,"_"));
     const terms=String(query).toLowerCase().split(/\W+/).filter(w=>w.length>=5);

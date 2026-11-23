@@ -17,10 +17,16 @@ export function makeReport(data) {
       if (u.protocol === "https:") href = u.href;
     } catch { /* URL invalide : pas de lien */ }
     const hrefHtml = href ? '<a href="'+escapeHtml(href)+'" target="_blank" rel="noopener noreferrer">Ouvrir la source</a>' : '<span>URL invalide</span>';
+    let rights = "";
+    try {
+      const u = new URL(item.rightsUrl);
+      if (u.protocol === "https:") rights = u.href;
+    } catch { /* rights URL absent or invalid */ }
+    const rightsHtml = rights ? ' · <a href="'+escapeHtml(rights)+'" target="_blank" rel="noopener noreferrer">Conditions de réutilisation</a>' : "";
     return '<li class="candidate" data-topic="'+escapeHtml(item.topicHint)+'"><article>'+
       '<p class="meta">'+escapeHtml(item.publisher)+' · '+escapeHtml(item.topicHint)+' · '+escapeHtml(item.publishedAt || "Date inconnue")+'</p>'+
       '<h2>'+escapeHtml(item.title)+'</h2>'+
-      '<p>'+hrefHtml+'</p><p class="warning">À vérifier · non publié</p>'+
+      '<p>'+hrefHtml+rightsHtml+'</p><p class="warning">À vérifier · non publié</p>'+
       '<details><summary>Liste de vérification</summary><ul><li>Lire l’article d’origine</li><li>Vérifier les faits et les dates</li><li>Croiser si nécessaire avec une autre source</li><li>Rédiger un contenu original</li><li>Faire valider par une personne avant publication</li></ul></details>'+
       '</article></li>';
   }).join("\n");

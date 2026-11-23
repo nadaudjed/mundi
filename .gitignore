@@ -162,3 +162,6 @@ next-env.d.ts
 # Playwright
 test-results/
 playwright-report/
+
+# Internal newsroom research results (never deploy)
+reports/

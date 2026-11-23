@@ -1,0 +1,23 @@
+[
+  {
+    "id": "lemonde-international",
+    "publisher": "Le Monde",
+    "feedUrl": "https://www.lemonde.fr/international/rss_full.xml",
+    "topic": "geopolitique",
+    "enabled": true
+  },
+  {
+    "id": "lemonde-economie",
+    "publisher": "Le Monde",
+    "feedUrl": "https://www.lemonde.fr/economie/rss_full.xml",
+    "topic": "economie",
+    "enabled": true
+  },
+  {
+    "id": "rfi-monde",
+    "publisher": "RFI",
+    "feedUrl": "https://www.rfi.fr/fr/monde/rss",
+    "topic": "geopolitique",
+    "enabled": true
+  }
+]

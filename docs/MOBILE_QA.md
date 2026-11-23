@@ -69,3 +69,7 @@ Suite Playwright complète relancée (Chromium, profils Pixel 7 et ordinateur) :
 ## Cartes de données (ticket #25)
 
 Testé automatiquement dans Chromium (Pixel 7 et ordinateur) : affichage plein écran sans défilement horizontal, animations limitées à la carte visible et coupées en mouvement réduit, axe-core sur fond sombre et clair. **Non testé** sur un vrai iPhone ni un vrai Android. À vérifier à la main sur ces appareils : la lisibilité des grands chiffres sur un écran de 320 px, la fluidité des barres animées et le rendu des visuels SVG fournis par la direction artistique.
+
+## Scènes plein écran (ticket #30)
+
+Testé automatiquement dans Chromium (Pixel 7, ordinateur et écran de 320 px) : fond plein écran, révélations limitées à l'écran actif, mouvement réduit, bouton Pause, clavier, absence de défilement horizontal, axe-core. **Non testé** dans Safari iOS (WebKit indisponible ici) ni sur un vrai Android. À vérifier sur iPhone : hauteur `100dvh`, défilement aimanté et fluidité du zoom du fond.

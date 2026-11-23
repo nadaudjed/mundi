@@ -73,14 +73,18 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(sources.getByRole("link", { name: "+ 1 autre" })).toHaveAttribute("href", `/actualites/${FIRST}/`);
   });
 
-  test("les cartes sans média affichent un crédit et un visuel décoratif, dans deux variantes", async ({ page }) => {
+  test("une carte sans fond affiche le motif génératif ; une carte avec fond approuvé affiche la scène", async ({ page }) => {
     await page.goto("/");
-    for (const [index, visual] of [[0, "motif"], [5, "sobre"]] as const) {
-      const card = page.locator(`[data-index="${index}"]`);
-      await expect(card.getByTestId("verified-credit")).toHaveText("Visuel : motif génératif MUNDI");
-      await expect(card.locator(`[data-visual="${visual}"]`)).toHaveAttribute("aria-hidden", "true");
-      await expect(card.locator("video, img")).toHaveCount(0);
-    }
+    const first = page.locator('[data-index="0"]');
+    await expect(first.getByTestId("verified-credit")).toHaveText("Visuel : motif génératif MUNDI");
+    await expect(first.locator('[data-visual="motif"]')).toHaveAttribute("aria-hidden", "true");
+    await expect(first.locator("video, img")).toHaveCount(0);
+    // La seconde publication demande un fond du registre (fond de test neutre, tests/fixtures/scenes/).
+    const second = page.locator('[data-index="5"]');
+    await expect(second.getByTestId("scene-backdrop")).toHaveAttribute("data-backdrop", "test-fond-neutre");
+    await expect(second.getByTestId("scene-backdrop")).toHaveAttribute("aria-hidden", "true");
+    await expect(second.getByTestId("verified-credit")).toHaveText("Fond : Fond de test MUNDI (dégradé neutre) · Usage interne aux tests");
+    await expect(second.locator("[data-visual]")).toHaveCount(0);
   });
 
   test("avec réduction des animations, le motif ne bouge pas", async ({ browser }) => {

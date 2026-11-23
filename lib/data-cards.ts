@@ -8,6 +8,8 @@
  * par ChatGPT via les paramètres de style et les emplacements de visuels.
  */
 
+import type { SceneRef } from "./scenes";
+
 export const DATA_CARDS_FORMAT = "mundi-data-cards-v1";
 
 export type DataSource = { label: string; url: string };
@@ -61,6 +63,8 @@ type CardBase = {
   note?: string;
   visual?: VisualSlot;
   style?: DataCardStyle;
+  /** Fond plein écran facultatif (registre approuvé, lib/scenes.ts). Le texte reste au premier plan. */
+  scene?: SceneRef;
 };
 
 export type StatCard = CardBase & { kind: "stat"; measure: Measure; context?: string };
@@ -150,6 +154,11 @@ export function validateDataCards(value: unknown): string[] {
     if (!isDate(c.asOf)) errors.push(`${where} : date de la donnée invalide (AAAA-MM-JJ)`);
     if (c.note !== undefined && !isText(c.note, 3, 400)) errors.push(`${where} : note méthodologique invalide`);
     checkVisual(c.visual, where, errors);
+    if (c.scene !== undefined) {
+      const sc = (c.scene ?? {}) as Record<string, unknown>;
+      if (typeof sc.backdrop !== "string" || !/^[a-z0-9-]{2,40}$/.test(sc.backdrop)) errors.push(`${where} : identifiant de fond invalide`);
+      if (sc.focus !== undefined && !["haut", "centre", "bas"].includes(String(sc.focus))) errors.push(`${where} : cadrage du fond invalide (haut, centre ou bas)`);
+    }
     if (c.kind === "stat") {
       checkMeasure(c.measure, where, errors);
     } else if (c.kind === "comparaison") {

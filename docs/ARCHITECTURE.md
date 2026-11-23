@@ -51,3 +51,7 @@ Remplacer les fixtures par un CMS éditorial avec relecture humaine, ajouter les
 ## Cartes de données (ticket #25)
 
 Schéma typé `mundi-data-cards-v1` (`lib/data-cards.ts`), composant `components/data-cards/DataCardView.tsx`, cartes insérées dans le fil après leur publication approuvée, aperçu « Brouillon — non publié » dans l'atelier. La direction artistique (ticket #26) fournit les visuels et choisit parmi des paramètres de style limités aux jetons de la marque. Détails : `docs/DATA_CARDS.md`.
+
+## Scènes plein écran (ticket #30)
+
+Fonds d'ambiance plein écran derrière les publications vérifiées et les cartes de données, limités à un registre approuvé (`content/scenes.json`, vide tant que le fondateur n'a rien validé). Révélation typographique sur l'écran actif, bouton Pause, mouvement réduit respecté. Détails : `docs/SCENES.md`.

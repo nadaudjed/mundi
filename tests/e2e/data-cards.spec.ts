@@ -140,6 +140,9 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
       await scrollFeedTo(page, i);
       const group = page.locator(`[data-index="${i}"]`).getByRole("group");
       await expect(group).toHaveAccessibleName(/Exemple de test/);
+      // Mesure du contraste une fois les révélations terminées.
+      await expect.poll(() => group.locator(".reveal-word").last().evaluate((el) => getComputedStyle(el).opacity)).toBe("1");
+      await expect.poll(() => group.locator("[data-fade]").evaluate((el) => getComputedStyle(el).opacity)).toBe("1");
       const results = await new AxeBuilder({ page }).include(`[data-index="${i}"]`).analyze();
       expect(results.violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
     }

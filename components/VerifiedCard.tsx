@@ -9,6 +9,9 @@ import { Icon } from "./Icon";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
 import { EditorialBackdrop } from "./EditorialBackdrop";
+import { RevealWords } from "./scene/RevealWords";
+import { MotionToggle } from "./scene/MotionToggle";
+import { SceneLayer } from "./scene/SceneLayer";
 
 export type { CardVisual } from "./EditorialBackdrop";
 import type { CardVisual } from "./EditorialBackdrop";
@@ -29,13 +32,16 @@ type Props = {
   position: number;
   total: number;
   active: boolean;
+  /** Texte déjà révélé (scène vue au moins une fois). Par défaut : scène active. */
+  revealed?: boolean;
   visual: CardVisual;
 };
 
-export function VerifiedCard({ publication: p, index, position, total, active, visual }: Props) {
+export function VerifiedCard({ publication: p, index, position, total, active, revealed = active, visual }: Props) {
   const topic = getTopic(p.topic)!;
   const shown = p.sources.slice(0, 3);
   const more = p.sources.length - shown.length;
+  const backdrop = p.scene ? p.backdrops?.[p.scene.backdrop] : undefined;
 
   return (
     <article
@@ -46,12 +52,18 @@ export function VerifiedCard({ publication: p, index, position, total, active, v
       aria-label={`Publication vérifiée ${position + 1} sur ${total} : ${p.title}`}
       className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night text-ivory"
     >
-      <EditorialBackdrop visual={visual} color={topic.color} pattern={topic.pattern} seed={p.slug} />
-      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+      {backdrop ? (
+        <SceneLayer backdrop={backdrop} focus={p.scene?.focus} active={active} />
+      ) : (
+        <>
+          <EditorialBackdrop visual={visual} color={topic.color} pattern={topic.pattern} seed={p.slug} />
+          <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+        </>
+      )}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-35% via-night/80 via-55% to-night/30" aria-hidden="true" />
 
-      <p className="absolute top-[5.75rem] right-4 z-10 rounded-full bg-night/70 px-2.5 py-1 text-[0.68rem] font-semibold text-ivory/90 ring-1 ring-ivory/20 md:top-4" data-testid="verified-credit">
-        Visuel : motif génératif MUNDI
+      <p className="absolute top-[5.75rem] right-4 z-10 max-w-[calc(100%-2rem)] rounded-full bg-night/70 px-2.5 py-1 text-[0.68rem] font-semibold text-ivory/90 ring-1 ring-ivory/20 md:top-4" data-testid="verified-credit">
+        {backdrop ? `Fond : ${backdrop.credit} · ${backdrop.license}` : "Visuel : motif génératif MUNDI"}
       </p>
 
       <div className="pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:px-6 md:pb-8">
@@ -64,8 +76,8 @@ export function VerifiedCard({ publication: p, index, position, total, active, v
             {p.fixture && <span className="rounded-full border border-amber/60 px-2.5 py-1 text-[#ffd98f]">Exemple de test</span>}
           </div>
 
-          <h2 className="font-display text-[1.6rem] leading-[1.12] font-semibold text-balance md:text-[1.75rem]">{p.title}</h2>
-          <p className="mt-3 text-[0.92rem] leading-relaxed text-ivory/80 [@media(max-height:760px)]:line-clamp-2">{p.summary}</p>
+          <RevealWords as="h2" text={p.title} active={revealed} className="font-display text-[1.6rem] leading-[1.12] font-semibold text-balance md:text-[1.75rem]" />
+          <p data-fade={revealed ? "on" : "off"} className="mt-3 text-[0.92rem] leading-relaxed text-ivory/80 [@media(max-height:760px)]:line-clamp-2">{p.summary}</p>
 
           <p className="mt-3 text-xs text-ivory/75" data-testid="verified-meta">
             Publié le <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>
@@ -76,6 +88,12 @@ export function VerifiedCard({ publication: p, index, position, total, active, v
               </>
             )}{" "}
             · relu par {p.reviewedBy}
+            {backdrop && (
+              <>
+                {" "}
+                · <MotionToggle />
+              </>
+            )}
           </p>
 
           <div className="mt-3" data-testid="verified-sources">

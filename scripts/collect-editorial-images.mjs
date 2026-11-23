@@ -112,7 +112,10 @@ export async function searchCommons(query,fetcher=fetch){
       license:String(page?.imageinfo?.[0]?.extmetadata?.LicenseShortName?.value??"none").slice(0,35),
       mime:String(page?.imageinfo?.[0]?.mime??"none").slice(0,35),
       thumb:Boolean(page?.imageinfo?.[0]?.thumburl),
-      author:Boolean(page?.imageinfo?.[0]?.extmetadata?.Artist?.value)
+      author:Boolean(page?.imageinfo?.[0]?.extmetadata?.Artist?.value),
+      licenseUrl:String(page?.imageinfo?.[0]?.extmetadata?.LicenseUrl?.value??"none").slice(0,110),
+      width:page?.imageinfo?.[0]?.width,height:page?.imageinfo?.[0]?.height,
+      thumbHost:(()=>{try{return new URL(page?.imageinfo?.[0]?.thumburl).hostname}catch{return"none"}})()
     }));
     console.log("MUNDI Wikimedia query diagnostic:",JSON.stringify({query,pages:pages.length,examples}));
   }

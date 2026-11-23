@@ -57,7 +57,11 @@ Les trois types de cartes :
 - **`comparaison`** : `items`, de 2 à 4 mesures, et `presentation` :
   - `echelle-commune` : barres proportionnelles. Autorisée seulement si toutes les valeurs ont **la même unité et le même dénominateur**, et aucune n'est négative.
   - `valeurs-distinctes` : valeurs côte à côte, sans barre, avec l'avertissement « Ces valeurs n'ont pas le même dénominateur… ». Exemple : un taux « des déchets collectés » et un taux « des déchets produits » ne se comparent pas sur une même échelle.
-- **`explication`** : `steps`, de 2 à 5 étapes `{ label, text, nature }`, où `nature` vaut `fait` ou `hypothese`. Chaque étape affiche un badge « Fait » ou « Hypothèse ».
+- **`explication`** : `steps`, de 2 à 5 étapes `{ label, text, nature }`, où `nature` vaut `fait` ou `hypothese`. Chaque étape affiche un badge « Fait » ou « Hypothèse ». Le champ `layout` choisit la présentation :
+  - `sequence` (par défaut) : étapes numérotées, qui se suivent dans l'ordre.
+  - `alternatives` : la première étape est le point de départ, les suivantes sont des issues possibles, sans numéro ni ordre (« Ensuite, selon les cas : »). Il faut au moins 3 étapes. C'est la présentation d'une bifurcation, par exemple « collecte et tri » qui mène au réemploi **ou** au recyclage. Une liste numérotée suggérerait à tort « réemploi puis recyclage ».
+
+Pour une comparaison de deux flux (par exemple des déchets générés et des déchets traités la même année), une échelle commune reste possible s'ils ont la même unité. La `note` doit alors préciser qu'il s'agit de deux flux statistiques annuels distincts, et non du suivi d'un même lot. Un pourcentage reste associé à son propre dénominateur (`denominator`).
 
 La validation vérifie la **structure**, pas l'exactitude des chiffres : une personne doit valider ces derniers.
 
@@ -88,6 +92,7 @@ Si une maquette demande un réglage absent de cette liste, ChatGPT le signale da
 - Formats acceptés : SVG, PNG, JPEG, WebP ou AVIF. Illustrations originales ou autorisées uniquement : pas de photos de presse sans licence.
 - `decorative: true` (avec `alt: ""`) masque le visuel aux lecteurs d'écran quand il n'apporte aucune information. Une infographie qui porte des chiffres n'est **pas** décorative : ces chiffres doivent aussi figurer en texte dans la carte.
 - Le crédit et la licence s'affichent sous le visuel (« Visuel : crédit · licence »).
+- **Le slot `visual` sert à une illustration complémentaire, cadrée, sans chiffre indispensable.** On n'y insère pas une affiche 9:16 complète : sa typographie deviendrait illisible à cette taille. Les maquettes complètes (PR #27, ticket #26) servent de *références de composition*. Les grands chiffres, les barres, les étapes et les légendes sont rendus en HTML natif à partir des données typées, donc lisibles, traduisibles et accessibles.
 - Le visuel occupe au plus 14 rem de haut et garde ses proportions (`object-contain`). Prévoir un cadrage vertical, lisible sur un écran de 360 px de large.
 - Un SVG animé doit respecter `prefers-reduced-motion`.
 

@@ -7,11 +7,13 @@ import {
   type DataCard,
   type DataCardStyle,
   type ExplanationCard,
+  type ExplanationStep,
   type Measure,
   type StatCard,
   type VisualSlot,
 } from "@/lib/data-cards";
 import { formatDate } from "@/lib/format";
+import { inkOn, luminance } from "@/lib/topics";
 import { Icon } from "../Icon";
 
 /**
@@ -49,9 +51,16 @@ function accentOf(style: DataCardStyle | undefined, topicColor: string) {
   return a === "topic" ? topicColor : ACCENTS[a];
 }
 
+/** Couleur d'accent utilisable pour du TEXTE sur fond nuit : sinon ivoire (contraste AA 4,5:1). */
+function textAccentOnNight(color: string) {
+  const ratio = (luminance(color) + 0.05) / (luminance("#101D30") + 0.05);
+  return ratio >= 4.5 ? color : "#F3F0E8";
+}
+
 export function DataCardView({ card, position, total, topicColor, active, status, href, showVisualPlaceholder = false }: Props) {
   const light = card.style?.tone === "ivory";
   const accent = accentOf(card.style, topicColor);
+  const textAccent = light ? undefined : textAccentOnNight(accent);
   const display = card.style?.emphasis !== "sans";
   const titleId = `data-${card.id}-title`;
 
@@ -64,7 +73,7 @@ export function DataCardView({ card, position, total, topicColor, active, status
       role="group"
     >
       <div className="flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">
-        <span style={{ color: light ? undefined : accent }} className={light ? "text-night/70" : ""}>
+        <span style={{ color: textAccent }} className={light ? "text-night/70" : ""}>
           Données · carte {position + 1} sur {total}
         </span>
         {status === "brouillon" && (
@@ -86,7 +95,7 @@ export function DataCardView({ card, position, total, topicColor, active, status
       <VisualArea visual={card.visual} placeholder={showVisualPlaceholder} light={light} />
 
       <div className="mt-auto pt-4">
-        {card.kind === "stat" && <StatBody card={card} accent={accent} active={active} display={display} light={light} />}
+        {card.kind === "stat" && <StatBody card={card} accent={textAccent} active={active} display={display} light={light} />}
         {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} active={active} light={light} />}
         {card.kind === "explication" && <ExplanationBody card={card} accent={accent} light={light} />}
         <Footer card={card} light={light} href={href} />
@@ -143,12 +152,12 @@ function Context({ m, light }: { m: Measure; light: boolean }) {
   );
 }
 
-function StatBody({ card, accent, active, display, light }: { card: StatCard; accent: string; active: boolean; display: boolean; light: boolean }) {
+function StatBody({ card, accent, active, display, light }: { card: StatCard; accent?: string; active: boolean; display: boolean; light: boolean }) {
   return (
     <div data-testid="stat-value">
       <p className="sr-only">{describeMeasure(card.measure)}</p>
       <div aria-hidden="true" className={active ? "motion-safe:animate-rise" : ""}>
-        <span style={{ color: light ? undefined : accent }}>
+        <span style={{ color: accent }}>
           <Value m={card.measure} display={display} big />
         </span>
         <span className="mt-2 block">
@@ -194,21 +203,49 @@ function ComparisonBody({ card, accent, active, light }: { card: ComparisonCard;
   );
 }
 
-function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accent: string; light: boolean }) {
+function NatureBadge({ nature, light }: { nature: ExplanationStep["nature"]; light: boolean }) {
+  const cls = nature === "fait" ? (light ? "bg-mint/20 text-[#0f6e5b]" : "bg-mint/20 text-mint-soft") : light ? "bg-amber/20 text-[#7a5410]" : "bg-amber/20 text-[#ffd98f]";
+  return <span className={`ml-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider ${cls}`}>{nature === "fait" ? "Fait" : "Hypothèse"}</span>;
+}
+
+function StepText({ s, light }: { s: ExplanationStep; light: boolean }) {
   return (
-    <ol className="space-y-2.5" data-testid="explanation">
+    <span className="text-sm leading-snug">
+      <strong className="font-semibold">{s.label}</strong> <NatureBadge nature={s.nature} light={light} />
+      <span className={`mt-0.5 block ${light ? "text-night/85" : "text-ivory/85"}`}>{s.text}</span>
+    </span>
+  );
+}
+
+function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accent: string; light: boolean }) {
+  if (card.layout === "alternatives") {
+    // Point de départ, puis issues possibles : ni numéro ni flèche, pour ne pas suggérer un enchaînement.
+    const [start, ...options] = card.steps;
+    return (
+      <div data-testid="explanation" data-layout="alternatives">
+        <p className="rounded-xl p-2.5" style={{ boxShadow: `inset 3px 0 0 ${accent}` }}>
+          <StepText s={start} light={light} />
+        </p>
+        <p className={`mt-3 text-xs font-bold uppercase tracking-[0.18em] ${light ? "text-night/70" : "text-ivory/70"}`}>Ensuite, selon les cas :</p>
+        <ul className="mt-2 space-y-2">
+          {options.map((s, i) => (
+            <li key={i} className={`rounded-xl border p-2.5 ${light ? "border-night/15" : "border-ivory/15"}`}>
+              {i > 0 && <span className="sr-only">ou </span>}
+              <StepText s={s} light={light} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+  return (
+    <ol className="space-y-2.5" data-testid="explanation" data-layout="sequence">
       {card.steps.map((s, i) => (
         <li key={i} className="flex gap-3">
-          <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-night" style={{ background: accent }} aria-hidden="true">
+          <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold" style={{ background: accent, color: inkOn(accent) }} aria-hidden="true">
             {i + 1}
           </span>
-          <span className="text-sm leading-snug">
-            <strong className="font-semibold">{s.label}</strong>{" "}
-            <span className={`ml-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider ${s.nature === "fait" ? (light ? "bg-mint/20 text-[#0f6e5b]" : "bg-mint/20 text-mint-soft") : light ? "bg-amber/20 text-[#7a5410]" : "bg-amber/20 text-[#ffd98f]"}`}>
-              {s.nature === "fait" ? "Fait" : "Hypothèse"}
-            </span>
-            <span className={`mt-0.5 block ${light ? "text-night/85" : "text-ivory/85"}`}>{s.text}</span>
-          </span>
+          <StepText s={s} light={light} />
         </li>
       ))}
     </ol>

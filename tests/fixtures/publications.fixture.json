@@ -123,26 +123,29 @@
         "note": "Les deux taux n’ont pas le même dénominateur."
       },
       {
-        "id": "test-explication",
+        "id": "test-alternatives",
         "kind": "explication",
-        "headline": "Exemple de test : un mécanisme en étapes",
+        "layout": "alternatives",
+        "headline": "Exemple de test : un point de départ, deux issues possibles",
         "source": {
           "label": "Jeu de données fictif (test)",
           "url": "https://donnees.mundi.test/jeu-fictif"
         },
         "asOf": "2026-11-01",
-        "style": {
-          "accent": "topic"
-        },
         "steps": [
           {
-            "label": "Étape fictive 1",
-            "text": "Un fait inventé pour le test.",
+            "label": "Départ fictif",
+            "text": "Un fait inventé, commun aux deux issues.",
             "nature": "fait"
           },
           {
-            "label": "Étape fictive 2",
-            "text": "Une hypothèse inventée pour le test.",
+            "label": "Issue fictive A",
+            "text": "Une première issue inventée.",
+            "nature": "fait"
+          },
+          {
+            "label": "Issue fictive B",
+            "text": "Une seconde issue inventée, non successive.",
             "nature": "hypothese"
           }
         ]

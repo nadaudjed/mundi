@@ -71,17 +71,19 @@ export function authorizedFeeds(feeds) {
     f.rightsStatus === "approved_metadata_collection" &&
     typeof f.rightsUrl === "string" && f.rightsUrl.startsWith("https://"));
 }
-export async function collectFeeds(feeds) {
-  const items = [], errors = [];
+export async function collectFeeds(feeds, fetcher = fetch) {
+  const items = [], errors = [], sourceHealth = [];
   const eligible = authorizedFeeds(feeds);
   for (const rejected of feeds.filter(f => f.enabled === true && !eligible.includes(f))) {
-    errors.push({ sourceId: rejected.id, error: "Source activée sans droits de collecte des métadonnées documentés." });
+    const error = "Source activée sans droits de collecte des métadonnées documentés.";
+    errors.push({ sourceId: rejected.id, error });
+    sourceHealth.push({sourceId:rejected.id, publisher:rejected.publisher, status:"rights_blocked", count:0, error});
   }
   for (const feed of eligible) {
     try {
       const url = new URL(feed.feedUrl);
       if (url.protocol !== "https:" || !FEED_HOSTS.has(url.hostname)) throw new Error("feed host not approved");
-      const response = await fetch(url,{
+      const response = await fetcher(url,{
         signal:AbortSignal.timeout(12000),redirect:"error",
         headers:{"user-agent":"MUNDI-Editorial-Research/0.1 (metadata only)",
           "accept":"application/atom+xml,application/rss+xml,application/xml,text/xml"}
@@ -91,16 +93,20 @@ export async function collectFeeds(feeds) {
       const xml = await response.text();
       if (Buffer.byteLength(xml,"utf8") > MAX_BYTES) throw new Error("feed too large");
       if (!/<rss\b|<rdf:RDF\b|<feed(?:\s|>)/i.test(xml)) throw new Error("not a recognized RSS or Atom feed");
-      items.push(...parseFeed(xml,feed));
+      const parsed = parseFeed(xml,feed);
+      items.push(...parsed);
+      sourceHealth.push({sourceId:feed.id,publisher:feed.publisher,status:parsed.length ? "ok" : "empty",count:parsed.length,error:null});
     } catch(e) {
-      errors.push({sourceId:feed.id,error:String(e.message||e).slice(0,200)});
+      const error=String(e.message||e).slice(0,200);
+      errors.push({sourceId:feed.id,error});
+      sourceHealth.push({sourceId:feed.id,publisher:feed.publisher,status:"error",count:0,error});
     }
   }
   const unique = [...new Map(items.map(i=>[i.link,i])).values()]
     .sort((a,b)=>(b.publishedAt||"").localeCompare(a.publishedAt||"")).slice(0,100);
   return {generatedAt:new Date().toISOString(),
     disclaimer:"Candidats RSS/Atom non vérifiés. Ne pas publier sans revue humaine.",
-    count:unique.length,items:unique,errors};
+    count:unique.length,items:unique,errors,sourceHealth};
 }
 if (process.argv[1] && import.meta.url === new URL("file://"+resolve(process.argv[1])).href) {
   const feeds=JSON.parse(readFileSync(resolve("content/sources.json"),"utf8"));

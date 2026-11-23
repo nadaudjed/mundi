@@ -1,0 +1,48 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getPublication, publishedArticles } from "@/lib/editorial";
+import { getTopic } from "@/lib/topics";
+
+type Params = { slug: string };
+export function generateStaticParams(): Params[] { return publishedArticles.map(a => ({slug: a.slug})); }
+export const dynamicParams = false;
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { slug } = await params;
+  const a = getPublication(slug);
+  return a ? { title: a.title, description: a.summary } : {};
+}
+const labels = { fait: "Faits", analyse: "Analyse", hypothese: "Hypothèses" };
+
+export default async function PublicationPage({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const a = getPublication(slug);
+  if (!a) notFound();
+  return (
+    <article className="mx-auto max-w-3xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-14 md:pb-20">
+      <Link href="/actualites/" className="text-sm font-semibold text-blue underline underline-offset-4">Toutes les publications</Link>
+      <p className="mt-10 text-xs font-semibold uppercase tracking-wider text-blue">{getTopic(a.topic)?.name} · Publication vérifiée</p>
+      <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-night md:text-5xl">{a.title}</h1>
+      <p className="mt-5 text-lg leading-relaxed text-muted">{a.summary}</p>
+      <p className="mt-6 border-y border-night/10 py-4 text-sm text-muted">Publié le {a.publishedAt} · Actualisé le {a.updatedAt} · Validation : {a.reviewedBy}</p>
+      <section className="mt-10">
+        <h2 className="font-display text-2xl font-semibold text-night">Trois idées à retenir</h2>
+        <ol className="mt-5 space-y-3">{a.keyPoints.map((point,i) => <li key={i} className="rounded-2xl bg-paper p-5 ring-1 ring-night/10"><strong className="mr-3 text-blue">{i+1}.</strong>{point}</li>)}</ol>
+      </section>
+      {a.sections.map((s,i) => (
+        <section key={i} className="mt-12">
+          <p className="text-xs font-semibold uppercase tracking-wider text-blue">{labels[s.kind]}</p>
+          <h2 className="mt-2 font-display text-2xl font-semibold text-night">{s.heading}</h2>
+          <p className="mt-4 whitespace-pre-line text-base leading-[1.85] text-night/90">{s.text}</p>
+        </section>
+      ))}
+      <section className="mt-14 border-t border-night/15 pt-8">
+        <h2 className="font-display text-2xl font-semibold text-night">Sources</h2>
+        <ol className="mt-5 space-y-3">{a.sources.map((s,i) => <li key={s.url} className="rounded-xl bg-paper p-4 ring-1 ring-night/10">
+          <span className="mr-2 font-semibold text-blue">{i+1}.</span>
+          <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-blue underline underline-offset-4">{s.label}</a>
+        </li>)}</ol>
+      </section>
+    </article>
+  );
+}

@@ -2,7 +2,7 @@
 
 Le workflow `MUNDI — Netlify production smoke test` visite le **domaine principal**
 `https://mundiapptest.netlify.app` : la page d'accueil, la liste des actualités
-et les trois derniers articles publiés dans `content/publications.json`.
+et les cinq derniers articles publiés dans `content/publications.json`.
 Il ne se contente pas de la réussite des builds GitHub ou des Deploy Previews.
 
 Il attend si nécessaire un peu après la fusion (six tentatives), publie un

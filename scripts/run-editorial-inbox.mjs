@@ -5,12 +5,12 @@
  */
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
-import { collectFeeds } from "./collect-sources.mjs";
+import { collectFeeds, authorizedFeeds } from "./collect-sources.mjs";
 import { makeReport } from "./render-editorial-report.mjs";
 
-const feeds = JSON.parse(readFileSync(resolve("content/sources.json"),"utf8"));
+const feeds = JSON.parse(readFileSync(resolve(process.env.MUNDI_SOURCES_PATH || "content/sources.json"),"utf8"));
 if (!Array.isArray(feeds)) throw new Error("Source catalogue must be an array");
-const enabled = feeds.filter(f=>f.enabled);
+const enabled = authorizedFeeds(feeds);
 const result = enabled.length ? await collectFeeds(feeds) : {
   generatedAt: new Date().toISOString(),
   disclaimer: "No sources are authorized/enabled. No headlines were collected, and nothing was published.",
@@ -21,8 +21,9 @@ const result = enabled.length ? await collectFeeds(feeds) : {
     error: "Aucune source RSS activée : contrôler les droits et autorisations avant d'activer la veille."
   }]
 };
-mkdirSync(resolve("reports"),{recursive:true});
-writeFileSync(resolve("reports/editorial-inbox.json"),JSON.stringify(result,null,2)+"\n");
-writeFileSync(resolve("reports/editorial-inbox.html"),makeReport(result));
+const reportDir = resolve(process.env.MUNDI_REPORT_DIR || "reports");
+mkdirSync(reportDir,{recursive:true});
+writeFileSync(resolve(reportDir, "editorial-inbox.json"),JSON.stringify(result,null,2)+"\n");
+writeFileSync(resolve(reportDir, "editorial-inbox.html"),makeReport(result));
 console.log("Internal newsroom: "+result.count+" candidate metadata items; "+result.errors.length+" notices; "+enabled.length+" enabled feeds.");
 console.log("No content was added to content/publications.json. No publication took place.");

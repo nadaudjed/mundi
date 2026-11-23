@@ -59,7 +59,7 @@ export function anthropicRequest(system,payload,model,kind="writer"){
   if(!model||typeof model!=="string")throw new Error("Claude model is not configured");
   const schema=kind==="writer"?WRITER_SCHEMA:CHECKER_SCHEMA;
   return {
-    model, max_tokens:kind==="writer"?16000:12000, // thinking and search results count toward this budget
+    model, max_tokens:kind==="writer"?24000:16000, // thinking and search results count toward this budget
     system:system+"\n\nAfter your searches, answer with one JSON object only (no text before or after, no code fence), matching this JSON Schema: "+JSON.stringify(schema),
     messages:[{role:"user",content:JSON.stringify(payload)}],
     tools:[{type:"web_search_20250305",name:"web_search",max_uses:4}]

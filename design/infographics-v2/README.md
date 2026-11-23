@@ -38,7 +38,7 @@ Des trajectoires visuelles pour introduire une explication ; **elles ne constitu
 
 **Fichier :** [motion-lab.html](motion-lab.html) (laboratoire autonome, sans publication).
 
-Télécharger ce dossier de maquettes et ouvrir le HTML localement pour voir les gestes, le scroll vertical, les progressions, l'apparition typographique et l'animation des décors. L'interface se parcourt au toucher, à la molette, via les boutons « Continuer » et avec les flèches haut/bas. Le bouton Pause et `prefers-reduced-motion` préservent une lecture statique.
+Le fichier HTML est **autonome** (ses trois décors SVG sont intégrés dans le fichier, sans réseau ni dépendances). Dans GitHub, ouvrir `motion-lab.html`, choisir **Download raw file**, puis ouvrir le fichier téléchargé dans Safari, Chrome ou Firefox pour expérimenter les gestes, le scroll vertical, les progressions, l'apparition typographique et l'animation des décors. L'interface se parcourt au toucher, à la molette, via les boutons « Continuer » et avec les flèches haut/bas. Le bouton Pause et `prefers-reduced-motion` préservent une lecture statique.
 
 Les textes du laboratoire ne prétendent **pas** documenter un événement réel : ce sont des textes de démonstration éditoriale.
 

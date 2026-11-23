@@ -4,20 +4,23 @@
     "publisher": "Le Monde",
     "feedUrl": "https://www.lemonde.fr/international/rss_full.xml",
     "topic": "geopolitique",
-    "enabled": true
+    "enabled": false,
+    "rightsStatus": "pending_permission_review"
   },
   {
     "id": "lemonde-economie",
     "publisher": "Le Monde",
     "feedUrl": "https://www.lemonde.fr/economie/rss_full.xml",
     "topic": "economie",
-    "enabled": true
+    "enabled": false,
+    "rightsStatus": "pending_permission_review"
   },
   {
     "id": "rfi-monde",
     "publisher": "RFI",
     "feedUrl": "https://www.rfi.fr/fr/monde/rss",
     "topic": "geopolitique",
-    "enabled": true
+    "enabled": false,
+    "rightsStatus": "pending_permission_review"
   }
 ]

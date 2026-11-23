@@ -18,3 +18,13 @@ Après une collecte réussie, exécuter `npm run sources:report` et ouvrir local
 
 Le tableau est généré à partir du JSON local : il ne synchronise aucun commentaire ni validation et n'a **aucune connexion à un compte administrateur**. Le lancement de la collecte reste manuel.
 
+
+## Génération depuis GitHub — sans terminal (validation des droits préalable)
+
+Le workflow `Editorial inbox — manual research export` est déclenchable manuellement depuis **GitHub > Actions > Editorial inbox — manual research export > Run workflow**. Il génère un dossier `mundi-research-inbox` (JSON + rapport HTML) à télécharger dans la page de l'exécution, conservé sept jours. Aucun accès de publication ni secret n'est nécessaire.
+
+**Attention aux droits :** les flux du Monde sont référencés publiquement, mais leur usage professionnel/commercial est soumis à des restrictions explicites dans leurs mentions légales ; ils sont donc désactivés. La source RFI est également désactivée dans l'attente d'une vérification des droits et de l'URL. Aucun flux n'est activé par défaut : si les permissions ne sont pas confirmées, le workflow produit un rapport vide avec un avertissement, au lieu de collecter malgré tout.
+
+Avant d'activer une source : confirmer que l'URL répond et que les conditions autorisent ce mode de collecte ; documenter l'accord ou le fondement de l'utilisation. Les métadonnées ne doivent pas être considérées comme libres de droits par défaut.
+
+**Ce workflow ne met pas à jour le site public, ne produit pas de synthèses factuelles et ne valide aucune actualité.** L'étape de vérification humaine et de rédaction originale reste obligatoire.

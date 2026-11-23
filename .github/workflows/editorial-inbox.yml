@@ -1,0 +1,29 @@
+name: Editorial inbox — manual research export
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the newsroom source catalogue
+        uses: actions/checkout@v4
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Prepare offline editorial report (no publication)
+        run: node scripts/run-editorial-inbox.mjs
+      - name: Upload private research artifact (7 days)
+        uses: actions/upload-artifact@v4
+        with:
+          name: mundi-research-inbox
+          path: |
+            reports/editorial-inbox.json
+            reports/editorial-inbox.html
+          retention-days: 7
+          if-no-files-found: error

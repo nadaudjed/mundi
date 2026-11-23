@@ -13,8 +13,8 @@ export function InterestsClient() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mint">Votre sélection</p>
         <p className="mt-2 font-display text-3xl font-semibold">{interests.length} sujet{interests.length > 1 ? "s" : ""} favori{interests.length > 1 ? "s" : ""}</p>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ivory/80">
-          Vos choix influencent l'ordre du fil « Pour vous ». MUNDI continue d'intégrer
-          d'autres sujets pour encourager la découverte et éviter les bulles d'information.
+          Vos choix influencent l&apos;ordre du fil « Pour vous ». MUNDI continue d&apos;intégrer
+          d&apos;autres sujets pour encourager la découverte et éviter les bulles d&apos;information.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link href="/" className="inline-flex rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night hover:bg-mint-soft">Découvrir mon fil</Link>
@@ -22,7 +22,7 @@ export function InterestsClient() {
         </div>
       </section>
       <section aria-labelledby="choose-topics" className="mt-10">
-        <h2 id="choose-topics" className="font-display text-2xl font-semibold text-night">Qu'est-ce qui vous intéresse ?</h2>
+        <h2 id="choose-topics" className="font-display text-2xl font-semibold text-night">Qu&apos;est-ce qui vous intéresse ?</h2>
         <p className="mt-2 text-sm text-muted">Choisissez autant de sujets que vous le souhaitez. Vos préférences restent sur cet appareil.</p>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {topics.map(topic => {

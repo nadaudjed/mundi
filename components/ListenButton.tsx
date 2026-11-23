@@ -72,7 +72,11 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
   useEffect(() => {
     // Feed cards can stay mounted while hidden. A hidden card must not continue
     // speaking and must release ownership of the global speech engine.
-    if (!active) stop(false);
+    if (!active) {
+      stop(false);
+      // Reconcile the button UI without updating React state synchronously in an effect.
+      queueMicrotask(() => setPhase("idle"));
+    }
     return () => stop(false);
   }, [active, stop]);
 
@@ -183,7 +187,7 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
     } catch { fail("synthesis-unavailable"); }
   }
 
-  const playing = active && playback.current !== null && (phase === "starting" || phase === "speaking");
+  const playing = active && (phase === "starting" || phase === "speaking");
   return (
     <span className="inline-flex max-w-full flex-col items-start gap-1.5">
       <button type="button" onClick={toggle}

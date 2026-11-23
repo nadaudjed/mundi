@@ -103,6 +103,8 @@ test.describe("Site de test : scènes et transitions", () => {
     await expect(toggle).toHaveAttribute("aria-pressed", "true");
     await expect(toggle).toHaveText("Reprendre le décor");
     expect(await inactive.evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("paused");
+    // Le filet décoratif s'arrête aussi : « pause » = plus aucun mouvement de décor.
+    expect(await page.locator(`[data-index="${SECOND}"]`).getByTestId("scene-thread").evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("paused");
 
     await page.reload();
     await expect(page.locator("html")).toHaveAttribute("data-motion-paused", "");

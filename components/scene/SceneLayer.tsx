@@ -16,7 +16,7 @@ export function SceneLayer({ backdrop, focus, active }: { backdrop: SceneBackdro
         style={{ backgroundImage: `url("${backdrop.src}")`, backgroundPosition: focusPosition(focus) }}
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,10,21,0.78)_0%,rgba(3,10,21,0.18)_30%,rgba(3,10,21,0.22)_48%,rgba(3,10,21,0.92)_82%)]" />
-      <div className={`absolute top-[24%] left-0 h-px w-[44%] max-w-[20rem] origin-left bg-gradient-to-r from-mint to-transparent ${active ? "motion-safe:animate-thread" : ""}`} />
+      <div className={`absolute top-[24%] left-0 h-px w-[44%] max-w-[20rem] origin-left bg-gradient-to-r from-mint to-transparent ${active ? "motion-safe:animate-thread motion-pausable" : ""}`} data-testid="scene-thread" />
     </div>
   );
 }

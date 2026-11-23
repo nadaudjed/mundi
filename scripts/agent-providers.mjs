@@ -1,9 +1,22 @@
 /**
  * One interface for OpenAI Responses API and Anthropic Messages API.
- * Model/provider choice is an explicit repo variable. No automatic fallbacks:
- * a failed provider response must never quietly downgrade verification.
+ * Explicit repo variables override a key-based Claude default.
+ * API failures never silently switch providers or downgrade verification.
  */
 const PROVIDERS=new Set(["openai","anthropic"]);
+export const DEFAULT_CLAUDE_MODEL="claude-sonnet-5-5";
+/** Select Claude when its secret alone is present; never silently switch after an API failure. */
+export function inferAgentSelection({
+  provider="",checkerProvider="",model="",checkerModel="",anthropicKey=""
+}={}){
+  const writerProvider=provider||(anthropicKey?"anthropic":"openai");
+  const writerModel=model||(writerProvider==="anthropic"?DEFAULT_CLAUDE_MODEL:"");
+  const chosenChecker=checkerProvider||writerProvider;
+  return {
+    provider:writerProvider,model:writerModel,checkerProvider:chosenChecker,
+    checkerModel:checkerModel||(chosenChecker===writerProvider?writerModel:"")
+  };
+}
 const S=(type,props={},required=Object.keys(props))=>({type,properties:props,required,additionalProperties:false});
 const text={type:"string"};
 const strings={type:"array",items:text};

@@ -1,0 +1,64 @@
+name: Merge validated MUNDI pull requests
+
+on:
+  workflow_run:
+    workflows: ["MUNDI — quality checks"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge:
+    # Only react to a successful check triggered by an actual PR.
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge same-repository feature PRs after validation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Find PRs associated with the successful workflow run.
+          prs="$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq '.pull_requests[]?.number')"
+          if [ -z "$prs" ]; then
+            echo "No associated PR; nothing to merge."
+            exit 0
+          fi
+          while IFS= read -r number; do
+            [ -n "$number" ] || continue
+            pr="$(gh api "repos/$REPO/pulls/$number")"
+            state="$(jq -r '.state' <<< "$pr")"
+            base="$(jq -r '.base.ref' <<< "$pr")"
+            head="$(jq -r '.head.ref' <<< "$pr")"
+            headrepo="$(jq -r '.head.repo.full_name' <<< "$pr")"
+            sha="$(jq -r '.head.sha' <<< "$pr")"
+            draft="$(jq -r '.draft' <<< "$pr")"
+            if [ "$state" != open ] || [ "$base" != main ] || [ "$headrepo" != "$REPO" ] || [ "$sha" != "$HEAD_SHA" ] || [ "$draft" != false ]; then
+              echo "PR #$number is not eligible (state/base/repo/SHA/draft)."
+              continue
+            fi
+            if ! [[ "$head" =~ ^(feature|fix|docs)/[a-zA-Z0-9._/-]+$ ]]; then
+              echo "PR #$number has non-approved branch name."
+              continue
+            fi
+
+            # Editorial publications, CI workflow changes and infrastructure
+            # are never auto-merged; they require deliberate review.
+            changed="$(gh api --paginate "repos/$REPO/pulls/$number/files?per_page=100" --jq '.[].filename')"
+            if grep -Eq '^(content/publications[.]json|[.]github/workflows/|netlify[.]toml|next[.]config[.]ts)' <<< "$changed"; then
+              echo "PR #$number touches sensitive files, skipping automatic merge."
+              continue
+            fi
+
+            # Verify the exact SHA's quality check passed.
+            conclusion="$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq '.conclusion')"
+            [ "$conclusion" = success ] || exit 1
+            echo "Auto-merging validated PR #$number"
+            gh pr merge "$number" --repo "$REPO" --squash --delete-branch
+          done <<< "$prs"

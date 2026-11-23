@@ -3,9 +3,9 @@
 Read PROJECT_CONTEXT.md and docs/EDITORIAL_GUIDELINES.md before proposing substantial work. These files are the shared source of truth for ChatGPT, Claude Code and future contributors.
 
 ## Roles and collaboration
-- Founder: product vision, editorial and release approvals; no manual coding required.
-- Claude Code: primary local implementation agent.
-- ChatGPT: product design, planning, code review and GitHub contribution.
+- Founder: product vision, editorial approval for factual publications and major release decisions; no manual coding required.
+- Claude Code: primary developer for immersive frontend, media playback, cross-device QA and Playwright end-to-end tests. Implement tasks tracked as GitHub issues. Read the latest main and coordinate through GitHub before changing shared files.
+- ChatGPT: product direction, editorial publishing systems, architecture/quality integration, code reviews, issue specifications and GitHub contribution. Never claim Claude has executed a task unless its changes appear in GitHub.
 - GitHub repository: canonical versioned source; local changes should be committed/pushed before asking another agent to review.
 
 ## Git workflow
@@ -15,8 +15,14 @@ Read PROJECT_CONTEXT.md and docs/EDITORIAL_GUIDELINES.md before proposing substa
 - Never overwrite, force-push or discard another agent's unreviewed changes.
 - Before starting: check current branch, uncommitted changes and recent commits. Pull latest changes when appropriate.
 - Avoid working on the same files concurrently. If overlap occurs, coordinate via PRs.
-- Do not merge into `main` or deploy publicly without founder approval.
+- The founder has authorized automatic merges of standard feature/fix/docs pull requests after required GitHub quality checks pass; the CI automation governs eligibility. Avoid manual merges of failing builds. Changes to verified editorial publications, workflows, or deployment infrastructure are excluded from auto-merge and require explicit approval. Netlify deploys main automatically after a merge.
 - Never commit credentials, .env secrets or API tokens.
+
+## Team process
+- Record work assignments in GitHub issues. Claude's immersion/QA work: issue #5. ChatGPT's editorial/publishing work: separate branches/issues.
+- Each AI must check open PRs and issues before working, use separate branches, and leave a concise implementation/test summary in the PR.
+- AI collaborators do not directly message one another: the shared repo, issue comments, and PR reviews are their coordination channel.
+- Never assume a requested GitHub change has been implemented merely because it appears in an issue.
 
 ## Development standards
 - Reuse the existing stack; if empty, prefer Next.js, TypeScript and Tailwind CSS.

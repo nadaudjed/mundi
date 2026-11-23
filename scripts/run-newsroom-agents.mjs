@@ -11,7 +11,9 @@ import {askAgentModel,resolveAgentProviders,inferAgentSelection} from "./agent-p
 const TOPICS=["geopolitique","economie","finance","industrie","materiaux-critiques","energie",
 "recyclage","environnement","technologie","entreprises","afrique","sciences-societe"];
 const SENSITIVE=new Set(["geopolitique","finance","sciences-societe"]);
-const HAZARDS=/\b(election|élection|guerre|war|attack|attaque|santé|health|maladie|treatment|traitement|médical|medical|justice|tribunal|terror|fraud|fraude|sécurité|security|politic|politique|réputation)\b/i;
+// "politique énergétique" or "sécurité d'approvisionnement" are not sensitive by themselves; the
+// fuller list of risky words is enforced again before publication (scripts/autopublish-agents.mjs).
+const HAZARDS=/(?<![\p{L}\p{N}])(election|élection|guerre|war|attack|attaque|santé|health|maladie|treatment|traitement|médical|medical|justice|tribunal|terror|fraud|fraude)(?![\p{L}\p{N}])/iu;
 const now=()=>new Date().toISOString();
 const short=(s,n)=>typeof s==="string"?s.trim().slice(0,n):"";
 const HTTPS=url=>{try{const x=new URL(url);return x.protocol==="https:"&&!x.username&&!x.password&&!["localhost","example.com","example.org","example.net"].includes(x.hostname)?x:null}catch{return null}};
@@ -88,7 +90,10 @@ const CHECKER_SYSTEM=[
 "Tu es le rédacteur en chef vérificateur MUNDI, distinct du rédacteur. Cherche à réfuter les affirmations.",
 "Utilise web_search indépendamment. Recontrôle dates, nombres, dénominateurs, périmètres, sources et leur indépendance.",
 "N'accepte jamais une source inventée, une page non consultée, un titre RSS pris pour une preuve, une extrapolation ni une prévision présentée comme fait.",
-"Signale les sujets politiques, électoraux, militaires, santé, justice, finance à risque, sécurité et réputation.",
+"sensitiveFlags ne sert QUE pour ces catégories : élections ou politique partisane, guerre, conflit armé ou terrorisme, santé ou médical, justice, crime ou accusation visant une personne ou une entreprise nommée, conseil financier ou marchés, migration, religion.",
+"Une politique publique, une réglementation, une statistique provisoire ou un risque de mauvaise interprétation ne sont PAS des sujets sensibles : mets-les dans uncertainties ou reason.",
+"uncertainties ne liste que les points qui pourraient rendre l'article faux ou trompeur (au plus 5) ; les remarques mineures vont dans reason.",
+"Verdict pass seulement si chaque affirmation est étayée et si l'article peut être publié tel quel sans tromper le lecteur.",
 "Réponds en JSON UNIQUEMENT : {verdict: pass/needs_review/reject, independentlyChecked:bool,",
 "claimChecks:[{statement:string,supported:bool,evidenceUrls:[string],note:string}],",
 "uncertainties:[string], sensitiveFlags:[string], reason:string}.",
@@ -114,6 +119,8 @@ async function runOne(job,configuration){
       previouslyPublishedOnSameBeat:job.relatedPublications??[],
       task:job.role==="journalist"?"Cherche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante.":"Expliquer un mécanisme durable sans inventer de faits."
     },writer,"writer");
+    // The writer sometimes adds a fourth key point: keep the first three rather than lose the draft.
+    if(Array.isArray(draft?.keyPoints)&&draft.keyPoints.length>3)draft.keyPoints=draft.keyPoints.slice(0,3);
     const draftErrors=validateResearchDraft(draft,job);
     if(draftErrors.length)return record(job,draft,null,{
       status:"needs_human_or_more_research",safeForAutopublication:false,reasons:draftErrors},null);
@@ -146,7 +153,13 @@ export async function runAgentDesk(plan,{
     ready:missing.length===0,missing:[...new Set(missing)]
   };
   // Sensitive beats are researched last: daily slots go first to subjects that may be auto-published.
-  const ordered=[...plan.jobs].sort((a,b)=>Number(SENSITIVE.has(a.topic))-Number(SENSITIVE.has(b.topic)));
+  // Reporters and teachers alternate, so evergreen explanations also get daily slots.
+  // "afrique" is never auto-published either (EXCLUDED_TOPICS in scripts/autopublish-agents.mjs).
+  const late=j=>SENSITIVE.has(j.topic)||j.topic==="afrique";
+  const safe=plan.jobs.filter(j=>!late(j)),risky=plan.jobs.filter(late);
+  const reporters=safe.filter(j=>j.role==="journalist"),teachers=safe.filter(j=>j.role!=="journalist");
+  const mixed=[];for(let i=0;i<Math.max(reporters.length,teachers.length);i++)mixed.push(...[reporters[i],teachers[i]].filter(Boolean));
+  const ordered=[...mixed,...risky];
   const jobs=ordered.slice(0,max),out=new Array(jobs.length);let idx=0;
   async function worker(){while(idx<jobs.length){const i=idx++;out[i]=await runOne(jobs[i],config);}}
   await Promise.all(Array.from({length:Math.min(3,jobs.length)},worker));

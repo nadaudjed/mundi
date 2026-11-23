@@ -66,7 +66,7 @@ export function blockers(output, existing) {
   const all = [d.title, d.summary, ...(d.keyPoints ?? []), ...(d.sections ?? []).flatMap((s) => [s?.heading, s?.text])].join(" ");
   if (SENSITIVE_WORDS.test(all)) reasons.push("mot sensible dans le texte");
   if ((output.checker?.sensitiveFlags ?? []).length) reasons.push("alerte de sensibilité du vérificateur");
-  if ((output.checker?.uncertainties ?? []).length > 3) reasons.push("trop d'incertitudes relevées");
+  if ((output.checker?.uncertainties ?? []).length > 5) reasons.push("trop d'incertitudes relevées");
   if (!text(d.title, 12) || !text(d.summary, 30)) reasons.push("titre ou résumé trop court");
   if (!Array.isArray(d.keyPoints) || d.keyPoints.length !== 3 || !d.keyPoints.every((k) => text(k, 12))) reasons.push("trois idées clés requises");
   const sections = Array.isArray(d.sections) ? d.sections : [];

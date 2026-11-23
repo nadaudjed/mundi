@@ -7,6 +7,7 @@ import { getTopic } from "@/lib/topics";
 import { ListenButton } from "@/components/ListenButton";
 import { SaveButton, ShareButton } from "@/components/StoryActions";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
+import { SHARE_IMAGE, shareDefaults } from "@/lib/site";
 
 type Params = { slug: string };
 export function generateStaticParams(): Params[] {
@@ -18,7 +19,14 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
   const a = getPublication(slug);
-  return a ? { title: a.title, description: a.summary } : {};
+  if (!a) return {};
+  return {
+    title: a.title,
+    description: a.summary,
+    alternates: { canonical: publicationPath(a.slug) },
+    openGraph: { ...shareDefaults, type: "article", title: a.title, description: a.summary, url: publicationPath(a.slug), publishedTime: a.publishedAt, modifiedTime: a.updatedAt },
+    twitter: { card: "summary_large_image", title: a.title, description: a.summary, images: [SHARE_IMAGE.url] },
+  };
 }
 const labels = { fait: "Faits", analyse: "Analyse", hypothese: "Hypothèses" };
 

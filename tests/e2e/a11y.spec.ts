@@ -46,7 +46,7 @@ test.describe("Accessibilité", () => {
     }
   });
 
-  for (const path of ["/", "/explorer/", "/recit/equilibre-reseau-electrique/", "/application/", "/a-propos/", "/hors-ligne/"]) {
+  for (const path of ["/", "/explorer/", "/recit/equilibre-reseau-electrique/", "/application/", "/a-propos/", "/confidentialite/", "/hors-ligne/"]) {
     test(`contrastes et règles WCAG A/AA : ${path}`, async ({ page }) => {
       await page.goto(path);
       await page.waitForTimeout(500);

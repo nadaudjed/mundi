@@ -12,7 +12,9 @@ test.describe("Fil de découverte", () => {
   });
 
   test("le défilement passe d'un écran à l'autre (molette et clavier)", async ({ page }) => {
-    await page.goto("/");
+    // Site de test : contenu court et stable. Sur le site normal, un long article publié
+    // automatiquement fait d'abord défiler son propre texte, ce qui est voulu.
+    await page.goto(`http://localhost:${Number(process.env.E2E_PORT ?? 4173) + 1}/`);
     const feed = page.getByLabel("Fil de découverte");
     await feed.hover();
     await page.mouse.wheel(0, 900);

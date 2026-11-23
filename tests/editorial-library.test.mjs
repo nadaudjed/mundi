@@ -77,15 +77,18 @@ test("the stock window expires items only after 365 days of absence",()=>{
   assert.equal(b.count,0);
 });
 
-test("inventory counts precisely one real publication, zero reserve, and 120 unverified ideas",()=>{
+// The agents now publish automatically: count what content/publications.json really holds.
+const live=published.filter(p=>p.status==="published");
+test("inventory counts the real publications exactly, zero reserve, and 120 unverified ideas",()=>{
   const inv=measureLibrary({published,ideas,reserve,sources,stock:null,now:NOW});
-  assert.equal(inv.current.published,1);
+  assert.ok(live.length>=1);
+  assert.equal(inv.current.published,live.length);
   assert.equal(inv.current.approvedReserve,0);
-  assert.equal(inv.current.verifiedTotal,1);
+  assert.equal(inv.current.verifiedTotal,live.length);
   assert.equal(inv.current.unverifiedIdeas,120);
   assert.equal(inv.current.unverifiedCandidates,null);
   assert.equal(inv.current.candidateArchiveAvailable,false);
-  assert.equal(inv.current.coveredTopics,1);
+  assert.equal(inv.current.coveredTopics,new Set(live.map(p=>p.topic)).size);
   assert.equal(inv.launchReady,false);
   assert.ok(Object.values(inv.checks).some(v=>!v));
   assert.equal(inv.targets.verifiedTotal,LAUNCH_TARGETS.verifiedTotal);
@@ -99,7 +102,7 @@ test("unverified metadata accumulation never inflates the verified article count
   ]),NOW);
   const inv=measureLibrary({published,ideas,reserve,sources,stock:archive,now:NOW});
   assert.equal(inv.current.unverifiedCandidates,2);
-  assert.equal(inv.current.verifiedTotal,1);
+  assert.equal(inv.current.verifiedTotal,live.length);
   assert.equal(inv.launchReady,false);
   assert.equal(inv.perTopic.find(t=>t.topic==="economie").candidates,2);
 });

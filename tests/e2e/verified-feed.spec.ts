@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
 import { expect, scrollFeedTo, test } from "./fixtures";
 
@@ -14,16 +15,20 @@ const PORT = Number(process.env.E2E_PORT ?? 4173);
 const FIXTURES = `http://localhost:${PORT + 1}`;
 const FIRST = "test-publication-energie";
 const SECOND = "test-publication-technologie";
+/** Les agents publient désormais seuls : on compte ce que contient réellement le site normal. */
+const LIVE = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string }[]).filter((p) => p.status === "published").length;
+const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
 
 test.describe("Site normal : première publication Eurostat approuvée", () => {
-  test("le fil montre la vraie publication, quatre cartes, puis des démonstrations séparées", async ({ page }) => {
+  test("le fil montre les vraies publications, quatre cartes, puis des démonstrations séparées", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
-    await expect(page.getByTestId("verified-card")).toHaveCount(1);
+    await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-testid", "verified-card");
+    await expect(page.getByTestId("verified-card")).toHaveCount(LIVE);
     await expect(page.getByTestId("data-card")).toHaveCount(4);
     await expect(page.getByTestId("demo-divider")).toHaveCount(1);
-    await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-publication", "dechets-textiles-europe-2024-23-millions-tonnes");
-    await expect(page.getByTestId("verified-count")).toHaveText("1 publication vérifiée disponible.");
+    await expect(page.locator(`[data-testid="verified-card"][data-publication="${TEXTILES}"]`)).toHaveCount(1);
+    await expect(page.getByTestId("verified-count")).toHaveText(LIVE === 1 ? "1 publication vérifiée disponible." : `${LIVE} publications vérifiées disponibles.`);
   });
 
   test("aucune donnée de test n'est présente dans le site publié", async ({ page, request }) => {

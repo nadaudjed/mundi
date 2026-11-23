@@ -107,3 +107,24 @@ test("NASA source host is allowed but an external source cannot hijack RSS links
   assert.equal(out.items[0].publisher,"NASA");
   assert.equal(out.items[0].link,"https://www.nasa.gov/news-release/test-mission/");
 });
+
+test("large multi-publisher inbox retains more than 100 unique leads without copying articles",async()=>{
+  const feeds=Array.from({length:5},(_,k)=>({
+    ...source,id:"institution-"+k,publisher:"Publisher "+k,enabled:true,
+    feedUrl:"https://ec.europa.eu/official-feed/"+k,
+    topic:k%2?"energie":"economie",
+  }));
+  const fetcher=async(url)=>{
+    const k=Number(new URL(String(url)).pathname.split("/").at(-1));
+    const entries=Array.from({length:30},(_,i)=>'<item><title>Bulletin '+k+' '+i+'</title>'+
+      '<link>https://ec.europa.eu/official-news/'+k+'/'+i+'</link>'+
+      '<pubDate>Mon, 23 Nov 2026 11:00:00 GMT</pubDate></item>').join("");
+    return response('<rss version="2.0"><channel>'+entries+'</channel></rss>');
+  };
+  const out=await collectFeeds(feeds,fetcher);
+  assert.equal(out.count,150);
+  assert.equal(out.items.length,150);
+  assert.deepEqual(out.sourceHealth.map(s=>s.count),[30,30,30,30,30]);
+  assert.ok(out.items.every(s=>s.reviewStatus==="candidate_unverified"&&
+    !Object.hasOwn(s,"description")&&!Object.hasOwn(s,"body")));
+});

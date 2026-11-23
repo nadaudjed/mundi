@@ -41,6 +41,7 @@ export function makeReport(data) {
     '<label for="filter">Filtrer par rubrique </label><select id="filter"><option value="">Toutes les rubriques</option>'+
     [...new Set(data.items.map(x=>x.topicHint))].sort().map(t=>'<option value="'+escapeHtml(t)+'">'+escapeHtml(t)+'</option>').join("")+
     '</select><ol class="candidates">'+(items || '<li>Aucun sujet disponible.</li>')+'</ol>'+
+    '<h2>État des flux institutionnels</h2><ul>'+((data.sourceHealth || []).map(s => '<li><strong>'+escapeHtml(s.publisher || s.sourceId)+'</strong> — '+escapeHtml(s.status)+' · '+escapeHtml(s.count)+' article(s) candidat(s)'+(s.error ? ' · '+escapeHtml(s.error) : '')+'</li>').join('') || '<li>Diagnostic indisponible pour cette collecte.</li>')+'</ul>'+
     '<h2>Flux indisponibles</h2><ul>'+(errors || '<li>Aucune erreur signalée.</li>')+'</ul>'+
     '<footer>Fichier local de consultation. Ne pas publier sur Internet, ni utiliser les titres comme preuve d’un événement.</footer></main>'+
     '<script>document.getElementById("filter").addEventListener("change",function(){for(const card of document.querySelectorAll(".candidate"))card.hidden=Boolean(this.value)&&card.dataset.topic!==this.value;});</script>'+

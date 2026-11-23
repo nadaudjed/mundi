@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="ttl desc">
+<title id="ttl">MUNDI — distinguer déchets générés, traités et recyclés</title>
+<desc id="desc">Maquette interne non publiée. En 2024 dans l'UE : 2,3 millions de tonnes de déchets textiles générés et 1,4 million de tonnes traités, deux flux statistiques annuels. 78 % des déchets traités ont été recyclés, et non 78 % de tous les déchets générés.</desc>
+<defs><linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F3F0E8"/><stop offset="1" stop-color="#E8EBE9"/></linearGradient></defs>
+<rect width="1080" height="1920" fill="url(#paper)"/>
+<path d="M-40 1450 Q 550 990 1180 1400" stroke="#20B99A" stroke-width="3" opacity=".3" fill="none"/>
+<path d="M-40 1500 Q 550 1040 1180 1450" stroke="#246BCE" stroke-width="3" opacity=".27" fill="none"/>
+<text x="88" y="130" font-family="DM Sans,Arial,sans-serif" font-size="70" font-weight="800" letter-spacing="3" fill="#101D30">MUNDI</text>
+<text x="90" y="181" font-family="DM Sans,Arial,sans-serif" font-size="23" font-weight="650" letter-spacing="7" fill="#4C5F70">COMPRENDRE LE MONDE</text>
+<rect x="762" y="77" width="230" height="68" rx="34" fill="#101D30"/>
+<text x="877" y="122" text-anchor="middle" font-family="DM Sans,Arial,sans-serif" font-size="25" font-weight="700" fill="#8EF5DC">02 / 03</text>
+<text x="90" y="324" font-family="DM Sans,Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="5" fill="#246BCE">LE BON DÉNOMINATEUR</text>
+<text x="87" y="438" font-family="Fraunces,Georgia,serif" font-size="91" font-weight="650" fill="#101D30">Le piège des</text>
+<text x="87" y="540" font-family="Fraunces,Georgia,serif" font-size="91" font-weight="650" font-style="italic" fill="#101D30">pourcentages.</text>
+<text x="90" y="653" font-family="DM Sans,Arial,sans-serif" font-size="32" font-weight="800" fill="#101D30">DÉCHETS TEXTILES, UE, 2024</text>
+<text x="90" y="726" font-family="DM Sans,Arial,sans-serif" font-size="31" fill="#374A5B">Générés</text>
+<text x="992" y="726" text-anchor="end" font-family="Fraunces,Georgia,serif" font-size="53" font-weight="700" fill="#101D30">2,3 Mt</text>
+<rect x="88" y="756" width="904" height="72" rx="20" fill="#D1DADA"/>
+<rect x="88" y="756" width="904" height="72" rx="20" fill="#246BCE"/>
+<text x="90" y="904" font-family="DM Sans,Arial,sans-serif" font-size="31" fill="#374A5B">Traités</text>
+<text x="992" y="904" text-anchor="end" font-family="Fraunces,Georgia,serif" font-size="53" font-weight="700" fill="#101D30">1,4 Mt</text>
+<rect x="88" y="934" width="904" height="72" rx="20" fill="#D1DADA"/>
+<rect x="88" y="934" width="550" height="72" rx="20" fill="#20B99A"/>
+<rect x="84" y="1085" width="916" height="121" rx="22" fill="#FFFFFF" stroke="#B1C5D2"/>
+<text x="120" y="1140" font-family="DM Sans,Arial,sans-serif" font-size="28" font-weight="800" fill="#101D30">Ce ne sont pas les mêmes flux statistiques.</text>
+<text x="120" y="1183" font-family="DM Sans,Arial,sans-serif" font-size="24" fill="#405467">Les barres comparent deux volumes annuels.</text>
+<rect x="84" y="1276" width="916" height="304" rx="32" fill="#101D30"/>
+<text x="116" y="1392" font-family="Fraunces,Georgia,serif" font-size="146" font-weight="700" fill="#8EF5DC">78 %</text>
+<text x="118" y="1451" font-family="DM Sans,Arial,sans-serif" font-size="34" font-weight="700" fill="#F3F0E8">des déchets textiles traités</text>
+<text x="118" y="1497" font-family="DM Sans,Arial,sans-serif" font-size="34" fill="#DAE4EB">ont été recyclés.</text>
+<rect x="118" y="1535" width="820" height="15" rx="7" fill="#436073"/>
+<rect x="118" y="1535" width="640" height="15" rx="7" fill="#20B99A"/>
+<text x="89" y="1656" font-family="DM Sans,Arial,sans-serif" font-size="26" fill="#33485B">78 % ne veut pas dire 78 % des 2,3 Mt générées.</text>
+<line x1="86" y1="1713" x2="996" y2="1713" stroke="#A8B5BC"/>
+<text x="87" y="1766" font-family="DM Sans,Arial,sans-serif" font-size="24" font-weight="700" fill="#394D5E">SOURCE : EUROSTAT · 12.11.2026</text>
+<rect x="80" y="1820" width="920" height="60" rx="30" fill="#101D30"/>
+<text x="540" y="1859" font-family="DM Sans,Arial,sans-serif" font-size="24" font-weight="800" letter-spacing="4" text-anchor="middle" fill="#F3F0E8">MAQUETTE INTERNE — NON PUBLIÉE</text>
+</svg>

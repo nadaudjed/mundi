@@ -1,0 +1,201 @@
+{
+  "format": "mundi-agent-roster-v1",
+  "targetPerDay": 20,
+  "journalistsPerDay": 12,
+  "professorsPerDay": 8,
+  "review": {
+    "id": "editor-in-chief",
+    "name": "Rédacteur en chef / vérificateur",
+    "autoPublish": false,
+    "minimumIndependentPublishers": 2,
+    "criticalDomains": [
+      "geopolitique",
+      "finance",
+      "sciences-societe"
+    ],
+    "requiresEscalationFor": [
+      "politics",
+      "conflict",
+      "health",
+      "medical",
+      "election",
+      "security",
+      "legal",
+      "breaking",
+      "personal_reputation"
+    ],
+    "maxModelCallsPerDay": 40
+  },
+  "journalists": [
+    {
+      "id": "journaliste-geopolitique",
+      "topic": "geopolitique",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-economie",
+      "topic": "economie",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-finance",
+      "topic": "finance",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-industrie",
+      "topic": "industrie",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-materiaux-critiques",
+      "topic": "materiaux-critiques",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-energie",
+      "topic": "energie",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-recyclage",
+      "topic": "recyclage",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-environnement",
+      "topic": "environnement",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-technologie",
+      "topic": "technologie",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-entreprises",
+      "topic": "entreprises",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-afrique",
+      "topic": "afrique",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "journaliste-sciences-societe",
+      "topic": "sciences-societe",
+      "mission": "Surveiller les faits nouveaux dans son domaine, chercher les sources primaires, identifier ce qui change et proposer des mises à jour attribuées.",
+      "schedule": "daily",
+      "postsTarget": 1
+    }
+  ],
+  "professors": [
+    {
+      "id": "professeur-geopolitique",
+      "topic": "geopolitique",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-economie",
+      "topic": "economie",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-finance",
+      "topic": "finance",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-industrie",
+      "topic": "industrie",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-materiaux-critiques",
+      "topic": "materiaux-critiques",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-energie",
+      "topic": "energie",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-recyclage",
+      "topic": "recyclage",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-environnement",
+      "topic": "environnement",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-technologie",
+      "topic": "technologie",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-entreprises",
+      "topic": "entreprises",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-afrique",
+      "topic": "afrique",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    },
+    {
+      "id": "professeur-sciences-societe",
+      "topic": "sciences-societe",
+      "mission": "Chaque jour assigné, enseigner en français un mécanisme durable, expliquer contexte, exemple, limites et sources. Ne jamais fabriquer chiffres ou citations.",
+      "schedule": "rotating_daily",
+      "postsTarget": 1
+    }
+  ]
+}

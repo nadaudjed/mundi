@@ -1,0 +1,101 @@
+name: MUNDI — 20 missions quotidiennes des agents (révision privée)
+
+on:
+  schedule:
+    - cron: '41 8 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'editorial/agents/**'
+      - 'scripts/plan-newsroom.mjs'
+      - 'scripts/run-newsroom-agents.mjs'
+      - 'scripts/agent-ledger.mjs'
+      - '.github/workflows/agent-newsroom.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mundi-daily-agents
+  cancel-in-progress: false
+
+jobs:
+  newsroom:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code from main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Unit tests for newsroom roles and checker
+        run: node --test tests/agents-newsroom.test.mjs
+      - name: Checkout separate stock archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/mundi-editorial-stock" origin/editorial-stock
+          mkdir -p reports
+          if [ -f "$RUNNER_TEMP/mundi-editorial-stock/editorial/library/candidates.json" ]; then
+            cp "$RUNNER_TEMP/mundi-editorial-stock/editorial/library/candidates.json" reports/editorial-stock.json
+          else
+            printf '{"format":"mundi-candidate-stock-v1","items":[]}\n' > reports/editorial-stock.json
+          fi
+          if [ -f "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/ledger.json" ]; then
+            cp "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/ledger.json" reports/agents-history.json
+          fi
+      - name: Prepare 12 journalists and 8 teachers' assignments
+        run: node scripts/plan-newsroom.mjs
+      - name: Research originals and second-pass fact check (only with API secret)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MUNDI_AGENT_MODEL: ${{ vars.MUNDI_AGENT_MODEL }}
+          MUNDI_CHECKER_MODEL: ${{ vars.MUNDI_CHECKER_MODEL }}
+          MUNDI_AGENT_MAX_JOBS: ${{ vars.MUNDI_AGENT_MAX_JOBS }}
+        run: node scripts/run-newsroom-agents.mjs
+      - name: Update internal research ledger only
+        env:
+          MUNDI_AGENT_HISTORY: ${{ runner.temp }}/mundi-editorial-stock/editorial/agents/ledger.json
+        run: node scripts/agent-ledger.mjs
+      - name: Archive each day's private drafts and checker reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          DAY=$(node -p "require('./reports/agents-results.json').date")
+          if ! [[ "$DAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            echo "Invalid date"; exit 1
+          fi
+          mkdir -p "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days"
+          cp reports/agents-results.json "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days/$DAY.json"
+          cp reports/agents-plan.json "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days/$DAY-plan.json"
+      - name: Persist ledger to isolated editorial-stock branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git -C "$RUNNER_TEMP/mundi-editorial-stock" config user.name "github-actions[bot]"
+          git -C "$RUNNER_TEMP/mundi-editorial-stock" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$RUNNER_TEMP/mundi-editorial-stock" add editorial/agents/ledger.json editorial/agents/days/
+          if git -C "$RUNNER_TEMP/mundi-editorial-stock" diff --cached --quiet; then
+            echo "No processed tasks to archive"
+          else
+            git -C "$RUNNER_TEMP/mundi-editorial-stock" commit -m "agents: record investigated briefs for deduplication"
+            git -C "$RUNNER_TEMP/mundi-editorial-stock" push origin HEAD:refs/heads/editorial-stock
+          fi
+      - name: Upload private agent newsroom files (14 days)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mundi-agents-daily-newsroom
+          path: |
+            reports/agents-plan.json
+            reports/agents-results.json
+          retention-days: 14
+          if-no-files-found: warn

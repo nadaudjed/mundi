@@ -13,7 +13,7 @@
     "media:generate": "node scripts/generate-demo-media.mjs",
     "test:e2e": "playwright test",
     "sources:collect": "node scripts/collect-sources.mjs",
-    "test:sources": "node --test tests/collect-sources.test.mjs tests/editorial-report.test.mjs tests/editorial-manual.test.mjs tests/editorial-candidates.test.mjs tests/source-health.test.mjs tests/review-packs.test.mjs tests/story-preview.test.mjs tests/editorial-library.test.mjs",
+    "test:sources": "node --test tests/collect-sources.test.mjs tests/editorial-report.test.mjs tests/editorial-manual.test.mjs tests/editorial-candidates.test.mjs tests/source-health.test.mjs tests/review-packs.test.mjs tests/story-preview.test.mjs tests/editorial-library.test.mjs tests/agents-newsroom.test.mjs",
     "sources:report": "node scripts/render-editorial-report.mjs",
     "icons:generate": "node scripts/generate-icons.mjs",
     "sources:run": "node scripts/run-editorial-inbox.mjs",
@@ -24,7 +24,11 @@
     "test:story": "node --test tests/story-preview.test.mjs",
     "library:inventory": "node scripts/library-inventory.mjs",
     "library:archive": "node scripts/accumulate-editorial-stock.mjs",
-    "test:library": "node --test tests/editorial-library.test.mjs"
+    "test:library": "node --test tests/editorial-library.test.mjs",
+    "agents:plan": "node scripts/plan-newsroom.mjs",
+    "agents:run": "node scripts/run-newsroom-agents.mjs",
+    "agents:ledger": "node scripts/agent-ledger.mjs",
+    "test:agents": "node --test tests/agents-newsroom.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

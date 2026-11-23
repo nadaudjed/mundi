@@ -93,3 +93,17 @@ test("Commission RSS feeds on distinct official subdomains collect safe metadata
     assert.equal(out.items[0].reviewStatus,"candidate_unverified");
   }
 });
+
+test("NASA source host is allowed but an external source cannot hijack RSS links",async()=>{
+  const nasa={...source,id:"nasa-news-releases",publisher:"NASA",topic:"sciences-societe",
+    feedUrl:"https://www.nasa.gov/news-release/feed/",
+    rightsUrl:"https://www.nasa.gov/nasa-brand-center/images-and-media/"};
+  const rss='<rss version="2.0"><channel><item><title>NASA Mission</title>'+
+    '<link>https://www.nasa.gov/news-release/test-mission/</link></item>'+
+    '<item><title>Malicious</title><link>https://foreign.example/malicious</link></item></channel></rss>';
+  const out=await collectFeeds([nasa],async()=>response(rss));
+  assert.equal(out.errors.length,0);
+  assert.equal(out.count,1);
+  assert.equal(out.items[0].publisher,"NASA");
+  assert.equal(out.items[0].link,"https://www.nasa.gov/news-release/test-mission/");
+});

@@ -93,7 +93,7 @@ function Steps({ title, steps, highlight }: { title: string; steps: string[]; hi
     <section className={`rounded-3xl p-6 ring-1 ${highlight ? "bg-paper ring-blue/40" : "bg-paper/60 ring-night/8"}`}>
       <h2 className="font-semibold text-night">
         {title}
-        {highlight && <span className="ml-2 rounded-full bg-blue/10 px-2 py-0.5 text-xs font-semibold text-blue-ink">Votre appareil</span>}
+        {highlight && <span className="ml-2 inline-block whitespace-nowrap rounded-full bg-blue/10 px-2 py-0.5 text-xs font-semibold text-blue-ink">Votre appareil</span>}
       </h2>
       <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-[0.95rem] text-night/85">
         {steps.map((s) => (

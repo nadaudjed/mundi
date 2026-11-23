@@ -54,14 +54,14 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   return (
     <div className="mt-8">
       <div role="group" aria-label="Choisir les contenus à réviser"
-        className="inline-flex max-w-full flex-wrap gap-1 rounded-2xl border border-night/10 bg-paper p-1 shadow-sm">
+        className="grid max-w-full grid-cols-2 gap-1 rounded-2xl sm:inline-grid border border-night/10 bg-paper p-1 shadow-sm">
         <button type="button" aria-pressed={kind === "publications"} onClick={() => changeKind("publications")}
-          className={"rounded-xl px-4 py-2.5 text-sm font-semibold transition " +
+          className={"whitespace-nowrap rounded-xl px-2 py-2.5 text-sm font-semibold transition max-[359px]:text-[0.8rem] sm:px-4 " +
             (kind === "publications" ? "bg-night text-ivory shadow-sm" : "text-night/75 hover:bg-night/5")}>
           Publications ({publicCards.length})
         </button>
         <button type="button" aria-pressed={kind === "demos"} onClick={() => changeKind("demos")}
-          className={"rounded-xl px-4 py-2.5 text-sm font-semibold transition " +
+          className={"whitespace-nowrap rounded-xl px-2 py-2.5 text-sm font-semibold transition max-[359px]:text-[0.8rem] sm:px-4 " +
             (kind === "demos" ? "bg-night text-ivory shadow-sm" : "text-night/75 hover:bg-night/5")}>
           Démonstrations ({demoCards.length})
         </button>

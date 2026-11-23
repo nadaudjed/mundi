@@ -82,3 +82,17 @@ test("téléphone : la barre du haut du fil tient sur une ligne, sur chaque cart
     await context.close();
   }
 });
+
+test("téléphone : les pages ont une barre fine avec le logo, le fil n'en a pas", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "en-tête des téléphones");
+  for (const path of ["/explorer/", "/reviser/", "/a-propos/"]) {
+    await page.goto(path);
+    const header = page.locator("[data-site-header]");
+    await expect(header).toBeVisible();
+    await expect(header.getByRole("link", { name: "MUNDI, retour au fil" })).toBeVisible();
+    const h = await header.evaluate((el) => el.getBoundingClientRect().height);
+    expect(h).toBeLessThanOrEqual(64);
+  }
+  await page.goto("/");
+  await expect(page.locator("[data-site-header]")).toBeHidden();
+});

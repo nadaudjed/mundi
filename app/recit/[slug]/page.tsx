@@ -50,8 +50,8 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
         <StoryVisual pattern={topic.pattern} color={topic.color} seed={story.slug} className="absolute inset-0 h-full w-full opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-t from-night via-night/85 to-night/40" aria-hidden="true" />
         <div className="relative mx-auto max-w-3xl px-5 pt-6 pb-10 md:px-8 md:pt-10 md:pb-14">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="inline-flex items-center gap-2 rounded-full bg-ivory/10 px-3 py-1.5 text-sm font-medium text-ivory/90 backdrop-blur hover:bg-ivory/20">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <Link href="/" className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-ivory/10 px-3 py-1.5 text-sm font-medium text-ivory/90 backdrop-blur hover:bg-ivory/20">
               <Icon name="arrow-left" className="size-4" />
               Retour au fil
             </Link>

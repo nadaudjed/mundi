@@ -3,11 +3,7 @@ import { expect, isMobile, test } from "./fixtures";
 test.describe("Écoute, sauvegarde et navigation", () => {
   test("le bouton Écouter lit le résumé avec la voix de l'appareil, puis s'arrête", async ({ page }) => {
     await page.goto("/");
-    const index = await page
-      .locator("[data-index]")
-      .filter({ has: page.getByRole("button", { name: "Écouter le résumé" }) })
-      .first()
-      .getAttribute("data-index");
+    const index = await page.locator('[data-story="inflation-expliquee-simplement"]').first().getAttribute("data-index");
     const card = page.locator(`[data-index="${index}"]`);
     await card.scrollIntoViewIfNeeded();
     const listen = card.getByRole("button", { name: "Écouter le résumé" });

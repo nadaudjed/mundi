@@ -24,7 +24,7 @@ concurrency:
 jobs:
   newsroom:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 70
     permissions:
       contents: write
     steps:
@@ -63,7 +63,7 @@ jobs:
           MUNDI_CHECKER_PROVIDER: ${{ vars.MUNDI_CHECKER_PROVIDER }}
           MUNDI_AGENT_MODEL: ${{ vars.MUNDI_AGENT_MODEL }}
           MUNDI_CHECKER_MODEL: ${{ vars.MUNDI_CHECKER_MODEL }}
-          MUNDI_AGENT_MAX_JOBS: ${{ vars.MUNDI_AGENT_MAX_JOBS || '6' }}
+          MUNDI_AGENT_MAX_JOBS: ${{ vars.MUNDI_AGENT_MAX_JOBS || '12' }}
         run: node scripts/run-newsroom-agents.mjs
       - name: Update internal research ledger only
         env:
@@ -99,7 +99,7 @@ jobs:
       - name: Select drafts that may be auto-published
         env:
           MUNDI_AUTOPUBLISH: ${{ vars.MUNDI_AUTOPUBLISH }}
-          MUNDI_AUTOPUBLISH_MAX: ${{ vars.MUNDI_AUTOPUBLISH_MAX }}
+          MUNDI_AUTOPUBLISH_MAX: ${{ vars.MUNDI_AUTOPUBLISH_MAX || '5' }}
         run: node scripts/autopublish-agents.mjs
       - name: Validate, build and publish to main
         shell: bash

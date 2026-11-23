@@ -74,7 +74,7 @@ Le fondateur a demandé que le vérificateur publie seul, sans relecture humaine
 - pas de doublon (titre, adresse ou ensemble de sources déjà publiés) ;
 - au plus `MUNDI_AUTOPUBLISH_MAX` publications par jour (défaut 2, maximum 5).
 
-La publication est validée (`validate-editorial`), construite (`next build`) puis poussée sur `main` ; Netlify la met en ligne. Elle porte `aiVerified: true` et le site affiche « vérifié par l'IA, sans relecture humaine » : aucune relecture humaine n'est jamais prétendue. Les missions alternent reporters et professeurs ; `MUNDI_AGENT_MAX_JOBS` vaut 6 par défaut.
+La publication est validée (`validate-editorial`), construite (`next build`) puis poussée sur `main` ; Netlify la met en ligne. Elle porte `aiVerified: true` et le site affiche « vérifié par l'IA, sans relecture humaine » : aucune relecture humaine n'est jamais prétendue. Les missions alternent reporters et professeurs ; pour le pilote d'approvisionnement avant le 24 novembre, `MUNDI_AGENT_MAX_JOBS` vaut **12 par exécution** par défaut. Le plafond de publication est **5 articles IA par jour**, sous réserve de vérification; ce n'est pas une promesse de 5 articles publiés.
 
 **Interrupteur d'urgence** : variable de dépôt `MUNDI_AUTOPUBLISH=off` (Settings → Secrets and variables → Actions → Variables). **Retirer un article** : supprimer son entrée de `content/publications.json`. Les audits par échantillons et les indicateurs de #43 restent à mettre en place.
 
@@ -102,3 +102,11 @@ Pour la **V2 avec publication autonome à faible risque**, le circuit proposé i
 - Un rejet de vérification n'est pas automatiquement remplacé par un article plus faible pour tenir le quota.
 
 **Ticket de coordination : [#41](https://github.com/nadaudjed/mundi/issues/41).** La bibliothèque générale reste dans [#36](https://github.com/nadaudjed/mundi/issues/36).
+
+## Plan d'approvisionnement contrôlé — 24 novembre 2026
+
+La cible reste 20 missions par jour (12 journalistes et 8 professeurs). Afin d'accélérer la constitution d'une vraie bibliothèque, le pilote du 24 novembre augmente la capacité effective de **6 à 12 missions par exécution**, tout en gardant la publication conditionnée à un verdict de vérification `pass`. Le plafond de **5 articles nouveaux par jour** est une limite haute, non un quota : les articles douteux restent en dossiers privés, même si peu de contenus passent.
+
+La tâche planifiée `08:41 UTC` fait une exécution par jour. Les déclenchements manuels ou par commit sont aussi des exécutions payantes : éviter de relancer jusqu'à obtenir artificiellement 5 articles. Contrôler les coûts dans la console Anthropic. La variable `MUNDI_AGENT_MAX_JOBS=6` permet un retour immédiat à la cadence précédente; `MUNDI_AUTOPUBLISH=off` suspend toutes les nouvelles publications IA. Ne pas présenter la veille RSS (pistes, sans vérification) comme des articles publiés.
+
+La limite de 5 doit aussi compter les articles IA **déjà publiés le même jour** (voir PR de plafonnement journalier). La fiabilité nécessite toujours des audits humains par échantillons, des corrections visibles et des sources plus diverses; les seuils de lancement grand public de #36 restent inchangés.

@@ -49,3 +49,7 @@ La page `/reviser/` propose des cartes mémoire à partir des trois idées essen
 ## Écoute du fil
 
 Le bouton « Écouter » déclenche, après action explicite de l'utilisateur, une lecture en français du titre, résumé et trois idées principales via la synthèse vocale disponible sur son appareil. Cette voix est une fonctionnalité expérimentale du navigateur, pas une voix off enregistrée ; elle varie selon le système et peut être indisponible. L'écoute est arrêtée lorsque l'utilisateur quitte la carte active.
+
+## Publications vérifiées et atelier éditorial
+
+La page `/actualites/` présente uniquement les publications validées contenues dans `content/publications.json`, initialement vide. Les pages de démonstration restent séparées. `/atelier/` permet de préparer puis télécharger un brouillon JSON localement, sans publier ni accéder à GitHub. La validation humaine, les sources vérifiées et une Pull Request sont obligatoires avant publication. Documentation : `docs/PUBLISHING.md`. Vérification technique : `npm run validate:editorial`.

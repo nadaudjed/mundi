@@ -93,6 +93,8 @@ export default function AboutPage() {
         <Link href="/" className="rounded-full bg-night px-5 py-2.5 text-sm font-medium text-ivory hover:bg-blue">
           Découvrir le fil
         </Link>
+        <Link href="/actualites/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">Publications vérifiées</Link>
+        <Link href="/atelier/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">Atelier éditorial</Link>
         <Link href="/explorer/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
           Explorer les sujets
         </Link>

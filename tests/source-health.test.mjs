@@ -128,3 +128,22 @@ test("large multi-publisher inbox retains more than 100 unique leads without cop
   assert.ok(out.items.every(s=>s.reviewStatus==="candidate_unverified"&&
     !Object.hasOwn(s,"description")&&!Object.hasOwn(s,"body")));
 });
+
+test("USGS national news RSS metadata is attributed and restricted to the official hostname",async()=>{
+  const usgs={...source,id:"usgs-national-news",publisher:"U.S. Geological Survey",
+    feedUrl:"https://www.usgs.gov/news/national-news-release/feed",
+    topic:"materiaux-critiques",
+    rightsUrl:"https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"};
+  const xml='<rss version="2.0"><channel><item><title>USGS supply outlook</title>'+
+    '<link>https://www.usgs.gov/news/national-news-release/usgs-mineral-outlook</link>'+
+    '<pubDate>Mon, 23 Nov 2026 11:00:00 GMT</pubDate>'+
+    '<description>Never copy the article itself into MUNDI metadata</description></item>'+
+    '<item><title>Bad</title><link>https://thirdparty.example/unsafe</link></item></channel></rss>';
+  const out=await collectFeeds([usgs],async()=>response(xml));
+  assert.equal(out.errors.length,0);
+  assert.equal(out.count,1);
+  assert.equal(out.items[0].publisher,"U.S. Geological Survey");
+  assert.equal(out.items[0].topicHint,"materiaux-critiques");
+  assert.equal(out.items[0].reviewStatus,"candidate_unverified");
+  assert.ok(!Object.hasOwn(out.items[0],"description"));
+});

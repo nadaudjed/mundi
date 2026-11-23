@@ -36,6 +36,7 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
       status:candidate?"candidate_unverified":"blocked_no_fresh_authorized_source",
       action:previousArticle?"investigate_update":"investigate_new",
       previousPublication:previousArticle?.slug??null,
+      relatedPublications:publications.filter(p=>p.topic===agent.topic).slice(0,8).map(p=>({slug:p.slug,title:p.title,summary:p.summary,updatedAt:p.updatedAt})),
       title:candidate?.title??null,angle:null,
       source:candidate?{label:candidate.publisher,url:candidate.link,publishedAt:candidate.publishedAt}:null,
       recordKey:candidate?"news:"+hash(candidate.link+"|"+candidate.title+"|"+candidate.publishedAt):null,

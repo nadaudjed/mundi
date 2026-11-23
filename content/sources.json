@@ -22,5 +22,25 @@
     "topic": "geopolitique",
     "enabled": false,
     "rightsStatus": "pending_permission_review"
+  },
+  {
+    "id": "eurostat-news",
+    "publisher": "Eurostat — Union européenne",
+    "feedUrl": "https://ec.europa.eu/eurostat/en/search?p_p_id=estatsearchportlet_WAR_estatsearchportlet&p_p_lifecycle=2&p_p_mode=view&p_p_resource_id=atom&p_p_state=maximized&_estatsearchportlet_WAR_estatsearchportlet_collection=CAT_EURNEW",
+    "topic": "economie",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "rightsNote": "Contenu éditorial détenu par l'UE, réutilisation CC BY 4.0 avec attribution et indication des modifications; exclusions concernant notamment les tiers."
+  },
+  {
+    "id": "eurostat-energy",
+    "publisher": "Eurostat — Environnement et énergie",
+    "feedUrl": "https://ec.europa.eu/eurostat/en/search?p_p_id=estatsearchportlet_WAR_estatsearchportlet&p_p_lifecycle=2&p_p_mode=view&p_p_resource_id=atom&p_p_state=maximized&_estatsearchportlet_WAR_estatsearchportlet_collection=CAT_EURNEW&_estatsearchportlet_WAR_estatsearchportlet_theme=PER_ENVENE",
+    "topic": "energie",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "rightsNote": "Veille sur titres et métadonnées officielles. Attribution requise; vérifier les exceptions au cas par cas."
   }
 ]

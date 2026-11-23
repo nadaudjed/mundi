@@ -16,7 +16,7 @@ test("review cannot masquerade as an approved publication",()=>{
 });
 test("review must explicitly require human sign-off",()=>{
   const unsafe = {...draft,editorialNotes:{...draft.editorialNotes,approvalRequired:false}};
-  assert.match(validateReviewDraft(unsafe).join(" "),"approval");
+  assert.match(validateReviewDraft(unsafe).join(" "),/approval/);
 });
 test("unattributed or invalid sources are not acceptable",()=>{
   const unsafe = {...draft,sources:[{label:"Unverified",url:"javascript:alert(1)"}]};

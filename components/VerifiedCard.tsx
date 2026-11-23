@@ -12,6 +12,7 @@ import { EditorialBackdrop } from "./EditorialBackdrop";
 import { RevealWords } from "./scene/RevealWords";
 import { MotionToggle } from "./scene/MotionToggle";
 import { SceneLayer } from "./scene/SceneLayer";
+import {EditorialPhotoLayer,EditorialPhotoCredit} from "./EditorialPhotoLayer";
 
 export type { CardVisual } from "./EditorialBackdrop";
 import type { CardVisual } from "./EditorialBackdrop";
@@ -42,6 +43,7 @@ export function VerifiedCard({ publication: p, index, position, total, active, r
   const shown = p.sources.slice(0, 3);
   const more = p.sources.length - shown.length;
   const backdrop = p.scene ? p.backdrops?.[p.scene.backdrop] : undefined;
+  const photo = p.photo;
 
   return (
     <article
@@ -52,7 +54,9 @@ export function VerifiedCard({ publication: p, index, position, total, active, r
       aria-label={`Publication vérifiée ${position + 1} sur ${total} : ${p.title}`}
       className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night text-ivory"
     >
-      {backdrop ? (
+      {photo ? (
+        <EditorialPhotoLayer photo={photo} active={active} />
+      ) : backdrop ? (
         <SceneLayer backdrop={backdrop} focus={p.scene?.focus} active={active} />
       ) : (
         <>
@@ -68,7 +72,7 @@ export function VerifiedCard({ publication: p, index, position, total, active, r
           <div className="pointer-events-auto min-w-0 flex-1">
             {/* Crédit du visuel dans le flux : il ne recouvre jamais les badges, même à 320 px. */}
             <p className="mb-2 inline-block max-w-full rounded-full bg-night/70 px-2.5 py-1 text-[0.68rem] font-semibold text-ivory/90 ring-1 ring-ivory/20" data-testid="verified-credit">
-              {backdrop ? `Fond : ${backdrop.credit} · ${backdrop.license}` : "Visuel : motif génératif MUNDI"}
+              {photo ? <EditorialPhotoCredit photo={photo} /> : backdrop ? `Fond : ${backdrop.credit} · ${backdrop.license}` : "Visuel : motif génératif MUNDI"}
             </p>
             <div className="mb-3 flex flex-wrap items-center gap-2 text-[0.75rem] font-semibold">
               <VerifiedBadge />
@@ -90,7 +94,7 @@ export function VerifiedCard({ publication: p, index, position, total, active, r
                 </>
               )}{" "}
               · {p.aiVerified ? "vérifié par l'IA, sans relecture humaine" : `relu par ${p.reviewedBy}`}
-              {backdrop && (
+              {(photo || backdrop) && (
                 <>
                   {" "}
                   · <MotionToggle />

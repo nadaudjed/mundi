@@ -14,6 +14,8 @@ import {
 } from "@/lib/data-cards";
 import { formatDate } from "@/lib/format";
 import type { SceneBackdrop } from "@/lib/scenes";
+import type { EditorialPhoto } from "@/lib/editorial-images";
+import {EditorialPhotoLayer,EditorialPhotoCredit} from "../EditorialPhotoLayer";
 import { inkOn, luminance } from "@/lib/topics";
 import { RevealWords } from "../scene/RevealWords";
 import { MotionToggle } from "../scene/MotionToggle";
@@ -52,6 +54,8 @@ type Props = {
   showVisualPlaceholder?: boolean;
   /** Fond plein écran approuvé (résolu au build depuis `card.scene`). Impose le ton nuit. */
   backdrop?: SceneBackdrop;
+  /** Illustration thématique sourcée : jamais la preuve visuelle de la donnée chiffrée. */
+  photo?: EditorialPhoto;
 };
 
 function accentOf(style: DataCardStyle | undefined, topicColor: string) {
@@ -65,9 +69,9 @@ function textAccentOnNight(color: string) {
   return ratio >= 4.5 ? color : "#F3F0E8";
 }
 
-export function DataCardView({ card, position, total, topicColor, active, revealed = active, status, href, showVisualPlaceholder = false, backdrop }: Props) {
+export function DataCardView({ card, position, total, topicColor, active, revealed = active, status, href, showVisualPlaceholder = false, backdrop, photo }: Props) {
   // Un texte sur un fond d'ambiance reste clair sur voile sombre : le ton ivoire est alors ignoré.
-  const light = !backdrop && card.style?.tone === "ivory";
+  const light = !photo && !backdrop && card.style?.tone === "ivory";
   const accent = accentOf(card.style, topicColor);
   const textAccent = light ? undefined : textAccentOnNight(accent);
   const display = card.style?.emphasis !== "sans";
@@ -82,7 +86,7 @@ export function DataCardView({ card, position, total, topicColor, active, reveal
       aria-labelledby={titleId}
       role="group"
     >
-      {backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} active={active} />}
+      {photo ? <EditorialPhotoLayer photo={photo} active={active} /> : backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} active={active} />}
       {/* Sur petit écran, la carte défile plutôt que de cacher sa source sous la barre d'onglets. */}
       <div className="feed-column no-scrollbar relative flex h-full flex-col overflow-y-auto px-5 pt-28 pb-6 md:pt-24 [@media(max-height:740px)]:pt-[5.75rem] [@media(max-height:740px)]:pb-4" data-testid="card-scroll">
         <div className="relative flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">
@@ -115,7 +119,7 @@ export function DataCardView({ card, position, total, topicColor, active, reveal
           {card.kind === "stat" && <StatBody card={card} accent={textAccent} active={active} display={display} light={light} />}
           {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} active={active} light={light} />}
           {card.kind === "explication" && <ExplanationBody card={card} accent={accent} light={light} />}
-          <Footer card={card} light={light} href={href} backdrop={backdrop} />
+          <Footer card={card} light={light} href={href} backdrop={photo?undefined:backdrop} photo={photo} />
         </div>
       </div>
     </div>
@@ -270,7 +274,7 @@ function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accen
   );
 }
 
-function Footer({ card, light, href, backdrop }: { card: DataCard; light: boolean; href?: string; backdrop?: SceneBackdrop }): ReactNode {
+function Footer({ card, light, href, backdrop, photo }: { card: DataCard; light: boolean; href?: string; backdrop?: SceneBackdrop;photo?:EditorialPhoto }): ReactNode {
   const muted = light ? "text-night/75" : "text-ivory/75";
   return (
     <div className={`mt-4 border-t pt-3 text-xs [@media(max-height:740px)]:mt-3 [@media(max-height:740px)]:pt-2 ${light ? "border-night/15" : "border-ivory/15"}`} data-testid="data-footer">
@@ -283,7 +287,11 @@ function Footer({ card, light, href, backdrop }: { card: DataCard; light: boolea
         </a>{" "}
         · données du <time dateTime={card.asOf}>{formatDate(card.asOf)}</time>
       </p>
-      {backdrop && (
+      {photo ? (
+        <p className={`mt-1 text-[0.65rem] ${muted}`}>
+          <EditorialPhotoCredit photo={photo} /> · <MotionToggle />
+        </p>
+      ) : backdrop && (
         <p className={`mt-1 text-[0.65rem] ${muted}`}>
           <SceneCredit backdrop={backdrop} /> · <MotionToggle />
         </p>

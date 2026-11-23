@@ -43,7 +43,7 @@ export function slugify(title) {
 export function blockers(output, existing) {
   const reasons = [];
   const d = output?.draft;
-  if (output?.assessment?.status !== "machine_checked_pending_policy") reasons.push("non validé par le vérificateur");
+  if (output?.assessment?.status !== "machine_checked_pending_policy" || output?.checker?.verdict !== "pass" || output?.checker?.independentlyChecked !== true) reasons.push("non validé par le vérificateur");
   if (!d) return [...reasons, "brouillon absent"];
   if ((output.checker?.uncertainties ?? []).length > 5) reasons.push("trop d'incertitudes relevées");
   if (!text(d.title, 12) || !text(d.summary, 30)) reasons.push("titre ou résumé trop court");
@@ -102,8 +102,14 @@ export async function autopublish(results, existing, { enabled = true, max = 2, 
   const decisions = [];
   const published = [];
   if (!enabled) return { published, decisions: [{ id: null, decision: "désactivé (MUNDI_AUTOPUBLISH=off)" }] };
+  // The limit is per UTC editorial day, not per workflow run. Manual re-runs and
+  // schedule/push events cannot publish another full quota on the same date.
+  const publishedToday = existing.filter(p =>
+    p?.aiVerified === true && p?.status === "published" && p?.publishedAt === results?.date
+  ).length;
+  const remaining = Math.max(0, max - publishedToday);
   for (const output of results?.outputs ?? []) {
-    if (published.length >= max) {
+    if (published.length >= remaining) {
       decisions.push({ id: output.id, decision: "plafond quotidien atteint" });
       continue;
     }

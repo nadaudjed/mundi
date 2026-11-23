@@ -1,0 +1,9 @@
+{
+  "format": "mundi-candidate-v1",
+  "reviewStatus": "candidate_unverified",
+  "headline": "Exemple de test : titre de veille inventé, à vérifier",
+  "source": { "label": "Média fictif (test)", "url": "https://sources.mundi.test/veille/exemple" },
+  "topicHint": "economie",
+  "publishedAt": "2026-11-23T09:00:00.000Z",
+  "licenseUrl": "https://sources.mundi.test/conditions"
+}

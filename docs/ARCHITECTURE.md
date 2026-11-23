@@ -44,3 +44,6 @@ Remplacer les fixtures par un CMS éditorial avec relecture humaine, ajouter les
 - Lecture des publications : `lib/verified.ts` (serveur, au moment de la construction). Carte : `components/VerifiedCard.tsx`. Fil : `components/Feed.tsx` reçoit les publications depuis `app/page.tsx`.
 - Tests avec publications inventées (jamais déployées) : `tests/fixtures/`, `scripts/build-e2e-sites.mjs`, `tests/e2e/verified-feed.spec.ts`. Détails : `docs/VERIFIED_FEED.md`.
 
+## MUNDI Studio (ticket #20)
+- Import des fiches `mundi-candidate-v1` : `lib/candidate.ts` ; atelier : `components/EditorialStudio.tsx` ; aperçu : `components/DraftPreview.tsx` ; fond éditorial partagé : `components/EditorialBackdrop.tsx`. Détails : `docs/STUDIO.md`.
+

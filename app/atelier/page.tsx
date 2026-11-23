@@ -8,7 +8,7 @@ export default function StudioPage() {
   return (
     <div className="mx-auto max-w-5xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-12 md:pb-20">
       <PageIntro eyebrow="MUNDI Studio" title="Préparer un récit">
-        Rédigez une fiche structurée et téléchargez un brouillon pour la vérification éditoriale. Aucun contenu ne sera publié automatiquement.
+        Importez une piste de veille ou partez de zéro, rédigez, prévisualisez, puis téléchargez un brouillon pour la vérification éditoriale. Rien n&apos;est publié depuis cette page.
       </PageIntro>
       <EditorialStudio />
     </div>

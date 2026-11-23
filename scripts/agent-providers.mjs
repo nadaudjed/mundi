@@ -59,7 +59,7 @@ export function anthropicRequest(system,payload,model,kind="writer"){
   if(!model||typeof model!=="string")throw new Error("Claude model is not configured");
   const schema=kind==="writer"?WRITER_SCHEMA:CHECKER_SCHEMA;
   return {
-    model, max_tokens:kind==="writer"?4600:3200,
+    model, max_tokens:kind==="writer"?16000:12000, // thinking and search results count toward this budget
     system:system+"\n\nAfter your searches, answer with one JSON object only (no text before or after, no code fence), matching this JSON Schema: "+JSON.stringify(schema),
     messages:[{role:"user",content:JSON.stringify(payload)}],
     tools:[{type:"web_search_20250305",name:"web_search",max_uses:4}]
@@ -74,7 +74,7 @@ function finalJson(content){
 }
 export function parseAnthropicResponse(data){
   if(!data||data.type!=="message"||data.stop_reason!=="end_turn")
-    throw new Error("Claude response did not finish");
+    throw new Error("Claude response did not finish (stop_reason: "+String(data?.stop_reason??"none").slice(0,40)+")");
   if(!Array.isArray(data.content))throw new Error("Claude content missing");
   if(data.content.some(block=>block.type==="web_search_tool_result"&&
     (block.content?.type==="web_search_tool_result_error"||
@@ -99,14 +99,15 @@ function parseOpenAIResponse(data){
 export async function askAgentModel(system,payload,{provider,key,model},kind="writer",fetcher=fetch){
   if(!PROVIDERS.has(provider))throw new Error("Unknown provider");
   if(!model||!key)throw new Error("Model or API credential missing");
-  const ctl=new AbortController(),timeout=setTimeout(()=>ctl.abort(),110000);
   const isClaude=provider==="anthropic";
+  // Claude searches, thinks and may continue after a pause: allow it more time than one quick call.
+  const ctl=new AbortController(),timeout=setTimeout(()=>ctl.abort(),isClaude?400000:110000);
   const body=isClaude?anthropicRequest(system,payload,model,kind):{
     model,store:false,tools:[{type:"web_search"}],
     text:{format:{type:"json_object"}},max_output_tokens:kind==="writer"?3600:2700,
     input:[{role:"system",content:system},{role:"user",content:JSON.stringify(payload)}]
   };
-  try{
+  async function post(){
     const response=await fetcher(isClaude?
       "https://api.anthropic.com/v1/messages":"https://api.openai.com/v1/responses",{
       method:"POST",
@@ -132,7 +133,17 @@ export async function askAgentModel(system,payload,{provider,key,model},kind="wr
       const hint=[redact(type),redact(message)].filter(Boolean).join(": ");
       throw new Error(provider+" API HTTP "+response.status+(hint?" — "+hint:""));
     }
-    const result=await response.json();
-    return isClaude?parseAnthropicResponse(result):parseOpenAIResponse(result);
+    return response.json();
+  }
+  try{
+    if(!isClaude)return parseOpenAIResponse(await post());
+    // Long web searches can pause the turn: send the partial answer back so Claude continues it.
+    const content=[];
+    for(let round=0;;round++){
+      const result=await post();
+      if(Array.isArray(result?.content))content.push(...result.content);
+      if(result?.stop_reason!=="pause_turn"||round>=3)return parseAnthropicResponse({...result,content});
+      body.messages=[body.messages[0],{role:"assistant",content}];
+    }
   }finally{clearTimeout(timeout);}
 }

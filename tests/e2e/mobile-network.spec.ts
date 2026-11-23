@@ -6,6 +6,7 @@ const firstScreenOf = (page: import("@playwright/test").Page, slug: string) =>
 test.describe("Réseau mobile lent et chargement progressif", () => {
   test("sur réseau lent, le premier écran s'affiche et seuls les médias proches sont chargés", async ({ page, browserName }) => {
     test.skip(browserName !== "chromium", "Limitation du débit disponible seulement avec Chromium");
+    test.setTimeout(90_000); // Slow-3G networkidle may legitimately exceed the default 30s test timeout.
     const cdp = await page.context().newCDPSession(page);
     await cdp.send("Network.enable");
     // Profil « 3G lente » : 400 kbit/s, 400 ms de latence.

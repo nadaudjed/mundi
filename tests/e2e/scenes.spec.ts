@@ -26,7 +26,7 @@ test.describe("Site normal : fonds approuvés, sans médias de test", () => {
     const textiles = page.locator('[data-testid="verified-card"][data-publication="' + TEXTILES + '"]');
     if(PHOTO_INDEX.some(p=>p.slug===TEXTILES)){
       await expect(textiles.getByTestId("editorial-photo")).toHaveAttribute("data-image-source","wikimedia-commons");
-      await expect(textiles.getByTestId("editorial-photo-credit")).toContainText("Photo d’illustration");
+      await expect(textiles.getByTestId("editorial-photo-credit")).toContainText(/Photo d[’\x27]illustration/);
       await expect(textiles.getByTestId("editorial-photo-credit").getByRole("link",{name:/source Wikimedia Commons/i})).toHaveAttribute("href",/commons\.wikimedia\.org/);
     }else{
       await expect(page.getByTestId("scene-backdrop")).toHaveCount(5);

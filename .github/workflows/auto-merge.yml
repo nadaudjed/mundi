@@ -19,7 +19,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
-          RUN_ID: ${{ github.event.workflow_run.id }}
+          CHECK_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
           PRS_JSON: ${{ toJSON(github.event.workflow_run.pull_requests) }}
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         shell: bash
@@ -58,7 +58,7 @@ jobs:
             fi
 
             # Verify the exact SHA's quality check passed.
-            conclusion="$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq '.conclusion')"
+            conclusion="$CHECK_CONCLUSION"
             [ "$conclusion" = success ] || exit 1
             echo "Auto-merging validated PR #$number"
             gh pr merge "$number" --repo "$REPO" --squash --delete-branch

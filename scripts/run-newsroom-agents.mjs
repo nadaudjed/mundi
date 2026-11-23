@@ -136,7 +136,7 @@ async function runOne(job,key,model,checkerModel){
 }
 export async function runAgentDesk(plan,{key=process.env.OPENAI_API_KEY,
   model=process.env.MUNDI_AGENT_MODEL,checkerModel=process.env.MUNDI_CHECKER_MODEL||model,
-  maximum=Number(process.env.MUNDI_AGENT_MAX_JOBS||20)}={}){
+  maximum=Number(process.env.MUNDI_AGENT_MAX_JOBS||2)}={}){
   if(plan?.format!=="mundi-daily-agent-plan-v1"||!Array.isArray(plan.jobs)||plan.jobs.length!==20)
     throw new Error("Invalid daily editorial plan");
   const max=Math.min(20,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));

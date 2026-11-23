@@ -21,15 +21,44 @@ test("Claude replaces OpenAI for writers without changing the checker choice",()
   assert.equal(c.checker.model,"","must not silently pass a Claude model ID to OpenAI");
 });
 
-test("Claude request enables web search and a strict editorial JSON schema",()=>{
+test("Claude request enables web search and asks for the editorial JSON schema in the prompt",()=>{
   const a=anthropicRequest("Écris des faits", {topic:"energie"},"claude-model","writer");
   assert.equal(a.model,"claude-model");
   assert.deepEqual(a.tools,[{type:"web_search_20250305",name:"web_search",max_uses:4}]);
-  assert.equal(a.output_config.format.type,"json_schema");
-  assert.equal(a.output_config.format.schema,WRITER_SCHEMA);
-  assert.equal(a.output_config.format.schema.additionalProperties,false);
+  // Web search always cites its results; the API returns HTTP 400 for citations + output_config.format.
+  assert.equal(a.output_config,undefined);
+  assert.ok(a.system.startsWith("Écris des faits"));
+  assert.ok(a.system.includes(JSON.stringify(WRITER_SCHEMA)));
   const b=anthropicRequest("Contrôle les sources",{},"checker-model","checker");
-  assert.equal(b.output_config.format.schema,CHECKER_SCHEMA);
+  assert.equal(b.output_config,undefined);
+  assert.ok(b.system.includes(JSON.stringify(CHECKER_SCHEMA)));
+});
+
+test("Claude JSON is read after the last search, even when citations split the text",()=>{
+  const draft={topic:"energie",title:"Réseau \"électrique\"",summary:"Texte"};
+  const json=JSON.stringify(draft);
+  const cut=json.indexOf("Texte");
+  assert.deepEqual(parseAnthropicResponse({
+    type:"message",stop_reason:"end_turn",content:[
+      {type:"text",text:"Je vais chercher { des sources }."},
+      {type:"server_tool_use",id:"s1",name:"web_search",input:{query:"q"}},
+      {type:"web_search_tool_result",tool_use_id:"s1",content:[]},
+      {type:"text",text:json.slice(0,cut)},
+      {type:"text",text:json.slice(cut),citations:[{type:"web_search_result_location",url:"https://example.net"}]}
+    ]
+  }),draft);
+  assert.deepEqual(parseAnthropicResponse({
+    type:"message",stop_reason:"end_turn",content:[
+      {type:"server_tool_use",id:"s1",name:"web_search",input:{query:"q"}},
+      {type:"web_search_tool_result",tool_use_id:"s1",content:[]},
+      {type:"text",text:"```json\n"+json+"\n```"}
+    ]
+  }),draft);
+  assert.throws(()=>parseAnthropicResponse({
+    type:"message",stop_reason:"end_turn",content:[
+      {type:"server_tool_use",name:"web_search"},{type:"text",text:"[1,2]"}
+    ]
+  }),/JSON object/);
 });
 
 const modelReply=payload=>({

@@ -99,6 +99,20 @@ const CHECKER_SYSTEM=[
 "uncertainties:[string], sensitiveFlags:[string], reason:string}.",
 "Le tableau claimChecks reprend chaque claim du brouillon dans l'ordre. evidenceUrls doit désigner des sources consultées et présentes au brouillon."
 ].join(" ");
+const REVISION_TASK="Révision demandée par le vérificateur (checkerReport). Corrige le brouillon (draft) : supprime chaque affirmation, chiffre ou citation qu'il n'a pas pu confirmer, ou remplace-la par ce que tes sources confirment réellement ; retire les sources qu'il n'a pas pu consulter. N'ajoute aucun fait nouveau non sourcé. Garde un article complet et lisible, avec exactement 3 idées clés, et rends le brouillon entier au même format JSON.";
+/** Harmless format fixes: keep three key points; list every evidence link among the sources. */
+export function tidyDraft(draft){
+  if(!draft||typeof draft!=="object")return draft;
+  if(Array.isArray(draft.keyPoints)&&draft.keyPoints.length>3)draft.keyPoints=draft.keyPoints.slice(0,3);
+  if(Array.isArray(draft.sources)&&Array.isArray(draft.claims)){
+    const known=new Set(draft.sources.map(x=>x?.url));
+    for(const url of draft.claims.flatMap(c=>Array.isArray(c?.evidenceUrls)?c.evidenceUrls:[])){
+      if(typeof url!=="string"||known.has(url)||!HTTPS(url))continue;
+      known.add(url);draft.sources.push({label:new URL(url).hostname.replace(/^www\./,""),url});
+    }
+  }
+  return draft;
+}
 function record(job,draft,review,assessment,error){
   return {format:"mundi-agent-output-v1",id:job.id,date:job.date,role:job.role,topic:job.topic,
     originalAssignment:job.title,recordKey:job.recordKey,sourceLead:job.source,previousPublication:job.previousPublication,
@@ -119,13 +133,23 @@ async function runOne(job,configuration){
       previouslyPublishedOnSameBeat:job.relatedPublications??[],
       task:job.role==="journalist"?"Cherche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante.":"Expliquer un mécanisme durable sans inventer de faits."
     },writer,"writer");
-    // The writer sometimes adds a fourth key point: keep the first three rather than lose the draft.
-    if(Array.isArray(draft?.keyPoints)&&draft.keyPoints.length>3)draft.keyPoints=draft.keyPoints.slice(0,3);
+    tidyDraft(draft);
     const draftErrors=validateResearchDraft(draft,job);
     if(draftErrors.length)return record(job,draft,null,{
       status:"needs_human_or_more_research",safeForAutopublication:false,reasons:draftErrors},null);
     const checkerResult=await askAgentModel(CHECKER_SYSTEM,{job,draft},checker,"checker");
-    return record(job,draft,checkerResult,assessReview(draft,checkerResult,job),null);
+    if(checkerResult?.verdict!=="needs_review")return record(job,draft,checkerResult,assessReview(draft,checkerResult,job),null);
+    // One correction round: the writer removes or fixes what the checker could not confirm, then a new,
+    // independent check decides. Nothing is published on the first check's word.
+    const revised=await askAgentModel(WRITER_SYSTEM,{
+      role:job.role,topic:job.topic,dateOfResearch:job.date,task:REVISION_TASK,draft,checkerReport:checkerResult
+    },writer,"writer");
+    tidyDraft(revised);
+    const revisionErrors=validateResearchDraft(revised,job);
+    const revision={firstVerdict:checkerResult.verdict,firstReason:short(checkerResult.reason,600)};
+    if(revisionErrors.length)return {...record(job,draft,checkerResult,assessReview(draft,checkerResult,job),null),revision};
+    const secondCheck=await askAgentModel(CHECKER_SYSTEM,{job,draft:revised},checker,"checker");
+    return {...record(job,revised,secondCheck,assessReview(revised,secondCheck,job),null),revision};
   }catch(error){return record(job,null,null,null,String(error?.message??error));}
 }
 export async function runAgentDesk(plan,{

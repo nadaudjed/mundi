@@ -163,3 +163,40 @@ test("live writer and checker pass mocked API responses end-to-end (no checker T
     globalThis.fetch=originalFetch;
   }
 });
+
+test("evidence links missing from sources are added, and a fourth key point is dropped",async()=>{
+  const {tidyDraft}=await import("../scripts/run-newsroom-agents.mjs");
+  const d=structuredClone(draft);
+  d.keyPoints.push("Un quatrième point en trop dans le brouillon.");
+  d.claims[0].evidenceUrls.push("https://www.insee.fr/fr/statistiques/1");
+  tidyDraft(d);
+  assert.equal(d.keyPoints.length,3);
+  assert.deepEqual(d.sources.at(-1),{label:"insee.fr",url:"https://www.insee.fr/fr/statistiques/1"});
+  assert.deepEqual(validateResearchDraft(d,{topic:"energie"}),[]);
+});
+
+test("a draft the checker doubts gets one correction round and a fresh independent check",async()=>{
+  const p=plan();
+  p.jobs[0]={...p.jobs[0],topic:"energie",status:"research_required"};
+  const doubt={...checked(),verdict:"needs_review",reason:"Une affirmation non confirmée."};
+  doubt.claimChecks[0].supported=false;
+  const replies=[draft,doubt,draft,checked()];
+  const originalFetch=globalThis.fetch;
+  let calls=0;const bodies=[];
+  globalThis.fetch=async(_url,init)=>{
+    bodies.push(JSON.parse(init.body));
+    const content=replies[calls++];
+    return {ok:true,json:async()=>({type:"message",stop_reason:"end_turn",content:[
+      {type:"server_tool_use",name:"web_search",id:"s",input:{query:"q"}},
+      {type:"text",text:JSON.stringify(content)}]})};
+  };
+  try{
+    const out=await runAgentDesk(p,{provider:"anthropic",claudeKey:"test-secret",model:"claude-test",maximum:1});
+    assert.equal(calls,4,"writer, checker, revision, second checker");
+    assert.match(bodies[2].messages[0].content,/checkerReport/);
+    assert.equal(out.outputs[0].checker.verdict,"pass");
+    assert.equal(out.outputs[0].assessment.status,"machine_checked_pending_policy");
+    assert.equal(out.outputs[0].revision.firstVerdict,"needs_review");
+    assert.equal(out.publiclyPublished,0);
+  }finally{globalThis.fetch=originalFetch;}
+});

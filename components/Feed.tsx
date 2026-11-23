@@ -10,6 +10,7 @@ import type { Story, TopicSlug } from "@/lib/types";
 import { DemoBadge } from "./DemoBadge";
 import { Icon } from "./Icon";
 import { LogoMark } from "./Logo";
+import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
 import { StoryVisual } from "./StoryVisual";
 
@@ -123,7 +124,7 @@ export function Feed() {
           className="no-scrollbar h-full w-full snap-y snap-mandatory overflow-y-scroll md:max-w-[27rem] md:rounded-[2rem] md:shadow-2xl md:shadow-night/30 md:ring-1 md:ring-night/10"
         >
           {items.map((story, i) => (
-            <FeedCard key={story.slug} story={story} index={i} total={items.length} />
+            <FeedCard key={story.slug} story={story} index={i} total={items.length} active={i === active} />
           ))}
         </div>
 
@@ -196,7 +197,7 @@ function FilterChip({ label, active, onClick, color }: { label: string; active: 
   );
 }
 
-function FeedCard({ story, index, total }: { story: Story; index: number; total: number }) {
+function FeedCard({ story, index, total, active }: { story: Story; index: number; total: number; active: boolean }) {
   const topic = getTopic(story.topic)!;
   const format = formats[story.format];
 
@@ -250,6 +251,7 @@ function FeedCard({ story, index, total }: { story: Story; index: number; total:
               Comprendre
               <Icon name="arrow-right" className="size-4" />
             </Link>
+            <ListenButton title={story.title} summary={story.dek} points={story.keyPoints} active={active} />
             <span className="text-[0.65rem] leading-tight font-medium uppercase tracking-wider text-[#ffd98f]/90">
               Contenu
               <br />

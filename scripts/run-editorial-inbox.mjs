@@ -19,7 +19,8 @@ const result = enabled.length ? await collectFeeds(feeds) : {
   errors: [{
     sourceId: "permissions",
     error: "Aucune source RSS activée : contrôler les droits et autorisations avant d'activer la veille."
-  }]
+  }],
+  sourceHealth: []
 };
 const reportDir = resolve(process.env.MUNDI_REPORT_DIR || "reports");
 mkdirSync(reportDir,{recursive:true});
@@ -27,3 +28,9 @@ writeFileSync(resolve(reportDir, "editorial-inbox.json"),JSON.stringify(result,n
 writeFileSync(resolve(reportDir, "editorial-inbox.html"),makeReport(result));
 console.log("Internal newsroom: "+result.count+" candidate metadata items; "+result.errors.length+" notices; "+enabled.length+" enabled feeds.");
 console.log("No content was added to content/publications.json. No publication took place.");
+
+// Produire les fichiers de diagnostic même quand les sources échouent ; signaler le problème dans Actions.
+if (enabled.length && result.errors.length === enabled.length) {
+  console.error("Toutes les sources activées ont échoué. Consulter le rapport de diagnostic.");
+  process.exitCode = 1;
+}

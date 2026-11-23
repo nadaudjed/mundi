@@ -37,3 +37,15 @@ npm run typecheck  # TypeScript
 ## Déploiement
 
 Le site est exporté en fichiers statiques (`out/`). `netlify.toml` indique à Netlify la commande de build et le dossier à publier. Aucune variable d'environnement ni secret n'est nécessaire. Toute mise en production reste soumise à l'accord du fondateur.
+
+## Personnalisation du fil (branche en développement)
+
+La page `/mes-sujets/` permet de choisir des thèmes préférés. Le fil « Pour vous » favorise ces thèmes, en réservant régulièrement une place à la découverte. Les choix restent dans le navigateur (localStorage), sans compte et sans suivi serveur.
+
+## Révisions espacées
+
+La page `/reviser/` propose des cartes mémoire à partir des trois idées essentielles de chaque récit. L'utilisateur essaie de les restituer puis s'auto-évalue ; les cartes retenues reviennent après 1, 3, 7, 14 puis 30 jours. Progression locale, aucune inscription requise. Le prototype utilise uniquement les récits illustratifs.
+
+## Écoute du fil
+
+Le bouton « Écouter » déclenche, après action explicite de l'utilisateur, une lecture en français du titre, résumé et trois idées principales via la synthèse vocale disponible sur son appareil. Cette voix est une fonctionnalité expérimentale du navigateur, pas une voix off enregistrée ; elle varie selon le système et peut être indisponible. L'écoute est arrêtée lorsque l'utilisateur quitte la carte active.

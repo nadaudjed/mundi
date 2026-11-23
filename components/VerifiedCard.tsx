@@ -8,10 +8,10 @@ import type { FeedPublication } from "@/lib/verified";
 import { Icon } from "./Icon";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
-import { StoryVisual } from "./StoryVisual";
+import { EditorialBackdrop } from "./EditorialBackdrop";
 
-/** Variantes visuelles sans photo : aucune image dont les droits seraient incertains. */
-export type CardVisual = "motif" | "sobre";
+export type { CardVisual } from "./EditorialBackdrop";
+import type { CardVisual } from "./EditorialBackdrop";
 
 export function VerifiedBadge({ tone = "light" }: { tone?: "light" | "dark" }) {
   const styles = tone === "light" ? "border-mint/60 bg-mint/15 text-mint-soft" : "border-mint/60 bg-mint/10 text-[#0f6e5b]";
@@ -20,28 +20,6 @@ export function VerifiedBadge({ tone = "light" }: { tone?: "light" | "dark" }) {
       <Icon name="check" className="size-3.5" />
       Vérifié
     </span>
-  );
-}
-
-/**
- * Fond éditorial original, sans média externe.
- * - « motif » : motif génératif du sujet, qui dérive lentement (seulement si
- *   l'appareil n'a pas demandé de réduire les animations) ;
- * - « sobre » : simple halo de couleur, totalement statique.
- * Purement décoratif : tout le sens est porté par le texte de la carte.
- */
-function EditorialBackdrop({ visual, color, pattern, seed }: { visual: CardVisual; color: string; pattern: Parameters<typeof StoryVisual>[0]["pattern"]; seed: string }) {
-  if (visual === "sobre") {
-    return (
-      <div className="absolute inset-0" aria-hidden="true" data-visual="sobre">
-        <div className="absolute inset-0" style={{ background: `radial-gradient(120% 70% at 20% 10%, ${color}55, transparent 60%)` }} />
-      </div>
-    );
-  }
-  return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden="true" data-visual="motif">
-      <StoryVisual pattern={pattern} color={color} seed={seed} className="h-full w-full scale-110 opacity-70 motion-safe:animate-drift" />
-    </div>
   );
 }
 

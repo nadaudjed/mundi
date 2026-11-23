@@ -65,13 +65,24 @@ jobs:
         env:
           MUNDI_AGENT_HISTORY: ${{ runner.temp }}/mundi-editorial-stock/editorial/agents/ledger.json
         run: node scripts/agent-ledger.mjs
+      - name: Archive each day's private drafts and checker reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          DAY=$(node -p "require('./reports/agents-results.json').date")
+          if ! [[ "$DAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            echo "Invalid date"; exit 1
+          fi
+          mkdir -p "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days"
+          cp reports/agents-results.json "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days/$DAY.json"
+          cp reports/agents-plan.json "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days/$DAY-plan.json"
       - name: Persist ledger to isolated editorial-stock branch
         shell: bash
         run: |
           set -euo pipefail
           git -C "$RUNNER_TEMP/mundi-editorial-stock" config user.name "github-actions[bot]"
           git -C "$RUNNER_TEMP/mundi-editorial-stock" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git -C "$RUNNER_TEMP/mundi-editorial-stock" add editorial/agents/ledger.json
+          git -C "$RUNNER_TEMP/mundi-editorial-stock" add editorial/agents/ledger.json editorial/agents/days/
           if git -C "$RUNNER_TEMP/mundi-editorial-stock" diff --cached --quiet; then
             echo "No processed tasks to archive"
           else

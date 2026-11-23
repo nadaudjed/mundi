@@ -62,22 +62,45 @@ export function blockers(output, existing) {
   return reasons;
 }
 
-/** Contrôle indépendant de l'IA : chaque lien doit répondre (2xx après redirections). */
-export async function unreachable(urls, fetcher = fetch) {
-  const bad = [];
-  for (const url of urls) {
-    const ctl = new AbortController();
-    const t = setTimeout(() => ctl.abort(), 15000);
-    try {
-      const r = await fetcher(url, { method: "GET", redirect: "follow", signal: ctl.signal, headers: { "User-Agent": "MUNDI-link-check/1.0", Accept: "text/html,application/pdf,*/*" } });
-      if (!r.ok) bad.push(url);
-    } catch {
-      bad.push(url);
-    } finally {
-      clearTimeout(t);
-    }
+const BOT_BLOCK = new Set([401, 403, 405, 406, 429]);
+const norm = (u) => { try { const x = new URL(u); x.hash = ""; return x.href.replace(/\/$/, ""); } catch { return String(u); } };
+async function probe(url, fetcher, userAgent) {
+  const ctl = new AbortController();
+  const t = setTimeout(() => ctl.abort(), 15000);
+  try {
+    const r = await fetcher(url, { method: "GET", redirect: "follow", signal: ctl.signal,
+      headers: { "User-Agent": userAgent, Accept: "text/html,application/pdf,*/*", "Accept-Language": "fr,en;q=0.8" } });
+    return Number.isInteger(r.status) ? r.status : (r.ok ? 200 : 404);
+  } catch {
+    return 0;
+  } finally {
+    clearTimeout(t);
   }
-  return bad;
+}
+/**
+ * Contrôle indépendant de l'IA. Chaque lien doit répondre (2xx après redirections).
+ * Exception limitée : un site qui refuse les robots (401/403/405/406/429) n'est accepté que si
+ * l'adresse exacte a été renvoyée par le moteur de recherche pendant la rédaction ou la vérification
+ * (preuve qu'elle existe), et seulement si au moins un autre lien du dossier répond réellement.
+ * Une page absente (404/410), une erreur serveur ou un domaine injoignable restent bloquants.
+ */
+export async function checkLinks(urls, { fetcher = fetch, searchedUrls = [] } = {}) {
+  const searched = new Set(searchedUrls.map(norm));
+  const bad = [], blocked = [], ok = [];
+  for (const url of urls) {
+    let status = await probe(url, fetcher, "MUNDI-link-check/1.1 (+https://mundiapptest.netlify.app)");
+    if (!(status >= 200 && status < 300) && (status === 0 || BOT_BLOCK.has(status)))
+      status = await probe(url, fetcher, "Mozilla/5.0 (compatible; MUNDI-link-check/1.1; +https://mundiapptest.netlify.app)");
+    if (status >= 200 && status < 300) ok.push(url);
+    else if (BOT_BLOCK.has(status) && searched.has(norm(url))) blocked.push(url);
+    else bad.push(url + (status ? " (HTTP " + status + ")" : " (injoignable)"));
+  }
+  if (!ok.length && blocked.length) bad.push("aucun lien ne répond directement");
+  return { bad, blocked, ok };
+}
+/** Compatibilité : liste des liens refusés sans exception de recherche. */
+export async function unreachable(urls, fetcher = fetch) {
+  return (await checkLinks(urls, { fetcher })).bad.map((u) => u.replace(/ \((HTTP \d+|injoignable)\)$/, ""));
 }
 
 export function toPublication(output, date) {
@@ -114,9 +137,10 @@ export async function autopublish(results, existing, { enabled = true, max = 2, 
       continue;
     }
     const reasons = blockers(output, [...existing, ...published]);
+    let links = null;
     if (!reasons.length) {
-      const bad = await unreachable(output.draft.sources.map((s) => s.url), fetcher);
-      if (bad.length) reasons.push("liens injoignables : " + bad.join(", "));
+      links = await checkLinks(output.draft.sources.map((s) => s.url), { fetcher, searchedUrls: output.searchedUrls ?? [] });
+      if (links.bad.length) reasons.push("liens injoignables : " + links.bad.join(", "));
     }
     if (reasons.length) {
       decisions.push({ id: output.id, topic: output.topic, decision: "non publié", reasons });
@@ -124,7 +148,7 @@ export async function autopublish(results, existing, { enabled = true, max = 2, 
     }
     const p = toPublication(output, results.date);
     published.push(p);
-    decisions.push({ id: output.id, topic: output.topic, decision: "publié", slug: p.slug });
+    decisions.push({ id: output.id, topic: output.topic, decision: "publié", slug: p.slug, robotBlockedLinks: links?.blocked ?? [] });
   }
   return { published, decisions };
 }

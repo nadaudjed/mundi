@@ -72,16 +72,35 @@ function finalJson(content){
   const start=text.indexOf("{"),end=text.lastIndexOf("}");
   return start>=0&&end>start?text.slice(start,end+1):text;
 }
+/** Web search outcomes in a Claude reply: successful calls, error codes and result URLs. */
+export function searchOutcomes(content){
+  const ok=[],errors=[],urls=new Set();
+  for(const block of Array.isArray(content)?content:[]){
+    if(block?.type!=="web_search_tool_result")continue;
+    const c=block.content;
+    if(Array.isArray(c)){
+      const failed=c.filter(v=>v?.type==="web_search_tool_result_error");
+      if(failed.length){errors.push(...failed.map(v=>String(v.error_code||"unknown")));continue;}
+      ok.push(block);
+      for(const r of c)if(r?.type==="web_search_result"&&typeof r.url==="string")urls.add(r.url);
+    }else if(c?.type==="web_search_tool_result_error")errors.push(String(c.error_code||"unknown"));
+  }
+  return {succeeded:ok.length,errors,urls:[...urls]};
+}
+export class WebSearchFailure extends Error{
+  constructor(codes){super("Claude web search reported an error ("+(codes.join(", ")||"unknown")+")");this.codes=codes;}
+}
 export function parseAnthropicResponse(data){
   if(!data||data.type!=="message"||data.stop_reason!=="end_turn")
     throw new Error("Claude response did not finish (stop_reason: "+String(data?.stop_reason??"none").slice(0,40)+")");
   if(!Array.isArray(data.content))throw new Error("Claude content missing");
-  if(data.content.some(block=>block.type==="web_search_tool_result"&&
-    (block.content?.type==="web_search_tool_result_error"||
-      (Array.isArray(block.content)&&block.content.some(v=>v.type==="web_search_tool_result_error")))))
-    throw new Error("Claude web search reported an error");
   if(!data.content.some(block=>block.type==="server_tool_use"&&block.name==="web_search"))
     throw new Error("Claude did not invoke independent web search");
+  // One failed search among several (e.g. max_uses_exceeded on a 5th query) no longer discards
+  // an otherwise researched draft: the draft is still checked claim by claim afterwards.
+  // With no successful search at all, the draft has no independent research and is refused.
+  const searches=searchOutcomes(data.content);
+  if(searches.errors.length&&searches.succeeded===0)throw new WebSearchFailure(searches.errors);
   const result=finalJson(data.content);
   if(!result||result.length>45000)throw new Error("Claude did not return a usable JSON draft");
   const parsed=JSON.parse(result);
@@ -96,7 +115,36 @@ function parseOpenAIResponse(data){
   if(!content||content.length>45000)throw new Error("OpenAI did not return a usable JSON draft");
   return JSON.parse(content);
 }
-export async function askAgentModel(system,payload,{provider,key,model},kind="writer",fetcher=fetch){
+/** Limited retries: transient API overload / rate limit / network errors, and searches the provider could not run. */
+export const RETRY={delaysMs:[15000,45000],sleep:ms=>new Promise(r=>setTimeout(r,ms))};
+const RETRYABLE_HTTP=new Set([408,429,500,502,503,504,529]);
+const RETRYABLE_SEARCH=new Set(["too_many_requests","unavailable"]);
+class RetryableHttp extends Error{constructor(msg,status,retryAfter){super(msg);this.status=status;this.retryAfter=retryAfter;}}
+/** Adds one API reply's usage to a cost meter (tokens and billed web searches). */
+export function meterUsage(meter,usage){
+  if(!meter||!usage)return;
+  meter.calls=(meter.calls||0)+1;
+  meter.inputTokens=(meter.inputTokens||0)+(usage.input_tokens||0)+(usage.cache_creation_input_tokens||0)+(usage.cache_read_input_tokens||0);
+  meter.outputTokens=(meter.outputTokens||0)+(usage.output_tokens||0);
+  meter.webSearches=(meter.webSearches||0)+(usage.server_tool_use?.web_search_requests||0);
+}
+export async function askAgentModel(system,payload,{provider,key,model},kind="writer",fetcher=fetch,meter=null){
+  for(let attempt=0;;attempt++){
+    try{return await askOnce(system,payload,{provider,key,model},kind,fetcher,meter);}
+    catch(error){
+      const transient=error instanceof RetryableHttp||
+        (error instanceof WebSearchFailure&&error.codes.some(c=>RETRYABLE_SEARCH.has(c)))||
+        (error instanceof TypeError&&/fetch failed/i.test(error.message));
+      // A failed search is retried once only: the retry re-bills the tokens of the whole call.
+      const limit=error instanceof WebSearchFailure?1:RETRY.delaysMs.length;
+      if(!transient||attempt>=limit)throw error;
+      if(meter)meter.retries=(meter.retries||0)+1;
+      const wait=Math.min(60000,Math.max(RETRY.delaysMs[attempt],(error.retryAfter||0)*1000));
+      await RETRY.sleep(wait);
+    }
+  }
+}
+async function askOnce(system,payload,{provider,key,model},kind,fetcher,meter){
   if(!PROVIDERS.has(provider))throw new Error("Unknown provider");
   if(!model||!key)throw new Error("Model or API credential missing");
   const isClaude=provider==="anthropic";
@@ -131,18 +179,32 @@ export async function askAgentModel(system,payload,{provider,key,model},kind="wr
         .replace(/sk-ant-[a-zA-Z0-9_-]+/g,"[redacted]")
         .replace(/sk-proj-[a-zA-Z0-9_-]+/g,"[redacted]");
       const hint=[redact(type),redact(message)].filter(Boolean).join(": ");
-      throw new Error(provider+" API HTTP "+response.status+(hint?" — "+hint:""));
+      const msg=provider+" API HTTP "+response.status+(hint?" — "+hint:"");
+      if(RETRYABLE_HTTP.has(response.status))
+        throw new RetryableHttp(msg,response.status,Number(response.headers?.get?.("retry-after"))||0);
+      throw new Error(msg);
     }
     return response.json();
   }
   try{
-    if(!isClaude)return parseOpenAIResponse(await post());
+    if(!isClaude){
+      const data=await post();
+      if(meter&&data?.usage){meter.calls=(meter.calls||0)+1;meter.inputTokens=(meter.inputTokens||0)+(data.usage.input_tokens||0);meter.outputTokens=(meter.outputTokens||0)+(data.usage.output_tokens||0);}
+      return parseOpenAIResponse(data);
+    }
     // Long web searches can pause the turn: send the partial answer back so Claude continues it.
     const content=[];
     for(let round=0;;round++){
       const result=await post();
       if(Array.isArray(result?.content))content.push(...result.content);
-      if(result?.stop_reason!=="pause_turn"||round>=3)return parseAnthropicResponse({...result,content});
+      meterUsage(meter,result?.usage);
+      if(result?.stop_reason!=="pause_turn"||round>=3){
+        const parsed=parseAnthropicResponse({...result,content});
+        // URLs actually returned by the search engine: used later to tell a bot-blocked page from an invented link.
+        if(meter){const s=searchOutcomes(content);meter.searchedUrls=[...new Set([...(meter.searchedUrls||[]),...s.urls])].slice(0,200);
+          if(s.errors.length)meter.searchErrors=[...(meter.searchErrors||[]),...s.errors];}
+        return parsed;
+      }
       body.messages=[body.messages[0],{role:"assistant",content}];
     }
   }finally{clearTimeout(timeout);}

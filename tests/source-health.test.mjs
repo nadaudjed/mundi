@@ -131,7 +131,7 @@ test("large multi-publisher inbox retains more than 100 unique leads without cop
 
 test("USGS national news RSS metadata is attributed and restricted to the official hostname",async()=>{
   const usgs={...source,id:"usgs-national-news",publisher:"U.S. Geological Survey",
-    feedUrl:"https://www.usgs.gov/news/national-news-release/feed",
+    feedUrl:"https://www.usgs.gov/news/149248/feed",
     topic:"materiaux-critiques",
     rightsUrl:"https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"};
   const xml='<rss version="2.0"><channel><item><title>USGS supply outlook</title>'+
@@ -146,4 +146,12 @@ test("USGS national news RSS metadata is attributed and restricted to the offici
   assert.equal(out.items[0].topicHint,"materiaux-critiques");
   assert.equal(out.items[0].reviewStatus,"candidate_unverified");
   assert.ok(!Object.hasOwn(out.items[0],"description"));
+});
+
+test("an RSS permanent guid on the same site replaces a tracking redirect link", async () => {
+  const { parseFeed } = await import("../scripts/collect-sources.mjs");
+  const xml = '<rss><channel><item><title>RDC : riposte Ebola</title><link>https://news.un.org/feed/view/fr/story/2026/11/1</link>' +
+    '<guid isPermaLink="true">https://news.un.org/fr/story/2026/11/1</guid><pubDate>Mon, 23 Nov 2026 12:00:00 +0000</pubDate></item></channel></rss>';
+  const [item] = parseFeed(xml, { id: "un", feedUrl: "https://news.un.org/feed/subscribe/fr/news/region/africa/feed/rss.xml", publisher: "ONU", topic: "afrique" });
+  assert.equal(item.link, "https://news.un.org/fr/story/2026/11/1");
 });

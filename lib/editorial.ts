@@ -10,6 +10,8 @@ export type Publication = {
   keyPoints: [string, string, string]; sections: EditorialSection[]; sources: EditorialSource[];
   /** Publiée automatiquement après le vérificateur IA, sans relecture humaine (affiché au lecteur). */
   aiVerified?: true;
+  /** Rectificatifs visibles par le lecteur (jamais de correction silencieuse). */
+  corrections?: { date: string; text: string }[];
 };
 
 const allowed = new Set<string>(topics.map(t => t.slug));
@@ -39,6 +41,7 @@ export function validatePublication(value: unknown): string[] {
   if (!Array.isArray(p.keyPoints) || p.keyPoints.length !== 3 || !p.keyPoints.every(x => text(x,12))) errors.push("Trois idées clés requises");
   if (!Array.isArray(p.sources) || p.sources.length < 2 || !p.sources.every(s => s && text(s.label,3) && validUrl(s.url))) errors.push("Deux sources HTTPS au minimum");
   if (!Array.isArray(p.sections) || p.sections.length < 1 || !p.sections.every(s => s && ["fait","analyse","hypothese"].includes(s.kind) && text(s.heading) && text(s.text,30))) errors.push("Sections invalides");
+  if (p.corrections !== undefined && (!Array.isArray(p.corrections) || !p.corrections.every(c => c && date(c.date) && text(c.text, 10)))) errors.push("Corrections invalides");
   return errors;
 }
 

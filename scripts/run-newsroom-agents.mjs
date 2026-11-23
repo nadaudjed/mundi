@@ -114,6 +114,19 @@ export function tidyDraft(draft){
   }
   return draft;
 }
+/** Public list prices (USD) used for an ESTIMATE only; the Anthropic Console stays the billing reference. */
+export const PRICES={"claude-sonnet-5-5":[2,10],"claude-sonnet-5":[2,10],"claude-opus-5-5":[4,20],"claude-haiku-5-5":[0.1,0.5]};
+export const WEB_SEARCH_USD=10/1000;
+export function estimateCost(usage,model){
+  const [inp,out]=PRICES[model]||[Number(process.env.MUNDI_PRICE_INPUT_PER_MTOK)||2,Number(process.env.MUNDI_PRICE_OUTPUT_PER_MTOK)||10];
+  const usd=(usage.inputTokens||0)/1e6*inp+(usage.outputTokens||0)/1e6*out+(usage.webSearches||0)*WEB_SEARCH_USD;
+  return Math.round(usd*1000)/1000;
+}
+export function sumUsage(list){
+  const t={calls:0,inputTokens:0,outputTokens:0,webSearches:0,retries:0};
+  for(const u of list)for(const k of Object.keys(t))t[k]+=u?.[k]||0;
+  return t;
+}
 function record(job,draft,review,assessment,error){
   return {format:"mundi-agent-output-v1",id:job.id,date:job.date,role:job.role,topic:job.topic,
     originalAssignment:job.title,recordKey:job.recordKey,sourceLead:job.source,previousPublication:job.previousPublication,
@@ -122,6 +135,12 @@ function record(job,draft,review,assessment,error){
     error:short(error,350)||null,createdAt:now(),status:"draft_not_published"};
 }
 async function runOne(job,configuration){
+  const meter={};
+  const out=await runOneMetered(job,configuration,meter);
+  const {searchedUrls=[],searchErrors=[],...usage}=meter;
+  return {...out,usage:sumUsage([usage]),searchedUrls,searchErrors:searchErrors.slice(0,20)};
+}
+async function runOneMetered(job,configuration,meter){
   const {writer,checker}=configuration;
   if(job.status.startsWith("blocked_"))return record(job,null,null,null,job.status);
   if(!writer.key||!writer.model||!checker.key||!checker.model)
@@ -133,23 +152,23 @@ async function runOne(job,configuration){
       sourceLead:job.source,updateTarget:job.previousPublication,
       previouslyPublishedOnSameBeat:job.relatedPublications??[],
       task:job.role==="journalist"?"Cherche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante.":"Expliquer un mécanisme durable sans inventer de faits."
-    },writer,"writer");
+    },writer,"writer",fetch,meter);
     tidyDraft(draft);
     const draftErrors=validateResearchDraft(draft,job);
     if(draftErrors.length)return record(job,draft,null,{
       status:"needs_human_or_more_research",safeForAutopublication:false,reasons:draftErrors},null);
-    const checkerResult=await askAgentModel(CHECKER_SYSTEM,{job,draft},checker,"checker");
+    const checkerResult=await askAgentModel(CHECKER_SYSTEM,{job,draft},checker,"checker",fetch,meter);
     if(checkerResult?.verdict!=="needs_review")return record(job,draft,checkerResult,assessReview(draft,checkerResult,job),null);
     // One correction round: the writer removes or fixes what the checker could not confirm, then a new,
     // independent check decides. Nothing is published on the first check's word.
     const revised=await askAgentModel(WRITER_SYSTEM,{
       role:job.role,topic:job.topic,dateOfResearch:job.date,task:REVISION_TASK,draft,checkerReport:checkerResult
-    },writer,"writer");
+    },writer,"writer",fetch,meter);
     tidyDraft(revised);
     const revisionErrors=validateResearchDraft(revised,job);
     const revision={firstVerdict:checkerResult.verdict,firstReason:short(checkerResult.reason,600)};
     if(revisionErrors.length)return {...record(job,draft,checkerResult,assessReview(draft,checkerResult,job),null),revision};
-    const secondCheck=await askAgentModel(CHECKER_SYSTEM,{job,draft:revised},checker,"checker");
+    const secondCheck=await askAgentModel(CHECKER_SYSTEM,{job,draft:revised},checker,"checker",fetch,meter);
     return {...record(job,revised,secondCheck,assessReview(revised,secondCheck,job),null),revision};
   }catch(error){return record(job,null,null,null,String(error?.message??error));}
 }
@@ -184,7 +203,9 @@ export async function runAgentDesk(plan,{
   const jobs=ordered.slice(0,max),out=new Array(jobs.length);let idx=0;
   async function worker(){while(idx<jobs.length){const i=idx++;out[i]=await runOne(jobs[i],config);}}
   await Promise.all(Array.from({length:Math.min(3,jobs.length)},worker));
-  return {format:"mundi-agent-day-v1",date:plan.date,target:20,completed:out.length,
+  const usage=sumUsage(out.map(x=>x.usage));
+  usage.estimatedUsd=estimateCost(usage,config.writer.model);
+  return {format:"mundi-agent-day-v1",date:plan.date,target:20,completed:out.length,usage,
     notice:"Internal AI research, not factual proof or publication. Checker verdict is advisory; public publishing remains disabled.",
     generated:out.filter(x=>x.draft!==null).length,
     machineChecked:out.filter(x=>x.assessment.status==="machine_checked_pending_policy").length,
@@ -200,6 +221,7 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     "publications:",result.publiclyPublished,
     "; writer provider:",cfg.writerProvider,"; model:",cfg.writerModel||"unset",
     "; checker provider:",cfg.checkerProvider,"; configured:",cfg.ready);
+  console.log("MUNDI API usage:",JSON.stringify(result.usage));
   if(!cfg.ready)console.warn("MUNDI planning-only: missing",cfg.missing.join(", "));
   const rejected=result.outputs.filter(x=>x.error).length;
   if(result.generated===0&&cfg.ready)console.warn("MUNDI configured, but 0 drafts: inspect report outputs (blocked topics or API errors).");
@@ -220,6 +242,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
       "Checker: "+cfg.checkerProvider+" ("+(cfg.checkerModel||"not configured")+")",
       cfg.ready?"Configuration: ready":"Planning only; missing: "+cfg.missing.join(", "),
       "Tasks with errors: "+rejected,
+      "API calls: "+(result.usage?.calls||0)+" ; retries: "+(result.usage?.retries||0)+" ; web searches: "+(result.usage?.webSearches||0),
+      "Tokens in/out: "+(result.usage?.inputTokens||0)+" / "+(result.usage?.outputTokens||0)+" ; estimated cost: ~$"+(result.usage?.estimatedUsd??0)+" (estimate, see Anthropic Console)",
       "",
       "No article is auto-published. Inspect the private uploaded artifact for detailed results.",""
     ].join("\n");

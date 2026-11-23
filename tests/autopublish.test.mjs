@@ -97,3 +97,17 @@ test("a pass status cannot be forged without an independent checker pass",async(
   assert.match(blockers(output({checker:{verdict:"pass",independentlyChecked:false,uncertainties:[]}}),[]).join(),/non validé/);
   assert.equal((await autopublish(results([output({checker:{verdict:"pass",independentlyChecked:false,uncertainties:[]}})]),[],{fetcher:ok})).published.length,0);
 });
+
+test("a robot-blocked page is accepted only when the search engine returned that exact address", async () => {
+  const { checkLinks } = await import("../scripts/autopublish-agents.mjs");
+  const fetcher = async (url) => ({ status: url.includes("blocked") ? 403 : url.includes("missing") ? 404 : 200 });
+  const a = await checkLinks(["https://ok.org/a", "https://blocked.org/b"], { fetcher, searchedUrls: ["https://blocked.org/b/"] });
+  assert.deepEqual(a.bad, []);
+  assert.deepEqual(a.blocked, ["https://blocked.org/b"]);
+  const b = await checkLinks(["https://ok.org/a", "https://blocked.org/invented"], { fetcher, searchedUrls: [] });
+  assert.equal(b.bad.length, 1);
+  const c = await checkLinks(["https://ok.org/a", "https://missing.org/x"], { fetcher, searchedUrls: ["https://missing.org/x"] });
+  assert.match(c.bad[0], /HTTP 404/);
+  const d = await checkLinks(["https://blocked.org/b"], { fetcher, searchedUrls: ["https://blocked.org/b"] });
+  assert.ok(d.bad.includes("aucun lien ne répond directement"));
+});

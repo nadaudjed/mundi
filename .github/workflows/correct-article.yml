@@ -1,0 +1,59 @@
+name: MUNDI — corriger ou retirer un article
+
+# Bouton manuel : Actions → « MUNDI — corriger ou retirer un article » → Run workflow.
+on:
+  workflow_dispatch:
+    inputs:
+      article:
+        description: "Adresse ou fin d'adresse de l'article (ex. dette-publique-la-tchequie-...)"
+        required: true
+      action:
+        description: "corriger = rectificatif visible ; retirer = l'article disparaît du site"
+        required: true
+        type: choice
+        options: [corriger, retirer]
+      note:
+        description: "Explication affichée (correction) ou conservée (retrait)"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mundi-publications
+  cancel-in-progress: false
+
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Apply the correction or withdrawal
+        env:
+          MUNDI_SLUG: ${{ inputs.article }}
+          MUNDI_ACTION: ${{ inputs.action }}
+          MUNDI_NOTE: ${{ inputs.note }}
+        run: node scripts/correct-publication.mjs
+      - name: Validate, build and publish to main (Netlify redeploys)
+        shell: bash
+        env:
+          MUNDI_ACTION: ${{ inputs.action }}
+        run: |
+          set -euo pipefail
+          npm ci
+          node scripts/validate-editorial.mjs
+          npm run build
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/publications.json
+          git commit -m "editorial: $MUNDI_ACTION d'un article publié"
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -38,9 +38,13 @@ Des trajectoires visuelles pour introduire une explication ; **elles ne constitu
 
 **Fichier :** [motion-lab.html](motion-lab.html) (laboratoire autonome, sans publication).
 
-Le fichier HTML est **autonome** (ses trois décors SVG sont intégrés dans le fichier, sans réseau ni dépendances). Dans GitHub, ouvrir `motion-lab.html`, choisir **Download raw file**, puis ouvrir le fichier téléchargé dans Safari, Chrome ou Firefox pour expérimenter les gestes, le scroll vertical, les progressions, l'apparition typographique et l'animation des décors. L'interface se parcourt au toucher, à la molette, via les boutons « Continuer » et avec les flèches haut/bas. Le bouton Pause et `prefers-reduced-motion` préservent une lecture statique.
+Le fichier HTML est **autonome** (ses trois décors SVG sont intégrés dans le fichier, sans réseau ni dépendances). Dans GitHub, ouvrir `motion-lab.html`, choisir **Download raw file**, puis ouvrir le fichier téléchargé dans Safari, Chrome ou Firefox pour expérimenter les gestes, le scroll vertical, les progressions, l'apparition typographique et l'animation des décors. La barre supérieure dispose de deux contrôles réels : **Lecture** réduit le fond animé et améliore le contraste ; **Pause** arrête les mouvements et révèle tout le texte. Les cibles tactiles et les traits de progression ont été élargis sans alourdir l'interface. L'interface se parcourt au toucher, à la molette, via les boutons « Continuer » et avec les flèches haut/bas. Le bouton Pause et `prefers-reduced-motion` préservent une lecture statique.
 
 Les textes du laboratoire ne prétendent **pas** documenter un événement réel : ce sont des textes de démonstration éditoriale.
+
+## Storyboard et micro-interactions
+
+Le document [MOTION_STORYBOARD.md](MOTION_STORYBOARD.md) détaille la hiérarchie typographique, les timings indicatifs, les états pause/lecture, le geste de swipe, les critères d'accessibilité et les choses à ne surtout pas reproduire du style « affiche sportive ».
 
 ## Handoff pour Claude Code — intégrer la beauté sans sacrifier les faits
 

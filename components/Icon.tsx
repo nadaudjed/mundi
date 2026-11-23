@@ -15,7 +15,12 @@ export type IconName =
   | "close"
   | "clock"
   | "check"
-  | "sliders";
+  | "sliders"
+  | "play"
+  | "pause"
+  | "volume"
+  | "volume-off"
+  | "captions";
 
 const paths: Record<IconName, React.ReactNode> = {
   home: <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1v-9.5Z" />,
@@ -57,6 +62,11 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   check: <path d="m5 12.5 4.5 4.5L19 7.5" />,
+  play: <path d="M8 5.5v13l10.5-6.5L8 5.5Z" fill="currentColor" />,
+  pause: <path d="M8.5 5.5v13M15.5 5.5v13" strokeWidth={3} />,
+  volume: <><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4v-5Z" /><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" /></>,
+  "volume-off": <><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4v-5Z" /><path d="m16 9.5 5 5M21 9.5l-5 5" /></>,
+  captions: <><rect x="3" y="5.5" width="18" height="13" rx="2.5" /><path d="M10.5 10.3a2.2 2.2 0 1 0 0 3.4M17 10.3a2.2 2.2 0 1 0 0 3.4" /></>,
   sliders: <><path d="M4 7h16M4 17h16" /><circle cx="9" cy="7" r="2" fill="currentColor" stroke="none" /><circle cx="16" cy="17" r="2" fill="currentColor" stroke="none" /></>,
 };
 

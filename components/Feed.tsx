@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { formatMinutes } from "@/lib/format";
+import { getNarrative, type NarrativeBeat } from "@/lib/narratives";
 import { feedStories } from "@/lib/stories";
 import { personalizedStories, useInterests } from "@/lib/preferences";
 import { formats, getTopic, topics } from "@/lib/topics";
@@ -12,7 +13,21 @@ import { Icon } from "./Icon";
 import { LogoMark } from "./Logo";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
-import { StoryVisual } from "./StoryVisual";
+import { MediaStage } from "./MediaStage";
+
+/**
+ * Un écran du fil. Un récit « narratif » occupe trois écrans successifs
+ * (accroche, fait, explication) ; les autres récits en occupent un seul.
+ */
+type Slide = { key: string; story: Story; storyIndex: number; beat?: NarrativeBeat; step: number; steps: number };
+
+function toSlides(stories: Story[]): Slide[] {
+  return stories.flatMap((story, storyIndex) => {
+    const beats = getNarrative(story.slug);
+    if (!beats) return [{ key: story.slug, story, storyIndex, step: 0, steps: 1 }];
+    return beats.map((beat, step) => ({ key: `${story.slug}#${step}`, story, storyIndex, beat, step, steps: beats.length }));
+  });
+}
 
 /** Sujets réellement présents dans le fil, pour ne pas proposer de filtre vide. */
 const feedTopics = topics.filter((t) => feedStories.some((s) => s.topic === t.slug));
@@ -27,6 +42,8 @@ export function Feed() {
     () => (filter === "all" ? personalizedStories(feedStories, interests) : feedStories.filter((s) => s.topic === filter)),
     [filter, interests],
   );
+  const slides = useMemo(() => toSlides(items), [items]);
+  const current = slides[Math.min(active, slides.length - 1)];
 
   // Repère la carte visible pour l'indicateur de progression.
   useEffect(() => {
@@ -42,7 +59,7 @@ export function Feed() {
     );
     root.querySelectorAll("[data-index]").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [items]);
+  }, [slides]);
 
   const goTo = useCallback((index: number) => {
     const root = scroller.current;
@@ -121,10 +138,10 @@ export function Feed() {
         <div
           ref={scroller}
           aria-label="Fil de découverte"
-          className="no-scrollbar h-full w-full snap-y snap-mandatory overflow-y-scroll md:max-w-[27rem] md:rounded-[2rem] md:shadow-2xl md:shadow-night/30 md:ring-1 md:ring-night/10"
+          className="no-scrollbar h-full w-full touch-pan-y snap-y snap-mandatory overflow-y-scroll overscroll-y-contain md:max-w-[27rem] md:rounded-[2rem] md:shadow-2xl md:shadow-night/30 md:ring-1 md:ring-night/10"
         >
-          {items.map((story, i) => (
-            <FeedCard key={story.slug} story={story} index={i} total={items.length} active={i === active} />
+          {slides.map((slide, i) => (
+            <FeedCard key={slide.key} slide={slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 1} />
           ))}
         </div>
 
@@ -136,22 +153,27 @@ export function Feed() {
               onClick={() => goTo(active - 1)}
               disabled={active === 0}
               className="flex size-12 items-center justify-center rounded-full bg-night text-ivory shadow-lg transition hover:bg-blue disabled:opacity-30"
-              aria-label="Récit précédent"
+              aria-label="Écran précédent"
             >
               <Icon name="chevron-up" className="size-6" />
             </button>
             <button
               type="button"
               onClick={() => goTo(active + 1)}
-              disabled={active >= items.length - 1}
+              disabled={active >= slides.length - 1}
               className="flex size-12 items-center justify-center rounded-full bg-night text-ivory shadow-lg transition hover:bg-blue disabled:opacity-30"
-              aria-label="Récit suivant"
+              aria-label="Écran suivant"
             >
               <Icon name="chevron-down" className="size-6" />
             </button>
           </div>
-          <p className="text-sm text-muted" aria-live="polite">
-            <span className="font-display text-3xl text-night">{active + 1}</span> / {items.length}
+          <p className="text-sm text-muted" aria-live="polite" data-testid="feed-counter">
+            <span className="font-display text-3xl text-night">{(current?.storyIndex ?? 0) + 1}</span> / {items.length}
+            {current && current.steps > 1 && (
+              <span className="mt-1 block text-xs">
+                Écran {current.step + 1} sur {current.steps}
+              </span>
+            )}
           </p>
           <p className="text-xs leading-relaxed text-muted">
             Astuce : utilisez les flèches <kbd className="rounded border border-night/20 px-1">↑</kbd>{" "}
@@ -197,80 +219,124 @@ function FilterChip({ label, active, onClick, color }: { label: string; active: 
   );
 }
 
-function FeedCard({ story, index, total, active }: { story: Story; index: number; total: number; active: boolean }) {
+function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: number; total: number; active: boolean; near: boolean }) {
+  const { story, beat, step, steps, storyIndex } = slide;
   const topic = getTopic(story.topic)!;
   const format = formats[story.format];
+  const last = step === steps - 1;
 
   return (
     <article
       data-index={index}
-      aria-roledescription="récit"
-      aria-label={`${index + 1} sur ${total} : ${story.title}`}
+      data-story={story.slug}
+      aria-roledescription={beat ? "écran de récit" : "récit"}
+      aria-label={`Récit ${storyIndex + 1} sur ${total}${beat ? `, écran ${step + 1} sur ${steps}` : ""} : ${story.title}`}
       className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night text-ivory"
     >
-      <StoryVisual pattern={topic.pattern} color={topic.color} seed={story.slug} className="absolute inset-0 h-full w-full" />
-      <div className="grain absolute inset-0" aria-hidden="true" />
-      <div className="absolute inset-0 bg-gradient-to-t from-night via-night/80 to-night/10" aria-hidden="true" />
+      <MediaStage story={story} active={active} near={near} />
+      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-25% via-night/70 via-42% to-transparent to-62%" aria-hidden="true" />
 
-      <div className="relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:px-6 md:pb-7">
-        <div className="min-w-0 flex-1">
+      {beat && (
+        <div className="absolute inset-x-5 bottom-2.5 z-10 flex gap-1.5" aria-hidden="true" data-testid="narrative-progress">
+          {Array.from({ length: steps }, (_, i) => (
+            <span key={i} className={`h-1 flex-1 rounded-full ${i <= step ? "bg-mint" : "bg-ivory/25"}`} />
+          ))}
+        </div>
+      )}
+
+      <div className="pointer-events-none relative mt-auto flex items-end gap-2 px-5 pb-6 pt-32 md:px-6 md:pb-8">
+        <div className="pointer-events-auto min-w-0 flex-1">
           <div className="mb-3 flex flex-wrap items-center gap-2 text-[0.75rem] font-semibold">
             <span className="rounded-full px-2.5 py-1 text-night" style={{ background: topic.color }}>
               {topic.name}
             </span>
-            <span className="rounded-full border border-ivory/25 px-2.5 py-1 text-ivory/90">
-              {format.name}
-            </span>
+            <span className="rounded-full border border-ivory/25 px-2.5 py-1 text-ivory/90">{format.name}</span>
             <span className="flex items-center gap-1 text-ivory/70">
               <Icon name="clock" className="size-3.5" />
               {formatMinutes(story.minutes)}
             </span>
           </div>
 
-          <h2 className="font-display text-[1.75rem] leading-[1.12] font-semibold text-balance md:text-[1.9rem]">
-            {story.title}
-          </h2>
-          <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">{story.dek}</p>
+          {beat ? (
+            <NarrativeBody slide={slide} />
+          ) : (
+            <SummaryBody story={story} />
+          )}
 
-          <ol className="mt-4 space-y-2">
-            {story.keyPoints.map((point, i) => (
-              <li key={i} className="flex gap-3 text-[0.85rem] leading-snug text-ivory/90">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-mint/20 text-[0.7rem] font-bold text-mint-soft">
-                  {i + 1}
-                </span>
-                <span>{point}</span>
-              </li>
-            ))}
-          </ol>
-
-          <div className="mt-5 flex items-center gap-3">
-            <Link
-              href={`/recit/${story.slug}/`}
-              className="inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night transition hover:bg-mint-soft"
-            >
-              Comprendre
-              <Icon name="arrow-right" className="size-4" />
-            </Link>
-            <ListenButton title={story.title} summary={story.dek} points={story.keyPoints} active={active} />
-            <span className="text-[0.65rem] leading-tight font-medium uppercase tracking-wider text-[#ffd98f]/90">
-              Contenu
-              <br />
-              illustratif
-            </span>
-          </div>
+          {last && (
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <Link
+                href={`/recit/${story.slug}/`}
+                className="inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night transition hover:bg-mint-soft"
+              >
+                Comprendre
+                <Icon name="arrow-right" className="size-4" />
+              </Link>
+              <ListenButton title={story.title} summary={story.dek} points={story.keyPoints} active={active} />
+              <span className="text-[0.65rem] leading-tight font-medium uppercase tracking-wider text-[#ffd98f]/90">
+                Contenu
+                <br />
+                illustratif
+              </span>
+            </div>
+          )}
+          {!last && (
+            <p className="mt-5 flex items-center gap-1.5 text-xs font-medium text-ivory/65">
+              <Icon name="chevron-down" className="size-4 motion-safe:animate-bounce" />
+              Faites défiler pour la suite
+            </p>
+          )}
         </div>
 
-        <div className="flex shrink-0 flex-col items-center gap-1 self-end pb-12">
+        <div className="pointer-events-auto flex shrink-0 flex-col items-center gap-1 self-end pb-12">
           <SaveButton slug={story.slug} title={story.title} variant="rail" />
           <ShareButton slug={story.slug} title={story.title} variant="rail" />
         </div>
       </div>
 
-      {index === 0 && total > 1 && (
+      {index === 0 && !beat && total > 1 && (
         <div className="pointer-events-none absolute inset-x-0 bottom-1.5 flex justify-center text-ivory/50 md:hidden" aria-hidden="true">
           <Icon name="chevron-down" className="size-5 motion-safe:animate-bounce" />
         </div>
       )}
     </article>
+  );
+}
+
+/** Carte classique : titre, chapeau et trois points clés. */
+function SummaryBody({ story }: { story: Story }) {
+  return (
+    <>
+      <h2 className="font-display text-[1.75rem] leading-[1.12] font-semibold text-balance md:text-[1.9rem]">{story.title}</h2>
+      <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80 [@media(max-height:700px)]:hidden">{story.dek}</p>
+      <ol className="mt-4 space-y-2">
+        {story.keyPoints.map((point, i) => (
+          <li key={i} className="flex gap-3 text-[0.85rem] leading-snug text-ivory/90">
+            <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-mint/20 text-[0.7rem] font-bold text-mint-soft">
+              {i + 1}
+            </span>
+            <span>{point}</span>
+          </li>
+        ))}
+      </ol>
+    </>
+  );
+}
+
+/** Carte narrative : une seule idée par écran. */
+function NarrativeBody({ slide }: { slide: Slide }) {
+  const { story, beat, step } = slide;
+  if (!beat) return null;
+  return (
+    <div className="motion-safe:animate-rise">
+      {step === 0 ? (
+        <h2 className="mb-3 text-sm font-semibold text-ivory/75">{story.title}</h2>
+      ) : (
+        <p className="mb-3 text-sm font-semibold text-ivory/75">{story.title}</p>
+      )}
+      <p className="text-xs font-bold uppercase tracking-[0.2em] text-mint-soft">{beat.label}</p>
+      <p className="mt-2 font-display text-[1.7rem] leading-[1.18] font-semibold text-balance md:text-[1.85rem]">{beat.text}</p>
+    </div>
   );
 }

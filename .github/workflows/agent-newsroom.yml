@@ -91,7 +91,21 @@ jobs:
             echo "No processed tasks to archive"
           else
             git -C "$RUNNER_TEMP/mundi-editorial-stock" commit -m "agents: record investigated briefs for deduplication"
-            git -C "$RUNNER_TEMP/mundi-editorial-stock" push origin HEAD:refs/heads/editorial-stock
+            # The editorial inbox writes candidates to this SAME private branch.
+            # Refresh/rebase before pushing; do not force-push or erase research stock.
+            for attempt in 1 2 3 4; do
+              git -C "$RUNNER_TEMP/mundi-editorial-stock" fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+              git -C "$RUNNER_TEMP/mundi-editorial-stock" rebase origin/editorial-stock
+              if git -C "$RUNNER_TEMP/mundi-editorial-stock" push origin HEAD:refs/heads/editorial-stock; then
+                echo "Agents archive persisted, attempt $attempt"
+                break
+              fi
+              if [ "$attempt" -eq 4 ]; then
+                echo "::error::Private stock push failed after 4 rebase attempts; publication blocked to preserve audit trail."
+                exit 1
+              fi
+              sleep 2
+            done
           fi
       # V2 (#43), décidée par le fondateur : publication automatique des seuls brouillons validés
       # par le vérificateur, non sensibles, aux liens joignables. Interrupteur d'urgence :

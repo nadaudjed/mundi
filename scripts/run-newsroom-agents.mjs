@@ -11,8 +11,7 @@ import {askAgentModel,resolveAgentProviders,inferAgentSelection} from "./agent-p
 const TOPICS=["geopolitique","economie","finance","industrie","materiaux-critiques","energie",
 "recyclage","environnement","technologie","entreprises","afrique","sciences-societe"];
 const SENSITIVE=new Set(["geopolitique","finance","sciences-societe"]);
-// "politique énergétique" or "sécurité d'approvisionnement" are not sensitive by themselves; the
-// fuller list of risky words is enforced again before publication (scripts/autopublish-agents.mjs).
+// Marks a draft as sensitive (information only, it does not block publication).
 const HAZARDS=/(?<![\p{L}\p{N}])(election|élection|guerre|war|attack|attaque|santé|health|maladie|treatment|traitement|médical|medical|justice|tribunal|terror|fraud|fraude)(?![\p{L}\p{N}])/iu;
 const now=()=>new Date().toISOString();
 const short=(s,n)=>typeof s==="string"?s.trim().slice(0,n):"";
@@ -67,7 +66,8 @@ export function assessReview(draft,review,job){
   const sensitive=SENSITIVE.has(job.topic)||
     HAZARDS.test([draft?.title,draft?.summary,...(draft?.keyPoints??[])].join(" "))||
     (review?.sensitiveFlags?.length??0)>0;
-  if(sensitive)reasons.push("Sensitive subject requires human escalation");
+  // Founder's decision (23/11/2026): every subject may be covered as long as it is sourced.
+  // `sensitive` is kept as information; the stricter checker rules below apply to these subjects.
   return {status:reasons.length===0?"machine_checked_pending_policy":"needs_human_or_more_research",
     safeForAutopublication:false,reasons,
     independentOrganisations:uniqueIndependent((draft?.sources??[]).map(s=>s.url)),
@@ -90,8 +90,8 @@ const CHECKER_SYSTEM=[
 "Tu es le rédacteur en chef vérificateur MUNDI, distinct du rédacteur. Cherche à réfuter les affirmations.",
 "Utilise web_search indépendamment. Recontrôle dates, nombres, dénominateurs, périmètres, sources et leur indépendance.",
 "N'accepte jamais une source inventée, une page non consultée, un titre RSS pris pour une preuve, une extrapolation ni une prévision présentée comme fait.",
-"sensitiveFlags ne sert QUE pour ces catégories : élections ou politique partisane, guerre, conflit armé ou terrorisme, santé ou médical, justice, crime ou accusation visant une personne ou une entreprise nommée, conseil financier ou marchés, migration, religion.",
-"Une politique publique, une réglementation, une statistique provisoire ou un risque de mauvaise interprétation ne sont PAS des sujets sensibles : mets-les dans uncertainties ou reason.",
+"sensitiveFlags signale, pour information, ces catégories : élections ou politique partisane, guerre, conflit armé ou terrorisme, santé ou médical, justice, crime ou accusation visant une personne ou une entreprise nommée, conseil financier ou marchés, migration, religion.",
+"Ces sujets peuvent être publiés, mais sois plus exigeant : chaque fait attribué à une source identifiable, positions des parties présentées sans parti pris, aucune accusation présentée comme établie sans décision de justice ou source officielle, aucun conseil médical ou financier. Sinon, verdict needs_review.",
 "uncertainties ne liste que les points qui pourraient rendre l'article faux ou trompeur (au plus 5) ; les remarques mineures vont dans reason.",
 "Verdict pass seulement si chaque affirmation est étayée et si l'article peut être publié tel quel sans tromper le lecteur.",
 "Réponds en JSON UNIQUEMENT : {verdict: pass/needs_review/reject, independentlyChecked:bool,",
@@ -154,12 +154,8 @@ export async function runAgentDesk(plan,{
   };
   // Sensitive beats are researched last: daily slots go first to subjects that may be auto-published.
   // Reporters and teachers alternate, so evergreen explanations also get daily slots.
-  // "afrique" is never auto-published either (EXCLUDED_TOPICS in scripts/autopublish-agents.mjs).
-  const late=j=>SENSITIVE.has(j.topic)||j.topic==="afrique";
-  const safe=plan.jobs.filter(j=>!late(j)),risky=plan.jobs.filter(late);
-  const reporters=safe.filter(j=>j.role==="journalist"),teachers=safe.filter(j=>j.role!=="journalist");
-  const mixed=[];for(let i=0;i<Math.max(reporters.length,teachers.length);i++)mixed.push(...[reporters[i],teachers[i]].filter(Boolean));
-  const ordered=[...mixed,...risky];
+  const reporters=plan.jobs.filter(j=>j.role==="journalist"),teachers=plan.jobs.filter(j=>j.role!=="journalist");
+  const ordered=[];for(let i=0;i<Math.max(reporters.length,teachers.length);i++)ordered.push(...[reporters[i],teachers[i]].filter(Boolean));
   const jobs=ordered.slice(0,max),out=new Array(jobs.length);let idx=0;
   async function worker(){while(idx<jobs.length){const i=idx++;out[i]=await runOne(jobs[i],config);}}
   await Promise.all(Array.from({length:Math.min(3,jobs.length)},worker));

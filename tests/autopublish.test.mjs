@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { autopublish, blockers, slugify, SENSITIVE_WORDS, AI_REVIEWER } from "../scripts/autopublish-agents.mjs";
+import { autopublish, blockers, slugify, AI_REVIEWER } from "../scripts/autopublish-agents.mjs";
 
 const draft = (over = {}) => ({
   topic: "recyclage", contentType: "today",
@@ -37,24 +37,17 @@ test("a fully checked, non-sensitive draft with live links is published, labelle
   assert.equal(decisions[0].decision, "publié");
 });
 
-test("nothing is published when the checker did not approve, or flagged sensitivity", async () => {
-  for (const o of [
-    output({ assessment: { status: "needs_human_or_more_research", sensitive: false } }),
-    output({ assessment: { status: "machine_checked_pending_policy", sensitive: true } }),
-    output({ checker: { verdict: "pass", sensitiveFlags: ["santé"], uncertainties: [] } }),
-  ]) {
-    const { published } = await autopublish(results([o]), [], { fetcher: ok });
-    assert.equal(published.length, 0);
-  }
+test("nothing is published when the checker did not approve", async () => {
+  const o = output({ assessment: { status: "needs_human_or_more_research", sensitive: false } });
+  assert.equal((await autopublish(results([o]), [], { fetcher: ok })).published.length, 0);
+  assert.match(blockers(output({ checker: { verdict: "pass", sensitiveFlags: [], uncertainties: ["a", "b", "c", "d", "e", "f"] } }), []).join(), /incertitudes/);
 });
 
-test("sensitive beats and sensitive words anywhere in the text are excluded", () => {
-  assert.ok(blockers(output({}, draft({ topic: "geopolitique" })), []).length);
-  assert.ok(blockers(output({ topic: "finance" }, draft({ topic: "finance" })), []).length);
-  const words = draft({ sections: [...draft().sections, { kind: "fait", heading: "Contexte", text: "Le ministère évoque aussi les élections régionales à venir." }] });
-  assert.match(blockers(output({}, words), []).join(), /mot sensible/);
-  for (const w of ["élections", "guerre", "santé", "procès", "attentat", "vaccins"]) assert.ok(SENSITIVE_WORDS.test("x " + w + " y"), w);
-  for (const w of ["politique énergétique", "enquête Eurostat", "conflits d'usage", "sécurité d'approvisionnement"]) assert.ok(!SENSITIVE_WORDS.test(w), w);
+test("sensitive subjects are published when sourced and approved (founder's decision)", async () => {
+  const war = draft({ topic: "geopolitique", title: "Guerre et élections : ce que disent les sources officielles" });
+  const o = output({ assessment: { status: "machine_checked_pending_policy", sensitive: true }, checker: { verdict: "pass", sensitiveFlags: ["conflit armé"], uncertainties: [] } }, war);
+  assert.deepEqual(blockers(o, []), []);
+  assert.equal((await autopublish(results([o]), [], { fetcher: ok })).published.length, 1);
 });
 
 test("broken links, a single source organisation and duplicates block publication", async () => {

@@ -4,8 +4,8 @@
  *
  * Ne publie qu'un brouillon qui a passé TOUS les contrôles :
  * - statut `machine_checked_pending_policy` (validation déterministe + vérificateur IA indépendant :
- *   chaque affirmation étayée, verdict « pass », aucune alerte de sensibilité) ;
- * - sujet non sensible (rubriques à risque et mots à risque exclus, dans tout le texte) ;
+ *   chaque affirmation étayée, verdict « pass », règles renforcées sur les sujets sensibles) ;
+ * - tous les sujets sont admis, y compris sensibles, tant que c'est sourcé (décision du fondateur, 23/11/2026) ;
  * - au moins deux organismes sources différents, et chaque lien répond réellement (contrôle par le script,
  *   sans faire confiance à l'IA) ;
  * - pas de doublon (même titre ou mêmes sources qu'une publication existante).
@@ -17,22 +17,6 @@ import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 export const AI_REVIEWER = "Vérificateur IA MUNDI (sans relecture humaine)";
-/** Rubriques jamais publiées automatiquement (politique, conflits, marchés, santé/société, Afrique politique). */
-export const EXCLUDED_TOPICS = new Set(["geopolitique", "finance", "sciences-societe", "afrique"]);
-/** Mots qui signalent un sujet sensible, cherchés dans tout le texte (titre, résumé, idées, sections). */
-export const SENSITIVE_WORDS = new RegExp(
-  "(?<![\\p{L}\\p{N}])(" +
-    [
-      "élections?", "électora\\p{L}*", "scrutin", "parti politique", "présidentielle?s?", "président de la république", "référendum",
-      "guerre\\p{L}*", "conflit armé", "armées?", "militaires?", "attaques?", "attentats?", "terroris\\p{L}*", "missiles?", "frappes?",
-      "santé", "maladies?", "médica\\p{L}*", "médecin\\p{L}*", "vaccin\\p{L}*", "épidémi\\p{L}*", "pandémi\\p{L}*", "cancers?", "décès", "morts?", "victimes?",
-      "justice", "tribunal", "tribunaux", "procès", "plaintes?", "condamn\\p{L}*", "enquête judiciaire", "fraudes?", "corruption",
-      "police", "migra\\p{L}*", "religi\\p{L}*", "scandales?", "accus\\p{L}*",
-      "bourse", "cours de l'action", "crypto\\p{L}*", "faillites?",
-    ].join("|") +
-    ")(?![\\p{L}\\p{N}])",
-  "iu",
-);
 
 const text = (v, n = 1) => typeof v === "string" && v.trim().length >= n;
 const https = (u) => {
@@ -60,12 +44,7 @@ export function blockers(output, existing) {
   const reasons = [];
   const d = output?.draft;
   if (output?.assessment?.status !== "machine_checked_pending_policy") reasons.push("non validé par le vérificateur");
-  if (output?.assessment?.sensitive) reasons.push("sujet signalé sensible");
   if (!d) return [...reasons, "brouillon absent"];
-  if (EXCLUDED_TOPICS.has(output.topic) || EXCLUDED_TOPICS.has(d.topic)) reasons.push("rubrique exclue de la publication automatique");
-  const all = [d.title, d.summary, ...(d.keyPoints ?? []), ...(d.sections ?? []).flatMap((s) => [s?.heading, s?.text])].join(" ");
-  if (SENSITIVE_WORDS.test(all)) reasons.push("mot sensible dans le texte");
-  if ((output.checker?.sensitiveFlags ?? []).length) reasons.push("alerte de sensibilité du vérificateur");
   if ((output.checker?.uncertainties ?? []).length > 5) reasons.push("trop d'incertitudes relevées");
   if (!text(d.title, 12) || !text(d.summary, 30)) reasons.push("titre ou résumé trop court");
   if (!Array.isArray(d.keyPoints) || d.keyPoints.length !== 3 || !d.keyPoints.every((k) => text(k, 12))) reasons.push("trois idées clés requises");

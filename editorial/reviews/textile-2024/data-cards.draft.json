@@ -1,0 +1,125 @@
+{
+  "format": "mundi-data-cards-v1",
+  "cards": [
+    {
+      "id": "textile-volume-genere",
+      "kind": "stat",
+      "headline": "L’envers de nos vêtements",
+      "source": {
+        "label": "Eurostat · 12 novembre 2026",
+        "url": "https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20261112-1"
+      },
+      "asOf": "2026-11-12",
+      "measure": {
+        "value": 2.3,
+        "unit": "millions de tonnes",
+        "label": "déchets textiles générés",
+        "scope": "Union européenne",
+        "period": "2024",
+        "decimals": 1
+      },
+      "context": "Un volume de déchets générés, pas un volume recyclé.",
+      "note": "Le périmètre statistique exact doit être contrôlé avant publication.",
+      "style": {
+        "tone": "night",
+        "accent": "mint",
+        "emphasis": "sans"
+      }
+    },
+    {
+      "id": "textile-flux-distincts",
+      "kind": "comparaison",
+      "headline": "Générés et traités : deux volumes, pas la même mesure",
+      "source": {
+        "label": "Eurostat · 12 novembre 2026",
+        "url": "https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20261112-1"
+      },
+      "asOf": "2026-11-12",
+      "items": [
+        {
+          "value": 2.3,
+          "unit": "millions de tonnes",
+          "label": "Déchets textiles générés",
+          "scope": "Union européenne",
+          "period": "2024",
+          "decimals": 1
+        },
+        {
+          "value": 1.4,
+          "unit": "millions de tonnes",
+          "label": "Déchets textiles traités",
+          "scope": "Union européenne",
+          "period": "2024",
+          "decimals": 1
+        }
+      ],
+      "presentation": "echelle-commune",
+      "note": "Deux flux statistiques annuels distincts : cette comparaison ne suit pas nécessairement le même lot de déchets.",
+      "style": {
+        "tone": "night",
+        "accent": "blue",
+        "emphasis": "sans"
+      }
+    },
+    {
+      "id": "textile-part-recyclee",
+      "kind": "stat",
+      "headline": "78 % : parmi les déchets traités, pas tous les déchets générés",
+      "source": {
+        "label": "Eurostat · 12 novembre 2026",
+        "url": "https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20261112-1"
+      },
+      "asOf": "2026-11-12",
+      "measure": {
+        "value": 78,
+        "unit": "%",
+        "label": "des déchets textiles traités ont été recyclés",
+        "scope": "Union européenne",
+        "period": "2024",
+        "denominator": "des déchets textiles traités en 2024",
+        "decimals": 0
+      },
+      "context": "Le dénominateur change entièrement le sens du chiffre.",
+      "note": "Ne pas extrapoler ce taux à l'ensemble des déchets textiles générés.",
+      "style": {
+        "tone": "night",
+        "accent": "mint",
+        "emphasis": "sans"
+      }
+    },
+    {
+      "id": "textile-regles-europeennes",
+      "kind": "explication",
+      "headline": "Comment l’Europe veut faire évoluer la filière",
+      "source": {
+        "label": "Commission européenne · 16 octobre 2025",
+        "url": "https://environment.ec.europa.eu/news/revised-waste-framework-directive-enters-force-2025-10-16_en"
+      },
+      "asOf": "2025-10-16",
+      "steps": [
+        {
+          "label": "Nouveau cadre",
+          "text": "La révision de la directive-cadre sur les déchets est entrée en vigueur le 16 octobre 2025.",
+          "nature": "fait"
+        },
+        {
+          "label": "Responsabilité des producteurs",
+          "text": "Des dispositifs nationaux devront contribuer à financer la collecte et la gestion des textiles en fin de vie.",
+          "nature": "fait"
+        },
+        {
+          "label": "Impact à confirmer",
+          "text": "Les effets sur les taux effectifs de recyclage ne sont pas démontrés par les chiffres de 2024.",
+          "nature": "hypothese"
+        }
+      ],
+      "layout": "sequence",
+      "note": "Entrée en vigueur de la directive ne signifie pas mise en œuvre simultanée de tous les dispositifs nationaux.",
+      "style": {
+        "tone": "night",
+        "accent": "mint",
+        "emphasis": "sans"
+      }
+    }
+  ]
+}

@@ -74,3 +74,22 @@ test("approved ECB feed is on the institutional allowlist and rejects off-domain
   assert.equal(out.items[0].publisher,"Banque centrale européenne");
   assert.equal(out.sourceHealth[0].status,"ok");
 });
+
+test("Commission RSS feeds on distinct official subdomains collect safe metadata",async()=>{
+  for(const [id,feedUrl,link] of [
+    ["ec-presscorner","https://ec.europa.eu/commission/presscorner/api/rss","https://ec.europa.eu/commission/presscorner/detail/en/ip_26_9999"],
+    ["ec-environment","https://environment.ec.europa.eu/node/92/rss_en","https://environment.ec.europa.eu/news/research-2026-11-23_en"],
+    ["ec-jrc","https://joint-research-centre.ec.europa.eu/node/2/rss_en","https://joint-research-centre.ec.europa.eu/jrc-news_en"]
+  ]){
+    const feed={...source,id,publisher:"Commission européenne",topic:"environnement",feedUrl,
+      rightsUrl:"https://commission.europa.eu/legal-notice_en"};
+    const xml='<rss version="2.0"><channel><item><title>Source institutionnelle</title>'+
+      '<link>'+link+'</link><pubDate>Mon, 23 Nov 2026 12:00:00 GMT</pubDate>'+
+      '</item></channel></rss>';
+    const out=await collectFeeds([feed],async()=>response(xml));
+    assert.equal(out.errors.length,0,id+" accepted");
+    assert.equal(out.count,1,id+" collected");
+    assert.equal(out.items[0].link,link,id+" source-host linked");
+    assert.equal(out.items[0].reviewStatus,"candidate_unverified");
+  }
+});

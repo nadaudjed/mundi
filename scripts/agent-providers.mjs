@@ -50,14 +50,27 @@ export function resolveAgentProviders({
     checker:{provider:checkerProvider,model:checkerModel||(checkerProvider===provider?model:""),key:key(checkerProvider)}
   };
 }
+/**
+ * Web search always returns citations, and the Messages API rejects citations combined
+ * with output_config.format (HTTP 400). So the JSON shape is requested in the system
+ * prompt instead, and the drafts are still validated field by field afterwards.
+ */
 export function anthropicRequest(system,payload,model,kind="writer"){
   if(!model||typeof model!=="string")throw new Error("Claude model is not configured");
+  const schema=kind==="writer"?WRITER_SCHEMA:CHECKER_SCHEMA;
   return {
     model, max_tokens:kind==="writer"?4600:3200,
-    system, messages:[{role:"user",content:JSON.stringify(payload)}],
-    tools:[{type:"web_search_20250305",name:"web_search",max_uses:4}],
-    output_config:{format:{type:"json_schema",schema:kind==="writer"?WRITER_SCHEMA:CHECKER_SCHEMA}}
+    system:system+"\n\nAfter your searches, answer with one JSON object only (no text before or after, no code fence), matching this JSON Schema: "+JSON.stringify(schema),
+    messages:[{role:"user",content:JSON.stringify(payload)}],
+    tools:[{type:"web_search_20250305",name:"web_search",max_uses:4}]
   };
+}
+/** The JSON object Claude wrote after its last search (text blocks may be split by citations). */
+function finalJson(content){
+  const lastSearch=content.map(b=>b.type).lastIndexOf("web_search_tool_result");
+  const text=content.slice(lastSearch+1).filter(b=>b.type==="text").map(b=>b.text).join("").trim();
+  const start=text.indexOf("{"),end=text.lastIndexOf("}");
+  return start>=0&&end>start?text.slice(start,end+1):text;
 }
 export function parseAnthropicResponse(data){
   if(!data||data.type!=="message"||data.stop_reason!=="end_turn")
@@ -69,9 +82,11 @@ export function parseAnthropicResponse(data){
     throw new Error("Claude web search reported an error");
   if(!data.content.some(block=>block.type==="server_tool_use"&&block.name==="web_search"))
     throw new Error("Claude did not invoke independent web search");
-  const result=data.content.filter(block=>block.type==="text").map(block=>block.text).join("\n");
+  const result=finalJson(data.content);
   if(!result||result.length>45000)throw new Error("Claude did not return a usable JSON draft");
-  return JSON.parse(result);
+  const parsed=JSON.parse(result);
+  if(!parsed||typeof parsed!=="object"||Array.isArray(parsed))throw new Error("Claude did not return a JSON object");
+  return parsed;
 }
 function parseOpenAIResponse(data){
   if(data?.status!=="completed")throw new Error("OpenAI response did not finish");

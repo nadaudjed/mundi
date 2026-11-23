@@ -10,7 +10,7 @@ export function RevisionClient() {
   const { records, mark, reset } = useRevision();
   const [selected, setSelected] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
-  const now = Date.now();
+  const [now] = useState(() => Date.now());
   const due = useMemo(() => stories.filter(s => !records[s.slug] || new Date(records[s.slug].nextAt).getTime() <= now), [records, now]);
   const mastered = stories.filter(s => (records[s.slug]?.level ?? 0) >= 3).length;
   const learned = stories.filter(s => Boolean(records[s.slug])).length;

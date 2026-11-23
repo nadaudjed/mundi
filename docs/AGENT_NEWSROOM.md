@@ -38,7 +38,7 @@ Pour activer la rédaction et la contre-vérification, configurer dans **GitHub 
 - **Secret** `OPENAI_API_KEY` : clé de projet de l'API OpenAI, avec plafond de facturation côté fournisseur. Un abonnement ChatGPT Plus **ne comprend pas automatiquement** une allocation de crédits API.
 - **Variable** `MUNDI_AGENT_MODEL` : ID d'un modèle compatible avec Responses API et web search, à choisir/tester selon qualité/coût.
 - **Variable** `MUNDI_CHECKER_MODEL` : idéalement modèle de vérification distinct (facultatif, prend sinon le même).
-- **Variable** `MUNDI_AGENT_MAX_JOBS` : plafond de missions réellement soumises au modèle ce jour-là, entier de 0 à 20 ; commencer à 2 avant de passer à 20.
+- **Variable** `MUNDI_AGENT_MAX_JOBS` : plafond de missions réellement soumises au modèle ce jour-là, entier de 0 à 20 ; **valeur par défaut 2** pour un essai à coût limité. Passer progressivement à 20 seulement après contrôle des résultats et des coûts.
 
 L'API utilisée est la [Responses API](https://platform.openai.com/docs/api-reference/responses/create) et son outil [web search](https://platform.openai.com/docs/guides/tools-web-search). Les modèles renvoient du JSON, **qui doit encore être validé**. Limiter les coûts et contrôler régulièrement la facture ; 20 sujets peuvent représenter **jusqu'à 40 appels de modèle** (20 rédacteurs et 20 vérificateurs), avec des frais de recherche web en supplément, sans compter les retries.
 

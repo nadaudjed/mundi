@@ -35,12 +35,32 @@ Sans accès à un modèle, il **fonctionne en mode planification** : 20 missions
 
 Pour activer la rédaction et la contre-vérification, configurer dans **GitHub > Settings > Secrets and variables > Actions** :
 
-- **Secret** `OPENAI_API_KEY` : clé de projet de l'API OpenAI, avec plafond de facturation côté fournisseur. Un abonnement ChatGPT Plus **ne comprend pas automatiquement** une allocation de crédits API.
-- **Variable** `MUNDI_AGENT_MODEL` : ID d'un modèle compatible avec Responses API et web search, à choisir/tester selon qualité/coût.
-- **Variable** `MUNDI_CHECKER_MODEL` : idéalement modèle de vérification distinct (facultatif, prend sinon le même).
-- **Variable** `MUNDI_AGENT_MAX_JOBS` : plafond de missions réellement soumises au modèle ce jour-là, entier de 0 à 20 ; **valeur par défaut 2** pour un essai à coût limité. Passer progressivement à 20 seulement après contrôle des résultats et des coûts.
+### Choisir Claude ou OpenAI — sans modifier le code
 
-L'API utilisée est la [Responses API](https://platform.openai.com/docs/api-reference/responses/create) et son outil [web search](https://platform.openai.com/docs/guides/tools-web-search). Les modèles renvoient du JSON, **qui doit encore être validé**. Limiter les coûts et contrôler régulièrement la facture ; 20 sujets peuvent représenter **jusqu'à 40 appels de modèle** (20 rédacteurs et 20 vérificateurs), avec des frais de recherche web en supplément, sans compter les retries.
+**Option Claude pour les journalistes et les professeurs** :
+
+- **Secret** `ANTHROPIC_API_KEY` : créer une clé sur [Claude Console](https://platform.claude.com/) et la saisir **uniquement** dans les secrets GitHub, jamais dans un fichier ni dans un message.
+- **Variable** `MUNDI_AGENT_PROVIDER` : `anthropic`.
+- **Variable** `MUNDI_AGENT_MODEL` : un **ID de modèle réellement disponible sur le compte Anthropic**, compatible Messages API, recherche Web et sorties structurées ; vérifier la [liste actuelle](https://platform.claude.com/docs/en/models/overview). Exemple à vérifier selon l'accès : `claude-sonnet-5-5`.
+- **Option facultative** : `MUNDI_CHECKER_PROVIDER=anthropic` (Claude vérifie Claude), ou `MUNDI_CHECKER_PROVIDER=openai` pour une vérification par un fournisseur différent.
+- Si le vérificateur est OpenAI, ajouter le **secret** `OPENAI_API_KEY` et la **variable** `MUNDI_CHECKER_MODEL` contenant un modèle OpenAI ; le système **refuse** de transmettre un modèle Claude à un fournisseur OpenAI par défaut.
+
+**Option OpenAI uniquement** :
+
+- `MUNDI_AGENT_PROVIDER=openai` (défaut).
+- Secret `OPENAI_API_KEY`, variable `MUNDI_AGENT_MODEL` avec l'ID OpenAI choisi.
+- `MUNDI_CHECKER_PROVIDER` et `MUNDI_CHECKER_MODEL` facultatifs : même fournisseur/modèle par défaut.
+
+**Budget et garde-fous communs** :
+
+- **Variable** `MUNDI_AGENT_MAX_JOBS` : nombre de missions réellement envoyées aux modèles par jour, entier de 0 à 20 ; **défaut 2**, pour un essai à coût limité.
+- La clé API Claude et l'abonnement Claude Pro/Max/Ultra/Team sont des accès distincts ; une souscription au chat ne constitue pas une clé API automatiquement exploitable par GitHub. Les crédits et conditions dépendent du forfait et de Claude Console.
+- L'API Anthropic utilise [Messages API](https://platform.claude.com/docs/en/api/messages/create), le [web search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool) et les [sorties JSON structurées](https://platform.claude.com/docs/en/build-with-claude/structured-outputs). OpenAI conserve sa [Responses API](https://platform.openai.com/docs/api-reference/responses/create).
+- Le rédacteur et le vérificateur effectuent deux appels de modèle distincts. Claude est rejeté par le moteur si aucune recherche Web effective n'a été réalisée, si la recherche signale une erreur ou si le JSON est incomplet ; des sources citées doivent encore être contrôlées.
+- La séparation entre fournisseurs réduit certaines erreurs corrélées, **sans garantir l'exactitude**. Un article rejeté n'est jamais automatiquement publié.
+- Pour 20 sujets, prévoir **jusqu'à 40 appels de modèle**, les recherches Web supplémentaires et le risque de dépassement des limites de facturation. Sur Claude, le web search est facturé séparément des tokens ; consulter le [tarif officiel](https://platform.claude.com/docs/en/about-claude/pricing).
+
+**Exemple mixte recommandé pour le pilote :** Claude Sonnet comme rédacteur/professeur et un modèle OpenAI comme vérificateur, avec `MUNDI_AGENT_MAX_JOBS=2`. Une configuration « Claude pour les deux rôles » reste possible si on ne veut pas utiliser deux fournisseurs.
 
 Le workflow produit l'artefact privé `mundi-agents-daily-newsroom` (14 jours), contenant `agents-plan.json` et `agents-results.json`. **Une copie pérenne des plans, brouillons et contrôles est également archivée dans la branche séparée `editorial-stock`, au chemin `editorial/agents/days/YYYY-MM-DD.json` et `YYYY-MM-DD-plan.json`, hors Netlify**. Cette branche fait partie du dépôt privé : limiter les droits d'accès et ne pas y stocker de secrets. Chaque résultat détaille l'agent, le sujet, les sources, les assertions, leur contre-vérification, les incertitudes et les motifs de refus. **Un titre RSS seul ne constitue pas une preuve.**
 

@@ -102,7 +102,21 @@ export async function askAgentModel(system,payload,{provider,key,model},kind="wr
       },
       body:JSON.stringify(body),signal:ctl.signal
     });
-    if(!response.ok)throw new Error(provider+" API HTTP "+response.status);
+    if(!response.ok){
+      // Only expose public error classification and a scrubbed provider diagnostic.
+      // Never log the credential, request payload, or provider error object verbatim.
+      let type="",message="";
+      try{
+        const body=await response.json();
+        type=typeof body?.error?.type==="string"?body.error.type.slice(0,60):"";
+        message=typeof body?.error?.message==="string"?body.error.message.slice(0,220):"";
+      }catch{ /* The status code remains actionable without a JSON body. */ }
+      const redact=s=>s.replaceAll(key,"[redacted]")
+        .replace(/sk-ant-[a-zA-Z0-9_-]+/g,"[redacted]")
+        .replace(/sk-proj-[a-zA-Z0-9_-]+/g,"[redacted]");
+      const hint=[redact(type),redact(message)].filter(Boolean).join(": ");
+      throw new Error(provider+" API HTTP "+response.status+(hint?" — "+hint:""));
+    }
     const result=await response.json();
     return isClaude?parseAnthropicResponse(result):parseOpenAIResponse(result);
   }finally{clearTimeout(timeout);}

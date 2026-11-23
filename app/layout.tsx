@@ -13,7 +13,7 @@ import { SITE_URL, SHARE_IMAGE, shareDefaults } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: "MUNDI — Comprendre le monde", template: "%s · MUNDI" },
-  description: "Comprendre le monde n'a jamais été aussi simple. Prototype de démonstration : contenus illustratifs.",
+  description: "MUNDI : articles sourcés et explications pour comprendre le monde, avec démonstrations pédagogiques clairement identifiées.",
   robots: { index: false, follow: false },
   applicationName: "MUNDI",
   appleWebApp: { capable: true, title: "MUNDI", statusBarStyle: "black-translucent" },

@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": "fond-matiere",
+    "src": "/media/scenes/fond-matiere.svg",
+    "credit": "Direction artistique MUNDI",
+    "license": "Création originale MUNDI",
+    "approvedBy": "Fondateur de MUNDI",
+    "approvedAt": "2026-11-23"
+  },
+  {
+    "id": "fond-trames",
+    "src": "/media/scenes/fond-trames.svg",
+    "credit": "Direction artistique MUNDI",
+    "license": "Création originale MUNDI",
+    "approvedBy": "Fondateur de MUNDI",
+    "approvedAt": "2026-11-23"
+  },
+  {
+    "id": "fond-flux",
+    "src": "/media/scenes/fond-flux.svg",
+    "credit": "Direction artistique MUNDI",
+    "license": "Création originale MUNDI",
+    "approvedBy": "Fondateur de MUNDI",
+    "approvedAt": "2026-11-23"
+  }
+]

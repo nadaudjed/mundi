@@ -42,7 +42,7 @@ Pour activer la rédaction et la contre-vérification, configurer dans **GitHub 
 
 L'API utilisée est la [Responses API](https://platform.openai.com/docs/api-reference/responses/create) et son outil [web search](https://platform.openai.com/docs/guides/tools-web-search). Les modèles renvoient du JSON, **qui doit encore être validé**. Limiter les coûts et contrôler régulièrement la facture ; 20 sujets peuvent représenter **jusqu'à 40 appels de modèle** (20 rédacteurs et 20 vérificateurs), avec des frais de recherche web en supplément, sans compter les retries.
 
-Le workflow produit l'artefact privé `mundi-agents-daily-newsroom` (14 jours), contenant `agents-plan.json` et `agents-results.json`. Chaque résultat détaille l'agent, le sujet, les sources, les assertions, leur contre-vérification, les incertitudes et les motifs de refus. **Un titre RSS seul ne constitue pas une preuve.**
+Le workflow produit l'artefact privé `mundi-agents-daily-newsroom` (14 jours), contenant `agents-plan.json` et `agents-results.json`. **Une copie pérenne des plans, brouillons et contrôles est également archivée dans la branche séparée `editorial-stock`, au chemin `editorial/agents/days/YYYY-MM-DD.json` et `YYYY-MM-DD-plan.json`, hors Netlify**. Cette branche fait partie du dépôt privé : limiter les droits d'accès et ne pas y stocker de secrets. Chaque résultat détaille l'agent, le sujet, les sources, les assertions, leur contre-vérification, les incertitudes et les motifs de refus. **Un titre RSS seul ne constitue pas une preuve.**
 
 ## Validation et publication : phase de montée en confiance
 

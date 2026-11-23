@@ -42,5 +42,25 @@
     "rightsStatus": "approved_metadata_collection",
     "rightsUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
     "rightsNote": "Veille sur titres et métadonnées officielles. Attribution requise; vérifier les exceptions au cas par cas."
+  },
+  {
+    "id": "ecb-press",
+    "publisher": "Banque centrale européenne",
+    "feedUrl": "https://www.ecb.europa.eu/rss/press.html",
+    "topic": "economie",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+    "rightsNote": "BCE : flux RSS officiel de communiqués, discours, interviews. Collecte limitée aux titres, liens, dates et attribution; toute reproduction de documents signés (notamment working papers) reste exclue sans autorisation."
+  },
+  {
+    "id": "ecb-statpress",
+    "publisher": "Banque centrale européenne — Statistiques",
+    "feedUrl": "https://www.ecb.europa.eu/rss/statpress.html",
+    "topic": "finance",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+    "rightsNote": "BCE : flux RSS officiel de communiqués statistiques, collecte de métadonnées uniquement. Mentionner la source, préserver l'exactitude et indiquer les modifications; aucun média ou document signé reproduit."
   }
 ]

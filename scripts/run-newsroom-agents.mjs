@@ -6,7 +6,7 @@
 import {readFileSync,writeFileSync,mkdirSync} from "node:fs";
 import {resolve,dirname} from "node:path";
 import {pathToFileURL} from "node:url";
-import {askAgentModel,resolveAgentProviders} from "./agent-providers.mjs";
+import {askAgentModel,resolveAgentProviders,inferAgentSelection} from "./agent-providers.mjs";
 const TOPICS=["geopolitique","economie","finance","industrie","materiaux-critiques","energie",
 "recyclage","environnement","technologie","entreprises","afrique","sciences-societe"];
 const SENSITIVE=new Set(["geopolitique","finance","sciences-societe"]);
@@ -123,18 +123,27 @@ async function runOne(job,configuration){
 export async function runAgentDesk(plan,{
   key=process.env.OPENAI_API_KEY,
   claudeKey=process.env.ANTHROPIC_API_KEY,
-  provider=process.env.MUNDI_AGENT_PROVIDER||"openai",
-  checkerProvider=process.env.MUNDI_CHECKER_PROVIDER||provider,
-  model=process.env.MUNDI_AGENT_MODEL,
+  provider=process.env.MUNDI_AGENT_PROVIDER||"",
+  checkerProvider=process.env.MUNDI_CHECKER_PROVIDER||"",
+  model=process.env.MUNDI_AGENT_MODEL||"",
   checkerModel=process.env.MUNDI_CHECKER_MODEL||"",
   maximum=Number(process.env.MUNDI_AGENT_MAX_JOBS||2)
 }={}){
   if(plan?.format!=="mundi-daily-agent-plan-v1"||!Array.isArray(plan.jobs)||plan.jobs.length!==20)
     throw new Error("Invalid daily editorial plan");
   const max=Math.min(20,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));
-  const config=resolveAgentProviders({
-    provider,checkerProvider,model,checkerModel,openaiKey:key,anthropicKey:claudeKey
-  });
+  const selection=inferAgentSelection({provider,checkerProvider,model,checkerModel,anthropicKey:claudeKey});
+  const config=resolveAgentProviders({...selection,openaiKey:key,anthropicKey:claudeKey});
+  const missing=[];
+  if(!config.writer.key)missing.push(config.writer.provider==="anthropic"?"ANTHROPIC_API_KEY":"OPENAI_API_KEY");
+  if(!config.writer.model)missing.push("MUNDI_AGENT_MODEL");
+  if(!config.checker.key)missing.push(config.checker.provider==="anthropic"?"ANTHROPIC_API_KEY":"OPENAI_API_KEY");
+  if(!config.checker.model)missing.push("MUNDI_CHECKER_MODEL");
+  const configuration={
+    writerProvider:config.writer.provider,writerModel:config.writer.model,
+    checkerProvider:config.checker.provider,checkerModel:config.checker.model,
+    ready:missing.length===0,missing:[...new Set(missing)]
+  };
   const jobs=plan.jobs.slice(0,max),out=new Array(jobs.length);let idx=0;
   async function worker(){while(idx<jobs.length){const i=idx++;out[i]=await runOne(jobs[i],config);}}
   await Promise.all(Array.from({length:Math.min(3,jobs.length)},worker));
@@ -142,16 +151,39 @@ export async function runAgentDesk(plan,{
     notice:"Internal AI research, not factual proof or publication. Checker verdict is advisory; public publishing remains disabled.",
     generated:out.filter(x=>x.draft!==null).length,
     machineChecked:out.filter(x=>x.assessment.status==="machine_checked_pending_policy").length,
-    publiclyPublished:0,outputs:out};
+    publiclyPublished:0,configuration,outputs:out};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
   const plan=JSON.parse(readFileSync(resolve(process.env.MUNDI_PLAN_PATH||"reports/agents-plan.json"),"utf8"));
   const result=await runAgentDesk(plan);
   const dest=resolve(process.env.MUNDI_AGENT_REPORT||"reports/agents-results.json");
   mkdirSync(dirname(dest),{recursive:true});writeFileSync(dest,JSON.stringify(result,null,2)+"\n");
+  const cfg=result.configuration;
   console.log("Agent drafts:",result.generated,"machine checked:",result.machineChecked,
     "publications:",result.publiclyPublished,
-    "; writer provider:",process.env.MUNDI_AGENT_PROVIDER||"openai",
-    "; model configured:",Boolean(process.env.MUNDI_AGENT_MODEL&&
-      (process.env.MUNDI_AGENT_PROVIDER==="anthropic"?process.env.ANTHROPIC_API_KEY:process.env.OPENAI_API_KEY)));
+    "; writer provider:",cfg.writerProvider,"; model:",cfg.writerModel||"unset",
+    "; checker provider:",cfg.checkerProvider,"; configured:",cfg.ready);
+  if(!cfg.ready)console.warn("MUNDI planning-only: missing",cfg.missing.join(", "));
+  const rejected=result.outputs.filter(x=>x.error).length;
+  if(result.generated===0&&cfg.ready)console.warn("MUNDI configured, but 0 drafts: inspect report outputs (blocked topics or API errors).");
+  if(process.env.GITHUB_STEP_SUMMARY){
+    const md=[
+      "## MUNDI newsroom — "+result.date,
+      "",
+      "| Indicator | Result |","| --- | ---: |",
+      "| Assignments planned | "+result.target+" |",
+      "| AI missions attempted | "+result.completed+" |",
+      "| Drafts generated | "+result.generated+" |",
+      "| Machine-checked drafts | "+result.machineChecked+" |",
+      "| Published stories | 0 |",
+      "",
+      "Writer: "+cfg.writerProvider+" ("+(cfg.writerModel||"not configured")+")",
+      "Checker: "+cfg.checkerProvider+" ("+(cfg.checkerModel||"not configured")+")",
+      cfg.ready?"Configuration: ready":"Planning only; missing: "+cfg.missing.join(", "),
+      "Tasks with errors: "+rejected,
+      "",
+      "No article is auto-published. Inspect the private uploaded artifact for detailed results.",""
+    ].join("\n");
+    writeFileSync(process.env.GITHUB_STEP_SUMMARY,md,{flag:"a"});
+  }
 }

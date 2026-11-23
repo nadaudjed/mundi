@@ -14,6 +14,12 @@ for (const [index, p] of list.entries()) {
     try { const u = new URL(s.url); return u.protocol === "https:" && !["example.com","example.org","example.net","localhost"].includes(u.hostname); } catch { return false; }
   };
   if (!p || typeof p !== "object") { console.error("Entry " + index + ": invalid entry"); failed = true; continue; }
+  // A withdrawn article stays in the file (audit trail, duplicate guard) but is never shown on the site.
+  if (p.status === "withdrawn") {
+    if (!isText(p.slug) || seen.has(p.slug) || !isDate(p.withdrawnAt) || !isText(p.withdrawalReason, 10)) { console.error("Withdrawn entry " + index + ": slug, withdrawnAt and withdrawalReason required"); failed = true; }
+    seen.add(p.slug);
+    continue;
+  }
   if (!isText(p.slug) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(p.slug)) errors.push("invalid slug");
   if (seen.has(p.slug)) errors.push("duplicate slug");
   seen.add(p.slug);
@@ -24,6 +30,7 @@ for (const [index, p] of list.entries()) {
   if (!Array.isArray(p.keyPoints) || p.keyPoints.length !== 3 || !p.keyPoints.every(v => isText(v,12))) errors.push("three substantial key points required");
   if (!Array.isArray(p.sections) || !p.sections.length || !p.sections.every(s => s && ["fait","analyse","hypothese"].includes(s.kind) && isText(s.heading) && isText(s.text,30))) errors.push("invalid sections");
   if (!Array.isArray(p.sources) || p.sources.length < 2 || !p.sources.every(isSource)) errors.push("at least two HTTPS sources required");
+  if (p.corrections !== undefined && (!Array.isArray(p.corrections) || !p.corrections.every(c => c && isDate(c.date) && isText(c.text, 10)))) errors.push("invalid corrections");
   if (errors.length) { failed = true; console.error("Publication " + index + " (" + p.slug + "): " + errors.join(", ")); }
 }
 if (failed) process.exitCode = 1;

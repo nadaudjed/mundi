@@ -1,0 +1,72 @@
+name: MUNDI — tableau de bord et alertes (sans appel d'IA)
+
+on:
+  # After the RSS collection (06:23 UTC) and the agents (08:41 UTC, up to 70 min).
+  schedule:
+    - cron: '35 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Read the private editorial-stock branch (read only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/stock" origin/editorial-stock
+      - name: Check that Netlify shows the latest articles
+        continue-on-error: true
+        run: node scripts/check-live-netlify.mjs
+      - name: Build the internal dashboard
+        id: ops
+        env:
+          MUNDI_STOCK_DIR: ${{ runner.temp }}/stock
+          MUNDI_DAILY_BUDGET_USD: ${{ vars.MUNDI_DAILY_BUDGET_USD || '10' }}
+        run: node scripts/ops-dashboard.mjs
+      - name: Upload private dashboard (30 days)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mundi-ops-dashboard
+          path: |
+            reports/ops-dashboard.html
+            reports/ops-dashboard.json
+            reports/production-smoke.json
+          retention-days: 30
+          if-no-files-found: warn
+      # One open issue labelled "alerte-mundi": GitHub e-mails the owner. Closed automatically once healthy.
+      - name: Open, update or close the alert issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ALERTS: ${{ steps.ops.outputs.alerts }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh label create alerte-mundi --color d73a4a --description "Alerte automatique MUNDI" 2>/dev/null || true
+          OPEN=$(gh issue list --label alerte-mundi --state open --json number --jq '.[0].number // empty')
+          if [ "${ALERTS:-0}" != "0" ]; then
+            if [ -n "$OPEN" ]; then
+              gh issue comment "$OPEN" --body-file reports/ops-alerts.md
+            else
+              gh issue create --title "Alerte MUNDI : fonctionnement à vérifier" --label alerte-mundi --body-file reports/ops-alerts.md
+            fi
+          elif [ -n "$OPEN" ]; then
+            gh issue close "$OPEN" --comment "Plus aucune alerte au contrôle du $(date -u +%F). Fermeture automatique."
+          fi

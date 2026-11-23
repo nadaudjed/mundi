@@ -106,11 +106,31 @@
   {
     "id": "usgs-national-news",
     "publisher": "U.S. Geological Survey",
-    "feedUrl": "https://www.usgs.gov/news/national-news-release/feed",
+    "feedUrl": "https://www.usgs.gov/news/149248/feed",
     "topic": "materiaux-critiques",
     "enabled": true,
     "rightsStatus": "approved_metadata_collection",
     "rightsUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
     "rightsNote": "Flux RSS officiel USGS national (matières critiques, ressources). Titre, lien, date et éditeur uniquement, avec attribution. Textes USGS généralement domaine public américain, contenus tiers et médias soumis à exceptions."
+  },
+  {
+    "id": "un-news-afrique",
+    "publisher": "ONU Info — Nations Unies",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://www.un.org/en/about-us/terms-of-use",
+    "rightsNote": "Flux RSS officiel d’ONU Info (organisation internationale). Collecte UNIQUEMENT des titres, liens, dates et attribution, sans reproduire le texte, les photos ni les vidéos (droits ONU / tiers). Toute reprise d’un fait renvoie à la page d’origine et à une seconde source.",
+    "feedUrl": "https://news.un.org/feed/subscribe/fr/news/region/africa/feed/rss.xml",
+    "topic": "afrique"
+  },
+  {
+    "id": "un-news-climat",
+    "publisher": "ONU Info — Nations Unies",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://www.un.org/en/about-us/terms-of-use",
+    "rightsNote": "Flux RSS officiel d’ONU Info (organisation internationale). Collecte UNIQUEMENT des titres, liens, dates et attribution, sans reproduire le texte, les photos ni les vidéos (droits ONU / tiers). Toute reprise d’un fait renvoie à la page d’origine et à une seconde source.",
+    "feedUrl": "https://news.un.org/feed/subscribe/fr/news/topic/climate-change/feed/rss.xml",
+    "topic": "environnement"
   }
 ]

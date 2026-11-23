@@ -92,7 +92,8 @@ export function accumulateStock(previous,research,now="2026-11-23T12:00:00.000Z"
       newCount,refreshedCount,invalidCount,
       errors:Array.isArray(research.errors)?research.errors.length:0,
       sourceHealth:Array.isArray(research.sourceHealth)?research.sourceHealth.map(s=>({
-        sourceId:short(s?.sourceId,90),status:short(s?.status,40),count:Number.isInteger(s?.count)?s.count:0
+        sourceId:short(s?.sourceId,90),status:short(s?.status,40),count:Number.isInteger(s?.count)?s.count:0,
+        ...(s?.error?{error:short(s.error,200)}:{})
       })).slice(0,60):[]
     },
     items

@@ -9,7 +9,7 @@ import { createHash } from "node:crypto";
 
 const MAX_BYTES = 2_000_000;
 const MAX_ITEMS = 30;
-const FEED_HOSTS = new Set(["ec.europa.eu", "www.ecb.europa.eu", "environment.ec.europa.eu", "joint-research-centre.ec.europa.eu", "www.nasa.gov", "www.usgs.gov", "www.lemonde.fr", "www.rfi.fr"]);
+const FEED_HOSTS = new Set(["ec.europa.eu", "www.ecb.europa.eu", "environment.ec.europa.eu", "joint-research-centre.ec.europa.eu", "www.nasa.gov", "www.usgs.gov", "news.un.org", "www.lemonde.fr", "www.rfi.fr"]);
 
 export function plain(value) {
   return (value || "").replace(/^<!\[CDATA\[([\s\S]*?)\]\]>$/i, "$1")
@@ -46,7 +46,9 @@ function atomLink(entry) {
 }
 function candidate(node, feed, atom = false) {
   const title = tag(node,"title").slice(0,220);
-  const link = canonicalLink(atom ? atomLink(node) : tag(node,"link"), feed);
+  // RSS: a permanent guid on the same site beats a tracking/redirect link (e.g. ONU Info /feed/view/).
+  const guid = !atom && /<guid\b[^>]*isPermaLink\s*=\s*["']true["']/i.test(node) ? canonicalLink(tag(node,"guid"), feed) : null;
+  const link = guid || canonicalLink(atom ? atomLink(node) : tag(node,"link"), feed);
   if (!title || !link) return null;
   const when = atom ? (tag(node,"published") || tag(node,"updated")) : (tag(node,"pubDate") || tag(node,"dc:date"));
   return {
@@ -97,7 +99,9 @@ export async function collectFeeds(feeds, fetcher = fetch) {
       items.push(...parsed);
       sourceHealth.push({sourceId:feed.id,publisher:feed.publisher,status:parsed.length ? "ok" : "empty",count:parsed.length,error:null});
     } catch(e) {
-      const error=String(e.message||e).slice(0,200);
+      // "fetch failed" alone hides the cause (redirect refused, DNS, TLS, reset): keep it for the dashboard.
+      const cause=e?.cause?.code||e?.cause?.message||"";
+      const error=(String(e.message||e)+(cause?" — "+cause:"")).slice(0,200);
       errors.push({sourceId:feed.id,error});
       sourceHealth.push({sourceId:feed.id,publisher:feed.publisher,status:"error",count:0,error});
     }

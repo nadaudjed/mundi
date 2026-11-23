@@ -179,3 +179,46 @@ test("non-2xx Anthropic response exposes safe validation diagnosis, never API ke
     }
   );
 });
+
+test("one failed search among successful ones keeps the draft; usage and searched URLs are metered", async () => {
+  const draft = { topic: "energie", title: "Mesure" };
+  const reply = {
+    type: "message", stop_reason: "end_turn",
+    usage: { input_tokens: 1000, output_tokens: 200, server_tool_use: { web_search_requests: 2 } },
+    content: [
+      { type: "server_tool_use", id: "a", name: "web_search", input: { query: "q" } },
+      { type: "web_search_tool_result", tool_use_id: "a", content: [{ type: "web_search_result", url: "https://iea.org/r", title: "t" }] },
+      { type: "server_tool_use", id: "b", name: "web_search", input: { query: "q2" } },
+      { type: "web_search_tool_result", tool_use_id: "b", content: { type: "web_search_tool_result_error", error_code: "max_uses_exceeded" } },
+      { type: "text", text: JSON.stringify(draft) }
+    ]
+  };
+  const meter = {};
+  const result = await askAgentModel("R", {}, { provider: "anthropic", model: "m", key: "k" }, "writer", async () => ({ ok: true, json: async () => reply }), meter);
+  assert.deepEqual(result, draft);
+  assert.equal(meter.inputTokens, 1000);
+  assert.equal(meter.webSearches, 2);
+  assert.deepEqual(meter.searchedUrls, ["https://iea.org/r"]);
+  assert.deepEqual(meter.searchErrors, ["max_uses_exceeded"]);
+});
+
+test("transient API overload is retried a limited number of times, never a bad request", async () => {
+  const { RETRY } = await import("../scripts/agent-providers.mjs");
+  const saved = RETRY.sleep; RETRY.sleep = async () => {};
+  try {
+    let calls = 0;
+    const draft = { topic: "energie", title: "Retry" };
+    const ok = modelReply(draft);
+    const flaky = async () => (++calls < 3 ? { ok: false, status: 529, headers: new Map(), json: async () => ({ error: { type: "overloaded_error" } }) } : { ok: true, json: async () => ok });
+    assert.deepEqual(await askAgentModel("R", {}, { provider: "anthropic", model: "m", key: "k" }, "writer", flaky), draft);
+    assert.equal(calls, 3);
+    let bad = 0;
+    await assert.rejects(askAgentModel("R", {}, { provider: "anthropic", model: "m", key: "k" }, "writer",
+      async () => { bad++; return { ok: false, status: 400, json: async () => ({}) }; }), /HTTP 400/);
+    assert.equal(bad, 1);
+    let always = 0;
+    await assert.rejects(askAgentModel("R", {}, { provider: "anthropic", model: "m", key: "k" }, "writer",
+      async () => { always++; return { ok: false, status: 503, json: async () => ({}) }; }), /HTTP 503/);
+    assert.equal(always, 3);
+  } finally { RETRY.sleep = saved; }
+});

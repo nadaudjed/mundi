@@ -1,5 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
+import {readFileSync} from "node:fs";
 import { expect, scrollFeedTo, test } from "./fixtures";
+const PHOTO_INDEX = JSON.parse(readFileSync("content/editorial-images.json","utf8")) as {slug:string}[];
+const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
 
 /**
  * Scènes plein écran et transitions typographiques (ticket #30).
@@ -18,10 +21,17 @@ test.describe("Site normal : fonds approuvés, sans médias de test", () => {
   test("le fil utilise des fonds MUNDI approuvés, mais aucun fond de test", async ({ page, request }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
-    await expect(page.getByTestId("scene-backdrop")).toHaveCount(5);
-    // Les publications automatiques n'ont pas de fond : on cible le récit Eurostat par son adresse.
-    const textiles = page.locator('[data-testid="verified-card"][data-publication="dechets-textiles-europe-2024-23-millions-tonnes"]');
-    await expect(textiles.getByTestId("scene-backdrop")).toHaveAttribute("data-backdrop", "fond-matiere");
+    // The article has either its original approved abstract scenes, or a
+    // credited Commons documentary illustration added after publication.
+    const textiles = page.locator('[data-testid="verified-card"][data-publication="' + TEXTILES + '"]');
+    if(PHOTO_INDEX.some(p=>p.slug===TEXTILES)){
+      await expect(textiles.getByTestId("editorial-photo")).toHaveAttribute("data-image-source","wikimedia-commons");
+      await expect(textiles.getByTestId("editorial-photo-credit")).toContainText("Photo d’illustration");
+      await expect(textiles.getByTestId("editorial-photo-credit").getByRole("link",{name:/source Wikimedia Commons/i})).toHaveAttribute("href",/commons\.wikimedia\.org/);
+    }else{
+      await expect(page.getByTestId("scene-backdrop")).toHaveCount(5);
+      await expect(textiles.getByTestId("scene-backdrop")).toHaveAttribute("data-backdrop", "fond-matiere");
+    }
     expect((await request.get("/media/scenes/test-fond-neutre.svg")).status()).toBe(404);
     expect((await request.get("/media/scenes/fond-matiere.svg")).status()).toBe(200);
   });

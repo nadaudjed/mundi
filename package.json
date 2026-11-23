@@ -13,7 +13,8 @@
     "media:generate": "node scripts/generate-demo-media.mjs",
     "test:e2e": "playwright test",
     "sources:collect": "node scripts/collect-sources.mjs",
-    "test:sources": "node --test tests/collect-sources.test.mjs",
+    "test:sources": "node --test tests/collect-sources.test.mjs tests/editorial-report.test.mjs",
+    "sources:report": "node scripts/render-editorial-report.mjs",
     "icons:generate": "node scripts/generate-icons.mjs"
   },
   "dependencies": {

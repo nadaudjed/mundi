@@ -116,7 +116,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
               <p className="mt-6 text-xs text-ivory/65">
                 {story.isDemo ? "Exemple fictif · " : story.aiVerified ? "Contrôle IA, sans relecture humaine · " : "Validation humaine · "}
                 <Link href={story.href} className="underline underline-offset-4 hover:text-white">
-                  {story.isDemo ? "Relire le récit de démonstration" : "Relire l'article et ses sources"}
+                  {story.isDemo ? "Relire le récit de démonstration" : "Relire l&apos;article et ses sources"}
                 </Link>
               </p>
             </>
@@ -141,7 +141,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
         </section>
       )}
       <div className="mt-10 rounded-2xl border border-night/10 p-5 text-sm text-muted">
-        <p>La progression est conservée uniquement dans ce navigateur, pour les publications comme pour les démonstrations. Ce n'est pas un test certifié.</p>
+        <p>La progression est conservée uniquement dans ce navigateur, pour les publications comme pour les démonstrations. Ce n&apos;est pas un test certifié.</p>
         {learned > 0 && <button type="button" onClick={() => { reset(); setSelected(null); setRevealed(false); setNow(Date.now()); }}
           className="mt-3 font-semibold text-blue-ink underline underline-offset-4">Remettre toute ma progression à zéro</button>}
       </div>

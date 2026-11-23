@@ -57,3 +57,20 @@ test("diagnostic text from a broken publisher is safely escaped in HTML",()=>{
   assert.ok(html.includes("&lt;script&gt;bad&lt;/script&gt;"));
   assert.ok(!html.includes("<script>bad</script>"));
 });
+
+test("approved ECB feed is on the institutional allowlist and rejects off-domain links",async()=>{
+  const ecb={...source,id:"ecb-press",publisher:"Banque centrale européenne",
+    feedUrl:"https://www.ecb.europa.eu/rss/press.html",topic:"finance",
+    rightsUrl:"https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html"};
+  const rss='<rss version="2.0"><channel><item><title>ECB research update</title>'+
+    '<link>https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261123.en.html</link>'+
+    '<pubDate>Mon, 23 Nov 2026 12:00:00 GMT</pubDate></item>'+
+    '<item><title>Other publisher</title><link>https://untrusted.example/foo</link></item>'+
+    '</channel></rss>';
+  let urls=[];
+  const out=await collectFeeds([ecb],async url=>{urls.push(String(url));return response(rss)});
+  assert.deepEqual(urls,["https://www.ecb.europa.eu/rss/press.html"]);
+  assert.equal(out.count,1);
+  assert.equal(out.items[0].publisher,"Banque centrale européenne");
+  assert.equal(out.sourceHealth[0].status,"ok");
+});

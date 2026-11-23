@@ -63,7 +63,21 @@ export function imageQueries(article){
 function validCommonsFileURL(raw){
   try{
     const u=new URL(raw);
-    return u.protocol==="https:"&&u.hostname==="upload.wikimedia.org"&&!u.username&&!u.password;
+    return u.protocol==="https:"&&["upload.wikimedia.org","thumb.wikimedia.org"].includes(u.hostname)&&!u.username&&!u.password;
+  }catch{return false;}
+}
+function validLicenseURL(raw,canonical){
+  // Wikimedia Commons exposes legal Creative Commons URLs both as HTTP and HTTPS,
+  // with or without trailing slash, sometimes as /deed.en. Canonicalise the link
+  // without weakening license type or allowed host checks.
+  const source=String(raw??"").trim();
+  const normalized=source.startsWith("//")?"https:"+source:source.replace(/^http:/i,"https:");
+  try{
+    const u=new URL(normalized),expected=new URL(canonical);
+    if(u.protocol!=="https:"||u.hostname!=="creativecommons.org"||
+      u.username||u.password||u.port)return false;
+    const actual=u.pathname.replace(/\/+$/,""),base=expected.pathname.replace(/\/+$/,"");
+    return actual===base||actual.startsWith(base+"/deed");
   }catch{return false;}
 }
 export function selectImage(pages,query){
@@ -75,7 +89,7 @@ export function selectImage(pages,query){
     const license=clean(ext.LicenseShortName?.value,45).toLowerCase();
     const licenseUrl=clean(ext.LicenseUrl?.value,250);
     const expected=ALLOWED_LICENSES.get(license);
-    if(!expected||!licenseUrl.startsWith(expected))continue;
+    if(!expected||!validLicenseURL(licenseUrl,expected))continue;
     const artist=clean(ext.Attribution?.value||ext.Artist?.value,140);
     if(!artist)continue;
     if(!["image/jpeg","image/png","image/webp"].includes(info.mime))continue;
@@ -122,7 +136,7 @@ export async function searchCommons(query,fetcher=fetch){
   return found;
 }
 export async function downloadPhoto(candidate,fetcher=fetch){
-  if(!validCommonsFileURL(candidate.src))throw new Error("Image host is not Wikimedia uploads");
+  if(!validCommonsFileURL(candidate.src))throw new Error("Image host is not an official Wikimedia thumbnail CDN");
   const res=await fetcher(candidate.src,{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app)"},
     redirect:"error",signal:AbortSignal.timeout(25000)});
   if(!res.ok)throw new Error("Image download HTTP "+res.status);

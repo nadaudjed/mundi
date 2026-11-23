@@ -23,3 +23,5 @@ Surveiller le rapport dans GitHub Actions après le premier lancement en conditi
 
 ## Recherche V2
 Les recherches Wikimedia trop longues ont été remplacées par des expressions visuelles de 1 à 2 mots ou des indices spécifiques extraits du titre. Le journal de collecte expose le nombre de résultats et quelques métadonnées de licence lorsque rien n'est retenu, sans divulguer de clés. Aucun assouplissement sur le droit à l'image, l'attribution ni les formats acceptés.
+
+Wikimedia Commons utilise désormais également le CDN officiel thumb.wikimedia.org ; les deux hôtes exacts upload.wikimedia.org et thumb.wikimedia.org sont acceptés. Les liens de licence Creative Commons legacy en HTTP sont normalisés en HTTPS et vérifiés sur le domaine exact creativecommons.org, avec/sans barre finale ou suffixe deed.

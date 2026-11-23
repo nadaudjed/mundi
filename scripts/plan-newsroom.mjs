@@ -26,7 +26,7 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
   });
   const used=new Set(),jobs=[];
   for(const agent of roster.journalists){
-    const own=fresh.filter(x=>x.topicHint===agent.topic&&!previous.has("news:"+x.link));
+    const own=fresh.filter(x=>x.topicHint===agent.topic&&!previous.has("news:"+hash(x.link+"|"+x.title+"|"+x.publishedAt)));
     own.sort((a,b)=>(b.publishedAt||"").localeCompare(a.publishedAt||"")||a.link.localeCompare(b.link));
     const candidate=own.find(x=>!used.has(x.link));
     if(candidate)used.add(candidate.link);
@@ -38,7 +38,7 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
       previousPublication:previousArticle?.slug??null,
       title:candidate?.title??null,angle:null,
       source:candidate?{label:candidate.publisher,url:candidate.link,publishedAt:candidate.publishedAt}:null,
-      recordKey:candidate?"news:"+candidate.link:null,
+      recordKey:candidate?"news:"+hash(candidate.link+"|"+candidate.title+"|"+candidate.publishedAt):null,
       sourceCount:candidate?1:0,review:"not_started",published:false
     });
   }

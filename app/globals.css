@@ -56,22 +56,14 @@
 }
 
 :root {
-  /* Barre d'onglets flottante (mobile) : hauteur + marge sous la barre + zone système. */
+  /* Barre d'onglets flottante (mobile), posée en bas de l'écran : petite marge,
+     ou juste au-dessus de la barre d'accueil de l'iPhone. */
   --dock-h: 3.75rem;
   --dock-gap: 0.5rem;
-  /* Place laissée libre sous la barre (bandeau Netlify sur les adresses *.netlify.app). */
-  --badge-safe: 0rem;
-  --nav-h: calc(var(--dock-h) + var(--dock-gap) + var(--badge-safe) + env(safe-area-inset-bottom));
+  --dock-bottom: max(var(--dock-gap), calc(env(safe-area-inset-bottom) - 0.25rem));
+  --nav-h: calc(var(--dock-h) + var(--dock-bottom));
   --header-h: 0rem;
   color-scheme: light;
-}
-
-/* Adresses *.netlify.app (site de test et aperçus) : Netlify y affiche en bas
-   de l'écran son bandeau « Powered by Netlify » ou son outil de relecture.
-   La barre d'onglets passe au-dessus pour qu'aucun onglet ne soit caché.
-   Sur un futur nom de domaine propre, rien ne change. */
-html[data-netlify-host] {
-  --badge-safe: 3.5rem;
 }
 
 @media (min-width: 768px) {
@@ -89,7 +81,8 @@ body:has([data-feed]) {
 @media (min-width: 768px) {
   body:has([data-feed]) {
     --dock-gap: 0.75rem;
-    --nav-h: calc(var(--dock-h) + var(--dock-gap) + var(--badge-safe) + env(safe-area-inset-bottom));
+    --dock-bottom: max(var(--dock-gap), calc(env(safe-area-inset-bottom) - 0.25rem));
+    --nav-h: calc(var(--dock-h) + var(--dock-bottom));
     --header-h: 0rem;
   }
   body:has([data-feed]) [data-site-header] {

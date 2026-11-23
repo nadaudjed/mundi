@@ -41,46 +41,26 @@ for (const screen of SCREENS) {
   });
 }
 
-test("adresses Netlify : la barre d'onglets passe au-dessus du bandeau « Powered by Netlify »", async ({ browser }, testInfo) => {
-  test.skip(testInfo.project.name !== "mobile", "concerne la barre d'onglets des téléphones");
-  // Site de test (appli installée) et aperçu : Netlify affiche son bandeau sur les deux.
-  for (const host of ["https://mundiapptest.netlify.app", "https://deploy-preview-7--mundiapptest.netlify.app"]) {
-    for (const width of [320, 390]) {
-      const context = await browser.newContext({ viewport: { width, height: 760 }, isMobile: true, hasTouch: true, locale: "fr-FR", serviceWorkers: "block" });
-      // L'adresse Netlify est servie par le site local.
-      await context.route(`${host}/**`, async (route) => {
-        const response = await route.fetch({ url: route.request().url().replace(host, `http://localhost:${PORT}`) });
-        await route.fulfill({ response });
-      });
-      const page = await context.newPage();
-      for (const path of ["/", "/reviser/"]) {
-        await page.goto(`${host}${path}`);
-        await expect(page.locator("html")).toHaveAttribute("data-netlify-host", "");
-        const dock = page.getByTestId("dock");
-        // Le bandeau de Netlify mesure environ 36 px de haut, à environ 20 px du bas.
-        const bottom = await dock.evaluate((el) => window.innerHeight - el.getBoundingClientRect().bottom);
-        expect(bottom, `${host}${path} à ${width} px : bas de l'écran libre`).toBeGreaterThanOrEqual(60);
-        // Le fil s'arrête au-dessus de la barre : rien n'est caché dessous.
-        if (path === "/") {
-          const feedBottom = await page.getByLabel("Fil de découverte").evaluate((el) => el.getBoundingClientRect().bottom);
-          const dockTop = await dock.evaluate((el) => el.getBoundingClientRect().top);
-          expect(feedBottom).toBeLessThanOrEqual(dockTop + 1);
-        }
-      }
-      await page.getByTestId("dock").getByRole("link", { name: "Mes sujets", exact: true }).click();
-      await expect(page).toHaveURL(/\/mes-sujets\/$/);
-      await context.unrouteAll({ behavior: "ignoreErrors" });
-      await context.close();
-    }
-  }
-});
-
-test("autre adresse : la barre d'onglets reste près du bas de l'écran", async ({ page }, testInfo) => {
+test("téléphone : la barre d'onglets est posée en bas de l'écran et ne cache pas le fil", async ({ browser }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile", "barre d'onglets des téléphones");
-  await page.goto("/reviser/");
-  await expect(page.locator("html")).not.toHaveAttribute("data-netlify-host", "");
-  const bottom = await page.getByTestId("dock").evaluate((el) => window.innerHeight - el.getBoundingClientRect().bottom);
-  expect(bottom).toBeLessThanOrEqual(16);
+  for (const width of [320, 390]) {
+    const context = await browser.newContext({ baseURL: `http://localhost:${PORT}`, viewport: { width, height: 760 }, isMobile: true, hasTouch: true, locale: "fr-FR", serviceWorkers: "block" });
+    const page = await context.newPage();
+    for (const path of ["/", "/reviser/"]) {
+      await page.goto(path);
+      const dock = page.getByTestId("dock");
+      const bottom = await dock.evaluate((el) => window.innerHeight - el.getBoundingClientRect().bottom);
+      expect(bottom, `${path} à ${width} px : barre en bas de l'écran`).toBeLessThanOrEqual(16);
+      if (path === "/") {
+        const feedBottom = await page.getByLabel("Fil de découverte").evaluate((el) => el.getBoundingClientRect().bottom);
+        const dockTop = await dock.evaluate((el) => el.getBoundingClientRect().top);
+        expect(feedBottom, "le fil s'arrête au-dessus de la barre").toBeLessThanOrEqual(dockTop + 1);
+      }
+    }
+    await page.getByTestId("dock").getByRole("link", { name: "Mes sujets", exact: true }).click();
+    await expect(page).toHaveURL(/\/mes-sujets\/$/);
+    await context.close();
+  }
 });
 
 test("téléphone : la barre du haut du fil tient sur une ligne, sur chaque carte", async ({ browser }, testInfo) => {

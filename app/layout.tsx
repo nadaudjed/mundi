@@ -3,11 +3,9 @@ import "@fontsource-variable/dm-sans";
 import "@fontsource-variable/fraunces";
 import "./globals.css";
 import { BottomNav } from "@/components/BottomNav";
-import { PreviewHostFlag } from "@/components/PreviewHostFlag";
 import { PwaSetup } from "@/components/PwaSetup";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ToastProvider } from "@/components/Toast";
-import { netlifyHostScript } from "@/lib/preview-host";
 import { SITE_URL, SHARE_IMAGE, shareDefaults } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -35,10 +33,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: netlifyHostScript }} />
-      </head>
+    <html lang="fr">
       <body className="min-h-dvh">
         <a
           href="#contenu"
@@ -47,7 +42,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Aller au contenu
         </a>
         <PwaSetup />
-        <PreviewHostFlag />
         <ToastProvider>
           <SiteHeader />
           <main id="contenu">{children}</main>

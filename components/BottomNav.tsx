@@ -5,11 +5,7 @@ import { usePathname } from "next/navigation";
 import { Icon } from "./Icon";
 import { isActive, navItems } from "./navItems";
 
-/**
- * Barre d'onglets flottante. Sur les adresses *.netlify.app, elle remonte
- * au-dessus du bandeau de Netlify (variable --badge-safe), pour qu'il ne
- * cache jamais un onglet.
- */
+/** Barre d'onglets flottante, posée en bas de l'écran (variable --dock-bottom). */
 export function BottomNav() {
   const pathname = usePathname();
   return (
@@ -17,7 +13,7 @@ export function BottomNav() {
       aria-label="Navigation principale"
       data-testid="dock"
       data-dock
-      className="fixed bottom-[calc(var(--dock-gap)+var(--badge-safe)+env(safe-area-inset-bottom))] left-[max(0.5rem,env(safe-area-inset-left))] right-[max(0.5rem,env(safe-area-inset-right))] z-40"
+      className="fixed bottom-[var(--dock-bottom)] left-[max(0.5rem,env(safe-area-inset-left))] right-[max(0.5rem,env(safe-area-inset-right))] z-40"
     >
       <ul className="mx-auto grid h-[var(--dock-h)] max-w-[30rem] grid-cols-5 md:max-w-[28rem] gap-0.5 rounded-[1.35rem] bg-night/92 p-1 shadow-[0_10px_30px_-8px_rgba(16,29,48,0.55)] ring-1 ring-white/10 backdrop-blur-xl">
         {navItems.map((item) => {

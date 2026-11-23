@@ -68,3 +68,22 @@ test("existing photos are never overwritten and unlicensed results never become 
  assert.equal(result.report.length,1);
  assert.equal(result.report[0].status,"no_licensed_photo");
 });
+
+test("Wikimedia Commons HTTPS and HTTP Creative Commons licence URLs are normalised, not rejected",()=>{
+ const pic=candidate("File:Textile recycling factory.jpg","CC BY-SA 3.0","http://creativecommons.org/licenses/by-sa/3.0/");
+ pic.imageinfo[0].thumburl="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/image.jpg/1400px-image.jpg";
+ const selected=selectImage([pic],"textile recycling");
+ assert.ok(selected);
+ assert.equal(selected.licenseUrl,"https://creativecommons.org/licenses/by-sa/3.0/");
+ assert.match(selected.src,/^https:\/\/thumb\.wikimedia\.org\//);
+ const noSlash=candidate("File:Textile recycling factory.jpg","CC BY-SA 4.0","https://creativecommons.org/licenses/by-sa/4.0");
+ assert.ok(selectImage([noSlash],"textile recycling"));
+ const deed=candidate("File:Textile recycling factory.jpg","CC0","http://creativecommons.org/publicdomain/zero/1.0/deed.en");
+ assert.ok(selectImage([deed],"textile recycling"));
+});
+test("non-Wikimedia thumbnails and fake Creative Commons hosts stay blocked",()=>{
+ const foreign=candidate();foreign.imageinfo[0].thumburl="https://upload.wikimedia.org.evil.example/pic.jpg";
+ assert.equal(selectImage([foreign],"textile recycling"),null);
+ const fake=candidate("File:Textile recycling factory.jpg","CC BY 4.0","https://creativecommons.org.evil.example/licenses/by/4.0/");
+ assert.equal(selectImage([fake],"textile recycling"),null);
+});

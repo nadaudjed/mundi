@@ -36,9 +36,26 @@ const HINTS=[
   [/p[eé]trole|gaz naturel/i,"oil platform"],
   [/photovolta[iï]que|solaire/i,"solar panels"],
   [/[eé]olien|vent/i,"wind turbines"],
+  [/recherche|laboratoire|exp[eé]rience/i,"laboratory"],
+  // Realistic visual cues derived from each story, without claiming that a
+  // stock photograph depicts the specific events or people in the article.
+  [/microprocesseur|semi-conducteur|semiconducteur|processeur|puce [eé]lectronique/i,["semiconductor chip cleanroom","microchip manufacturing"]],
+  [/intelligence artificielle|\bIA\b|machine learning/i,["artificial intelligence data center","computer servers"]],
+  [/recyclage (des |de )?(m[eé]taux|minerais|mat[eé]riaux critiques)/i,["metal recycling facility","industrial metal recycling"]],
+  [/mine|extraction mini[eè]re|minerai|cuivre|mangan[eè]se|bauxite/i,["mining open pit","mineral ore processing"]],
+  [/r[eé]seau [eé]lectrique|[eé]lectricit[eé]|mix [eé]nerg[eé]tique/i,["electricity substation","power grid"]],
+  [/banques? centrales?|taux d.int[eé]r[eê]t|inflation/i,["central bank building","financial district"]],
+  [/emploi|ch[oô]mage|recrutement/i,["workplace employees","industrial workers"]],
+  [/porte.conteneurs|transport maritime|d[eé]troit maritime|commerce mondial/i,["container ship port","shipping logistics"]],
+  [/robotisation|automatisation|cha[iî]ne de production|usines?/i,["industrial robot assembly line","factory production"]],
+  [/d[eé]forestation|reforestation|for[eê]ts tropicales/i,["tropical forest conservation","forest restoration"]],
+  [/climat|s[eé]cheresse|inondation/i,["climate monitoring station","flood risk"]],
+  [/vaccin|[eé]pid[eé]mie|sant[eé] publique/i,["medical laboratory research","public health research"]],
+  [/enseignement|[eé]ducation|[eé]coles|universit[eé]/i,["university students classroom","education classroom"]],
+  [/r[eé]union diplomatique|sommet international|n[eé]gociation/i,["diplomatic conference","international delegates meeting"]],
+  // Generic terms only after the subject-specific rules above.
   [/for[eê]t|biodiversit[eé]/i,"forest biodiversity"],
-  [/puce|semi-conducteur|intelligence artificielle/i,"microchip"],
-  [/recherche|laboratoire|exp[eé]rience/i,"laboratory"]
+  [/puce|semi-conducteur|intelligence artificielle/i,"microchip"]
 ];
 const STOPWORDS=new Set("des les le la l et de du dans en pour par avec une un sur que qui est sont au aux ce ces cette ses entre parmi selon plus moins pourquoi comment leur leurs vous mais sans encore sous vers 2024 2025 2026 ue europa union européen européenne".split(" "));
 const BAD_TITLES=/\b(logo|icon|coat of arms|emblem|flag|map|chart|diagram|symbol|screenshot|poster|cartoon|drawing|painting|illustration|svg)\b/i;
@@ -55,7 +72,12 @@ const clean=(s,n=160)=>String(s??"").replace(/<[^>]*>/g," ").replace(/&(?:nbsp|a
 export function imageQueries(article){
   const fromTitle=String(article?.title??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"")
     .replace(/[^a-zA-Z\s-]/g," ").toLowerCase().split(/\s+/).filter(w=>w.length>=4&&!STOPWORDS.has(w)).slice(0,2).join(" ");
-  const hint=HINTS.find(([pattern])=>pattern.test(String(article?.title??"")))?.[1];
+  // Prefer the article title; use the summary when a generic title reveals
+  // no recognisable visual subject, before trying the general topic fallback.
+  const title=String(article?.title??"");
+  const summary=String(article?.summary??"").slice(0,300);
+  const hint=(HINTS.find(([pattern])=>pattern.test(title))||
+    HINTS.find(([pattern])=>pattern.test(summary)))?.[1];
   // Specific subjects must NOT fall back to vague "family", "market", or "recycling":
   // those produced lions for human households, a Nepal budget for European public
   // debt, and vandalized bins for textile sorting. Prefer no photo over deception.

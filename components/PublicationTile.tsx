@@ -47,7 +47,7 @@ export function PublicationTile({ publication: p, featured = false }: {
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-night/10 pt-4">
             <span className="text-xs text-muted"><time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time> · {p.sources.length} sources</span>
             <span className="inline-flex items-center gap-1.5 text-sm font-bold text-blue-ink">
-              Lire l'article <Icon name="arrow-right" className="size-4 transition-transform group-hover:translate-x-1" />
+              Lire l&apos;article <Icon name="arrow-right" className="size-4 transition-transform group-hover:translate-x-1" />
             </span>
           </div>
         </div>

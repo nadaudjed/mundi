@@ -6,8 +6,10 @@ import { BottomNav } from "@/components/BottomNav";
 import { PwaSetup } from "@/components/PwaSetup";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ToastProvider } from "@/components/Toast";
+import { SITE_URL, SHARE_IMAGE, shareDefaults } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: { default: "MUNDI — Comprendre le monde", template: "%s · MUNDI" },
   description: "Comprendre le monde n'a jamais été aussi simple. Prototype de démonstration : contenus illustratifs.",
   robots: { index: false, follow: false },
@@ -18,6 +20,8 @@ export const metadata: Metadata = {
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
   },
   formatDetection: { telephone: false },
+  openGraph: { ...shareDefaults, type: "website", title: "MUNDI — Comprendre le monde", description: "Comprendre le monde n'a jamais été aussi simple." },
+  twitter: { card: "summary_large_image", images: [SHARE_IMAGE.url] },
 };
 
 export const viewport: Viewport = {

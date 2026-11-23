@@ -101,6 +101,9 @@ export default function AboutPage() {
         <Link href="/application/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
           Installer l&apos;application
         </Link>
+        <Link href="/confidentialite/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
+          Confidentialité
+        </Link>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   const [kind, setKind] = useState<Kind>(publications.length ? "publications" : "demos");
   const [selected, setSelected] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
-  const [now, setNow] = useState(() => Date.now());
+  const [now] = useState(() => Date.now());
 
   const publicCards = useMemo<Card[]>(() => publications.map((p) => ({
     key: publicationKey(p.slug), title: p.title, topic: p.topic,
@@ -34,7 +34,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   })), [publications]);
 
   const cards = kind === "publications" ? publicCards : demoCards;
-  const due = cards.filter((card) => !records[card.key] || new Date(records[card.key].nextAt).getTime() <= now);
+  const due = cards.filter((card) => !records[card.key] || records[card.key].level === 0 || new Date(records[card.key].nextAt).getTime() <= now);
   const mastered = cards.filter((card) => (records[card.key]?.level ?? 0) >= 3).length;
   const learned = cards.filter((card) => Boolean(records[card.key])).length;
   const story = due.find((card) => card.key === selected) ?? due[0] ?? null;
@@ -43,14 +43,12 @@ export function RevisionClient({ publications }: { publications: FeedPublication
     setKind(next);
     setSelected(null);
     setRevealed(false);
-    setNow(Date.now());
   }
   function grade(remembered: boolean) {
     if (!story) return;
     mark(story.key, remembered);
     setSelected(null);
     setRevealed(false);
-    setNow(Date.now());
   }
 
   return (
@@ -123,7 +121,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
           ) : (
             <div className="py-8 text-center">
               <h2 className="font-display text-3xl font-semibold">Toutes vos révisions sont à jour !</h2>
-              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ivory/75">Revenez plus tard pour retrouver vos cartes. Les intervalles s'allongent quand vous retenez les idées.</p>
+              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ivory/75">Revenez plus tard pour retrouver vos cartes. Les intervalles s&apos;allongent quand vous retenez les idées.</p>
               <Link href="/" className="mt-6 inline-block rounded-full bg-mint px-6 py-3 text-sm font-semibold text-night">Retour au fil</Link>
             </div>
           )}
@@ -142,7 +140,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
       )}
       <div className="mt-10 rounded-2xl border border-night/10 p-5 text-sm text-muted">
         <p>La progression est conservée uniquement dans ce navigateur, pour les publications comme pour les démonstrations. Ce n&apos;est pas un test certifié.</p>
-        {learned > 0 && <button type="button" onClick={() => { reset(); setSelected(null); setRevealed(false); setNow(Date.now()); }}
+        {learned > 0 && <button type="button" onClick={() => { reset(); setSelected(null); setRevealed(false); }}
           className="mt-3 font-semibold text-blue-ink underline underline-offset-4">Remettre toute ma progression à zéro</button>}
       </div>
     </div>

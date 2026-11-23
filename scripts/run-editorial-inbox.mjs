@@ -27,6 +27,12 @@ mkdirSync(reportDir,{recursive:true});
 writeFileSync(resolve(reportDir, "editorial-inbox.json"),JSON.stringify(result,null,2)+"\n");
 writeFileSync(resolve(reportDir, "editorial-inbox.html"),makeReport(result));
 console.log("Internal newsroom: "+result.count+" candidate metadata items; "+result.errors.length+" notices; "+enabled.length+" enabled feeds.");
+const byTopic={};
+for(const candidate of result.items??[]){
+  const topic=candidate.topicHint??"non-classe";
+  byTopic[topic]=(byTopic[topic]??0)+1;
+}
+console.log("MUNDI topics collected:",JSON.stringify(byTopic));
 for(const entry of result.sourceHealth??[]){
   console.log("MUNDI feed health:",entry.sourceId,
     entry.status,"items:",entry.count,

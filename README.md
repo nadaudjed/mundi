@@ -37,3 +37,7 @@ npm run typecheck  # TypeScript
 ## Déploiement
 
 Le site est exporté en fichiers statiques (`out/`). `netlify.toml` indique à Netlify la commande de build et le dossier à publier. Aucune variable d'environnement ni secret n'est nécessaire. Toute mise en production reste soumise à l'accord du fondateur.
+
+## Personnalisation du fil (branche en développement)
+
+La page `/mes-sujets/` permet de choisir des thèmes préférés. Le fil « Pour vous » favorise ces thèmes, en réservant régulièrement une place à la découverte. Les choix restent dans le navigateur (localStorage), sans compte et sans suivi serveur.

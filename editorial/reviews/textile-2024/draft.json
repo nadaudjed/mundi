@@ -1,0 +1,67 @@
+{
+  "slug": "dechets-textiles-europe-2024-23-millions-tonnes",
+  "status": "draft",
+  "reviewedBy": "",
+  "preparedAt": "2026-11-23",
+  "publishedAt": null,
+  "updatedAt": null,
+  "title": "Déchets textiles : que deviennent les 2,3 millions de tonnes produites dans l'UE ?",
+  "summary": "Selon Eurostat, l'Union européenne a généré 2,3 millions de tonnes de déchets textiles en 2024. La même année, 1,4 million de tonnes ont été traitées. Que signifient réellement ces chiffres et pourquoi les règles changent-elles ?",
+  "topic": "recyclage",
+  "keyPoints": [
+    "En 2024, 2,3 millions de tonnes de déchets textiles ont été générées dans l'Union européenne, selon Eurostat.",
+    "Eurostat recense 1,4 million de tonnes de déchets textiles traitées en 2024, soit l'équivalent de 63 % de la quantité générée.",
+    "Parmi les déchets textiles traités, 78 % ont été recyclés ; ce pourcentage ne porte pas sur l'ensemble des déchets générés."
+  ],
+  "sections": [
+    {
+      "kind": "fait",
+      "heading": "Un flux de déchets massif, mais des indicateurs différents",
+      "text": "Eurostat estime à 2,3 millions de tonnes les déchets textiles générés dans l'Union européenne en 2024. Plus de la moitié de ce volume provient des ménages. L'organisme indique également que 1,4 million de tonnes de déchets textiles ont fait l'objet d'un traitement cette année-là, ce qui représente 63 % du volume généré la même année. Cette comparaison ne doit pas être présentée comme le suivi d'un lot de textiles unique : production de déchets et traitement sont deux flux statistiques annuels distincts."
+    },
+    {
+      "kind": "fait",
+      "heading": "Recyclage : bien lire le dénominateur",
+      "text": "D'après Eurostat, le recyclage représente 78 % de la quantité de déchets textiles traités en 2024 ; 13 % correspondent à une incinération avec récupération d'énergie. Ces proportions décrivent les modes de traitement, et non la part de tous les textiles vendus ou jetés qui serait effectivement recyclée."
+    },
+    {
+      "kind": "analyse",
+      "heading": "Pourquoi les règles européennes évoluent",
+      "text": "Une révision ciblée de la directive-cadre européenne sur les déchets est entrée en vigueur le 16 octobre 2025. La Commission européenne y présente de nouvelles règles communes de responsabilité élargie des producteurs pour les textiles, destinées à soutenir financièrement la collecte et la gestion des produits en fin de vie. La qualité du tri et la capacité à recycler les fibres demeurent donc des enjeux distincts de la seule quantité collectée."
+    },
+    {
+      "kind": "hypothese",
+      "heading": "La question à suivre",
+      "text": "Dans les prochaines années, il faudra suivre si les dispositifs de collecte, de tri et de responsabilité des producteurs s'accompagnent d'une hausse mesurable des quantités effectivement recyclées. L'effet précis des nouvelles règles sur ces statistiques ne peut pas être déduit des chiffres 2024 à eux seuls."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Eurostat — 2.3 million tonnes of textile waste generated in 2024 (12 novembre 2026)",
+      "url": "https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20261112-1"
+    },
+    {
+      "label": "Commission européenne — Revised Waste Framework Directive enters into force (16 octobre 2025)",
+      "url": "https://environment.ec.europa.eu/news/revised-waste-framework-directive-enters-force-2025-10-16_en"
+    }
+  ],
+  "origin": {
+    "format": "mundi-candidate-v1",
+    "reviewStatus": "candidate_unverified",
+    "sourceUrl": "https://ec.europa.eu/eurostat/product?code=ddn-20261112-1",
+    "externalPublishedAt": "2026-11-12T10:00:00.000Z",
+    "licenseUrl": "https://ec.europa.eu/eurostat/help/copyright-notice",
+    "feedId": "eurostat-energy"
+  },
+  "editorialNotes": {
+    "visibility": "internal_review_only",
+    "approvalRequired": true,
+    "recommendations": [
+      "Confirmer les chiffres, le périmètre de collecte et les définitions avec le jeu de données Eurostat avant publication.",
+      "Vérifier la bonne distinction entre déchets générés, traités, et recyclés ; ne pas affirmer que 78 % de tous les déchets textiles sont recyclés.",
+      "Contrôler la formulation juridique et la mise en œuvre nationale des règles de responsabilité élargie des producteurs.",
+      "Vérifier la licence de tout visuel, ajouter crédits et validation humaine explicite.",
+      "Attribuer une véritable date de publication MUNDI seulement lors de la validation finale."
+    ]
+  }
+}

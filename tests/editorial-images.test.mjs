@@ -101,3 +101,29 @@ test("clear visually relevant documentary examples still qualify with attributio
   const family=candidate("File:Family with children walking in park.jpg");
   assert.equal(selectImage([family],"family children").title,"Family with children walking in park.jpg");
 });
+
+test("journalists and professors get precise photo queries from each researched subject",()=>{
+ const cases=[
+  [{title:"Microprocesseurs et semi-conducteurs : le défi de nouvelles usines",topic:"technologie"},"semiconductor chip cleanroom"],
+  [{title:"Les mines de cuivre et la chaîne des matières critiques",topic:"materiaux-critiques"},"mining open pit"],
+  [{title:"Réseau électrique : comment équilibrer l'offre et la demande",topic:"energie"},"electricity substation"],
+  [{title:"Recyclage des métaux et matières critiques en Europe",topic:"recyclage"},"metal recycling facility"],
+  [{title:"Les banques centrales modifient leurs taux d'intérêt",topic:"finance"},"central bank building"],
+  [{title:"La déforestation et l'état des forêts tropicales",topic:"environnement"},"tropical forest conservation"],
+  [{title:"Les portes-conteneurs et les détroits du commerce mondial",topic:"geopolitique"},"container ship port"],
+  [{title:"La robotisation des usines et le travail industriel",topic:"industrie"},"industrial robot assembly line"],
+  [{title:"L'éducation et les écoles primaires",topic:"sciences-societe"},"university students classroom"]
+ ];
+ for(const [article,expected] of cases)assert.equal(imageQueries(article)[0],expected,article.title);
+});
+test("specific summary information beats the generic topic scene",()=>{
+ const q=imageQueries({title:"Ce qui change aujourd'hui",summary:"Les mines de cuivre et l'extraction minière évoluent.",topic:"materiaux-critiques"});
+ assert.equal(q[0],"mining open pit");
+});
+test("all 12 editorial subjects retain a non-empty fallback even if no specific photo exists",()=>{
+ for(const topic of ["geopolitique","economie","finance","industrie","materiaux-critiques","energie",
+    "recyclage","environnement","technologie","entreprises","afrique","sciences-societe"]){
+   const queries=imageQueries({title:"Un sujet du jour",topic});
+   assert.ok(queries.length>0&&queries.every(q=>typeof q==="string"&&q.length>3),topic);
+ }
+});

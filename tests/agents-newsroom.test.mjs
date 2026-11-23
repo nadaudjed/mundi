@@ -110,3 +110,23 @@ test("history stores only actually checked drafts, not blocked or no-key runs",(
   assert.equal(history.entries.length,1);
   assert.equal(history.entries[0].articlePublished,false);
 });
+
+test("Claude secret auto-configures the private newsroom without requiring repository variables",async()=>{
+  const out=await runAgentDesk(plan(),{key:"",claudeKey:"test-secret",maximum:0});
+  assert.equal(out.configuration.writerProvider,"anthropic");
+  assert.equal(out.configuration.checkerProvider,"anthropic");
+  assert.equal(out.configuration.writerModel,"claude-sonnet-5-5");
+  assert.equal(out.configuration.ready,true);
+  assert.equal(out.generated,0);
+  assert.equal(out.publiclyPublished,0);
+});
+test("mixed-provider checker needs its own model and key; never silently proceeds",async()=>{
+  const out=await runAgentDesk(plan(),{
+    key:"",claudeKey:"test-secret",checkerProvider:"openai",maximum:1
+  });
+  assert.equal(out.configuration.ready,false);
+  assert.ok(out.configuration.missing.includes("OPENAI_API_KEY"));
+  assert.ok(out.configuration.missing.includes("MUNDI_CHECKER_MODEL"));
+  assert.equal(out.generated,0);
+  assert.equal(out.publiclyPublished,0);
+});

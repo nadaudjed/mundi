@@ -3,6 +3,9 @@ import { resolve } from "node:path";
 import { validateDataCards, type DataCard } from "./data-cards";
 import { publishedArticles, validatePublication, type Publication } from "./editorial";
 import approvedScenes from "@/content/scenes.json";
+import editorialImages from "@/content/editorial-images.json";
+import {existsSync} from "node:fs";
+import {validateEditorialPhotos,type EditorialPhoto} from "./editorial-images";
 import { validateBackdrops, type SceneBackdrop, type SceneRef } from "./scenes";
 
 /**
@@ -24,6 +27,7 @@ import { validateBackdrops, type SceneBackdrop, type SceneRef } from "./scenes";
 /** `scene` : fond plein écran facultatif, choisi dans le registre approuvé (lib/scenes.ts). */
 export type VerifiedPublication = Publication & {
   fixture?: true;
+  photo?: EditorialPhoto;
   dataCards?: DataCard[];
   scene?: SceneRef;
   /** Fonds approuvés utilisés par la publication et ses cartes, résolus au build. */
@@ -103,8 +107,20 @@ function checkDataCards(list: VerifiedPublication[]): VerifiedPublication[] {
   return list;
 }
 
+function attachEditorialPhotos(list:VerifiedPublication[]):VerifiedPublication[]{
+  // Test fixtures never borrow photos from the actual MUNDI production catalogue.
+  if(testFile)return list;
+  const errors=validateEditorialPhotos(editorialImages);
+  if(errors.length)throw new Error("Catalogue de photos : "+errors.join(" ; "));
+  const bySlug=new Map((editorialImages as EditorialPhoto[]).map(p=>[p.slug,p]));
+  for(const photo of bySlug.values()){
+    if(!existsSync(resolve(process.cwd(),"public"+photo.src)))
+      throw new Error("Photographie référencée mais introuvable : "+photo.src);
+  }
+  return list.map(p=>({ ...p, ...(bySlug.has(p.slug)?{photo:bySlug.get(p.slug)}:{})}));
+}
 export const verifiedPublications: VerifiedPublication[] = resolveScenes(
-  checkDataCards(testFile ? loadTestFixtures(testFile).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)) : publishedArticles),
+  checkDataCards(attachEditorialPhotos(testFile ? loadTestFixtures(testFile).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)) : publishedArticles)),
 );
 
 export const getVerifiedPublication = (slug: string) => verifiedPublications.find((p) => p.slug === slug);

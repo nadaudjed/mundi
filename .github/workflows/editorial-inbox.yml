@@ -18,6 +18,8 @@ jobs:
           node-version: "22"
       - name: Prepare offline editorial report (no publication)
         run: node scripts/run-editorial-inbox.mjs
+      - name: Export individual unverified candidate sheets
+        run: npm run sources:candidates
       - name: Upload private research artifact (7 days)
         uses: actions/upload-artifact@v4
         with:
@@ -25,5 +27,6 @@ jobs:
           path: |
             reports/editorial-inbox.json
             reports/editorial-inbox.html
+            reports/candidates/
           retention-days: 7
           if-no-files-found: error

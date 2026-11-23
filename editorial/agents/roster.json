@@ -6,7 +6,7 @@
   "review": {
     "id": "editor-in-chief",
     "name": "Rédacteur en chef / vérificateur",
-    "autoPublish": false,
+    "autoPublish": true,
     "minimumIndependentPublishers": 2,
     "criticalDomains": [
       "geopolitique",

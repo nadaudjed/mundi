@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * MUNDI agent desk: AI-assisted original drafts + independent fact-checking.
- * Output is PRIVATE; never edits GitHub, public content or publishes.
+ * Output is PRIVATE; never edits public content itself. Publication is decided afterwards,
+ * by scripts/autopublish-agents.mjs (strict filters, kill switch MUNDI_AUTOPUBLISH=off).
  */
 import {readFileSync,writeFileSync,mkdirSync} from "node:fs";
 import {resolve,dirname} from "node:path";
@@ -143,7 +144,9 @@ export async function runAgentDesk(plan,{
     checkerProvider:config.checker.provider,checkerModel:config.checker.model,
     ready:missing.length===0,missing:[...new Set(missing)]
   };
-  const jobs=plan.jobs.slice(0,max),out=new Array(jobs.length);let idx=0;
+  // Sensitive beats are researched last: daily slots go first to subjects that may be auto-published.
+  const ordered=[...plan.jobs].sort((a,b)=>Number(SENSITIVE.has(a.topic))-Number(SENSITIVE.has(b.topic)));
+  const jobs=ordered.slice(0,max),out=new Array(jobs.length);let idx=0;
   async function worker(){while(idx<jobs.length){const i=idx++;out[i]=await runOne(jobs[i],config);}}
   await Promise.all(Array.from({length:Math.min(3,jobs.length)},worker));
   return {format:"mundi-agent-day-v1",date:plan.date,target:20,completed:out.length,

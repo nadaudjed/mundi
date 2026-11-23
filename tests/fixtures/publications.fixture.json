@@ -167,7 +167,8 @@
     "publishedAt": "2026-11-18",
     "updatedAt": "2026-11-18",
     "status": "published",
-    "reviewedBy": "Relectrice fictive (test)",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
     "keyPoints": [
       "Premier point inventé de la seconde publication.",
       "Deuxième point inventé de la seconde publication.",

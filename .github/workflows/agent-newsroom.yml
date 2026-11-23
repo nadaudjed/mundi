@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: "22"
       - name: Unit tests for newsroom roles and checker
-        run: node --test tests/agents-newsroom.test.mjs tests/agent-providers.test.mjs
+        run: node --test tests/agents-newsroom.test.mjs tests/agent-providers.test.mjs tests/autopublish.test.mjs
       - name: Checkout separate stock archive
         shell: bash
         run: |
@@ -63,7 +63,7 @@ jobs:
           MUNDI_CHECKER_PROVIDER: ${{ vars.MUNDI_CHECKER_PROVIDER }}
           MUNDI_AGENT_MODEL: ${{ vars.MUNDI_AGENT_MODEL }}
           MUNDI_CHECKER_MODEL: ${{ vars.MUNDI_CHECKER_MODEL }}
-          MUNDI_AGENT_MAX_JOBS: ${{ vars.MUNDI_AGENT_MAX_JOBS }}
+          MUNDI_AGENT_MAX_JOBS: ${{ vars.MUNDI_AGENT_MAX_JOBS || '6' }}
         run: node scripts/run-newsroom-agents.mjs
       - name: Update internal research ledger only
         env:
@@ -93,6 +93,31 @@ jobs:
             git -C "$RUNNER_TEMP/mundi-editorial-stock" commit -m "agents: record investigated briefs for deduplication"
             git -C "$RUNNER_TEMP/mundi-editorial-stock" push origin HEAD:refs/heads/editorial-stock
           fi
+      # V2 (#43), décidée par le fondateur : publication automatique des seuls brouillons validés
+      # par le vérificateur, non sensibles, aux liens joignables. Interrupteur d'urgence :
+      # variable de dépôt MUNDI_AUTOPUBLISH=off. Plafond : MUNDI_AUTOPUBLISH_MAX (défaut 2, max 5).
+      - name: Select drafts that may be auto-published
+        env:
+          MUNDI_AUTOPUBLISH: ${{ vars.MUNDI_AUTOPUBLISH }}
+          MUNDI_AUTOPUBLISH_MAX: ${{ vars.MUNDI_AUTOPUBLISH_MAX }}
+        run: node scripts/autopublish-agents.mjs
+      - name: Validate, build and publish to main
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- content/publications.json; then
+            echo "No publication today."
+            exit 0
+          fi
+          npm ci
+          node scripts/validate-editorial.mjs
+          npm run build
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/publications.json
+          git commit -m "agents: publication automatique vérifiée par l'IA ($(node -p "require('./reports/autopublish.json').published.join(', ')"))"
+          git pull --rebase origin main
+          git push origin HEAD:main
       - name: Upload private agent newsroom files (14 days)
         uses: actions/upload-artifact@v4
         if: always()
@@ -101,5 +126,6 @@ jobs:
           path: |
             reports/agents-plan.json
             reports/agents-results.json
+            reports/autopublish.json
           retention-days: 14
           if-no-files-found: warn

@@ -8,6 +8,8 @@ export type Publication = {
   slug: string; title: string; summary: string; topic: TopicSlug;
   publishedAt: string; updatedAt: string; status: "published"; reviewedBy: string;
   keyPoints: [string, string, string]; sections: EditorialSection[]; sources: EditorialSource[];
+  /** Publiée automatiquement après le vérificateur IA, sans relecture humaine (affiché au lecteur). */
+  aiVerified?: true;
 };
 
 const allowed = new Set<string>(topics.map(t => t.slug));

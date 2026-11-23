@@ -114,7 +114,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
               <p className="mt-6 text-xs text-ivory/65">
                 {story.isDemo ? "Exemple fictif · " : story.aiVerified ? "Contrôle IA, sans relecture humaine · " : "Validation humaine · "}
                 <Link href={story.href} className="underline underline-offset-4 hover:text-white">
-                  {story.isDemo ? "Relire le récit de démonstration" : "Relire l&apos;article et ses sources"}
+                  {story.isDemo ? "Relire le récit de démonstration" : "Relire l'article et ses sources"}
                 </Link>
               </p>
             </>

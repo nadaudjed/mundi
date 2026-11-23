@@ -116,3 +116,19 @@ test("API secret alone selects Claude with a documented default model",()=>{
   assert.equal(mixed.checkerModel,"","no Claude model reuse for a different checker provider");
   assert.equal(inferAgentSelection({}).model,"","never choose OpenAI model implicitly");
 });
+
+test("non-2xx Anthropic response exposes safe validation diagnosis, never API keys",async()=>{
+  const secret="sk-ant-test-sensitive-secret";
+  const fetcher=async()=>({ok:false,status:400,json:async()=>({
+    error:{type:"invalid_request_error",message:"Invalid messages schema; secret "+secret}
+  })});
+  await assert.rejects(
+    askAgentModel("system",{}, {provider:"anthropic",model:"claude-test",key:secret},"writer",fetcher),
+    error=>{
+      assert.match(error.message,/anthropic API HTTP 400 — invalid_request_error/);
+      assert.match(error.message,/Invalid messages schema/);
+      assert.doesNotMatch(error.message,/sk-ant-test-sensitive-secret/);
+      return true;
+    }
+  );
+});

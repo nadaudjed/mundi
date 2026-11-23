@@ -60,3 +60,13 @@ Le bouton « Écouter » déclenche, après action explicite de l'utilisateur, u
 ## Publications vérifiées et atelier éditorial
 
 La page `/actualites/` présente uniquement les publications validées contenues dans `content/publications.json`, initialement vide. Les pages de démonstration restent séparées. `/atelier/` permet de préparer puis télécharger un brouillon JSON localement, sans publier ni accéder à GitHub. La validation humaine, les sources vérifiées et une Pull Request sont obligatoires avant publication. Documentation : `docs/PUBLISHING.md`. Vérification technique : `npm run validate:editorial`.
+
+## Agents IA : activation de Claude (recherche privée)
+
+Ajoute uniquement `ANTHROPIC_API_KEY` dans **Settings → Secrets and variables → Actions → Repository secrets**. Si aucun fournisseur n'est explicitement sélectionné, le moteur choisit Claude pour la rédaction **et** pour la seconde vérification, avec le modèle `claude-sonnet-5-5`. C'est un choix par défaut, pas un basculement automatique en cas d'erreur API. Pour remplacer ce modèle, configure la variable `MUNDI_AGENT_MODEL`. Pour imposer un fournisseur, renseigne `MUNDI_AGENT_PROVIDER` (`anthropic` ou `openai`).
+
+Pour une vérification par un fournisseur différent, configure **ensemble** `MUNDI_CHECKER_PROVIDER`, `MUNDI_CHECKER_MODEL` et le secret de ce fournisseur. Un fournisseur différent sans identifiants ou modèle valide ne passe pas silencieusement sur Claude.
+
+Le plafond de test par exécution est `MUNDI_AGENT_MAX_JOBS=2` par défaut. **Ce n'est pas un plafond de dépense par jour** : plusieurs déclenchements GitHub Actions peuvent lancer plusieurs traitements facturés. Surveille la consommation dans la console Anthropic et n'augmente pas à 20 sans mesure des coûts. Les frais d'API sont indépendants des abonnements de conversation Claude.
+
+Chaque exécution des agents affiche les missions, brouillons, contrôles et éventuelles configurations manquantes dans son résumé GitHub Actions. Les brouillons restent dans les artefacts privés ; **aucun article n'est publié automatiquement**.

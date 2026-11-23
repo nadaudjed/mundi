@@ -9,6 +9,7 @@ on:
       - 'editorial/agents/**'
       - 'scripts/plan-newsroom.mjs'
       - 'scripts/run-newsroom-agents.mjs'
+      - 'scripts/agent-providers.mjs'
       - 'scripts/agent-ledger.mjs'
       - '.github/workflows/agent-newsroom.yml'
   workflow_dispatch:
@@ -36,7 +37,7 @@ jobs:
         with:
           node-version: "22"
       - name: Unit tests for newsroom roles and checker
-        run: node --test tests/agents-newsroom.test.mjs
+        run: node --test tests/agents-newsroom.test.mjs tests/agent-providers.test.mjs
       - name: Checkout separate stock archive
         shell: bash
         run: |
@@ -57,6 +58,9 @@ jobs:
       - name: Research originals and second-pass fact check (only with API secret)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MUNDI_AGENT_PROVIDER: ${{ vars.MUNDI_AGENT_PROVIDER }}
+          MUNDI_CHECKER_PROVIDER: ${{ vars.MUNDI_CHECKER_PROVIDER }}
           MUNDI_AGENT_MODEL: ${{ vars.MUNDI_AGENT_MODEL }}
           MUNDI_CHECKER_MODEL: ${{ vars.MUNDI_CHECKER_MODEL }}
           MUNDI_AGENT_MAX_JOBS: ${{ vars.MUNDI_AGENT_MAX_JOBS }}

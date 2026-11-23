@@ -70,3 +70,7 @@ Pour une vérification par un fournisseur différent, configure **ensemble** `MU
 Le plafond de test par exécution est `MUNDI_AGENT_MAX_JOBS=2` par défaut. **Ce n'est pas un plafond de dépense par jour** : plusieurs déclenchements GitHub Actions peuvent lancer plusieurs traitements facturés. Surveille la consommation dans la console Anthropic et n'augmente pas à 20 sans mesure des coûts. Les frais d'API sont indépendants des abonnements de conversation Claude.
 
 Chaque exécution des agents affiche les missions, brouillons, contrôles et éventuelles configurations manquantes dans son résumé GitHub Actions. Les brouillons restent dans les artefacts privés ; **aucun article n'est publié automatiquement**.
+
+## Pilote d'approvisionnement (23–24 novembre 2026)
+
+Le workflow `agent-newsroom.yml` planifie 20 missions, tente par défaut jusqu'à **12 recherches/rédactions** par exécution et peut publier **au plus 5 articles IA sur la journée**, uniquement après contrôles ; tous ces nombres sont des maxima et non une garantie de contenus fiables. La clé API Anthropic est facturée séparément. Les variables GitHub `MUNDI_AGENT_MAX_JOBS`, `MUNDI_AUTOPUBLISH_MAX` et l'interrupteur `MUNDI_AUTOPUBLISH=off` sont les commandes opérationnelles. La publication automatique peut être suspendue si les sources sont insuffisantes ou si des erreurs sont constatées. Les droits des médias, les audits humains et la diversification des sources restent requis pour un vrai lancement.

@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   anthropicRequest,parseAnthropicResponse,resolveAgentProviders,
-  askAgentModel,WRITER_SCHEMA,CHECKER_SCHEMA
+  askAgentModel,WRITER_SCHEMA,CHECKER_SCHEMA,inferAgentSelection,DEFAULT_CLAUDE_MODEL
 } from "../scripts/agent-providers.mjs";
 
 test("Claude replaces OpenAI for writers without changing the checker choice",()=>{
@@ -97,4 +97,22 @@ test("OpenAI provider still uses Responses API and remains available",async()=>{
   assert.equal(request.url,"https://api.openai.com/v1/responses");
   assert.equal(request.init.headers.Authorization,"Bearer openai-secret");
   assert.ok(!request.init.body.includes("openai-secret"));
+});
+
+test("API secret alone selects Claude with a documented default model",()=>{
+  const inferred=inferAgentSelection({anthropicKey:"secret"});
+  assert.equal(inferred.provider,"anthropic");
+  assert.equal(inferred.checkerProvider,"anthropic");
+  assert.equal(inferred.model,DEFAULT_CLAUDE_MODEL);
+  assert.equal(inferred.checkerModel,DEFAULT_CLAUDE_MODEL);
+  const openai=inferAgentSelection({
+    provider:"openai",model:"gpt-selected",anthropicKey:"secret"
+  });
+  assert.equal(openai.provider,"openai");
+  assert.equal(openai.model,"gpt-selected");
+  const mixed=inferAgentSelection({
+    checkerProvider:"openai",anthropicKey:"secret"
+  });
+  assert.equal(mixed.checkerModel,"","no Claude model reuse for a different checker provider");
+  assert.equal(inferAgentSelection({}).model,"","never choose OpenAI model implicitly");
 });

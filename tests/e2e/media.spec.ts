@@ -51,7 +51,8 @@ test.describe("Médias immersifs", () => {
 
   test("chaque média affiche ses crédits (auteur, licence, provenance)", async ({ page }) => {
     await page.goto("/");
-    const card = page.locator('[data-index="0"]');
+    const card = page.locator('[data-story="correlation-causalite"]').first();
+    await card.scrollIntoViewIfNeeded();
     const credit = card.getByRole("button", { name: /©/ });
     await credit.click();
     const panel = card.getByRole("region", { name: "Crédits du média" });
@@ -66,7 +67,8 @@ test.describe("Médias immersifs", () => {
       if (r.url().includes("/media/") && r.status() >= 400) failures.push(`${r.status()} ${r.url()}`);
     });
     await page.goto("/");
-    for (let i = 0; i < 6; i++) await scrollFeedTo(page, i);
+    const start = await firstScreenOf(page, "equilibre-reseau-electrique");
+    for (let i = start; i < start + 6; i++) await scrollFeedTo(page, i);
     expect(failures).toEqual([]);
   });
 });

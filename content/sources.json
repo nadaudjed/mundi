@@ -102,5 +102,15 @@
     "rightsStatus": "approved_metadata_collection",
     "rightsUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
     "rightsNote": "Flux RSS officiel NASA News Releases; collecte UNIQUEMENT des titres, liens, dates et attribution, sans reproduire le corps, les images, logos ni média tiers. Les contenus gouvernementaux de la NASA sont généralement domaine public américain; vérifier les exceptions et crédits spécifiques."
+  },
+  {
+    "id": "usgs-national-news",
+    "publisher": "U.S. Geological Survey",
+    "feedUrl": "https://www.usgs.gov/news/national-news-release/feed",
+    "topic": "materiaux-critiques",
+    "enabled": true,
+    "rightsStatus": "approved_metadata_collection",
+    "rightsUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "rightsNote": "Flux RSS officiel de communiqués nationaux USGS (y compris matériaux critiques et ressources). Information USGS généralement domaine public américain, crédit obligatoire recommandé, exceptions pour contenus tiers. Ne collecter que métadonnées titre, date, URL et auteur, aucun média ni texte intégral."
   }
 ]

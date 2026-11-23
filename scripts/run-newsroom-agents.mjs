@@ -121,10 +121,11 @@ async function runOne(job,key,model,checkerModel){
   if(!key||!model)return record(job,null,null,null,"OPENAI_API_KEY or MUNDI_AGENT_MODEL missing; planning only");
   try{
     const draft=await askModel(WRITER_SYSTEM,{
-      role:job.role,topic:job.topic,assignment:job.title,angle:job.angle,
+      role:job.role,topic:job.topic,dateOfResearch:job.date,
+      assignment:job.title||("Recherche quotidienne des nouveautés fiables en "+job.topic),angle:job.angle,
       sourceLead:job.source,updateTarget:job.previousPublication,
       previouslyPublishedOnSameBeat:job.relatedPublications??[],
-      task:job.role==="journalist"?"Vérifier des nouveautés et leurs dates.":"Expliquer un mécanisme durable sans inventer de faits."
+      task:job.role==="journalist"?"Cherche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante.":"Expliquer un mécanisme durable sans inventer de faits."
     },model,key);
     const draftErrors=validateResearchDraft(draft,job);
     if(draftErrors.length)return record(job,draft,null,{

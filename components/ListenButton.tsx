@@ -9,7 +9,7 @@ type Playback = { utterance: SpeechSynthesisUtterance | null; watchdog: number |
 
 // The browser has a SINGLE global speech engine. Switching cards or pressing
 // "Écouter" somewhere else must stop the previous owner and reset its UI.
-let stopOtherPlayback: (() => void) | null = null;
+let stopOtherPlayback: { session: Playback; stop: () => void } | null = null;
 
 /** Keep each utterance short enough for mobile Safari and Android TTS engines. */
 function speechChunks(parts: string[], limit = 240): string[] {
@@ -60,7 +60,7 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
     const session = playback.current;
     if (!session) return;
     playback.current = null;
-    if (stopOtherPlayback === stop) stopOtherPlayback = null;
+    if (stopOtherPlayback?.session === session) stopOtherPlayback = null;
     if (session.watchdog !== null) window.clearTimeout(session.watchdog);
     try { window.speechSynthesis?.cancel(); } catch { /* browser or OS already stopped it */ }
     if (update) {
@@ -91,7 +91,7 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
       return;
     }
     const synth = window.speechSynthesis;
-    if (stopOtherPlayback) stopOtherPlayback();
+    if (stopOtherPlayback) stopOtherPlayback.stop();
 
     const chunks = speechChunks([
       title, summary, "Trois points à retenir.",
@@ -105,7 +105,7 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
     let index = 0;
     const session: Playback = { utterance: null, watchdog: null };
     playback.current = session;
-    stopOtherPlayback = stop;
+    stopOtherPlayback = { session, stop };
     setError("");
     setPhase("starting");
 
@@ -118,7 +118,7 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
     const finish = () => {
       if (playback.current !== session) return;
       playback.current = null;
-      if (stopOtherPlayback === stop) stopOtherPlayback = null;
+      if (stopOtherPlayback?.session === session) stopOtherPlayback = null;
       if (session.watchdog !== null) window.clearTimeout(session.watchdog);
       setPhase("idle");
       setError("");

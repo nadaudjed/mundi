@@ -55,3 +55,25 @@ test("narrative never changes original publications data",()=>{
   assert.deepEqual(published,[]);
   assert.equal(storyboard.draftPath,"editorial/reviews/textile-2024/draft.json");
 });
+
+
+test("Claude-compatible data cards preserve the same figures, units and denominators",()=>{
+  const pack=JSON.parse(readFileSync("editorial/reviews/textile-2024/data-cards.draft.json","utf8"));
+  assert.equal(pack.format,"mundi-data-cards-v1");
+  assert.equal(pack.cards.length,4);
+  assert.equal(pack.cards[0].kind,"stat");
+  assert.equal(pack.cards[0].measure.value,storyboard.scenes[0].value);
+  assert.deepEqual(pack.cards[1].items.map(x=>x.value),storyboard.scenes[1].items.map(x=>x.value));
+  assert.equal(pack.cards[1].presentation,"echelle-commune");
+  assert.match(pack.cards[1].note,/flux statistiques annuels distincts/);
+  assert.equal(pack.cards[2].measure.value,storyboard.scenes[2].value);
+  assert.equal(pack.cards[2].measure.denominator,"des déchets textiles traités en 2024");
+  assert.equal(pack.cards[2].measure.unit,"%");
+  assert.equal(pack.cards[3].kind,"explication");
+  assert.equal(pack.cards[3].steps.at(-1).nature,"hypothese");
+  for(const card of pack.cards){
+    assert.ok(card.source.url.startsWith("https://"));
+    assert.equal(card.scene,undefined);
+    assert.equal(card.visual,undefined);
+  }
+});

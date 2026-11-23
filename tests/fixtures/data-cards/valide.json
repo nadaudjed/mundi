@@ -1,0 +1,89 @@
+{
+  "format": "mundi-data-cards-v1",
+  "_note": "Séquence INVENTÉE pour les tests : aucun chiffre réel.",
+  "cards": [
+    {
+      "id": "test-stat",
+      "kind": "stat",
+      "headline": "Exemple de test : un chiffre inventé, avec son unité",
+      "source": {
+        "label": "Jeu de données fictif (test)",
+        "url": "https://donnees.mundi.test/jeu-fictif"
+      },
+      "asOf": "2026-11-01",
+      "measure": {
+        "value": 1234.5,
+        "unit": "unités fictives",
+        "label": "Quantité inventée pour le test",
+        "scope": "Territoire fictif",
+        "period": "Année de test 2026",
+        "decimals": 1
+      },
+      "context": "Valeur inventée pour vérifier l’affichage d’un chiffre clé.",
+      "note": "Donnée fictive : aucune mesure réelle."
+    },
+    {
+      "id": "test-comparaison-commune",
+      "kind": "comparaison",
+      "headline": "Exemple de test : deux valeurs sur une même échelle",
+      "source": {
+        "label": "Jeu de données fictif (test)",
+        "url": "https://donnees.mundi.test/jeu-fictif"
+      },
+      "asOf": "2026-11-01",
+      "presentation": "echelle-commune",
+      "style": {
+        "tone": "ivory",
+        "accent": "blue"
+      },
+      "items": [
+        {
+          "value": 40,
+          "unit": "%",
+          "denominator": "de l’ensemble fictif",
+          "label": "Part inventée A",
+          "scope": "Territoire fictif",
+          "period": "2026"
+        },
+        {
+          "value": 20,
+          "unit": "%",
+          "denominator": "de l’ensemble fictif",
+          "label": "Part inventée B",
+          "scope": "Territoire fictif",
+          "period": "2026"
+        }
+      ]
+    },
+    {
+      "id": "test-comparaison-distincte",
+      "kind": "comparaison",
+      "headline": "Exemple de test : deux taux qui ne se comparent pas",
+      "source": {
+        "label": "Jeu de données fictif (test)",
+        "url": "https://donnees.mundi.test/jeu-fictif"
+      },
+      "asOf": "2026-11-01",
+      "presentation": "valeurs-distinctes",
+      "items": [
+        {
+          "value": 62,
+          "unit": "%",
+          "denominator": "des objets fictifs collectés",
+          "label": "Taux inventé de collecte",
+          "scope": "Territoire fictif",
+          "period": "2026"
+        },
+        {
+          "value": 8,
+          "unit": "%",
+          "denominator": "des objets fictifs produits",
+          "label": "Taux inventé de réemploi",
+          "scope": "Territoire fictif",
+          "period": "2026"
+        }
+      ],
+      "note": "Les deux taux n’ont pas le même dénominateur."
+    }
+  ]
+}

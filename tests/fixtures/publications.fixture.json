@@ -14,13 +14,139 @@
       "Ceci est un troisième point inventé pour le test."
     ],
     "sections": [
-      { "kind": "fait", "heading": "Section de test", "text": "Paragraphe inventé pour vérifier l'affichage d'une section de faits dans la page de publication." }
+      {
+        "kind": "fait",
+        "heading": "Section de test",
+        "text": "Paragraphe inventé pour vérifier l'affichage d'une section de faits dans la page de publication."
+      }
     ],
     "sources": [
-      { "label": "Source fictive A (test)", "url": "https://sources.mundi.test/a" },
-      { "label": "Source fictive B (test)", "url": "https://sources.mundi.test/b" },
-      { "label": "Source fictive C (test)", "url": "https://sources.mundi.test/c" },
-      { "label": "Source fictive D (test)", "url": "https://sources.mundi.test/d" }
+      {
+        "label": "Source fictive A (test)",
+        "url": "https://sources.mundi.test/a"
+      },
+      {
+        "label": "Source fictive B (test)",
+        "url": "https://sources.mundi.test/b"
+      },
+      {
+        "label": "Source fictive C (test)",
+        "url": "https://sources.mundi.test/c"
+      },
+      {
+        "label": "Source fictive D (test)",
+        "url": "https://sources.mundi.test/d"
+      }
+    ],
+    "dataCards": [
+      {
+        "id": "test-stat",
+        "kind": "stat",
+        "headline": "Exemple de test : un chiffre inventé, avec son unité",
+        "source": {
+          "label": "Jeu de données fictif (test)",
+          "url": "https://donnees.mundi.test/jeu-fictif"
+        },
+        "asOf": "2026-11-01",
+        "measure": {
+          "value": 1234.5,
+          "unit": "unités fictives",
+          "label": "Quantité inventée pour le test",
+          "scope": "Territoire fictif",
+          "period": "Année de test 2026",
+          "decimals": 1
+        },
+        "context": "Valeur inventée pour vérifier l’affichage d’un chiffre clé.",
+        "note": "Donnée fictive : aucune mesure réelle."
+      },
+      {
+        "id": "test-comparaison-commune",
+        "kind": "comparaison",
+        "headline": "Exemple de test : deux valeurs sur une même échelle",
+        "source": {
+          "label": "Jeu de données fictif (test)",
+          "url": "https://donnees.mundi.test/jeu-fictif"
+        },
+        "asOf": "2026-11-01",
+        "presentation": "echelle-commune",
+        "style": {
+          "tone": "ivory",
+          "accent": "blue"
+        },
+        "items": [
+          {
+            "value": 40,
+            "unit": "%",
+            "denominator": "de l’ensemble fictif",
+            "label": "Part inventée A",
+            "scope": "Territoire fictif",
+            "period": "2026"
+          },
+          {
+            "value": 20,
+            "unit": "%",
+            "denominator": "de l’ensemble fictif",
+            "label": "Part inventée B",
+            "scope": "Territoire fictif",
+            "period": "2026"
+          }
+        ]
+      },
+      {
+        "id": "test-comparaison-distincte",
+        "kind": "comparaison",
+        "headline": "Exemple de test : deux taux qui ne se comparent pas",
+        "source": {
+          "label": "Jeu de données fictif (test)",
+          "url": "https://donnees.mundi.test/jeu-fictif"
+        },
+        "asOf": "2026-11-01",
+        "presentation": "valeurs-distinctes",
+        "items": [
+          {
+            "value": 62,
+            "unit": "%",
+            "denominator": "des objets fictifs collectés",
+            "label": "Taux inventé de collecte",
+            "scope": "Territoire fictif",
+            "period": "2026"
+          },
+          {
+            "value": 8,
+            "unit": "%",
+            "denominator": "des objets fictifs produits",
+            "label": "Taux inventé de réemploi",
+            "scope": "Territoire fictif",
+            "period": "2026"
+          }
+        ],
+        "note": "Les deux taux n’ont pas le même dénominateur."
+      },
+      {
+        "id": "test-explication",
+        "kind": "explication",
+        "headline": "Exemple de test : un mécanisme en étapes",
+        "source": {
+          "label": "Jeu de données fictif (test)",
+          "url": "https://donnees.mundi.test/jeu-fictif"
+        },
+        "asOf": "2026-11-01",
+        "style": {
+          "accent": "topic"
+        },
+        "steps": [
+          {
+            "label": "Étape fictive 1",
+            "text": "Un fait inventé pour le test.",
+            "nature": "fait"
+          },
+          {
+            "label": "Étape fictive 2",
+            "text": "Une hypothèse inventée pour le test.",
+            "nature": "hypothese"
+          }
+        ]
+      }
     ]
   },
   {
@@ -38,11 +164,21 @@
       "Troisième point inventé de la seconde publication."
     ],
     "sections": [
-      { "kind": "analyse", "heading": "Analyse de test", "text": "Paragraphe inventé pour vérifier l'affichage d'une section d'analyse dans la page de publication." }
+      {
+        "kind": "analyse",
+        "heading": "Analyse de test",
+        "text": "Paragraphe inventé pour vérifier l'affichage d'une section d'analyse dans la page de publication."
+      }
     ],
     "sources": [
-      { "label": "Source fictive E (test)", "url": "https://sources.mundi.test/e" },
-      { "label": "Source fictive F (test)", "url": "https://sources.mundi.test/f" }
+      {
+        "label": "Source fictive E (test)",
+        "url": "https://sources.mundi.test/e"
+      },
+      {
+        "label": "Source fictive F (test)",
+        "url": "https://sources.mundi.test/f"
+      }
     ]
   }
 ]

@@ -17,6 +17,9 @@ import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
 import { MediaStage } from "./MediaStage";
 import { VerifiedBadge, VerifiedCard, type CardVisual } from "./VerifiedCard";
+import { DataCardView } from "./data-cards/DataCardView";
+import type { DataCard } from "@/lib/data-cards";
+import { publicationPath } from "@/lib/publication-links";
 
 /**
  * Un écran du fil. Un récit « narratif » occupe trois écrans successifs
@@ -38,6 +41,7 @@ function toSlides(stories: Story[]): Slide[] {
  */
 type Entry =
   | { kind: "verified"; key: string; publication: FeedPublication; position: number; visual: CardVisual }
+  | { kind: "data"; key: string; publication: FeedPublication; card: DataCard; position: number; total: number }
   | { kind: "divider"; key: string }
   | { kind: "story"; key: string; slide: Slide };
 
@@ -59,13 +63,18 @@ export function Feed({ verified = [] }: Props) {
   const slides = useMemo(() => toSlides(items), [items]);
   const publications = useMemo(() => (filter === "all" ? verified : verified.filter((p) => p.topic === filter)), [filter, verified]);
   const entries = useMemo<Entry[]>(() => {
-    const list: Entry[] = publications.map((publication, position) => ({
-      kind: "verified",
-      key: `pub:${publication.slug}`,
-      publication,
-      position,
-      visual: position % 2 === 0 ? "motif" : "sobre",
-    }));
+    // Chaque publication approuvée peut être suivie de sa séquence de cartes de données.
+    const list: Entry[] = publications.flatMap((publication, position): Entry[] => [
+      { kind: "verified", key: `pub:${publication.slug}`, publication, position, visual: position % 2 === 0 ? "motif" : "sobre" },
+      ...(publication.dataCards ?? []).map((card, i, all): Entry => ({
+        kind: "data",
+        key: `pub:${publication.slug}:${card.id}`,
+        publication,
+        card,
+        position: i,
+        total: all.length,
+      })),
+    ]);
     if (list.length > 0 && slides.length > 0) list.push({ kind: "divider", key: "divider" });
     return list.concat(slides.map((slide) => ({ kind: "story", key: slide.key, slide })));
   }, [publications, slides]);
@@ -133,7 +142,7 @@ export function Feed({ verified = [] }: Props) {
           </Link>
           <div className="flex items-center gap-2">
             <InstallChip />
-            {entry?.kind === "verified" ? <VerifiedBadge /> : <DemoBadge tone="light" />}
+            {entry?.kind === "verified" || entry?.kind === "data" ? <VerifiedBadge /> : <DemoBadge tone="light" />}
           </div>
         </div>
         <div
@@ -176,6 +185,26 @@ export function Feed({ verified = [] }: Props) {
           {entries.map((e, i) =>
             e.kind === "verified" ? (
               <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} visual={e.visual} />
+            ) : e.kind === "data" ? (
+              <article
+                key={e.key}
+                data-index={i}
+                data-testid="data-card"
+                data-publication={e.publication.slug}
+                aria-roledescription="carte de données"
+                aria-label={`${e.publication.title} : données, carte ${e.position + 1} sur ${e.total}`}
+                className="relative h-full snap-start snap-always"
+              >
+                <DataCardView
+                  card={e.card}
+                  position={e.position}
+                  total={e.total}
+                  topicColor={getTopic(e.publication.topic)?.color ?? "#20B99A"}
+                  active={i === active}
+                  status="verifie"
+                  href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}
+                />
+              </article>
             ) : e.kind === "divider" ? (
               <DemoDivider key={e.key} index={i} count={items.length} />
             ) : (
@@ -214,6 +243,11 @@ export function Feed({ verified = [] }: Props) {
               <>
                 <span className="font-display text-3xl text-night">{entry.position + 1}</span> / {publications.length}
                 <span className="mt-1 block text-xs font-semibold text-[#0f6e5b]">Publications vérifiées</span>
+              </>
+            ) : entry?.kind === "data" ? (
+              <>
+                <span className="font-display text-2xl text-night">Données</span>
+                <span className="mt-1 block text-xs">Carte {entry.position + 1} sur {entry.total}</span>
               </>
             ) : entry?.kind === "divider" ? (
               <span className="font-display text-2xl text-night">Démonstrations</span>

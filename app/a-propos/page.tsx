@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { DemoNotice } from "@/components/DemoBadge";
 import { PageIntro } from "@/components/PageIntro";
 import { formats } from "@/lib/topics";
 
@@ -30,7 +29,9 @@ export default function AboutPage() {
         sacrifier la rigueur.
       </PageIntro>
 
-      <DemoNotice className="mt-8" />
+      <div role="note" className="mt-8 rounded-2xl border border-blue/20 bg-blue/5 px-5 py-4 text-sm leading-relaxed text-night/85">
+        <strong className="font-semibold">Deux types de contenus coexistent.</strong> Les publications de la rédaction sont sourcées et indiquent leur mode de vérification, humaine ou automatisée par l&apos;IA. Les récits de démonstration sont séparés et utilisent des exemples fictifs, qui ne constituent pas une actualité.
+      </div>
 
       <section aria-labelledby="piliers" className="mt-12">
         <h2 id="piliers" className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">
@@ -83,9 +84,11 @@ export default function AboutPage() {
           Intelligence artificielle et relecture humaine
         </h2>
         <p className="mt-2 text-[0.95rem] leading-relaxed text-night/85">
-          L&apos;IA peut aider à rechercher, résumer, traduire ou structurer. Les éléments factuels sont contrôlés par un
-          humain avant publication, et aucune synthèse d&apos;actualité n&apos;est publiée automatiquement. Les erreurs
-          significatives sont documentées et les corrections rendues visibles.
+          L&apos;IA peut aider à rechercher, résumer et structurer les articles. Certaines publications sont
+          vérifiées automatiquement par un autre agent IA et publiées sans relecture humaine ; cette limite est
+          clairement indiquée sur l&apos;article. D&apos;autres contenus bénéficient d&apos;une validation humaine.
+          Les contrôles automatisés ne garantissent pas l&apos;absence d&apos;erreur : les sources, les dates et les
+          corrections doivent rester consultables et vérifiables.
         </p>
       </section>
 

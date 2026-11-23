@@ -8,9 +8,10 @@ function candidate(title="File:Textile recycling facility.jpg",license="CC BY 4.
 }
 test("image search queries use the article first, then a distinct photographic topic fallback",()=>{
  const q=imageQueries({title:"Déchets textiles : comment ils sont recyclés en Europe",topic:"recyclage"});
- assert.match(q[0],/dechets textiles/);
- assert.match(q[1],/sorting plant/);
- assert.deepEqual(imageQueries({title:"!!!",topic:"afrique"}),["African city urban development market"]);
+ assert.equal(q[0],"textile recycling");
+ assert.ok(q.some(x=>x.includes("dechets textiles")));
+ assert.ok(q.includes("recycling"));
+ assert.deepEqual(imageQueries({title:"!!!",topic:"afrique"}),["african city"]);
 });
 test("Commons selector accepts credited CC BY photo and strips HTML safely",()=>{
  const pic=selectImage([candidate()],"textile recycling");

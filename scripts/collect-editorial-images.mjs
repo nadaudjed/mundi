@@ -11,33 +11,54 @@ import {fileURLToPath,pathToFileURL} from "node:url";
 
 export const MEDIA_CATALOG="content/editorial-images.json";
 export const PHOTO_QUERIES={
-  "geopolitique":"international diplomatic conference delegates meeting",
-  "economie":"economics economic life family market",
-  "finance":"stock exchange financial markets trading",
-  "industrie":"industrial production factory workers",
-  "materiaux-critiques":"mineral mining copper lithium ore",
-  "energie":"solar photovoltaic wind energy plant",
-  "recyclage":"recycling sorting plant textile waste",
-  "environnement":"forest biodiversity environmental research",
-  "technologie":"semiconductor microchip technology laboratory",
-  "entreprises":"small business entrepreneurs office working",
-  "afrique":"African city urban development market",
-  "sciences-societe":"scientific research laboratory microscopy"
+  "geopolitique":"diplomacy",
+  "economie":"market",
+  "finance":"trading",
+  "industrie":"factory",
+  "materiaux-critiques":"mining",
+  "energie":"wind turbines",
+  "recyclage":"recycling",
+  "environnement":"forest",
+  "technologie":"microchip",
+  "entreprises":"office",
+  "afrique":"african city",
+  "sciences-societe":"laboratory"
 };
+// Editors' French headlines are converted to short visual cues, NOT treated as
+// exact documentary evidence of a specific person, event, place or date.
+const HINTS=[
+  [/textil|v[eê]tement|tri des d[eé]chets/i,"textile recycling"],
+  [/m[eé]nag|enfant|famill/i,"family"],
+  [/dette|obligation|budget de l[eé]tat/i,"government budget"],
+  [/tr[eé]sorerie|b[eé]n[eé]fice|profit|cash/i,"office finance"],
+  [/batterie|lithium|cobalt/i,"battery recycling"],
+  [/hydrog[eè]ne/i,"hydrogen energy"],
+  [/p[eé]trole|gaz naturel/i,"oil platform"],
+  [/photovolta[iï]que|solaire/i,"solar panels"],
+  [/[eé]olien|vent/i,"wind turbines"],
+  [/for[eê]t|biodiversit[eé]/i,"forest biodiversity"],
+  [/puce|semi-conducteur|intelligence artificielle/i,"microchip"],
+  [/recherche|laboratoire|exp[eé]rience/i,"laboratory"]
+];
 const STOPWORDS=new Set("des les le la l et de du dans en pour par avec une un sur que qui est sont au aux ce ces cette ses entre parmi selon plus moins pourquoi comment leur leurs vous mais sans encore sous vers 2024 2025 2026 ue europa union européen européenne".split(" "));
 const BAD_TITLES=/\b(logo|icon|coat of arms|emblem|flag|map|chart|diagram|symbol|screenshot|poster|cartoon|drawing|painting|illustration|svg)\b/i;
 const ALLOWED_LICENSES=new Map([
   ["cc0","https://creativecommons.org/publicdomain/zero/1.0/"],
   ["cc by 4.0","https://creativecommons.org/licenses/by/4.0/"],
-  ["cc by-sa 4.0","https://creativecommons.org/licenses/by-sa/4.0/"]
+  ["cc by-sa 4.0","https://creativecommons.org/licenses/by-sa/4.0/"],
+  ["cc by 3.0","https://creativecommons.org/licenses/by/3.0/"],
+  ["cc by-sa 3.0","https://creativecommons.org/licenses/by-sa/3.0/"],
+  ["cc by 2.0","https://creativecommons.org/licenses/by/2.0/"],
+  ["cc by-sa 2.0","https://creativecommons.org/licenses/by-sa/2.0/"]
 ]);
 const clean=(s,n=160)=>String(s??"").replace(/<[^>]*>/g," ").replace(/&(?:nbsp|amp|quot|lt|gt);/gi,m=>({"&nbsp;":" ","&amp;":"&","&quot;":'"',"&lt;":"<","&gt;":">"}[m.toLowerCase()]??m)).replace(/\s+/g," ").trim().slice(0,n);
 export function imageQueries(article){
   const fromTitle=String(article?.title??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"")
-    .replace(/[^a-zA-Z\s-]/g," ").toLowerCase().split(/\s+/).filter(w=>w.length>=4&&!STOPWORDS.has(w)).slice(0,5).join(" ");
-  const fallback=PHOTO_QUERIES[article?.topic]??"news editorial documentary";
-  // Broad fallback remains clearly labelled thematic illustration, not event documentation.
-  return [...new Set([fromTitle.length>=8?fromTitle:null,fallback].filter(Boolean))];
+    .replace(/[^a-zA-Z\s-]/g," ").toLowerCase().split(/\s+/).filter(w=>w.length>=4&&!STOPWORDS.has(w)).slice(0,2).join(" ");
+  const hint=HINTS.find(([pattern])=>pattern.test(String(article?.title??"")))?.[1];
+  const fallback=PHOTO_QUERIES[article?.topic]??"documentary";
+  // Short, targeted queries give Commons a chance; never claim this is an event photo.
+  return [...new Set([hint,fromTitle.length>=5?fromTitle:null,fallback].filter(Boolean))];
 }
 function validCommonsFileURL(raw){
   try{
@@ -64,7 +85,9 @@ export function selectImage(pages,query){
     if((info.width??0)<700||(info.height??0)<400)continue;
     const url="https://commons.wikimedia.org/wiki/"+encodeURIComponent(String(page.title).replace(/ /g,"_"));
     const terms=String(query).toLowerCase().split(/\W+/).filter(w=>w.length>=5);
-    const match=terms.filter(word=>imageTitle.toLowerCase().includes(word)).length;
+    const description=clean(ext.ImageDescription?.value,850).toLowerCase();
+    const relevant=(imageTitle+" "+description).toLowerCase();
+    const match=terms.filter(word=>relevant.includes(word)).length;
     // The Wikimedia search relevance alone does not prove exact-event identity.
     candidates.push({match,url,src:info.thumburl,
       title:imageTitle,author:artist,license:clean(ext.LicenseShortName?.value,45),
@@ -81,7 +104,19 @@ export async function searchCommons(query,fetcher=fetch){
   const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
   if(!reply.ok)throw new Error("Wikimedia Commons HTTP "+reply.status);
   const data=await reply.json();
-  return selectImage(data?.query?.pages,query);
+  const found=selectImage(data?.query?.pages,query);
+  if(!found){
+    const pages=Object.values(data?.query?.pages??{});
+    const examples=pages.slice(0,3).map(page=>({
+      title:String(page?.title??"").slice(0,55),
+      license:String(page?.imageinfo?.[0]?.extmetadata?.LicenseShortName?.value??"none").slice(0,35),
+      mime:String(page?.imageinfo?.[0]?.mime??"none").slice(0,35),
+      thumb:Boolean(page?.imageinfo?.[0]?.thumburl),
+      author:Boolean(page?.imageinfo?.[0]?.extmetadata?.Artist?.value)
+    }));
+    console.log("MUNDI Wikimedia query diagnostic:",JSON.stringify({query,pages:pages.length,examples}));
+  }
+  return found;
 }
 export async function downloadPhoto(candidate,fetcher=fetch){
   if(!validCommonsFileURL(candidate.src))throw new Error("Image host is not Wikimedia uploads");

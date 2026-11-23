@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>MUNDI — Laboratoire d'animation éditoriale V2 (hors production)</title>
+<style>
+:root {
+  --night:#101d30;--ivory:#f3f0e8;--mint:#89e1ca;--blue:#7da8dd;
+  --font-ui:"DM Sans",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-editorial:"Fraunces",Iowan Old Style,Georgia,serif;
+  --ease:cubic-bezier(.2,.72,.23,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#08111d;color:var(--ivory);font-family:var(--font-ui)}
+html{scroll-behavior:smooth}
+a,button{color:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offset:5px}
+.skip{position:fixed;top:-100px;left:16px;z-index:30;background:#fff;color:#000;padding:12px}
+.skip:focus{top:14px}
+.chrome{position:fixed;z-index:20;left:0;right:0;top:0;padding:calc(env(safe-area-inset-top) + 18px) clamp(19px,3vw,54px) 12px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.brand{font-weight:780;letter-spacing:.28em;font-size:clamp(16px,2vw,25px);line-height:1;pointer-events:auto}
+.brand span{color:var(--mint)}
+.chrome-end{display:flex;gap:18px;align-items:center;pointer-events:auto}
+.chrome-end button{border:0;background:transparent;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700;opacity:.85;padding:8px 0}
+.progress{position:fixed;top:calc(env(safe-area-inset-top) + 2px);left:0;right:0;display:flex;gap:4px;z-index:25;padding:0 clamp(19px,3vw,54px)}
+.progress button{flex:1;border:0;padding:0;height:2px;background:rgba(255,255,255,.25);transition:background .3s}
+.progress button[aria-current="step"]{background:var(--mint)}
+.stage{height:100dvh;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior-y:contain;scrollbar-width:none}
+.stage::-webkit-scrollbar{display:none}
+.scene{height:100dvh;min-height:500px;scroll-snap-align:start;scroll-snap-stop:always;position:relative;isolation:isolate;overflow:hidden;background:#0e1a2b}
+.scene__image{position:absolute;inset:-6%;background-size:cover;background-position:center;transform:scale(1.08);will-change:transform;opacity:.9}
+.scene__veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,10,21,.46) 0,rgba(3,10,21,.08) 32%,rgba(3,10,21,.14) 52%,rgba(3,10,21,.87) 94%)}
+.scene--two .scene__veil{background:linear-gradient(180deg,rgba(3,10,21,.55) 0,rgba(3,10,21,.04) 45%,rgba(3,10,21,.9) 95%)}
+.scene--three .scene__veil{background:linear-gradient(180deg,rgba(3,10,21,.55) 0,rgba(3,10,21,.05) 47%,rgba(3,10,21,.88) 95%)}
+.scene__stripe{position:absolute;left:0;top:25%;width:44%;max-width:330px;height:1px;background:linear-gradient(90deg,var(--mint),transparent);transform-origin:left}
+.scene__content{position:absolute;left:clamp(22px,6vw,116px);right:clamp(22px,6vw,116px);bottom:clamp(103px,14dvh,210px);max-width:930px}
+.eyebrow{font-size:clamp(11px,1.15vw,15px);letter-spacing:.2em;font-weight:720;text-transform:uppercase;color:var(--mint);display:inline-block}
+.scene h1,.scene h2{font-size:clamp(3.4rem,9.4vw,9.4rem);line-height:.92;letter-spacing:-.074em;font-weight:650;margin:17px 0 0;max-width:12ch;text-wrap:balance}
+.scene--two h2{max-width:14ch;font-size:clamp(3rem,8.4vw,8rem)}
+.scene--three h2{max-width:13ch;font-size:clamp(3.1rem,8.4vw,8.2rem)}
+.em{font-family:var(--font-editorial);font-weight:400;font-style:italic;letter-spacing:-.067em;color:var(--mint)}
+.description{font-size:clamp(1rem,2vw,1.5rem);line-height:1.23;letter-spacing:-.022em;max-width:34ch;margin:clamp(16px,3vw,35px) 0 0;color:#e0e9e7}
+.rule{width:clamp(56px,8vw,100px);height:2px;background:var(--mint);margin:26px 0 0}
+.scene__foot{position:absolute;left:clamp(22px,6vw,116px);right:clamp(22px,6vw,116px);bottom:calc(env(safe-area-inset-bottom) + 30px);display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.07em}
+.scene__foot span{color:#d9e5e5;opacity:.8}
+.scene__foot button{padding:9px 0;border:0;border-bottom:1px solid #87d7c3;background:transparent;font-weight:700;font-size:12px}
+.line{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.09em}
+.line > span{display:inline-block;opacity:0;transform:translateY(105%);transition:transform .85s var(--ease),opacity .9s}
+.scene.is-active .line > span{opacity:1;transform:translateY(0)}
+.scene.is-active .line:nth-child(2) > span{transition-delay:.13s}
+.scene.is-active .line:nth-child(3) > span{transition-delay:.24s}
+.eyebrow,.description,.rule{opacity:0;transform:translateY(15px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.scene.is-active .eyebrow{opacity:1;transform:translateY(0);transition-delay:.08s}
+.scene.is-active .description{opacity:1;transform:translateY(0);transition-delay:.33s}
+.scene.is-active .rule{opacity:1;transform:translateY(0);transition-delay:.42s}
+.scene.is-active .scene__image{animation:drift 18s ease-in-out infinite alternate}
+.scene.is-active .scene__stripe{animation:thread 4.2s var(--ease) both}
+@keyframes drift{from{transform:scale(1.08) translate3d(-1%,0,0)}to{transform:scale(1.18) translate3d(1.5%,-1%,0)}}
+@keyframes thread{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:.9}}
+/* Minimal chrome, no rounded cards, no fake controls and no animations that encode data. */
+.legend{position:absolute;right:clamp(22px,6vw,116px);top:27%;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#c4d3d4;opacity:.72}
+.story-dots{display:flex;gap:9px}
+.story-dots i{width:5px;height:5px;border:1px solid currentColor;display:block;transform:rotate(45deg)}
+.story-dots i.active{background:var(--mint);border-color:var(--mint)}
+@media (min-width:900px){.scene__content{bottom:15dvh}.scene__foot{bottom:40px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .scene__image{transform:none!important}
+  .eyebrow,.description,.rule,.line > span{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#scene-one">Aller au récit</a>
+<header class="chrome">
+  <div class="brand" aria-label="MUNDI">MUNDI<span>.</span></div>
+  <div class="chrome-end">
+    <button id="pause" type="button" aria-pressed="false" aria-label="Mettre les animations en pause">Pause</button>
+    <span aria-hidden="true" style="width:24px;height:1px;background:var(--mint)"></span>
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em">STUDIO</span>
+  </div>
+</header>
+<nav class="progress" aria-label="Écrans de la démonstration">
+  <button type="button" data-go="0" aria-current="step" aria-label="Aller au premier écran"></button>
+  <button type="button" data-go="1" aria-label="Aller au deuxième écran"></button>
+  <button type="button" data-go="2" aria-label="Aller au troisième écran"></button>
+</nav>
+<main class="stage" id="stage">
+  <section class="scene scene--one is-active" id="scene-one" aria-label="Ouverture éditoriale">
+    <div class="scene__image" style="background-image:url('./fond-matiere.svg')" aria-hidden="true"></div>
+    <div class="scene__veil" aria-hidden="true"></div><div class="scene__stripe" aria-hidden="true"></div>
+    <span class="legend" aria-hidden="true">Matière / perspective / immersion</span>
+    <div class="scene__content">
+      <span class="eyebrow">MUNDI / Le monde en profondeur</span>
+      <h1><span class="line"><span>L’envers</span></span> <span class="line"><span>de nos</span></span> <span class="line"><span class="em">vêtements.</span></span></h1>
+      <div class="rule"></div>
+      <p class="description">Un récit qui commence par une image, et révèle ce qu’elle ne montre pas.</p>
+    </div>
+    <div class="scene__foot"><span>Direction artistique · non publié</span><button type="button" data-next>Continuer ↓</button></div>
+  </section>
+  <section class="scene scene--two" id="scene-two" aria-label="Comprendre les données">
+    <div class="scene__image" style="background-image:url('./fond-trames.svg')" aria-hidden="true"></div>
+    <div class="scene__veil" aria-hidden="true"></div><div class="scene__stripe" aria-hidden="true"></div>
+    <span class="legend" aria-hidden="true">Comprendre sans simplifier à tort</span>
+    <div class="scene__content">
+      <span class="eyebrow">Quand les mots changent le sens</span>
+      <h2><span class="line"><span>Un chiffre.</span></span><br><span class="line"><span>Un <span class="em">contexte.</span></span></span></h2>
+      <div class="rule"></div>
+      <p class="description">Les données apparaissent ici en texte vivant et en graphiques précis. Jamais incrustées dans une image.</p>
+    </div>
+    <div class="scene__foot"><span>Typographie native · données séparées</span><button type="button" data-next>Voir la suite ↓</button></div>
+  </section>
+  <section class="scene scene--three" id="scene-three" aria-label="Comprendre les mécanismes">
+    <div class="scene__image" style="background-image:url('./fond-flux.svg')" aria-hidden="true"></div>
+    <div class="scene__veil" aria-hidden="true"></div><div class="scene__stripe" aria-hidden="true"></div>
+    <span class="legend" aria-hidden="true">Décrypter / questionner / aller plus loin</span>
+    <div class="scene__content">
+      <span class="eyebrow">L'information devient une expérience</span>
+      <h2><span class="line"><span>Voir.</span></span><br><span class="line"><span>Comprendre.</span></span><br><span class="line"><span class="em">Retenir.</span></span></h2>
+      <div class="rule"></div>
+      <p class="description">Du mouvement pour captiver. Des sources et des nuances pour mériter la confiance.</p>
+    </div>
+    <div class="scene__foot"><span>Prototype visuel · sans publication</span><button type="button" data-next>Recommencer ↥</button></div>
+  </section>
+</main>
+<script>
+(function(){
+  const stage=document.getElementById("stage");
+  const scenes=[...document.querySelectorAll(".scene")];
+  const progress=[...document.querySelectorAll("[data-go]")];
+  const pause=document.getElementById("pause");
+  let paused=false;
+  function go(i){scenes[(i+scenes.length)%scenes.length].scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"});}
+  progress.forEach((b,i)=>b.addEventListener("click",()=>go(i)));
+  document.querySelectorAll("[data-next]").forEach((b,i)=>b.addEventListener("click",()=>go(i+1)));
+  pause.addEventListener("click",()=>{paused=!paused;document.body.classList.toggle("paused",paused);pause.setAttribute("aria-pressed",String(paused));pause.textContent=paused?"Reprendre":"Pause";pause.setAttribute("aria-label",paused?"Reprendre les animations":"Mettre les animations en pause");document.querySelectorAll(".scene__image").forEach(x=>x.style.animationPlayState=paused?"paused":"running");});
+  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.intersectionRatio<.55)return;const i=scenes.indexOf(e.target);scenes.forEach((s,j)=>s.classList.toggle("is-active",j===i));progress.forEach((b,j)=>{if(j===i)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current");});});},{root:stage,threshold:[0,.55,.9]}).observe(scenes[0]);
+  // Each section must be observed; scrolling, buttons and touch all use native scroll-snap.
+  const obs=new IntersectionObserver(entries=>{for(const e of entries){if(!e.isIntersecting || e.intersectionRatio<.6)continue;const i=scenes.indexOf(e.target);scenes.forEach((s,j)=>s.classList.toggle("is-active",i===j));progress.forEach((b,j)=>{if(i===j)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current")});}},{root:stage,threshold:[0,.6,1]});
+  scenes.forEach(s=>obs.observe(s));
+  window.addEventListener("keydown",e=>{if(e.key!=="ArrowDown"&&e.key!=="ArrowUp")return;if(["INPUT","TEXTAREA","SELECT"].includes(document.activeElement?.tagName))return;e.preventDefault();let active=progress.findIndex(x=>x.hasAttribute("aria-current"));go(active+(e.key==="ArrowDown"?1:-1));});
+})();
+</script>
+</body>
+</html>

@@ -60,3 +60,8 @@ Les tests utilisent l'émulation « Pixel 7 » de Chromium, pas un vrai téléph
 1. Ouvrir l'aperçu Netlify sur un téléphone.
 2. Android/Chrome : menu ⋮ → « Installer l'application ». iPhone/Safari : Partager → « Sur l'écran d'accueil ».
 3. Lancer MUNDI depuis l'icône, faire défiler le fil, couper le réseau et rouvrir une page : la page « Vous êtes hors connexion » doit s'afficher.
+
+## Non-régression après le ticket #17
+
+Suite Playwright complète relancée (Chromium, profils Pixel 7 et ordinateur) : PWA et hors connexion, réseau lent, économie de données, erreurs de médias, écoute, enregistrements, clavier, sous-titres et analyse axe-core, sur le site normal et sur le site de test avec publications inventées. Safari (iOS et macOS) n'a **pas** été testé : les limites décrites plus haut s'appliquent aussi aux cartes vérifiées.
+

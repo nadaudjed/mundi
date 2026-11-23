@@ -165,3 +165,6 @@ playwright-report/
 
 # Internal newsroom research results (never deploy)
 reports/
+
+# Site de test avec publications inventées (tests E2E uniquement)
+out-fixtures/

@@ -32,7 +32,7 @@ npm run build      # génère le site statique dans out/
 npm start          # sert le dossier out/ (après build)
 npm run lint       # ESLint
 npm run typecheck  # TypeScript
-npm run test:e2e   # tests Playwright mobile + ordinateur (construit puis sert le site)
+npm run test:e2e   # tests Playwright mobile + ordinateur (construit le site normal et un site de test avec publications inventées)
 npm run media:generate  # régénère les médias de démonstration (nécessite ffmpeg)
 npm run icons:generate  # régénère les icônes de l'application installable
 ```

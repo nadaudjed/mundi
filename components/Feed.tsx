@@ -8,7 +8,7 @@ import { feedStories } from "@/lib/stories";
 import { personalizedStories, useInterests } from "@/lib/preferences";
 import { formats, getTopic, inkOn, topics } from "@/lib/topics";
 import type { Story, TopicSlug } from "@/lib/types";
-import { publishedArticles } from "@/lib/editorial";
+import type { FeedPublication } from "@/lib/verified";
 import { DemoBadge } from "./DemoBadge";
 import { InstallChip } from "./InstallButton";
 import { Icon } from "./Icon";
@@ -16,6 +16,7 @@ import { LogoMark } from "./Logo";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
 import { MediaStage } from "./MediaStage";
+import { VerifiedBadge, VerifiedCard, type CardVisual } from "./VerifiedCard";
 
 /**
  * Un écran du fil. Un récit « narratif » occupe trois écrans successifs
@@ -31,10 +32,21 @@ function toSlides(stories: Story[]): Slide[] {
   });
 }
 
-/** Sujets réellement présents dans le fil, pour ne pas proposer de filtre vide. */
-const feedTopics = topics.filter((t) => feedStories.some((s) => s.topic === t.slug));
+/**
+ * Entrées du fil unique : d'abord les publications vérifiées (si elles
+ * existent), puis un écran de séparation, puis les démonstrations.
+ */
+type Entry =
+  | { kind: "verified"; key: string; publication: FeedPublication; position: number; visual: CardVisual }
+  | { kind: "divider"; key: string }
+  | { kind: "story"; key: string; slide: Slide };
 
-export function Feed() {
+type Props = {
+  /** Publications vérifiées, fournies au moment de la construction (jamais de brouillon). */
+  verified?: FeedPublication[];
+};
+
+export function Feed({ verified = [] }: Props) {
   const [filter, setFilter] = useState<TopicSlug | "all">("all");
   const [active, setActive] = useState(0);
   const scroller = useRef<HTMLDivElement>(null);
@@ -45,8 +57,23 @@ export function Feed() {
     [filter, interests],
   );
   const slides = useMemo(() => toSlides(items), [items]);
-  const current = active < slides.length ? slides[active] : undefined;
-  const atEnd = active >= slides.length;
+  const publications = useMemo(() => (filter === "all" ? verified : verified.filter((p) => p.topic === filter)), [filter, verified]);
+  const entries = useMemo<Entry[]>(() => {
+    const list: Entry[] = publications.map((publication, position) => ({
+      kind: "verified",
+      key: `pub:${publication.slug}`,
+      publication,
+      position,
+      visual: position % 2 === 0 ? "motif" : "sobre",
+    }));
+    if (list.length > 0 && slides.length > 0) list.push({ kind: "divider", key: "divider" });
+    return list.concat(slides.map((slide) => ({ kind: "story", key: slide.key, slide })));
+  }, [publications, slides]);
+  /** Sujets réellement présents dans le fil, pour ne pas proposer de filtre vide. */
+  const feedTopics = useMemo(() => topics.filter((t) => feedStories.some((s) => s.topic === t.slug) || verified.some((p) => p.topic === t.slug)), [verified]);
+  const entry = active < entries.length ? entries[active] : undefined;
+  const current = entry?.kind === "story" ? entry.slide : undefined;
+  const atEnd = active >= entries.length;
 
   // Repère la carte visible pour l'indicateur de progression.
   useEffect(() => {
@@ -62,7 +89,7 @@ export function Feed() {
     );
     root.querySelectorAll("[data-index]").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [slides]);
+  }, [entries]);
 
   const goTo = useCallback((index: number) => {
     const root = scroller.current;
@@ -106,7 +133,7 @@ export function Feed() {
           </Link>
           <div className="flex items-center gap-2">
             <InstallChip />
-            <DemoBadge tone="light" />
+            {entry?.kind === "verified" ? <VerifiedBadge /> : <DemoBadge tone="light" />}
           </div>
         </div>
         <div
@@ -146,10 +173,16 @@ export function Feed() {
           aria-label="Fil de découverte"
           className="no-scrollbar h-full w-full touch-pan-y snap-y snap-mandatory overflow-y-scroll overscroll-y-contain md:max-w-[27rem] md:rounded-[2rem] md:shadow-2xl md:shadow-night/30 md:ring-1 md:ring-night/10"
         >
-          {slides.map((slide, i) => (
-            <FeedCard key={slide.key} slide={slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 1} />
-          ))}
-          <TransitionCard index={slides.length} onRestart={() => goTo(0)} />
+          {entries.map((e, i) =>
+            e.kind === "verified" ? (
+              <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} visual={e.visual} />
+            ) : e.kind === "divider" ? (
+              <DemoDivider key={e.key} index={i} count={items.length} />
+            ) : (
+              <FeedCard key={e.key} slide={e.slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 1} />
+            ),
+          )}
+          <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />
         </div>
 
         {/* Commandes et repères (ordinateur) */}
@@ -167,7 +200,7 @@ export function Feed() {
             <button
               type="button"
               onClick={() => goTo(active + 1)}
-              disabled={active >= slides.length}
+              disabled={active >= entries.length}
               className="flex size-12 items-center justify-center rounded-full bg-night text-ivory shadow-lg transition hover:bg-blue disabled:opacity-30"
               aria-label="Écran suivant"
             >
@@ -177,9 +210,17 @@ export function Feed() {
           <p className="text-sm text-muted" aria-live="polite" data-testid="feed-counter">
             {atEnd ? (
               <span className="font-display text-2xl text-night">Fin du fil</span>
+            ) : entry?.kind === "verified" ? (
+              <>
+                <span className="font-display text-3xl text-night">{entry.position + 1}</span> / {publications.length}
+                <span className="mt-1 block text-xs font-semibold text-[#0f6e5b]">Publications vérifiées</span>
+              </>
+            ) : entry?.kind === "divider" ? (
+              <span className="font-display text-2xl text-night">Démonstrations</span>
             ) : (
               <>
                 <span className="font-display text-3xl text-night">{(current?.storyIndex ?? 0) + 1}</span> / {items.length}
+                {verified.length > 0 && <span className="mt-1 block text-xs font-semibold text-[#7a5410]">Démonstrations</span>}
                 {current && current.steps > 1 && (
                   <span className="mt-1 block text-xs">
                     Écran {current.step + 1} sur {current.steps}
@@ -358,8 +399,7 @@ function NarrativeBody({ slide }: { slide: Slide }) {
  * Dernier écran du fil : sépare clairement les récits illustratifs des futurs
  * récits vérifiés par la rédaction. N'affiche aucune information non revue.
  */
-function TransitionCard({ index, onRestart }: { index: number; onRestart: () => void }) {
-  const count = publishedArticles.length;
+function TransitionCard({ index, count, onRestart }: { index: number; count: number; onRestart: () => void }) {
   return (
     <article
       data-index={index}
@@ -370,11 +410,23 @@ function TransitionCard({ index, onRestart }: { index: number; onRestart: () => 
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="relative">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#ffd98f]">Fin des récits illustratifs</p>
-        <h2 className="mt-3 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">Bientôt : les récits vérifiés de la rédaction</h2>
-        <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
-          Ce que vous venez de parcourir sert à tester MUNDI. Les prochains récits s&apos;appuieront sur des sources réelles,
-          vérifiées et relues par une personne avant publication.
-        </p>
+        {count === 0 ? (
+          <>
+            <h2 className="mt-3 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">Bientôt : les récits vérifiés de la rédaction</h2>
+            <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
+              Ce que vous venez de parcourir sert à tester MUNDI. Les prochains récits s&apos;appuieront sur des sources réelles,
+              vérifiées et relues par une personne avant publication.
+            </p>
+          </>
+        ) : (
+          <>
+            <h2 className="mt-3 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">Vous avez parcouru tout le fil</h2>
+            <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
+              Les publications vérifiées ouvrent le fil. Les récits qui suivent sont des démonstrations : ils servent à tester
+              MUNDI et ne relatent aucune actualité.
+            </p>
+          </>
+        )}
         <dl className="mt-6 grid grid-cols-2 gap-3 text-sm">
           <div className="rounded-2xl bg-ivory/5 p-3 ring-1 ring-amber/40">
             <dt className="text-xs font-bold uppercase tracking-wider text-[#ffd98f]">Démonstration</dt>
@@ -401,5 +453,31 @@ function TransitionCard({ index, onRestart }: { index: number; onRestart: () => 
         </div>
       </div>
     </article>
+  );
+}
+
+/** Séparation nette entre les publications vérifiées et les démonstrations. */
+function DemoDivider({ index, count }: { index: number; count: number }) {
+  return (
+    <section
+      data-index={index}
+      data-testid="demo-divider"
+      aria-label="Début des récits de démonstration"
+      className="relative flex h-full snap-start snap-always flex-col justify-end overflow-hidden bg-night px-6 pt-32 pb-12 text-ivory"
+    >
+      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="relative">
+        <DemoBadge tone="light" />
+        <h2 className="mt-4 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">La suite est illustrative</h2>
+        <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
+          Vous avez vu toutes les publications vérifiées. Les {count} récit{count > 1 ? "s" : ""} suivant{count > 1 ? "s" : ""} sont des
+          exemples pédagogiques : leurs sources et leurs dates sont fictives.
+        </p>
+        <p className="mt-5 flex items-center gap-1.5 text-xs font-medium text-ivory/65">
+          <Icon name="chevron-down" className="size-4 motion-safe:animate-bounce" />
+          Faites défiler pour continuer
+        </p>
+      </div>
+    </section>
   );
 }

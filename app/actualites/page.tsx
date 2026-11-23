@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
-import { publishedArticles } from "@/lib/editorial";
+import { formatDate } from "@/lib/format";
+import { verifiedPublications as publishedArticles } from "@/lib/verified";
 import { getTopic } from "@/lib/topics";
 
 export const metadata: Metadata = { title: "Publications vérifiées" };
@@ -16,10 +17,10 @@ export default function NewsPage() {
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {publishedArticles.map(a => (
             <Link key={a.slug} href={"/actualites/" + a.slug + "/"} className="group rounded-3xl border border-night/10 bg-paper p-6 hover:border-blue/40">
-              <p className="text-xs font-semibold uppercase tracking-wider text-blue">{getTopic(a.topic)?.name}</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-blue-ink">{getTopic(a.topic)?.name} · Vérifié</p>
               <h2 className="mt-3 font-display text-2xl font-semibold text-night group-hover:text-blue">{a.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">{a.summary}</p>
-              <p className="mt-5 text-xs text-muted">Publié le {a.publishedAt} · {a.sources.length} sources</p>
+              <p className="mt-5 text-xs text-muted">{a.fixture ? "Exemple de test · " : ""}Publié le <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time> · {a.sources.length} sources</p>
             </Link>
           ))}
         </div>

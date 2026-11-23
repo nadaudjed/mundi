@@ -103,7 +103,7 @@ export async function collectFeeds(feeds, fetcher = fetch) {
     }
   }
   const unique = [...new Map(items.map(i=>[i.link,i])).values()]
-    .sort((a,b)=>(b.publishedAt||"").localeCompare(a.publishedAt||"")).slice(0,100);
+    .sort((a,b)=>(b.publishedAt||"").localeCompare(a.publishedAt||"")).slice(0,200);
   return {generatedAt:new Date().toISOString(),
     disclaimer:"Candidats RSS/Atom non vérifiés. Ne pas publier sans revue humaine.",
     count:unique.length,items:unique,errors,sourceHealth};

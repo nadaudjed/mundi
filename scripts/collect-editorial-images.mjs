@@ -36,8 +36,6 @@ const HINTS=[
   [/p[eé]trole|gaz naturel/i,"oil platform"],
   [/photovolta[iï]que|solaire/i,"solar panels"],
   [/[eé]olien|vent/i,"wind turbines"],
-  [/for[eê]t|biodiversit[eé]/i,"forest biodiversity"],
-  [/puce|semi-conducteur|intelligence artificielle/i,"microchip"],
   [/recherche|laboratoire|exp[eé]rience/i,"laboratory"],
   // Realistic visual cues derived from each story, without claiming that a
   // stock photograph depicts the specific events or people in the article.
@@ -54,7 +52,10 @@ const HINTS=[
   [/climat|s[eé]cheresse|inondation/i,["climate monitoring station","flood risk"]],
   [/vaccin|[eé]pid[eé]mie|sant[eé] publique/i,["medical laboratory research","public health research"]],
   [/enseignement|[eé]ducation|[eé]coles|universit[eé]/i,["university students classroom","education classroom"]],
-  [/r[eé]union diplomatique|sommet international|n[eé]gociation/i,["diplomatic conference","international delegates meeting"]]
+  [/r[eé]union diplomatique|sommet international|n[eé]gociation/i,["diplomatic conference","international delegates meeting"]],
+  // Generic terms only after the subject-specific rules above.
+  [/for[eê]t|biodiversit[eé]/i,"forest biodiversity"],
+  [/puce|semi-conducteur|intelligence artificielle/i,"microchip"]
 ];
 const STOPWORDS=new Set("des les le la l et de du dans en pour par avec une un sur que qui est sont au aux ce ces cette ses entre parmi selon plus moins pourquoi comment leur leurs vous mais sans encore sous vers 2024 2025 2026 ue europa union européen européenne".split(" "));
 const BAD_TITLES=/\b(logo|icon|coat of arms|emblem|flag|map|chart|diagram|symbol|screenshot|poster|cartoon|drawing|painting|illustration|svg)\b/i;

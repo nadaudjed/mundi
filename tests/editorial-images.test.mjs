@@ -38,7 +38,7 @@ test("search URL includes category and imageinfo rights, and never exposes an AP
  assert.ok(out);
 });
 test("reject unsafe image download URL before sending any network request",async()=>{
- await assert.rejects(downloadPhoto({src:"https://evil.example/unsafe.jpg"},()=>{throw new Error("SHOULD NOT CALL")}),/not Wikimedia/);
+ await assert.rejects(downloadPhoto({src:"https://evil.example/unsafe.jpg"},()=>{throw new Error("SHOULD NOT CALL")}),/Wikimedia thumbnail CDN/);
 });
 test("each approved candidate becomes a local image and an attributed manifest entry",async()=>{
  const fs=await import("node:fs"),os=await import("node:os"),path=await import("node:path");

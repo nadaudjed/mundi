@@ -1,0 +1,30 @@
+name: MUNDI — private story preview V10
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  draft-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout internal editorial draft
+        uses: actions/checkout@v4
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate unapproved draft and narrative
+        run: node --test tests/story-preview.test.mjs
+      - name: Generate private offline HTML preview
+        run: node scripts/build-story-preview.mjs
+      - name: Upload draft preview (7 days, never public Netlify)
+        uses: actions/upload-artifact@v4
+        with:
+          name: mundi-v10-brouillon-visuel
+          path: reports/editorial-story-v10.html
+          retention-days: 7
+          if-no-files-found: error

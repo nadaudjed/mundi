@@ -1,0 +1,71 @@
+{
+  "format": "mundi-internal-story-v1",
+  "status": "draft",
+  "draftPath": "editorial/reviews/textile-2024/draft.json",
+  "scenes": [
+    {
+      "id": "ampleur",
+      "kind": "stat",
+      "kicker": "01 / La matière invisible",
+      "headline": "L’envers de nos vêtements.",
+      "value": 2.3,
+      "decimals": 1,
+      "unit": "millions de tonnes",
+      "label": "de déchets textiles générés",
+      "scope": "Union européenne",
+      "period": "2024",
+      "sourceIndex": 0,
+      "caption": "Donnée annuelle Eurostat. « Générés » ne signifie pas « recyclés »."
+    },
+    {
+      "id": "deux-flux",
+      "kind": "comparison",
+      "kicker": "02 / Deux indicateurs",
+      "headline": "Produire des déchets. Les traiter. Deux mesures.",
+      "items": [
+        {
+          "value": 2.3,
+          "decimals": 1,
+          "label": "Générés",
+          "unit": "millions de tonnes",
+          "scope": "UE",
+          "period": "2024"
+        },
+        {
+          "value": 1.4,
+          "decimals": 1,
+          "label": "Traités",
+          "unit": "millions de tonnes",
+          "scope": "UE",
+          "period": "2024"
+        }
+      ],
+      "sourceIndex": 0,
+      "caption": "Ces valeurs décrivent deux flux statistiques annuels distincts : ne pas les présenter comme le suivi d’un même lot."
+    },
+    {
+      "id": "denominateur",
+      "kind": "ratio",
+      "kicker": "03 / Le détail qui change tout",
+      "headline": "78 %… mais de quoi ?",
+      "value": 78,
+      "unit": "%",
+      "label": "de déchets textiles recyclés",
+      "denominator": "parmi les déchets textiles traités",
+      "scope": "Union européenne",
+      "period": "2024",
+      "sourceIndex": 0,
+      "caption": "Ce pourcentage ne porte pas sur la totalité des déchets textiles générés."
+    },
+    {
+      "id": "regles",
+      "kind": "context",
+      "kicker": "04 / Comprendre la suite",
+      "headline": "Qui finance la fin de vie des textiles ?",
+      "statement": "Depuis le 16 octobre 2025, une révision de la directive européenne sur les déchets est entrée en vigueur.",
+      "details": "Elle prévoit des règles communes de responsabilité élargie des producteurs : les dispositifs nationaux doivent notamment financer la collecte et la gestion des textiles en fin de vie.",
+      "uncertainty": "L’effet de ces règles sur les taux réels de recyclage reste à mesurer ; les chiffres de 2024 ne permettent pas de le prédire.",
+      "sourceIndex": 1
+    }
+  ]
+}

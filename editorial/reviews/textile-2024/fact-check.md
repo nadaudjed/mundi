@@ -39,3 +39,13 @@ Le recours à deux pages institutionnelles n'est **pas** une validation indépen
 - [ ] Choisir une véritable date de publication et créer **une autre PR** modifiant `content/publications.json` (fusion manuelle)
 
 **Important :** cette PR ne crée aucun contenu visible dans le fil ni dans `/actualites/`. Le statut reste `draft`.
+
+## Contrôle documentaire complémentaire du 23 novembre 2026
+
+Les pages institutionnelles ci-dessous ont été recherchées et retrouvées (ceci **ne remplace pas** la validation éditoriale humaine) :
+
+- [Eurostat, 12 novembre 2026](https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20261112-1) : 2,3 millions de tonnes générées ; 1,4 million de tonnes traitées en 2024 ; recyclage représentant 78 % du volume traité. L'expression « 63 % de la quantité générée cette année » est une comparaison de volumes agrégés, **pas une preuve d'un suivi matière d'une même cohorte**.
+- [Commission européenne, 16 octobre 2025](https://environment.ec.europa.eu/news/revised-waste-framework-directive-enters-force-2025-10-16_en) : entrée en vigueur de la directive révisée et règles communes de responsabilité élargie des producteurs textiles. La Commission indique des délais de transposition et de mise en place des dispositifs nationaux ; **entrée en vigueur de la directive ne veut pas dire que tous les dispositifs nationaux étaient déjà opérationnels ce jour-là**.
+- **À ne pas rapprocher sans analyse méthodologique :** des chiffres européens antérieurs sur les déchets textiles peuvent couvrir un périmètre différent. La page de la Commission cite par exemple un chiffre de 2019 d'un ordre de grandeur différent. Une tendance entre les deux années ne doit pas être déduite sans alignement des définitions.
+
+Le [prototype d'aperçu V10](../../../docs/STORY_PREVIEW_V10.md) reprend uniquement les quantités attribuées et leurs réserves : il reste hors publication publique.

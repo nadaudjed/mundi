@@ -1,0 +1,287 @@
+{
+  "format": "mundi-source-expansion-plan-v1",
+  "status": "RESEARCH_ONLY_NO_AUTOMATED_COLLECTION",
+  "disclaimer": "Liste de fournisseurs institutionnels à explorer. Aucun flux RSS, aucune licence, aucune fiabilité opérationnelle ne sont supposés approuvés par cette liste. Un nouveau fournisseur ne devient actif qu'après vérification de son URL, de ses droits et de sa pertinence.",
+  "publishers": [
+    {
+      "id": "target-01",
+      "name": "Banque centrale européenne",
+      "topics": [
+        "economie",
+        "finance"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-02",
+      "name": "Banque de France",
+      "topics": [
+        "economie",
+        "finance"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-03",
+      "name": "OCDE",
+      "topics": [
+        "economie",
+        "industrie"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-04",
+      "name": "Fonds monétaire international",
+      "topics": [
+        "economie",
+        "finance"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-05",
+      "name": "Banque mondiale",
+      "topics": [
+        "economie",
+        "afrique"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-06",
+      "name": "Banque africaine de développement",
+      "topics": [
+        "afrique",
+        "energie"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-07",
+      "name": "Union africaine",
+      "topics": [
+        "afrique",
+        "geopolitique"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-08",
+      "name": "CNUCED (UNCTAD)",
+      "topics": [
+        "economie",
+        "industrie"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-09",
+      "name": "Agence internationale de l'énergie",
+      "topics": [
+        "energie",
+        "materiaux-critiques"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-10",
+      "name": "IRENA",
+      "topics": [
+        "energie",
+        "environnement"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-11",
+      "name": "Agence européenne pour l'environnement",
+      "topics": [
+        "environnement",
+        "recyclage"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-12",
+      "name": "FAO",
+      "topics": [
+        "afrique",
+        "environnement"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-13",
+      "name": "OMS",
+      "topics": [
+        "sciences-societe",
+        "afrique"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-14",
+      "name": "PNUD",
+      "topics": [
+        "afrique",
+        "sciences-societe"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-15",
+      "name": "USGS",
+      "topics": [
+        "materiaux-critiques",
+        "industrie"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-16",
+      "name": "EITI",
+      "topics": [
+        "materiaux-critiques",
+        "afrique"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-17",
+      "name": "UIT (ITU)",
+      "topics": [
+        "technologie",
+        "sciences-societe"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-18",
+      "name": "OMPI (WIPO)",
+      "topics": [
+        "technologie",
+        "entreprises"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-19",
+      "name": "Eurostat",
+      "topics": [
+        "economie",
+        "environnement"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    },
+    {
+      "id": "target-20",
+      "name": "Commission européenne",
+      "topics": [
+        "recyclage",
+        "industrie"
+      ],
+      "rightsStatus": "pending_permission_review",
+      "feedUrl": null,
+      "rightsUrl": null,
+      "enabled": false,
+      "sourceType": "institutional_to_review",
+      "nextStep": "Localiser la source officielle ; vérifier les conditions de veille des métadonnées, les URL des flux et la complémentarité éditoriale."
+    }
+  ]
+}

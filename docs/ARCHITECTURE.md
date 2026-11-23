@@ -28,3 +28,8 @@ Lien d'évitement, navigation au clavier dans le fil, `aria-pressed` sur les bou
 
 ## Étapes suivantes possibles
 Remplacer les fixtures par un CMS éditorial avec relecture humaine, ajouter les médias (vidéo, voix off, sous-titres), l'internationalisation et des mesures d'audience respectueuses.
+
+## Médias immersifs et tests de bout en bout (ticket #5)
+- Médias du fil : `components/MediaStage.tsx`, `VideoCard.tsx`, `ImageStory.tsx`, `MediaCredit.tsx` ; bibliothèque et droits dans `lib/media.ts`. Détails : `docs/MEDIA.md`.
+- Récits découpés en écrans (accroche, fait, explication) : `lib/narratives.ts`.
+- Tests Playwright : `tests/e2e/`, configuration `playwright.config.ts`, commande `npm run test:e2e` (mobile Pixel 7 et ordinateur 1440×900).

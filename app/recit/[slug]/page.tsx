@@ -5,6 +5,7 @@ import { DemoBadge, DemoNotice } from "@/components/DemoBadge";
 import { Icon } from "@/components/Icon";
 import { MiniChart } from "@/components/MiniChart";
 import { SaveButton, ShareButton } from "@/components/StoryActions";
+import { StoryMediaFigure } from "@/components/StoryMediaFigure";
 import { StoryTile } from "@/components/StoryTile";
 import { StoryVisual } from "@/components/StoryVisual";
 import { formatDate, formatMinutes } from "@/lib/format";
@@ -98,6 +99,8 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
         </div>
 
         <DemoNotice className="mt-6" />
+
+        <StoryMediaFigure slug={story.slug} />
 
         {/* L'essentiel */}
         <section aria-labelledby="essentiel" className="mt-10">

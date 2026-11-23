@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npx serve@14 out",
+    "start": "node scripts/serve-static.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "validate:editorial": "node scripts/validate-editorial.mjs"
+    "validate:editorial": "node scripts/validate-editorial.mjs",
+    "media:generate": "node scripts/generate-demo-media.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",
@@ -19,6 +21,7 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.5",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",

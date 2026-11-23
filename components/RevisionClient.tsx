@@ -52,7 +52,7 @@ export function RevisionClient() {
                 <p className="mt-6 text-xs text-ivory/60">Auto-évaluation : indiquez si vous avez réussi à retrouver les idées principales.</p>
                 <div className="mt-4 flex flex-wrap gap-3">
                   <button type="button" onClick={() => grade(false)} className="rounded-full border border-ivory/40 px-5 py-3 text-sm font-semibold hover:bg-ivory/10">À revoir</button>
-                  <button type="button" onClick={() => grade(true)} className="rounded-full bg-mint px-5 py-3 text-sm font-semibold text-night hover:bg-mint-soft">J'ai retenu</button>
+                  <button type="button" onClick={() => grade(true)} className="rounded-full bg-mint px-5 py-3 text-sm font-semibold text-night hover:bg-mint-soft">J&apos;ai retenu</button>
                 </div>
               </div>
             ) : (
@@ -65,7 +65,7 @@ export function RevisionClient() {
         ) : (
           <div className="py-8 text-center">
             <h2 className="font-display text-3xl font-semibold">Toutes vos révisions sont à jour !</h2>
-            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ivory/75">Revenez plus tard pour retrouver vos cartes. Les intervalles s'allongent quand vous retenez les idées.</p>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ivory/75">Revenez plus tard pour retrouver vos cartes. Les intervalles s&apos;allongent quand vous retenez les idées.</p>
             <Link href="/" className="mt-6 inline-block rounded-full bg-mint px-6 py-3 text-sm font-semibold text-night">Retour au fil</Link>
           </div>
         )}
@@ -82,7 +82,7 @@ export function RevisionClient() {
         </section>
       )}
       <div className="mt-10 rounded-2xl border border-night/10 p-5 text-sm text-muted">
-        <p>La progression est enregistrée uniquement dans ce navigateur. Il ne s'agit pas d'un test de connaissances certifié.</p>
+        <p>La progression est enregistrée uniquement dans ce navigateur. Il ne s&apos;agit pas d&apos;un test de connaissances certifié.</p>
         {learned > 0 && <button type="button" onClick={() => { reset(); setSelected(null); setRevealed(false); }} className="mt-3 font-semibold text-blue underline underline-offset-4">Remettre ma progression à zéro</button>}
       </div>
     </div>

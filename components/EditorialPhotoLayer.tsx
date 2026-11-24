@@ -3,7 +3,7 @@ import { FadeImage } from "./FadeImage";
 
 /**
  * Photo documentaire d'illustration, pas une preuve ni une image de l'événement.
- * Affichée à sa taille utile (sans zoom ni mouvement) et en noir et blanc
+ * Affichée à sa taille utile (sans zoom ni mouvement) et en couleur
  * (traitement unique, --photo-filter). Elle remplit la zone qui la contient.
  * `near` : seule une photo proche de l'écran visible est téléchargée.
  */

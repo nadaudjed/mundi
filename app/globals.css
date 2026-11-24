@@ -95,8 +95,8 @@
   --demo: #7a5410;
   /* Texte posé sur un aplat d'encre (boutons pleins). */
   --on-ink: #f3f0e8;
-  /* Traitement unique des photos : noir et blanc. */
-  --photo-filter: grayscale(1) contrast(1.06);
+  /* Traitement unique des photos : en couleur, sans filtre. */
+  --photo-filter: none;
   --focus: var(--accent);
 
   /* Barre d'onglets (téléphone), posée tout en bas de l'écran, au-dessus de la
@@ -125,7 +125,7 @@
   --on-accent: #0e1521;
   --demo: #e0a43a;
   --on-ink: #0e1521;
-  --photo-filter: grayscale(1) contrast(1.04) brightness(0.9);
+  --photo-filter: brightness(0.92);
   color-scheme: dark;
   }
 }
@@ -142,7 +142,7 @@
   --on-accent: #0e1521;
   --demo: #e0a43a;
   --on-ink: #0e1521;
-  --photo-filter: grayscale(1) contrast(1.04) brightness(0.9);
+  --photo-filter: brightness(0.92);
   color-scheme: dark;
 }
 
@@ -279,7 +279,7 @@ body {
   }
 }
 
-/* Traitement unique des photos (noir et blanc), défini par --photo-filter. */
+/* Traitement unique des photos (en couleur ; légèrement assombries en mode sombre), défini par --photo-filter. */
 .photo {
   filter: var(--photo-filter);
 }

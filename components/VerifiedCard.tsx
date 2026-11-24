@@ -139,7 +139,7 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
         <Link href={href} aria-label={`Lire la publication : ${p.title}`} className="btn btn-light">
           Lire la publication
         </Link>
-        <ListenButton title={p.title} summary={p.summary} points={p.keyPoints} active={active} />
+        <ListenButton title={p.title} summary={p.summary} points={p.keyPoints} active={active} audioSrc={p.audio} />
       </div>
     </article>
   );

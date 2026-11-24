@@ -95,7 +95,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <SaveButton slug={publicationKey(a.slug)} title={a.title} />
         <ShareButton slug={a.slug} path={publicationPath(a.slug)} title={a.title} />
-        <ListenButton title={a.title} summary={a.summary} points={a.keyPoints} tone="light" />
+        <ListenButton title={a.title} summary={a.summary} points={a.keyPoints} tone="light" audioSrc={a.audio} />
       </div>
       {a.sections.map((s, i) => (
         <section key={i} className="mt-12">

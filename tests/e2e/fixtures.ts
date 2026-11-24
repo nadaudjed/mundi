@@ -22,6 +22,7 @@ export const test = base.extend<{ consoleErrors: string[]; allowedErrors: RegExp
           lang = "";
           rate = 1;
           voice: unknown = null;
+          onstart: (() => void) | null = null;
           onend: (() => void) | null = null;
           onerror: (() => void) | null = null;
           constructor(text: string) {
@@ -39,6 +40,7 @@ export const test = base.extend<{ consoleErrors: string[]; allowedErrors: RegExp
               current = u;
               spoken.push(u.text);
               this.speaking = true;
+              queueMicrotask(() => { if (current === u) u.onstart?.(); });
             },
             cancel() {
               this.speaking = false;

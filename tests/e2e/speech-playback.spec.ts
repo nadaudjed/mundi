@@ -10,7 +10,7 @@ test("mobile and desktop: audio reads short chunks, finishes, and resets its but
   await page.goto("/actualites/" + article.slug + "/");
   const listen = page.getByRole("button", { name: "Écouter le résumé" });
   await listen.click();
-  await expect(page.getByRole("button", { name: "Arrêter la lecture audio" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: "Mettre en pause la lecture audio" })).toHaveAttribute("aria-pressed", "true");
   const first = await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken);
   expect(first.length).toBe(1);
   expect(first[0].length).toBeLessThanOrEqual(240);
@@ -33,11 +33,11 @@ test("unsupported speech reports a useful message and offers retry, rather than 
   await page.evaluate(() => {
     const synth = window.speechSynthesis as unknown as { speak: (u: SpeechSynthesisUtterance) => void };
     synth.speak = (u: SpeechSynthesisUtterance) => {
-      queueMicrotask(() => u.onerror?.({ error: "not-allowed" } as SpeechSynthesisErrorEvent));
+      queueMicrotask(() => u.onerror?.({ error: "audio-busy" } as SpeechSynthesisErrorEvent));
     };
   });
   await page.getByRole("button", { name: "Écouter le résumé" }).click();
-  await expect(page.getByRole("status").filter({ hasText: "navigateur a refusé" })).toBeVisible();
+  await expect(page.getByRole("status").filter({ hasText: "sortie audio est occupée" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Écouter le résumé" })).toContainText("Réessayer");
 });
 
@@ -46,7 +46,68 @@ test("navigating away from a speaking feed card does not leave its button active
   const first = page.locator('[data-index="0"]');
   const button = first.getByRole("button", { name: "Écouter le résumé" });
   await button.click();
-  await expect(first.getByRole("button", { name: "Arrêter la lecture audio" })).toHaveAttribute("aria-pressed", "true");
+  await expect(first.getByRole("button", { name: "Mettre en pause la lecture audio" })).toHaveAttribute("aria-pressed", "true");
   await page.locator('[data-index="1"]').scrollIntoViewIfNeeded();
+  await expect(first.getByRole("button", { name: "Écouter le résumé" })).toHaveAttribute("aria-pressed", "false");
+});
+
+type Spy = { __spoken: string[] };
+const spoken = (page: import("@playwright/test").Page) => page.evaluate(() => (window as unknown as Spy).__spoken.slice());
+
+test("pause puis reprise : la voix repart du passage en cours, et Arrêter remet le bouton à zéro", async ({ page }) => {
+  const article = articles[0];
+  test.skip(!article, "No published article");
+  await page.goto("/actualites/" + article.slug + "/");
+  await page.getByRole("button", { name: "Écouter le résumé" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Lecture en cours" })).toHaveCount(1);
+  await page.evaluate(() => (window.speechSynthesis as unknown as { finish: () => void }).finish());
+  const before = await spoken(page);
+  expect(before).toHaveLength(2);
+
+  await page.getByRole("button", { name: "Mettre en pause la lecture audio" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "En pause" })).toHaveCount(1);
+  expect(await page.evaluate(() => window.speechSynthesis.speaking)).toBe(false);
+
+  await page.getByRole("button", { name: "Reprendre la lecture audio" }).click();
+  await expect(page.getByRole("button", { name: "Mettre en pause la lecture audio" })).toBeVisible();
+  const after = await spoken(page);
+  expect(after).toHaveLength(3);
+  expect(after[2]).toBe(before[1]);
+
+  await page.getByRole("button", { name: "Arrêter la lecture audio" }).click();
+  await expect(page.getByRole("button", { name: "Écouter le résumé" })).toHaveAttribute("aria-pressed", "false");
+  await expect(page.getByRole("button", { name: "Arrêter la lecture audio" })).toHaveCount(0);
+});
+
+test("moteur vocal figé (iPhone) : la lecture est relancée automatiquement une fois", async ({ page }) => {
+  const article = articles[0];
+  test.skip(!article, "No published article");
+  await page.goto("/actualites/" + article.slug + "/");
+  await page.evaluate(() => {
+    const synth = window.speechSynthesis as unknown as { speak: (u: SpeechSynthesisUtterance) => void };
+    const real = synth.speak.bind(synth);
+    let first = true;
+    // Le premier appel est ignoré en silence, comme Safari après un cancel().
+    synth.speak = (u: SpeechSynthesisUtterance) => {
+      if (first) { first = false; (window as unknown as Spy).__spoken.push("(ignoré)"); return; }
+      real(u);
+    };
+  });
+  await page.getByRole("button", { name: "Écouter le résumé" }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Lecture en cours" })).toHaveCount(1, { timeout: 6000 });
+  const s = await spoken(page);
+  expect(s[0]).toBe("(ignoré)");
+  expect(s).toHaveLength(2);
+});
+
+test("écouter une deuxième carte arrête la première", async ({ page }) => {
+  await page.goto("/");
+  const first = page.locator('[data-index="0"]');
+  await first.getByRole("button", { name: "Écouter le résumé" }).click();
+  await expect(first.getByRole("button", { name: "Mettre en pause la lecture audio" })).toBeVisible();
+  await page.locator('[data-index="1"]').scrollIntoViewIfNeeded();
+  const second = page.locator('[data-index="1"]');
+  await second.getByRole("button", { name: "Écouter le résumé" }).click();
+  await expect(second.getByRole("button", { name: "Mettre en pause la lecture audio" })).toBeVisible();
   await expect(first.getByRole("button", { name: "Écouter le résumé" })).toHaveAttribute("aria-pressed", "false");
 });

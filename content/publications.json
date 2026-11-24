@@ -69,7 +69,8 @@
             "period": "2026"
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "car carrier ship"
       },
       {
         "id": "part-marques-chinoises",
@@ -98,7 +99,8 @@
             "denominator": "ventes d'hybrides rechargeables en Europe"
           }
         ],
-        "presentation": "valeurs-distinctes"
+        "presentation": "valeurs-distinctes",
+        "imageQuery": "BYD electric car"
       }
     ]
   },
@@ -187,7 +189,8 @@
         },
         "context": "Plus de 28 600 personnes infectées selon l'OMS ; Britannica juge les chiffres réels plus élevés."
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "charbon-et-acier-comment-la-ceca-a-lance-la-politique-industrielle-europeenne",
@@ -296,7 +299,8 @@
         },
         "context": "France, RFA, Belgique, Luxembourg, Pays-Bas et Italie, selon l'Insee."
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "1973-l-embargo-petrolier-qui-a-invente-les-stocks-strategiques-d-energie",
@@ -402,7 +406,8 @@
         ],
         "layout": "sequence"
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "ver-morris-1988-la-premiere-cyberattaque-d-internet",
@@ -493,7 +498,8 @@
         },
         "context": "Avec trois ans de mise à l’épreuve et plus de 10 000 dollars d’amende, selon Cornell."
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "semaine-europeenne-de-la-reduction-des-dechets-ou-en-est-le-recyclage-en-france",
@@ -604,7 +610,8 @@
         ],
         "presentation": "valeurs-distinctes"
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "enron-2001-la-faillite-qui-a-change-les-regles-de-la-comptabilite-des",
@@ -710,7 +717,8 @@
         ],
         "layout": "sequence"
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "une-boite-oubliee-en-1928-comment-fleming-a-decouvert-la-penicilline",
@@ -816,7 +824,8 @@
           "decimals": 1
         }
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "nuremberg-1945-le-proces-qui-a-fait-des-crimes-contre-l-humanite-un-crime",
@@ -926,7 +935,8 @@
         },
         "context": "161 ont été condamnés et 37 condamnés à mort."
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "de-bretton-woods-au-choc-nixon-comment-le-dollar-a-cesse-d-etre-convertible-en",
@@ -1036,7 +1046,8 @@
         ],
         "layout": "sequence"
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "lundi-noir-de-1987-le-krach-qui-a-invente-les-coupe-circuits-boursiers",
@@ -1105,7 +1116,8 @@
           "denominator": "niveau de clôture de la séance précédente",
           "decimals": 1
         },
-        "context": "Soit 508 points."
+        "context": "Soit 508 points.",
+        "imageQuery": "stock exchange trading floor"
       },
       {
         "id": "coupe-circuits-seuils",
@@ -1142,7 +1154,8 @@
             "denominator": "niveau de référence de l'indice"
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "stock ticker"
       }
     ]
   },
@@ -1250,7 +1263,8 @@
         },
         "context": "La demande vise aussi plus de 30 mesures chinoises."
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "koko-1988-le-scandale-des-futs-toxiques-qui-a-donne-naissance-a-la-convention-de",
@@ -1355,7 +1369,8 @@
           "period": "20 au 22 mars 1989"
         }
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "trou-dans-la-couche-d-ozone-la-decouverte-de-1985-qui-a-mene-a-un-accord-mondial",
@@ -1426,7 +1441,8 @@
           "scope": "Antarctique",
           "period": "Moins d'une décennie avant 1985",
           "denominator": "niveaux d'ozone antérieurs"
-        }
+        },
+        "imageQuery": "Halley research station"
       },
       {
         "id": "ozone-chronologie",
@@ -1459,7 +1475,8 @@
             "nature": "hypothese"
           }
         ],
-        "layout": "sequence"
+        "layout": "sequence",
+        "imageQuery": "aerosol spray can"
       }
     ]
   },
@@ -1537,7 +1554,8 @@
             "decimals": 1
           }
         ],
-        "presentation": "valeurs-distinctes"
+        "presentation": "valeurs-distinctes",
+        "imageQuery": "women engineers"
       },
       {
         "id": "ecart-emploi-evolution",
@@ -1574,7 +1592,8 @@
             "decimals": 1
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "female factory workers"
       }
     ]
   },
@@ -1670,7 +1689,8 @@
           "denominator": "résidents français"
         }
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "industrie-le-climat-des-affaires-se-replie-a-104-en-novembre-les-stocks-gonflent",
@@ -1753,7 +1773,8 @@
             "period": "novembre 2026"
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "factory production line"
       },
       {
         "id": "stocks-produits-finis",
@@ -1787,7 +1808,8 @@
             "period": "longue période"
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "warehouse pallets"
       }
     ]
   },
@@ -1891,7 +1913,8 @@
           "period": "2026"
         }
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "gaz-les-stocks-francais-tombent-a-73-2-avant-le-prix-repere-record-de-decembre",
@@ -1980,7 +2003,8 @@
             "decimals": 1
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "underground gas storage"
       },
       {
         "id": "prix-repere-gaz",
@@ -2025,7 +2049,8 @@
             "decimals": 2
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "gas meter"
       }
     ]
   },
@@ -2139,7 +2164,8 @@
         ],
         "layout": "sequence"
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "creations-d-entreprises-repli-de-4-5-en-octobre-mais-forte-hausse-sur-un-an",
@@ -2228,7 +2254,8 @@
             "period": "octobre 2026"
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "small shop owner"
       },
       {
         "id": "creations-octobre-un-an",
@@ -2255,7 +2282,8 @@
             "period": "octobre 2026"
           }
         ],
-        "presentation": "echelle-commune"
+        "presentation": "echelle-commune",
+        "imageQuery": "coworking space"
       }
     ]
   },
@@ -2382,7 +2410,8 @@
         ],
         "presentation": "echelle-commune"
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "meteo-northrop-grumman-fabriquera-trois-sondeurs-pour-les-satellites-neon-de-la",
@@ -2479,7 +2508,8 @@
         ],
         "layout": "sequence"
       }
-    ]
+    ],
+    "dataCardsInFeed": false
   },
   {
     "slug": "russie-la-commission-propose-un-22e-paquet-de-sanctions-visant-60-banques-et-le",
@@ -4005,7 +4035,8 @@
         "scene": {
           "backdrop": "fond-matiere",
           "focus": "centre"
-        }
+        },
+        "imageQuery": "used clothing pile"
       },
       {
         "id": "textile-flux-distincts",
@@ -4044,7 +4075,8 @@
         "scene": {
           "backdrop": "fond-trames",
           "focus": "centre"
-        }
+        },
+        "imageQuery": "textile waste"
       },
       {
         "id": "textile-part-recyclee",
@@ -4074,7 +4106,8 @@
         "scene": {
           "backdrop": "fond-trames",
           "focus": "centre"
-        }
+        },
+        "imageQuery": "textile recycling"
       },
       {
         "id": "textile-regles-europeennes",
@@ -4112,7 +4145,8 @@
         "scene": {
           "backdrop": "fond-flux",
           "focus": "centre"
-        }
+        },
+        "imageQuery": "second hand clothing shop"
       }
     ]
   }

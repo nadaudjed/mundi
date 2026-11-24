@@ -266,3 +266,12 @@ test("news must carry the date of the event, within the last 31 days",()=>{
   assert.ok(validateResearchDraft({...draft,eventDate:"2026-12-20"},job).some(e=>e.startsWith("eventDate")));
   assert.ok(!validateResearchDraft(noDate,{...job,role:"professor"}).some(e=>e.startsWith("eventDate")));
 });
+
+test("cartes « Données » : environ un article sur trois seulement, pour varier le fil",()=>{
+  const p=plan();
+  const n=p.jobs.filter(j=>j.dataCards===true).length;
+  assert.equal(n,Math.ceil(p.jobs.length/3));
+  assert.equal(p.counts.withDataCards,n);
+  assert.ok(p.jobs.every(j=>typeof j.dataCards==="boolean"));
+  assert.deepEqual(plan().jobs.map(j=>j.dataCards),p.jobs.map(j=>j.dataCards),"tirage stable");
+});

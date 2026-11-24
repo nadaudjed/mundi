@@ -65,6 +65,11 @@ type CardBase = {
   style?: DataCardStyle;
   /** Fond plein écran facultatif (registre approuvé, lib/scenes.ts). Le texte reste au premier plan. */
   scene?: SceneRef;
+  /**
+   * Recherche de la photo propre à cette carte (Wikimedia Commons, scripts/collect-editorial-images.mjs).
+   * La photo trouvée est différente de celle de l'article et des autres cartes ; sans photo, la carte reste en texte.
+   */
+  imageQuery?: string;
 };
 
 export type StatCard = CardBase & { kind: "stat"; measure: Measure; context?: string };
@@ -153,6 +158,7 @@ export function validateDataCards(value: unknown): string[] {
     if (!isText(s.label, 2, 120) || !httpsUrl(s.url)) errors.push(`${where} : source HTTPS requise`);
     if (!isDate(c.asOf)) errors.push(`${where} : date de la donnée invalide (AAAA-MM-JJ)`);
     if (c.note !== undefined && !isText(c.note, 3, 400)) errors.push(`${where} : note méthodologique invalide`);
+    if (c.imageQuery !== undefined && !isText(c.imageQuery, 3, 80)) errors.push(`${where} : recherche de photo invalide (3 à 80 caractères)`);
     checkVisual(c.visual, where, errors);
     if (c.scene !== undefined) {
       const sc = (c.scene ?? {}) as Record<string, unknown>;

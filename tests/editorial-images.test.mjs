@@ -153,3 +153,33 @@ test("une journée complète (48 publications) est couverte en un seul passage",
     download:async()=>({ext:"jpg",buffer:Buffer.alloc(5000)})});
   assert.equal(result.report.filter(r=>r.status==="added").length,48);
 });
+
+test("cartes « Données » : une photo propre à chaque carte, différente de l'article et des autres cartes",async()=>{
+ const fs=await import("node:fs"),os=await import("node:os"),path=await import("node:path");
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),"mundi-cards-"));
+ try{
+   const fake=Buffer.concat([Buffer.from([0xff,0xd8,0xff,0xe0]),Buffer.alloc(5000)]);
+   const article={slug:"article-a",src:"/media/editorial/article-a.jpg",sourceUrl:"https://commons.wikimedia.org/wiki/File%3AA.jpg"};
+   const pool=["File:A.jpg","File:Gas meter in a house.jpg","File:Gas meter close-up.jpg"].map(t=>candidate(t));
+   const calls=[];
+   const search=async(query,_f,options={})=>{calls.push({query,options});return selectImage(pool,query,options);};
+   const pubs=[
+     {status:"published",slug:"article-a",title:"Gaz",topic:"energie",dataCards:[{id:"c1",imageQuery:"gas meter"},{id:"c2",imageQuery:"gas meter"},{id:"c3"}]},
+     {status:"published",slug:"article-b",title:"Autre",topic:"energie",dataCardsInFeed:false,dataCards:[{id:"x1",imageQuery:"gas meter"}]}];
+   const r=await collectEditorialImages(pubs,[article],{root,max:8,search,download:async()=>({ext:"jpg",buffer:fake}),day:"2026-11-24"});
+   const cards=r.images.filter(x=>x.card);
+   assert.deepEqual(cards.map(x=>[x.publication,x.card,x.slug]),[["article-a","c1","article-a-carte-c1"],["article-a","c2","article-a-carte-c2"]]);
+   assert.equal(new Set([article.sourceUrl,...cards.map(x=>x.sourceUrl)]).size,3,"trois photos différentes");
+   assert.ok(calls.filter(c=>c.query==="gas meter").every(c=>c.options.strict),"recherche stricte pour les cartes");
+   assert.ok(!r.images.some(x=>x.publication==="article-b"),"pas de photo pour un article qui n'est pas en cartes");
+   // Carte retirée du fil : sa photo quitte le catalogue.
+   const again=await collectEditorialImages([{...pubs[0],dataCardsInFeed:false}],r.images,{root,max:8,search,download:async()=>({ext:"jpg",buffer:fake})});
+   assert.equal(again.images.filter(x=>x.card).length,0);
+ }finally{fs.rmSync(root,{recursive:true,force:true})}
+});
+test("photo de carte : tous les mots de la recherche doivent figurer, sinon pas de photo",()=>{
+ assert.equal(selectImage([candidate("File:Gas station at night.jpg")],"gas meter",{strict:true}),null);
+ assert.ok(selectImage([candidate("File:Old gas meter.jpg")],"gas meter",{strict:true}));
+ const used=new Set(["https://commons.wikimedia.org/wiki/File%3AOld_gas_meter.jpg"]);
+ assert.equal(selectImage([candidate("File:Old gas meter.jpg")],"gas meter",{strict:true,exclude:used}),null);
+});

@@ -28,3 +28,6 @@ Wikimedia Commons utilise désormais également le CDN officiel thumb.wikimedia.
 
 ## Contrôle de pertinence (incident du 23 novembre)
 Le premier chargement de photos réelles avait sélectionné une famille de lions pour des ménages européens, un document budgétaire népalais pour la dette publique européenne et une poubelle vandalisée pour le tri textile. Ces associations ont été supprimées immédiatement du catalogue public. Une recherche dédiée par sujet précis, sans repli vague, et des règles thématiques de refus empêchent ces erreurs connues. L'approche reste heuristique : pour les événements politiques ou toute photo présentée comme documentaire, une vérification humaine reste nécessaire. Si aucune image suffisamment claire n'est trouvée, conserver le décor abstrait.
+
+## Photos des cartes « Données »
+Chaque carte « Données » montrée dans le fil a sa propre photo, cherchée avec son `imageQuery`, jamais celle de l'article ni d'une autre carte. La recherche est plus stricte que pour les articles : tous ses mots doivent figurer dans le titre ou la description de l'image. Sans résultat, la carte reste en texte. Détails dans `docs/DATA_CARDS.md`.

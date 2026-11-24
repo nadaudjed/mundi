@@ -12,6 +12,7 @@ on:
       - '.github/workflows/editorial-inbox.yml'
   schedule:
     - cron: '23 6 * * *'
+    - cron: '23 11 * * *'
 
 permissions:
   contents: read

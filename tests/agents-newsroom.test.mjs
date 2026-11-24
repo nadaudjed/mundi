@@ -69,7 +69,7 @@ test("AI-key absence results in planning reports only, never fabricated drafts",
   assert.ok(out.outputs.every(x=>x.draft===null&&x.assessment.safeForAutopublication===false));
 });
 const draft={
-  topic:"energie",contentType:"today",title:"Électricité : comprendre les réseaux",
+  topic:"energie",contentType:"today",eventDate:"2026-11-22",title:"Électricité : comprendre les réseaux",
   summary:"Une explication prudente des réseaux et du fonctionnement des équilibres électriques.",
   keyPoints:["Une idée importante sur les réseaux électriques.","Un deuxième point avec ses limites.","Le dernier point à lire avec ses sources."],
   sections:[{kind:"fait",heading:"Le mécanisme",text:"La variation de la demande appelle des ajustements permanents de la production et du réseau."},
@@ -256,4 +256,13 @@ test("règle des titres : 90 caractères au plus, sans parenthèse méthodologiq
   assert.deepEqual(titleRuleProblems("Électricité : comprendre les réseaux"),[]);
   assert.match(titleRuleProblems("Ménages avec enfants : 23,3 % en 2025 (23,4 % dans une publication de mai)").join(" "),/parenthesis/);
   assert.match(titleRuleProblems("x".repeat(91)).join(" "),/longer than 90/);
+});
+test("news must carry the date of the event, within the last 31 days",()=>{
+  const job={role:"journalist",topic:"energie",date:"2026-11-23"};
+  const ok=validateResearchDraft(structuredClone(draft),job);
+  assert.ok(!ok.some(e=>e.startsWith("eventDate")));
+  const {eventDate,...noDate}=structuredClone(draft);
+  assert.ok(validateResearchDraft(noDate,job).some(e=>e.startsWith("eventDate")));
+  assert.ok(validateResearchDraft({...draft,eventDate:"2026-12-20"},job).some(e=>e.startsWith("eventDate")));
+  assert.ok(!validateResearchDraft(noDate,{...job,role:"professor"}).some(e=>e.startsWith("eventDate")));
 });

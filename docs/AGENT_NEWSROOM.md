@@ -136,3 +136,17 @@ La limite de 5 doit aussi compter les articles IA **déjà publiés le même jou
 - **Coûts** : chaque journée enregistre le nombre d'appels, de jetons, de recherches web, de nouvelles tentatives et un coût estimé (tarifs publics ; la console Anthropic fait foi).
 - **Tableau de bord** : workflow `MUNDI — tableau de bord et alertes` (10:35 UTC, sans IA) ; artefact privé `mundi-ops-dashboard` ; une issue `alerte-mundi` est ouverte (e-mail GitHub) si une source tombe, si la collecte ou les agents s'arrêtent, si aucun brouillon n'est produit, si le coût dépasse `MUNDI_DAILY_BUDGET_USD` (défaut 10 $) ou si Netlify n'affiche pas les derniers articles ; elle se ferme seule quand tout redevient normal.
 - **Corriger ou retirer un article** : workflow manuel `MUNDI — corriger ou retirer un article` (adresse, action, explication). Une correction est affichée et datée sur la page ; un retrait masque l'article sans effacer sa trace.
+
+## Cadence (décidée le 24/11/2026)
+
+- **Mois 1 et 2 (enrichissement)** : deux éditions par jour sur l'abonnement Claude Max.
+  - Matin : rédaction 8h37-8h43, vérification 9h03/9h13, révision 9h35, rattrapage 10h07, publication 10h37 (Paris).
+  - Après-midi : rédaction 13h41-13h47, vérification 14h11/14h17, révision 14h29, rattrapage 14h43, publication 14h58.
+  - Matin : 12 actualités + 12 concepts. Après-midi : 12 actualités nouvelles + 12 récits (histoire vraie, épisode
+    historique, idéologie, reliés à l'actualité). Plafond : 48 publications par jour.
+  - Rédacteurs et révision sur un modèle plus léger (Sonnet) ; vérificateurs sur le modèle fort, contrôles inchangés.
+- **À partir du 3e mois (régulation, à faire plus tard)** : les professeurs passent à 1 ou 2 tournées par jour, et des
+  agents de régulation proposeront de retirer ou fusionner les sujets devenus inutiles. Rien n'est activé pour l'instant.
+
+Chaque actualité porte `eventDate` (jour de l'événement ou de son annonce officielle, contrôlé par le vérificateur) et
+`kind` (`actualite`, `concept` ou `recit`) dans `content/publications.json`.

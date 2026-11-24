@@ -14,6 +14,15 @@ Le workflow `agent-newsroom.yml` (API payante) ne reste qu'en secours manuel.
 - Le site affiche « Contrôle IA, sans relecture humaine » : ne jamais prétendre à une relecture humaine.
 - Ne jamais afficher de clé ou de jeton dans un message ou un fichier.
 
+## Deux éditions par jour
+
+- **Matin** (par défaut) : dossier `editorial/agents/max/<date>/`, 12 actualités + 12 concepts.
+- **Après-midi** : si le prompt de la tâche dit `MUNDI_EDITION=aprem`, préfixer **chaque** commande
+  `node scripts/max-newsroom.mjs …` par `MUNDI_EDITION=aprem` (en plus de `MUNDI_STOCK_DIR=…`). Dossier
+  `editorial/agents/max/<date>-aprem/` : 12 actualités nouvelles (jamais une piste déjà donnée le matin) et 12 **récits**
+  des professeurs : une histoire vraie (épisode historique, tournant, crise, découverte, idéologie) reliée de près ou de
+  loin à l'actualité, avec les mêmes exigences de sources. Ne jamais toucher au dossier de l'autre édition.
+
 ## Mise en place (toutes les tâches)
 
 ```bash

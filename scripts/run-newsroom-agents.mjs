@@ -56,6 +56,13 @@ export function validateResearchDraft(draft,job){
     errors.push("Every claim link must be listed in sources");
   if(draft.topic!==job.topic)errors.push("Topic must match assignment");
   if(!["today","evergreen"].includes(draft.contentType))errors.push("Invalid content type");
+  // News must say when the event happened (shown to readers to limit misinformation).
+  if(job.role==="journalist"){
+    const d=typeof draft.eventDate==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(draft.eventDate)?Date.parse(draft.eventDate+"T00:00:00Z"):NaN;
+    const ref=Date.parse((job.date||"").slice(0,10)+"T00:00:00Z");
+    if(!Number.isFinite(d))errors.push("eventDate (AAAA-MM-JJ) required for news");
+    else if(Number.isFinite(ref)&&(d>ref+86400000||d<ref-31*86400000))errors.push("eventDate must be within the last 31 days");
+  }
   return errors;
 }
 export function assessReview(draft,review,job){
@@ -95,11 +102,13 @@ export const WRITER_SYSTEM=[
 "Retourne UNIQUEMENT un objet JSON contenant : topic, contentType (today ou evergreen), title, summary, keyPoints (EXACTEMENT 3 chaînes, chacune de 15 à 350 caractères),",
 "sections (au moins 2 objets {kind: fait/analyse/hypothese,heading,text}), sources (objets {label,url}),",
 "claims (objets {statement,evidenceUrls}). Chaque affirmation vérifiable nécessite ses URL.",
+"Pour une actualité, ajoute eventDate (AAAA-MM-JJ) : le jour où l'événement s'est produit ou a été officiellement annoncé, tel qu'il figure dans une source consultée (pas la date de ta rédaction).",
 "Règle stricte : chaque URL citée dans claims.evidenceUrls doit aussi figurer, à l identique, dans sources ; sinon le brouillon est rejeté automatiquement."
 ].join(" ");
 export const CHECKER_SYSTEM=[
 "Tu es le rédacteur en chef vérificateur MUNDI, distinct du rédacteur. Cherche à réfuter les affirmations.",
 "Utilise web_search indépendamment. Recontrôle dates, nombres, dénominateurs, périmètres, sources et leur indépendance.",
+"Pour une actualité, vérifie que eventDate est bien le jour de l'événement ou de son annonce officielle ; une date fausse ou absente impose needs_review.",
 "N'accepte jamais une source inventée, une page non consultée, un titre RSS pris pour une preuve, une extrapolation ni une prévision présentée comme fait.",
 "sensitiveFlags signale, pour information, ces catégories : élections ou politique partisane, guerre, conflit armé ou terrorisme, santé ou médical, justice, crime ou accusation visant une personne ou une entreprise nommée, conseil financier ou marchés, migration, religion.",
 "Ces sujets peuvent être publiés, mais sois plus exigeant : chaque fait attribué à une source identifiable, positions des parties présentées sans parti pris, aucune accusation présentée comme établie sans décision de justice ou source officielle, aucun conseil médical ou financier. Sinon, verdict needs_review.",
@@ -146,8 +155,10 @@ function record(job,draft,review,assessment,error){
     error:short(error,350)||null,createdAt:now(),status:"draft_not_published"};
 }
 const FREE_CONCEPT="Choisis toi-même un concept durable et important du domaine, différent des sujets déjà publiés (previouslyPublishedOnSameBeat), puis explique-le sans inventer de faits, avec au moins deux organismes sources.";
+const STORY="Raconte une histoire vraie du domaine : un épisode historique, un tournant, une découverte, une crise ou une idéologie, relié de près ou de loin à l'actualité (dis en une phrase pourquoi il éclaire l'actualité). Ce n'est pas une fiction : chaque fait, date et chiffre vient de sources consultées (au moins deux organismes, sources primaires ou historiens reconnus de préférence), distingue les faits établis des interprétations et débats, ne refais pas un sujet déjà publié (previouslyPublishedOnSameBeat). Sur les sujets graves (guerres, bombardements, génocides), reste factuel, sobre et précis sur les bilans et leurs incertitudes.";
 export function taskFor(job){
   if(job.role==="journalist")return (job.source?"Pars de la piste sourceLead, puis c":"Aucune piste fournie : c")+"herche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante et ne refais pas un sujet déjà publié.";
+  if(job.status==="research_required_story")return STORY;
   return job.status==="research_required_free_concept"?FREE_CONCEPT:"Expliquer un mécanisme durable sans inventer de faits, sans refaire un sujet déjà publié (previouslyPublishedOnSameBeat).";
 }
 /** Why an output could not be published (empty list = publishable), with the same rules as autopublish. */
@@ -232,7 +243,7 @@ export async function runAgentDesk(plan,{
 }={}){
   if(plan?.format!=="mundi-daily-agent-plan-v1"||!Array.isArray(plan.jobs)||plan.jobs.length===0||plan.jobs.length>24||plan.jobs.length!==plan.target)
     throw new Error("Invalid daily editorial plan");
-  const max=Math.min(24,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));
+  const max=Math.min(48,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));
   const attempts=Math.min(5,Math.max(1,Number.isFinite(maxAttempts)?Math.floor(maxAttempts):3));
   const workers=Math.min(8,Math.max(1,Number.isFinite(concurrency)?Math.floor(concurrency):6));
   const selection=inferAgentSelection({provider,checkerProvider,model,checkerModel,anthropicKey:claudeKey});

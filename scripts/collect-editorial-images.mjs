@@ -36,7 +36,8 @@ const HINTS=[
   [/hydrog[eè]ne/i,"hydrogen energy"],
   [/p[eé]trole|gaz naturel/i,"oil platform"],
   [/photovolta[iï]que|solaire/i,"solar panels"],
-  [/[eé]olien|vent/i,"wind turbines"],
+  // « vent » seul attrapait « souvent », « inventé », « convention » : éoliennes pour un krach boursier.
+  [/[eé]olien/i,"wind turbines"],
   [/recherche|laboratoire|exp[eé]rience/i,"laboratory"],
   // Realistic visual cues derived from each story, without claiming that a
   // stock photograph depicts the specific events or people in the article.
@@ -50,7 +51,8 @@ const HINTS=[
   [/porte.conteneurs|transport maritime|d[eé]troit maritime|commerce mondial/i,["container ship port","shipping logistics"]],
   [/robotisation|automatisation|cha[iî]ne de production|usines?/i,["industrial robot assembly line","factory production"]],
   [/d[eé]forestation|reforestation|for[eê]ts tropicales/i,["tropical forest conservation","forest restoration"]],
-  [/climat|s[eé]cheresse|inondation/i,["climate monitoring station","flood risk"]],
+  // « climat des affaires » n'est pas la météo.
+  [/\bclimat\b(?! des affaires)|s[eé]cheresse|inondation/i,["climate monitoring station","flood risk"]],
   [/vaccin|[eé]pid[eé]mie|sant[eé] publique/i,["medical laboratory research","public health research"]],
   [/enseignement|[eé]ducation|[eé]coles|universit[eé]/i,["university students classroom","education classroom"]],
   [/r[eé]union diplomatique|sommet international|n[eé]gociation/i,["diplomatic conference","international delegates meeting"]],
@@ -74,7 +76,7 @@ export const TOPIC_BACKUPS={
   "afrique":["african market","african landscape"],
   "sciences-societe":["university library","scientists laboratory"]
 };
-const BAD_TITLES=/\b(logo|icon|coat of arms|emblem|flag|map|chart|diagram|symbol|screenshot|poster|cartoon|drawing|painting|illustration|svg)\b/i;
+const BAD_TITLES=/\b(logo|icon|coat of arms|emblem|flag|map|chart|diagram|symbol|screenshot|poster|cartoon|drawing|painting|illustration|svg|board|carte|graphique|sch[ée]ma|diagramme|utilisations)\b/i;
 const ALLOWED_LICENSES=new Map([
   ["cc0","https://creativecommons.org/publicdomain/zero/1.0/"],
   ["cc by 4.0","https://creativecommons.org/licenses/by/4.0/"],
@@ -86,6 +88,8 @@ const ALLOWED_LICENSES=new Map([
 ]);
 const clean=(s,n=160)=>String(s??"").replace(/<[^>]*>/g," ").replace(/&(?:nbsp|amp|quot|lt|gt);/gi,m=>({"&nbsp;":" ","&amp;":"&","&quot;":'"',"&lt;":"<","&gt;":">"}[m.toLowerCase()]??m)).replace(/\s+/g," ").trim().slice(0,n);
 export function imageQueries(article){
+  // Recherche choisie par le rédacteur (ou corrigée à la main) : elle seule, en recherche stricte.
+  if(typeof article?.imageQuery==="string"&&article.imageQuery.trim())return [article.imageQuery.trim()];
   const fromTitle=String(article?.title??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"")
     .replace(/[^a-zA-Z\s-]/g," ").toLowerCase().split(/\s+/).filter(w=>w.length>=4&&!STOPWORDS.has(w)).slice(0,2).join(" ");
   // Prefer the article title; use the summary when a generic title reveals
@@ -107,7 +111,10 @@ export function imageQueries(article){
     return [...new Set([...hint,...backups])];
   }
   const fallback=PHOTO_QUERIES[article?.topic]??"documentary";
-  return [...new Set([hint,fromTitle.length>=5?fromTitle:null,fallback,...backups].filter(Boolean))];
+  // Les mots du titre seuls ne suffisent pas (« morris premiere » donnait des actrices) : on ne les
+  // utilise plus comme recherche ; la rubrique sert de repli.
+  void fromTitle;
+  return [...new Set([hint,fallback,...backups].filter(Boolean))];
 }
 function validCommonsFileURL(raw){
   try{
@@ -252,9 +259,11 @@ export async function collectEditorialImages(articles,existing=[],{
   for(const p of articles.filter(x=>x?.status==="published")){
     if(known.has(p.slug)||report.filter(x=>x.status==="added").length>=limit)continue;
     let selected=null,lastError="";
+    const strict=typeof p.imageQuery==="string"&&Boolean(p.imageQuery.trim());
     for(const query of imageQueries(p)){
       try{
-        const candidate=await search(query);
+        // Jamais deux fois la même photo dans le site.
+        const candidate=await search(query,undefined,{exclude:new Set(out.map(x=>x.sourceUrl)),strict});
         if(!candidate)continue;
         const file=await download(candidate);
         const local="/media/editorial/"+p.slug+"."+file.ext;

@@ -138,6 +138,8 @@ export function toPublication(output, date) {
     // Cartes « Données » : seulement pour les articles prévus (environ un sur trois, pour varier le fil)
     // et si elles respectent le format exigé par le site (sinon retirées, l'article reste publiable).
     ...(dataCardsAllowed(output) && publishableCards(d) ? { dataCards: publishableCards(d) } : {}),
+    // Recherche de la photo d'illustration de l'article (Wikimedia Commons, recherche stricte).
+    ...(typeof d.imageQuery === "string" && d.imageQuery.trim().length >= 3 ? { imageQuery: d.imageQuery.trim().replace(/\s+/g, " ").slice(0, 80) } : {}),
     // Cartes mémoire de la rubrique Réviser, tirées du texte publié et contrôlées par le vérificateur.
     ...(publishableFlashcards(d) ? { flashcards: publishableFlashcards(d) } : {}),
   };

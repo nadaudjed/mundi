@@ -31,3 +31,6 @@ Le premier chargement de photos réelles avait sélectionné une famille de lion
 
 ## Photos des cartes « Données »
 Chaque carte « Données » montrée dans le fil a sa propre photo, cherchée avec son `imageQuery`, jamais celle de l'article ni d'une autre carte. La recherche est plus stricte que pour les articles : tous ses mots doivent figurer dans le titre ou la description de l'image. Sans résultat, la carte reste en texte. Détails dans `docs/DATA_CARDS.md`.
+
+## Revue du 24 novembre : photos hors sujet
+Des éoliennes illustraient un krach boursier (« vent » attrapé dans « inventé », « souvent »…), une station météo le « climat des affaires », des actrices le ver Morris (mots du titre pris tels quels), et la même photo revenait sur plusieurs articles. Corrections : règles « éolien » et « climat » resserrées, plus de recherche à partir des mots bruts du titre, jamais deux fois la même photo, et un champ `imageQuery` par article (rédigé par le rédacteur, recherche stricte). 42 articles ont reçu une recherche choisie à la main ; leurs anciennes photos ont été retirées et le robot en cherche de nouvelles. Sans photo pertinente, l'article garde son décor.

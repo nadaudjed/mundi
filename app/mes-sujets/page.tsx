@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { InterestsClient } from "@/components/InterestsClient";
 import { PageIntro } from "@/components/PageIntro";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { NotificationsToggle } from "@/components/NotificationsToggle";
 
 export const metadata: Metadata = { title: "Mes sujets" };
 
@@ -12,6 +13,13 @@ export default function MyTopicsPage() {
         Choisissez les rubriques qui passent en premier dans votre fil « Pour vous ». Les autres rubriques restent proposées ensuite, et vos choix restent sur cet appareil.
       </PageIntro>
       <InterestsClient />
+      <section aria-labelledby="notifications" className="mt-14 border-t border-rule pt-6">
+        <h2 id="notifications" className="font-display text-intertitre font-semibold text-ink">Notifications</h2>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+          MUNDI peut vous prévenir quand l&apos;édition du matin et celle de l&apos;après-midi sont en ligne. Rien d&apos;autre : pas de publicité, et vous pouvez arrêter à tout moment.
+        </p>
+        <NotificationsToggle />
+      </section>
       <section aria-labelledby="affichage" className="mt-14 border-t border-rule pt-6">
         <h2 id="affichage" className="font-display text-intertitre font-semibold text-ink">Affichage</h2>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">

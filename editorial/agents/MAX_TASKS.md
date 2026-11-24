@@ -52,6 +52,17 @@ En cas de conflit sur `plan.json` pendant le rebase, garder la version distante 
    jusqu'à « OK ». Écrire en français, titre de 90 caractères au plus, sans parenthèse méthodologique.
 5. Pousser les brouillons. Ne pas les vérifier soi-même : c'est le rôle d'une autre tâche.
 
+## Révision (tâche « révision », une seule fois par brouillon)
+
+1. `MUNDI_STOCK_DIR=../mundi-stock node scripts/max-newsroom.mjs revise` affiche les brouillons renvoyés par le
+   vérificateur (`needs_review`), son rapport (`checkerReport`) et la consigne `revisionTask`.
+2. Pour chacun, corriger le brouillon en suivant `revisionTask` : supprimer ou corriger chaque point non confirmé,
+   remplacer une source injoignable par une source primaire réellement consultée, n'ajouter aucun fait non sourcé.
+3. Réécrire `draftFile` au même format, avec `"revision":1` en plus, et déplacer l'ancienne vérification :
+   `mkdir -p …/checks/history && git mv <checkFile> <archiveCheckTo>`. Vérifier le format avec `validate <agentId>`.
+4. Pousser. Un brouillon révisé sera revérifié par une **nouvelle** vérification indépendante (tâche de rattrapage) ;
+   il n'y a qu'un seul tour de révision : un second `needs_review` n'est jamais publié.
+
 ## Vérificateur (tâches « check journalist », « check professor », puis rattrapage « check »)
 
 1. `MUNDI_STOCK_DIR=../mundi-stock node scripts/max-newsroom.mjs check [journalist|professor]` affiche les consignes

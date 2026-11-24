@@ -63,6 +63,12 @@ export default function PrivacyPage() {
             les informations techniques nécessaires pour afficher les pages (par exemple l&apos;adresse IP de votre connexion).
           </li>
           <li>
+            <strong className="font-semibold text-ink">Notifications.</strong> Seulement si vous les activez dans « Mes sujets ». Votre
+            navigateur fournit alors une adresse technique d&apos;abonnement, gardée chez Netlify pour envoyer l&apos;annonce des éditions
+            (via le service de notifications de votre appareil : Apple, Google ou Mozilla). Ni nom, ni e-mail, ni historique de lecture.
+            Désactiver l&apos;interrupteur supprime cette adresse.
+          </li>
+          <li>
             <strong className="font-semibold text-ink">Liens vers les sources.</strong> Un lien vers une source ouvre le site d&apos;un autre
             éditeur, qui applique ses propres règles.
           </li>

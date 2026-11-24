@@ -11,12 +11,15 @@ const PORT = Number(process.env.E2E_PORT ?? 4173);
 const FIXTURES = `http://localhost:${PORT + 1}`;
 const FIRST = "test-publication-energie";
 const VALID = readFileSync("tests/fixtures/data-cards/valide.json", "utf8");
+/** Les rédacteurs automatiques ajoutent des cartes : on compte celles réellement publiées. */
+const LIVE_DATA_CARDS = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[] }[])
+  .filter((p) => p.status === "published").reduce((n, p) => n + (p.dataCards?.length ?? 0), 0);
 
 test.describe("Site normal : cartes vérifiées Eurostat", () => {
-  test("le fil public présente quatre cartes chiffrées et aucune source fictive", async ({ page, request }) => {
+  test("le fil public présente toutes ses cartes chiffrées et aucune source fictive", async ({ page, request }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
-    await expect(page.getByTestId("data-card")).toHaveCount(4);
+    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_DATA_CARDS);
     // Les publications automatiques peuvent précéder le récit Eurostat : on cible sa carte par son contenu.
     const card = page
       .getByTestId("data-card")

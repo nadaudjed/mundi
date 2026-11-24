@@ -1,13 +1,19 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "./fixtures";
 
-const articles = (JSON.parse(readFileSync("content/publications.json", "utf8")) as
- { slug: string; status: string }[]).filter((a) => a.status === "published");
+/**
+ * Voix de l'appareil (secours) : testée sur le site de test, avec un article SANS
+ * version audio enregistrée (tests/fixtures/article-audio.fixture.json n'en liste qu'un).
+ */
+const FIXTURES = `http://localhost:${Number(process.env.E2E_PORT ?? 4173) + 1}`;
+const audioManifest = JSON.parse(readFileSync("tests/fixtures/article-audio.fixture.json", "utf8")) as Record<string, unknown>;
+const articles = (JSON.parse(readFileSync("tests/fixtures/publications.fixture.json", "utf8")) as
+ { slug: string }[]).filter((a) => !audioManifest[a.slug]);
 
 test("mobile and desktop: audio reads short chunks, finishes, and resets its button", async ({ page }) => {
   const article = articles[0];
-  test.skip(!article, "No published article");
-  await page.goto("/actualites/" + article.slug + "/");
+  test.skip(!article, "Aucun article de test sans audio");
+  await page.goto(FIXTURES + "/actualites/" + article.slug + "/");
   const listen = page.getByRole("button", { name: "Écouter le résumé" });
   await listen.click();
   await expect(page.getByRole("button", { name: "Mettre en pause la lecture audio" })).toHaveAttribute("aria-pressed", "true");
@@ -28,8 +34,8 @@ test("mobile and desktop: audio reads short chunks, finishes, and resets its but
 
 test("unsupported speech reports a useful message and offers retry, rather than silent play", async ({ page }) => {
   const article = articles[0];
-  test.skip(!article, "No published article");
-  await page.goto("/actualites/" + article.slug + "/");
+  test.skip(!article, "Aucun article de test sans audio");
+  await page.goto(FIXTURES + "/actualites/" + article.slug + "/");
   await page.evaluate(() => {
     const synth = window.speechSynthesis as unknown as { speak: (u: SpeechSynthesisUtterance) => void };
     synth.speak = (u: SpeechSynthesisUtterance) => {
@@ -56,8 +62,8 @@ const spoken = (page: import("@playwright/test").Page) => page.evaluate(() => (w
 
 test("pause puis reprise : la voix repart du passage en cours, et Arrêter remet le bouton à zéro", async ({ page }) => {
   const article = articles[0];
-  test.skip(!article, "No published article");
-  await page.goto("/actualites/" + article.slug + "/");
+  test.skip(!article, "Aucun article de test sans audio");
+  await page.goto(FIXTURES + "/actualites/" + article.slug + "/");
   await page.getByRole("button", { name: "Écouter le résumé" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Lecture en cours" })).toHaveCount(1);
   await page.evaluate(() => (window.speechSynthesis as unknown as { finish: () => void }).finish());
@@ -81,8 +87,8 @@ test("pause puis reprise : la voix repart du passage en cours, et Arrêter remet
 
 test("moteur vocal figé (iPhone) : la lecture est relancée automatiquement une fois", async ({ page }) => {
   const article = articles[0];
-  test.skip(!article, "No published article");
-  await page.goto("/actualites/" + article.slug + "/");
+  test.skip(!article, "Aucun article de test sans audio");
+  await page.goto(FIXTURES + "/actualites/" + article.slug + "/");
   await page.evaluate(() => {
     const synth = window.speechSynthesis as unknown as { speak: (u: SpeechSynthesisUtterance) => void };
     const real = synth.speak.bind(synth);
@@ -102,11 +108,13 @@ test("moteur vocal figé (iPhone) : la lecture est relancée automatiquement une
 
 test("écouter une deuxième carte arrête la première", async ({ page }) => {
   await page.goto("/");
-  const first = page.locator('[data-index="0"]');
+  // Les cartes de données s'intercalent : on prend les deux premières publications.
+  const cards = page.getByTestId("verified-card");
+  const first = cards.nth(0);
   await first.getByRole("button", { name: "Écouter le résumé" }).click();
   await expect(first.getByRole("button", { name: "Mettre en pause la lecture audio" })).toBeVisible();
-  await page.locator('[data-index="1"]').scrollIntoViewIfNeeded();
-  const second = page.locator('[data-index="1"]');
+  const second = cards.nth(1);
+  await second.scrollIntoViewIfNeeded();
   await second.getByRole("button", { name: "Écouter le résumé" }).click();
   await expect(second.getByRole("button", { name: "Mettre en pause la lecture audio" })).toBeVisible();
   await expect(first.getByRole("button", { name: "Écouter le résumé" })).toHaveAttribute("aria-pressed", "false");

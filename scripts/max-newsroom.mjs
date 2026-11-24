@@ -97,8 +97,14 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     // One correction round, as in the API newsroom: the writer fixes what the checker could not confirm,
     // then a NEW independent check decides (the old check is archived in checks/history/).
     const drafts=readDir(join(dayDir,"drafts")),checks=readDir(join(dayDir,"checks"));
-    const todo=plan.jobs.filter(j=>drafts[j.agentId]?.draft&&checks[j.agentId]?.checker?.verdict==="needs_review"&&!(drafts[j.agentId].revision>=1))
+    // link-issues.json is written by the publication workflow: {agentId: ["url (HTTP 404)", ...]} for drafts the
+    // checker passed but whose links failed the independent link check. They get the same single correction round.
+    const linkFile=join(dayDir,"link-issues.json"),links=existsSync(linkFile)?read(linkFile):{};
+    const broken=id=>Array.isArray(links[id])?links[id]:[];
+    const todo=plan.jobs.filter(j=>drafts[j.agentId]?.draft&&checks[j.agentId]?.checker&&!(drafts[j.agentId].revision>=1)
+        &&(checks[j.agentId].checker.verdict==="needs_review"||(checks[j.agentId].checker.verdict==="pass"&&broken(j.agentId).length)))
       .map(j=>({agentId:j.agentId,topic:j.topic,role:j.role,draft:drafts[j.agentId].draft,checkerReport:checks[j.agentId].checker,
+        brokenLinks:broken(j.agentId),
         draftFile:join(dayDir,"drafts",j.agentId+".json"),checkFile:join(dayDir,"checks",j.agentId+".json"),
         archiveCheckTo:join(dayDir,"checks","history",j.agentId+"-1.json")}));
     console.log(JSON.stringify({date:plan.date,writerInstructions:WRITER_SYSTEM,revisionTask:REVISION_TASK,drafts:todo},null,2));

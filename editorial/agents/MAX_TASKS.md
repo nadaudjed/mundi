@@ -55,7 +55,9 @@ En cas de conflit sur `plan.json` pendant le rebase, garder la version distante 
 ## Révision (tâche « révision », une seule fois par brouillon)
 
 1. `MUNDI_STOCK_DIR=../mundi-stock node scripts/max-newsroom.mjs revise` affiche les brouillons renvoyés par le
-   vérificateur (`needs_review`), son rapport (`checkerReport`) et la consigne `revisionTask`.
+   vérificateur (`needs_review`), son rapport (`checkerReport`) et la consigne `revisionTask`. Il affiche aussi les
+   brouillons validés mais bloqués par un lien (`brokenLinks`, écrit par la publication) : remplacer chaque lien
+   cassé par une page réellement consultée qui confirme les mêmes faits, ou retirer les faits qui en dépendent.
 2. Pour chacun, corriger le brouillon en suivant `revisionTask` : supprimer ou corriger chaque point non confirmé,
    remplacer une source injoignable par une source primaire réellement consultée, n'ajouter aucun fait non sourcé.
 3. Réécrire `draftFile` au même format, avec `"revision":1` en plus, et déplacer l'ancienne vérification :

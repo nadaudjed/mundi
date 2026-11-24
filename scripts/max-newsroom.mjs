@@ -56,7 +56,8 @@ export function assemble(plan,drafts,checks){
     else if(!checker){const r=validateResearchDraft(draft,job);
       assessment={status:"needs_human_or_more_research",safeForAutopublication:false,reasons:r.length?r:["Vérification pas encore faite"]};}
     else assessment=assessReview(draft,checker,job);
-    outputs.push({format:"mundi-agent-output-v1",id:base.id,date:plan.date,agentId:job.agentId,attempt,role:job.role,topic:job.topic,
+    const kind=job.role==="journalist"?"actualite":base.status==="research_required_story"?"recit":"concept";
+    outputs.push({format:"mundi-agent-output-v1",id:base.id,date:plan.date,agentId:job.agentId,attempt,role:job.role,kind,topic:job.topic,
       originalAssignment:base.title,recordKey:base.recordKey,sourceLead:base.source,previousPublication:job.previousPublication,
       draft,checker,assessment,error:short(d.error,350)||null,createdAt:d.createdAt||new Date().toISOString(),
       status:"draft_not_published",engine:"claude-max-scheduled-task",

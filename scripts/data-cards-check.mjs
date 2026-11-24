@@ -70,3 +70,25 @@ export function publishableCards(draft){
   const cards=Array.isArray(draft.dataCards)?draft.dataCards.map(cleanCard):draft.dataCards;
   return dataCardErrors(cards,(draft.sources??[]).map(s=>s?.url)).length?undefined:cards;
 }
+
+/**
+ * Cartes mémoire (« Réviser ») : mêmes règles que lib/editorial.ts.
+ * 1 à 6 cartes ; question de 10 à 160 caractères finissant par « ? » ; réponse de 3 à 280 caractères.
+ */
+export function flashcardErrors(cards){
+  if(!Array.isArray(cards))return ["Les cartes mémoire doivent être une liste"];
+  const errors=[];
+  if(cards.length<1||cards.length>6)errors.push("1 à 6 cartes mémoire");
+  cards.forEach((c,i)=>{
+    const q=typeof c?.question==="string"?c.question.trim():"",a=typeof c?.answer==="string"?c.answer.trim():"";
+    if(q.length<10||q.length>160||!q.endsWith("?"))errors.push("Carte mémoire "+(i+1)+" : question de 10 à 160 caractères terminée par « ? »");
+    if(a.length<3||a.length>280)errors.push("Carte mémoire "+(i+1)+" : réponse de 3 à 280 caractères");
+  });
+  return errors;
+}
+/** Cartes mémoire publiables (nettoyées) ou undefined si absentes ou invalides. */
+export function publishableFlashcards(draft){
+  if(!Array.isArray(draft?.flashcards)||!draft.flashcards.length)return undefined;
+  const cards=draft.flashcards.map(c=>({question:String(c?.question??"").trim(),answer:String(c?.answer??"").trim()}));
+  return flashcardErrors(cards).length?undefined:cards;
+}

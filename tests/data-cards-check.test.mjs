@@ -33,3 +33,23 @@ test("pourcentage sans dénominateur ou échelle commune mixte refusés", () => 
 test("pas de cartes : rien n'est ajouté", () => {
   assert.equal(publishableCards({ sources: [] }), undefined);
 });
+
+import { flashcardErrors, publishableFlashcards } from "../scripts/data-cards-check.mjs";
+import { toPublication } from "../scripts/autopublish-agents.mjs";
+
+test("cartes mémoire : format du site respecté, cartes invalides retirées", () => {
+  const ok = [{ question: "Qui a découvert la pénicilline ?", answer: "Alexander Fleming, en 1928." }];
+  assert.deepEqual(flashcardErrors(ok), []);
+  assert.deepEqual(publishableFlashcards({ flashcards: ok }), ok);
+  assert.ok(flashcardErrors([{ question: "Sans point d'interrogation", answer: "Oui" }]).some((e) => e.includes("« ? »")));
+  assert.equal(publishableFlashcards({ flashcards: [{ question: "Trop court ?", answer: "x" }] }), undefined);
+  assert.equal(publishableFlashcards({ flashcards: Array(7).fill(ok[0]) }), undefined);
+  assert.equal(publishableFlashcards({}), undefined);
+});
+
+test("publication : cartes mémoire transmises seulement si valides", () => {
+  const draft = { title: "Un titre", summary: "Résumé", topic: "science", keyPoints: ["a"], sections: [], sources: [],
+    flashcards: [{ question: "Qui a découvert la pénicilline ?", answer: "Alexander Fleming, en 1928." }] };
+  assert.equal(toPublication({ draft, role: "professor" }, "2026-11-24").flashcards.length, 1);
+  assert.equal(toPublication({ draft: { ...draft, flashcards: [{ question: "?", answer: "" }] }, role: "professor" }, "2026-11-24").flashcards, undefined);
+});

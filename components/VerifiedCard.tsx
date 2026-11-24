@@ -9,6 +9,7 @@ import { publicationKey, publicationPath } from "@/lib/publication-links";
 import { getTopic } from "@/lib/topics";
 import { verificationLabel } from "@/lib/verification";
 import type { FeedPublication } from "@/lib/verified";
+import { KIND_LABEL, publicationKind } from "@/lib/publication-kind";
 import { FitLines } from "./FitLines";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
@@ -49,6 +50,7 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
     <article
       data-index={index}
       data-publication={p.slug}
+      data-topic={p.topic}
       data-testid="verified-card"
       aria-roledescription="publication sourcée"
       aria-label={`Publication ${position + 1} sur ${total} : ${p.title}`}
@@ -79,6 +81,7 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
           <div className="flex items-center justify-between gap-3">
             <p className="text-meta font-semibold text-brick-light">
               {topic.name}
+              <span className="font-normal text-ivory/70"> · {KIND_LABEL[publicationKind(p)]}</span>
               {p.fixture && <span className="ml-2 text-[#ffd98f]">Exemple de test</span>}
             </p>
             <div className="-mr-2 flex shrink-0 items-center">

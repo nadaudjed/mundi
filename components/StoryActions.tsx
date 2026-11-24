@@ -32,7 +32,7 @@ export function ShareButton({ slug, title, path, variant = "inline" }: { slug: s
   const toast = useToast();
 
   async function share() {
-    const url = `${window.location.origin}${path ?? `/recit/${slug}/`}`;
+    const url = `${window.location.origin}${path ?? `/actualites/${slug}/`}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: `${title} — MUNDI`, url });

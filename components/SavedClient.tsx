@@ -3,26 +3,22 @@
 import Link from "next/link";
 import { useBookmarks } from "@/lib/bookmarks";
 import { formatDate } from "@/lib/format";
-import { getStory } from "@/lib/stories";
 import { getTopic } from "@/lib/topics";
 import type { FeedPublication } from "@/lib/verified";
-import type { Story } from "@/lib/types";
-import { StoryTile } from "./StoryTile";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
 import { verificationLabel } from "@/lib/verification";
 
 export function SavedClient({ publications = [] }: { publications?: FeedPublication[] }) {
   const { saved, clear } = useBookmarks();
-  const items = saved.map(getStory).filter((s): s is Story => Boolean(s));
   const savedPublications = publications.filter((p) => saved.includes(publicationKey(p.slug)));
-  const total = items.length + savedPublications.length;
+  const total = savedPublications.length;
 
   if (total === 0) {
     return (
       <div className="mt-8">
         <p className="font-display text-xl font-semibold text-ink">Rien d&apos;enregistré pour l&apos;instant</p>
         <p className="mt-1 max-w-md text-sm leading-relaxed text-muted">
-          Touchez « Enregistrer » sur une publication ou un récit pour le retrouver ici plus tard.
+          Touchez « Enregistrer » sur une publication pour la retrouver ici plus tard.
         </p>
         <Link href="/" className="btn btn-primary mt-5">Parcourir le fil</Link>
       </div>
@@ -51,9 +47,6 @@ export function SavedClient({ publications = [] }: { publications?: FeedPublicat
               {verificationLabel(p)} · publié le <time dateTime={p.publishedAt} className="font-mono">{formatDate(p.publishedAt)}</time> · <span className="font-mono">{p.sources.length}</span> sources
             </p>
           </article>
-        ))}
-        {items.map((s) => (
-          <StoryTile key={s.slug} story={s} />
         ))}
       </div>
     </div>

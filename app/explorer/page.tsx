@@ -11,7 +11,7 @@ export default function ExplorerPage() {
   return (
     <div className="mx-auto max-w-5xl px-5 pb-[calc(var(--nav-h)+3rem)] pt-8 md:px-8 md:pb-20 md:pt-12">
       <PageIntro title="Explorer">
-        Recherchez dans les articles sourcés de la rédaction et les parcours pédagogiques de démonstration. Les deux catégories restent clairement identifiées.
+        Deux espaces séparés : les actualités, pour savoir ce qui vient de changer, et les concepts, pour comprendre les notions qui reviennent dans l’actualité. Tous les articles sont sourcés.
       </PageIntro>
       <p className="mt-4 text-sm text-muted">
         <Link href="/actualites/" className="font-semibold text-accent underline-offset-4 hover:underline">

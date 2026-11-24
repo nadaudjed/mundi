@@ -115,6 +115,8 @@ export function toPublication(output, date) {
     status: "published",
     reviewedBy: AI_REVIEWER,
     aiVerified: true,
+    // Journaliste : actualité ; professeur : concept (rangés séparément dans Explorer).
+    ...(output.role ? { kind: output.role === "journalist" ? "actualite" : "concept" } : {}),
     keyPoints: d.keyPoints.map((k) => k.trim()),
     sections: d.sections.map((s) => ({ kind: s.kind, heading: s.heading.trim(), text: s.text.trim() })),
     sources: d.sources.map((s) => ({ label: s.label.trim(), url: s.url })),

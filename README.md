@@ -11,7 +11,6 @@ Documents de référence : [`PROJECT_CONTEXT.md`](PROJECT_CONTEXT.md), [`AGENTS.
 | Page | Adresse | Rôle |
 | --- | --- | --- |
 | Fil | `/` | Fil vertical plein écran (glisser / défiler / flèches du clavier), filtre par sujet, enregistrer, partager |
-| Récit | `/recit/<slug>/` | Page de fond : l'essentiel, faits / analyse / hypothèses, points de vue, incertitudes, sources, dates |
 | Explorer | `/explorer/` | 12 sujets et recherche plein texte (sans accents ni majuscules) |
 | Enregistrés | `/enregistres/` | Récits enregistrés, conservés dans le navigateur (localStorage) |
 | À propos | `/a-propos/` | Mission, méthode, formats et engagements éditoriaux |
@@ -33,7 +32,6 @@ npm start          # sert le dossier out/ (après build)
 npm run lint       # ESLint
 npm run typecheck  # TypeScript
 npm run test:e2e   # tests Playwright mobile + ordinateur (construit le site normal et un site de test avec publications inventées)
-npm run media:generate  # régénère les médias de démonstration (nécessite ffmpeg)
 npm run icons:generate  # régénère les icônes de l'application installable
 ```
 
@@ -59,7 +57,7 @@ Le bouton « Écouter » déclenche, après action explicite de l'utilisateur, u
 
 ## Publications vérifiées et atelier éditorial
 
-La page `/actualites/` présente uniquement les publications validées contenues dans `content/publications.json`, initialement vide. Les pages de démonstration restent séparées. `/atelier/` permet de préparer puis télécharger un brouillon JSON localement, sans publier ni accéder à GitHub. La validation humaine, les sources vérifiées et une Pull Request sont obligatoires avant publication. Documentation : `docs/PUBLISHING.md`. Vérification technique : `npm run validate:editorial`.
+La page `/actualites/` présente uniquement les publications validées contenues dans `content/publications.json`, initialement vide. Les récits de démonstration ont été retirés le 24 novembre 2026 (les anciennes adresses `/recit/…` redirigent vers Explorer). Explorer sépare les **actualités** (journalistes) et les **concepts** (professeurs), selon le champ `kind` de chaque publication. `/atelier/` permet de préparer puis télécharger un brouillon JSON localement, sans publier ni accéder à GitHub. La validation humaine, les sources vérifiées et une Pull Request sont obligatoires avant publication. Documentation : `docs/PUBLISHING.md`. Vérification technique : `npm run validate:editorial`.
 
 ## Agents IA : activation de Claude (recherche privée)
 

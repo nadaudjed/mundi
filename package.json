@@ -10,7 +10,6 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "validate:editorial": "node scripts/validate-editorial.mjs",
-    "media:generate": "node scripts/generate-demo-media.mjs",
     "test:e2e": "playwright test",
     "sources:collect": "node scripts/collect-sources.mjs",
     "test:sources": "node --test tests/collect-sources.test.mjs tests/editorial-report.test.mjs tests/editorial-manual.test.mjs tests/editorial-candidates.test.mjs tests/source-health.test.mjs tests/review-packs.test.mjs tests/story-preview.test.mjs tests/editorial-library.test.mjs tests/agents-newsroom.test.mjs tests/agent-providers.test.mjs tests/autopublish.test.mjs tests/ops-dashboard.test.mjs tests/correct-publication.test.mjs tests/editorial-images.test.mjs tests/max-newsroom.test.mjs",

@@ -11,7 +11,7 @@ app/                 pages (fil, récit, explorer, enregistrés, à propos)
 components/          composants d'interface (Feed, StoryTile, StoryVisual, navigation…)
 lib/types.ts         modèle de contenu (Story, Topic, Format, sections typées)
 lib/topics.ts        les 12 sujets éditoriaux et les 4 formats
-lib/stories.ts       contenus de démonstration (fixtures)
+lib/publication-kind.ts  genre d'une publication : actualité ou concept
 lib/search.ts        recherche plein texte côté navigateur
 lib/bookmarks.ts     enregistrements en localStorage
 ```

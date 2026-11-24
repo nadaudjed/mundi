@@ -20,13 +20,14 @@ const LIVE = (JSON.parse(readFileSync("content/publications.json", "utf8")) as {
 const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
 
 test.describe("Site normal : première publication Eurostat approuvée", () => {
-  test("le fil montre les vraies publications, quatre cartes, puis des démonstrations séparées", async ({ page }) => {
+  test("le fil montre les vraies publications et leurs cartes de données, sans démonstration", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-testid", "verified-card");
     await expect(page.getByTestId("verified-card")).toHaveCount(LIVE);
     await expect(page.getByTestId("data-card")).toHaveCount(4);
-    await expect(page.getByTestId("demo-divider")).toHaveCount(1);
+    await expect(page.getByTestId("demo-divider")).toHaveCount(0);
+    await expect(page.locator("[data-story]")).toHaveCount(0);
     await expect(page.locator(`[data-testid="verified-card"][data-publication="${TEXTILES}"]`)).toHaveCount(1);
     await expect(page.getByTestId("verified-count")).toHaveText(LIVE === 1 ? "1 publication sourcée disponible." : `${LIVE} publications sourcées disponibles.`);
   });
@@ -47,7 +48,7 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
 test.describe("Site de test : publications inventées approuvées", () => {
   test.use({ baseURL: FIXTURES });
 
-  test("les publications vérifiées ouvrent le fil, puis un écran sépare les démonstrations", async ({ page }) => {
+  test("les publications vérifiées forment tout le fil, puis l'écran de fin", async ({ page }) => {
     // La première publication est suivie de ses 4 cartes de données (tests/e2e/data-cards.spec.ts).
     await page.goto("/");
     const cards = page.getByTestId("verified-card");
@@ -56,8 +57,8 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-publication", FIRST);
     for (const i of [1, 2, 3, 4]) await expect(page.locator(`[data-index="${i}"]`)).toHaveAttribute("data-testid", "data-card");
     await expect(page.locator('[data-index="5"]')).toHaveAttribute("data-publication", SECOND);
-    await expect(page.locator('[data-index="6"]')).toHaveAttribute("data-testid", "demo-divider");
-    await expect(page.locator('[data-index="7"]')).toHaveAttribute("data-story", /.+/);
+    await expect(page.locator('[data-index="6"]')).toHaveAttribute("data-testid", "feed-transition");
+    await expect(page.locator('[data-index="7"]')).toHaveCount(0);
 
     const first = page.locator('[data-index="0"]');
     await expect(first.getByText("Vérifié", { exact: true })).toHaveCount(0);
@@ -182,12 +183,12 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(saved).toContainText("Validation humaine");
   });
 
-  test("l'en-tête du fil n'a plus de badge « Vérifié » ; il signale les démonstrations", async ({ page }) => {
+  test("l'en-tête du fil n'a ni badge « Vérifié » ni mention « Démo »", async ({ page }) => {
     await page.goto("/");
     const header = page.getByTestId("feed-topbar");
     await expect(page.getByText("Vérifié", { exact: true })).toHaveCount(0);
-    await scrollFeedTo(page, 7);
-    await expect(header.getByText(/^Démo(nstration)?$/).locator("visible=true")).toBeVisible();
+    await scrollFeedTo(page, 5);
+    await expect(header.getByText(/^Démo(nstration)?$/)).toHaveCount(0);
   });
 
   test("filtrer par sujet garde seulement la publication de ce sujet", async ({ page }) => {

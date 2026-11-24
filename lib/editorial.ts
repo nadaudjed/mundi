@@ -1,6 +1,7 @@
 import publications from "@/content/publications.json";
 import { topics } from "./topics";
 import type { TopicSlug } from "./types";
+import type { PublicationKind } from "./publication-kind";
 
 export type EditorialSection = { kind: "fait" | "analyse" | "hypothese"; heading: string; text: string };
 export type EditorialSource = { label: string; url: string };
@@ -12,7 +13,13 @@ export type Publication = {
   aiVerified?: true;
   /** Rectificatifs visibles par le lecteur (jamais de correction silencieuse). */
   corrections?: { date: string; text: string }[];
+  /**
+   * Genre : « actualite » (un journaliste, ce qui vient de changer) ou « concept »
+   * (un professeur, une notion durable). Sans valeur : traité comme une actualité.
+   */
+  kind?: PublicationKind;
 };
+
 
 const allowed = new Set<string>(topics.map(t => t.slug));
 const text = (v: unknown, len = 1) => typeof v === "string" && v.trim().length >= len;
@@ -42,6 +49,7 @@ export function validatePublication(value: unknown): string[] {
   if (!Array.isArray(p.sources) || p.sources.length < 2 || !p.sources.every(s => s && text(s.label,3) && validUrl(s.url))) errors.push("Deux sources HTTPS au minimum");
   if (!Array.isArray(p.sections) || p.sections.length < 1 || !p.sections.every(s => s && ["fait","analyse","hypothese"].includes(s.kind) && text(s.heading) && text(s.text,30))) errors.push("Sections invalides");
   if (p.corrections !== undefined && (!Array.isArray(p.corrections) || !p.corrections.every(c => c && date(c.date) && text(c.text, 10)))) errors.push("Corrections invalides");
+  if (p.kind !== undefined && p.kind !== "actualite" && p.kind !== "concept") errors.push("Genre invalide (actualite ou concept)");
   return errors;
 }
 

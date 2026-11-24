@@ -2,6 +2,7 @@ import Link from "next/link";
 import { keyFigureOf } from "@/lib/covers";
 import { formatDate } from "@/lib/format";
 import { publicationPath } from "@/lib/publication-links";
+import { KIND_LABEL, publicationKind } from "@/lib/publication-kind";
 import { getTopic } from "@/lib/topics";
 import { verificationLabel } from "@/lib/verification";
 import type { FeedPublication } from "@/lib/verified";
@@ -33,7 +34,10 @@ export function PublicationTile({ publication: p, featured = false, headingLevel
           <img src={p.photo.src} alt="" loading="eager" decoding="async" className="photo aspect-[3/2] w-full object-cover" />
         </Link>
       ) : null)}
-      <p className="text-meta font-semibold text-accent">{topic.name}</p>
+      <p className="text-meta font-semibold text-accent">
+        {topic.name}
+        <span className="font-normal text-muted"> · {KIND_LABEL[publicationKind(p)]}</span>
+      </p>
       <H className={"mt-1.5 font-display font-semibold text-ink text-balance " + (featured ? "text-titre" : "text-xl leading-snug")}>
         <Link href={href} className="title-link">{p.title}</Link>
       </H>

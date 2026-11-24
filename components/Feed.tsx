@@ -2,48 +2,25 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { formatMinutes } from "@/lib/format";
-import { getNarrative, type NarrativeBeat } from "@/lib/narratives";
-import { feedStories } from "@/lib/stories";
-import { personalizedStories, useInterests } from "@/lib/preferences";
-import { formats, getTopic, topics } from "@/lib/topics";
-import type { Story, TopicSlug } from "@/lib/types";
+import { personalized, useInterests } from "@/lib/preferences";
+import { getTopic, topics } from "@/lib/topics";
+import type { TopicSlug } from "@/lib/types";
 import type { FeedPublication } from "@/lib/verified";
-import { DemoBadge } from "./DemoBadge";
 import { InstallChip } from "./InstallButton";
 import { Icon } from "./Icon";
 import { LogoMark } from "./Logo";
-import { ListenButton } from "./ListenButton";
-import { SaveButton, ShareButton } from "./StoryActions";
-import { MediaStage } from "./MediaStage";
 import { VerifiedCard, type CardVisual } from "./VerifiedCard";
 import { DataCardView } from "./data-cards/DataCardView";
 import type { DataCard } from "@/lib/data-cards";
 import { publicationPath } from "@/lib/publication-links";
 
 /**
- * Un écran du fil. Un récit « narratif » occupe trois écrans successifs
- * (accroche, fait, explication) ; les autres récits en occupent un seul.
- */
-type Slide = { key: string; story: Story; storyIndex: number; beat?: NarrativeBeat; step: number; steps: number };
-
-function toSlides(stories: Story[]): Slide[] {
-  return stories.flatMap((story, storyIndex) => {
-    const beats = getNarrative(story.slug);
-    if (!beats) return [{ key: story.slug, story, storyIndex, step: 0, steps: 1 }];
-    return beats.map((beat, step) => ({ key: `${story.slug}#${step}`, story, storyIndex, beat, step, steps: beats.length }));
-  });
-}
-
-/**
- * Entrées du fil unique : d'abord les publications vérifiées (si elles
- * existent), puis un écran de séparation, puis les démonstrations.
+ * Entrées du fil : uniquement les publications sourcées, chacune suivie
+ * de ses éventuelles cartes de données. Aucun contenu de démonstration.
  */
 type Entry =
   | { kind: "verified"; key: string; publication: FeedPublication; position: number; visual: CardVisual }
-  | { kind: "data"; key: string; publication: FeedPublication; card: DataCard; position: number; total: number }
-  | { kind: "divider"; key: string }
-  | { kind: "story"; key: string; slide: Slide };
+  | { kind: "data"; key: string; publication: FeedPublication; card: DataCard; position: number; total: number };
 
 type Props = {
   /** Publications vérifiées, fournies au moment de la construction (jamais de brouillon). */
@@ -65,12 +42,11 @@ export function Feed({ verified = [] }: Props) {
   const scroller = useRef<HTMLDivElement>(null);
   const { interests } = useInterests();
 
-  const items = useMemo(
-    () => (filter === "all" ? personalizedStories(feedStories, interests) : feedStories.filter((s) => s.topic === filter)),
-    [filter, interests],
+  // « Pour vous » : vos sujets d'abord, en gardant des découvertes (voir Mes sujets).
+  const publications = useMemo(
+    () => (filter === "all" ? personalized(verified, interests) : verified.filter((p) => p.topic === filter)),
+    [filter, verified, interests],
   );
-  const slides = useMemo(() => toSlides(items), [items]);
-  const publications = useMemo(() => (filter === "all" ? verified : verified.filter((p) => p.topic === filter)), [filter, verified]);
   const entries = useMemo<Entry[]>(() => {
     // Chaque publication approuvée peut être suivie de sa séquence de cartes de données.
     const list: Entry[] = publications.flatMap((publication, position): Entry[] => [
@@ -84,13 +60,11 @@ export function Feed({ verified = [] }: Props) {
         total: all.length,
       })),
     ]);
-    if (list.length > 0 && slides.length > 0) list.push({ kind: "divider", key: "divider" });
-    return list.concat(slides.map((slide) => ({ kind: "story", key: slide.key, slide })));
-  }, [publications, slides]);
+    return list;
+  }, [publications]);
   /** Sujets réellement présents dans le fil, pour ne pas proposer de filtre vide. */
-  const feedTopics = useMemo(() => topics.filter((t) => feedStories.some((s) => s.topic === t.slug) || verified.some((p) => p.topic === t.slug)), [verified]);
+  const feedTopics = useMemo(() => topics.filter((t) => verified.some((p) => p.topic === t.slug)), [verified]);
   const entry = active < entries.length ? entries[active] : undefined;
-  const current = entry?.kind === "story" ? entry.slide : undefined;
   const atEnd = active >= entries.length;
 
   // Retour arrière : le Fil revient sur l'écran où l'on était (mémorisé pour cet onglet seulement).
@@ -195,7 +169,7 @@ export function Feed({ verified = [] }: Props) {
 
   return (
     <div ref={root} data-feed className="feed-h relative bg-night">
-      {/* Barre du fil : marque (téléphone), mention démonstration, choix du sujet. Fond uni, sans flou. */}
+      {/* Barre du fil : marque (téléphone), choix du sujet. Fond uni, sans flou. */}
       <div data-testid="feed-topbar" className="absolute inset-x-0 top-0 z-30 border-b border-ivory/10 bg-night">
         <div className="flex h-12 items-center justify-between gap-2 px-4 md:px-8">
           <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.2em] text-ivory md:invisible" aria-label="MUNDI, retour au début du fil">
@@ -206,17 +180,6 @@ export function Feed({ verified = [] }: Props) {
             <span className="md:hidden">
               <InstallChip compact />
             </span>
-            {entry?.kind === "verified" || entry?.kind === "data" ? null : (
-              <>
-                {/* Libellé court sur téléphone pour que la barre tienne sur une ligne. */}
-                <span className="sm:hidden">
-                  <DemoBadge tone="light" label="Démo" />
-                </span>
-                <span className="hidden sm:inline-flex">
-                  <DemoBadge tone="light" />
-                </span>
-              </>
-            )}
             <button
               type="button"
               onClick={() => setTopicsOpen((o) => !o)}
@@ -282,11 +245,7 @@ export function Feed({ verified = [] }: Props) {
                 photo={e.publication.photo}
               />
             </article>
-          ) : e.kind === "divider" ? (
-            <DemoDivider key={e.key} index={i} count={items.length} />
-          ) : (
-            <FeedCard key={e.key} slide={e.slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 2} />
-          ),
+          ) : null,
         )}
         <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />
       </div>
@@ -315,15 +274,7 @@ export function Feed({ verified = [] }: Props) {
               <span className="sr-only">Données, carte </span>
               {entry.position + 1}/{entry.total}
             </>
-          ) : entry?.kind === "divider" ? (
-            <span className="sr-only">Démonstrations</span>
-          ) : (
-            <>
-              <span className="sr-only">{verified.length > 0 ? "Démonstrations : récit " : "Récit "}</span>
-              {(current?.storyIndex ?? 0) + 1}/{items.length}
-              {current && current.steps > 1 && <span className="sr-only">, écran {current.step + 1} sur {current.steps}</span>}
-            </>
-          )}
+          ) : null}
         </p>
         <button
           type="button"
@@ -354,172 +305,35 @@ function FilterChip({ label, active, onClick }: { label: string; active: boolean
   );
 }
 
-function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: number; total: number; active: boolean; near: boolean }) {
-  const { story, beat, step, steps, storyIndex } = slide;
-  const topic = getTopic(story.topic)!;
-  const format = formats[story.format];
-  const last = step === steps - 1;
-
-  return (
-    <article
-      data-index={index}
-      data-story={story.slug}
-      aria-roledescription={beat ? "écran de récit" : "récit"}
-      aria-label={`Récit ${storyIndex + 1} sur ${total}${beat ? `, écran ${step + 1} sur ${steps}` : ""} : ${story.title}`}
-      className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night pt-12 text-ivory"
-    >
-      <MediaStage story={story} active={active} near={near} />
-
-      {/* Sur très petit écran, le texte défile dans la carte plutôt que d'être coupé. */}
-      <div data-testid="card-scroll" className="no-scrollbar relative flex min-h-0 shrink flex-col overflow-y-auto wide:flex-1">
-        <div className="feed-column relative px-5 pt-4 pb-2 wide:my-auto wide:py-8">
-          <div className="flex items-center justify-between gap-3">
-            <p className="text-meta text-ivory/70">
-              <span className="font-semibold text-brick-light">{topic.name}</span> · {format.name} · <span className="font-mono">{formatMinutes(story.minutes)}</span> ·{" "}
-              <span className="font-semibold text-[#ffd98f]">Contenu illustratif</span>
-            </p>
-            <div className="-mr-2 flex shrink-0 items-center">
-              <SaveButton slug={story.slug} title={story.title} variant="rail" />
-              <ShareButton slug={story.slug} title={story.title} variant="rail" />
-            </div>
-          </div>
-
-          {beat ? <NarrativeBody slide={slide} /> : <SummaryBody story={story} />}
-
-          {beat && (
-            <div className="mt-4 flex gap-1" aria-hidden="true" data-testid="narrative-progress">
-              {Array.from({ length: steps }, (_, i) => (
-                <span key={i} className={`h-0.5 flex-1 ${i <= step ? "bg-ivory" : "bg-ivory/20"}`} />
-              ))}
-            </div>
-          )}
-          {!last && <p className="mt-3 text-xs font-medium text-ivory/70 [@media(max-height:680px)]:mt-2">Faites défiler pour la suite</p>}
-        </div>
-      </div>
-
-      {/* Barre d'actions hors de la zone qui défile : toujours visible, quelle que soit la hauteur d'écran. */}
-      {last && (
-        <div className="feed-column relative flex shrink-0 flex-wrap items-center gap-x-3 gap-y-2 px-5 pt-2 pb-4" data-testid="card-actions">
-          <Link href={`/recit/${story.slug}/`} aria-label={`Comprendre : ${story.title}`} className="btn btn-light">
-            Comprendre
-          </Link>
-          <ListenButton title={story.title} summary={story.dek} points={story.keyPoints} active={active} />
-        </div>
-      )}
-    </article>
-  );
-}
-
-/** Carte classique : titre, chapeau et trois points clés. */
-function SummaryBody({ story }: { story: Story }) {
-  return (
-    <>
-      <h2 className="mt-1 font-display text-[1.6rem] leading-[1.1] font-semibold text-balance md:text-[2.2rem] lg:text-[2.6rem] [@media(max-height:680px)]:text-[1.3rem] max-[359px]:text-[1.25rem]">{story.title}</h2>
-      <p className="mt-2 text-[0.95rem] leading-relaxed text-ivory/80 [@media(max-height:700px)]:hidden">{story.dek}</p>
-      <ol className="mt-3 border-t border-ivory/15">
-        {story.keyPoints.map((point, i) => (
-          <li key={i} className="flex gap-3 border-b border-ivory/15 py-1.5 text-[0.85rem] leading-snug text-ivory/90">
-            <span className="font-mono text-[0.75rem] text-brick-light">{String(i + 1).padStart(2, "0")}</span>
-            <span>{point}</span>
-          </li>
-        ))}
-      </ol>
-    </>
-  );
-}
-
-/** Carte narrative : une seule idée par écran. */
-function NarrativeBody({ slide }: { slide: Slide }) {
-  const { story, beat, step } = slide;
-  if (!beat) return null;
-  return (
-    <div>
-      {step === 0 ? (
-        <h2 className="mt-1 text-sm font-semibold text-ivory/75">{story.title}</h2>
-      ) : (
-        <p className="mt-1 text-sm font-semibold text-ivory/75">{story.title}</p>
-      )}
-      <p className="mt-2 text-meta font-semibold text-brick-light">{beat.label}</p>
-      <p className="mt-1 font-display text-[1.6rem] leading-[1.15] font-semibold text-balance md:text-[2.1rem] lg:text-[2.4rem] [@media(max-height:680px)]:text-[1.3rem] max-[359px]:text-[1.25rem]">{beat.text}</p>
-    </div>
-  );
-}
-
-/**
- * Dernier écran du fil : sépare clairement les récits illustratifs des
- * publications de la rédaction. N'affiche aucune information non revue.
- */
+/** Fin du fil : nombre de publications et accès à la liste complète. */
 function TransitionCard({ index, count, onRestart }: { index: number; count: number; onRestart: () => void }) {
   return (
     <article
       data-index={index}
       data-testid="feed-transition"
-      aria-label="Fin des récits illustratifs"
+      aria-label="Fin du fil"
       className="relative flex h-full snap-start snap-always flex-col justify-end overflow-hidden bg-night pt-16 pb-10 text-ivory md:justify-center md:pb-16"
     >
       <div className="feed-column relative px-6">
-        <p className="text-meta font-semibold text-[#ffd98f]">Fin des récits illustratifs</p>
-        {count === 0 ? (
-          <>
-            <h2 className="mt-2 font-display text-[2rem] leading-[1.1] font-semibold text-balance">Bientôt : les publications sourcées de la rédaction</h2>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
-              Ce que vous venez de parcourir sert à tester MUNDI. Les prochains récits s&apos;appuieront sur des sources réelles,
-              vérifiées et relues par une personne avant publication.
-            </p>
-          </>
-        ) : (
-          <>
-            <h2 className="mt-2 font-display text-[2rem] leading-[1.1] font-semibold text-balance">Vous avez parcouru tout le fil</h2>
-            <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
-              Les publications sourcées ouvrent le fil. Les récits qui suivent sont des démonstrations : ils servent à tester
-              MUNDI et ne relatent aucune actualité.
-            </p>
-          </>
-        )}
-        <dl className="mt-6 grid grid-cols-2 gap-x-6 border-t border-ivory/20 text-sm">
-          <div className="border-b border-ivory/20 py-3">
-            <dt className="text-meta font-semibold text-[#ffd98f]">Démonstration</dt>
-            <dd className="mt-1 text-ivory/80">Exemple pédagogique, sources fictives.</dd>
-          </div>
-          <div className="border-b border-ivory/20 py-3">
-            <dt className="text-meta font-semibold text-ivory">Publication</dt>
-            <dd className="mt-1 text-ivory/80">Sources réelles et datées, contrôle indiqué sur chaque article.</dd>
-          </div>
-        </dl>
+        <p className="text-meta font-semibold text-brick-light">Fin du fil</p>
+        <h2 className="mt-2 font-display text-[2rem] leading-[1.1] font-semibold text-balance">
+          {count === 0 ? "Les premières publications arrivent bientôt" : "Vous êtes à jour"}
+        </h2>
+        <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
+          Chaque jour, la rédaction publie des actualités et des concepts sourcés. Explorer les range dans deux espaces séparés.
+        </p>
         <p className="mt-5 text-sm font-medium text-ivory/90" data-testid="verified-count">
           {count === 0
             ? "Aucune publication sourcée pour l'instant."
             : `${count} publication${count > 1 ? "s" : ""} sourcée${count > 1 ? "s" : ""} disponible${count > 1 ? "s" : ""}.`}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/actualites/" className="btn btn-light">Publications sourcées</Link>
+          <Link href="/explorer/" className="btn btn-light">Explorer</Link>
           <button type="button" onClick={onRestart} className="btn btn-outline-light">
             Revoir depuis le début
           </button>
         </div>
       </div>
     </article>
-  );
-}
-
-/** Séparation nette entre les publications sourcées et les démonstrations. */
-function DemoDivider({ index, count }: { index: number; count: number }) {
-  return (
-    <section
-      data-index={index}
-      data-testid="demo-divider"
-      aria-label="Début des récits de démonstration"
-      className="relative flex h-full snap-start snap-always flex-col justify-end overflow-hidden bg-night pt-16 pb-12 text-ivory md:justify-center md:pb-16"
-    >
-      <div className="feed-column relative px-6">
-        <DemoBadge tone="light" />
-        <h2 className="mt-2 font-display text-[2rem] leading-[1.1] font-semibold text-balance">La suite est illustrative</h2>
-        <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
-          Vous avez vu toutes les publications sourcées. Les {count} récit{count > 1 ? "s" : ""} suivant{count > 1 ? "s" : ""} sont des
-          exemples pédagogiques : leurs sources et leurs dates sont fictives.
-        </p>
-        <p className="mt-5 text-xs font-medium text-ivory/70">Faites défiler pour continuer</p>
-      </div>
-    </section>
   );
 }

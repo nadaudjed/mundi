@@ -31,6 +31,7 @@ for (const [index, p] of list.entries()) {
   if (!Array.isArray(p.sections) || !p.sections.length || !p.sections.every(s => s && ["fait","analyse","hypothese"].includes(s.kind) && isText(s.heading) && isText(s.text,30))) errors.push("invalid sections");
   if (!Array.isArray(p.sources) || p.sources.length < 2 || !p.sources.every(isSource)) errors.push("at least two HTTPS sources required");
   if (p.corrections !== undefined && (!Array.isArray(p.corrections) || !p.corrections.every(c => c && isDate(c.date) && isText(c.text, 10)))) errors.push("invalid corrections");
+  if (p.kind !== undefined && !["actualite","concept"].includes(p.kind)) errors.push("kind must be actualite or concept");
   if (errors.length) { failed = true; console.error("Publication " + index + " (" + p.slug + "): " + errors.join(", ")); }
 }
 if (failed) process.exitCode = 1;

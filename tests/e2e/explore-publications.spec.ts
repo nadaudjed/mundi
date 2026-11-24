@@ -2,15 +2,17 @@ import { readFileSync } from "node:fs";
 import { expect, test } from "./fixtures";
 
 const publicArticles = (JSON.parse(readFileSync("content/publications.json", "utf8")) as
-  { slug: string; title: string; status: string; topic: string }[])
+  { slug: string; title: string; status: string; topic: string; kind?: "actualite" | "concept" }[])
   .filter((p) => p.status === "published");
+const news = publicArticles.filter((p) => (p.kind ?? "actualite") === "actualite");
+const concepts = publicArticles.filter((p) => p.kind === "concept");
 
 test("Explorer searches actual published articles and offers their full page", async ({ page }) => {
-  const article = publicArticles[0];
+  const article = news[0];
   test.skip(!article, "No published MUNDI article");
   await page.goto("/explorer/");
-  await expect(page.getByRole("heading", { name: "Les publications à découvrir" })).toBeVisible();
-  await expect(page.getByTestId("publication-tile")).toHaveCount(publicArticles.length);
+  await expect(page.getByRole("heading", { name: "Les dernières actualités" })).toBeVisible();
+  await expect(page.getByTestId("publication-tile")).toHaveCount(news.length);
 
   const word = article.title.split(/\W+/).find((w) => w.length > 5);
   test.skip(!word, "No usable search term in article title");
@@ -21,19 +23,31 @@ test("Explorer searches actual published articles and offers their full page", a
   await expect(tile.getByRole("link", { name: article.title })).toHaveAttribute("href", "/actualites/" + article.slug + "/");
 });
 
-test("real publications and fictional demonstrations are visibly separated", async ({ page }) => {
+test("Explorer sépare les actualités et les concepts, sans aucun contenu de démonstration", async ({ page }) => {
+  test.skip(!concepts.length, "No published concept");
   await page.goto("/explorer/");
-  await expect(page.getByRole("heading", { name: "Récits de démonstration" })).toBeVisible();
-  await expect(page.getByText(/Contenus fictifs/).first()).toBeVisible();
-  await expect(page.getByTestId("publication-tile")).toHaveCount(publicArticles.length);
+  await expect(page.getByTestId("genre-actualites")).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByTestId("genre-actualites")).toContainText(String(news.length));
+  await expect(page.getByTestId("genre-concepts")).toContainText(String(concepts.length));
+  await expect(page.getByTestId("publication-tile")).toHaveCount(news.length);
+  await expect(page.getByText(/démonstration|Contenus fictifs/i)).toHaveCount(0);
+
+  await page.getByTestId("genre-concepts").click();
+  await expect(page.getByRole("heading", { name: "Les concepts à connaître" })).toBeVisible();
+  await expect(page.getByTestId("publication-tile")).toHaveCount(concepts.length);
+  await expect(page.getByTestId("publication-tile").filter({ hasText: concepts[0].title })).toContainText("Concept");
+  await expect(page).toHaveURL(/genre=concepts/);
+  await page.reload();
+  await expect(page.getByTestId("publication-tile")).toHaveCount(concepts.length);
+
   await page.getByRole("searchbox").fill("termequinexistepas123");
   await expect(page.getByText("Aucun résultat trouvé")).toBeVisible();
   await page.getByRole("button", { name: "Tout afficher" }).click();
-  await expect(page.getByTestId("publication-tile")).toHaveCount(publicArticles.length);
+  await expect(page.getByTestId("publication-tile")).toHaveCount(concepts.length);
 });
 
 test("shareable topics filter public articles and persist on reload", async ({ page }) => {
-  const article = publicArticles[0];
+  const article = news[0];
   test.skip(!article, "No published MUNDI article");
   await page.goto("/explorer/?sujet=" + article.topic);
   const tile = page.getByTestId("publication-tile").filter({ hasText: article.title });
@@ -52,12 +66,10 @@ test("news homepage uses image-rich cards with honest review labels and no overf
   expect(overflow).toBeLessThanOrEqual(0);
 });
 
-test("Explorer : « contenus » tant que la recherche est vide, domaines sans publication à part", async ({ page }) => {
+test("Explorer : « contenus » tant que la recherche est vide, « résultats » pendant une recherche", async ({ page }) => {
   await page.goto("/explorer/");
   await expect(page.getByText(/^\d+ contenus? ·/)).toBeVisible();
   await expect(page.getByText(/^\d+ résultats? ·/)).toHaveCount(0);
   await page.getByRole("searchbox").fill("énergie");
   await expect(page.getByText(/^\d+ résultats? ·/)).toBeVisible();
-  const topicsWithPublications = new Set(publicArticles.map((p) => p.topic));
-  if (topicsWithPublications.size < 12) await expect(page.getByTestId("topics-without-publications")).toBeVisible();
 });

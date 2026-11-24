@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useSyncExternalStore } from "react";
-import type { Story, TopicSlug } from "./types";
+import type { TopicSlug } from "./types";
 
 /** Préférences conservées sur cet appareil. Aucune donnée envoyée à un serveur. */
 const KEY = "mundi:topics:v1";
@@ -62,11 +62,11 @@ export function useInterests() {
 /** Priorité aux centres d'intérêt sans enfermer l'utilisateur dans une bulle.
  * Un récit sur trois reste hors des sujets favoris, lorsqu'il en existe.
  */
-export function personalizedStories(stories: Story[], interests: TopicSlug[]): Story[] {
-  if (!interests.length) return stories;
-  const priority = stories.filter(s => interests.includes(s.topic));
-  const discovery = stories.filter(s => !interests.includes(s.topic));
-  const result: Story[] = [];
+export function personalized<T extends { topic: TopicSlug }>(items: readonly T[], interests: TopicSlug[]): T[] {
+  if (!interests.length) return [...items];
+  const priority = items.filter(s => interests.includes(s.topic));
+  const discovery = items.filter(s => !interests.includes(s.topic));
+  const result: T[] = [];
   while (priority.length || discovery.length) {
     for (let i = 0; i < 2 && priority.length; i++) result.push(priority.shift()!);
     if (discovery.length) result.push(discovery.shift()!);

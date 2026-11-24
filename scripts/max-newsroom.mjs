@@ -17,7 +17,7 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync,readdirSync} from "node:
 import {resolve,join,dirname} from "node:path";
 import {pathToFileURL} from "node:url";
 import {makeDailyPlan} from "./plan-newsroom.mjs";
-import {dataCardErrors,cleanCard} from "./data-cards-check.mjs";
+import {dataCardErrors,cleanCard,flashcardErrors} from "./data-cards-check.mjs";
 import {WRITER_SYSTEM,CHECKER_SYSTEM,REVISION_TASK,assessReview,validateResearchDraft,tidyDraft,taskFor} from "./run-newsroom-agents.mjs";
 
 export const BATCH=6;
@@ -124,6 +124,9 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     const errors=d.draft?validateResearchDraft(tidyDraft(structuredClone(d.draft)),job):["draft absent"];
     const cardErrors=d.draft?.dataCards===undefined?[]:dataCardErrors(d.draft.dataCards.map?.(cleanCard)??d.draft.dataCards,(d.draft.sources??[]).map(s=>s?.url));
     if(cardErrors.length)console.log("CARTES DONNÉES À CORRIGER (sinon elles seront retirées) : "+cardErrors.join(" ; "));
+    const fcErrors=d.draft?.flashcards===undefined?[]:flashcardErrors(d.draft.flashcards);
+    if(fcErrors.length)console.log("CARTES MÉMOIRE À CORRIGER (sinon elles seront retirées) : "+fcErrors.join(" ; "));
+    if(d.draft&&job.role!=="journalist"&&!(d.draft.flashcards?.length>=3))console.log("CARTES MÉMOIRE : un concept ou un récit en demande 3 à 5.");
     console.log(errors.length?"À CORRIGER : "+errors.join(" ; "):"OK : format valide (la vérification reste à faire)");
     process.exit(errors.length?1:0);
   }else if(cmd==="assemble"){

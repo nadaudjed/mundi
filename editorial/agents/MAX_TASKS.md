@@ -80,6 +80,9 @@ En cas de conflit sur `plan.json` pendant le rebase, garder la version distante 
    **Cartes « Données »** : dès que le sujet a des chiffres, une comparaison ou des étapes, ajouter `dataCards`
    (2 à 4 cartes, format dans `writerInstructions`). Chaque chiffre doit figurer tel quel dans une des sources de
    l'article. `validate` signale les cartes à corriger ; une carte invalide est retirée, l'article reste publiable.
+   **Cartes mémoire** (`flashcards`, rubrique Réviser) : 3 à 5 pour un concept ou un récit, 0 à 2 pour une actualité ;
+   une notion par question, réponse compréhensible seule, tirée uniquement du texte de l'article. Le vérificateur
+   contrôle que chaque réponse est dans l'article.
 5. Pousser les brouillons. Ne pas les vérifier soi-même : c'est le rôle d'une autre tâche.
 
 ## Révision (tâche « révision », une seule fois par brouillon)

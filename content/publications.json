@@ -1,5 +1,1023 @@
 [
   {
+    "slug": "emploi-des-femmes-l-ecart-avec-les-hommes-recule-a-9-7-points-dans-les-regions",
+    "title": "Emploi des femmes : l'écart avec les hommes recule à 9,7 points dans les régions de l'UE",
+    "summary": "Selon Eurostat, l'écart moyen de taux d'emploi entre hommes et femmes de 20 à 64 ans dans les régions de l'UE était de 9,7 points de pourcentage en 2025, contre 10,0 points en 2024. Seules 65 régions sur 244 atteignent déjà l'objectif européen pour 2030, qui vise un écart de 5,7 points. Les chiffres sont ceux rapportés par The Brussels Times à partir de la publication d'Eurostat du 19 novembre 2026.",
+    "topic": "economie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En 2025, le taux d'emploi des 20-64 ans était de 80,9 % pour les hommes et de 71,2 % pour les femmes, soit un écart moyen de 9,7 points dans les régions de l'UE.",
+      "L'écart recule légèrement : il était de 10,0 points en 2024. L'objectif de l'UE est de le réduire de moitié, à 5,7 points, d'ici 2030.",
+      "65 régions sur 244 atteignent déjà l'objectif, surtout en France (14), en Allemagne (12) et en Suède, tandis que 26 régions ont un écart d'au moins 18,0 points."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un écart qui se réduit lentement",
+        "text": "Eurostat a publié le 19 novembre 2026 des données régionales sur l'emploi des hommes et des femmes de 20 à 64 ans. Selon The Brussels Times, qui rend compte de cette publication, le taux d'emploi atteignait en 2025 80,9 % chez les hommes et 71,2 % chez les femmes. L'écart moyen dans les régions de l'UE est de 9,7 points de pourcentage, contre 10,0 points en 2024."
+      },
+      {
+        "kind": "fait",
+        "heading": "De fortes différences entre régions",
+        "text": "Sur 244 régions, 65 atteignent déjà l'objectif fixé pour 2030. Elles se trouvent surtout en France (14 régions), en Allemagne (12) et en Suède (sept régions sur huit). À l'inverse, 26 régions affichent un écart d'au moins 18,0 points, dont dix des treize régions grecques, huit des 21 régions italiennes, cinq des huit régions roumaines, ainsi que Ceuta, Melilla et Mayotte."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que mesure cet indicateur",
+        "text": "L'écart d'emploi entre les sexes est la différence, en points, entre la part des hommes et celle des femmes qui occupent un emploi dans une classe d'âge donnée. Il ne dit rien des salaires ni du temps de travail : une femme à temps partiel compte comme une personne en emploi. L'UE s'est fixé de diviser cet écart par deux d'ici 2030, ce qui revient à descendre à 5,7 points. Au rythme observé entre 2024 et 2025, cet objectif paraît encore lointain."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — écart d'emploi entre les sexes dans les régions de l'UE",
+        "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261119-1"
+      },
+      {
+        "label": "The Brussels Times — EU gender employment gap narrows slightly",
+        "url": "https://www.brusselstimes.com/2414302/eu-gender-employment-gap-narrows-slightly-stark-regional-divides-persist"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-19",
+    "dataCards": [
+      {
+        "id": "taux-emploi-sexe-2025",
+        "kind": "comparaison",
+        "headline": "Taux d'emploi des 20-64 ans dans l'UE en 2025, selon le sexe",
+        "source": {
+          "label": "The Brussels Times, d'après Eurostat",
+          "url": "https://www.brusselstimes.com/2414302/eu-gender-employment-gap-narrows-slightly-stark-regional-divides-persist"
+        },
+        "asOf": "2025-12-31",
+        "items": [
+          {
+            "value": 80.9,
+            "unit": "%",
+            "label": "Hommes",
+            "scope": "UE, 20-64 ans",
+            "period": "2025",
+            "denominator": "hommes de 20 à 64 ans",
+            "decimals": 1
+          },
+          {
+            "value": 71.2,
+            "unit": "%",
+            "label": "Femmes",
+            "scope": "UE, 20-64 ans",
+            "period": "2025",
+            "denominator": "femmes de 20 à 64 ans",
+            "decimals": 1
+          }
+        ],
+        "presentation": "valeurs-distinctes"
+      },
+      {
+        "id": "ecart-emploi-evolution",
+        "kind": "comparaison",
+        "headline": "Écart d'emploi hommes-femmes dans les régions de l'UE et objectif 2030",
+        "source": {
+          "label": "The Brussels Times, d'après Eurostat",
+          "url": "https://www.brusselstimes.com/2414302/eu-gender-employment-gap-narrows-slightly-stark-regional-divides-persist"
+        },
+        "asOf": "2025-12-31",
+        "items": [
+          {
+            "value": 10,
+            "unit": "points",
+            "label": "2024",
+            "scope": "Régions de l'UE, 20-64 ans",
+            "period": "2024",
+            "decimals": 1
+          },
+          {
+            "value": 9.7,
+            "unit": "points",
+            "label": "2025",
+            "scope": "Régions de l'UE, 20-64 ans",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 5.7,
+            "unit": "points",
+            "label": "Objectif",
+            "scope": "Régions de l'UE, 20-64 ans",
+            "period": "2030",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ]
+  },
+  {
+    "slug": "cryptoactifs-un-comite-consultatif-francais-veut-mieux-encadrer-staking-et",
+    "title": "Cryptoactifs : un comité consultatif français veut mieux encadrer staking et publicité",
+    "summary": "Le Comité consultatif du secteur financier (CCSF) a adopté le 10 novembre 2026 des recommandations sur les cryptoactifs, publiées par la Banque de France le 17 novembre, selon crypto.news. Elles portent sur l'information des clients pour le staking et le prêt de cryptoactifs, et sur la publicité, sans interdiction générale. Elles s'ajoutent aux propositions communes des autorités françaises pour la révision du règlement européen MiCA, publiées le 21 octobre.",
+    "topic": "finance",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon crypto.news, le CCSF a adopté ses recommandations le 10 novembre 2026 et la Banque de France les a publiées le 17 novembre, à la suite d'une demande du ministère de l'Économie en avril.",
+      "Le comité demande une meilleure information et un consentement explicite avant le staking, une information sur les risques de perte en cas de prêt, et un encadrement plus strict des influenceurs et des publicités.",
+      "Le 21 octobre 2026, le Trésor, l'AMF, la Banque de France et l'ACPR avaient déjà proposé à la Commission de clarifier les règles du staking et du prêt et de renforcer le rôle de l'ESMA."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Les recommandations du CCSF",
+        "text": "Le Comité consultatif du secteur financier, qui réunit des représentants des professionnels et des consommateurs, a adopté le 10 novembre 2026 des recommandations sur les cryptoactifs. D'après crypto.news, elles ont été publiées par la Banque de France le 17 novembre. Pour le staking, c'est-à-dire le blocage de cryptoactifs en échange d'une rémunération, le comité demande d'informer sur les pénalités possibles, les failles des contrats informatiques, le piratage et les délais de déblocage, et d'obtenir le consentement explicite du client. Pour le prêt, il demande d'indiquer le risque de perte en cas de défaut de l'emprunteur et les droits de retrait."
+      },
+      {
+        "kind": "fait",
+        "heading": "La publicité et les influenceurs",
+        "text": "Le comité souhaite un contrôle plus strict des publications d'influenceurs, des publicités sur les réseaux sociaux, des primes de parrainage et des programmes de récompense, sans proposer d'interdiction générale. Il demande aussi à la Commission européenne de resserrer les règles sur la sollicitation inversée et de donner à l'ESMA, l'autorité européenne des marchés, plus de pouvoirs contre les services non autorisés qui visent les consommateurs européens."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une position française dans la révision de MiCA",
+        "text": "Ces recommandations s'inscrivent dans un débat plus large. Le 21 octobre 2026, la Direction générale du Trésor, l'AMF, la Banque de France et l'ACPR ont publié leur réponse commune à la consultation de la Commission sur la révision du règlement MiCA. Elles y proposent notamment un cadre pour la finance décentralisée, des règles clarifiées pour le staking et le prêt de cryptoactifs, et un rôle renforcé de l'ESMA dans la surveillance des grands prestataires. Le calendrier de la révision européenne n'est pas précisé dans ces documents. Selon une enquête ADAN/Ipsos de 2026 citée par crypto.news, 11 % des résidents français détiennent des cryptoactifs."
+      }
+    ],
+    "sources": [
+      {
+        "label": "crypto.news — France urges tougher EU crypto rules",
+        "url": "https://crypto.news/france-urges-tougher-eu-crypto-rules-on-staking-ads-and-investor-safety/"
+      },
+      {
+        "label": "AMF — révision de MiCA : propositions communes des autorités françaises",
+        "url": "https://www.amf-france.org/en/news-publications/news-releases/amf-news-releases/mica-regulation-revision-french-authorities-publish-their-joint-proposals"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-17",
+    "dataCards": [
+      {
+        "id": "crypto-propositions-france",
+        "kind": "explication",
+        "headline": "Cryptoactifs : les deux étapes des propositions françaises à l'automne 2026",
+        "source": {
+          "label": "AMF",
+          "url": "https://www.amf-france.org/en/news-publications/news-releases/amf-news-releases/mica-regulation-revision-french-authorities-publish-their-joint-proposals"
+        },
+        "asOf": "2026-10-21",
+        "steps": [
+          {
+            "label": "21 octobre 2026",
+            "text": "Le Trésor, l'AMF, la Banque de France et l'ACPR publient leur réponse commune à la consultation sur la révision de MiCA.",
+            "nature": "fait"
+          },
+          {
+            "label": "Contenu",
+            "text": "Cadre pour la finance décentralisée, règles clarifiées pour le staking et le prêt, rôle renforcé de l'ESMA.",
+            "nature": "fait"
+          },
+          {
+            "label": "Suite",
+            "text": "La Commission européenne doit encore présenter sa proposition de révision ; son calendrier n'est pas précisé.",
+            "nature": "hypothese"
+          }
+        ],
+        "layout": "sequence"
+      },
+      {
+        "id": "detention-crypto-france",
+        "kind": "stat",
+        "headline": "Part des résidents français qui détiennent des cryptoactifs",
+        "source": {
+          "label": "crypto.news",
+          "url": "https://crypto.news/france-urges-tougher-eu-crypto-rules-on-staking-ads-and-investor-safety/"
+        },
+        "asOf": "2026-11-20",
+        "note": "Enquête ADAN/Ipsos 2026 citée par crypto.news.",
+        "measure": {
+          "value": 11,
+          "unit": "%",
+          "label": "Détenteurs de cryptoactifs",
+          "scope": "Résidents français",
+          "period": "2026",
+          "denominator": "résidents français"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "industrie-le-climat-des-affaires-se-replie-a-104-en-novembre-les-stocks-gonflent",
+    "title": "Industrie : le climat des affaires se replie à 104 en novembre, les stocks gonflent",
+    "summary": "Selon l'enquête de conjoncture de l'Insee publiée le 20 novembre 2026, le climat des affaires dans l'industrie recule d'environ un point en novembre, à 104, mais reste au-dessus de sa moyenne de long terme (100). Les stocks de produits finis jugés par les industriels montent nettement et les carnets de commandes étrangers perdent de l'élan. L'agroalimentaire passe sous sa moyenne. Le chiffre d'octobre a été révisé.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le climat des affaires dans l'industrie s'établit à 104 en novembre 2026, en baisse d'environ un point, au-dessus de sa moyenne de long terme de 100.",
+      "Le solde sur les stocks de produits finis passe de 10 à 16 et celui des carnets de commandes étrangers de -1 à -4, qui reste toutefois au-dessus de sa moyenne de -14.",
+      "L'agroalimentaire recule de 97 à 94, sous sa moyenne, tandis que les matériels de transport sont à 111 et les équipements et machines à 107."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un indicateur en léger repli",
+        "text": "L'Insee a publié le 20 novembre 2026 son enquête mensuelle de conjoncture dans l'industrie. Le climat des affaires, qui synthétise les réponses des chefs d'entreprise, recule à 104 points, selon Economie Matin, et à 104,1 points selon Devizu, après 105,2 en octobre, un chiffre révisé. Il reste au-dessus de sa moyenne de long terme, fixée à 100. L'indicateur synthétique pour l'ensemble de l'économie recule lui à 94,6, selon Devizu."
+      },
+      {
+        "kind": "fait",
+        "heading": "Stocks, commandes et prix",
+        "text": "Selon Economie Matin, le solde d'opinion sur les stocks de produits finis passe de 10 à 16, au-dessus de sa moyenne de 12. Celui des carnets de commandes étrangers recule de -1 à -4, mais reste au-dessus de sa moyenne de -14. Les carnets globaux sont stables à -11. Le solde sur la production prévue passe de 18 à 17. Les industriels sont plus nombreux à prévoir des hausses de prix : le solde passe de 11 à 15."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des secteurs qui divergent",
+        "text": "L'agroalimentaire passe de 97 à 94, sous sa moyenne. Les matériels de transport sont à 111 et les équipements et machines à 107, mais l'automobile continue de reculer. Un solde d'opinion n'est pas une mesure de la production : c'est la différence entre la part des chefs d'entreprise optimistes et celle des pessimistes. La hausse des stocks jugés excessifs peut annoncer un ralentissement de la production si la demande ne suit pas."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Insee — climat des affaires dans l'industrie, novembre 2026",
+        "url": "https://www.insee.fr/fr/statistiques/9147327"
+      },
+      {
+        "label": "Devizu — moral des patrons de l'industrie en novembre 2026",
+        "url": "https://www.devizu.news/le-moral-des-patrons-francais-de-lindustrie-en-repli-a-1041-points-en-novembre-2026/"
+      },
+      {
+        "label": "Economie Matin — industrie, stocks et commandes étrangères",
+        "url": "https://www.economiematin.fr/industrie-insee-novembre-2026-stocks-commandes-etrangeres-prix"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-20",
+    "dataCards": [
+      {
+        "id": "climat-industrie-secteurs",
+        "kind": "comparaison",
+        "headline": "Climat des affaires par secteur industriel en novembre 2026 (moyenne de long terme : 100)",
+        "source": {
+          "label": "Economie Matin",
+          "url": "https://www.economiematin.fr/industrie-insee-novembre-2026-stocks-commandes-etrangeres-prix"
+        },
+        "asOf": "2026-11-20",
+        "items": [
+          {
+            "value": 111,
+            "unit": "points",
+            "label": "Matériels de transport",
+            "scope": "France",
+            "period": "novembre 2026"
+          },
+          {
+            "value": 107,
+            "unit": "points",
+            "label": "Équipements et machines",
+            "scope": "France",
+            "period": "novembre 2026"
+          },
+          {
+            "value": 94,
+            "unit": "points",
+            "label": "Agroalimentaire",
+            "scope": "France",
+            "period": "novembre 2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "stocks-produits-finis",
+        "kind": "comparaison",
+        "headline": "Solde d'opinion sur les stocks de produits finis dans l'industrie",
+        "source": {
+          "label": "Economie Matin",
+          "url": "https://www.economiematin.fr/industrie-insee-novembre-2026-stocks-commandes-etrangeres-prix"
+        },
+        "asOf": "2026-11-20",
+        "items": [
+          {
+            "value": 10,
+            "unit": "points de solde",
+            "label": "Octobre 2026",
+            "scope": "Industrie, France",
+            "period": "octobre 2026"
+          },
+          {
+            "value": 16,
+            "unit": "points de solde",
+            "label": "Novembre 2026",
+            "scope": "Industrie, France",
+            "period": "novembre 2026"
+          },
+          {
+            "value": 12,
+            "unit": "points de solde",
+            "label": "Moyenne de long terme",
+            "scope": "Industrie, France",
+            "period": "longue période"
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ]
+  },
+  {
+    "slug": "terres-rares-la-france-va-creer-des-stocks-strategiques-geres-par-la-caisse-des",
+    "title": "Terres rares : la France va créer des stocks stratégiques gérés par la Caisse des dépôts",
+    "summary": "Emmanuel Macron a annoncé le 23 novembre 2026, lors d'une table ronde à huis clos avec des industriels à l'Élysée, que la France allait se doter de stocks stratégiques de terres rares et de métaux prioritaires, sur le modèle des réserves de pétrole. La Caisse des dépôts doit piloter le dispositif, présenté comme opérationnel dès 2027. Aucun budget ni liste complète des métaux n'a été rendu public.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Annoncés le 23 novembre 2026 à l'Élysée, les stocks stratégiques de terres rares et de métaux prioritaires doivent être pilotés par la Caisse des dépôts et être opérationnels dès 2027.",
+      "Le projet prévoit des achats mutualisés entre industriels et l'étude de mécanismes de garantie de prix ; l'Élysée appelle la Commission européenne à aller dans le même sens.",
+      "Les entreprises de la défense, de l'aéronautique et de l'automobile devront présenter un plan de désensibilisation pour réduire leur dépendance, notamment à la Chine, sous peine de perdre certaines aides publiques."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce qui a été annoncé",
+        "text": "Le président de la République a présenté le projet le 23 novembre 2026, lors d'une table ronde à huis clos avec des industriels à l'Élysée, selon armees.com et Euronews. La présidence l'a confirmé à l'AFP. Il s'agit de constituer des stocks stratégiques de terres rares et de métaux dits prioritaires, sur le modèle des réserves de pétrole. La Caisse des dépôts en assurera le pilotage et le dispositif doit être opérationnel dès 2027."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les autres mesures",
+        "text": "Des achats mutualisés doivent permettre aux entreprises de regrouper leurs commandes. L'Élysée va étudier des mécanismes de garantie de prix et appelle la Commission européenne à aller dans le même sens. Les entreprises de la défense, de l'aéronautique et de l'automobile devront présenter un plan de désensibilisation montrant comment elles réduisent leur dépendance, notamment à la Chine. Le maintien de certaines aides publiques en dépendra."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Beaucoup d'inconnues",
+        "text": "Aucun montant n'a été annoncé, et l'Élysée n'a pas publié de liste complète des métaux concernés. Selon armees.com et fpop.media, le projet porterait sur une vingtaine des 34 matières premières critiques définies par l'Union européenne. Euronews souligne que le calendrier précis n'est pas fixé et pourrait dépendre de l'élection présidentielle de 2027. Pour comparaison, les États-Unis ont annoncé en début d'année un investissement de 12 milliards de dollars pour un stock équivalant à deux mois de consommation nationale, selon Euronews."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Euronews — France to build strategic reserves of rare earths",
+        "url": "https://euronews.com/2026/11/24/france-to-build-strategic-reserves-of-rare-earths-and-critical-minerals"
+      },
+      {
+        "label": "armees.com — minerais critiques : la riposte française",
+        "url": "https://armees.com/minerais-critiques-france-2027-emmanuel-macron-pilotee-strategiques-stocks/"
+      },
+      {
+        "label": "fpop.media — Paris veut constituer des stocks stratégiques de terres rares",
+        "url": "https://www.fpop.media/paris-veut-constituer-des-stocks-strategiques-de-terres-rares-pour-desserrer-letau-chinois/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "dataCards": [
+      {
+        "id": "stocks-terres-rares-etapes",
+        "kind": "explication",
+        "headline": "Stocks stratégiques de métaux : comment le dispositif doit fonctionner",
+        "source": {
+          "label": "armees.com",
+          "url": "https://armees.com/minerais-critiques-france-2027-emmanuel-macron-pilotee-strategiques-stocks/"
+        },
+        "asOf": "2026-11-23",
+        "steps": [
+          {
+            "label": "Annonce",
+            "text": "Table ronde avec des industriels à l'Élysée, le 23 novembre 2026.",
+            "nature": "fait"
+          },
+          {
+            "label": "Pilotage",
+            "text": "La Caisse des dépôts et consignations pilote les stocks et consulte les industriels sur les volumes.",
+            "nature": "fait"
+          },
+          {
+            "label": "Achats",
+            "text": "Des achats mutualisés regroupent les commandes des entreprises.",
+            "nature": "fait"
+          },
+          {
+            "label": "Mise en service",
+            "text": "Le dispositif doit être opérationnel dès 2027.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      },
+      {
+        "id": "stock-americain",
+        "kind": "stat",
+        "headline": "Le précédent américain : un stock de métaux critiques équivalant à deux mois de consommation",
+        "source": {
+          "label": "Euronews",
+          "url": "https://euronews.com/2026/11/24/france-to-build-strategic-reserves-of-rare-earths-and-critical-minerals"
+        },
+        "asOf": "2026-11-24",
+        "note": "Aucun montant n'a été annoncé pour le dispositif français.",
+        "measure": {
+          "value": 12,
+          "unit": "milliards de dollars",
+          "label": "Investissement annoncé par les États-Unis",
+          "scope": "États-Unis",
+          "period": "2026"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "gaz-les-stocks-francais-tombent-a-73-2-avant-le-prix-repere-record-de-decembre",
+    "title": "Gaz : les stocks français tombent à 73,2 % avant le prix repère record de décembre",
+    "summary": "Les stockages de gaz français étaient remplis à 73,2 % le 22 novembre 2026, contre 87,0 % le 23 octobre, selon Selectra. Un an plus tôt, à la mi-novembre, ils dépassaient 93 %, selon WattValue. Sur le marché, le contrat de gaz français pour livraison en décembre a clôturé à 87,18 €/MWh le 20 novembre. Le prix repère fixé par la CRE passera le 1er décembre à 206,26 €/MWh TTC, en hausse de 5,8 %.",
+    "topic": "energie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon Selectra, les stocks de gaz en France étaient remplis à 73,2 % le 22 novembre 2026, contre 87,0 % le 23 octobre ; WattValue indique 75,5 % le 17 novembre contre 93,1 % un an plus tôt.",
+      "Le contrat PEG pour livraison en décembre 2026 a clôturé à 87,18 €/MWh le 20 novembre, en hausse de 5,3 % sur une séance mais en baisse de 2,4 % sur une semaine.",
+      "Le prix repère de vente du gaz publié par la CRE passe de 194,90 à 206,26 €/MWh TTC au 1er décembre, soit +5,8 %, la quatrième hausse d'affilée."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Des stocks plus bas qu'il y a un an",
+        "text": "D'après Selectra, les stockages de gaz français étaient remplis à 73,2 % le 22 novembre 2026, contre 87,0 % le 23 octobre. WattValue, un courtier en énergie, indique un taux de 75,5 % le 17 novembre, contre 93,1 % un an plus tôt, et environ 70 % pour l'ensemble de l'Union européenne. Ces chiffres, issus des opérateurs de stockage, peuvent être légèrement révisés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des prix de gros élevés mais instables",
+        "text": "Selon Selectra, le contrat de gaz français (PEG) pour livraison en décembre 2026 a clôturé à 87,18 €/MWh le vendredi 20 novembre, en hausse de 5,3 % par rapport à la veille, mais en baisse de 2,4 % sur une semaine. Il avait atteint 102 € le 30 octobre. Pour l'année 2027, WattValue relève une baisse liée au redoux, au retour du vent et à l'apaisement des tensions géopolitiques : le contrat annuel français a clôturé à 66,69 €/MWh le 19 novembre."
+      },
+      {
+        "kind": "fait",
+        "heading": "La facture des ménages en décembre",
+        "text": "Le prix repère de vente du gaz, publié par la Commission de régulation de l'énergie, passera le 1er décembre de 194,90 à 206,26 €/MWh TTC, soit +5,8 %, selon l'AFP. C'est la quatrième hausse d'affilée, après +5,6 % en septembre, +6,3 % en octobre et +6,6 % en novembre, selon JeChange. La hausse représente environ 16 euros TTC sur la facture de décembre pour les contrats indexés. Environ 40 % des abonnés résidentiels, à prix fixe, ne sont pas concernés."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi le niveau des stocks compte",
+        "text": "Les stocks servent à couvrir la demande d'hiver, quand la consommation dépasse ce que les gazoducs et les terminaux de gaz naturel liquéfié peuvent livrer. Des stocks plus bas en début d'hiver rendent les prix plus sensibles aux vagues de froid. Le prix repère de décembre est calculé à partir des cotations d'octobre : la baisse récente des prix de gros ne s'y reflète donc pas encore."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Selectra — prix du gaz du 23 novembre 2026",
+        "url": "https://selectra.info/energie/actualites/prix-gaz/2026-11-23"
+      },
+      {
+        "label": "WattValue — marché de l'électricité et du gaz du 23/11/2026",
+        "url": "https://www.wattvalue.fr/lactu-du-marche-de-lelectricite-et-du-gaz-du-23-11-2026/"
+      },
+      {
+        "label": "Connaissance des Énergies (AFP) — prix de référence du gaz en décembre",
+        "url": "https://www.connaissancedesenergies.org/afp/france-le-prix-de-reference-du-gaz-augmentera-de-58-en-decembre-regulateur-261109"
+      },
+      {
+        "label": "JeChange — prix du gaz au 1er décembre 2026",
+        "url": "https://www.jechange.fr/energie/gaz/news/prix-gaz-record-5-8-pourcent-1er-decembre-2026-facture-143-euros"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-22",
+    "dataCards": [
+      {
+        "id": "stocks-gaz-france",
+        "kind": "comparaison",
+        "headline": "Taux de remplissage des stockages de gaz en France",
+        "source": {
+          "label": "Selectra",
+          "url": "https://selectra.info/energie/actualites/prix-gaz/2026-11-23"
+        },
+        "asOf": "2026-11-22",
+        "items": [
+          {
+            "value": 87,
+            "unit": "%",
+            "label": "23 octobre 2026",
+            "scope": "France",
+            "period": "23 octobre 2026",
+            "denominator": "capacité de stockage",
+            "decimals": 1
+          },
+          {
+            "value": 73.2,
+            "unit": "%",
+            "label": "22 novembre 2026",
+            "scope": "France",
+            "period": "22 novembre 2026",
+            "denominator": "capacité de stockage",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "prix-repere-gaz",
+        "kind": "comparaison",
+        "headline": "Prix repère de vente du gaz de la CRE, TTC",
+        "source": {
+          "label": "JeChange",
+          "url": "https://www.jechange.fr/energie/gaz/news/prix-gaz-record-5-8-pourcent-1er-decembre-2026-facture-143-euros"
+        },
+        "asOf": "2026-12-01",
+        "items": [
+          {
+            "value": 172.05,
+            "unit": "€/MWh",
+            "label": "Septembre",
+            "scope": "France, prix repère TTC",
+            "period": "septembre 2026",
+            "decimals": 2
+          },
+          {
+            "value": 182.88,
+            "unit": "€/MWh",
+            "label": "Octobre",
+            "scope": "France, prix repère TTC",
+            "period": "octobre 2026",
+            "decimals": 2
+          },
+          {
+            "value": 194.9,
+            "unit": "€/MWh",
+            "label": "Novembre",
+            "scope": "France, prix repère TTC",
+            "period": "novembre 2026",
+            "decimals": 2
+          },
+          {
+            "value": 206.26,
+            "unit": "€/MWh",
+            "label": "Décembre",
+            "scope": "France, prix repère TTC",
+            "period": "décembre 2026",
+            "decimals": 2
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ]
+  },
+  {
+    "slug": "grand-cormoran-l-ue-prepare-un-recensement-europeen-pour-2027",
+    "title": "Grand cormoran : l’UE prépare un recensement européen pour 2027",
+    "summary": "La Commission européenne a réuni les 18 et 19 novembre 2026 les États membres et les acteurs concernés pour un second dialogue sur les conflits entre le grand cormoran, espèce protégée, et la pêche ou l’aquaculture. Un recensement coordonné à l’échelle européenne des populations hivernantes et nicheuses est prévu en 2027. Les estimations de population et de pertes économiques varient selon les sources.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La Commission européenne a tenu les 18 et 19 novembre 2026 un second dialogue structuré avec les États membres et les acteurs concernés sur les conflits liés au grand cormoran.",
+      "Le contrat CormEU doit réunir des données à jour, et des recensements coordonnés des cormorans hivernants et nicheurs sont prévus dans toute l’Europe en 2027.",
+      "Protégé par la directive Oiseaux depuis 1979, le grand cormoran ne peut pas être chassé, mais des dérogations sont possibles en cas de dommages importants."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un second dialogue à Bruxelles",
+        "text": "La Commission européenne a réuni les 18 et 19 novembre 2026 les autorités des États membres et les principaux acteurs concernés pour un second dialogue structuré sur les conflits entre les populations de grand cormoran et certaines activités économiques, comme la pêche et l’aquaculture. Ce dialogue faisait suite à un engagement de la commissaire Jessika Roswall lors du Conseil Agriculture et pêche de mai 2026. Les participants ont échangé sur les bonnes pratiques, les résultats du projet ProtectFish et le document d’orientation sur la protection des espèces."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un recensement européen en 2027",
+        "text": "Selon la Commission, le contrat CormEU, récemment signé, doit rassembler des données à jour sur la taille et la dynamique des populations, sur leurs interactions avec la pêche et l’aquaculture et sur leur impact sur les poissons protégés. Des recensements coordonnés à l’échelle européenne des populations hivernantes et nicheuses seront menés en 2027."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des chiffres encore discutés",
+        "text": "Un briefing du Service de recherche du Parlement européen, publié en janvier 2026, cite les rapports des États membres pour 2013-2018 : environ 253 000 couples nicheurs et environ 549 000 oiseaux hivernants dans l’UE à 27. La Commission européenne consultative pour les pêches et l’aquaculture intérieures (EIFAAC) a de son côté présenté au Parlement une estimation d’environ deux millions d’oiseaux, sans que le périmètre soit précisé. Ces écarts expliquent l’intérêt d’un recensement commun. Les pertes économiques sont estimées à plus de 350 millions d’euros par an par les représentants de la pêche et de l’aquaculture."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une espèce protégée, avec des dérogations",
+        "text": "Le grand cormoran est protégé par la directive Oiseaux depuis 1979. Il ne figure pas à l’annexe II et ne peut donc pas être chassé, mais l’article 9 permet des dérogations, notamment pour prévenir des dommages importants."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne, DG Environnement, 18/11/2026",
+        "url": "https://environment.ec.europa.eu/news/second-structured-dialogue-managing-great-cormorant-conflicts-2026-11-18_en"
+      },
+      {
+        "label": "Service de recherche du Parlement européen, 20/01/2026",
+        "url": "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/01/EPRS_BRI(2026)782619.html"
+      },
+      {
+        "label": "FAO – EIFAAC, 24/03/2026",
+        "url": "https://www.fao.org/eifaac/news/news-detail/european-parliament-discusses-a-coordinated-approach-to-cormorant-management/en"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-18",
+    "dataCards": [
+      {
+        "id": "population-cormoran-ue",
+        "kind": "comparaison",
+        "headline": "Grand cormoran dans l’UE à 27 selon les rapports 2013-2018",
+        "source": {
+          "label": "Service de recherche du Parlement européen",
+          "url": "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/01/EPRS_BRI(2026)782619.html"
+        },
+        "asOf": "2018-12-31",
+        "note": "Valeurs approximatives.",
+        "items": [
+          {
+            "value": 253000,
+            "unit": "couples",
+            "label": "Couples nicheurs",
+            "scope": "UE à 27",
+            "period": "2013-2018"
+          },
+          {
+            "value": 549000,
+            "unit": "oiseaux",
+            "label": "Oiseaux hivernants",
+            "scope": "UE à 27",
+            "period": "2013-2018"
+          }
+        ],
+        "presentation": "valeurs-distinctes"
+      },
+      {
+        "id": "etapes-gestion-cormoran",
+        "kind": "explication",
+        "headline": "Les étapes de la gestion européenne du grand cormoran",
+        "source": {
+          "label": "Commission européenne",
+          "url": "https://environment.ec.europa.eu/news/second-structured-dialogue-managing-great-cormorant-conflicts-2026-11-18_en"
+        },
+        "asOf": "2026-11-18",
+        "steps": [
+          {
+            "label": "Mai 2026",
+            "text": "Engagement de la commissaire Jessika Roswall au Conseil Agriculture et pêche.",
+            "nature": "fait"
+          },
+          {
+            "label": "18-19 novembre 2026",
+            "text": "Second dialogue structuré avec les États membres et les acteurs concernés.",
+            "nature": "fait"
+          },
+          {
+            "label": "2027",
+            "text": "Recensements coordonnés des populations hivernantes et nicheuses.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ]
+  },
+  {
+    "slug": "creations-d-entreprises-repli-de-4-5-en-octobre-mais-forte-hausse-sur-un-an",
+    "title": "Créations d’entreprises : repli de 4,5 % en octobre, mais forte hausse sur un an",
+    "summary": "Selon l’Insee, 113 082 entreprises ont été créées en France en octobre 2026, en données corrigées des variations saisonnières, soit 4,5 % de moins qu’en septembre. Sur trois mois et sur douze mois, les créations restent en nette hausse, portées par les micro-entrepreneurs. Bpifrance Création, en données brutes, compte 129 968 créations en octobre, en hausse de 11,7 % sur un an.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L’Insee recense 113 082 créations d’entreprises en octobre 2026, en données corrigées des variations saisonnières, soit un recul de 4,5 % après +0,9 % en septembre.",
+      "D’août à octobre 2026, les créations progressent de 16,6 % sur un an en données brutes ; sur douze mois, la hausse atteint 12,1 %.",
+      "Selon Bpifrance Création, les micro-entrepreneurs représentent 68,2 % des créations d’octobre 2026, qui atteignent 129 968 en données brutes."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un recul mensuel en octobre",
+        "text": "Selon l’Insee, qui a publié ses chiffres le 18 novembre 2026, le nombre total de créations d’entreprises en France atteint 113 082 en octobre, en données corrigées des variations saisonnières et des jours ouvrables. C’est 4,5 % de moins qu’en septembre, où il avait progressé de 0,9 %. Les immatriculations de micro-entrepreneurs (75 039) et les créations de sociétés (27 011) reculent chacune de 4,1 %, et les entreprises individuelles classiques (11 032) de 7,9 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une forte hausse sur un an",
+        "text": "En données brutes, le nombre cumulé de créations d’août à octobre 2026 dépasse de 16,6 % celui de la même période de 2025. Sur douze mois, de novembre 2025 à octobre 2026, la hausse est de 12,1 %. Elle est portée surtout par les micro-entrepreneurs (+15,2 %), devant les entreprises individuelles classiques (+9,3 %) et les sociétés (+5,4 %)."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le décompte de Bpifrance Création",
+        "text": "L’Observatoire de la création d’entreprise de Bpifrance Création, qui s’appuie sur les données brutes du répertoire Sirene, compte 129 968 créations en octobre 2026, contre 116 385 en octobre 2025, soit une hausse de 11,7 %. Les micro-entrepreneurs représentent 68,2 % du total. De janvier à octobre, 1 101 415 entreprises ont été créées, soit 12,9 % de plus qu’un an plus tôt."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Deux chiffres qui ne se comparent pas directement",
+        "text": "L’écart entre 113 082 et 129 968 créations vient de la méthode : l’Insee corrige ses séries mensuelles des variations saisonnières, alors que Bpifrance Création publie des données brutes. Les deux sources convergent toutefois sur une hausse marquée sur un an. Une création ne dit rien de la taille ni de la durée de vie de l’entreprise, et la forte part des micro-entrepreneurs pèse sur ces chiffres."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Insee, Informations rapides, 18/11/2026",
+        "url": "https://www.insee.fr/fr/statistiques/9140358"
+      },
+      {
+        "label": "Bpifrance Création, Observatoire de la création d’entreprise, octobre 2026",
+        "url": "https://bpifrance-creation.fr/sites/default/files/oce/OCE_FSM_France%20enti%C3%A8re_202610.pdf"
+      },
+      {
+        "label": "Économie Matin, 18/11/2026",
+        "url": "https://www.economiematin.fr/creations-entreprises-octobre-2026-baisse-45-pour-cent-insee"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-18",
+    "dataCards": [
+      {
+        "id": "creations-octobre-par-type",
+        "kind": "comparaison",
+        "headline": "Créations d’entreprises en octobre 2026 par catégorie",
+        "source": {
+          "label": "Insee",
+          "url": "https://www.insee.fr/fr/statistiques/9140358"
+        },
+        "asOf": "2026-10-31",
+        "note": "Données corrigées des variations saisonnières et des jours ouvrables.",
+        "items": [
+          {
+            "value": 75039,
+            "unit": "créations",
+            "label": "Micro-entrepreneurs",
+            "scope": "France",
+            "period": "octobre 2026"
+          },
+          {
+            "value": 27011,
+            "unit": "créations",
+            "label": "Sociétés",
+            "scope": "France",
+            "period": "octobre 2026"
+          },
+          {
+            "value": 11032,
+            "unit": "créations",
+            "label": "Entreprises individuelles classiques",
+            "scope": "France",
+            "period": "octobre 2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "creations-octobre-un-an",
+        "kind": "comparaison",
+        "headline": "Créations d’entreprises en octobre, données brutes",
+        "source": {
+          "label": "Bpifrance Création",
+          "url": "https://bpifrance-creation.fr/sites/default/files/oce/OCE_FSM_France%20enti%C3%A8re_202610.pdf"
+        },
+        "asOf": "2026-10-31",
+        "items": [
+          {
+            "value": 116385,
+            "unit": "créations",
+            "label": "Octobre 2025",
+            "scope": "France",
+            "period": "octobre 2025"
+          },
+          {
+            "value": 129968,
+            "unit": "créations",
+            "label": "Octobre 2026",
+            "scope": "France",
+            "period": "octobre 2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ]
+  },
+  {
+    "slug": "soudan-les-drones-ont-cause-pres-de-75-des-morts-civiles-en-2026-selon-l-onu",
+    "title": "Soudan : les drones ont causé près de 75 % des morts civiles en 2026, selon l’ONU",
+    "summary": "Le Haut-Commissariat des Nations unies aux droits de l’homme a recensé au moins 2 230 civils tués au Soudan entre janvier et fin octobre 2026, dont plus de 1 630 par des frappes de drones. Il s’agit de cas vérifiés : le bilan réel est probablement plus élevé. Le Kordofan concentre plus des deux tiers des victimes.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon le Haut-Commissariat de l’ONU aux droits de l’homme, au moins 2 230 civils ont été tués au Soudan de janvier à fin octobre 2026, dont plus de 1 630 par des drones.",
+      "Le Kordofan concentre plus des deux tiers des morts civiles vérifiées, devant le Darfour ; le Haut-Commissariat précise que le bilan réel est probablement plus élevé.",
+      "Entre le 20 octobre et le 4 novembre 2026, 29 frappes de drones attribuées aux Forces de soutien rapide ont visé des installations électriques et des stations-service dans 11 États."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un bilan dominé par les drones",
+        "text": "Le Haut-Commissariat des Nations unies aux droits de l’homme a publié le 17 novembre 2026 un bilan des victimes civiles au Soudan. Entre janvier et fin octobre, il a recensé au moins 2 230 civils tués, dont plus de 1 630 par des frappes de drones, soit près de 75 % des décès documentés. Le Kordofan concentre plus des deux tiers des victimes, et le Darfour la plupart des autres. Le Haut-Commissaire Volker Türk a appelé les parties au conflit à protéger les civils."
+      },
+      {
+        "kind": "fait",
+        "heading": "Marchés, véhicules et infrastructures visés",
+        "text": "Sur le premier semestre 2026, l’ONU a compté au moins 39 frappes de drones sur des marchés, 20 sur des véhicules civils, 17 sur des camions-citernes et dépôts de carburant et 16 sur des établissements de santé. Entre le 20 octobre et le 4 novembre, 29 frappes attribuées aux Forces de soutien rapide ont touché des installations électriques et des stations-service dans 11 États. L’ONU rappelle aussi l’aggravation de la faim et le risque de famine dans certaines zones du Darfour et du Kordofan."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que ces chiffres disent et ne disent pas",
+        "text": "Ces chiffres ne portent que sur les décès que l’ONU a pu vérifier ; le Haut-Commissariat estime que le bilan réel est probablement plus élevé. Ils permettent de mesurer le poids des drones dans les violences contre les civils, mais ils ne constituent pas un bilan complet de la guerre, commencée en avril 2023."
+      }
+    ],
+    "sources": [
+      {
+        "label": "ONU Info, 17/11/2026",
+        "url": "https://news.un.org/fr/story/2026/11/1159858"
+      },
+      {
+        "label": "Dabanga via AllAfrica, 17/11/2026",
+        "url": "https://allafrica.com/stories/202611180005.html"
+      },
+      {
+        "label": "Türkiye Today, 17/11/2026",
+        "url": "https://www.turkiyetoday.com/world/drone-strikes-cause-nearly-75-of-civilian-deaths-in-sudan-war-this-year-un-3232615"
+      },
+      {
+        "label": "Agence congolaise de presse, 17/11/2026",
+        "url": "https://acp.cd/diplomatie/soudan-les-drones-responsables-de-75-des-morts-des-civils-en-2026-onu/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-17",
+    "dataCards": [
+      {
+        "id": "morts-civiles-drones",
+        "kind": "comparaison",
+        "headline": "Civils tués au Soudan de janvier à fin octobre 2026, selon l’ONU",
+        "source": {
+          "label": "ONU Info",
+          "url": "https://news.un.org/fr/story/2026/11/1159858"
+        },
+        "asOf": "2026-10-31",
+        "note": "Minimums : au moins 2 230 et plus de 1 630, cas vérifiés.",
+        "items": [
+          {
+            "value": 2230,
+            "unit": "civils",
+            "label": "Civils tués, toutes causes",
+            "scope": "Soudan",
+            "period": "janvier à fin octobre 2026"
+          },
+          {
+            "value": 1630,
+            "unit": "civils",
+            "label": "Civils tués par des drones",
+            "scope": "Soudan",
+            "period": "janvier à fin octobre 2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "frappes-premier-semestre",
+        "kind": "comparaison",
+        "headline": "Cibles des frappes de drones au premier semestre 2026",
+        "source": {
+          "label": "ONU Info",
+          "url": "https://news.un.org/fr/story/2026/11/1159858"
+        },
+        "asOf": "2026-06-30",
+        "note": "Au moins, selon le Haut-Commissariat.",
+        "items": [
+          {
+            "value": 39,
+            "unit": "frappes",
+            "label": "Marchés",
+            "scope": "Soudan",
+            "period": "1er semestre 2026"
+          },
+          {
+            "value": 20,
+            "unit": "frappes",
+            "label": "Véhicules civils",
+            "scope": "Soudan",
+            "period": "1er semestre 2026"
+          },
+          {
+            "value": 17,
+            "unit": "frappes",
+            "label": "Carburant",
+            "scope": "Soudan",
+            "period": "1er semestre 2026"
+          },
+          {
+            "value": 16,
+            "unit": "frappes",
+            "label": "Santé",
+            "scope": "Soudan",
+            "period": "1er semestre 2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ]
+  },
+  {
+    "slug": "meteo-northrop-grumman-fabriquera-trois-sondeurs-pour-les-satellites-neon-de-la",
+    "title": "Météo : Northrop Grumman fabriquera trois sondeurs pour les satellites NEON de la NOAA",
+    "summary": "La NASA a attribué le 23 novembre 2026 à Northrop Grumman un contrat de 290,6 millions de dollars pour trois sondeurs micro-ondes destinés au programme de satellites météorologiques NEON de la NOAA. Ces instruments mesurent la température et l’humidité de l’atmosphère pour améliorer les prévisions à moyen terme. Le contrat court jusqu’au 1er avril 2042.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La NASA a attribué le 23 novembre 2026 à Northrop Grumman un contrat de 290,6 millions de dollars pour trois instruments SMBA, des sondeurs micro-ondes de nouvelle génération.",
+      "Ces sondeurs mesurent la température et l’humidité de l’atmosphère, des données utilisées par le service météorologique américain pour ses prévisions à moyen terme.",
+      "Le programme NEON est dirigé et financé par la NOAA ; la NASA gère le développement et le lancement des satellites, avec des partenaires industriels."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un contrat de 290,6 millions de dollars",
+        "text": "La NASA a annoncé le 23 novembre 2026 l’attribution à Northrop Grumman d’un contrat hybride, mêlant coûts remboursés avec honoraire fixe, prix forfaitaire et régie, d’une valeur de 290,6 millions de dollars. Il couvre la conception, le développement, la production, les essais et le soutien en mission de trois instruments SMBA, pour Sounder for Microwave-Based Applications. Il court du 23 novembre 2026 au 1er avril 2042. Le centre Goddard de la NASA gère l’acquisition."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des sondeurs pour mieux prévoir le temps",
+        "text": "Les sondeurs micro-ondes mesurent la température et l’humidité de l’atmosphère. Selon la NOAA, ces données alimentent les modèles numériques du service météorologique national américain pour les prévisions à trois jours et au-delà. Les instruments SMBA doivent équiper la série de satellites en orbite basse du programme NEON, dont le premier lancement était prévu en 2030 selon une annonce de la NOAA de 2023."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une étape après les études de 2023",
+        "text": "En 2023, la NASA avait attribué, pour le compte de la NOAA, quatre contrats d’étude de douze mois pour définir ces sondeurs. Le contrat de 2026 passe à la fabrication des instruments. La NOAA possédera et exploitera les instruments et diffusera leurs données."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que l’annonce ne dit pas",
+        "text": "Le communiqué de la NASA ne précise pas le calendrier de lancement des satellites NEON ni la répartition du montant entre les trois instruments. La date de 2030 provient d’une annonce plus ancienne de la NOAA et pourrait avoir évolué."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NASA, communiqué du 23/11/2026",
+        "url": "https://www.nasa.gov/news-release/nasa-awards-contract-for-noaas-near-earth-orbit-network-program/"
+      },
+      {
+        "label": "NOAA NESDIS, 30/08/2023",
+        "url": "https://www.nesdis.noaa.gov/news/nasa-awards-contracts-noaa-sounder-microwave-based-applications-study"
+      },
+      {
+        "label": "Northrop Grumman, sondeur ATMS",
+        "url": "https://www.northropgrumman.com/what-we-do/space/mission-enabling-products/advanced-technology-microwave-sounder"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "dataCards": [
+      {
+        "id": "contrat-smba",
+        "kind": "stat",
+        "headline": "Montant du contrat attribué à Northrop Grumman pour trois sondeurs SMBA",
+        "source": {
+          "label": "NASA",
+          "url": "https://www.nasa.gov/news-release/nasa-awards-contract-for-noaas-near-earth-orbit-network-program/"
+        },
+        "asOf": "2026-11-23",
+        "measure": {
+          "value": 290.6,
+          "unit": "millions de dollars",
+          "label": "Valeur du contrat",
+          "scope": "Trois instruments SMBA",
+          "period": "23 novembre 2026 au 1er avril 2042",
+          "decimals": 1
+        }
+      },
+      {
+        "id": "etapes-smba",
+        "kind": "explication",
+        "headline": "Les étapes des sondeurs SMBA",
+        "source": {
+          "label": "NOAA NESDIS",
+          "url": "https://www.nesdis.noaa.gov/news/nasa-awards-contracts-noaa-sounder-microwave-based-applications-study"
+        },
+        "asOf": "2023-08-30",
+        "steps": [
+          {
+            "label": "2023",
+            "text": "Quatre contrats d’étude de douze mois attribués par la NASA pour la NOAA.",
+            "nature": "fait"
+          },
+          {
+            "label": "2030",
+            "text": "Premier lancement prévu des satellites NEON portant les SMBA, selon la NOAA en 2023.",
+            "nature": "hypothese"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ]
+  },
+  {
     "slug": "russie-la-commission-propose-un-22e-paquet-de-sanctions-visant-60-banques-et-le",
     "title": "Russie : la Commission propose un 22e paquet de sanctions visant 60 banques et le sport",
     "summary": "Le 23 novembre 2026, Ursula von der Leyen a présenté le 22e paquet de sanctions de l'UE contre la Russie. Il s'agit d'une proposition de la Commission : pour entrer en vigueur, elle doit être approuvée par les 27 États membres. Le texte vise une soixantaine de banques russes, plus de 70 navires de la flotte fantôme, pour la première fois les services d'électricité, ainsi que la participation d'équipes russes à des compétitions sportives dans l'UE.",

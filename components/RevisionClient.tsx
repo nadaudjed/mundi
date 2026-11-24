@@ -4,16 +4,12 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRevision } from "@/lib/revision";
 import { verificationLabel } from "@/lib/verification";
-import { KIND_LABEL, publicationKind, type PublicationKind } from "@/lib/publication-kind";
+import { KIND_LABEL, type PublicationKind } from "@/lib/publication-kind";
 import { getTopic } from "@/lib/topics";
-import { publicationKey, publicationPath } from "@/lib/publication-links";
+import { reviewCards, type ReviewCard } from "@/lib/flashcards";
 import type { FeedPublication } from "@/lib/verified";
-import type { TopicSlug } from "@/lib/types";
 
-type Card = {
-  key: string; title: string; topic: TopicSlug; keyPoints: readonly string[];
-  href: string; kind: PublicationKind; aiVerified?: boolean;
-};
+const TYPE_LABEL: Record<ReviewCard["type"], string> = { idees: "Trois idées", question: "Question", chiffre: "Chiffre clé" };
 const KINDS: PublicationKind[] = ["actualite", "concept", "recit"];
 const KIND_TABS: Record<PublicationKind, string> = { actualite: "Actualités", concept: "Concepts", recit: "Récits" };
 
@@ -24,11 +20,8 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   const [revealed, setRevealed] = useState(false);
   const [now] = useState(() => Date.now());
 
-  const publicCards = useMemo<Card[]>(() => publications.map((p) => ({
-    key: publicationKey(p.slug), title: p.title, topic: p.topic,
-    keyPoints: p.keyPoints, href: publicationPath(p.slug),
-    kind: publicationKind(p), aiVerified: p.aiVerified,
-  })), [publications]);
+  // Chaque publication donne ses cartes : trois idées, questions écrites par les agents, chiffres clés.
+  const publicCards = useMemo<ReviewCard[]>(() => publications.flatMap(reviewCards), [publications]);
 
   const cards = publicCards.filter((card) => card.kind === kind);
   const due = cards.filter((card) => !records[card.key] || records[card.key].level === 0 || new Date(records[card.key].nextAt).getTime() <= now);
@@ -74,25 +67,34 @@ export function RevisionClient({ publications }: { publications: FeedPublication
       <section className="mt-8 rounded-md border border-rule-strong bg-surface p-6 md:p-9" aria-label="Carte de révision">
         {story ? (
           <>
-            <p className="text-meta text-muted">
-              <span className="font-semibold text-accent">{getTopic(story.topic)?.name}</span> · Carte mémoire · {KIND_LABEL[story.kind]}
+            <p className="text-meta text-muted" data-testid="revision-card-type" data-type={story.type}>
+              <span className="font-semibold text-accent">{getTopic(story.topic)?.name}</span> · {KIND_LABEL[story.kind]} · {TYPE_LABEL[story.type]}
             </p>
-            <h2 className="mt-3 max-w-2xl font-display text-titre font-semibold text-ink text-balance">{story.title}</h2>
+            <h2 className="mt-3 max-w-2xl font-display text-titre font-semibold text-ink text-balance">{story.question}</h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">
-              Essayez de rappeler à voix haute les trois idées essentielles avant de révéler la réponse.
+              {story.type === "idees" ? "Essayez de rappeler à voix haute les trois idées essentielles avant de révéler la réponse." : "Cherchez la réponse de tête avant de la révéler."}
             </p>
             {revealed ? (
-              <div className="mt-7">
-                <h3 className="text-sm font-semibold text-ink">Les trois idées à retenir</h3>
-                <ol className="mt-3 border-t border-rule">
-                  {story.keyPoints.map((point, i) => (
-                    <li key={i} className="flex gap-4 border-b border-rule py-3 text-base leading-relaxed text-ink">
-                      <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ol>
-                <p className="mt-6 text-meta text-muted">Auto-évaluation : indiquez si vous avez retrouvé les idées principales.</p>
+              <div className="mt-7" data-testid="revision-answer">
+                {typeof story.answer === "string" ? (
+                  <p className={story.type === "chiffre" ? "font-display text-4xl font-semibold text-accent" : "max-w-2xl border-l-2 border-accent pl-4 text-lg leading-relaxed text-ink"}>{story.answer}</p>
+                ) : (
+                  <>
+                    <h3 className="text-sm font-semibold text-ink">Les trois idées à retenir</h3>
+                    <ol className="mt-3 border-t border-rule">
+                      {story.answer.map((point, i) => (
+                        <li key={i} className="flex gap-4 border-b border-rule py-3 text-base leading-relaxed text-ink">
+                          <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </>
+                )}
+                {story.detail && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{story.detail}</p>}
+                {/* Le titre peut contenir la réponse : il n'apparaît qu'une fois la carte retournée. */}
+                {story.question !== story.title && <p className="mt-2 max-w-2xl text-sm text-muted">D&apos;après : {story.title}</p>}
+                <p className="mt-6 text-meta text-muted">Auto-évaluation : indiquez si vous aviez la bonne réponse.</p>
                 <div className="mt-3 flex flex-wrap gap-3">
                   <button type="button" onClick={() => grade(false)} className="btn btn-secondary">À revoir</button>
                   <button type="button" onClick={() => grade(true)} className="btn btn-primary">J&apos;ai retenu</button>
@@ -100,7 +102,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
               </div>
             ) : (
               <button type="button" onClick={() => setRevealed(true)} className="btn btn-primary mt-7">
-                Révéler les 3 idées
+                {story.type === "idees" ? "Révéler les 3 idées" : "Révéler la réponse"}
               </button>
             )}
             <p className="mt-6 text-meta text-muted">
@@ -125,7 +127,9 @@ export function RevisionClient({ publications }: { publications: FeedPublication
             {due.filter((card) => card.key !== story?.key).map((card) => (
               <li key={card.key} className="border-b border-rule">
                 <button type="button" onClick={() => { setSelected(card.key); setRevealed(false); }}
-                  className="w-full py-3 text-left font-display text-base leading-snug text-ink hover:text-accent">{card.title}</button>
+                  className="w-full py-3 text-left font-display text-base leading-snug text-ink hover:text-accent">
+                  <span className="mr-2 font-sans text-meta font-semibold text-muted">{TYPE_LABEL[card.type]}</span>{card.question === card.title ? card.title : card.question}
+                </button>
               </li>
             ))}
           </ul>

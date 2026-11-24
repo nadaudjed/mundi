@@ -20,7 +20,14 @@ export type Publication = {
   kind?: PublicationKind;
   /** Actualité : jour de l'événement ou de son annonce officielle (contrôlé par le vérificateur). */
   eventDate?: string;
+  /**
+   * Cartes mémoire question / réponse (surtout concepts et récits), écrites par les agents
+   * à partir du seul contenu de l'article. 1 à 6 ; question terminée par « ? », réponse courte.
+   */
+  flashcards?: Flashcard[];
 };
+
+export type Flashcard = { question: string; answer: string };
 
 
 const allowed = new Set<string>(topics.map(t => t.slug));
@@ -53,7 +60,15 @@ export function validatePublication(value: unknown): string[] {
   if (p.corrections !== undefined && (!Array.isArray(p.corrections) || !p.corrections.every(c => c && date(c.date) && text(c.text, 10)))) errors.push("Corrections invalides");
   if (p.kind !== undefined && p.kind !== "actualite" && p.kind !== "concept" && p.kind !== "recit") errors.push("Genre invalide (actualite, concept ou recit)");
   if (p.eventDate !== undefined && (!date(p.eventDate) || (date(p.publishedAt) && (p.eventDate as string) > (p.publishedAt as string)))) errors.push("Date de l'événement invalide (ou postérieure à la publication)");
+  if (p.flashcards !== undefined && !validFlashcards(p.flashcards)) errors.push("Cartes mémoire invalides (1 à 6 ; question de 10 à 160 caractères finissant par « ? », réponse de 3 à 280 caractères)");
   return errors;
+}
+
+function validFlashcards(v: unknown): boolean {
+  return Array.isArray(v) && v.length >= 1 && v.length <= 6 && v.every((c) =>
+    c && typeof c === "object" && typeof c.question === "string" && typeof c.answer === "string" &&
+    c.question.trim().length >= 10 && c.question.trim().length <= 160 && c.question.trim().endsWith("?") &&
+    c.answer.trim().length >= 3 && c.answer.trim().length <= 280);
 }
 
 export const publishedArticles: Publication[] = (publications as unknown[])

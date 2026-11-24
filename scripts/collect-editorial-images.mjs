@@ -28,6 +28,7 @@ export const PHOTO_QUERIES={
 // exact documentary evidence of a specific person, event, place or date.
 const HINTS=[
   [/textil|v[eê]tement|tri des d[eé]chets/i,["textile recycling sorting","clothing recycling"]],
+  [/appels? d.offres|march[eé]s? publics?|commande publique/i,["public procurement","government contract signing"]],
   [/m[eé]nag|enfant|famill/i,["family children","parents with children"]],
   [/dette|obligation|budget de l[eé]tat/i,["European Central Bank","European Parliament Brussels"]],
   [/tr[eé]sorerie|b[eé]n[eé]fice|profit|cash/i,["accounting office","business finance"]],
@@ -57,7 +58,22 @@ const HINTS=[
   [/for[eê]t|biodiversit[eé]/i,"forest biodiversity"],
   [/puce|semi-conducteur|intelligence artificielle/i,"microchip"]
 ];
-const STOPWORDS=new Set("des les le la l et de du dans en pour par avec une un sur que qui est sont au aux ce ces cette ses entre parmi selon plus moins pourquoi comment leur leurs vous mais sans encore sous vers 2024 2025 2026 ue europa union européen européenne".split(" "));
+const STOPWORDS=new Set("des les le la l et de du dans en pour par avec une un sur que qui est sont au aux ce ces cette ses entre parmi selon plus moins pourquoi comment leur leurs vous mais sans encore sous vers 2024 2025 2026 ue europa union européen européenne fonctionne fonctionnement quand quoi peut etre veulent dire vraiment faire".split(" "));
+/** Broader openly licensed subjects per topic, tried last so that a publication is never left without a photo. */
+export const TOPIC_BACKUPS={
+  "geopolitique":["parliament building","international conference"],
+  "economie":["city business district","shopping street"],
+  "finance":["stock exchange","bank building"],
+  "industrie":["industrial plant","assembly line workers"],
+  "materiaux-critiques":["open pit mine","mineral ore"],
+  "energie":["power station","electricity pylons"],
+  "recyclage":["recycling plant","waste sorting"],
+  "environnement":["nature landscape","river landscape"],
+  "technologie":["computer servers","electronics"],
+  "entreprises":["office building","business meeting"],
+  "afrique":["african market","african landscape"],
+  "sciences-societe":["university library","scientists laboratory"]
+};
 const BAD_TITLES=/\b(logo|icon|coat of arms|emblem|flag|map|chart|diagram|symbol|screenshot|poster|cartoon|drawing|painting|illustration|svg)\b/i;
 const ALLOWED_LICENSES=new Map([
   ["cc0","https://creativecommons.org/publicdomain/zero/1.0/"],
@@ -81,15 +97,17 @@ export function imageQueries(article){
   // Specific subjects must NOT fall back to vague "family", "market", or "recycling":
   // those produced lions for human households, a Nepal budget for European public
   // debt, and vandalized bins for textile sorting. Prefer no photo over deception.
+  const backups=TOPIC_BACKUPS[article?.topic]??[];
   if(Array.isArray(hint)){
     // For a European demographic story, do not silently choose a family in an
     // unrelated region. Require a Europe-specific query and geographic evidence.
     if(hint[0]==="family children"&&/europ|\bUE\b/i.test(title))
       return hint.map(q=>q+" Europe");
-    return [...hint];
+    // Specific subjects keep their strict cues; only the neutral topic backups follow.
+    return [...new Set([...hint,...backups])];
   }
   const fallback=PHOTO_QUERIES[article?.topic]??"documentary";
-  return [...new Set([hint,fromTitle.length>=5?fromTitle:null,fallback].filter(Boolean))];
+  return [...new Set([hint,fromTitle.length>=5?fromTitle:null,fallback,...backups].filter(Boolean))];
 }
 function validCommonsFileURL(raw){
   try{
@@ -214,7 +232,8 @@ export async function collectEditorialImages(articles,existing=[],{
   search=searchCommons,download=downloadPhoto,max=8,root=process.cwd(),
   day=new Date().toISOString().slice(0,10)
 }={}){
-  const limit=Math.max(0,Math.min(20,Number(max)||0));
+  // Up to 48 publications a day (two editions): one run must be able to cover a whole day.
+  const limit=Math.max(0,Math.min(60,Number(max)||0));
   const known=new Set(existing.map(p=>p.slug));
   const out=[...existing],report=[];
   for(const p of articles.filter(x=>x?.status==="published")){
@@ -247,7 +266,7 @@ export async function collectEditorialImages(articles,existing=[],{
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
   const items=JSON.parse(readFileSync("content/publications.json","utf8"));
   const existing=JSON.parse(readFileSync(MEDIA_CATALOG,"utf8"));
-  const result=await collectEditorialImages(items,existing,{max:process.env.MUNDI_IMAGES_MAX??8});
+  const result=await collectEditorialImages(items,existing,{max:process.env.MUNDI_IMAGES_MAX??60});
   writeFileSync(MEDIA_CATALOG,JSON.stringify(result.images,null,2)+"\n");
   mkdirSync("reports",{recursive:true});
   writeFileSync("reports/editorial-images.json",JSON.stringify(result.report,null,2)+"\n");

@@ -104,11 +104,11 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
               {photo ? <EditorialPhotoCredit photo={photo} /> : backdrop ? `Fond : ${backdrop.credit} · ${backdrop.license}` : figure ? `Chiffre clé : ${figure.source.label}` : "Visuel typographique MUNDI"}
             </span>{" "}
             · <span data-testid="verification-label">{verificationLabel(p)}</span> · publié le{" "}
-            <time dateTime={p.publishedAt} className="font-mono">{formatDate(p.publishedAt)}</time>
+            <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>
             {p.updatedAt !== p.publishedAt && (
               <>
                 {" "}
-                · actualisé le <time dateTime={p.updatedAt} className="font-mono">{formatDate(p.updatedAt)}</time>
+                · actualisé le <time dateTime={p.updatedAt}>{formatDate(p.updatedAt)}</time>
               </>
             )}
             {/* Téléphone : les sources complètes sont sur la page de la publication. */}
@@ -116,7 +116,7 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
               {" "}
               ·{" "}
               <Link href={`${href}#sources`} className="underline underline-offset-2" data-testid="verified-sources-link">
-                <span className="font-mono">{p.sources.length}</span> source{p.sources.length > 1 ? "s" : ""}
+                {p.sources.length} source{p.sources.length > 1 ? "s" : ""}
               </Link>
             </span>
           </p>

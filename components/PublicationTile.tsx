@@ -44,8 +44,8 @@ export function PublicationTile({ publication: p, featured = false, headingLevel
       {featured && <p className="mt-3 max-w-prose text-base leading-relaxed text-muted">{p.summary}</p>}
       <p className="mt-3 text-meta text-muted" data-testid="publication-meta-line">
         {p.photo && !figure && featured ? <><EditorialPhotoCredit photo={p.photo} /> · </> : null}
-        <span>{verificationLabel(p)}</span> · <time dateTime={p.publishedAt} className="font-mono">{formatDate(p.publishedAt)}</time> ·{" "}
-        <span className="font-mono">{p.sources.length}</span> sources
+        <span>{verificationLabel(p)}</span> · <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time> ·{" "}
+        {p.sources.length} sources
       </p>
     </article>
   );

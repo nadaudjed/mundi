@@ -8,8 +8,8 @@ function candidate(title="File:Textile recycling facility.jpg",license="CC BY 4.
 }
 test("image search queries use the article first, then a distinct photographic topic fallback",()=>{
  const q=imageQueries({title:"Déchets textiles : comment ils sont recyclés en Europe",topic:"recyclage"});
- assert.deepEqual(q,["textile recycling sorting","clothing recycling"]);
- assert.deepEqual(imageQueries({title:"!!!",topic:"afrique"}),["african city"]);
+ assert.deepEqual(q,["textile recycling sorting","clothing recycling","recycling plant","waste sorting"]);
+ assert.deepEqual(imageQueries({title:"!!!",topic:"afrique"}),["african city","african market","african landscape"]);
 });
 test("Commons selector accepts credited CC BY photo and strips HTML safely",()=>{
  const pic=selectImage([candidate()],"textile recycling");
@@ -88,7 +88,7 @@ test("non-Wikimedia thumbnails and fake Creative Commons hosts stay blocked",()=
 
 test("editorial image search never falls back to animals, unrelated national budgets or vandalized containers",()=>{
   assert.deepEqual(imageQueries({title:"Ménages avec enfants en Europe",topic:"economie"}),["family children Europe","parents with children Europe"]);
-  assert.deepEqual(imageQueries({title:"Dette publique de l'Union européenne",topic:"economie"}),["European Central Bank","European Parliament Brussels"]);
+  assert.deepEqual(imageQueries({title:"Dette publique de l'Union européenne",topic:"economie"}),["European Central Bank","European Parliament Brussels","city business district","shopping street"]);
   assert.equal(selectImage([candidate("File:Lions Family Portrait Masai Mara.jpg")],"family children"),null);
   assert.equal(selectImage([candidate("File:Budget of Nepal 2007.jpg")],"European Central Bank"),null);
   assert.equal(selectImage([candidate("File:Textile recycling bin vandalism.jpg")],"textile recycling sorting"),null);
@@ -137,4 +137,19 @@ test("European demographic subjects cannot use families photographed outside Eur
  assert.equal(selectImage([regional],q[0]).title,"Family with children in France.jpg");
  // Generic global subject can still illustrate any country, with an illustration label.
  assert.ok(selectImage([candidate("File:Family and children in India.jpg")],"family children"));
+});
+
+test("un appel d'offres public reçoit des requêtes parlantes, puis des sujets neutres de sa rubrique", () => {
+  const q=imageQueries({title:"Comment fonctionne un appel d'offres public, du besoin au contrat ?",topic:"industrie"});
+  assert.deepEqual(q,["public procurement","government contract signing","industrial plant","assembly line workers"]);
+});
+
+test("une journée complète (48 publications) est couverte en un seul passage", async () => {
+  const articles=Array.from({length:48},(_,i)=>({status:"published",slug:"article-"+i,title:"Le recyclage textile "+i,topic:"recyclage"}));
+  const fs=await import("node:fs"),os=await import("node:os"),path=await import("node:path");
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),"mundi-48-"));
+  const result=await collectEditorialImages(articles,[],{root,max:60,
+    search:async()=>({...selectImage([candidate()],"textile recycling"),title:"Textile facility"}),
+    download:async()=>({ext:"jpg",buffer:Buffer.alloc(5000)})});
+  assert.equal(result.report.filter(r=>r.status==="added").length,48);
 });

@@ -72,9 +72,9 @@ export default async function PublicationPage({ params }: { params: Promise<Para
       <p className="mt-6 border-y border-rule py-3 text-meta text-muted" data-testid="publication-meta">
         {a.fixture && <strong className="mr-2 text-demo">Exemple de test, jamais publié.</strong>}
         <span className="font-semibold text-ink" data-testid="verification-label">{verificationLabel(a)}</span>
-        {!a.aiVerified && <> ({a.reviewedBy})</>} · publié le <time dateTime={a.publishedAt} className="font-mono">{formatDate(a.publishedAt)}</time> · actualisé le{" "}
-        <time dateTime={a.updatedAt} className="font-mono">{formatDate(a.updatedAt)}</time> ·{" "}
-        <a href="#sources" className="underline underline-offset-2 hover:text-ink"><span className="font-mono">{a.sources.length}</span> sources</a>
+        {!a.aiVerified && <> ({a.reviewedBy})</>} · publié le <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time> · actualisé le{" "}
+        <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time> ·{" "}
+        <a href="#sources" className="underline underline-offset-2 hover:text-ink">{a.sources.length} sources</a>
       </p>
       {a.photo && (
         <figure className="mt-6" data-testid="publication-photo">
@@ -89,7 +89,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
       {a.corrections && a.corrections.length > 0 && (
         <aside className="mt-6 border-l-2 border-amber py-1 pl-4 text-sm text-ink" data-testid="corrections" aria-label="Corrections">
           <p className="font-semibold">Correction{a.corrections.length > 1 ? "s" : ""} apportée{a.corrections.length > 1 ? "s" : ""} à cet article</p>
-          <ul className="mt-2 space-y-1">{a.corrections.map((c, i) => <li key={i}><time dateTime={c.date} className="font-mono">{formatDate(c.date)}</time> : {c.text}</li>)}</ul>
+          <ul className="mt-2 space-y-1">{a.corrections.map((c, i) => <li key={i}><time dateTime={c.date}>{formatDate(c.date)}</time> : {c.text}</li>)}</ul>
         </aside>
       )}
       <div className="mt-6 flex flex-wrap items-center gap-3">

@@ -7,6 +7,7 @@ import { getTopic } from "@/lib/topics";
 import type { FeedPublication } from "@/lib/verified";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
 import { verificationLabel } from "@/lib/verification";
+import { NewsDate } from "./NewsDate";
 
 export function SavedClient({ publications = [] }: { publications?: FeedPublication[] }) {
   const { saved, clear } = useBookmarks();
@@ -39,6 +40,7 @@ export function SavedClient({ publications = [] }: { publications?: FeedPublicat
         {savedPublications.map((p) => (
           <article key={p.slug} data-testid="saved-publication" className="group min-w-0 border-b border-rule py-4">
             <p className="text-meta font-semibold text-accent">{getTopic(p.topic)?.name}</p>
+            <NewsDate publication={p} className="mt-0.5 text-meta font-semibold text-ink" />
             <h2 className="mt-1 font-display text-lg leading-snug font-semibold text-ink text-balance">
               <Link href={publicationPath(p.slug)} className="title-link">{p.title}</Link>
             </h2>

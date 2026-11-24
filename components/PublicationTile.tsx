@@ -2,12 +2,12 @@ import Link from "next/link";
 import { keyFigureOf } from "@/lib/covers";
 import { formatDate } from "@/lib/format";
 import { publicationPath } from "@/lib/publication-links";
-import { KIND_LABEL, publicationKind } from "@/lib/publication-kind";
 import { getTopic } from "@/lib/topics";
 import { verificationLabel } from "@/lib/verification";
 import type { FeedPublication } from "@/lib/verified";
 import { EditorialPhotoCredit } from "./EditorialPhotoLayer";
 import { KeyFigure } from "./KeyFigure";
+import { NewsDate } from "./NewsDate";
 
 /**
  * Publication dans une liste (Actualités, Explorer).
@@ -36,8 +36,8 @@ export function PublicationTile({ publication: p, featured = false, headingLevel
       ) : null)}
       <p className="text-meta font-semibold text-accent">
         {topic.name}
-        <span className="font-normal text-muted"> · {KIND_LABEL[publicationKind(p)]}</span>
       </p>
+      <NewsDate publication={p} className="mt-0.5 text-meta font-semibold text-ink" />
       <H className={"mt-1.5 font-display font-semibold text-ink text-balance " + (featured ? "text-titre" : "text-xl leading-snug")}>
         <Link href={href} className="title-link">{p.title}</Link>
       </H>

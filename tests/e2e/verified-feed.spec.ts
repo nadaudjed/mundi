@@ -163,6 +163,18 @@ test.describe("Site de test : publications inventées approuvées", () => {
     expect(box.bottom).toBeLessThanOrEqual(actions!.y);
   });
 
+  test("chaque actualité affiche clairement sa date : carte du Fil, listes et page article", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('[data-index="0"]').getByTestId("news-date")).toHaveText("Vendredi 20 novembre 2026");
+    await expect(page.locator('[data-index="0"]').getByTestId("news-date").locator("time")).toHaveAttribute("datetime", "2026-11-20");
+    await page.goto("/explorer/");
+    await expect(page.getByTestId("publication-tile").first().getByTestId("news-date")).toHaveText("Actualité publiée le vendredi 20 novembre 2026");
+    await page.goto(`/actualites/${FIRST}/`);
+    await expect(page.getByTestId("news-date")).toHaveText("Actualité publiée le vendredi 20 novembre 2026");
+    await page.goto(`/actualites/${SECOND}/`);
+    await expect(page.getByTestId("news-date")).toContainText("Concept publié le");
+  });
+
   test("écouter une publication vérifiée lit son résumé", async ({ page }) => {
     await page.goto("/");
     const card = page.locator('[data-index="0"]');

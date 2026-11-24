@@ -11,6 +11,7 @@ import { verificationLabel } from "@/lib/verification";
 import type { FeedPublication } from "@/lib/verified";
 import { KIND_LABEL, publicationKind } from "@/lib/publication-kind";
 import { FitLines } from "./FitLines";
+import { NewsDate } from "./NewsDate";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
 import { TypeCover } from "./TypeCover";
@@ -79,11 +80,15 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
       <div className="no-scrollbar relative flex min-h-0 flex-1 flex-col overflow-hidden wide:overflow-y-auto" data-testid="card-scroll">
         <div className="feed-column relative flex min-h-0 flex-1 flex-col px-5 pt-4 pb-2 wide:my-auto wide:flex-none wide:py-8">
           <div className="flex items-center justify-between gap-3">
-            <p className="text-meta font-semibold text-brick-light">
-              {topic.name}
-              <span className="font-normal text-ivory/70"> · {KIND_LABEL[publicationKind(p)]}</span>
-              {p.fixture && <span className="ml-2 text-[#ffd98f]">Exemple de test</span>}
-            </p>
+            <div className="min-w-0">
+              <p className="text-meta font-semibold text-brick-light">
+                {topic.name}
+                <span className="font-normal text-ivory/70"> · {KIND_LABEL[publicationKind(p)]}</span>
+                {p.fixture && <span className="ml-2 text-[#ffd98f]">Exemple de test</span>}
+              </p>
+              {/* La date de l'actualité, en clair : on sait de quel jour elle date. */}
+              <NewsDate publication={p} compact className="mt-0.5 text-[0.8rem] font-semibold text-ivory" />
+            </div>
             <div className="-mr-2 flex shrink-0 items-center">
               <SaveButton slug={publicationKey(p.slug)} title={p.title} variant="rail" />
               <ShareButton slug={p.slug} path={href} title={p.title} variant="rail" />

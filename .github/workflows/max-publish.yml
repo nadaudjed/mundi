@@ -1,0 +1,125 @@
+name: MUNDI — publication des brouillons Max (sans API payante)
+
+# Les tâches planifiées Claude (abonnement Max) déposent brouillons et vérifications sur la branche
+# privée editorial-stock (editorial/agents/max/<date>/). Ce workflow n'appelle aucun modèle : il applique
+# les filtres de publication habituels (scripts/autopublish-agents.mjs) puis publie sur main.
+on:
+  schedule:
+    - cron: '17 10 * * *'
+    - cron: '47 12 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Jour à traiter (AAAA-MM-JJ, défaut : aujourd'hui UTC)"
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mundi-daily-agents
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Unit tests for checker and publication filters
+        run: node --test tests/agents-newsroom.test.mjs tests/autopublish.test.mjs tests/max-newsroom.test.mjs
+      - name: Load the day's Max results from the private stock
+        id: day
+        shell: bash
+        env:
+          INPUT_DATE: ${{ inputs.date }}
+        run: |
+          set -euo pipefail
+          DAY="${INPUT_DATE:-$(date -u +%F)}"
+          if ! [[ "$DAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then echo "Invalid date"; exit 1; fi
+          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/mundi-stock" origin/editorial-stock
+          DIR="$RUNNER_TEMP/mundi-stock/editorial/agents/max/$DAY"
+          echo "day=$DAY" >> "$GITHUB_OUTPUT"
+          if [ ! -f "$DIR/plan.json" ]; then
+            echo "::warning::Aucun travail des tâches Max pour $DAY."
+            echo "found=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          mkdir -p reports
+          # Re-assemble from the raw files: the assessment is always recomputed here, never trusted from a task.
+          MUNDI_STOCK_DIR="$RUNNER_TEMP/mundi-stock" MUNDI_RUN_DATE="${DAY}T12:00:00Z" node scripts/max-newsroom.mjs assemble
+          cp "$DIR/results.json" reports/agents-results.json
+          cp "$DIR/plan.json" reports/agents-plan.json
+          echo "found=true" >> "$GITHUB_OUTPUT"
+      - name: Archive the day and update the research ledger
+        if: steps.day.outputs.found == 'true'
+        shell: bash
+        env:
+          MUNDI_AGENT_HISTORY: ${{ runner.temp }}/mundi-stock/editorial/agents/ledger.json
+        run: |
+          set -euo pipefail
+          node scripts/agent-ledger.mjs
+          S="$RUNNER_TEMP/mundi-stock"; DAY="${{ steps.day.outputs.day }}"
+          mkdir -p "$S/editorial/agents/days"
+          cp reports/agents-results.json "$S/editorial/agents/days/$DAY.json"
+          cp reports/agents-plan.json "$S/editorial/agents/days/$DAY-plan.json"
+          git -C "$S" config user.name "github-actions[bot]"
+          git -C "$S" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$S" add editorial/agents/ledger.json editorial/agents/days/ editorial/agents/max/
+          if git -C "$S" diff --cached --quiet; then echo "Nothing to archive"; exit 0; fi
+          git -C "$S" commit -m "agents: archive Max day $DAY"
+          for attempt in 1 2 3 4; do
+            git -C "$S" fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+            git -C "$S" rebase origin/editorial-stock
+            if git -C "$S" push origin HEAD:refs/heads/editorial-stock; then break; fi
+            if [ "$attempt" -eq 4 ]; then echo "::error::Private stock push failed; publication blocked."; exit 1; fi
+            sleep 3
+          done
+      - name: Select drafts that may be auto-published
+        if: steps.day.outputs.found == 'true'
+        env:
+          MUNDI_AUTOPUBLISH: ${{ vars.MUNDI_AUTOPUBLISH }}
+          MUNDI_PUBLISH_PER_DAY: ${{ vars.MUNDI_PUBLISH_PER_DAY || '24' }}
+        run: node scripts/autopublish-agents.mjs
+      - name: Validate, build and publish to main
+        if: steps.day.outputs.found == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- content/publications.json; then echo "No new publication."; exit 0; fi
+          npm ci
+          node scripts/validate-editorial.mjs
+          npm run build
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/publications.json
+          git commit -m "agents: publication automatique vérifiée par l'IA, tâches Max ($(node -p "require('./reports/autopublish.json').published.join(', ')"))"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Summary
+        if: always() && steps.day.outputs.found == 'true'
+        shell: bash
+        run: |
+          node -e '
+            const r=require("./reports/agents-results.json");let a={published:[]};try{a=require("./reports/autopublish.json")}catch{}
+            const md=["## MUNDI Max — "+r.date,"","| Indicateur | Valeur |","| --- | ---: |",
+              "| Agents planifiés | "+r.agents+" |","| Brouillons reçus | "+r.generated+" |",
+              "| Validés par le vérificateur | "+r.machineChecked+" |","| Publiés par ce passage | "+a.published.length+" |",""].join("\n");
+            require("fs").appendFileSync(process.env.GITHUB_STEP_SUMMARY,md);'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mundi-max-newsroom
+          path: |
+            reports/agents-plan.json
+            reports/agents-results.json
+            reports/autopublish.json
+          retention-days: 14
+          if-no-files-found: warn

@@ -111,7 +111,7 @@ export const CHECKER_SYSTEM=[
 "uncertainties:[string], sensitiveFlags:[string], reason:string}.",
 "Le tableau claimChecks reprend chaque claim du brouillon dans l'ordre. evidenceUrls doit désigner des sources consultées et présentes au brouillon."
 ].join(" ");
-const REVISION_TASK="Révision demandée par le vérificateur (checkerReport). Corrige le brouillon (draft) : supprime chaque affirmation, chiffre ou citation qu'il n'a pas pu confirmer, ou remplace-la par ce que tes sources confirment réellement ; retire les sources qu'il n'a pas pu consulter. N'ajoute aucun fait nouveau non sourcé. Garde un article complet et lisible, avec exactement 3 idées clés, et rends le brouillon entier au même format JSON.";
+export const REVISION_TASK="Révision demandée par le vérificateur (checkerReport). Corrige le brouillon (draft) : supprime chaque affirmation, chiffre ou citation qu'il n'a pas pu confirmer, ou remplace-la par ce que tes sources confirment réellement ; retire les sources qu'il n'a pas pu consulter. N'ajoute aucun fait nouveau non sourcé. Garde un article complet et lisible, avec exactement 3 idées clés, et rends le brouillon entier au même format JSON.";
 /** Harmless format fixes: keep three key points; list every evidence link among the sources. */
 export function tidyDraft(draft){
   if(!draft||typeof draft!=="object")return draft;

@@ -87,7 +87,29 @@ jobs:
         env:
           MUNDI_AUTOPUBLISH: ${{ vars.MUNDI_AUTOPUBLISH }}
           MUNDI_PUBLISH_PER_DAY: ${{ vars.MUNDI_PUBLISH_PER_DAY || '24' }}
-        run: node scripts/autopublish-agents.mjs
+        run: |
+          set -euo pipefail
+          node scripts/autopublish-agents.mjs
+          # Record drafts blocked only by a link so the revision task can fix them (private stock, no publication).
+          S="$RUNNER_TEMP/mundi-stock"; DAY="${{ steps.day.outputs.day }}"
+          node -e '
+            const r=require("./reports/agents-results.json"),a=require("./reports/autopublish.json"),byId={};
+            for(const o of r.outputs||[])byId[o.id]=o.agentId;
+            const out={};
+            for(const d of a.decisions||[])for(const x of d.reasons||[])
+              if(x.startsWith("liens injoignables : ")&&byId[d.id])out[byId[d.id]]=x.slice(21).split(", ").filter(u=>u.startsWith("http"));
+            require("fs").writeFileSync(process.argv[1],JSON.stringify(out,null,2)+"\n");' "$S/editorial/agents/max/$DAY/link-issues.json"
+          git -C "$S" add "editorial/agents/max/$DAY/link-issues.json"
+          if ! git -C "$S" diff --cached --quiet; then
+            git -C "$S" commit -m "max: link issues $DAY"
+            for attempt in 1 2 3 4; do
+              git -C "$S" fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
+              git -C "$S" rebase origin/editorial-stock
+              if git -C "$S" push origin HEAD:refs/heads/editorial-stock; then break; fi
+              if [ "$attempt" -eq 4 ]; then echo "::warning::link-issues.json not saved"; fi
+              sleep 3
+            done
+          fi
       - name: Validate, build and publish to main
         if: steps.day.outputs.found == 'true'
         shell: bash

@@ -14,6 +14,24 @@ Le workflow `agent-newsroom.yml` (API payante) ne reste qu'en secours manuel.
 - Le site affiche « Contrôle IA, sans relecture humaine » : ne jamais prétendre à une relecture humaine.
 - Ne jamais afficher de clé ou de jeton dans un message ou un fichier.
 
+## Données officielles (Eurostat, Insee, BCE, Banque mondiale, FMI, Commission)
+
+Leurs pages web s'ouvrent souvent mal ; leurs données s'obtiennent directement, de façon fiable :
+
+```
+node scripts/official-data.mjs eurostat une_rt_m geo=FR geo=DE sex=T age=TOTAL unit=PC_ACT s_adj=SA --last=3
+node scripts/official-data.mjs insee 001688527 --last=4          # identifiant de série (idbank) de l'Insee
+node scripts/official-data.mjs bce EXR D.USD.EUR.SP00.A --last=2
+node scripts/official-data.mjs banque-mondiale FR NY.GDP.MKTP.CD --last=3
+node scripts/official-data.mjs fmi NGDP_RPCH FRA                 # les années futures sont des prévisions
+node scripts/official-data.mjs chercher "prix de l'électricité"  # catalogues data.europa.eu et data.gouv.fr
+node scripts/official-data.mjs texte https://commission.europa.eu/…/document.pdf   # page ou PDF officiel en texte
+```
+
+Chaque résultat donne la valeur telle que publiée, sa période, la date de mise à jour et la ligne « À citer comme
+source » : c'est cette adresse qui va dans `sources` et dans `source.url` des cartes « Données ». Les chiffres officiels
+viennent de là, pas d'un média qui les reprend. Le vérificateur refait la même commande pour contrôler.
+
 ## Deux éditions par jour
 
 - **Matin** (par défaut) : dossier `editorial/agents/max/<date>/`, 12 actualités + 12 concepts.

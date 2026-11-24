@@ -150,3 +150,13 @@ La limite de 5 doit aussi compter les articles IA **déjà publiés le même jou
 
 Chaque actualité porte `eventDate` (jour de l'événement ou de son annonce officielle, contrôlé par le vérificateur) et
 `kind` (`actualite`, `concept` ou `recit`) dans `content/publications.json`.
+
+## Données officielles (décidé le 24/11/2026)
+
+Les pages d'Eurostat, de l'Insee et de la Commission s'ouvrent mal pour les agents, qui reprenaient alors les chiffres
+de médias. Les sessions Max ont désormais accès aux API publiques de ces organismes (hôtes autorisés dans
+l'environnement cloud : ec.europa.eu, data.europa.eu, commission.europa.eu, eur-lex.europa.eu, www.insee.fr,
+bdm.insee.fr, www.data.gouv.fr, data-api.ecb.europa.eu, www.ecb.europa.eu, api.worldbank.org, sdmx.oecd.org,
+www.imf.org) et à `scripts/official-data.mjs`, qui renvoie la valeur publiée, sa période, sa date de mise à jour et
+l'adresse à citer. Les rédacteurs y prennent les chiffres ; les vérificateurs refont la même requête. Aucun filtre de
+publication n'a changé.

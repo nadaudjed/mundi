@@ -10,10 +10,11 @@ test("review mode starts with the news, with verified evidence links", async ({ 
   test.skip(!first, "No published article");
   await page.goto("/reviser/");
   await expect(page.getByRole("button", { name: /^Actualités/ })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByRole("heading", { name: first.title })).toBeVisible();
+  await expect(page.getByTestId("revision-card-type")).toHaveAttribute("data-type", "idees");
   await expect(page.getByRole("link", { name: "Relire l'article et ses sources" })).toHaveAttribute("href", "/actualites/" + first.slug + "/");
   await page.getByRole("button", { name: "Révéler les 3 idées" }).click();
   const card = page.getByRole("region", { name: "Carte de révision" });
+  await expect(card).toContainText(first.title);
   await expect(card.locator("ol li")).toHaveCount(3);
   await page.getByRole("button", { name: "J'ai retenu" }).click();
   const key = "actualite:" + first.slug;
@@ -30,6 +31,19 @@ test("concepts are reviewed separately, and no demonstration remains", async ({ 
   await expect(page.getByRole("button", { name: /^Démonstrations/ })).toHaveCount(0);
   await page.getByRole("button", { name: /^Concepts/ }).click();
   await expect(page.getByRole("button", { name: /^Concepts/ })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByRole("heading", { name: first.title })).toBeVisible();
+  await page.getByRole("button", { name: "Révéler les 3 idées" }).click();
+  await expect(page.getByRole("region", { name: "Carte de révision" })).toContainText(first.title);
   await expect(page.getByRole("region", { name: "Carte de révision" })).toContainText("Concept");
+});
+
+test("Réviser se remplit tout seul : une carte « Chiffre clé » par chiffre sourcé d'une publication", async ({ page }) => {
+  const withFigure = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { kind?: string; status: string; dataCards?: { kind: string }[] }[])
+    .some((p) => p.status === "published" && (p.kind ?? "actualite") === "actualite" && p.dataCards?.some((c) => c.kind === "stat"));
+  test.skip(!withFigure, "Aucune carte de données publiée");
+  await page.goto("/reviser/");
+  await page.getByRole("button", { name: /^Chiffre clé/ }).first().click();
+  await expect(page.getByTestId("revision-card-type")).toHaveAttribute("data-type", "chiffre");
+  await expect(page.getByRole("heading", { level: 2 }).first()).toContainText("quel est le chiffre ?");
+  await page.getByRole("button", { name: "Révéler la réponse" }).click();
+  await expect(page.getByTestId("revision-answer")).toContainText("Source :");
 });

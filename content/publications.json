@@ -1126,7 +1126,7 @@
           "decimals": 1
         },
         "context": "Soit 508 points.",
-        "imageQuery": "stock exchange trading floor"
+        "imageQuery": "trading floor traders"
       },
       {
         "id": "coupe-circuits-seuils",
@@ -1606,7 +1606,7 @@
           }
         ],
         "presentation": "echelle-commune",
-        "imageQuery": "female factory workers"
+        "imageQuery": "female engineer"
       }
     ]
   },
@@ -2272,7 +2272,7 @@
           }
         ],
         "presentation": "echelle-commune",
-        "imageQuery": "small shop owner"
+        "imageQuery": "boulangerie"
       },
       {
         "id": "creations-octobre-un-an",
@@ -4078,7 +4078,7 @@
           "backdrop": "fond-matiere",
           "focus": "centre"
         },
-        "imageQuery": "used clothing pile"
+        "imageQuery": "discarded clothes"
       },
       {
         "id": "textile-flux-distincts",
@@ -4149,7 +4149,7 @@
           "backdrop": "fond-trames",
           "focus": "centre"
         },
-        "imageQuery": "textile recycling"
+        "imageQuery": "textile recycling plant"
       },
       {
         "id": "textile-regles-europeennes",

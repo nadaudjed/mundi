@@ -183,3 +183,9 @@ test("photo de carte : tous les mots de la recherche doivent figurer, sinon pas 
  const used=new Set(["https://commons.wikimedia.org/wiki/File%3AOld_gas_meter.jpg"]);
  assert.equal(selectImage([candidate("File:Old gas meter.jpg")],"gas meter",{strict:true,exclude:used}),null);
 });
+test("photo d'article : la recherche du rédacteur passe d'abord, et « vent » ou « climat des affaires » ne donnent plus d'éoliennes ni de météo",()=>{
+ assert.deepEqual(imageQueries({title:"Lundi noir de 1987",imageQuery:" New York Stock Exchange ",topic:"finance"}),["New York Stock Exchange"]);
+ assert.ok(!imageQueries({title:"1973 : l'embargo pétrolier qui a inventé les stocks",topic:"finance"}).includes("wind turbines"));
+ assert.ok(!imageQueries({title:"Le climat des affaires se replie en novembre",topic:"industrie"}).includes("climate monitoring station"));
+ assert.ok(!imageQueries({title:"Ver Morris 1988 : la première cyberattaque",topic:"technologie"}).includes("morris premiere"));
+});

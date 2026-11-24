@@ -192,10 +192,9 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.getByTestId("news-date")).toContainText("Concept publié le");
   });
 
-  test("écouter une publication vérifiée lit son résumé", async ({ page }) => {
-    await page.goto("/");
-    const card = page.locator('[data-index="0"]');
-    await card.getByRole("button", { name: "Écouter le résumé" }).click();
+  test("sans version audio enregistrée, Écouter lit le résumé avec la voix de l'appareil", async ({ page }) => {
+    await page.goto(`/actualites/${SECOND}/`);
+    await page.getByRole("button", { name: "Écouter le résumé" }).click();
     const spoken = await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken);
     expect(spoken).toHaveLength(1);
     expect(spoken[0]).toContain("Exemple de test");

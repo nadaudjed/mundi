@@ -1,0 +1,97 @@
+name: MUNDI — version audio des articles (voix libre, sans API)
+
+# Fabrique un MP3 par article publié avec Piper (voix française SIWIS, CC BY 4.0),
+# directement sur la machine GitHub : aucun service payant, aucune clé.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/publications.json'
+      - 'scripts/generate-article-audio.mjs'
+      - 'scripts/audio-narration.mjs'
+      - '.github/workflows/article-audio.yml'
+  # Les publications poussées par les robots ne relancent pas « push » : on suit leur fin,
+  # et un passage horaire rattrape tout oubli (rien n'est fait quand tout est à jour).
+  workflow_run:
+    workflows:
+      - "MUNDI — publication des brouillons Max (sans API payante)"
+      - "MUNDI — agents via API (secours manuel, payant)"
+      - "MUNDI — corriger ou retirer un article"
+    types: [completed]
+  schedule:
+    - cron: '40 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mundi-article-audio
+  cancel-in-progress: false
+
+jobs:
+  audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout published articles
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Tests du générateur audio
+        run: node --test tests/article-audio.test.mjs
+      - name: Y a-t-il des articles à enregistrer ?
+        id: plan
+        run: |
+          node -e "
+          const fs=require('fs');
+          import('./scripts/generate-article-audio.mjs').then(m=>{
+            const p=JSON.parse(fs.readFileSync('content/publications.json','utf8'));
+            const man=JSON.parse(fs.readFileSync(m.MANIFEST,'utf8'));
+            const r=m.planAudio(p,man);
+            console.log('à enregistrer',r.todo.length,'à retirer',r.remove.length);
+            fs.appendFileSync(process.env.GITHUB_OUTPUT,'work='+(r.todo.length+r.remove.length>0)+'\n');
+          })"
+      - uses: actions/setup-python@v5
+        if: steps.plan.outputs.work == 'true'
+        with:
+          python-version: "3.12"
+      - name: Voix Piper (mise en cache)
+        if: steps.plan.outputs.work == 'true'
+        uses: actions/cache@v4
+        with:
+          path: voices
+          key: piper-fr_FR-siwis-medium-v1
+      - name: Installer Piper et ffmpeg
+        if: steps.plan.outputs.work == 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q piper-tts==1.8.0
+          mkdir -p voices
+          if [ ! -f voices/fr_FR-siwis-medium.onnx ]; then
+            (cd voices && python -m piper.download_voices fr_FR-siwis-medium)
+          fi
+      - name: Enregistrer les articles
+        if: steps.plan.outputs.work == 'true'
+        run: node scripts/generate-article-audio.mjs
+      - name: Publier les fichiers audio
+        if: steps.plan.outputs.work == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -A content/article-audio.json public/media/audio/
+          if git diff --cached --quiet; then echo "Rien de nouveau"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "audio: version écoutable des articles publiés (voix Piper SIWIS)"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$attempt" -eq 4 ]; then echo "::error::Envoi impossible sans forcer"; exit 1; fi
+            sleep 3
+          done

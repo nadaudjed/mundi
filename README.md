@@ -72,3 +72,12 @@ Chaque exécution des agents affiche les missions, brouillons, contrôles et év
 ## Pilote d'approvisionnement (23–24 novembre 2026)
 
 Le workflow `agent-newsroom.yml` lance 24 agents (12 journalistes, 12 professeurs), chacun essayant jusqu'à 3 pistes, et peut publier **au plus 24 articles IA sur la journée**, uniquement après contrôles ; tous ces nombres sont des maxima et non une garantie de contenus fiables. La clé API Anthropic est facturée séparément. Les variables GitHub `MUNDI_AGENTS_PER_DAY`, `MUNDI_AGENT_MAX_ATTEMPTS`, `MUNDI_PUBLISH_PER_DAY` et l'interrupteur `MUNDI_AUTOPUBLISH=off` sont les commandes opérationnelles. La publication automatique peut être suspendue si les sources sont insuffisantes ou si des erreurs sont constatées. Les droits des médias, les audits humains et la diversification des sources restent requis pour un vrai lancement.
+
+## Écouter (version audio des articles)
+
+Chaque article publié reçoit un fichier MP3 lu par une voix libre et gratuite (Piper, voix française
+« SIWIS », licence CC BY 4.0), fabriqué par `.github/workflows/article-audio.yml` sans API ni clé.
+Le texte lu ne reprend que le contenu publié (`scripts/audio-narration.mjs`) ; un article corrigé est
+réenregistré, un article retiré perd son fichier. Les fichiers sont dans `public/media/audio/` et
+listés dans `content/article-audio.json`. Tant qu'un fichier n'est pas prêt, le bouton Écouter
+utilise la voix du téléphone (`components/ListenButton.tsx`).

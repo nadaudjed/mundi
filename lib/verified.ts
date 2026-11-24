@@ -7,6 +7,7 @@ import editorialImages from "@/content/editorial-images.json";
 import {existsSync} from "node:fs";
 import {validateEditorialPhotos,type EditorialPhoto} from "./editorial-images";
 import { validateBackdrops, type SceneBackdrop, type SceneRef } from "./scenes";
+import { attachArticleAudio } from "./article-audio";
 
 /**
  * Publications vérifiées affichées par le site (fil, liste, pages, enregistrés).
@@ -28,6 +29,8 @@ import { validateBackdrops, type SceneBackdrop, type SceneRef } from "./scenes";
 export type VerifiedPublication = Publication & {
   fixture?: true;
   photo?: EditorialPhoto;
+  /** Fichier MP3 de la version audio, s'il est prêt. */
+  audio?: string;
   dataCards?: DataCard[];
   scene?: SceneRef;
   /** Fonds approuvés utilisés par la publication et ses cartes, résolus au build. */
@@ -119,9 +122,9 @@ function attachEditorialPhotos(list:VerifiedPublication[]):VerifiedPublication[]
   }
   return list.map(p=>({ ...p, ...(bySlug.has(p.slug)?{photo:bySlug.get(p.slug)}:{})}));
 }
-export const verifiedPublications: VerifiedPublication[] = resolveScenes(
+export const verifiedPublications: VerifiedPublication[] = attachArticleAudio(resolveScenes(
   checkDataCards(attachEditorialPhotos(testFile ? loadTestFixtures(testFile).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)) : publishedArticles)),
-);
+));
 
 export const getVerifiedPublication = (slug: string) => verifiedPublications.find((p) => p.slug === slug);
 

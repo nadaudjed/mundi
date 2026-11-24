@@ -68,5 +68,5 @@ En cas de conflit sur `plan.json` pendant le rebase, garder la version distante 
    `claimChecks` reprend chaque affirmation du brouillon, dans l'ordre. Ne jamais modifier le brouillon.
 3. `MUNDI_STOCK_DIR=../mundi-stock node scripts/max-newsroom.mjs assemble`, puis pousser `checks/` et `results.json`.
 4. Lancer la publication : déclencher le workflow `max-publish.yml` sur `main` (outil GitHub « run workflow »). Si c'est
-   impossible, ne rien faire : il tourne aussi seul à 11h17 et 13h47 (heure de Paris).
+   impossible, ne rien faire : il tourne aussi seul à 10h37 et 13h47 (heure de Paris).
 5. Terminer par un court bilan : brouillons vérifiés, verdicts, agents sans brouillon.

@@ -96,3 +96,40 @@ test("téléphone : les pages ont une barre fine avec le logo, le fil n'en a pas
   await page.goto("/");
   await expect(page.locator("[data-site-header]")).toBeHidden();
 });
+
+test("tablette en paysage et ordinateur : la photo occupe toute la moitié droite, le texte reste à gauche", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "tailles fixées par le test : une seule fois suffit");
+  for (const viewport of [{ width: 1180, height: 750 }, { width: 1024, height: 700 }, { width: 1440, height: 900 }]) {
+    const context = await browser.newContext({ baseURL: `http://localhost:${PORT}`, viewport, hasTouch: true, locale: "fr-FR", serviceWorkers: "block" });
+    const page = await context.newPage();
+    await page.goto("/");
+    const card = page.getByTestId("verified-card").first();
+    const cardBox = (await card.boundingBox())!;
+    const visual = (await card.getByTestId("card-visual").boundingBox())!;
+    expect(visual.height, `${viewport.width} px : visuel sur toute la hauteur`).toBeGreaterThanOrEqual(cardBox.height - 2);
+    const title = (await card.getByRole("heading").boundingBox())!;
+    expect(title.x + title.width, `${viewport.width} px : le titre ne passe pas sous le visuel`).toBeLessThanOrEqual(visual.x);
+    const photo = page.getByTestId("data-photo").first();
+    if (await photo.count()) {
+      const data = page.getByTestId("data-card").first();
+      await data.scrollIntoViewIfNeeded();
+      const dataBox = (await data.boundingBox())!;
+      expect((await photo.boundingBox())!.height, `${viewport.width} px : photo des données sur toute la hauteur`).toBeGreaterThanOrEqual(dataBox.height - 2);
+    }
+    await context.close();
+  }
+});
+
+test("tablette en portrait : la photo remplit la place libre au lieu d'un vide sous le texte", async ({ browser }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "tailles fixées par le test : une seule fois suffit");
+  for (const viewport of [{ width: 820, height: 1110 }, { width: 744, height: 1060 }]) {
+    const context = await browser.newContext({ baseURL: `http://localhost:${PORT}`, viewport, isMobile: true, hasTouch: true, locale: "fr-FR", serviceWorkers: "block" });
+    const page = await context.newPage();
+    await page.goto("/");
+    const card = page.getByTestId("verified-card").first();
+    const meta = (await card.getByTestId("verified-meta").boundingBox())!;
+    const actions = (await card.getByTestId("card-actions").boundingBox())!;
+    expect(actions.y - (meta.y + meta.height), `${viewport.width} px : pas de grand vide avant les boutons`).toBeLessThanOrEqual(40);
+    await context.close();
+  }
+});

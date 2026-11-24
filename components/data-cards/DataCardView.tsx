@@ -100,7 +100,7 @@ export function DataCardView({ card, position, total, topicColor, revealed = tru
       )}
       {/* Avec photo, le texte prend sa hauteur et la photo le reste (jusqu'à 16 % de l'écran) ;
           sur petit écran, la carte défile plutôt que de cacher sa source sous la barre d'onglets. */}
-      <div className={`feed-column no-scrollbar relative flex min-h-0 flex-col ${photo ? "shrink grow-0 wide:flex-1" : "flex-1"} overflow-y-auto px-5 pb-6 [@media(max-height:740px)]:pb-4 ${photo ? "pt-5 wide:pt-20 [@media(max-height:740px)]:pt-3" : "pt-16 md:pt-20 [@media(max-height:740px)]:pt-14"}`} data-testid="card-scroll">
+      <div className={`feed-column no-scrollbar relative flex min-h-0 flex-col ${photo ? "shrink grow-0 wide:flex-1 wide:justify-center-safe" : "flex-1"} overflow-y-auto px-5 pb-6 [@media(max-height:740px)]:pb-4 ${photo ? "pt-5 wide:pt-20 [@media(max-height:740px)]:pt-3" : "pt-16 md:pt-20 [@media(max-height:740px)]:pt-14"}`} data-testid="card-scroll">
         <div className="relative flex items-center justify-between gap-3 text-meta font-semibold">
           <span style={{ color: textAccent }} className={light ? "text-night/70" : ""}>
             Données · carte {position + 1} sur {total}
@@ -127,7 +127,7 @@ export function DataCardView({ card, position, total, topicColor, revealed = tru
 
         <VisualArea visual={card.visual} placeholder={showVisualPlaceholder} light={light} />
 
-        <div className="relative mt-auto pt-4" data-fade={revealed ? "on" : "off"}>
+        <div className={`relative mt-auto pt-4 ${photo ? "wide:mt-4" : ""}`} data-fade={revealed ? "on" : "off"}>
           {card.kind === "stat" && <StatBody card={card} accent={textAccent} display={display} light={light} />}
           {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} light={light} />}
           {card.kind === "explication" && <ExplanationBody card={card} accent={accent} light={light} />}

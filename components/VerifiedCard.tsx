@@ -58,7 +58,7 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
       className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night pt-12 text-ivory"
     >
       {/* Visuel : en haut sur téléphone, moitié droite sur écran large. */}
-      <div className="relative h-[26svh] min-h-[5rem] shrink-0 [@media(max-height:640px)]:h-[19svh] overflow-hidden border-b border-ivory/10 wide:absolute wide:inset-y-0 wide:right-0 wide:left-[50%] wide:border-b-0 wide:border-l" data-testid="card-visual">
+      <div className="relative h-[26svh] min-h-[5rem] shrink-0 [@media(max-height:640px)]:h-[19svh] overflow-hidden border-b border-ivory/10 sm:h-auto! sm:min-h-[30svh] sm:flex-1 wide:absolute! wide:inset-y-0 wide:right-0 wide:left-[50%] wide:min-h-0 wide:border-b-0 wide:border-l" data-testid="card-visual">
         {photo ? (
           <EditorialPhotoLayer photo={photo} near={near} />
         ) : figure ? (
@@ -77,7 +77,7 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
 
       {/* Téléphone : le texte occupe la place restante, sans zone qui défile ; le résumé
           s'arrête sur une ligne entière. Écran large : colonne de texte complète. */}
-      <div className="no-scrollbar relative flex min-h-0 flex-1 flex-col overflow-hidden wide:overflow-y-auto" data-testid="card-scroll">
+      <div className="no-scrollbar relative flex min-h-0 flex-1 flex-col overflow-hidden sm:flex-[0_1_auto] wide:flex-1 wide:overflow-y-auto" data-testid="card-scroll">
         <div className="feed-column relative flex min-h-0 flex-1 flex-col px-5 pt-4 pb-2 wide:my-auto wide:flex-none wide:py-8">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
@@ -95,7 +95,7 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
             </div>
           </div>
 
-          <h2 className="mt-1 shrink-0 font-display text-[1.55rem] leading-[1.1] font-semibold text-balance md:text-[2.1rem] lg:text-[2.6rem] [@media(max-height:740px)]:text-[1.35rem]">{p.title}</h2>
+          <h2 className="mt-1 shrink-0 font-display text-[1.55rem] leading-[1.1] font-semibold text-balance md:text-[2.1rem] wide:text-[clamp(1.9rem,2.7vw,2.6rem)] [@media(max-height:740px)]:text-[1.35rem]">{p.title}</h2>
           <FitLines testId="verified-summary" className="mt-2 flex-1 text-[0.95rem] leading-relaxed text-ivory/85 wide:flex-none">{p.summary}</FitLines>
 
           {/* Une seule ligne grise : visuel, contrôle, dates, sources. */}

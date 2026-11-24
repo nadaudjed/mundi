@@ -18,6 +18,8 @@ const SECOND = "test-publication-technologie";
 /** Les agents publient désormais seuls : on compte ce que contient réellement le site normal. */
 const LIVE = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string }[]).filter((p) => p.status === "published").length;
 const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
+const LIVE_DATA_CARDS = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[] }[])
+  .filter((p) => p.status === "published").reduce((n, p) => n + (p.dataCards?.length ?? 0), 0);
 
 test.describe("Site normal : première publication Eurostat approuvée", () => {
   test("le fil montre les vraies publications et leurs cartes de données, sans démonstration", async ({ page }) => {
@@ -25,7 +27,7 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-testid", "verified-card");
     await expect(page.getByTestId("verified-card")).toHaveCount(LIVE);
-    await expect(page.getByTestId("data-card")).toHaveCount(4);
+    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_DATA_CARDS);
     await expect(page.getByTestId("demo-divider")).toHaveCount(0);
     await expect(page.locator("[data-story]")).toHaveCount(0);
     await expect(page.locator(`[data-testid="verified-card"][data-publication="${TEXTILES}"]`)).toHaveCount(1);

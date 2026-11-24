@@ -50,7 +50,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
 
   return (
     <div className="mt-6">
-      <div role="group" aria-label="Choisir les contenus à réviser" className="flex gap-6 border-b border-rule">
+      <div role="group" aria-label="Choisir les contenus à réviser" className="no-scrollbar flex gap-4 overflow-x-auto border-b border-rule sm:gap-6">
         {KINDS.filter((k) => k !== "recit" || publicCards.some((c) => c.kind === "recit")).map((k) => (
           <button key={k} type="button" aria-pressed={kind === k} onClick={() => changeKind(k)}
             className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +

@@ -1,10 +1,9 @@
-name: MUNDI — 24 agents quotidiens (12 actualités, 12 concepts)
+name: MUNDI — agents via API (secours manuel, payant)
 
 on:
-  # Schedule and explicit manual launch only: a routine code/docs merge must not
-  # silently spend another day of Anthropic jobs or race against editorial stock.
-  schedule:
-    - cron: '41 8 * * *'
+  # 24/11/2026 : décision du fondateur, plus d'appel API automatique. La rédaction
+  # passe par des tâches planifiées sur l'abonnement Claude Max (voir
+  # docs/AGENT_NEWSROOM.md). Ce workflow reste un SECOURS, lancé uniquement à la main.
   workflow_dispatch:
 
 permissions:

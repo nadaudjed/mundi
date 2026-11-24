@@ -99,13 +99,13 @@
   --photo-filter: grayscale(1) contrast(1.06);
   --focus: var(--accent);
 
-  /* Barre d'onglets (téléphone), posée en bas de l'écran. */
+  /* Barre d'onglets (téléphone), posée tout en bas de l'écran, au-dessus de la
+     barre d'accueil de l'iPhone (le bandeau Netlify ne peut pas être déplacé par le CSS du site). */
   --dock-h: 3.5rem;
-  --dock-gap: 0rem;
-  /* Place laissée libre sous la barre (bandeau Netlify sur les adresses *.netlify.app). */
-  --badge-safe: 0rem;
-  --nav-h: calc(var(--dock-h) + var(--dock-gap) + var(--badge-safe) + env(safe-area-inset-bottom));
-  --header-h: 0rem;
+  --nav-h: calc(var(--dock-h) + env(safe-area-inset-bottom));
+  /* En-tête : barre fine avec le logo sur téléphone, barre de rubriques à partir de 768 px. */
+  --header-bar-h: 3.25rem;
+  --header-h: calc(var(--header-bar-h) + env(safe-area-inset-top));
   color-scheme: light;
 }
 
@@ -146,18 +146,11 @@
   color-scheme: dark;
 }
 
-/* Adresses *.netlify.app (site de test et aperçus) : Netlify y affiche en bas
-   de l'écran son bandeau « Powered by Netlify » ou son outil de relecture.
-   La barre d'onglets passe au-dessus pour qu'aucun onglet ne soit caché.
-   Sur un futur nom de domaine propre, rien ne change. */
-html[data-netlify-host] {
-  --badge-safe: 4rem;
-}
 
 @media (min-width: 768px) {
   :root {
     --nav-h: 0rem;
-    --header-h: 3.5rem;
+    --header-bar-h: 3.5rem;
   }
 }
 
@@ -165,6 +158,15 @@ html[data-netlify-host] {
    en haut sur tablette et ordinateur, barre d'onglets en bas sur téléphone seulement. */
 body:has([data-feed]) {
   background: var(--color-night);
+}
+/* Téléphone : le Fil n'a pas de barre en haut (il a sa propre barre de filtres). */
+@media (max-width: 767px) {
+  body:has([data-feed]) {
+    --header-h: 0rem;
+  }
+  body:has([data-feed]) [data-site-header] {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   [data-dock] {

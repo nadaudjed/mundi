@@ -9,19 +9,21 @@ import { ThemeToggle } from "./ThemeToggle";
 import { isActive, navItems } from "./navItems";
 
 /**
- * Barre de rubriques classique, affichée en haut de toutes les pages sur
- * tablette et ordinateur (Fil compris). L'onglet actif est souligné.
- * Sur téléphone, la navigation est la barre d'onglets du bas.
+ * En-tête des pages.
+ * Tablette et ordinateur : barre de rubriques classique, identique sur toutes
+ * les pages (Fil compris), onglet actif souligné.
+ * Téléphone : barre fine avec le logo, sous l'heure et l'encoche de l'iPhone ;
+ * les onglets sont dans la barre du bas, et le Fil n'a pas cette barre.
  */
 export function SiteHeader() {
   const pathname = usePathname();
   return (
-    <header data-site-header className="sticky top-0 z-40 hidden h-[var(--header-h)] border-b border-rule bg-page text-ink md:block">
-      <div className="mx-auto flex h-full max-w-6xl items-stretch gap-6 px-5 lg:px-8">
+    <header data-site-header className="sticky top-0 z-40 border-b border-rule bg-page pt-[env(safe-area-inset-top)] text-ink">
+      <div className="mx-auto flex h-[var(--header-bar-h)] max-w-6xl items-stretch gap-6 px-5 lg:px-8">
         <span className="flex items-center">
           <Logo />
         </span>
-        <nav aria-label="Navigation principale" className="flex min-w-0 items-stretch">
+        <nav aria-label="Navigation principale" className="hidden min-w-0 items-stretch md:flex">
           <ul className="flex items-stretch gap-1 lg:gap-3">
             {navItems.map((item) => {
               const active = isActive(pathname, item.href);

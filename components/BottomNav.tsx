@@ -5,11 +5,7 @@ import { usePathname } from "next/navigation";
 import { Icon } from "./Icon";
 import { isActive, navItems } from "./navItems";
 
-/**
- * Barre d'onglets du bas, sur téléphone uniquement (masquée à partir de 768 px).
- * Sur les adresses *.netlify.app, elle remonte au-dessus du bandeau de Netlify
- * (variable --badge-safe), pour qu'il ne cache jamais un onglet.
- */
+/** Barre d'onglets du bas, sur téléphone uniquement (masquée à partir de 768 px), posée tout en bas de l'écran. */
 export function BottomNav() {
   const pathname = usePathname();
   return (
@@ -17,7 +13,7 @@ export function BottomNav() {
       aria-label="Navigation principale"
       data-testid="dock"
       data-dock
-      className="fixed inset-x-0 bottom-[calc(var(--dock-gap)+var(--badge-safe))] z-40 border-t border-rule bg-page pb-[env(safe-area-inset-bottom)] text-ink"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-page pb-[env(safe-area-inset-bottom)] text-ink"
     >
       <ul className="mx-auto grid h-[var(--dock-h)] max-w-[32rem] grid-cols-5 px-[max(0.25rem,env(safe-area-inset-left))]">
         {navItems.map((item) => {

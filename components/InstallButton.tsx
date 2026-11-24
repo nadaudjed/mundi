@@ -90,7 +90,7 @@ function Steps({ title, steps, highlight }: { title: string; steps: string[]; hi
     <section className={`rounded-3xl p-6 ring-1 ${highlight ? "bg-surface ring-rule-strong" : "bg-surface/60 ring-rule"}`}>
       <h2 className="font-semibold text-ink">
         {title}
-        {highlight && <span className="ml-2 text-xs font-semibold text-accent">Votre appareil</span>}
+        {highlight && <span className="ml-2 inline-block whitespace-nowrap text-xs font-semibold text-accent">Votre appareil</span>}
       </h2>
       <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-[0.95rem] text-ink/85">
         {steps.map((s) => (

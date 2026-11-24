@@ -66,6 +66,20 @@ Pour activer la rédaction et la contre-vérification, configurer dans **GitHub 
 
 Le workflow produit l'artefact privé `mundi-agents-daily-newsroom` (14 jours), contenant `agents-plan.json` et `agents-results.json`. **Une copie pérenne des plans, brouillons et contrôles est également archivée dans la branche séparée `editorial-stock`, au chemin `editorial/agents/days/YYYY-MM-DD.json` et `YYYY-MM-DD-plan.json`, hors Netlify**. Cette branche fait partie du dépôt privé : limiter les droits d'accès et ne pas y stocker de secrets. Chaque résultat détaille l'agent, le sujet, les sources, les assertions, leur contre-vérification, les incertitudes et les motifs de refus. **Un titre RSS seul ne constitue pas une preuve.**
 
+## Rédaction par l'abonnement Claude Max (depuis le 24/11/2026)
+
+À la demande du fondateur, la rédaction quotidienne n'utilise plus l'API payante. Sept tâches planifiées Claude Code
+tournent sur son compte (heure de Paris) : journalistes lot 1 et lot 2, professeurs lot 1 et lot 2 (7h37 à 7h43), vérificateur
+des actualités (9h03), vérificateur des concepts (9h13), rattrapage de vérification (10h07), pour une publication avant 11h. Elles suivent
+`editorial/agents/MAX_TASKS.md` et déposent leurs fichiers dans `editorial/agents/max/<date>/` sur la branche privée
+`editorial-stock`. Le rédacteur et le vérificateur sont des sessions distinctes : le vérificateur refait ses propres recherches.
+
+Le workflow `max-publish.yml` (09h37 et 12h47 UTC, ou déclenché par le vérificateur) **n'appelle aucun modèle** : il recalcule
+l'évaluation déterministe (`assessReview`), contrôle les liens, les doublons et le plafond avec `autopublish-agents.mjs`,
+puis publie. L'interrupteur `MUNDI_AUTOPUBLISH=off` s'applique toujours. Limites : les tâches consomment le quota d'usage
+de l'abonnement (un quota atteint arrête une tâche en cours) et il n'y a pas de compteur de coût. Le workflow API
+`agent-newsroom.yml` reste disponible en secours, lancé à la main.
+
 ## Publication automatique (V2, activée le 23/11/2026 à la demande du fondateur)
 
 Le fondateur a demandé que le vérificateur publie seul, sans relecture humaine quotidienne. Le même jour, il a levé l'exclusion des sujets sensibles : « on parle de tout sans tabou tant que c'est sourcé ». `scripts/autopublish-agents.mjs` s'exécute à la fin du workflow et ne publie un brouillon que si **toutes** les conditions sont réunies :

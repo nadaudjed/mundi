@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { frenchSpacing } from "@/lib/typo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/format";
@@ -54,7 +55,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
       <header className={`mt-10 grid gap-8 ${figure ? "lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0" : ""}`}>
         <div className={figure ? "lg:pr-10" : "max-w-4xl"}>
           <p className="text-meta font-semibold text-accent">{topic?.name}</p>
-          <h1 className="mt-2 font-display text-une font-semibold text-ink text-balance">{a.title}</h1>
+          <h1 className="mt-2 font-display text-une font-semibold text-ink text-balance">{frenchSpacing(a.title)}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted">{a.summary}</p>
         </div>
         {figure && (

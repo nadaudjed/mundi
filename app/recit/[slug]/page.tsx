@@ -50,7 +50,7 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
       <ReadingProgress />
       <header className="mx-auto max-w-3xl px-5 pt-6 md:px-8 md:pt-10">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <Link href="/" className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink">
+          <Link href="/" className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap text-sm font-medium text-muted hover:text-ink">
             <Icon name="arrow-left" className="size-4" />
             Retour au fil
           </Link>

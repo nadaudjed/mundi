@@ -65,7 +65,8 @@ test("partage d'une publication vérifiée : son titre, son résumé et ses date
   const href = await page.locator('a[href^="/actualites/"][href$="/"]').filter({ hasNotText: "Toutes" }).first().getAttribute("href");
   test.skip(!href, "aucune publication vérifiée sur ce site");
   await page.goto(href!);
-  const title = (await page.getByRole("heading", { level: 1 }).textContent())!;
+  // Le titre affiché garde ses espaces insécables (« : », « ? ») ; le titre de partage a des espaces simples.
+  const title = (await page.getByRole("heading", { level: 1 }).textContent())!.replace(/\u00a0/g, " ");
   const og = (p: string) => page.locator(`meta[property="${p}"]`).getAttribute("content");
   expect(await og("og:type")).toBe("article");
   expect(await og("og:title")).toBe(title);

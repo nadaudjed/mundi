@@ -1,5 +1,758 @@
 [
   {
+    "slug": "zone-euro-l-excedent-courant-recule-a-248-milliards-d-euros-sur-un-an-en",
+    "title": "Zone euro : l'excédent courant recule à 248 milliards d'euros sur un an en septembre 2026",
+    "summary": "Selon la BCE, la zone euro a enregistré en septembre 2026 un excédent de sa balance courante de 12 milliards d'euros, stable par rapport à août. Sur douze mois, l'excédent atteint 248 milliards d'euros, soit 1,5 % du PIB de la zone, contre 279 milliards un an plus tôt. Le recul vient surtout des biens. La France, elle, reste en déficit : 2,7 milliards d'euros en septembre selon la Banque de France.",
+    "topic": "finance",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L'excédent courant de la zone euro atteint 12 milliards d'euros en septembre 2026 et 248 milliards sur douze mois (1,5 % du PIB), contre 279 milliards un an plus tôt.",
+      "Sur douze mois, l'excédent des biens recule de 324 à 277 milliards d'euros, tandis que celui des services progresse de 140 à 161 milliards.",
+      "La Banque de France indique pour la France un déficit courant de 2,7 milliards d'euros en septembre 2026 et de 13,7 milliards sur douze mois."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "La balance courante de la zone euro",
+        "text": "La BCE a publié le 19 novembre 2026 la balance des paiements mensuelle de septembre. Le compte courant, corrigé des variations saisonnières et des jours ouvrés, est excédentaire de 12 milliards d'euros, à peu près comme en août. Sur les douze mois jusqu'à septembre 2026, l'excédent atteint 248 milliards d'euros, soit 1,5 % du PIB de la zone euro, contre 279 milliards (1,8 % du PIB) sur les douze mois précédents."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce qui explique le recul",
+        "text": "Sur douze mois, l'excédent des échanges de biens passe de 324 à 277 milliards d'euros. Celui des services augmente, de 140 à 161 milliards. Le revenu primaire devient excédentaire (18 milliards contre un déficit de 4 milliards), tandis que le déficit du revenu secondaire se creuse, de 181 à 208 milliards d'euros."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les flux financiers",
+        "text": "Toujours sur douze mois, les résidents de la zone euro ont acheté pour 133 milliards d'euros d'actions et 527 milliards de titres de dette hors de la zone. Les non-résidents ont acheté pour 401 milliards d'actions et 644 milliards de titres de dette de la zone euro, contre 360 milliards un an plus tôt pour la dette."
+      },
+      {
+        "kind": "analyse",
+        "heading": "La France, à contre-courant",
+        "text": "D'après la Banque de France, la France a enregistré en septembre 2026 un déficit courant de 2,7 milliards d'euros, après 1,4 milliard en août. Sur douze mois, le déficit est de 13,7 milliards, un peu moins qu'un an plus tôt (15,8 milliards). Le déficit des biens (57,2 milliards sur douze mois) est en partie compensé par l'excédent des services (54 milliards). Ces chiffres mensuels sont souvent révisés."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE — balance des paiements de la zone euro, septembre 2026",
+        "url": "https://www.ecb.europa.eu/press/stats/bop/2026/html/ecb.bp261119~9319ec6fea.en.html"
+      },
+      {
+        "label": "Banque de France — balance des paiements de la France, septembre 2026",
+        "url": "https://www.banque-france.fr/fr/statistiques/balance-des-paiements/balance-des-paiements-de-la-france-2026-09"
+      }
+    ]
+  },
+  {
+    "slug": "industrie-francaise-production-en-recul-au-3e-trimestre-2026-rebond-attendu",
+    "title": "Industrie française : production en recul au 3e trimestre 2026, rebond attendu",
+    "summary": "La production de l'industrie française a nettement reculé au troisième trimestre 2026. Selon l'Insee, l'indice de la production industrielle baisse de 1,1 % sur le trimestre, et de 1,5 % pour l'industrie manufacturière. La Direction générale du Trésor attribue ce recul surtout aux matériels de transport, dont l'aéronautique, et à l'agroalimentaire. Elle anticipe un rebond au quatrième trimestre, en s'appuyant sur des enquêtes d'octobre plus favorables.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l'Insee, la production industrielle française recule de 1,1 % au troisième trimestre 2026 par rapport au deuxième, et de 1,5 % pour l'industrie manufacturière.",
+      "Pour le Trésor, la production des matériels de transport baisse de 3,5 % sur le trimestre, dont 4,5 % pour l'aéronautique et les autres matériels de transport.",
+      "Le climat des affaires dans l'industrie mesuré par l'Insee remonte à 105 en octobre 2026, au-dessus de sa moyenne de long terme de 100."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que mesure l'Insee",
+        "text": "Dans sa publication du 5 novembre 2026, l'Insee indique qu'en septembre la production manufacturière progresse de 0,5 % sur un mois, alors que l'ensemble de l'industrie recule de 0,5 %, tiré vers le bas par l'énergie (-3,8 % pour les industries extractives, énergie et eau). Sur l'ensemble du troisième trimestre, la production industrielle baisse de 1,1 % par rapport au deuxième trimestre, et la production manufacturière de 1,5 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les secteurs en cause selon le Trésor",
+        "text": "La Direction générale du Trésor, dans une note du 13 novembre 2026 fondée sur les comptes nationaux, chiffre à 1,3 % le recul de la production des branches industrielles au troisième trimestre. Les matériels de transport reculent de 3,5 %, dont 4,5 % pour l'aéronautique et les autres matériels, en raison de tensions d'approvisionnement en moteurs et équipements. L'agroalimentaire baisse de 1,5 % après de faibles récoltes estivales, et l'énergie de 0,7 %, pénalisée par la sécheresse jusqu'en septembre. Les biens d'équipement progressent de 1,2 %."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi un rebond est attendu",
+        "text": "Le Trésor relève un acquis de croissance de 0,4 % pour la production manufacturière au quatrième trimestre et des enquêtes d'octobre favorables. L'Insee mesure un climat des affaires dans l'industrie à 105 en octobre 2026, contre 101 en septembre, au-dessus de sa moyenne de long terme. Les deux mesures du recul (1,3 % ou 1,5 % selon la source) ne sont pas identiques : l'une vient des comptes nationaux, l'autre de l'indice de production."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Les limites de la prévision",
+        "text": "Un rebond fondé sur des enquêtes et un acquis de croissance reste une prévision. La prochaine publication de l'indice de production de l'Insee, attendue le 4 décembre 2026, permettra de vérifier la tendance d'octobre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Direction générale du Trésor — note du 13 novembre 2026",
+        "url": "https://www.tresor.economie.gouv.fr/Articles/2026/11/13/l-activite-dans-l-industrie-a-fortement-recule-au-3e-trimestre-mais-un-rebond-est-attendu-au-4e-trimestre"
+      },
+      {
+        "label": "Insee — indice de la production industrielle, septembre 2026",
+        "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/9119425/IR269_IPI_Sept26.pdf"
+      },
+      {
+        "label": "Insee — climat des affaires dans l'industrie, octobre 2026",
+        "url": "https://insee.fr/fr/statistiques/9093009"
+      }
+    ]
+  },
+  {
+    "slug": "l-ue-n-exporte-plus-ses-dechets-plastiques-vers-les-pays-hors-ocde-depuis-le-21",
+    "title": "L’UE n’exporte plus ses déchets plastiques vers les pays hors OCDE depuis le 21 novembre",
+    "summary": "Depuis le 21 novembre 2026, le règlement européen sur les transferts de déchets interdit d’exporter des déchets plastiques de l’Union vers les pays non membres de l’OCDE, au moins jusqu’au 21 mai 2029. Les exportations vers les pays de l’OCDE restent possibles, mais sous surveillance renforcée. Une seconde étape, en mai 2027, concernera tous les types de déchets.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Depuis le 21 novembre 2026, l’UE interdit l’exportation de ses déchets plastiques vers les pays hors OCDE, au moins jusqu’au 21 mai 2029, date à partir de laquelle ces pays pourront demander à en recevoir.",
+      "L’UE produit environ 40 millions de tonnes de déchets plastiques par an et en exporte 1 à 1,5 million ; en 2025, la moitié de ces exportations partait vers des pays hors OCDE, selon la Commission.",
+      "À partir du 21 mai 2027, l’UE n’exportera plus, en principe, aucun type de déchet vers les pays hors OCDE, sauf certains déchets non dangereux vers des pays inscrits sur une liste autorisée."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce qui change depuis le 21 novembre",
+        "text": "Le règlement européen révisé sur les transferts de déchets, entré en vigueur le 20 mai 2024, s’applique par étapes. Depuis le 21 novembre 2026, les exportations de déchets plastiques de l’UE vers les pays non membres de l’OCDE sont interdites, au moins jusqu’au 21 mai 2029. Après cette date, ces pays pourront demander à recevoir à nouveau ce type de déchets. Les exportations vers les pays de l’OCDE restent autorisées : la Commission les surveille et évaluera si les pays qui en reçoivent de grandes quantités peuvent les gérer de façon écologiquement rationnelle."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les volumes concernés",
+        "text": "Selon la Commission européenne, l’Union génère environ 40 millions de tonnes de déchets plastiques par an et en exporte entre 1 et 1,5 million de tonnes. En 2025, environ la moitié de ces exportations est partie vers des pays de l’OCDE et l’autre moitié vers des pays hors OCDE. Les principales destinations étaient la Türkiye (510 000 tonnes), la Malaisie (276 000 tonnes), l’Indonésie (215 000 tonnes), le Vietnam (137 000 tonnes) et le Royaume-Uni (108 000 tonnes). La Commission a publié le 18 septembre 2026 une évaluation de la durabilité des exportations de déchets plastiques vers la Türkiye."
+      },
+      {
+        "kind": "analyse",
+        "heading": "La prochaine étape en mai 2027",
+        "text": "À partir du 21 mai 2027, l’UE n’exportera plus, en principe, de déchets de tous types vers les pays hors OCDE. Une exception est prévue pour certains déchets non dangereux, à destination de pays qui demandent explicitement à continuer d’en recevoir et démontrent qu’ils peuvent les gérer durablement. Une première liste de pays autorisés doit être établie d’ici fin 2026, puis mise à jour au moins tous les deux ans. Les sources consultées ne précisent pas quels pays y figureront, ni l’effet attendu de l’interdiction sur les filières de recyclage européennes."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne, DG Environnement (20/11/2026)",
+        "url": "https://environment.ec.europa.eu/news/eu-bans-plastic-waste-exports-non-oecd-countries-2026-11-20_en"
+      },
+      {
+        "label": "letsrecycle.com (23/11/2026)",
+        "url": "https://www.letsrecycle.com/news/eu-plastic-waste-export-restrictions-come-into-effect/"
+      }
+    ]
+  },
+  {
+    "slug": "la-commission-europeenne-confirme-une-cyberattaque-menee-avec-des-outils-d-ia",
+    "title": "La Commission européenne confirme une cyberattaque menée avec des outils d’IA",
+    "summary": "La Commission européenne a confirmé le 19 novembre avoir été visée en octobre par une campagne de cyberattaques menée à l’aide d’outils d’intelligence artificielle. Plusieurs applications internes ont été coupées par précaution. L’enquête se poursuit, sans attribution ni preuve à ce stade d’une fuite de données touchant l’ensemble du personnel.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le porte-parole Thomas Regnier a confirmé le 19 novembre 2026 une campagne de cyberattaques détectée le 22 octobre, menée selon la Commission avec des outils d’IA.",
+      "Par précaution, plusieurs applications ont été mises hors ligne, la plupart ayant depuis été rétablies ; la Commission dit n’avoir trouvé aucune preuve de fuite de données touchant l’ensemble du personnel.",
+      "L’enquête, menée avec le CERT-EU, est en cours ; la Commission ne désigne aucun responsable et dit ne pas avoir connaissance d’une demande de rançon."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que la Commission confirme",
+        "text": "Lors du point presse quotidien du 19 novembre 2026, le porte-parole Thomas Regnier a confirmé que la Commission avait pris des mesures face à une campagne détectée, qualifiée de générée par l’IA. L’attaque a été détectée le 22 octobre. Par mesure de protection, plusieurs applications ont été temporairement coupées, et la plupart ont depuis été rétablies, selon Reuters et l’AP. La Commission affirme n’avoir trouvé, à ce stade, aucune preuve d’une fuite de données touchant l’ensemble de son personnel."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce qui reste incertain",
+        "text": "Selon des informations de presse, notamment de Politico reprises par Reuters et Eunews, des outils de ressources humaines comme la paie, la gestion du temps et les remboursements médicaux auraient été indisponibles une dizaine de jours. La Commission n’a pas confirmé cette liste. Elle refuse de commenter l’attribution, l’enquête étant en cours avec le CERT-EU, et juge difficile d’évaluer l’ampleur de l’incident. Le porte-parole a dit ne pas avoir connaissance d’une demande de rançon."
+      },
+      {
+        "kind": "analyse",
+        "heading": "L’IA comme outil de recherche de failles",
+        "text": "Selon l’AP, c’est la première fois que l’Union signale une cyberattaque menée avec un outil d’IA. Le porte-parole a souligné que ces outils peuvent être détournés pour détecter des vulnérabilités. Eunews rapporte que les attaquants auraient utilisé un outil d’IA accessible au public pour repérer des failles, ce que la Commission n’a pas confirmé officiellement. Le recours à l’IA accélère surtout la phase de repérage des faiblesses, sans changer la nécessité de corriger rapidement les systèmes."
+      }
+    ],
+    "sources": [
+      {
+        "label": "AP via CP24 (19/11/2026)",
+        "url": "https://www.cp24.com/news/world/2026/11/19/a-cyberattack-using-artificial-intelligence-targeted-the-eu-in-october-official-says/"
+      },
+      {
+        "label": "Reuters via The Star (19/11/2026)",
+        "url": "https://www.thestar.com.my/tech/tech-news/2026/11/19/eu-commission-targeted-in-cyberattack-politico-reports"
+      },
+      {
+        "label": "Eunews (19/11/2026)",
+        "url": "https://www.eunews.it/en/2026/11/19/the-eu-commission-has-been-the-victim-of-a-cyberattack-carried-out-using-ai/"
+      }
+    ]
+  },
+  {
+    "slug": "climat-des-affaires-en-recul-et-defaillances-elevees-le-moral-des-entreprises",
+    "title": "Climat des affaires en recul et défaillances élevées : le moral des entreprises fléchit",
+    "summary": "En novembre 2026, l’indicateur du climat des affaires de l’Insee perd deux points, à 95, sous sa moyenne de long terme de 100, et recule dans tous les secteurs. Dans le même temps, la Banque de France compte 71 139 défaillances d’entreprises sur douze mois à fin septembre, un niveau supérieur de 19,9 % à la moyenne 2010-2019.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l’Insee, le climat des affaires en France recule de deux points en novembre 2026, à 95, et baisse dans tous les secteurs interrogés.",
+      "Le commerce de détail est le secteur le plus bas ; le commerce de gros se dégrade pour le troisième bimestre consécutif, tandis que le climat de l’emploi gagne un point.",
+      "La Banque de France recense 71 139 défaillances sur douze mois à fin septembre 2026, en hausse de 4,4 % sur un an et de 19,9 % au-dessus de la moyenne 2010-2019."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un climat des affaires en baisse partout",
+        "text": "Selon l’Insee, dont la publication du 20 novembre a été relayée par l’AFP, l’indicateur synthétique du climat des affaires perd deux points en novembre 2026, à 95, et s’éloigne de sa moyenne de longue période, fixée à 100. Il recule dans l’industrie, les services, le bâtiment, le commerce de détail et le commerce de gros. Le commerce de détail est le plus bas des secteurs. Le climat de l’emploi gagne toutefois un point. Les réponses ont été collectées entre le 27 octobre et le 17 novembre."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des défaillances toujours nombreuses",
+        "text": "La Banque de France compte 71 139 défaillances d’entreprises en cumul sur douze mois à fin septembre 2026, contre 68 125 un an plus tôt, soit une hausse de 4,4 %. Ce niveau dépasse de 19,9 % la moyenne 2010-2019, de 59 342. La hausse est marquée dans l’hébergement-restauration (+9 % sur un an). La construction recule de 2,7 %. Ces données portent sur les jugements d’ouverture de procédures, et non sur les fermetures d’entreprises en général."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Comment lire ces deux indicateurs",
+        "text": "Le climat des affaires mesure l’opinion des chefs d’entreprise sur leur activité passée et à venir ; il n’est pas une mesure directe de la production. Les défaillances reflètent avec retard les difficultés financières. Leur hausse s’apprécie aussi au regard du nombre d’entreprises, qui a beaucoup augmenté : la Banque de France cite l’Insee, avec plus de 1,3 million de créations sur douze mois à fin septembre, en hausse de 12,2 %."
+      }
+    ],
+    "sources": [
+      {
+        "label": "AFP via Boursorama, d’après l’Insee (20/11/2026)",
+        "url": "https://www.boursorama.com/actualite-economique/actualites/france-le-climat-des-affaires-repart-a-la-baisse-en-novembre-dans-tous-les-secteurs-selon-l-insee-02329d8b166a06c8cb79794abd85316e"
+      },
+      {
+        "label": "Banque de France, défaillances à fin septembre 2026",
+        "url": "https://www.banque-france.fr/fr/statistiques/entreprises/defaillances-dentreprises-2026-09"
+      }
+    ]
+  },
+  {
+    "slug": "rdc-des-combats-pres-d-un-hopital-de-l-ituri-perturbent-la-riposte-contre-ebola",
+    "title": "RDC : des combats près d’un hôpital de l’Ituri perturbent la riposte contre Ebola",
+    "summary": "Des combats près d’un hôpital de la province de l’Ituri, épicentre de l’épidémie d’Ebola en RDC, ont contraint des équipes de riposte à se réfugier plus de 24 heures dans une maternité, selon l’OMS. L’épidémie, due au virus Bundibugyo, compte 11 762 cas confirmés et 5 775 décès au 20 novembre.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l’OMS, des combats près d’un hôpital de l’Ituri ont obligé des équipes de riposte et des partenaires humanitaires à s’abriter plus de 24 heures dans une maternité.",
+      "Au 20 novembre 2026, l’OMS recense 11 762 cas confirmés et 5 775 décès dans 68 zones de santé de huit provinces, dont 8 028 cas et 3 791 décès en Ituri.",
+      "L’épidémie est due au virus Bundibugyo, pour lequel aucun vaccin ni traitement n’est approuvé ; l’insécurité reste, selon l’OMS, l’un des principaux obstacles à la riposte."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un hôpital pris entre les combats",
+        "text": "Le directeur général de l’OMS, Tedros Adhanom Ghebreyesus, a signalé que des combats se poursuivaient depuis le samedi près d’un hôpital de l’Ituri, dans une zone proche du lieu d’apparition de l’épidémie. Selon ONU Info, les équipes de riposte et des partenaires humanitaires se sont réfugiés plus de 24 heures dans une maternité. L’OMS travaille avec ses partenaires pour obtenir une sortie sûre du personnel bloqué et demande la protection des soignants, des patients et des structures de santé. Le nom de l’hôpital et la localité exacte ne sont pas précisés dans les sources consultées."
+      },
+      {
+        "kind": "fait",
+        "heading": "L’épidémie la plus grave de l’histoire du pays",
+        "text": "Déclarée en mai 2026, l’épidémie due au virus Bundibugyo est décrite comme la pire jamais enregistrée en RDC. Au 20 novembre, l’OMS compte 11 762 cas confirmés et 5 775 décès dans 68 zones de santé de huit provinces. L’Ituri en concentre la majorité : 8 028 cas confirmés et 3 791 décès, soit une létalité de 47 % parmi les cas confirmés. Africanews rapportait le 12 novembre des chiffres officiels congolais de 11 042 personnes infectées et 5 387 décès, ce qui montre la progression en une semaine."
+      },
+      {
+        "kind": "analyse",
+        "heading": "L’insécurité, frein durable à la riposte",
+        "text": "Les attaques se sont multipliées dans l’est de la RDC depuis fin octobre, selon ONU Info. Début novembre, une attaque à Cantine-Aloya a tué 66 civils, dont trois agents de santé, et plus de 1 000 contacts ont été perdus de vue. Africanews signalait aussi un centre de santé traitant des malades d’Ebola incendié à Lolwa, en Ituri. Quand les contacts ne sont plus suivis, la chaîne de transmission devient plus difficile à casser. Aucun vaccin n’étant approuvé contre le virus Bundibugyo, le suivi des contacts et l’isolement restent centraux."
+      }
+    ],
+    "sources": [
+      {
+        "label": "ONU Info (23/11/2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159889"
+      },
+      {
+        "label": "Africanews (12/11/2026)",
+        "url": "https://www.africanews.com/amp/2026/11/12/dr-congo-ebola-outbreak-surpasses-11000-cases-as-conflict-hampers-response/"
+      }
+    ]
+  },
+  {
+    "slug": "la-nasa-cherche-des-industriels-pour-son-premier-reacteur-nucleaire-lunaire",
+    "title": "La NASA cherche des industriels pour son premier réacteur nucléaire lunaire",
+    "summary": "La NASA a lancé le 23 novembre 2026 un appel d’offres pour concevoir et tester Lunar Reactor-1, un petit réacteur à fission de 20 kilowatts électriques destiné à alimenter la surface de la Lune. L’agence vise un système prêt au lancement en 2030, développé avec le département américain de l’Énergie.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La NASA cherche des partenaires industriels pour Lunar Reactor-1, un réacteur à fission de 20 kilowatts électriques, avec des propositions attendues d’ici le 21 décembre.",
+      "L’objectif est un système prêt au lancement en 2030, capable de fonctionner au moins cinq ans sur la Lune et conforme aux normes de sûreté du département de l’Énergie.",
+      "Un protocole NASA–département de l’Énergie sur le nucléaire spatial, signé début octobre 2026 pour dix ans, est entré en vigueur le 1er novembre."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que demande la NASA",
+        "text": "Le 23 novembre 2026, la NASA a publié un appel à propositions intitulé Space Power and Reactor Capabilities, pour développer et tester le premier réacteur conçu pour produire de l’électricité sur la Lune. Baptisé Lunar Reactor-1, ce petit système à fission doit produire 20 kilowatts électriques. L’agence vise un système prêt au lancement en 2030, qui fonctionnerait au moins cinq ans après son déploiement. Les propositions sont attendues d’ici le 21 décembre. Le texte intègre les retours d’un projet publié en août et d’une journée industrielle en septembre."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le rôle du département de l’Énergie",
+        "text": "Le réacteur devra respecter les normes de sûreté nucléaire du département américain de l’Énergie, partenaire du programme. En janvier 2026, les deux administrations avaient réaffirmé leur objectif d’un réacteur de surface lunaire d’ici 2030. Début octobre, l’administrateur de la NASA Jared Isaacman et le secrétaire à l’Énergie Chris Wright ont signé un protocole d’accord sur le nucléaire spatial, en vigueur depuis le 1er novembre pour dix ans, selon l’American Nuclear Society."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un objectif revu à la baisse en puissance",
+        "text": "Un projet antérieur, présenté par la NASA fin août 2025, évoquait un réacteur d’au moins 100 kilowatts d’ici 2029, via des partenariats où les entreprises auraient possédé les réacteurs. La cible actuelle est de 20 kilowatts électriques en 2030, ce qui suggère une approche plus modeste pour un premier démonstrateur. Les documents consultés ne donnent ni le budget, ni le nombre de contrats prévus. Le calendrier de 2030 reste un objectif qui dépend des réponses industrielles et des financements."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NASA (23/11/2026)",
+        "url": "https://www.nasa.gov/directorates/rtmd/nasa-seeks-partners-to-design-first-nuclear-reactor-for-the-moon/"
+      },
+      {
+        "label": "American Nuclear Society (13/10/2026)",
+        "url": "https://www.ans.org/news/2026-10-13/article-8482/nasa-and-doe-sign-space-nuclear-mou/"
+      },
+      {
+        "label": "Département américain de l’Énergie (13/01/2026)",
+        "url": "https://www.energy.gov/articles/us-department-energy-and-nasa-develop-lunar-surface-reactor-2030"
+      },
+      {
+        "label": "Military & Aerospace Electronics (04/09/2025)",
+        "url": "https://militaryaerospace.com/power/news/55314018/nasa-pushes-lunar-nuclear-power-plan-with-commercial-partnerships"
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-une-jeune-entreprise-ouvre-son-capital-a-des-investisseurs",
+    "title": "Pourquoi une jeune entreprise ouvre son capital à des investisseurs",
+    "summary": "Lever des fonds, c'est obtenir de l'argent auprès d'investisseurs en échange d'une part du capital de l'entreprise. Contrairement à un prêt, cet argent ne se rembourse pas : les investisseurs espèrent une plus-value. En contrepartie, les fondateurs voient leur part diluée et partagent une partie du pouvoir de décision. Cet article explique ce mécanisme, ses étapes et ses compromis, à partir des définitions de Bpifrance Création et des fiches de la CCI Paris Île-de-France.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Une levée de fonds consiste à obtenir des financements auprès d'investisseurs en échange d'une participation au capital : l'entreprise ne contracte pas de dette.",
+      "La dilution est la baisse de la part détenue par un associé lorsque de nouveaux investisseurs entrent au capital ; elle réduit son pourcentage de détention et, le cas échéant, ses droits de vote.",
+      "Les investisseurs deviennent actionnaires, avec les droits prévus par les statuts ou un pacte d'actionnaires, ce qui pèse sur les décisions stratégiques."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "De l'argent contre une part de l'entreprise",
+        "text": "Bpifrance Création définit la levée de fonds comme une opération par laquelle une entreprise obtient des financements auprès d'investisseurs en échange d'une participation à son capital. La CCI Paris Île-de-France précise que ces investisseurs, business angels ou fonds d'investissement, reçoivent des parts ou des actions et se rémunèrent sur la plus-value réalisée. L'entreprise n'a donc ni capital ni intérêts à rembourser, ce qui la distingue d'un crédit bancaire. Selon la CCI, l'objectif principal est d'accélérer la croissance, et ce mode de financement convient surtout aux start-up à fort potentiel de développement : des sociétés qui doivent dépenser beaucoup avant d'être rentables et que les banques hésitent souvent à financer."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des tours successifs, de l'amorçage aux séries",
+        "text": "La CCI Paris Île-de-France décrit plusieurs étapes. Le capital d'amorçage sert à démarrer l'activité, porte sur des montants en général peu élevés et réunit surtout des business angels, c'est-à-dire des particuliers qui investissent leur propre argent. Viennent ensuite des tours plus importants, souvent menés par des fonds d'investissement. Les séries A se chiffrent en millions d'euros, les séries B en dizaines de millions et les séries C dépassent généralement 100 millions d'euros, selon la même fiche. Ces seuils sont des ordres de grandeur indicatifs, pas des règles. À chaque tour, de nouvelles actions sont créées pour les nouveaux entrants."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Le prix à payer : dilution et partage du pouvoir",
+        "text": "Créer de nouvelles actions réduit mécaniquement la part des associés existants. Bpifrance Création appelle ce phénomène la dilution : la participation d'un associé diminue, ainsi que, le cas échéant, ses droits de vote. Un fondateur peut ainsi détenir un pourcentage plus faible d'une entreprise qui vaut davantage. La CCI souligne aussi que les investisseurs disposent des droits prévus par les statuts ou par le pacte d'actionnaires, et que leur nombre pèse sur les décisions stratégiques : d'où l'importance de choisir leurs profils. En échange, ils apportent souvent un réseau et un savoir-faire. Le choix entre levée de fonds, prêt ou autofinancement dépend donc du besoin de croissance et du degré de contrôle que les fondateurs acceptent de partager."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bpifrance Création – Définition de la levée de fonds",
+        "url": "https://bpifrance-creation.fr/levee-fonds"
+      },
+      {
+        "label": "Bpifrance Création – Définition de la dilution",
+        "url": "https://bpifrance-creation.fr/dilution"
+      },
+      {
+        "label": "CCI Paris Île-de-France – En quoi consiste vraiment une levée de fonds",
+        "url": "https://www.entreprises.cci-paris-idf.fr/fiches-pratiques/en-quoi-consiste-vraiment-une-levee-de-fonds"
+      }
+    ]
+  },
+  {
+    "slug": "alliance-militaire-ce-que-l-article-5-de-l-otan-oblige-vraiment-a-faire",
+    "title": "Alliance militaire : ce que l'article 5 de l'OTAN oblige vraiment à faire",
+    "summary": "Une alliance militaire repose sur une promesse : considérer l'attaque contre un membre comme une attaque contre tous. L'exemple de l'OTAN montre pourtant que cette promesse laisse à chaque État une marge d'appréciation sur la nature de son aide. Cet article explique le fonctionnement des articles 4 et 5 du traité de l'Atlantique Nord, la règle du consensus et le précédent du 11 septembre 2001, à partir des textes de l'OTAN et d'une analyse de l'Institut de recherche stratégique de l'École militaire (IRSEM).",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le traité de l'Atlantique Nord a été signé le 4 avril 1949 à Washington par douze pays. Son article 5 prévoit qu'une attaque armée contre un allié en Europe ou en Amérique du Nord est considérée comme une attaque contre tous.",
+      "La réponse n'est pas automatique : il revient à chaque allié de prendre les mesures qu'il juge nécessaires, qui peuvent ou non inclure la force armée.",
+      "Les décisions de l'Alliance se prennent par consensus. Après le 11 septembre 2001, les alliés ont reconnu que l'attaque relevait de l'article 5, ce qui a été confirmé le 2 octobre 2001."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une promesse de défense collective",
+        "text": "Le 4 avril 1949, douze pays d'Europe et d'Amérique du Nord ont signé à Washington le traité fondateur de l'OTAN. Son article 5 énonce le principe de défense collective : une attaque armée contre une ou plusieurs parties, survenant en Europe ou en Amérique du Nord, est considérée comme une attaque dirigée contre toutes. L'article 4, distinct, prévoit que les alliés se consultent chaque fois que l'un d'eux estime que son intégrité territoriale, son indépendance politique ou sa sécurité est menacée. L'OTAN précise que ces consultations ne sont pas un préalable obligatoire à l'article 5. Une alliance de ce type combine donc un outil de dialogue politique et un engagement de solidarité en cas d'agression."
+      },
+      {
+        "kind": "fait",
+        "heading": "Solidarité ne veut pas dire automatisme",
+        "text": "L'engagement de l'article 5 n'impose pas une forme précise d'aide. Les pages de l'OTAN indiquent que l'assistance peut ou non impliquer l'emploi de la force armée, et que chaque membre apporte l'aide qu'il juge nécessaire. Lors de la rédaction du traité, les États-Unis refusaient un engagement militaire automatique. L'analyse publiée par l'IRSEM rappelle que le service juridique de l'OTAN a confirmé qu'il était de la responsabilité de chaque allié de prendre les mesures qu'il jugeait nécessaires. La décision de reconnaître un cas d'article 5 se prend, elle, par consensus au sein du Conseil de l'Atlantique Nord, selon un mode de décision commun à toute l'Alliance."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Le précédent de 2001 et ses enseignements",
+        "text": "L'article 5 n'a été mis en œuvre qu'une fois, après les attentats du 11 septembre 2001 aux États-Unis. L'IRSEM nuance l'idée d'une invocation immédiate : le 12 septembre, le Conseil de l'Atlantique Nord a donné un accord unanime, puis le secrétaire général a confirmé le 2 octobre 2001 que l'attaque, dirigée depuis l'étranger, relevait de l'article 5. Ce délai illustre la logique d'une alliance : établir d'abord les faits et l'origine de l'agression, puis décider ensemble, avant que chaque État ne choisisse sa contribution. L'auteure de l'IRSEM met en garde contre l'association hâtive de l'article 5 à des actes mal caractérisés ; cette analyse n'engage que son autrice. La crédibilité d'une alliance tient donc autant à la volonté politique de ses membres qu'au texte du traité."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OTAN – La défense collective et l'article 5",
+        "url": "https://www.nato.int/cps/fr/natohq/topics_110496.htm"
+      },
+      {
+        "label": "OTAN – Le traité de l'Atlantique Nord (texte officiel)",
+        "url": "https://www.nato.int/cps/fr/natolive/official_texts_17120.htm"
+      },
+      {
+        "label": "OTAN – Le traité fondateur",
+        "url": "https://www.nato.int/cps/fr/natohq/topics_67656.htm"
+      },
+      {
+        "label": "IRSEM – Brève stratégique n° 56 sur l'article 5 de l'OTAN",
+        "url": "https://irsem.fr/storage/file_manager_files/2025/03/bs-56-mathey-article-5-otan.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "comment-fonctionne-une-obligation-et-pourquoi-son-prix-baisse-quand-les-taux",
+    "title": "Comment fonctionne une obligation, et pourquoi son prix baisse quand les taux montent",
+    "summary": "Une obligation est une part d'un emprunt émis par un État, une collectivité ou une entreprise. Celui qui l'achète prête de l'argent, reçoit des intérêts appelés coupons et récupère sa mise à l'échéance, sauf faillite de l'émetteur. Cet article explique ce mécanisme, le lien inverse entre taux d'intérêt et prix des obligations, et les risques à connaître, à partir des fiches de l'Autorité des marchés financiers (AMF) et du ministère de l'Économie.",
+    "topic": "finance",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Une obligation est un morceau de dette : l'acheteur prête à un État, une collectivité ou une entreprise, qui lui verse un coupon et le rembourse à l'échéance.",
+      "Quand les taux d'intérêt montent, les nouvelles obligations offrent des coupons plus élevés : les anciennes, moins rémunératrices, perdent de la valeur. L'effet est plus fort pour les échéances longues.",
+      "Le remboursement n'est jamais totalement garanti : en cas de défaillance de l'émetteur, l'investisseur peut perdre une partie voire la totalité de son capital."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un prêt découpé en titres",
+        "text": "Pour emprunter auprès de nombreux prêteurs, un émetteur découpe sa dette en titres. Le ministère de l'Économie donne l'exemple de 1 000 titres de 10 000 euros, soit un emprunt de 10 millions d'euros. Le montant de chaque titre est sa valeur nominale. L'émetteur verse un intérêt, le coupon, à intervalles réguliers (souvent chaque année), puis rembourse le capital à l'échéance, fixée en général entre 5 et 30 ans selon la même source. Avec un coupon de 5 %, un titre de 10 000 euros rapporte 500 euros par an avant impôts. L'AMF distingue les obligations à taux fixe, à taux variable ou indexé et à coupon zéro. On peut les acheter à l'émission (marché primaire) ou plus tard en Bourse (marché secondaire)."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le balancier entre taux et prix",
+        "text": "L'AMF résume la règle : la valeur d'une obligation varie en sens inverse des taux d'intérêt. Le mécanisme est simple. Si les taux du marché montent, de nouvelles obligations sont émises avec des coupons supérieurs. Personne ne voudra alors payer le même prix pour un titre ancien qui rapporte moins : sa valeur de marché baisse. À l'inverse, une baisse des taux rend les anciens coupons plus attractifs. Cette sensibilité est d'autant plus grande que la durée de vie restante de l'obligation est longue. Pour une obligation à taux variable, c'est surtout le coupon qui s'ajuste, et non le prix. Cette variation ne compte que si l'on revend avant l'échéance : à l'échéance, l'émetteur rembourse la valeur prévue."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Les risques à garder en tête",
+        "text": "Le premier risque est celui de défaut : l'émetteur peut ne pas rembourser. L'AMF rappelle qu'en cas de défaillance, on peut perdre une partie voire la totalité du capital investi, et que la qualité de crédit de l'émetteur influe sur le cours même sans variation des taux. C'est pourquoi les coupons sont plus élevés quand le risque l'est : un rendement élevé signale un emprunteur jugé plus fragile. Les agences de notation publient des notes de crédit qui évaluent ce risque. Deuxième risque, la liquidité : le marché obligataire est relativement peu liquide pour les particuliers, et il n'est pas assuré de pouvoir revendre ses titres dans de bonnes conditions avant l'échéance. Enfin, les coupons sont imposés."
+      }
+    ],
+    "sources": [
+      {
+        "label": "AMF – Comprendre les obligations avant d'investir",
+        "url": "https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/actions-obligations/obligations/comprendre-les-obligations-avant-dinvestir"
+      },
+      {
+        "label": "AMF – Pourquoi le prix des obligations baisse lorsque les taux montent",
+        "url": "https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/actions-obligations/obligations/pourquoi-le-prix-des-obligations-baisse-lorsque-les-taux-montent"
+      },
+      {
+        "label": "Ministère de l'Économie – Obligation : définition",
+        "url": "https://www.economie.gouv.fr/particuliers/obligation-definition"
+      }
+    ]
+  },
+  {
+    "slug": "comment-evalue-t-on-un-projet-minier-de-la-ressource-a-la-reserve",
+    "title": "Comment évalue-t-on un projet minier, de la ressource à la réserve ?",
+    "summary": "Un gisement découvert n'est pas encore une mine. Entre les deux, des études de plus en plus précises doivent montrer que le minerai existe, qu'il peut être extrait de façon rentable et que le projet peut obtenir ses autorisations. Le Québec et la norme canadienne 43-101, référence pour de nombreuses sociétés minières cotées, donnent un cadre précis à ce vocabulaire.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Les ressources minérales sont classées présumées, indiquées ou mesurées, selon un niveau croissant de confiance géologique.",
+      "Une réserve minérale est la partie économiquement exploitable des ressources mesurées ou indiquées, démontrée par au moins une étude de préfaisabilité.",
+      "Trois niveaux d'études se succèdent : évaluation économique préliminaire, étude de préfaisabilité, puis étude de faisabilité, la plus fiable pour décider."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Six étapes, de la géologie à la restauration",
+        "text": "Le gouvernement du Québec découpe le développement minier en six étapes : acquisition de connaissances géoscientifiques, exploration, mise en valeur, construction et rodage, exploitation, puis restauration du site. L'exploration doit aboutir à une évaluation économique préliminaire et à la décision de continuer ou non. La mise en valeur comprend l'étude de faisabilité, l'analyse des risques environnementaux, sociaux, politiques et financiers, la demande d'autorisations et la recherche de financement."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ressource ou réserve : une différence de confiance",
+        "text": "Une ressource minérale est une concentration de substance présentant des perspectives raisonnables d'extraction rentable. Elle est dite présumée, indiquée ou mesurée, par ordre croissant de confiance géologique. La réserve minérale est la partie économiquement exploitable des ressources mesurées ou indiquées, démontrée par au moins une étude de préfaisabilité ; elle est probable ou prouvée. Au Canada, la norme 43-101 renvoie pour ces définitions aux normes de l'Institut canadien des mines, de la métallurgie et du pétrole."
+      },
+      {
+        "kind": "fait",
+        "heading": "Trois niveaux d'études",
+        "text": "L'évaluation économique préliminaire analyse la viabilité potentielle des ressources. L'étude de préfaisabilité détermine si tout ou partie des ressources peut devenir des réserves. L'étude de faisabilité, au niveau de confiance le plus élevé, doit démontrer que l'exploitation est rentable et servir de base à une décision définitive. La norme 43-101 exige qu'une évaluation préliminaire fondée sur des ressources présumées précise que rien ne garantit les résultats annoncés."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Qui signe les chiffres",
+        "text": "Les informations techniques publiées par une société soumise à la norme 43-101 doivent s'appuyer sur une personne qualifiée : un ingénieur ou un géoscientifique comptant au moins cinq ans d'expérience pertinente et membre en règle d'une association professionnelle. Pour lire une annonce minière, il faut donc repérer la catégorie employée : une ressource présumée et une réserve prouvée n'ont pas du tout le même degré de certitude."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce que les études ne garantissent pas",
+        "text": "Même une étude de faisabilité positive ne garantit pas la mise en production : les prix des métaux, les coûts, les autorisations ou l'acceptation locale peuvent évoluer. Les documents consultés ne donnent ni durée type ni proportion de projets d'exploration qui deviennent des mines ; ces chiffres varient selon les régions et les substances."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Processus de développement minier",
+        "url": "https://cdn-contenu.quebec.ca/cdn-contenu/ressources-naturelles/mines/Documents/FI_Processus-developpement-minier.pdf"
+      },
+      {
+        "label": "FCNB, Norme canadienne 43-101 (refonte 2023)",
+        "url": "https://www.fcnb.ca/sites/default/files/2024-12/43-101-NI-CONS-2023-06-09-F.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "batterie-stationnaire-que-veulent-dire-mw-mwh-et-nombre-de-cycles",
+    "title": "Batterie stationnaire : que veulent dire MW, MWh et nombre de cycles ?",
+    "summary": "Les grandes batteries raccordées au réseau électrique se décrivent avec deux chiffres : une puissance en mégawatts et une énergie en mégawattheures. Leur rapport donne la durée pendant laquelle la batterie peut fonctionner à pleine puissance. Le site de Cernay-lès-Reims, 240 MW pour 480 MWh, illustre ces notions. Leur durée de vie dépend surtout de la façon dont on les charge et décharge.",
+    "topic": "energie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La puissance (MW) dit à quelle vitesse une batterie peut injecter ou absorber de l'électricité ; l'énergie (MWh) dit combien elle peut en stocker.",
+      "Le site de Cernay-lès-Reims peut injecter 240 MW pendant deux heures, soit 480 MWh : c'est une batterie dite de deux heures.",
+      "Une batterie se dégrade avec le temps, la température et les cycles ; des cycles de faible amplitude allongent nettement sa durée de vie."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Puissance et énergie, deux grandeurs distinctes",
+        "text": "La capacité énergétique d'un stockage s'exprime en kilowattheures ou mégawattheures : c'est la quantité d'électricité disponible. La puissance maximale, en watts, fixe le débit possible et dimensionne les convertisseurs. Le document pédagogique d'Eduscol définit une constante de temps égale au rapport entre l'énergie utilisable et la puissance maximale : c'est la durée minimale de charge ou de décharge complète."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un exemple : Cernay-lès-Reims",
+        "text": "Inauguré début octobre 2026 selon l'AFP, le site de TagEnergy et de la Banque des Territoires près de Reims compte 140 conteneurs de batteries. Il peut injecter 240 MW sur le réseau pendant deux heures, soit 480 MWh. Il sert notamment au réglage de la fréquence du réseau et peut se charger en milieu de journée, quand le solaire produit, pour restituer l'électricité lors des pointes du soir. Selon l'Observatoire des batteries stationnaires cité par l'AFP, la puissance installée en France dépassait 1,5 GW fin 2025."
+      },
+      {
+        "kind": "fait",
+        "heading": "Cycles, rendement et usure",
+        "text": "Un cycle correspond à une charge et une décharge complètes, plusieurs charges partielles pouvant s'additionner. Une partie de l'énergie est perdue à chaque cycle : Eduscol donne pour le lithium un rendement de 80 à 85 %, dans un tableau qu'il qualifie de très approximatif. Les batteries se dégradent selon la température, le temps et l'usage, ce qui réduit leur capacité et leur puissance maximale. Selon Modo Energy, les fabricants visent souvent 75 à 85 % de capacité conservée après dix ans."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la durée compte",
+        "text": "Une batterie d'une heure convient aux services très rapides, comme le maintien de la fréquence. Une batterie plus longue peut déplacer davantage d'énergie, par exemple du midi solaire vers le soir. Eduscol montre aussi que l'amplitude des cycles pèse sur le coût d'usure : sur son exemple, des cycles profonds coûtent bien plus cher par kilowattheure que des cycles peu profonds. Comparer deux batteries par leur seule puissance est donc trompeur."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des chiffres à manier avec prudence",
+        "text": "Les ordres de grandeur de rendement, de nombre de cycles et de coûts proviennent de documents de dates différentes, de 2019 pour Eduscol et de 2021 pour Modo Energy, alors que la technologie et les prix évoluent vite. Les garanties des fabricants ne sont pas des mesures de terrain."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Connaissance des Énergies (AFP), site de Cernay-lès-Reims",
+        "url": "https://www.connaissancedesenergies.org/afp/le-plus-grand-site-de-stockage-delectricite-par-batteries-en-france-inaugure-pres-de-reims-261001"
+      },
+      {
+        "label": "Eduscol, Introduction au stockage de l'énergie électrique",
+        "url": "https://sti.eduscol.education.fr/sites/eduscol.education.fr.sti/files/ressources/pedagogiques/10890/10890-introduction-au-stockage-de-lenergie-electrique-ensps-2.pdf"
+      },
+      {
+        "label": "IFP Énergies nouvelles, Stockage d'énergie",
+        "url": "https://www.ifpenergiesnouvelles.fr/print/pdf/node/551"
+      },
+      {
+        "label": "Modo Energy, la dégradation des batteries expliquée",
+        "url": "https://modoenergy.com/research/fr/battery-degradation-explained"
+      }
+    ]
+  },
+  {
+    "slug": "quand-un-produit-peut-il-etre-dit-recyclable-en-france",
+    "title": "Quand un produit peut-il être dit recyclable en France ?",
+    "summary": "Qu'une matière puisse techniquement être recyclée ne suffit pas pour qu'un produit soit qualifié de recyclable. En France, la loi anti-gaspillage et le décret du 29 avril 2022 fixent cinq critères cumulatifs : collecte, tri, absence d'éléments perturbateurs, part de matière réellement récupérée et existence d'une filière industrielle en pratique. Explication de ces critères et de leurs limites.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le décret n° 2022-748 retient cinq critères cumulatifs, dont la capacité à être collecté près de chez soi, trié vers une filière et recyclé à l'échelle industrielle.",
+      "La matière recyclée obtenue doit représenter au moins la moitié de la masse du déchet collecté, selon la FAQ du ministère de la Transition écologique.",
+      "Depuis le 1er janvier 2023, les producteurs concernés doivent publier une fiche d'information sur les qualités environnementales de leurs produits, et les mentions « biodégradable » ou « respectueux de l'environnement » sont interdites."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Recyclable en théorie, recyclable en pratique",
+        "text": "Un plastique ou un métal peut être recyclable en laboratoire sans l'être dans les faits, faute de collecte ou d'usine capable de le traiter. Le droit français tranche en faveur de la pratique. Selon la FAQ du ministère sur l'article 13-I de la loi anti-gaspillage, un produit n'est recyclable que s'il remplit cinq critères en même temps. Citeo, l'éco-organisme des emballages, résume : il faut une filière de collecte, de tri et de recyclage à l'échelle nationale, et que l'emballage puisse s'y intégrer."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les cinq critères",
+        "text": "Le produit doit pouvoir être collecté efficacement, grâce à l'accès de la population à des points de collecte de proximité. Il doit pouvoir être trié vers les filières de recyclage. Il ne doit pas contenir d'éléments qui perturbent le tri ou le recyclage, ou limitent l'usage de la matière recyclée. La matière recyclée produite doit dépasser la moitié de la masse du déchet collecté. Enfin, une filière doit exister à l'échelle industrielle et en pratique pour le prendre en charge."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que les fabricants doivent afficher",
+        "text": "Depuis le 1er janvier 2023, les producteurs et importateurs concernés doivent mettre à disposition une fiche produit sur ses qualités environnementales, dont la recyclabilité. L'obligation s'est étendue par paliers de chiffre d'affaires : 50 millions d'euros en 2023, 20 millions en 2024, puis 10 millions en 2025. Les mentions « biodégradable », « respectueux de l'environnement » et leurs équivalents sont interdites sur les produits et emballages. La DGCCRF contrôle ces règles."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la filière locale compte",
+        "text": "Ces critères expliquent qu'un même matériau puisse être déclaré recyclable pour un objet et pas pour un autre : un emballage composé de plusieurs couches collées ou une couleur qui gêne le tri peuvent le faire sortir de la filière. Citeo met en garde contre toute recyclabilité théorique qui ne tient pas compte du dispositif national, qu'il juge potentiellement trompeuse, et déconseille d'associer un pourcentage à un message de recyclabilité."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des règles encore en mouvement",
+        "text": "Les documents consultés datent d'avril 2023 pour Citeo et de novembre 2025 pour la FAQ ministérielle. Citeo signale qu'une définition européenne harmonisée est en préparation, ce qui pourrait modifier ces critères. Être recyclable ne signifie pas non plus être effectivement recyclé : cela dépend aussi du geste de tri de chacun."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Ministère de la Transition écologique, FAQ article 13-I AGEC (nov. 2025)",
+        "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/FAQ_article_13-I_AGEC_version-novembre_2025_vF_FR.pdf"
+      },
+      {
+        "label": "Ministère de la Transition écologique, allégations environnementales",
+        "url": "https://www.ecologie.gouv.fr/encadrement-des-allegations-environnementales-et-information-du-consommateur-sur-produits"
+      },
+      {
+        "label": "Citeo, communiquer sur la recyclabilité de vos emballages",
+        "url": "https://clients-cms.citeo.com/uploads/fiche_reflexe_communication_sur_la_recyclabilite_26d82bbd44.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "comment-fonctionne-le-marche-europeen-du-carbone",
+    "title": "Comment fonctionne le marché européen du carbone ?",
+    "summary": "Depuis 2005, l'Union européenne fait payer une partie de ses émissions de gaz à effet de serre grâce à un marché de quotas. Un plafond fixe la quantité totale autorisée, chaque quota vaut une tonne de CO2, et les entreprises doivent rendre autant de quotas qu'elles ont émis. Le plafond baisse chaque année. Voici les rouages du système et ce qu'il ne couvre pas.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le SEQE-UE est un système de plafonnement et d'échange : chaque quota donne le droit d'émettre une tonne de CO2, et les émetteurs restituent autant de quotas qu'ils ont émis.",
+      "Environ 10 000 installations sont couvertes dans l'UE, dont l'électricité, l'acier, le ciment ou la chimie ; l'objectif est de réduire leurs émissions de 62 % en 2030 par rapport à 2005.",
+      "Un nouveau marché, le SEQE 2, couvrira le transport routier et le bâtiment et doit être pleinement opérationnel en 2028."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un plafond, des quotas, un prix",
+        "text": "Le système d'échange de quotas d'émission de l'UE fonctionne depuis 2005. Les installations concernées doivent mesurer et faire vérifier leurs émissions, puis restituer aux autorités autant de quotas que de tonnes émises. La quantité de quotas mise sur le marché dépend de l'objectif de réduction, et le prix se forme par l'offre et la demande. Les émetteurs qui réduisent leurs émissions peuvent revendre leurs quotas en trop, ceux qui dépassent doivent en acheter."
+      },
+      {
+        "kind": "fait",
+        "heading": "Qui est concerné",
+        "text": "Le ministère de la Transition écologique cite la production d'électricité et de chaleur, les raffineries, l'acier, le ciment, la chimie, l'aluminium, le verre ou le papier. Environ 10 000 installations sont couvertes dans l'UE, ainsi que l'aviation et, depuis 2024, le transport maritime pour les grands navires. Le système s'étend aux pays de l'UE, à l'Islande, au Liechtenstein et à la Norvège."
+      },
+      {
+        "kind": "fait",
+        "heading": "Gratuits ou payants",
+        "text": "Depuis 2013, la mise aux enchères est la règle par défaut, et un peu plus de la moitié des quotas sont vendus ainsi. La production d'électricité ne reçoit aucun quota gratuit. Les industries exposées à la concurrence internationale en reçoivent encore, mais ces allocations doivent être progressivement remplacées par le mécanisme d'ajustement carbone aux frontières. Selon la Commission, plus de 270 milliards d'euros de recettes ont été tirés des enchères depuis 2013."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un plafond qui se resserre",
+        "text": "L'objectif est une baisse de 62 % des émissions couvertes en 2030 par rapport à 2005, contre 43 % auparavant. Pour y parvenir, le plafond diminue de 4,3 % par an de 2024 à 2027, puis de 4,4 % de 2028 à 2030. Une réserve de stabilité du marché, créée en 2017, retire des quotas lorsque l'offre est excédentaire. Selon la Commission, les émissions des secteurs couverts ont baissé de plus de 50 % depuis 2005."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Quotas et crédits, deux choses différentes",
+        "text": "Le quota est un droit d'émettre créé par la réglementation et rendu chaque année. Un crédit carbone, lui, certifie une réduction ou une absorption d'émissions obtenue par un projet, souvent achetée volontairement pour compenser. Les sources consultées décrivent le marché réglementé ; elles ne permettent pas d'évaluer ici la qualité des crédits volontaires."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Ministère de la Transition écologique, marchés du carbone (SEQE-UE)",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/marches-du-carbone-seqe-ue"
+      },
+      {
+        "label": "Commission européenne, système d'échange de quotas d'émission",
+        "url": "https://commission.europa.eu/topics/climate-action/eu-emissions-trading-system-eu-ets_fr"
+      }
+    ]
+  },
+  {
+    "slug": "qu-est-ce-qu-un-jumeau-numerique-et-en-quoi-differe-t-il-d-une-simulation",
+    "title": "Qu'est-ce qu'un jumeau numérique, et en quoi diffère-t-il d'une simulation ?",
+    "summary": "Un jumeau numérique est une copie virtuelle d'un objet, d'une machine ou d'un procédé, alimentée en continu par des données réelles, notamment par des capteurs. Contrairement à une simple simulation, il suit l'état de son équivalent physique dans le temps et peut lui renvoyer des informations. L'industrie s'en sert pour concevoir, produire et entretenir.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L'Office québécois de la langue française définit le jumeau numérique comme une représentation virtuelle et dynamique d'un objet, d'un système ou d'un procédé industriel.",
+      "Il est alimenté en continu par des données, notamment de capteurs, alors qu'une simulation classique exécute des scénarios prédéfinis sans lien permanent avec l'objet réel.",
+      "Ses usages industriels vont de la conception sans prototype physique à la maintenance prédictive et à l'optimisation des lignes de production."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une définition officielle",
+        "text": "Selon le Grand dictionnaire terminologique de l'Office québécois de la langue française, le jumeau numérique est une représentation virtuelle et dynamique d'un objet, d'un système ou d'un procédé industriel. Il est alimenté en continu par des données de sources variées, notamment des capteurs, et sert à créer des simulations pour comprendre et prédire le comportement de son équivalent réel. Il s'appuie sur l'Internet des objets, l'intelligence artificielle et l'informatique en nuage."
+      },
+      {
+        "kind": "fait",
+        "heading": "Capteurs et aller-retour des données",
+        "text": "IBM et Siemens décrivent un échange de données dans les deux sens. Les capteurs mesurent par exemple la température, la pression ou le mouvement de l'objet réel et mettent à jour le modèle. En retour, les analyses du jumeau peuvent servir à piloter l'équipement physique. Un jumeau comprend donc un actif physique, un modèle virtuel, des flux de données synchronisés et des outils d'analyse et de visualisation."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce n'est pas une simple simulation",
+        "text": "Selon IBM, une simulation exécute des scénarios définis à l'avance, sans mécanisme pour renvoyer ses résultats vers un système physique. Un modèle 3D, lui, ne représente l'objet qu'à un instant donné. Le jumeau numérique suit au contraire son équivalent dans le temps, de la conception à la mise hors service. Il peut intégrer des simulations, mais elles reposent alors sur l'état mesuré de l'objet."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les usages dans l'industrie",
+        "text": "Siemens indique que les jumeaux numériques peuvent remplacer des prototypes physiques et réduire le temps de développement. En production, ils aident à repérer les goulots d'étranglement et à optimiser l'utilisation des machines. La maintenance prédictive, qui anticipe une panne à partir des données de l'équipement, figure parmi les usages cités par IBM, Siemens et l'OQLF, qui évoque aussi la santé, l'aérospatiale et l'agriculture."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Un mot aux contours variables",
+        "text": "Les sources ne classent pas les jumeaux de la même façon : IBM distingue composants, actifs, systèmes et processus, tandis que Siemens parle d'ingénierie, de production, de cycle de vie et de services. IBM et Siemens vendent des solutions de ce type. Un logiciel présenté comme jumeau numérique sans données réelles mises à jour relève plutôt de la simulation."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OQLF, Grand dictionnaire terminologique, jumeau numérique",
+        "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/fiche-gdt/fiche/26544687/jumeau-numerique"
+      },
+      {
+        "label": "IBM, Qu'est-ce qu'un jumeau numérique ?",
+        "url": "https://www.ibm.com/fr-fr/topics/digital-twin"
+      },
+      {
+        "label": "Siemens, Jumeau numérique",
+        "url": "https://www.siemens.com/fr-fr/technology/digital-twin/"
+      }
+    ]
+  },
+  {
     "slug": "menages-avec-enfants-dans-l-ue-23-3-en-2025-selon-eurostat-23-4-dans-une",
     "title": "Ménages avec enfants dans l'UE : 23,3 % en 2025 selon Eurostat (23,4 % dans une publication de mai)",
     "summary": "Eurostat indique qu'en 2025, 76,6 % des ménages de l'UE ne comptaient aucun enfant de moins de 18 ans. La part des ménages avec enfants baisse depuis 2010. Elle est de 23,3 % dans la publication du 20 novembre 2026 et de 23,4 % dans celle du 13 mai 2026, deux publications d'Eurostat. Les données viennent d'une enquête par sondage. Elles décrivent la composition des ménages, pas les causes de la baisse.",

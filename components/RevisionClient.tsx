@@ -56,12 +56,12 @@ export function RevisionClient({ publications }: { publications: FeedPublication
     <div className="mt-6">
       <div role="group" aria-label="Choisir les contenus à réviser" className="flex gap-6 border-b border-rule">
         <button type="button" aria-pressed={kind === "publications"} onClick={() => changeKind("publications")}
-          className={"-mb-px border-b-2 pb-2 text-sm font-semibold transition-colors " +
+          className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
             (kind === "publications" ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink")}>
           Publications <span className="font-mono">({publicCards.length})</span>
         </button>
         <button type="button" aria-pressed={kind === "demos"} onClick={() => changeKind("demos")}
-          className={"-mb-px border-b-2 pb-2 text-sm font-semibold transition-colors " +
+          className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
             (kind === "demos" ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink")}>
           Démonstrations <span className="font-mono">({demoCards.length})</span>
         </button>

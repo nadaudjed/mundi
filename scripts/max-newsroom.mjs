@@ -17,6 +17,7 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync,readdirSync} from "node:
 import {resolve,join,dirname} from "node:path";
 import {pathToFileURL} from "node:url";
 import {makeDailyPlan} from "./plan-newsroom.mjs";
+import {dataCardErrors,cleanCard} from "./data-cards-check.mjs";
 import {WRITER_SYSTEM,CHECKER_SYSTEM,REVISION_TASK,assessReview,validateResearchDraft,tidyDraft,taskFor} from "./run-newsroom-agents.mjs";
 
 export const BATCH=6;
@@ -121,6 +122,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     const f=join(dayDir,"drafts",role+".json");const d=read(f);const job=plan.jobs.find(j=>j.agentId===d.agentId);
     if(!job){console.error("agentId inconnu dans le plan du jour");process.exit(1);}
     const errors=d.draft?validateResearchDraft(tidyDraft(structuredClone(d.draft)),job):["draft absent"];
+    const cardErrors=d.draft?.dataCards===undefined?[]:dataCardErrors(d.draft.dataCards.map?.(cleanCard)??d.draft.dataCards,(d.draft.sources??[]).map(s=>s?.url));
+    if(cardErrors.length)console.log("CARTES DONNÉES À CORRIGER (sinon elles seront retirées) : "+cardErrors.join(" ; "));
     console.log(errors.length?"À CORRIGER : "+errors.join(" ; "):"OK : format valide (la vérification reste à faire)");
     process.exit(errors.length?1:0);
   }else if(cmd==="assemble"){

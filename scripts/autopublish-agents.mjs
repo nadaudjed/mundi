@@ -15,6 +15,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { publishableCards } from "./data-cards-check.mjs";
 
 export const AI_REVIEWER = "Vérificateur IA MUNDI (sans relecture humaine)";
 
@@ -121,6 +122,8 @@ export function toPublication(output, date) {
     // "actualite" (dated event), "concept" or "recit"; eventDate is the day the news happened or was announced.
     ...(output.kind ? { kind: output.kind } : output.role ? { kind: output.role === "journalist" ? "actualite" : "concept" } : {}),
     ...(output.role === "journalist" && /^\d{4}-\d{2}-\d{2}$/.test(d.eventDate ?? "") ? { eventDate: d.eventDate } : {}),
+    // Cartes « Données » : seulement si elles respectent le format exigé par le site (sinon retirées).
+    ...(publishableCards(d) ? { dataCards: publishableCards(d) } : {}),
   };
 }
 

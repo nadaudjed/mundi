@@ -35,7 +35,7 @@ type Props = {
 
 /**
  * Écran d'une publication sourcée dans le Fil.
- * Téléphone : visuel en haut (photo noir et blanc, chiffre clé ou mot typographié),
+ * Téléphone : visuel en haut (photo en couleur, chiffre clé ou mot typographié),
  * texte en dessous sur fond uni ; tablette en paysage et ordinateur : texte à gauche,
  * visuel à droite. Les boutons « Lire la publication » et « Écouter » sont hors de la
  * zone qui défile : toujours visibles, quelle que soit la hauteur d'écran.

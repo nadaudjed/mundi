@@ -1,5 +1,256 @@
 [
   {
+    "slug": "russie-la-commission-propose-un-22e-paquet-de-sanctions-visant-60-banques-et-le",
+    "title": "Russie : la Commission propose un 22e paquet de sanctions visant 60 banques et le sport",
+    "summary": "Le 23 novembre 2026, Ursula von der Leyen a présenté le 22e paquet de sanctions de l'UE contre la Russie. Il s'agit d'une proposition de la Commission : pour entrer en vigueur, elle doit être approuvée par les 27 États membres. Le texte vise une soixantaine de banques russes, plus de 70 navires de la flotte fantôme, pour la première fois les services d'électricité, ainsi que la participation d'équipes russes à des compétitions sportives dans l'UE.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La Commission propose d'étendre l'interdiction de transactions à environ 60 banques russes et de toutes les exclure du système de messagerie SWIFT.",
+      "Le paquet ajoute plus de 70 navires de la flotte fantôme, propose d'interdire les pétroliers assurés en Russie et étend l'interdiction de services énergétiques aux services d'électricité.",
+      "Ce n'est qu'une proposition : les 27 États membres doivent tous l'approuver avant toute entrée en vigueur, et aucune date d'adoption n'est fixée."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que contient la proposition",
+        "text": "Selon Interfax-Ukraine, qui rend compte de la présentation de la présidente de la Commission, l'interdiction de transactions serait étendue à une soixantaine de banques russes, toutes exclues de SWIFT. La Commission vise aussi les réseaux de cryptoactifs et de paiement, y compris dans des pays tiers qui aident la Russie à contourner les sanctions, et annonce un groupe de travail dédié aux sanctions sur les cryptoactifs. L'interdiction de services énergétiques couvrirait les raffineries et, pour la première fois, les services d'électricité. Plus de 70 navires seraient ajoutés à la liste de la flotte fantôme."
+      },
+      {
+        "kind": "fait",
+        "heading": "Visas, entreprises et sport",
+        "text": "La Commission propose une interdiction de visa pour les anciens combattants russes, rapportent Al Jazeera et Interfax-Ukraine, et interdirait aux Européens de siéger dans les organes dirigeants d'entreprises en Russie. Pour les compétitions organisées dans l'UE, les équipes et athlètes russes ne pourraient plus concourir sous drapeau russe, et l'affichage des symboles officiels russes serait interdit. Les flux financiers de sponsors russes vers des associations sportives et culturelles européennes seraient restreints. The Sofia Globe rapporte que la Commission a publié le même jour de nouvelles lignes directrices sur les visas."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une étape, pas une décision",
+        "text": "Al Jazeera rappelle que le paquet doit être approuvé par les 27 États membres avant d'entrer en vigueur. Selon The Sofia Globe, c'est le Conseil qui décidera quand l'interdiction de visa pour les anciens combattants s'appliquera. Aucune des sources consultées ne donne de date d'adoption : le contenu final peut encore changer pendant les négociations entre États."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qu'on ne sait pas encore",
+        "text": "Les sources ne publient pas la liste nominative des banques ni des navires visés, et ne chiffrent pas l'effet attendu sur l'économie russe. L'efficacité de mesures contre des réseaux situés dans des pays tiers dépendra de leur application, qui n'est pas encore connue."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Al Jazeera — proposition de sanctions du 23 novembre",
+        "url": "https://www.aljazeera.com/news/2026/11/23/eu-plans-sports-ban-in-sweeping-new-russia-sanctions-proposal"
+      },
+      {
+        "label": "Interfax-Ukraine — présentation du 22e paquet",
+        "url": "https://en.interfax.com.ua/news/general/1241146.html"
+      },
+      {
+        "label": "The Sofia Globe — 22e paquet proposé",
+        "url": "https://sofiaglobe.com/2026/11/23/vdl-presents-proposed-22nd-package-of-sanctions-on-russia/"
+      }
+    ]
+  },
+  {
+    "slug": "bce-des-titres-emis-sur-blockchain-sous-regime-pilote-acceptes-en-garantie-des",
+    "title": "BCE : des titres émis sur blockchain sous régime pilote acceptés en garantie dès juin 2027",
+    "summary": "Le 23 novembre 2026, le conseil des gouverneurs de la BCE a approuvé l'acceptation, comme garanties dans les opérations de crédit de l'Eurosystème, de titres émis sur des plateformes à registre distribué agréées dans le cadre du régime pilote européen. Les exigences détaillées doivent être publiées au printemps 2027, pour une mise en œuvre prévue en juin 2027. Ce régime, créé par le règlement (UE) 2022/858, s'applique depuis mars 2023 à des titres de taille limitée.",
+    "topic": "economie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La BCE accepte en principe comme garanties des titres émis sur des plateformes à registre distribué agréées au titre du régime pilote européen (règlement 2022/858).",
+      "Les exigences détaillées sont attendues au printemps 2027 et la mise en œuvre est prévue en juin 2027 ; les titres doivent remplir tous les critères habituels d'éligibilité.",
+      "Le régime pilote, en vigueur depuis le 23 mars 2023, ne couvre que des titres de taille limitée, par exemple des obligations de moins d'un milliard d'euros d'émission."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "La décision du 23 novembre",
+        "text": "Selon le communiqué de la BCE, le conseil des gouverneurs a approuvé l'acceptation de titres négociables émis sur des plateformes à registre distribué agréées au titre du régime pilote européen comme garanties pour les opérations de crédit de l'Eurosystème, sous réserve d'exigences propres à l'Eurosystème. Les titres doivent remplir les critères habituels et être mobilisables via un lien vers un dépositaire central et un système de règlement éligibles, qui règlent dans TARGET2-Securities. La BCE prévoit de publier les exigences détaillées au printemps 2027 et une mise en œuvre en juin 2027."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce qui existait déjà",
+        "text": "Le 27 janvier 2026, la BCE avait annoncé qu'à partir du 30 mars 2026, les titres émis dans des dépositaires centraux utilisant des services fondés sur cette technologie deviendraient éligibles, s'ils sont réglables dans des systèmes éligibles reliés à TARGET2-Securities. La décision de novembre élargit ce cadre aux plateformes du régime pilote. Les titres émis et réglés entièrement sur des réseaux à registre distribué restent à l'étude et ne sont pas couverts."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un régime pilote de taille limitée",
+        "text": "D'après l'Autorité européenne des marchés financiers, le régime pilote, créé par le règlement (UE) 2022/858, s'applique depuis le 23 mars 2023. Il autorise trois types d'infrastructures : plateformes de négociation, systèmes de règlement, et systèmes combinant les deux. Il ne couvre que des actions de sociétés de moins de 500 millions d'euros de capitalisation, des obligations de moins d'un milliard d'euros d'émission et certains fonds de moins de 500 millions d'euros. L'effet immédiat sur le volume des garanties de l'Eurosystème devrait donc rester limité, la BCE ne donnant aucun chiffre sur ce point."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qui reste ouvert",
+        "text": "Le contenu précis des exigences de sécurité juridique et opérationnelle ne sera connu qu'au printemps 2027. Le nombre de titres concernés dépendra des plateformes effectivement agréées et de leur capacité à se relier aux systèmes de règlement de l'Eurosystème."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE — communiqué du 23 novembre 2026",
+        "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261123~76b6f57b74.en.html"
+      },
+      {
+        "label": "BCE — communiqué du 27 janvier 2026",
+        "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr260127_1~a946167ce1.en.html"
+      },
+      {
+        "label": "Autorité européenne des marchés financiers — régime pilote",
+        "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime"
+      },
+      {
+        "label": "Coin Edition — décision de la BCE du 23 novembre",
+        "url": "https://coinedition.com/ecb-broadens-access-to-dlt-based-assets-under-eurosystem-collateral-rules/"
+      }
+    ]
+  },
+  {
+    "slug": "minerais-critiques-l-usgs-prevoit-20-de-capacite-pour-le-graphite-d-ici-2030",
+    "title": "Minerais critiques : l'USGS prévoit +20 % de capacité pour le graphite d'ici 2030",
+    "summary": "L'Institut d'études géologiques des États-Unis (USGS) a annoncé le 12 novembre 2026 la deuxième édition de ses perspectives mondiales des minerais. Elle estime l'évolution de la capacité mondiale de production de huit minerais critiques entre 2025 et 2030 : de 4 à 9 % pour l'argent, le silicium métal, l'antimoine, le niobium et le cuivre, au moins 10 % pour le tungstène, 18 % pour la potasse et 20 % pour le graphite naturel. L'offre reste très concentrée, notamment en Chine et au Brésil.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Entre 2025 et 2030, l'USGS projette une hausse de capacité de 20 % pour le graphite naturel, 18 % pour la potasse, 9 % pour le cuivre et 4 % pour l'argent.",
+      "Plus de 70 % de l'offre mondiale de graphite naturel, de silicium et de tungstène est concentrée en Chine, et 92 % de celle du niobium au Brésil.",
+      "Il s'agit de capacités de production, pas de prévisions de production réelle : la méthode retient les projets annoncés et financés et retire les exploitations proches de la fin de vie."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Huit minerais, horizon 2030",
+        "text": "Les perspectives de l'USGS couvrent l'antimoine, le cuivre, le graphite naturel, le niobium, la potasse, le silicium métal, l'argent et le tungstène, tous inscrits sur la liste américaine des minerais critiques de 2025, selon InvestorNews qui reprend le communiqué. La capacité mondiale progresserait de 2025 à 2030 de 6 % pour l'antimoine, 9 % pour le cuivre, 20 % pour le graphite naturel, 8 % pour le niobium, 18 % pour la potasse, 5 % pour le silicium métal, 4 % pour l'argent et d'au moins 10 % pour le tungstène."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une offre concentrée",
+        "text": "Selon l'USGS, cité par InvestorNews, plus de 70 % de l'offre mondiale de graphite naturel, de silicium et de tungstène est concentrée en Chine, et 92 % de celle du niobium au Brésil. Les États-Unis importent plus de la moitié de leur consommation annuelle de chacun de ces huit minerais. Metal Tech News, qui a analysé le rapport, relève que la Chine assurait 48 % de la production mondiale de cuivre raffiné en 2025 et 87 % de celle de silicium métal."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Capacité ne veut pas dire production",
+        "text": "D'après InvestorNews, la méthode de l'USGS retient les projets annoncés et financés et leur date de démarrage prévue, retire les exploitations proches de la fin de leur vie annoncée ou aux ressources épuisées, et tient compte des capacités à l'arrêt. Metal Tech News rappelle qu'une capacité est un maximum, pas une production attendue : pour le graphite, le taux d'utilisation des capacités était d'environ 45 % en 2025. Une hausse de capacité ne garantit donc pas une offre plus abondante."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qui pourrait changer la donne",
+        "text": "Le calendrier réel des projets, les décisions d'exportation des pays producteurs et la demande industrielle détermineront si ces capacités sont utilisées. Une capacité décrit ce que l'industrie pourrait produire ; les conditions commerciales décident de ce qu'elle produira."
+      }
+    ],
+    "sources": [
+      {
+        "label": "InvestorNews — les huit minerais critiques des perspectives de l'USGS (12/11/2026)",
+        "url": "https://investornews.com/market-opinion/eight-critical-minerals-and-the-fight-for-americas-industrial-future/?print=print"
+      },
+      {
+        "label": "Metal Tech News — analyse du rapport de l'USGS",
+        "url": "https://www.metaltechnews.com/story/2026/11/18/tech-metals/usgs-forecasts-critical-minerals-supplies/3022.html"
+      }
+    ]
+  },
+  {
+    "slug": "dechets-textiles-de-l-ue-en-2024-13-des-dechets-traites-incineres-pour-l-energie",
+    "title": "Déchets textiles de l'UE en 2024 : 13 % des déchets traités incinérés pour l'énergie",
+    "summary": "Selon les chiffres d'Eurostat rapportés par The Brussels Times, l'Union européenne a produit 2,3 millions de tonnes de déchets textiles en 2024, dont plus de la moitié venant des ménages. 1,4 million de tonnes ont été traitées dans l'année, soit 63 % du total. Parmi les déchets traités, 78 % ont été recyclés et 13 % incinérés avec récupération d'énergie. L'Agence européenne pour l'environnement retient un périmètre plus large, qui inclut les textiles jetés dans les ordures ménagères mélangées : les deux chiffres ne sont pas comparables.",
+    "topic": "energie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Eurostat compte 2,3 millions de tonnes de déchets textiles produits dans l'UE en 2024, dont plus de la moitié par les ménages.",
+      "1,4 million de tonnes ont été traitées en 2024 (63 %) ; sur ces déchets traités, 78 % ont été recyclés, 13 % incinérés avec récupération d'énergie, 8 % mis en décharge et 1 % incinérés sans récupération.",
+      "L'Agence européenne pour l'environnement estime à environ 16 kg par personne la production totale de déchets textiles en 2022, en ajoutant les textiles jetés avec les ordures mélangées."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que mesure Eurostat pour 2024",
+        "text": "D'après la publication d'Eurostat du 12 novembre 2026, rapportée par The Brussels Times, 2,3 millions de tonnes de déchets textiles ont été produites dans l'UE en 2024, et les ménages en représentent plus de la moitié. 1,4 million de tonnes ont été traitées dans l'année, soit 63 % de la quantité produite. L'Italie (441 736 tonnes), la France (339 965 tonnes) et l'Allemagne (212 107 tonnes) produisent les volumes les plus élevés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Recyclage, énergie, décharge",
+        "text": "Sur les déchets textiles traités, 91 % ont fait l'objet d'une valorisation : 78 % de recyclage et 13 % d'incinération avec récupération d'énergie. 8 % ont été mis en décharge et 1 % incinéré sans récupération d'énergie. La part énergétique reste donc minoritaire : l'essentiel de la valorisation déclarée passe par le recyclage."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi l'Agence européenne pour l'environnement donne un chiffre plus élevé",
+        "text": "L'Agence européenne pour l'environnement estime la production totale de déchets textiles de l'UE à environ 16 kg par personne en 2022, soit près de 6,9 millions de tonnes. Elle additionne les textiles collectés séparément et une estimation des textiles jetés dans les ordures ménagères mélangées, calculée à partir d'analyses de composition des déchets propres à chaque pays. Ce périmètre est plus large que celui des 2,3 millions de tonnes, et l'Agence précise que ces analyses ne sont pas harmonisées en Europe. Les deux chiffres ne doivent pas être comparés directement."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce que les chiffres ne disent pas",
+        "text": "Les 37 % non traités dans l'année ne sont pas forcément perdus : la statistique porte sur ce qui a été traité pendant l'année de référence. Les chiffres ne disent pas non plus combien d'énergie a été produite à partir de ces textiles ni quelle part des textiles recyclés redevient de la fibre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Brussels Times — chiffres Eurostat sur les déchets textiles",
+        "url": "https://www.brusselstimes.com/2404311/eu-faces-mounting-textile-waste-crisis-as-over-a-third-goes-untreated"
+      },
+      {
+        "label": "Agence européenne pour l'environnement — déchets textiles par personne",
+        "url": "https://www.eea.europa.eu/en/circularity/sectoral-modules/textiles/textile-waste-generation-per-person-in-the-eu-per-year"
+      }
+    ]
+  },
+  {
+    "slug": "la-cop31-s-acheve-sans-accord-final-les-energies-fossiles-au-c-ur-des",
+    "title": "La COP31 s’achève sans accord final, les énergies fossiles au cœur des divergences",
+    "summary": "La conférence de l’ONU sur le climat d’Antalya s’est terminée le dimanche 22 novembre, après deux jours de prolongation, sans accord sur le projet de décision finale. L’absence de référence à la sortie des énergies fossiles a cristallisé les oppositions, notamment de l’Union européenne, du Panama et des Îles Marshall.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La COP31, prévue du 9 au 20 novembre à Antalya, s’est achevée le 22 novembre sans accord sur le texte final, a constaté son président Murat Kurum.",
+      "L’Union européenne a jugé inadmissible un texte sans référence aux énergies fossiles, tandis que l’Arabie saoudite, au nom de la Ligue des États arabes, a défendu les mentions du captage et stockage du carbone.",
+      "Antonio Guterres et Simon Stiell ont appelé à accélérer la transition hors des énergies fossiles et à ce que la COP32 s’appuie sur les acquis sans revenir en arrière."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une clôture sans accord sur le texte final",
+        "text": "Après deux semaines de négociations et deux jours de prolongation, la COP31 s’est close le dimanche 22 novembre 2026. Le président de la conférence, le Turc Murat Kurum, a constaté l’absence d’accord sur le texte et indiqué que les projets de décision finale n’avaient pas été adoptés, selon ONU Info. Les projets de compromis, présentés par la Türkiye et l’Australie, reconnaissaient que le réchauffement se dirige au-delà de 1,5 °C. Dans le système onusien, les décisions se prennent par consensus : une objection formelle suffit à bloquer un texte."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les énergies fossiles, ligne de fracture",
+        "text": "L’Union européenne s’est formellement opposée au projet de décision finale, jugeant inadmissible un texte sans référence aux énergies fossiles ni à leur abandon. Le Panama et les Îles Marshall ont aussi refusé le résultat. À l’inverse, l’Arabie saoudite, au nom de la Ligue des États arabes, a défendu les références au captage et stockage du carbone. Le Ghana, pour le Groupe africain, a jugé le texte insuffisant sur la finance climatique et les pertes et dommages, sans pour autant bloquer le consensus."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des désaccords visibles dès la fin des négociations techniques",
+        "text": "Le bulletin des négociations de l’IISD daté du 19 novembre montrait déjà des blocages sur la finance : le Groupe arabe refusait des engagements accrus sans obligations des pays développés, tandis que l’UE, la Suisse et la Nouvelle-Zélande voulaient viser toutes les sources de financement. Plusieurs dossiers, comme la revue périodique de l’objectif de long terme, étaient renvoyés vers la COP32. Les sources consultées ne disent pas encore quels textes techniques adoptés séparément restent valables."
+      }
+    ],
+    "sources": [
+      {
+        "label": "ONU Info, clôture de la COP31 (22/11/2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159887"
+      },
+      {
+        "label": "ONU Info, dernier jour prévu (20/11/2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159882"
+      },
+      {
+        "label": "IISD, Earth Negotiations Bulletin n°910 (19/11/2026)",
+        "url": "https://enb.iisd.org/sites/default/files/2026-11/enb12910e.pdf"
+      }
+    ]
+  },
+  {
     "slug": "routes-centrales-ports-comment-les-etats-africains-financent-leurs",
     "title": "Routes, centrales, ports : comment les États africains financent leurs infrastructures",
     "summary": "Pour construire une route ou une centrale, un État peut payer sur son budget, emprunter, ou confier le projet à une entreprise privée dans le cadre d'une concession ou d'un partenariat public-privé (PPP). Chaque option répartit différemment les coûts et les risques. Cet article explique ces mécanismes à partir du guide de référence des PPP de la Banque mondiale, d'une enquête de la Facilité africaine de soutien juridique publiée sur le portail de la Banque mondiale et d'un rapport de CABRI, réseau africain de responsables budgétaires.",

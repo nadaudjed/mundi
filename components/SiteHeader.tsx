@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { InstallChip } from "./InstallButton";
 import { Icon } from "./Icon";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 import { isActive, navItems } from "./navItems";
 
 /**
@@ -40,10 +41,11 @@ export function SiteHeader() {
             })}
           </ul>
         </nav>
-        <div className="ml-auto flex items-center gap-3">
+        <div className="ml-auto flex items-center gap-1">
           <span className="hidden lg:inline-flex">
             <InstallChip tone="dark" />
           </span>
+          <ThemeToggle />
           <Link href="/explorer/" aria-label="Rechercher (raccourci : / ou Ctrl+K)" className="flex size-9 items-center justify-center rounded-sm text-ink hover:text-accent">
             <Icon name="search" className="size-5" />
           </Link>

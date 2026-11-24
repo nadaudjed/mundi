@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DemoBadge, DemoNotice } from "@/components/DemoBadge";
 import { Icon } from "@/components/Icon";
-import { MiniChart } from "@/components/MiniChart";
+import { Chart } from "@/components/Chart";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import { SaveButton, ShareButton } from "@/components/StoryActions";
 import { StoryMediaFigure } from "@/components/StoryMediaFigure";
 import { StoryTile } from "@/components/StoryTile";
@@ -46,6 +47,7 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
   return (
     <article className="pb-[calc(var(--nav-h)+3rem)] md:pb-20">
+      <ReadingProgress />
       <header className="mx-auto max-w-3xl px-5 pt-6 md:px-8 md:pt-10">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Link href="/" className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink">
@@ -116,7 +118,14 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
               </div>
               {section.kind === "fait" && story.chart && i === 0 && (
                 <div className="mt-6">
-                  <MiniChart chart={story.chart} color={topic.color} />
+                  <Chart
+                    title={story.chart.title}
+                    unit={story.chart.unit}
+                    period={story.chart.period}
+                    source={{ label: story.chart.origin }}
+                    points={story.chart.points}
+                    type="courbe"
+                  />
                 </div>
               )}
             </section>
@@ -160,9 +169,9 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
           <ol>
             {story.sources.map((s, i) => (
               <li key={i} className="flex gap-4 border-b border-rule py-3 text-sm">
-                <span className="font-mono text-[#7a5410]">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-demo">{String(i + 1).padStart(2, "0")}</span>
                 <div>
-                  <p className="font-medium text-ink">{s.label} <span className="font-normal text-[#7a5410]">(source fictive)</span></p>
+                  <p className="font-medium text-ink">{s.label} <span className="font-normal text-demo">(source fictive)</span></p>
                   <p className="mt-0.5 text-muted">{s.note}</p>
                 </div>
               </li>

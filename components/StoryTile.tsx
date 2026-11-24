@@ -14,7 +14,7 @@ export function StoryTile({ story }: { story: Story }) {
       </h3>
       <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted">{story.dek}</p>
       <p className="mt-2 text-meta text-muted">
-        <span className="font-semibold text-[#7a5410]">Démonstration</span> · {formats[story.format].name} ·{" "}
+        <span className="font-semibold text-demo">Démonstration</span> · {formats[story.format].name} ·{" "}
         <span className="font-mono">{formatMinutes(story.minutes)}</span> · mis à jour le <time dateTime={story.updatedAt} className="font-mono">{formatDate(story.updatedAt)}</time>
       </p>
     </article>

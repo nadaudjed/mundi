@@ -8,6 +8,7 @@ import { getTopic, topics } from "@/lib/topics";
 import type { TopicSlug } from "@/lib/types";
 import type { FeedPublication } from "@/lib/verified";
 import { Icon } from "./Icon";
+import { consumeSearchFocus } from "./SearchShortcut";
 import { PublicationTile } from "./PublicationTile";
 import { StoryTile } from "./StoryTile";
 
@@ -57,6 +58,9 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
   const selectedTopic = topic ? getTopic(topic) : null;
   const total = publishedResults.length + demoResults.length;
   const [lead, ...others] = publishedResults;
+  useEffect(() => {
+    if (consumeSearchFocus()) input.current?.focus();
+  }, []);
   function clearFilters() { setQuery(""); setTopic(null); }
 
   return (
@@ -65,7 +69,7 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
         <label htmlFor="search" className="sr-only">Rechercher une publication ou un récit</label>
         <Icon name="search" className="pointer-events-none absolute left-0 top-1/2 size-5 -translate-y-1/2 text-muted" />
         <input id="search" ref={input} type="search" value={query} onChange={(e) => setQuery(e.target.value)}
-          placeholder="Matières critiques, inflation, énergie…" autoComplete="off"
+          placeholder="Matières critiques, inflation, énergie…" autoComplete="off" aria-keyshortcuts="/ Control+K Meta+K"
           className="h-14 w-full border-0 border-b-2 border-ink bg-transparent pl-8 pr-12 font-display text-xl text-ink placeholder:text-muted focus:border-accent focus:outline-none" />
         {query && (
           <button type="button" onClick={() => setQuery("")} aria-label="Effacer la recherche"

@@ -1,6 +1,6 @@
 /** Mention « Démonstration » : simple texte, sans pastille. */
 export function DemoBadge({ tone = "dark", label = "Démonstration" }: { tone?: "dark" | "light"; label?: string }) {
-  return <span className={`inline-flex whitespace-nowrap text-meta font-semibold ${tone === "light" ? "text-[#ffd98f]" : "text-[#7a5410]"}`}>{label}</span>;
+  return <span className={`inline-flex whitespace-nowrap text-meta font-semibold ${tone === "light" ? "text-[#ffd98f]" : "text-demo"}`}>{label}</span>;
 }
 
 export function DemoNotice({ className = "" }: { className?: string }) {

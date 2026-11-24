@@ -1,13 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/dm-sans";
 import "@fontsource-variable/fraunces";
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-500.css";
 import "./globals.css";
 import { BottomNav } from "@/components/BottomNav";
 import { PreviewHostFlag } from "@/components/PreviewHostFlag";
 import { PwaSetup } from "@/components/PwaSetup";
+import { SearchShortcut } from "@/components/SearchShortcut";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ToastProvider } from "@/components/Toast";
 import { netlifyHostScript } from "@/lib/preview-host";
+import { themeScript } from "@/lib/theme";
 import { SITE_URL, SHARE_IMAGE, shareDefaults } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -38,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: netlifyHostScript }} />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-dvh">
         <a
@@ -47,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Aller au contenu
         </a>
         <PwaSetup />
+        <SearchShortcut />
         <PreviewHostFlag />
         <ToastProvider>
           <SiteHeader />

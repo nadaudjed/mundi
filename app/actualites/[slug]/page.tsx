@@ -10,6 +10,12 @@ import {EditorialPhotoCredit} from "@/components/EditorialPhotoLayer";
 import { SaveButton, ShareButton } from "@/components/StoryActions";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
 import { SHARE_IMAGE, shareDefaults } from "@/lib/site";
+import { Chart } from "@/components/Chart";
+import { KeyFigure } from "@/components/KeyFigure";
+import { MemoryCard } from "@/components/MemoryCard";
+import { ReadingProgress } from "@/components/ReadingProgress";
+import { keyFigureOf } from "@/lib/covers";
+import type { ComparisonCard } from "@/lib/data-cards";
 
 type Params = { slug: string };
 export function generateStaticParams(): Params[] {
@@ -37,15 +43,31 @@ export default async function PublicationPage({ params }: { params: Promise<Para
   const a = getPublication(slug);
   if (!a) notFound();
   const topic = getTopic(a.topic);
+  const figure = keyFigureOf(a);
+  // Graphique : seulement une comparaison approuvée sur une échelle commune (même unité, même dénominateur).
+  const comparison = a.dataCards?.find((c): c is ComparisonCard => c.kind === "comparaison" && c.presentation === "echelle-commune");
   return (
-    <article className="mx-auto max-w-3xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-12 md:pb-20">
+    <article className="mx-auto max-w-6xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-12 md:pb-20">
+      <ReadingProgress />
       <Link href="/actualites/" className="text-sm font-medium text-muted hover:text-ink">← Toutes les publications</Link>
-      <p className="mt-10 text-meta font-semibold text-accent">{topic?.name}</p>
-      <h1 className="mt-2 font-display text-titre font-semibold text-ink text-balance">{a.title}</h1>
-      <p className="mt-5 text-lg leading-relaxed text-muted">{a.summary}</p>
+      {/* Couverture asymétrique : un grand bloc pour le titre, une colonne étroite pour le chiffre clé. */}
+      <header className={`mt-10 grid gap-8 ${figure ? "lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0" : ""}`}>
+        <div className={figure ? "lg:pr-10" : "max-w-4xl"}>
+          <p className="text-meta font-semibold text-accent">{topic?.name}</p>
+          <h1 className="mt-2 font-display text-une font-semibold text-ink text-balance">{a.title}</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted">{a.summary}</p>
+        </div>
+        {figure && (
+          <div className="lg:border-l lg:border-rule lg:pl-10" data-testid="cover-key-figure">
+            <p className="mb-2 text-meta text-muted">Le chiffre</p>
+            <KeyFigure figure={figure} size="md" />
+          </div>
+        )}
+      </header>
+      <div className="mx-auto max-w-3xl lg:mx-0">
       {/* Une seule ligne grise : contrôle, dates, sources, crédit photo. */}
       <p className="mt-6 border-y border-rule py-3 text-meta text-muted" data-testid="publication-meta">
-        {a.fixture && <strong className="mr-2 text-[#7a5410]">Exemple de test, jamais publié.</strong>}
+        {a.fixture && <strong className="mr-2 text-demo">Exemple de test, jamais publié.</strong>}
         <span className="font-semibold text-ink" data-testid="verification-label">{verificationLabel(a)}</span>
         {!a.aiVerified && <> ({a.reviewedBy})</>} · publié le <time dateTime={a.publishedAt} className="font-mono">{formatDate(a.publishedAt)}</time> · actualisé le{" "}
         <time dateTime={a.updatedAt} className="font-mono">{formatDate(a.updatedAt)}</time> ·{" "}
@@ -72,22 +94,27 @@ export default async function PublicationPage({ params }: { params: Promise<Para
         <ShareButton slug={a.slug} path={publicationPath(a.slug)} title={a.title} />
         <ListenButton title={a.title} summary={a.summary} points={a.keyPoints} tone="light" />
       </div>
-      <section className="mt-10" aria-labelledby="idees">
-        <h2 id="idees" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">Trois idées à retenir</h2>
-        <ol>{a.keyPoints.map((point, i) => (
-          <li key={i} className="flex gap-4 border-b border-rule py-3 leading-relaxed text-ink">
-            <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
-            <span>{point}</span>
-          </li>
-        ))}</ol>
-      </section>
       {a.sections.map((s, i) => (
         <section key={i} className="mt-12">
           <p className="text-meta font-semibold text-muted">{labels[s.kind]}</p>
           <h2 className="mt-1 font-display text-intertitre font-semibold text-ink">{s.heading}</h2>
           <p className="mt-4 whitespace-pre-line text-[1.06rem] leading-[1.8] text-ink/90">{s.text}</p>
+          {comparison && i === a.sections.findIndex((x) => x.kind === "fait") && (
+            <div className="mt-8">
+              <Chart
+                title={comparison.headline}
+                unit={comparison.items[0].unit}
+                period={[...new Set(comparison.items.map((x) => x.period))].join(", ")}
+                source={comparison.source}
+                points={comparison.items.map((m) => ({ label: new Set(comparison.items.map((x) => x.period)).size > 1 ? `${m.label} (${m.period})` : m.label, value: m.value }))}
+                decimals={comparison.items[0].decimals}
+                note={comparison.note}
+              />
+            </div>
+          )}
         </section>
       ))}
+      <MemoryCard points={a.keyPoints} />
       <section id="sources" className="mt-14 scroll-mt-20" aria-labelledby="sources-titre">
         <h2 id="sources-titre" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">Sources</h2>
         <ol>{a.sources.map((s, i) => (
@@ -101,6 +128,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
           </li>
         ))}</ol>
       </section>
+      </div>
     </article>
   );
 }

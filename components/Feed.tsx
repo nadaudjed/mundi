@@ -400,6 +400,16 @@ function usePullToRefresh(scroller: RefObject<HTMLDivElement | null>, verified: 
     [known, showFresh],
   );
 
+  // Les écouteurs tactiles restent les mêmes pendant tout le geste : ils lisent la
+  // dernière version de check/paused via des références (sinon un nouveau rendu en
+  // plein geste les remplacerait et le relâchement serait ignoré).
+  const checkRef = useRef(check);
+  const pausedRef = useRef(paused);
+  useEffect(() => {
+    checkRef.current = check;
+    pausedRef.current = paused;
+  }, [check, paused]);
+
   useEffect(() => {
     const el = scroller.current;
     if (!el) return;
@@ -409,7 +419,7 @@ function usePullToRefresh(scroller: RefObject<HTMLDivElement | null>, verified: 
       setPull(v);
     };
     const onStart = (e: TouchEvent) => {
-      startY = !paused && el.scrollTop <= 0 ? e.touches[0].clientY : null;
+      startY = !pausedRef.current && el.scrollTop <= 0 ? e.touches[0].clientY : null;
     };
     const onMove = (e: TouchEvent) => {
       if (startY === null) return;
@@ -422,24 +432,28 @@ function usePullToRefresh(scroller: RefObject<HTMLDivElement | null>, verified: 
       startY = null;
       const reached = pullRef.current >= PULL_THRESHOLD;
       set(0);
-      if (reached) void check(true);
+      if (reached) void checkRef.current(true);
     };
     el.addEventListener("touchstart", onStart, { passive: true });
     el.addEventListener("touchmove", onMove, { passive: true });
     el.addEventListener("touchend", onEnd);
     el.addEventListener("touchcancel", onEnd);
-    const onVisible = () => {
-      if (document.visibilityState === "visible") void check(false);
-    };
-    document.addEventListener("visibilitychange", onVisible);
     return () => {
       el.removeEventListener("touchstart", onStart);
       el.removeEventListener("touchmove", onMove);
       el.removeEventListener("touchend", onEnd);
       el.removeEventListener("touchcancel", onEnd);
-      document.removeEventListener("visibilitychange", onVisible);
     };
-  }, [scroller, paused, check]);
+  }, [scroller]);
+
+  // Retour sur l'onglet : indépendant du conteneur du Fil, pour être actif dès l'affichage.
+  useEffect(() => {
+    const onVisible = () => {
+      if (document.visibilityState === "visible") void check(false);
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
+  }, [check]);
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
   return { pull, status, showFresh, check };

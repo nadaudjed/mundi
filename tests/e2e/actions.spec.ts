@@ -5,23 +5,16 @@ const first = (JSON.parse(readFileSync("content/publications.json", "utf8")) as 
   .filter((p) => p.status === "published")[0];
 
 test.describe("Écoute, sauvegarde et navigation", () => {
-  test("le bouton Écouter lit le résumé avec la voix de l'appareil, puis s'arrête", async ({ page }) => {
+  test("le bouton Écouter lit la version audio enregistrée de l'article, puis s'arrête", async ({ page }) => {
     await page.goto("/");
     const card = page.locator('[data-index="0"]');
-    const listen = card.getByRole("button", { name: "Écouter le résumé" });
-    await listen.click();
+    const mp3 = page.waitForRequest((r) => /\/media\/audio\/[a-z0-9-]+\.mp3$/.test(r.url()));
+    await card.getByRole("button", { name: "Écouter le résumé" }).click();
+    await mp3;
     await expect(card.getByRole("button", { name: "Mettre en pause la lecture audio" })).toHaveAttribute("aria-pressed", "true");
-    const spoken = await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken);
-    expect(spoken).toHaveLength(1);
-    expect(spoken[0]).toContain(first.title.slice(0, 20));
-    // A device may read a story in several shorter utterances to avoid
-    // intermittent iOS/Android speech stalls. Drain every synthetic chunk.
-    await page.evaluate(() => {
-      const synth = window.speechSynthesis as unknown as { speaking: boolean; finish: () => void };
-      for (let i = 0; i < 40 && synth.speaking; i++) synth.finish();
-    });
-    const completeSpeech = await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken.join(" "));
-    expect(completeSpeech).toContain("Trois points à retenir");
+    // Le fichier audio est lu : la voix du téléphone n'est pas utilisée.
+    expect(await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken)).toHaveLength(0);
+    await card.getByRole("button", { name: "Arrêter la lecture audio" }).click();
     await expect(card.getByRole("button", { name: "Écouter le résumé" })).toHaveAttribute("aria-pressed", "false");
   });
 

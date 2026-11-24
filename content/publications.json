@@ -1,5 +1,501 @@
 [
   {
+    "slug": "hybrides-chinois-l-ue-impose-des-quotas-d-importation-provisoires-des-le-1er",
+    "title": "Hybrides chinois : l'UE impose des quotas d'importation provisoires dès le 1er décembre",
+    "summary": "La Commission européenne a publié des mesures de sauvegarde provisoires qui fixent des quotas d'importation pour certains véhicules hybrides, avec une entrée en vigueur le 1er décembre. Selon la presse spécialisée, le plafond visant les hybrides et hybrides rechargeables fabriqués en Chine serait de 350 000 voitures par an, en hausse de 6 % chaque année. Il s'agit d'une mesure de sauvegarde fondée sur les règles de l'OMC, et non d'une enquête antidumping.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La Commission européenne a publié des mesures de sauvegarde provisoires fixant des quotas d'importation pour certains véhicules hybrides, qui entrent en vigueur le 1er décembre.",
+      "Selon AM, le plafond annuel pour les hybrides et hybrides rechargeables fabriqués en Chine est de 350 000 voitures, avec une hausse de 6 % par an, alors qu'environ 800 000 étaient attendus en 2026.",
+      "Les voitures produites dans l'UE par des marques chinoises ne sont pas comptées dans ce plafond, selon AM, qui présente le dispositif comme prévu pour quatre ans ; la mesure provisoire de la Commission dure au plus 200 jours."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que la Commission a décidé",
+        "text": "La Commission européenne a publié le 24 novembre 2026 des mesures de sauvegarde provisoires qui fixent des quotas d'importation pour certains véhicules hybrides. Elles entrent en vigueur le 1er décembre. Selon la Commission, elles font suite à une enquête qui a montré que les importations de véhicules hybrides dans l'UE ont fortement augmenté depuis 2023. Les quotas sont fixés par pays exportateur et s'appliquent à toutes les importations d'hybrides, quelle que soit leur origine ; les importations hors quota ne sont pas autorisées. La mesure provisoire est prévue pour 200 jours au maximum."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les chiffres rapportés par la presse automobile",
+        "text": "D'après le média professionnel britannique AM, le plafond porte sur 350 000 voitures hybrides et hybrides rechargeables fabriquées en Chine par an, à partir de décembre, et doit augmenter de 6 % par an. Environ 800 000 véhicules de ce type devaient arriver dans l'UE en 2026. Les voitures produites dans l'Union par des marques chinoises ne sont pas concernées. Selon l'association des constructeurs européens ACEA, citée par AM, les marques chinoises détenaient 14 % du marché européen des hybrides au premier semestre 2026, et 25 % de celui des hybrides rechargeables, contre 2 % en 2024."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une sauvegarde plutôt qu'un droit antidumping",
+        "text": "Une mesure de sauvegarde, prévue par les règles de l'Organisation mondiale du commerce, permet de limiter temporairement des importations quand leur hausse brutale menace une industrie. Elle ne suppose pas de prouver un dumping ou une subvention, contrairement aux droits imposés en 2024 sur les voitures électriques chinoises. AM indique que le dispositif fait suite à des discussions entre le commissaire européen au commerce, Maroš Šefčovič, et le ministre chinois du commerce, Wang Wentao. La Commission précise qu'il met en œuvre l'entente trouvée lors des consultations commerciales UE-Chine du 9 octobre 2026. Les mesures restent provisoires : des mesures définitives peuvent être adoptées dans les neuf mois suivant l'ouverture de l'enquête, le 30 octobre 2026."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — quotas provisoires sur les véhicules hybrides",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2564"
+      },
+      {
+        "label": "AM — the EU caps Chinese hybrid imports at 350,000 cars a year",
+        "url": "https://www.am-online.com/news/eu-caps-chinese-hybrid-imports-at-350-000-cars-a-year"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "dataCards": [
+      {
+        "id": "quota-hybrides-chine",
+        "kind": "comparaison",
+        "headline": "Hybrides chinois : quota annuel face aux volumes attendus en 2026",
+        "source": {
+          "label": "AM",
+          "url": "https://www.am-online.com/news/eu-caps-chinese-hybrid-imports-at-350-000-cars-a-year"
+        },
+        "asOf": "2026-11-24",
+        "items": [
+          {
+            "value": 350000,
+            "unit": "voitures",
+            "label": "Quota annuel",
+            "scope": "Hybrides fabriqués en Chine importés dans l'UE",
+            "period": "par an, dès décembre 2026"
+          },
+          {
+            "value": 800000,
+            "unit": "voitures",
+            "label": "Volume attendu sans quota",
+            "scope": "Hybrides fabriqués en Chine importés dans l'UE",
+            "period": "2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "part-marques-chinoises",
+        "kind": "comparaison",
+        "headline": "Part des marques chinoises sur le marché européen, premier semestre 2026",
+        "source": {
+          "label": "AM",
+          "url": "https://www.am-online.com/news/eu-caps-chinese-hybrid-imports-at-350-000-cars-a-year"
+        },
+        "asOf": "2026-06-30",
+        "items": [
+          {
+            "value": 14,
+            "unit": "%",
+            "label": "Hybrides",
+            "scope": "Marché européen",
+            "period": "1er semestre 2026",
+            "denominator": "ventes d'hybrides en Europe"
+          },
+          {
+            "value": 25,
+            "unit": "%",
+            "label": "Hybrides rechargeables",
+            "scope": "Marché européen",
+            "period": "1er semestre 2026",
+            "denominator": "ventes d'hybrides rechargeables en Europe"
+          }
+        ],
+        "presentation": "valeurs-distinctes"
+      }
+    ]
+  },
+  {
+    "slug": "ebola-en-afrique-de-l-ouest-comment-une-epidemie-partie-d-un-village-a-frappe",
+    "title": "Ebola en Afrique de l'Ouest : comment une épidémie partie d'un village a frappé trois pays",
+    "summary": "De décembre 2013 à juin 2016, le virus Ebola a frappé l'Afrique de l'Ouest, en particulier la Guinée, la Sierra Leone et le Libéria : plus de 28 600 personnes infectées et 11 325 morts selon l'Organisation mondiale de la santé (OMS). Ce récit retrace l'épidémie à partir de l'OMS et de l'encyclopédie Britannica, et rappelle pourquoi elle éclaire la riposte actuelle contre Ebola en RDC : la confiance des populations envers les soignants pèse sur l'issue. Britannica juge les bilans officiels sous-estimés.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le cas initial remonte à décembre 2013 en Guinée, selon Britannica ; l'épidémie gagne ensuite la Sierra Leone et le Libéria, et atteint leurs capitales en juillet 2014, selon l'OMS.",
+      "Selon l'OMS, plus de 28 600 personnes ont été infectées et 11 325 sont mortes ; ce fut la plus grande épidémie d'Ebola depuis la découverte du virus en 1976.",
+      "L'OMS déclare une urgence de santé publique de portée internationale le 8 août 2014, selon Britannica, puis annonce la fin de l'épidémie en juin 2016."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un départ discret en Guinée",
+        "text": "Selon Britannica, le cas initial a été rapporté en décembre 2013 : un enfant de deux ans mort dans le village de Méliandou, préfecture de Guéckédou, dans le sud-est de la Guinée. L'OMS rappelle que l'épidémie a commencé en Guinée avant de gagner rapidement les pays voisins, la Sierra Leone et le Libéria."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'emballement de 2014",
+        "text": "En juillet 2014, le virus avait atteint les capitales des trois pays, selon l'OMS. Le 8 août 2014, l'OMS déclare la situation urgence de santé publique de portée internationale ; Britannica précise que c'était seulement la troisième fois qu'elle recourait à cette déclaration depuis le Règlement sanitaire international de 2005. Britannica rapporte aussi que la lutte a été freinée par la résistance locale et l'hostilité envers les médecins. Au-delà des trois pays, la maladie a atteint sept autres pays selon l'OMS : Italie, Mali, Nigeria, Sénégal, Espagne, Royaume-Uni et États-Unis."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un bilan lourd et une fin en 2016",
+        "text": "Selon l'OMS, plus de 28 600 personnes ont été infectées et 11 325 sont mortes. C'est la plus grande épidémie d'Ebola depuis la découverte du virus en 1976. L'épidémie a été déclarée terminée en juin 2016. Britannica souligne que les chiffres réels étaient probablement bien supérieurs aux chiffres déclarés."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce récit compte aujourd'hui",
+        "text": "L'épidémie de 2014-2016 a montré qu'un virus longtemps cantonné à des foyers isolés pouvait atteindre des capitales en quelques mois, et que la méfiance envers les soignants pouvait freiner la riposte autant que le manque de moyens. Ces enseignements éclairent la situation en RDC, où des combats près d'un hôpital de l'Ituri ont récemment perturbé la lutte contre Ebola : la sécurité des soignants et la confiance des habitants pèsent autant que les outils médicaux. Ce rapprochement est une interprétation : les contextes diffèrent."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OMS, épidémie d'Ebola 2014-2016 en Afrique de l'Ouest",
+        "url": "https://www.who.int/emergencies/situations/ebola-outbreak-2014-2016-West-Africa"
+      },
+      {
+        "label": "Britannica, Ebola outbreak of 2014–16",
+        "url": "https://www.britannica.com/topic/Ebola-outbreak-of-2014"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "ebola-personnes-infectees",
+        "kind": "stat",
+        "headline": "Plus de 28 600 personnes infectées par Ebola en Afrique de l'Ouest",
+        "source": {
+          "label": "OMS",
+          "url": "https://www.who.int/emergencies/situations/ebola-outbreak-2014-2016-West-Africa"
+        },
+        "asOf": "2016-06-01",
+        "note": "L'OMS indique « plus de 28 600 » personnes infectées.",
+        "measure": {
+          "value": 28600,
+          "unit": "personnes",
+          "label": "Personnes infectées (au moins)",
+          "scope": "Épidémie d'Afrique de l'Ouest, tous pays touchés",
+          "period": "2014-2016"
+        }
+      },
+      {
+        "id": "ebola-deces-total",
+        "kind": "stat",
+        "headline": "11 325 morts recensés par l'OMS pour l'épidémie de 2014-2016",
+        "source": {
+          "label": "OMS",
+          "url": "https://www.who.int/emergencies/situations/ebola-outbreak-2014-2016-West-Africa"
+        },
+        "asOf": "2016-06-01",
+        "measure": {
+          "value": 11325,
+          "unit": "décès",
+          "label": "Décès dus à Ebola",
+          "scope": "Épidémie d'Afrique de l'Ouest, tous pays touchés",
+          "period": "2014-2016"
+        },
+        "context": "Plus de 28 600 personnes infectées selon l'OMS ; Britannica juge les chiffres réels plus élevés."
+      }
+    ]
+  },
+  {
+    "slug": "charbon-et-acier-comment-la-ceca-a-lance-la-politique-industrielle-europeenne",
+    "title": "Charbon et acier : comment la CECA a lancé la politique industrielle européenne",
+    "summary": "Le 18 avril 1951, six pays signent à Paris le traité créant la Communauté européenne du charbon et de l'acier. Elle met en commun deux industries alors stratégiques sous l'autorité d'une Haute Autorité supranationale. Ce récit s'appuie sur la Commission européenne, sa bibliothèque, l'Insee et l'encyclopédie Britannica. Il éclaire les débats actuels sur la protection de l'industrie européenne face à la concurrence internationale.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Inspiré de la déclaration Schuman du 9 mai 1950, le traité de Paris est signé le 18 avril 1951 par la Belgique, la RFA, la France, l'Italie, le Luxembourg et les Pays-Bas.",
+      "Il crée une Haute Autorité supranationale, ancêtre de la Commission européenne, présidée de 1952 à 1955 par Jean Monnet ; selon Britannica, elle fixait des prix et des limites de production.",
+      "Le traité entre en vigueur le 23 juillet 1952 et expire le 23 juillet 2002 ; la Commission a célébré les 75 ans de sa signature en avril 2026."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un plan signé Schuman, écrit par Monnet",
+        "text": "La Commission européenne rappelle la célèbre déclaration Schuman du 9 mai 1950, qui proposait de placer la production franco-allemande de charbon et d'acier sous une autorité commune. Selon Britannica, ce plan avait en réalité été rédigé par Jean Monnet, alors à la tête du commissariat français au Plan."
+      },
+      {
+        "kind": "fait",
+        "heading": "Six pays, une Haute Autorité",
+        "text": "Le traité de Paris est signé le 18 avril 1951 par la Belgique, la République fédérale d'Allemagne, la France, l'Italie, le Luxembourg et les Pays-Bas, comme le confirment la Commission européenne et l'Insee. Il institue une Haute Autorité de caractère supranational, que la Commission présente comme l'ancêtre de l'actuelle Commission européenne. Selon Britannica, cette institution centrale fixait des prix et des limites ou quotas de production. La bibliothèque de la Commission présente Jean Monnet comme président de la Haute Autorité de 1952 à 1955."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un traité à durée limitée",
+        "text": "Le traité entre en vigueur le 23 juillet 1952 et expire le 23 juillet 2002, selon la bibliothèque de la Commission européenne ; l'Insee confirme cette date d'expiration, et Britannica précise que la Communauté a été dissoute à l'expiration du traité. Le 17 avril 2026, la Commission européenne a célébré les 75 ans de sa signature, en le présentant comme le texte ayant posé les fondations de l'Union actuelle."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce récit éclaire l'actualité",
+        "text": "La CECA est née d'une idée politique, rendre la guerre matériellement impossible, mais elle a aussi installé un principe économique durable : gérer en commun, au niveau européen, des industries jugées stratégiques. Les débats actuels sur les mesures de défense commerciale de l'Union, par exemple sur les importations de véhicules, renouent avec cette question de savoir jusqu'où l'Europe doit encadrer ses marchés industriels. Ce parallèle est une interprétation : le contexte de 1951, celui de la reconstruction, diffère profondément de celui d'aujourd'hui."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne : Founding treaty of EU's predecessor turns 75",
+        "url": "https://commission.europa.eu/news-and-media/news/founding-treaty-eus-predecessor-turns-75-2026-04-17_en"
+      },
+      {
+        "label": "Insee : European Coal and Steel Community / ECSC",
+        "url": "https://www.insee.fr/en/metadonnees/definition/c2081"
+      },
+      {
+        "label": "Bibliothèque de la Commission européenne : Treaty of Paris, introduction",
+        "url": "https://ec-europa-eu.libguides.com/paris_treaty/introduction"
+      },
+      {
+        "label": "Bibliothèque de la Commission européenne : composition de la Haute Autorité",
+        "url": "https://ec-europa-eu.libguides.com/ec-history/monnet/ha-composition"
+      },
+      {
+        "label": "Britannica : European Coal and Steel Community",
+        "url": "https://www.britannica.com/topic/European-Coal-and-Steel-Community"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "ceca-chronologie",
+        "kind": "explication",
+        "headline": "Le traité de Paris, de la signature à l'expiration",
+        "source": {
+          "label": "Bibliothèque de la Commission européenne : Treaty of Paris, introduction",
+          "url": "https://ec-europa-eu.libguides.com/paris_treaty/introduction"
+        },
+        "asOf": "2002-07-23",
+        "steps": [
+          {
+            "label": "18 avril 1951",
+            "text": "Signature du traité de Paris.",
+            "nature": "fait"
+          },
+          {
+            "label": "23 juillet 1952",
+            "text": "Entrée en vigueur.",
+            "nature": "fait"
+          },
+          {
+            "label": "23 juillet 2002",
+            "text": "Expiration du traité.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      },
+      {
+        "id": "ceca-pays-fondateurs",
+        "kind": "stat",
+        "headline": "Les pays fondateurs de la Communauté européenne du charbon et de l'acier",
+        "source": {
+          "label": "Insee : European Coal and Steel Community / ECSC",
+          "url": "https://www.insee.fr/en/metadonnees/definition/c2081"
+        },
+        "asOf": "1951-04-18",
+        "measure": {
+          "value": 6,
+          "unit": "pays",
+          "label": "Pays fondateurs",
+          "scope": "Communauté européenne du charbon et de l'acier",
+          "period": "Signature du traité de Paris, 1951"
+        },
+        "context": "France, RFA, Belgique, Luxembourg, Pays-Bas et Italie, selon l'Insee."
+      }
+    ]
+  },
+  {
+    "slug": "1973-l-embargo-petrolier-qui-a-invente-les-stocks-strategiques-d-energie",
+    "title": "1973 : l'embargo pétrolier qui a inventé les stocks stratégiques d'énergie",
+    "summary": "En octobre 1973, les membres arabes de l'OPEP décrètent un embargo pétrolier contre les États-Unis, puis d'autres pays. Les prix doublent, puis quadruplent. De ce choc naît en novembre 1974 l'Agence internationale de l'énergie, qui impose à ses membres de détenir des stocks de pétrole. Ce récit s'appuie sur l'historien officiel du Département d'État américain et sur l'AIE elle-même ; il éclaire les débats actuels sur le niveau des stocks d'énergie avant l'hiver.",
+    "topic": "energie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Pendant la guerre israélo-arabe de 1973, les membres arabes de l'OPEP imposent un embargo aux États-Unis, étendu aux Pays-Bas, au Portugal et à l'Afrique du Sud ; il est levé en mars 1974.",
+      "L'accord établissant l'Agence internationale de l'énergie est signé le 18 novembre 1974 ; l'AIE compte 17 membres fondateurs, dont l'Allemagne, le Japon, le Royaume-Uni et les États-Unis.",
+      "Chaque pays membre de l'AIE doit détenir des stocks de pétrole équivalant à au moins 90 jours de ses importations nettes ; six actions collectives ont été lancées, la plus importante annoncée le 11 mars 2026."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un embargo en pleine guerre",
+        "text": "Selon l'Office of the Historian du Département d'État américain, les membres arabes de l'OPEP ont imposé, pendant la guerre israélo-arabe de 1973, un embargo pétrolier aux États-Unis en représailles à la décision américaine de réapprovisionner l'armée israélienne. L'embargo a été étendu aux Pays-Bas, au Portugal et à l'Afrique du Sud. Les prix du pétrole ont d'abord doublé, puis quadruplé. Le 7 novembre 1973, l'administration Nixon a annoncé le « Project Independence », destiné à réduire la dépendance énergétique. Après les négociations menées par Henry Kissinger et un premier accord de désengagement égypto-israélien signé le 18 janvier 1974, l'embargo a été levé en mars 1974."
+      },
+      {
+        "kind": "fait",
+        "heading": "La riposte des pays consommateurs : l'AIE",
+        "text": "Le Département d'État indique que l'embargo a conduit à la création de l'Agence internationale de l'énergie, proposée par Kissinger. L'AIE rappelle qu'elle a été fondée en 1974 pour garantir la sécurité des approvisionnements pétroliers, en réponse à la crise de 1973-1974. L'accord qui l'établit a été signé le 18 novembre 1974. Ses 17 membres fondateurs comprenaient notamment l'Allemagne, la Belgique, l'Italie, le Japon, le Royaume-Uni et les États-Unis ; la France n'en faisait pas partie. Son premier directeur exécutif fut l'Allemand Ulf Lantzke, de 1975 à 1984."
+      },
+      {
+        "kind": "fait",
+        "heading": "La règle des 90 jours",
+        "text": "Le cœur du dispositif est l'Accord relatif à un programme international de l'énergie. Selon l'AIE, chaque pays membre doit détenir des stocks de pétrole équivalant à au moins 90 jours de ses importations nettes. Ces stocks peuvent être détenus par l'industrie, par l'État ou par des agences dédiées. Les pays exportateurs nets, comme le Canada, le Mexique et la Norvège, n'ont pas d'obligation. En cas de crise, chaque membre contribue à une action collective au prorata de sa part de la consommation totale des membres. L'AIE recense six actions collectives : 1991 pendant la guerre du Golfe, 2005 après les ouragans Katrina et Rita, 2011 pendant la crise libyenne, deux en 2022 après l'invasion de l'Ukraine par la Russie, et la plus importante, annoncée le 11 mars 2026 en lien avec le conflit au Moyen-Orient."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce récit éclaire l'actualité",
+        "text": "Le choc de 1973 a installé une idée qui structure encore la politique énergétique : un pays importateur se protège moins par les prix que par des réserves mobilisables et une réponse coordonnée. C'est cette logique qui sous-tend aujourd'hui le suivi des niveaux de stocks avant l'hiver. L'interprétation selon laquelle le dispositif serait suffisant face aux crises actuelles reste débattue, l'AIE elle-même faisant évoluer ses missions vers d'autres sources d'énergie."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Office of the Historian, Département d'État des États-Unis : Oil Embargo, 1973–1974",
+        "url": "https://history.state.gov/milestones/1969-1976/oil-embargo"
+      },
+      {
+        "label": "Agence internationale de l'énergie : History of the IEA",
+        "url": "https://www.iea.org/about/history"
+      },
+      {
+        "label": "Agence internationale de l'énergie : Oil security and emergency response",
+        "url": "https://www.iea.org/about/oil-security-and-emergency-response"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "stock-90-jours",
+        "kind": "stat",
+        "headline": "L'obligation de stocks pétroliers fixée aux membres de l'AIE",
+        "source": {
+          "label": "Agence internationale de l'énergie : Oil security and emergency response",
+          "url": "https://www.iea.org/about/oil-security-and-emergency-response"
+        },
+        "asOf": "2026-11-24",
+        "measure": {
+          "value": 90,
+          "unit": "jours",
+          "label": "Stocks minimaux de pétrole",
+          "scope": "Chaque pays membre de l'AIE importateur net",
+          "period": "Obligation permanente",
+          "denominator": "importations nettes de pétrole"
+        }
+      },
+      {
+        "id": "embargo-chronologie",
+        "kind": "explication",
+        "headline": "De l'embargo à l'Agence internationale de l'énergie",
+        "source": {
+          "label": "Office of the Historian, Département d'État des États-Unis : Oil Embargo, 1973–1974",
+          "url": "https://history.state.gov/milestones/1969-1976/oil-embargo"
+        },
+        "asOf": "1974-03-01",
+        "steps": [
+          {
+            "label": "1973",
+            "text": "Embargo des membres arabes de l'OPEP contre les États-Unis, étendu à d'autres pays.",
+            "nature": "fait"
+          },
+          {
+            "label": "7 novembre 1973",
+            "text": "Annonce du Project Independence par l'administration Nixon.",
+            "nature": "fait"
+          },
+          {
+            "label": "18 janvier 1974",
+            "text": "Premier accord de désengagement égypto-israélien.",
+            "nature": "fait"
+          },
+          {
+            "label": "Mars 1974",
+            "text": "Levée de l'embargo.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ]
+  },
+  {
+    "slug": "ver-morris-1988-la-premiere-cyberattaque-d-internet",
+    "title": "Ver Morris, 1988 : la première cyberattaque d'Internet",
+    "summary": "Le 2 novembre 1988, un programme écrit par un étudiant de Cornell se répand sur le jeune Internet et touche environ 6 000 des quelque 60 000 ordinateurs connectés. Son auteur, Robert Tappan Morris, devient la première personne condamnée en vertu de la loi américaine de 1986 sur la fraude informatique. Ce récit s'appuie sur le laboratoire national Lawrence Livermore et sur les universités Cornell et Purdue ; il rappelle comment est née la gestion des incidents de cybersécurité.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le ver est lâché depuis un ordinateur du MIT le soir du mercredi 2 novembre 1988 et touche en quelques heures environ 6 000 des quelque 60 000 ordinateurs alors connectés, selon le laboratoire Lawrence Livermore.",
+      "Robert Tappan Morris, étudiant en informatique à Cornell, est le premier condamné en vertu du Computer Fraud and Abuse Act de 1986 ; il évite la prison.",
+      "Il est condamné à trois ans de mise à l'épreuve, 400 heures de travaux d'intérêt général et plus de 10 000 dollars d'amende, selon Cornell."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une nuit de novembre 1988",
+        "text": "Selon le laboratoire national Lawrence Livermore, le ver a été lâché le soir du mercredi 2 novembre 1988 depuis un ordinateur du MIT ; vers 22 heures, l'un des informaticiens du laboratoire a vu la charge de sa machine bondir. En quelques heures, environ 6 000 des quelque 60 000 ordinateurs connectés ont été touchés. L'université Purdue retient les mêmes ordres de grandeur et précise que l'infection s'est faite en moins de 24 heures ; Cornell parle de 10 % des machines en ligne mises hors d'usage, de manière involontaire."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un étudiant de Cornell",
+        "text": "L'auteur est Robert Tappan Morris, alors étudiant de troisième cycle en informatique à l'université Cornell. Il devient la première personne condamnée pénalement en vertu du Computer Fraud and Abuse Act de 1986. Il n'a pas été emprisonné : selon Cornell, il a été condamné à trois ans de mise à l'épreuve, 400 heures de travaux d'intérêt général et plus de 10 000 dollars d'amende."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les premières équipes de réponse aux incidents",
+        "text": "L'épisode a poussé les administrations à s'organiser. Le laboratoire Lawrence Livermore rappelle que le département américain de l'Énergie a créé, le 1er février 1989, une capacité de conseil en cas d'incident informatique, la Computer Incident Advisory Capability (CIAC)."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce récit éclaire l'actualité",
+        "text": "Le ver Morris a montré dès 1988 qu'un réseau interconnecté propage les failles aussi vite que l'information, et que la réponse passe par des équipes capables de coordonner l'alerte. Les cyberattaques d'aujourd'hui, y compris celles qui s'appuient sur des outils d'intelligence artificielle, s'inscrivent dans cette histoire, à une tout autre échelle. Le degré d'intention de Morris reste discuté : Cornell parle d'un effet involontaire, alors que la justice a retenu une infraction."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Lawrence Livermore National Laboratory : 1988 Morris worm, the internet's first cyberattack",
+        "url": "https://st.llnl.gov/news/look-back/1988-morris-worm-internets-first-cyberattack"
+      },
+      {
+        "label": "Cornell University, Cornellians : The Morris worm",
+        "url": "https://alumni.cornell.edu/cornellians/morris-worm/"
+      },
+      {
+        "label": "Purdue University, cyberTAP : Do you know what the Morris worm is?",
+        "url": "https://cyber.tap.purdue.edu/blog/articles/do-you-know-what-the-morris-worm-is"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "morris-machines-touchees",
+        "kind": "stat",
+        "headline": "Les ordinateurs touchés par le ver Morris en quelques heures",
+        "source": {
+          "label": "Lawrence Livermore National Laboratory : 1988 Morris worm, the internet's first cyberattack",
+          "url": "https://st.llnl.gov/news/look-back/1988-morris-worm-internets-first-cyberattack"
+        },
+        "asOf": "1988-11-02",
+        "measure": {
+          "value": 6000,
+          "unit": "ordinateurs",
+          "label": "Machines touchées",
+          "scope": "Ordinateurs connectés à Internet",
+          "period": "Quelques heures après le 2 novembre 1988"
+        },
+        "context": "Sur environ 60 000 ordinateurs connectés, selon le laboratoire Lawrence Livermore."
+      },
+      {
+        "id": "morris-peine",
+        "kind": "stat",
+        "headline": "Les travaux d’intérêt général imposés à l’auteur du ver Morris",
+        "source": {
+          "label": "Cornell University, Cornellians : The Morris worm",
+          "url": "https://alumni.cornell.edu/cornellians/morris-worm/"
+        },
+        "asOf": "2026-11-24",
+        "measure": {
+          "value": 400,
+          "unit": "heures",
+          "label": "Travaux d’intérêt général",
+          "scope": "Condamnation de Robert Tappan Morris",
+          "period": "Peine prononcée après 1988"
+        },
+        "context": "Avec trois ans de mise à l’épreuve et plus de 10 000 dollars d’amende, selon Cornell."
+      }
+    ]
+  },
+  {
     "slug": "semaine-europeenne-de-la-reduction-des-dechets-ou-en-est-le-recyclage-en-france",
     "title": "Semaine européenne de la réduction des déchets : où en est le recyclage en France",
     "summary": "La Semaine européenne de la réduction des déchets se tient du 21 au 29 novembre 2026. À cette occasion, les chiffres clés de l’ADEME relayés par Esteval montrent 38,3 millions de tonnes de déchets ménagers et assimilés collectés en 2024, soit 563 kg par habitant, en hausse de 1,3 % sur un an. L’objectif est une baisse de 15 % par habitant d’ici 2030 par rapport à 2010.",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { frenchSpacing } from "@/lib/typo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/format";
@@ -39,7 +40,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
     <article className="mx-auto max-w-3xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-14 md:pb-20">
       <Link href="/actualites/" className="text-sm font-semibold text-blue underline underline-offset-4">Toutes les publications</Link>
       <p className="mt-10 text-xs font-semibold uppercase tracking-wider text-blue">{getTopic(a.topic)?.name} · {a.aiVerified ? "Vérifiée par l’IA, sans relecture humaine" : "Publication relue"}</p>
-      <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-night md:text-5xl">{a.title}</h1>
+      <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-night text-balance md:text-5xl">{frenchSpacing(a.title)}</h1>
       <p className="mt-5 text-lg leading-relaxed text-muted">{a.summary}</p>
       {a.photo && (
         <figure className="mt-8 overflow-hidden rounded-2xl bg-night ring-1 ring-night/10" data-testid="publication-photo">

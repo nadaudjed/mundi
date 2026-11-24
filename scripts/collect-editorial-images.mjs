@@ -172,7 +172,7 @@ export async function searchCommons(query,fetcher=fetch){
   const url=new URL("https://commons.wikimedia.org/w/api.php");
   for(const [k,v] of Object.entries({action:"query",generator:"search",gsrsearch:query,
     gsrnamespace:"6",gsrlimit:"18",prop:"imageinfo",iiprop:"url|mime|size|extmetadata",
-    iiurlwidth:"1400",format:"json",formatversion:"2"}))url.searchParams.set(k,v);
+    iiurlwidth:"1280",format:"json",formatversion:"2"}))url.searchParams.set(k,v);
   const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
   if(!reply.ok)throw new Error("Wikimedia Commons HTTP "+reply.status);
   const data=await reply.json();

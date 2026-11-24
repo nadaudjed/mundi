@@ -69,12 +69,12 @@ Le workflow produit l'artefact privé `mundi-agents-daily-newsroom` (14 jours), 
 ## Rédaction par l'abonnement Claude Max (depuis le 24/11/2026)
 
 À la demande du fondateur, la rédaction quotidienne n'utilise plus l'API payante. Sept tâches planifiées Claude Code
-tournent sur son compte (heure de Paris) : journalistes lot 1 et lot 2, professeurs lot 1 et lot 2 (vers 8h), vérificateur
-des actualités (10h), vérificateur des concepts (10h30), rattrapage de vérification (12h). Elles suivent
+tournent sur son compte (heure de Paris) : journalistes lot 1 et lot 2, professeurs lot 1 et lot 2 (7h37 à 7h43), vérificateur
+des actualités (9h03), vérificateur des concepts (9h13), rattrapage de vérification (10h07), pour une publication avant 11h. Elles suivent
 `editorial/agents/MAX_TASKS.md` et déposent leurs fichiers dans `editorial/agents/max/<date>/` sur la branche privée
 `editorial-stock`. Le rédacteur et le vérificateur sont des sessions distinctes : le vérificateur refait ses propres recherches.
 
-Le workflow `max-publish.yml` (10h17 et 12h47 UTC, ou déclenché par le vérificateur) **n'appelle aucun modèle** : il recalcule
+Le workflow `max-publish.yml` (09h37 et 12h47 UTC, ou déclenché par le vérificateur) **n'appelle aucun modèle** : il recalcule
 l'évaluation déterministe (`assessReview`), contrôle les liens, les doublons et le plafond avec `autopublish-agents.mjs`,
 puis publie. L'interrupteur `MUNDI_AUTOPUBLISH=off` s'applique toujours. Limites : les tâches consomment le quota d'usage
 de l'abonnement (un quota atteint arrête une tâche en cours) et il n'y a pas de compteur de coût. Le workflow API

@@ -5,7 +5,7 @@ name: MUNDI — publication des brouillons Max (sans API payante)
 # les filtres de publication habituels (scripts/autopublish-agents.mjs) puis publie sur main.
 on:
   schedule:
-    - cron: '17 10 * * *'
+    - cron: '37 9 * * *'
     - cron: '47 12 * * *'
   workflow_dispatch:
     inputs:

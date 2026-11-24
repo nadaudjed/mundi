@@ -1,19 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { formatValue } from "@/lib/data-cards";
+import { keyFigureOf } from "@/lib/covers";
 import { formatDate } from "@/lib/format";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
-import { getTopic, inkOn } from "@/lib/topics";
+import { getTopic } from "@/lib/topics";
+import { verificationLabel } from "@/lib/verification";
 import type { FeedPublication } from "@/lib/verified";
-import { Icon } from "./Icon";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
-import { verificationLabel } from "@/lib/verification";
-import { EditorialBackdrop } from "./EditorialBackdrop";
-import { RevealWords } from "./scene/RevealWords";
-import { MotionToggle } from "./scene/MotionToggle";
+import { TypeCover } from "./TypeCover";
 import { SceneLayer } from "./scene/SceneLayer";
-import {EditorialPhotoLayer,EditorialPhotoCredit} from "./EditorialPhotoLayer";
+import { EditorialPhotoLayer, EditorialPhotoCredit } from "./EditorialPhotoLayer";
 
 export type { CardVisual } from "./EditorialBackdrop";
 import type { CardVisual } from "./EditorialBackdrop";
@@ -25,17 +24,24 @@ type Props = {
   total: number;
   active: boolean;
   near?: boolean;
-  /** Texte déjà révélé (scène vue au moins une fois). Par défaut : scène active. */
+  /** Conservé pour compatibilité : le texte s'affiche toujours tout de suite. */
   revealed?: boolean;
-  visual: CardVisual;
+  visual?: CardVisual;
 };
 
-export function VerifiedCard({ publication: p, index, position, total, active, near = active, revealed = active, visual }: Props) {
+/**
+ * Écran d'une publication sourcée dans le Fil.
+ * Téléphone : visuel en haut (photo noir et blanc, chiffre clé ou mot typographié),
+ * texte en dessous sur fond uni ; tablette en paysage et ordinateur : texte à gauche,
+ * visuel à droite. Les boutons « Lire la publication » et « Écouter » sont hors de la
+ * zone qui défile : toujours visibles, quelle que soit la hauteur d'écran.
+ */
+export function VerifiedCard({ publication: p, index, position, total, active, near = active }: Props) {
   const topic = getTopic(p.topic)!;
-  const shown = p.sources.slice(0, 3);
-  const more = p.sources.length - shown.length;
   const backdrop = p.scene ? p.backdrops?.[p.scene.backdrop] : undefined;
   const photo = p.photo;
+  const figure = keyFigureOf(p);
+  const href = publicationPath(p.slug);
 
   return (
     <article
@@ -44,97 +50,77 @@ export function VerifiedCard({ publication: p, index, position, total, active, n
       data-testid="verified-card"
       aria-roledescription="publication sourcée"
       aria-label={`Publication ${position + 1} sur ${total} : ${p.title}`}
-      className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night text-ivory"
+      className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night pt-12 text-ivory"
     >
-      {photo ? (
-        <EditorialPhotoLayer photo={photo} active={active} near={near} />
-      ) : backdrop ? (
-        <SceneLayer backdrop={backdrop} focus={p.scene?.focus} active={active} />
-      ) : (
-        <>
-          <EditorialBackdrop visual={visual} color={topic.color} pattern={topic.pattern} seed={p.slug} />
-          <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-        </>
-      )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night from-35% via-night/80 via-55% to-night/30 wide:bg-gradient-to-r wide:from-night wide:from-30% wide:via-night/70 wide:via-50% wide:to-night/10" aria-hidden="true" />
-
-      {/* Le texte défile dans la carte si l'écran est court ; les boutons, eux, restent toujours visibles en bas. */}
-      <div className="no-scrollbar relative flex min-h-0 flex-1 flex-col overflow-y-auto" data-testid="card-scroll">
-        <div className="feed-column relative mt-auto px-5 pb-3 pt-32 wide:my-auto [@media(max-height:740px)]:pt-24">
-          {/* Crédit du visuel dans le flux : il ne recouvre jamais les badges, même à 320 px. */}
-          <p className="mb-2 inline-block max-w-full rounded-full bg-night/70 px-2.5 py-1 text-[0.68rem] font-semibold text-ivory/90 ring-1 ring-ivory/20" data-testid="verified-credit">
-            {photo ? <EditorialPhotoCredit photo={photo} /> : backdrop ? `Fond : ${backdrop.credit} · ${backdrop.license}` : "Visuel : motif génératif MUNDI"}
-          </p>
-          <div className="mb-3 flex flex-wrap items-center gap-2 text-[0.75rem] font-semibold">
-            <span className="rounded-full px-2.5 py-1" style={{ background: topic.color, color: inkOn(topic.color) }}>
-              {topic.name}
+      {/* Visuel : en haut sur téléphone, moitié droite sur écran large. */}
+      <div className="relative min-h-[max(6rem,28svh)] flex-1 overflow-hidden border-b border-ivory/10 wide:absolute wide:inset-y-0 wide:right-0 wide:left-[50%] wide:border-b-0 wide:border-l" data-testid="card-visual">
+        {photo ? (
+          <EditorialPhotoLayer photo={photo} near={near} />
+        ) : figure ? (
+          <div aria-hidden="true" className="absolute inset-0 flex items-end bg-night-2 p-5 md:p-8">
+            <span className="font-display text-[clamp(3.5rem,12vw,8rem)] leading-[0.9] font-semibold tracking-[-0.03em] text-brick-light">
+              {formatValue(figure.measure)}
+              <span className="ml-2 align-baseline text-[0.28em] tracking-normal text-ivory/85">{figure.measure.unit}</span>
             </span>
-            {p.fixture && <span className="rounded-full border border-amber/60 px-2.5 py-1 text-[#ffd98f]">Exemple de test</span>}
+          </div>
+        ) : backdrop ? (
+          <SceneLayer backdrop={backdrop} focus={p.scene?.focus} />
+        ) : (
+          <TypeCover word={topic.name} className="absolute inset-0 bg-night-2" />
+        )}
+      </div>
+
+      {/* Le texte défile dans la carte si l'écran est court. */}
+      <div className="no-scrollbar relative flex min-h-0 shrink flex-col overflow-y-auto wide:flex-1" data-testid="card-scroll">
+        <div className="feed-column relative px-5 pt-4 pb-2 wide:my-auto wide:py-8">
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-meta font-semibold text-brick-light">
+              {topic.name}
+              {p.fixture && <span className="ml-2 text-[#ffd98f]">Exemple de test</span>}
+            </p>
+            <div className="-mr-2 flex shrink-0 items-center">
+              <SaveButton slug={publicationKey(p.slug)} title={p.title} variant="rail" />
+              <ShareButton slug={p.slug} path={href} title={p.title} variant="rail" />
+            </div>
           </div>
 
-          <RevealWords as="h2" text={p.title} active={revealed} className="font-display text-[1.6rem] leading-[1.12] font-semibold text-balance md:text-[2.1rem] lg:text-[2.4rem] [@media(max-height:740px)]:text-[1.35rem]" />
-          <p data-fade={revealed ? "on" : "off"} className="mt-3 text-[0.92rem] leading-relaxed text-ivory/80 [@media(max-height:760px)]:line-clamp-2">{p.summary}</p>
+          <h2 className="mt-1 font-display text-[1.55rem] leading-[1.1] font-semibold text-balance md:text-[2.1rem] lg:text-[2.6rem] [@media(max-height:740px)]:text-[1.35rem]">{p.title}</h2>
+          <p className="mt-2 text-[0.92rem] leading-relaxed text-ivory/80 [@media(max-height:760px)]:line-clamp-2">{p.summary}</p>
 
-          <p className="mt-3 text-xs text-ivory/75" data-testid="verified-meta">
-            Publié le <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>
+          {/* Une seule ligne grise : visuel, contrôle, dates, sources. */}
+          <p className="mt-3 text-meta text-ivory/70" data-testid="verified-meta">
+            <span data-testid="verified-credit">
+              {photo ? <EditorialPhotoCredit photo={photo} /> : backdrop ? `Fond : ${backdrop.credit} · ${backdrop.license}` : figure ? `Chiffre clé : ${figure.source.label}` : "Visuel typographique MUNDI"}
+            </span>{" "}
+            · <span data-testid="verification-label">{verificationLabel(p)}</span> · publié le{" "}
+            <time dateTime={p.publishedAt} className="font-mono">{formatDate(p.publishedAt)}</time>
             {p.updatedAt !== p.publishedAt && (
               <>
                 {" "}
-                · actualisé le <time dateTime={p.updatedAt}>{formatDate(p.updatedAt)}</time>
-              </>
-            )}{" "}
-            · <span data-testid="verification-label">{verificationLabel(p)}</span>
-            {(photo || backdrop) && (
-              <>
-                {" "}
-                · <MotionToggle />
+                · actualisé le <time dateTime={p.updatedAt} className="font-mono">{formatDate(p.updatedAt)}</time>
               </>
             )}
           </p>
-
-          <div className="mt-3" data-testid="verified-sources">
-            <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-mint-soft">Sources</p>
-            <ul className="mt-1.5 flex flex-wrap gap-1.5">
-              {shown.map((s) => (
-                <li key={s.url} className="max-w-full">
-                  <a
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex max-w-[min(16rem,100%)] items-center gap-1 truncate rounded-full border border-ivory/25 bg-night/60 px-2.5 py-1 text-xs text-ivory underline-offset-2 hover:border-ivory/60 hover:underline"
-                  >
-                    <span className="truncate">{s.label}</span>
-                    <span className="sr-only"> (nouvel onglet)</span>
-                  </a>
-                </li>
-              ))}
-              {more > 0 && (
-                <li>
-                  <Link href={publicationPath(p.slug)} className="inline-flex rounded-full px-2 py-1 text-xs text-ivory/80 underline underline-offset-2">
-                    + {more} autre{more > 1 ? "s" : ""}
-                  </Link>
-                </li>
-              )}
-            </ul>
-          </div>
+          <ol className="mt-2 space-y-0.5 text-meta text-ivory/80" data-testid="verified-sources" aria-label="Sources">
+            {p.sources.map((s, i) => (
+              <li key={s.url} className="flex gap-2">
+                <span className="font-mono text-ivory/60">{String(i + 1).padStart(2, "0")}</span>
+                <a href={s.url} target="_blank" rel="noopener noreferrer" className="min-w-0 underline underline-offset-2 hover:text-ivory">
+                  {s.label}
+                  <span className="sr-only"> (nouvel onglet)</span>
+                </a>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
 
       {/* Barre d'actions hors de la zone qui défile : visible sans défiler, quelle que soit la hauteur d'écran. */}
-      <div className="feed-column relative flex shrink-0 flex-wrap items-center gap-x-3 gap-y-2 px-5 pb-3 pt-2" data-testid="card-actions">
-        <Link
-          href={publicationPath(p.slug)}
-          aria-label={`Lire la publication : ${p.title}`}
-          className="inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night transition hover:bg-mint-soft"
-        >
+      <div className="feed-column relative flex shrink-0 flex-wrap items-center gap-x-3 gap-y-2 px-5 pt-2 pb-4" data-testid="card-actions">
+        <Link href={href} aria-label={`Lire la publication : ${p.title}`} className="btn btn-light">
           Lire la publication
-          <Icon name="arrow-right" className="size-4" />
         </Link>
         <ListenButton title={p.title} summary={p.summary} points={p.keyPoints} active={active} />
-        <div className="ml-auto flex shrink-0 items-center">
-          <SaveButton slug={publicationKey(p.slug)} title={p.title} variant="rail" />
-          <ShareButton slug={p.slug} path={publicationPath(p.slug)} title={p.title} variant="rail" />
-        </div>
       </div>
     </article>
   );

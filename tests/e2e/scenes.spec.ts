@@ -66,63 +66,24 @@ test.describe("Site de test : scènes et transitions", () => {
     expect(top).toBe(true);
   });
 
-  test("les mots du titre apparaissent seulement sur la scène active", async ({ page }) => {
+  test("les titres s'affichent tout de suite, sans révélation mot à mot", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("[data-motion='ready']")).toHaveCount(1);
     const firstTitle = page.locator('[data-index="0"] h2');
-    await expect(firstTitle).toHaveAttribute("data-reveal", "on");
-    await expect.poll(() => firstTitle.locator(".reveal-word").last().evaluate(opacity)).toBe(1);
-    // Les espaces entre les mots restent visibles une fois le titre découpé.
     expect(await firstTitle.evaluate((el) => (el as HTMLElement).innerText.replace(/\s+/g, " ").trim())).toBe("Exemple de test : une publication vérifiée sur l'énergie");
-    // Le titre reste une seule phrase pour les lecteurs d'écran.
     await expect(page.locator('[data-index="0"]').getByRole("heading", { name: "Exemple de test : une publication vérifiée sur l'énergie" })).toBeVisible();
-
-    const second = page.locator(`[data-index="${SECOND}"] h2`);
-    await expect(second).toHaveAttribute("data-reveal", "off");
-    expect(await second.locator(".reveal-word").first().evaluate(opacity)).toBe(0);
-    await scrollFeedTo(page, SECOND);
-    await expect(second).toHaveAttribute("data-reveal", "on");
-    await expect.poll(() => second.locator(".reveal-word").last().evaluate(opacity)).toBe(1);
-    await expect.poll(() => page.locator(`[data-index="${SECOND}"] [data-fade]`).evaluate(opacity)).toBe(1);
-    // En revenant en arrière, un texte déjà lu reste affiché.
-    await scrollFeedTo(page, 0);
-    expect(await second.locator(".reveal-word").first().evaluate(opacity)).toBe(1);
+    await expect(page.locator(".reveal-word")).toHaveCount(0);
+    // Une scène pas encore à l'écran a déjà son titre visible.
+    expect(await page.locator(`[data-index="${SECOND}"] h2`).evaluate(opacity)).toBe(1);
   });
 
-  test("mouvement réduit : tout le texte est visible tout de suite, le décor est immobile", async ({ browser }) => {
-    const context = await browser.newContext({ baseURL: FIXTURES, reducedMotion: "reduce" });
-    const page = await context.newPage();
+  test("les décors sont immobiles : ni dérive, ni filet animé, ni bouton Pause", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("[data-motion='ready']")).toHaveCount(1);
-    // Même une scène qui n'est pas encore à l'écran a son texte visible.
-    expect(await page.locator(`[data-index="${SECOND}"] h2 .reveal-word`).first().evaluate(opacity)).toBe(1);
-    expect(await page.locator(`[data-index="${SECOND}"] [data-fade]`).evaluate(opacity)).toBe(1);
     await scrollFeedTo(page, SECOND);
-    const name = await page.locator(`[data-index="${SECOND}"] .scene-image`).evaluate((el) => getComputedStyle(el).animationName);
-    expect(name).toBe("none");
-    await context.close();
-  });
-
-  test("le décor bouge seulement sur la scène active, et le bouton Pause l'arrête durablement", async ({ page }) => {
-    await page.goto("/");
-    const inactive = page.locator(`[data-index="${SECOND}"] .scene-image`);
-    expect(await inactive.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
-    await scrollFeedTo(page, SECOND);
-    await expect.poll(() => inactive.evaluate((el) => getComputedStyle(el).animationName)).toBe("scene-drift");
-    expect(await inactive.evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("running");
-
-    const toggle = page.locator(`[data-index="${SECOND}"]`).getByTestId("motion-toggle");
-    await expect(toggle).toHaveText("Mettre le décor en pause");
-    await toggle.click();
-    await expect(toggle).toHaveAttribute("aria-pressed", "true");
-    await expect(toggle).toHaveText("Reprendre le décor");
-    expect(await inactive.evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("paused");
-    // Le filet décoratif s'arrête aussi : « pause » = plus aucun mouvement de décor.
-    expect(await page.locator(`[data-index="${SECOND}"]`).getByTestId("scene-thread").evaluate((el) => getComputedStyle(el).animationPlayState)).toBe("paused");
-
-    await page.reload();
-    await expect(page.locator("html")).toHaveAttribute("data-motion-paused", "");
-    await expect(page.getByTestId("motion-toggle").first()).toHaveAttribute("aria-pressed", "true");
+    const scene = page.locator(`[data-index="${SECOND}"] .scene-image`);
+    expect(await scene.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+    await expect(page.getByTestId("scene-thread")).toHaveCount(0);
+    await expect(page.getByTestId("motion-toggle")).toHaveCount(0);
   });
 
   test("clavier : flèches haut et bas passent d'une scène à l'autre", async ({ page }) => {
@@ -156,7 +117,6 @@ test.describe("Site de test : scènes et transitions", () => {
     await page.goto("/");
     for (const i of [SCENE_STAT, 4, SECOND]) {
       await scrollFeedTo(page, i);
-      await page.waitForTimeout(1300); // fin des révélations, pour mesurer le contraste final
       const results = await new AxeBuilder({ page }).include(`[data-index="${i}"]`).analyze();
       expect(results.violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
     }

@@ -137,11 +137,11 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
         )}
         <div
           role="status"
-          className="absolute inset-x-4 top-16 z-10 flex items-center gap-3 rounded-2xl bg-night/85 p-3 text-sm text-ivory ring-1 ring-amber/40 backdrop-blur"
+          className="absolute inset-x-4 top-16 z-10 flex items-center gap-3 rounded-md bg-night p-3 text-sm text-ivory ring-1 ring-amber/40"
         >
           <Icon name="alert" className="size-5 shrink-0 text-amber" />
           <span className="flex-1">Vidéo indisponible pour le moment. Le récit reste lisible ci-dessous.</span>
-          <button type="button" onClick={retry} className="inline-flex items-center gap-1 rounded-full border border-ivory/30 px-3 py-1 text-xs font-semibold hover:border-ivory/70">
+          <button type="button" onClick={retry} className="inline-flex items-center gap-1 rounded-sm border border-ivory/40 px-3 py-1 text-xs font-semibold hover:border-ivory">
             <Icon name="refresh" className="size-3.5" />
             Réessayer
           </button>
@@ -179,12 +179,12 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
 
       {captionsOn && cue && (
         <p className="pointer-events-none absolute inset-x-4 bottom-4 z-10 text-center wide:bottom-12" aria-hidden="true">
-          <span className="box-decoration-clone rounded-lg bg-night/85 px-2 py-1 text-[0.9rem] leading-[1.65] font-medium text-ivory">{cue}</span>
+          <span className="box-decoration-clone rounded-xs bg-night/90 px-2 py-1 text-[0.9rem] leading-[1.65] font-medium text-ivory">{cue}</span>
         </p>
       )}
 
       {saveData && !userStarted && active && (
-        <p className="absolute inset-x-4 top-16 z-10 rounded-2xl bg-night/85 p-3 text-center text-sm text-ivory" data-testid="save-data-note">
+        <p className="absolute inset-x-4 top-16 z-10 rounded-md bg-night p-3 text-center text-sm text-ivory" data-testid="save-data-note">
           Économie de données : touchez ▶ pour lancer la vidéo.
         </p>
       )}
@@ -195,7 +195,7 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
           onClick={toggle}
           aria-pressed={playing}
           aria-label={playing ? "Mettre la vidéo en pause" : "Lire la vidéo"}
-          className="flex size-10 items-center justify-center rounded-full bg-night/70 text-ivory ring-1 ring-ivory/20 backdrop-blur hover:bg-night/90"
+          className="flex size-10 items-center justify-center rounded-sm bg-night text-ivory ring-1 ring-ivory/20 hover:ring-ivory/60"
           data-testid="video-toggle"
         >
           <Icon name={playing ? "pause" : "play"} className="size-4" />
@@ -205,7 +205,7 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
           onClick={() => setCaptionsOn((c) => !c)}
           aria-pressed={captionsOn}
           aria-label={captionsOn ? "Masquer les sous-titres" : "Afficher les sous-titres"}
-          className={`flex size-10 items-center justify-center rounded-full ring-1 backdrop-blur ${captionsOn ? "bg-ivory text-night ring-ivory" : "bg-night/70 text-ivory ring-ivory/20"}`}
+          className={`flex size-10 items-center justify-center rounded-sm ring-1 ${captionsOn ? "bg-ivory text-night ring-ivory" : "bg-night text-ivory ring-ivory/20"}`}
         >
           <Icon name="captions" className="size-5" />
         </button>
@@ -215,7 +215,7 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
             onClick={() => setMuted((m) => !m)}
             aria-pressed={!muted}
             aria-label={muted ? "Activer le son" : "Couper le son"}
-            className="flex size-10 items-center justify-center rounded-full bg-night/70 text-ivory ring-1 ring-ivory/20 backdrop-blur hover:bg-night/90"
+            className="flex size-10 items-center justify-center rounded-sm bg-night text-ivory ring-1 ring-ivory/20 hover:ring-ivory/60"
           >
             <Icon name={muted ? "volume-off" : "volume"} className="size-5" />
           </button>
@@ -223,7 +223,7 @@ export function VideoCard({ media, active, near, reducedMotion, saveData = false
       </div>
 
       <div className="absolute inset-x-0 bottom-0 h-0.5 bg-ivory/10" aria-hidden="true">
-        <div className="h-full bg-mint" style={{ width: `${Math.min(100, progress * 100)}%` }} />
+        <div className="h-full bg-ivory" style={{ width: `${Math.min(100, progress * 100)}%` }} />
       </div>
       {!autoplay && !playing && (
         <p className="sr-only">

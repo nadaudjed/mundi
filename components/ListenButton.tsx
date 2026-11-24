@@ -200,8 +200,7 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
         aria-label={playing ? "Arrêter la lecture audio" : "Écouter le résumé"}
         aria-pressed={playing}
         title="Lecture vocale par le navigateur ; aucune piste audio téléchargée"
-        className={"inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint " +
-          (tone === "light" ? "border-night/15 py-2 text-night hover:border-night/40" : "border-ivory/35 text-ivory hover:border-ivory/80")}>
+        className={"btn " + (tone === "light" ? "btn-secondary" : "btn-outline-light")}>
         <span aria-hidden="true">{playing ? "■" : "▶"}</span>
         {playing ? "Arrêter" : error ? "Réessayer l'audio" : "Écouter"}
       </button>

@@ -42,11 +42,11 @@ for (const site of SITES) {
         expect(last, `carte ${i} : rien n'est coupé en bas`).toBeLessThanOrEqual(feedBottom + 1);
         // Pas de défilement horizontal dans la carte.
         expect(await scroller.evaluate((el) => el.scrollWidth - el.clientWidth)).toBeLessThanOrEqual(0);
-        // Le crédit du visuel ne recouvre pas le titre de la publication.
-        const credit = card.getByTestId("verified-credit");
-        if (await credit.count()) {
-          const [c, title] = [await credit.boundingBox(), await card.getByRole("heading", { level: 2 }).boundingBox()];
-          expect(c!.y + c!.height, `carte ${i} : crédit au-dessus du titre`).toBeLessThanOrEqual(title!.y + 1);
+        // Le visuel ne recouvre jamais le texte : il est au-dessus (téléphone).
+        const visual = card.getByTestId("card-visual");
+        if (await visual.count()) {
+          const [v, text] = [await visual.boundingBox(), await scroller.boundingBox()];
+          expect(v!.y + v!.height, `carte ${i} : visuel au-dessus du texte`).toBeLessThanOrEqual(text!.y + 1);
         }
         await scroller.evaluate((el) => el.scrollTo({ top: 0 }));
         checked++;

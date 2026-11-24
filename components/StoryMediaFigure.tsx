@@ -5,7 +5,7 @@ export function StoryMediaFigure({ slug }: { slug: string }) {
   const media = getStoryMedia(slug);
   if (!media) return null;
   return (
-    <figure className="mt-10 overflow-hidden rounded-3xl bg-night ring-1 ring-night/10">
+    <figure className="mt-10 overflow-hidden rounded-3xl bg-night ring-1 ring-rule">
       {media.kind === "video" ? (
         <video
           controls
@@ -25,9 +25,9 @@ export function StoryMediaFigure({ slug }: { slug: string }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img src={media.src} alt={media.alt} width={media.width} height={media.height} loading="lazy" decoding="async" className="mx-auto h-auto max-h-[70vh] w-auto" />
       )}
-      <figcaption className="bg-paper px-5 py-3 text-xs leading-relaxed text-muted">
-        {media.kind === "video" && <span className="block text-night/80">{media.description}</span>}
-        <span className="font-semibold text-night">© {media.credit.author}</span> · {media.credit.license}. {media.credit.provenance}
+      <figcaption className="bg-surface px-5 py-3 text-xs leading-relaxed text-muted">
+        {media.kind === "video" && <span className="block text-ink/80">{media.description}</span>}
+        <span className="font-semibold text-ink">© {media.credit.author}</span> · {media.credit.license}. {media.credit.provenance}
       </figcaption>
     </figure>
   );

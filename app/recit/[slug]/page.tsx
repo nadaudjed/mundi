@@ -7,10 +7,11 @@ import { MiniChart } from "@/components/MiniChart";
 import { SaveButton, ShareButton } from "@/components/StoryActions";
 import { StoryMediaFigure } from "@/components/StoryMediaFigure";
 import { StoryTile } from "@/components/StoryTile";
-import { StoryVisual } from "@/components/StoryVisual";
+import { TypeCover } from "@/components/TypeCover";
+import { storyKeyword } from "@/lib/covers";
 import { formatDate, formatMinutes } from "@/lib/format";
 import { getStory, relatedStories, stories } from "@/lib/stories";
-import { formats, getTopic, inkOn } from "@/lib/topics";
+import { formats, getTopic } from "@/lib/topics";
 import type { BlockKind } from "@/lib/types";
 
 type Params = { slug: string };
@@ -28,10 +29,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return { title: `${story.title} (démonstration)`, description: story.dek };
 }
 
-const kindStyles: Record<BlockKind, { label: string; className: string; hint: string }> = {
-  fait: { label: "Faits", className: "bg-blue/10 text-blue-ink ring-blue/25", hint: "Ce qui est établi et doit être sourcé." },
-  analyse: { label: "Analyse", className: "bg-mint/12 text-[#0f6e5b] ring-mint/30", hint: "Mécanismes et causes, selon notre lecture." },
-  hypothese: { label: "Hypothèses", className: "bg-amber/15 text-[#7a5410] ring-amber/35", hint: "Ce qui pourrait se passer : rien n'est certain." },
+const kindStyles: Record<BlockKind, { label: string; hint: string }> = {
+  fait: { label: "Faits", hint: "Ce qui est établi et doit être sourcé." },
+  analyse: { label: "Analyse", hint: "Mécanismes et causes, selon notre lecture." },
+  hypothese: { label: "Hypothèses", hint: "Ce qui pourrait se passer : rien n'est certain." },
 };
 
 export default async function StoryPage({ params }: { params: Promise<Params> }) {
@@ -45,55 +46,29 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
   return (
     <article className="pb-[calc(var(--nav-h)+3rem)] md:pb-20">
-      {/* En-tête */}
-      <header className="relative overflow-hidden bg-night text-ivory">
-        <StoryVisual pattern={topic.pattern} color={topic.color} seed={story.slug} className="absolute inset-0 h-full w-full opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-t from-night via-night/85 to-night/40" aria-hidden="true" />
-        <div className="relative mx-auto max-w-3xl px-5 pt-6 pb-10 md:px-8 md:pt-10 md:pb-14">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="inline-flex items-center gap-2 rounded-full bg-ivory/10 px-3 py-1.5 text-sm font-medium text-ivory/90 backdrop-blur hover:bg-ivory/20">
-              <Icon name="arrow-left" className="size-4" />
-              Retour au fil
-            </Link>
-            <DemoBadge tone="light" label="Contenu illustratif" />
-          </div>
-
-          <div className="mt-16 flex flex-wrap items-center gap-2 text-xs font-semibold md:mt-24">
-            <Link href={`/explorer/?sujet=${topic.slug}`} className="rounded-full px-2.5 py-1 hover:opacity-90" style={{ background: topic.color, color: inkOn(topic.color) }}>
-              {topic.name}
-            </Link>
-            <span className="rounded-full border border-ivory/30 px-2.5 py-1">
-              {format.name} · {format.duration}
-            </span>
-          </div>
-          <h1 className="animate-rise mt-4 font-display text-4xl leading-[1.08] font-semibold text-balance md:text-[3.25rem]">{story.title}</h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ivory/80">{story.dek}</p>
-
-          <dl className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ivory/70">
-            <div className="flex gap-1.5">
-              <dt>Publié le</dt>
-              <dd className="font-medium text-ivory">
-                <time dateTime={story.publishedAt}>{formatDate(story.publishedAt)}</time>
-              </dd>
-            </div>
-            <div className="flex gap-1.5">
-              <dt>Mis à jour le</dt>
-              <dd className="font-medium text-ivory">
-                <time dateTime={story.updatedAt}>{formatDate(story.updatedAt)}</time>
-              </dd>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <dt className="sr-only">Durée</dt>
-              <Icon name="clock" className="size-4" />
-              <dd className="font-medium text-ivory">{formatMinutes(story.minutes)}</dd>
-            </div>
-          </dl>
-          <p className="mt-2 text-xs text-ivory/55">Dates fictives, utilisées pour la démonstration.</p>
+      <header className="mx-auto max-w-3xl px-5 pt-6 md:px-8 md:pt-10">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <Link href="/" className="inline-flex items-center gap-1.5 text-sm font-medium text-muted hover:text-ink">
+            <Icon name="arrow-left" className="size-4" />
+            Retour au fil
+          </Link>
+          <DemoBadge label="Contenu illustratif" />
         </div>
+        <p className="mt-10 text-meta text-muted">
+          <Link href={`/explorer/?sujet=${topic.slug}`} className="font-semibold text-accent hover:underline">{topic.name}</Link> · {format.name} · {format.duration}
+        </p>
+        <h1 className="mt-2 font-display text-titre font-semibold text-ink text-balance">{story.title}</h1>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{story.dek}</p>
+        <p className="mt-5 border-y border-rule py-3 text-meta text-muted">
+          Publié le <time dateTime={story.publishedAt} className="font-mono">{formatDate(story.publishedAt)}</time> · mis à jour le{" "}
+          <time dateTime={story.updatedAt} className="font-mono">{formatDate(story.updatedAt)}</time> · <span className="font-mono">{formatMinutes(story.minutes)}</span> ·
+          dates fictives, utilisées pour la démonstration
+        </p>
+        <TypeCover word={storyKeyword(story)} className="mt-6 aspect-[21/9] w-full" />
       </header>
 
       <div className="mx-auto max-w-3xl px-5 md:px-8">
-        <div className="-mt-5 flex flex-wrap gap-2 rounded-2xl bg-paper p-3 shadow-lg shadow-night/10 ring-1 ring-night/8 relative">
+        <div className="mt-6 flex flex-wrap gap-3">
           <SaveButton slug={story.slug} title={story.title} />
           <ShareButton slug={story.slug} title={story.title} />
         </div>
@@ -104,25 +79,24 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
         {/* L'essentiel */}
         <section aria-labelledby="essentiel" className="mt-10">
-          <h2 id="essentiel" className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">
+          <h2 id="essentiel" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">
             L&apos;essentiel
           </h2>
-          <ol className="mt-4 grid gap-3 md:grid-cols-3">
+          <ol className="grid md:grid-cols-3 md:gap-6">
             {story.keyPoints.map((point, i) => (
-              <li key={i} className="rounded-2xl bg-paper p-4 ring-1 ring-night/8">
-                <span className="font-display text-2xl font-semibold text-mint">{i + 1}</span>
-                <p className="mt-1 text-[0.95rem] leading-relaxed text-night">{point}</p>
+              <li key={i} className="border-b border-rule py-4 md:border-b-0">
+                <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <p className="mt-1 text-[0.95rem] leading-relaxed text-ink">{point}</p>
               </li>
             ))}
           </ol>
         </section>
 
         {/* Légende faits / analyse / hypothèses */}
-        <aside aria-label="Comment lire ce récit" className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-y border-night/10 py-4 text-xs text-muted">
+        <aside aria-label="Comment lire ce récit" className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-y border-rule py-4 text-xs text-muted">
           {(Object.keys(kindStyles) as BlockKind[]).map((k) => (
-            <span key={k} className="flex items-center gap-2">
-              <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${kindStyles[k].className}`}>{kindStyles[k].label}</span>
-              {kindStyles[k].hint}
+            <span key={k}>
+              <strong className="font-semibold text-ink">{kindStyles[k].label}</strong> : {kindStyles[k].hint}
             </span>
           ))}
         </aside>
@@ -131,13 +105,11 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
         <div className="mt-8 space-y-10">
           {story.sections.map((section, i) => (
             <section key={i} aria-labelledby={`s-${i}`}>
-              <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ${kindStyles[section.kind].className}`}>
-                {kindStyles[section.kind].label}
-              </span>
-              <h2 id={`s-${i}`} className="mt-3 font-display text-2xl font-semibold text-night md:text-3xl">
+              <p className="text-meta font-semibold text-muted">{kindStyles[section.kind].label}</p>
+              <h2 id={`s-${i}`} className="mt-1 font-display text-intertitre font-semibold text-ink">
                 {section.heading}
               </h2>
-              <div className="mt-3 space-y-4 text-[1.06rem] leading-[1.75] text-night/90">
+              <div className="mt-3 space-y-4 text-[1.06rem] leading-[1.75] text-ink/90">
                 {section.paragraphs.map((p, j) => (
                   <p key={j}>{p}</p>
                 ))}
@@ -153,14 +125,14 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
 
         {story.perspectives && story.perspectives.length > 0 && (
           <section aria-labelledby="perspectives" className="mt-12">
-            <h2 id="perspectives" className="font-display text-2xl font-semibold text-night">
+            <h2 id="perspectives" className="font-display text-intertitre font-semibold text-ink">
               Points de vue
             </h2>
             <p className="mt-1 text-sm text-muted">Les principales perspectives en présence, sans hiérarchie entre elles.</p>
-            <ul className="mt-4 grid gap-3 md:grid-cols-3">
+            <ul className="mt-4 grid border-t border-rule md:grid-cols-3 md:gap-6">
               {story.perspectives.map((p) => (
-                <li key={p.label} className="rounded-2xl border border-night/10 p-4">
-                  <p className="text-sm font-semibold text-night">{p.label}</p>
+                <li key={p.label} className="border-b border-rule py-4 md:border-b-0">
+                  <p className="text-sm font-semibold text-ink">{p.label}</p>
                   <p className="mt-1 text-sm leading-relaxed text-muted">{p.text}</p>
                 </li>
               ))}
@@ -169,11 +141,11 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
         )}
 
         {story.uncertainties.length > 0 && (
-          <section aria-labelledby="incertitudes" className="mt-12 rounded-3xl bg-ivory-2/70 p-6">
-            <h2 id="incertitudes" className="font-display text-xl font-semibold text-night">
+          <section aria-labelledby="incertitudes" className="mt-12 border-l-2 border-amber pl-5">
+            <h2 id="incertitudes" className="font-display text-xl font-semibold text-ink">
               Ce que l&apos;on ne sait pas encore
             </h2>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-[0.95rem] leading-relaxed text-night/85">
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-[0.95rem] leading-relaxed text-ink/85">
               {story.uncertainties.map((u, i) => (
                 <li key={i}>{u}</li>
               ))}
@@ -182,32 +154,32 @@ export default async function StoryPage({ params }: { params: Promise<Params> })
         )}
 
         <section aria-labelledby="sources" className="mt-12">
-          <h2 id="sources" className="font-display text-xl font-semibold text-night">
+          <h2 id="sources" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">
             Sources
           </h2>
-          <ol className="mt-3 space-y-3">
+          <ol>
             {story.sources.map((s, i) => (
-              <li key={i} className="flex gap-3 rounded-2xl border border-dashed border-amber/60 bg-amber/5 p-4 text-sm">
-                <span className="font-semibold text-[#7a5410]">[{i + 1}]</span>
+              <li key={i} className="flex gap-4 border-b border-rule py-3 text-sm">
+                <span className="font-mono text-[#7a5410]">{String(i + 1).padStart(2, "0")}</span>
                 <div>
-                  <p className="font-medium text-night">{s.label}</p>
+                  <p className="font-medium text-ink">{s.label} <span className="font-normal text-[#7a5410]">(source fictive)</span></p>
                   <p className="mt-0.5 text-muted">{s.note}</p>
                 </div>
               </li>
             ))}
           </ol>
           <p className="mt-4 text-sm text-muted">
-            Statut éditorial : <strong className="text-night">démonstration, non relu</strong>. Aucune publication sans
+            Statut éditorial : <strong className="text-ink">démonstration, non relu</strong>. Aucune publication sans
             vérification des sources et validation humaine.
           </p>
         </section>
 
         {related.length > 0 && (
           <section aria-labelledby="suite" className="mt-16">
-            <h2 id="suite" className="font-display text-2xl font-semibold text-night">
+            <h2 id="suite" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">
               Continuer à comprendre
             </h2>
-            <div className="mt-4 grid gap-3">
+            <div>
               {related.map((s) => (
                 <StoryTile key={s.slug} story={s} />
               ))}

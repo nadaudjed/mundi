@@ -15,12 +15,10 @@ import {
 import { formatDate } from "@/lib/format";
 import type { SceneBackdrop } from "@/lib/scenes";
 import type { EditorialPhoto } from "@/lib/editorial-images";
-import {EditorialPhotoLayer,EditorialPhotoCredit} from "../EditorialPhotoLayer";
-import { inkOn, luminance } from "@/lib/topics";
+import { EditorialPhotoCredit } from "../EditorialPhotoLayer";
+import { luminance } from "@/lib/topics";
 import { RevealWords } from "../scene/RevealWords";
-import { MotionToggle } from "../scene/MotionToggle";
 import { SceneCredit, SceneLayer } from "../scene/SceneLayer";
-import { Icon } from "../Icon";
 
 /**
  * Affichage d'une carte de données (ticket #25).
@@ -33,7 +31,8 @@ import { Icon } from "../Icon";
  * valeurs fournies.
  */
 
-const ACCENTS = { mint: "#20B99A", blue: "#5B93E0", amber: "#E0A43A" } as const;
+// Accent unique (rouge brique clair sur fond nuit) : les anciennes valeurs « mint » et « blue » y sont ramenées.
+const ACCENTS = { mint: "#E07A5F", blue: "#E07A5F", amber: "#E0A43A" } as const;
 
 type Status = "verifie" | "brouillon";
 
@@ -70,7 +69,7 @@ function textAccentOnNight(color: string) {
   return ratio >= 4.5 ? color : "#F3F0E8";
 }
 
-export function DataCardView({ card, position, total, topicColor, active, near = active, revealed = active, status, href, showVisualPlaceholder = false, backdrop, photo }: Props) {
+export function DataCardView({ card, position, total, topicColor, revealed = true, status, href, showVisualPlaceholder = false, backdrop, photo }: Props) {
   // Un texte sur un fond d'ambiance reste clair sur voile sombre : le ton ivoire est alors ignoré.
   const light = !photo && !backdrop && card.style?.tone === "ivory";
   const accent = accentOf(card.style, topicColor);
@@ -87,22 +86,23 @@ export function DataCardView({ card, position, total, topicColor, active, near =
       aria-labelledby={titleId}
       role="group"
     >
-      {photo ? <EditorialPhotoLayer photo={photo} active={active} near={near} /> : backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} active={active} />}
+      {/* La photo de la publication est montrée sur son propre écran, pas derrière les chiffres. Un fond approuvé reste possible. */}
+      {!photo && backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} />}
       {/* Sur petit écran, la carte défile plutôt que de cacher sa source sous la barre d'onglets. */}
-      <div className="feed-column no-scrollbar relative flex h-full flex-col overflow-y-auto px-5 pt-28 pb-6 md:pt-24 [@media(max-height:740px)]:pt-[5.75rem] [@media(max-height:740px)]:pb-4" data-testid="card-scroll">
-        <div className="relative flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">
+      <div className="feed-column no-scrollbar relative flex h-full flex-col overflow-y-auto px-5 pt-16 pb-6 md:pt-20 [@media(max-height:740px)]:pt-14 [@media(max-height:740px)]:pb-4" data-testid="card-scroll">
+        <div className="relative flex items-center justify-between gap-3 text-meta font-semibold">
           <span style={{ color: textAccent }} className={light ? "text-night/70" : ""}>
             Données · carte {position + 1} sur {total}
           </span>
           {status === "brouillon" && (
-            <span className={`rounded-full border-2 border-dashed border-amber px-2 py-0.5 text-[0.65rem] ${light ? "text-[#7a5410]" : "text-[#ffd98f]"}`}>
+            <span className={`rounded-xs border border-dashed border-amber px-2 py-0.5 text-[0.65rem] ${light ? "text-[#7a5410]" : "text-[#ffd98f]"}`}>
               Brouillon — non publié
             </span>
           )}
         </div>
         <div className="relative mt-2 flex gap-1" aria-hidden="true">
           {Array.from({ length: total }, (_, i) => (
-            <span key={i} className={`h-1 flex-1 rounded-full ${i <= position ? "" : light ? "bg-night/15" : "bg-ivory/20"}`} style={i <= position ? { background: accent } : undefined} />
+            <span key={i} className={`h-0.5 flex-1 ${i <= position ? "" : light ? "bg-night/15" : "bg-ivory/20"}`} style={i <= position ? { background: accent } : undefined} />
           ))}
         </div>
 
@@ -117,8 +117,8 @@ export function DataCardView({ card, position, total, topicColor, active, near =
         <VisualArea visual={card.visual} placeholder={showVisualPlaceholder} light={light} />
 
         <div className="relative mt-auto pt-4" data-fade={revealed ? "on" : "off"}>
-          {card.kind === "stat" && <StatBody card={card} accent={textAccent} active={active} display={display} light={light} />}
-          {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} active={active} light={light} />}
+          {card.kind === "stat" && <StatBody card={card} accent={textAccent} display={display} light={light} />}
+          {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} light={light} />}
           {card.kind === "explication" && <ExplanationBody card={card} accent={accent} light={light} />}
           <Footer card={card} light={light} href={href} backdrop={photo?undefined:backdrop} photo={photo} />
         </div>
@@ -149,7 +149,7 @@ function VisualArea({ visual, placeholder, light }: { visual?: VisualSlot; place
   if (!placeholder) return null;
   return (
     <div
-      className={`relative mt-4 flex min-h-24 flex-1 items-center justify-center rounded-2xl border-2 border-dashed p-4 text-center text-xs ${light ? "border-night/25 text-night/70" : "border-ivory/25 text-ivory/70"}`}
+      className={`relative mt-4 flex min-h-24 flex-1 items-center justify-center rounded-md border border-dashed p-4 text-center text-xs ${light ? "border-night/25 text-night/70" : "border-ivory/25 text-ivory/70"}`}
       data-testid="data-visual-placeholder"
     >
       Emplacement du visuel : fourni par la direction artistique (facultatif)
@@ -175,11 +175,11 @@ function Context({ m, light }: { m: Measure; light: boolean }) {
   );
 }
 
-function StatBody({ card, accent, active, display, light }: { card: StatCard; accent?: string; active: boolean; display: boolean; light: boolean }) {
+function StatBody({ card, accent, display, light }: { card: StatCard; accent?: string; display: boolean; light: boolean }) {
   return (
     <div data-testid="stat-value">
       <p className="sr-only">{describeMeasure(card.measure)}</p>
-      <div aria-hidden="true" className={active ? "motion-safe:animate-rise" : ""}>
+      <div aria-hidden="true">
         <span style={{ color: accent }}>
           <Value m={card.measure} display={display} big />
         </span>
@@ -192,7 +192,7 @@ function StatBody({ card, accent, active, display, light }: { card: StatCard; ac
   );
 }
 
-function ComparisonBody({ card, accent, active, light }: { card: ComparisonCard; accent: string; active: boolean; light: boolean }) {
+function ComparisonBody({ card, accent, light }: { card: ComparisonCard; accent: string; light: boolean }) {
   const common = card.presentation === "echelle-commune";
   const max = Math.max(...card.items.map((m) => m.value), 0);
   return (
@@ -205,9 +205,9 @@ function ComparisonBody({ card, accent, active, light }: { card: ComparisonCard;
               <Value m={m} display={false} />
               <Context m={m} light={light} />
               {common && max > 0 && (
-                <span className={`mt-1.5 block h-2.5 w-full overflow-hidden rounded-full ${light ? "bg-night/10" : "bg-ivory/10"}`}>
+                <span className={`mt-1.5 block h-2 w-full overflow-hidden ${light ? "bg-night/10" : "bg-ivory/10"}`}>
                   <span
-                    className={`block h-full origin-left rounded-full ${active ? "motion-safe:animate-grow-x" : ""}`}
+                    className="block h-full"
                     style={{ width: `${(m.value / max) * 100}%`, background: accent }}
                     data-testid="comparison-bar"
                   />
@@ -227,8 +227,8 @@ function ComparisonBody({ card, accent, active, light }: { card: ComparisonCard;
 }
 
 function NatureBadge({ nature, light }: { nature: ExplanationStep["nature"]; light: boolean }) {
-  const cls = nature === "fait" ? (light ? "bg-mint/20 text-[#0f6e5b]" : "bg-mint/20 text-mint-soft") : light ? "bg-amber/20 text-[#7a5410]" : "bg-amber/20 text-[#ffd98f]";
-  return <span className={`ml-1 rounded-full px-1.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider ${cls}`}>{nature === "fait" ? "Fait" : "Hypothèse"}</span>;
+  const cls = nature === "fait" ? (light ? "text-night/70" : "text-ivory/70") : light ? "text-[#7a5410]" : "text-[#ffd98f]";
+  return <span className={`ml-1 text-[0.7rem] font-semibold ${cls}`}>({nature === "fait" ? "Fait" : "Hypothèse"})</span>;
 }
 
 function StepText({ s, light }: { s: ExplanationStep; light: boolean }) {
@@ -249,7 +249,7 @@ function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accen
         <p className="border-l-2 pl-3" style={{ borderColor: accent }}>
           <StepText s={start} light={light} />
         </p>
-        <p className={`mt-3 text-xs font-bold uppercase tracking-[0.18em] ${light ? "text-night/70" : "text-ivory/70"}`}>Ensuite, selon les cas :</p>
+        <p className={`mt-3 text-meta font-semibold ${light ? "text-night/70" : "text-ivory/70"}`}>Ensuite, selon les cas :</p>
         <ul className="mt-2 space-y-2">
           {options.map((s, i) => (
             <li key={i} className={`border-t pt-2 ${light ? "border-night/15" : "border-ivory/20"}`}>
@@ -265,8 +265,8 @@ function ExplanationBody({ card, accent, light }: { card: ExplanationCard; accen
     <ol className="space-y-2.5 [@media(max-height:740px)]:space-y-1.5" data-testid="explanation" data-layout="sequence">
       {card.steps.map((s, i) => (
         <li key={i} className="flex gap-3">
-          <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold" style={{ background: accent, color: inkOn(accent) }} aria-hidden="true">
-            {i + 1}
+          <span className="mt-0.5 shrink-0 font-mono text-xs" style={{ color: light ? undefined : textAccentOnNight(accent) }} aria-hidden="true">
+            {String(i + 1).padStart(2, "0")}
           </span>
           <StepText s={s} light={light} />
         </li>
@@ -290,17 +290,16 @@ function Footer({ card, light, href, backdrop, photo }: { card: DataCard; light:
       </p>
       {photo ? (
         <p className={`mt-1 text-[0.65rem] ${muted}`}>
-          <EditorialPhotoCredit photo={photo} /> · <MotionToggle />
+          <EditorialPhotoCredit photo={photo} />
         </p>
       ) : backdrop && (
         <p className={`mt-1 text-[0.65rem] ${muted}`}>
-          <SceneCredit backdrop={backdrop} /> · <MotionToggle />
+          <SceneCredit backdrop={backdrop} />
         </p>
       )}
       {href && (
-        <Link href={href} className="mt-3 inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-sm font-semibold text-night hover:bg-mint-soft">
+        <Link href={href} className="btn btn-light mt-3">
           Comprendre
-          <Icon name="arrow-right" className="size-4" />
         </Link>
       )}
     </div>

@@ -6,39 +6,35 @@ import { topics } from "@/lib/topics";
 
 export function InterestsClient() {
   const { interests, toggle, reset } = useInterests();
+  const n = interests.length;
 
   return (
-    <div className="mt-8">
-      <section className="rounded-3xl bg-night p-6 text-ivory md:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mint">Votre sélection</p>
-        <p className="mt-2 font-display text-3xl font-semibold">{interests.length} sujet{interests.length > 1 ? "s" : ""} favori{interests.length > 1 ? "s" : ""}</p>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ivory/80">
-          Vos choix influencent l&apos;ordre du fil « Pour vous ». MUNDI continue d&apos;intégrer
-          d&apos;autres sujets pour encourager la découverte et éviter les bulles d&apos;information.
-        </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/" className="inline-flex rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night hover:bg-mint-soft">Découvrir mon fil</Link>
-          {interests.length > 0 && <button type="button" onClick={reset} className="rounded-full border border-ivory/40 px-5 py-2.5 text-sm font-medium hover:border-ivory">Réinitialiser</button>}
-        </div>
-      </section>
+    <div className="mt-6">
+      <p className="max-w-2xl text-base leading-relaxed text-ink" data-testid="interests-summary">
+        {n === 0 ? "Aucune rubrique choisie : le fil suit l'ordre de la rédaction." : <><span className="font-mono">{n}</span> rubrique{n > 1 ? "s" : ""} choisie{n > 1 ? "s" : ""}.</>}{" "}
+        <span className="text-muted">MUNDI continue de proposer les autres rubriques, pour éviter les bulles d&apos;information.</span>
+      </p>
+      <p className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        <Link href="/" className="font-semibold text-accent underline-offset-4 hover:underline">Voir mon fil</Link>
+        {n > 0 && <button type="button" onClick={reset} className="font-medium text-muted underline-offset-4 hover:text-ink hover:underline">Réinitialiser</button>}
+      </p>
+
       <section aria-labelledby="choose-topics" className="mt-10">
-        <h2 id="choose-topics" className="font-display text-2xl font-semibold text-night">Qu&apos;est-ce qui vous intéresse ?</h2>
-        <p className="mt-2 text-sm text-muted">Choisissez autant de sujets que vous le souhaitez. Vos préférences restent sur cet appareil.</p>
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {topics.map(topic => {
+        <h2 id="choose-topics" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">Rubriques</h2>
+        <ul className="grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
+          {topics.map((topic) => {
             const chosen = interests.includes(topic.slug);
             return (
-              <li key={topic.slug}>
+              <li key={topic.slug} className="border-b border-rule">
                 <button type="button" aria-pressed={chosen} onClick={() => toggle(topic.slug)}
-                  className={"flex h-full w-full flex-col items-start rounded-2xl border p-5 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue " +
-                    (chosen ? "border-blue bg-blue/10 shadow-sm" : "border-night/10 bg-paper hover:border-blue/40")}>
-                  <span className="mb-4 flex w-full items-center justify-between">
-                    <span className="h-2 w-9 rounded-full" style={{ background: topic.color }} aria-hidden="true" />
-                    <span aria-hidden="true" className={"flex size-6 items-center justify-center rounded-full border text-sm font-semibold " +
-                      (chosen ? "border-blue bg-blue text-white" : "border-night/25 text-muted")}>{chosen ? "✓" : "+"}</span>
+                  className="flex w-full items-start gap-3 py-3.5 text-left">
+                  <span aria-hidden="true" className={"mt-1 flex size-4 shrink-0 items-center justify-center rounded-xs border " + (chosen ? "border-accent bg-accent text-white" : "border-rule-strong")}>
+                    {chosen && <svg viewBox="0 0 12 12" className="size-3" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2.5 6.5l2.2 2.2 4.8-5" /></svg>}
                   </span>
-                  <span className="font-semibold text-night">{topic.name}</span>
-                  <span className="mt-1 text-sm leading-relaxed text-muted">{topic.description}</span>
+                  <span className="min-w-0">
+                    <span className={"font-display text-lg leading-tight font-semibold " + (chosen ? "text-accent" : "text-ink")}>{topic.name}</span>
+                    <span className="mt-0.5 block text-sm leading-snug text-muted">{topic.description}</span>
+                  </span>
                 </button>
               </li>
             );
@@ -46,7 +42,7 @@ export function InterestsClient() {
         </ul>
       </section>
       <p className="mt-10 pb-8 text-sm text-muted">
-        Pour comprendre notre démarche éditoriale, consultez la page <Link href="/a-propos/" className="font-semibold text-blue underline underline-offset-4">À propos</Link>.
+        Pour comprendre notre démarche éditoriale, consultez la page <Link href="/a-propos/" className="font-semibold text-accent underline underline-offset-4">À propos</Link>.
       </p>
     </div>
   );

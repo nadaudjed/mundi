@@ -62,7 +62,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
     const first = page.locator('[data-index="0"]');
     await expect(first.getByText("Vérifié", { exact: true })).toHaveCount(0);
     await expect(first.getByText("Exemple de test", { exact: true })).toBeVisible();
-    await expect(first.getByTestId("verified-meta")).toContainText("Publié le 20 novembre 2026");
+    await expect(first.getByTestId("verified-meta")).toContainText("publié le 20 novembre 2026");
     await expect(first.getByTestId("verified-meta")).toContainText("actualisé le 21 novembre 2026");
     await expect(first.getByTestId("verification-label")).toHaveText("Validation humaine");
     await expect(first.locator("time").first()).toHaveAttribute("datetime", "2026-11-20");
@@ -86,19 +86,19 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await page.goto("/");
     const sources = page.locator('[data-index="0"]').getByTestId("verified-sources");
     const links = sources.getByRole("link", { name: /Source fictive/ });
-    await expect(links).toHaveCount(3);
+    await expect(links).toHaveCount(4);
     await expect(links.first()).toHaveAttribute("href", "https://sources.mundi.test/a");
     await expect(links.first()).toHaveAttribute("target", "_blank");
     await expect(links.first()).toHaveAttribute("rel", /noopener/);
-    // La 4e source est accessible depuis la page complète.
-    await expect(sources.getByRole("link", { name: "+ 1 autre" })).toHaveAttribute("href", `/actualites/${FIRST}/`);
+    // Liste numérotée, libellés complets (plus de pastilles tronquées).
+    await expect(sources.locator("li").first()).toContainText("01");
   });
 
-  test("une carte sans fond affiche le motif génératif ; une carte avec fond approuvé affiche la scène", async ({ page }) => {
+  test("une carte sans photo affiche son chiffre clé ; une carte avec fond approuvé affiche la scène", async ({ page }) => {
     await page.goto("/");
     const first = page.locator('[data-index="0"]');
-    await expect(first.getByTestId("verified-credit")).toHaveText("Visuel : motif génératif MUNDI");
-    await expect(first.locator('[data-visual="motif"]')).toHaveAttribute("aria-hidden", "true");
+    await expect(first.getByTestId("verified-credit")).toHaveText("Chiffre clé : Jeu de données fictif (test)");
+    await expect(first.getByTestId("card-visual")).toContainText("1 234,5");
     await expect(first.locator("video, img")).toHaveCount(0);
     // La seconde publication demande un fond du registre (fond de test neutre, tests/fixtures/scenes/).
     const second = page.locator('[data-index="5"]');
@@ -108,13 +108,10 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(second.locator("[data-visual]")).toHaveCount(0);
   });
 
-  test("avec réduction des animations, le motif ne bouge pas", async ({ browser }) => {
-    const context = await browser.newContext({ baseURL: FIXTURES, reducedMotion: "reduce" });
-    const page = await context.newPage();
+  test("plus aucun motif génératif animé dans le fil", async ({ page }) => {
     await page.goto("/");
-    const name = await page.locator('[data-index="0"] [data-visual="motif"] svg').evaluate((el) => getComputedStyle(el).animationName);
-    expect(name).toBe("none");
-    await context.close();
+    await expect(page.locator('[data-visual="motif"]')).toHaveCount(0);
+    await expect(page.locator(".grain")).toHaveCount(0);
   });
 
   test("le lien « Lire la publication » ouvre la page complète, avec sources et dates", async ({ page }) => {
@@ -123,7 +120,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page).toHaveURL(new RegExp(`/actualites/${FIRST}/$`));
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Exemple de test");
     await expect(page.getByTestId("publication-meta")).toContainText("Exemple de test, jamais publié.");
-    await expect(page.getByTestId("publication-meta")).toContainText("Publié le 20 novembre 2026");
+    await expect(page.getByTestId("publication-meta")).toContainText("publié le 20 novembre 2026");
     await expect(page.getByRole("link", { name: /Source fictive/ })).toHaveCount(4);
   });
 
@@ -143,7 +140,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await page.reload();
     const saved = page.getByTestId("saved-publication");
     await expect(saved).toHaveCount(1);
-    await expect(saved).toHaveAttribute("href", `/actualites/${FIRST}/`);
+    await expect(saved.getByRole("link")).toHaveAttribute("href", `/actualites/${FIRST}/`);
     await expect(saved).toContainText("Validation humaine");
   });
 

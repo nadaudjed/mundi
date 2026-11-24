@@ -18,7 +18,7 @@ test("Explorer searches actual published articles and offers their full page", a
   const tile = page.getByTestId("publication-tile").filter({ hasText: article.title });
   await expect(tile).toBeVisible();
   await expect(page).toHaveURL(/\/explorer\/\?q=/);
-  await expect(tile.getByRole("link", { name: /Lire l'article/ })).toHaveAttribute("href", "/actualites/" + article.slug + "/");
+  await expect(tile.getByRole("link", { name: article.title })).toHaveAttribute("href", "/actualites/" + article.slug + "/");
 });
 
 test("real publications and fictional demonstrations are visibly separated", async ({ page }) => {
@@ -47,7 +47,7 @@ test("news homepage uses image-rich cards with honest review labels and no overf
   const tiles = page.getByTestId("publication-tile");
   await expect(tiles).toHaveCount(publicArticles.length);
   await expect(tiles.first().getByText(/Contrôle IA, sans relecture humaine|Validation humaine/)).toBeVisible();
-  await expect(tiles.first().getByRole("link", { name: /Lire l'article/ })).toHaveAttribute("href", /^\/actualites\/.+\/$/);
+  await expect(tiles.first().getByRole("link").first()).toHaveAttribute("href", /^\/actualites\/.+\/$/);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);
 });

@@ -3,62 +3,98 @@
 /* Écran large et couché (tablette en paysage, ordinateur) : mise en page en deux zones. */
 @custom-variant wide (@media (min-width: 900px) and (min-aspect-ratio: 5/4));
 
+/*
+ * Jetons de la charte « éditorial numérique ».
+ * Toutes les couleurs, tailles, rayons et espacements partagés sont définis ici :
+ * les composants utilisent les classes qui en découlent (bg-page, text-ink,
+ * border-rule, text-accent, rounded-md…) plutôt que des valeurs en dur.
+ */
 @theme {
+  /* Couleurs fixes de la marque (le Fil reste toujours sur fond nuit). */
   --color-night: #101d30;
   --color-night-2: #16273f;
   --color-night-3: #1f3352;
-  --color-blue: #246bce;
-  --color-blue-soft: #5b93e0;
-  /* Bleu foncé pour du texte sur fond clair (contraste AA). */
-  --color-blue-ink: #1b56a8;
   --color-ivory: #f3f0e8;
   --color-ivory-2: #e9e4d8;
-  --color-paper: #fbfaf6;
-  --color-mint: #20b99a;
-  --color-mint-soft: #7fdcc6;
-  --color-ink: #101d30;
-  --color-muted: #5b6678;
   --color-amber: #e0a43a;
+  /* Anciennes teintes, conservées pour les écrans internes (atelier) uniquement. */
+  --color-blue: #246bce;
+  --color-blue-soft: #5b93e0;
+  --color-blue-ink: #1b56a8;
+  --color-paper: #fbfaf6;
+
+  /* Accent unique : rouge brique. 5,75:1 sur l'ivoire, 6,54:1 sur blanc (AA). */
+  --color-brick: #a33b25;
+  /* Variante claire du rouge brique pour fond nuit : 5,74:1 sur #101D30 (AA). */
+  --color-brick-light: #e07a5f;
 
   --font-sans: "DM Sans Variable", "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
 
-  --animate-rise: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  --animate-drift: drift 40s ease-in-out infinite alternate;
-  --animate-grow-x: grow-x 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  --animate-scene-drift: scene-drift 18s ease-in-out infinite alternate;
-  --animate-thread: thread 4.2s cubic-bezier(0.2, 0.72, 0.23, 1) both;
+  /* Rayons : 4 à 6 px au plus pour les conteneurs, angles droits pour les images. */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 6px;
+  --radius-xl: 6px;
+  --radius-2xl: 6px;
+  --radius-3xl: 6px;
+  --radius-4xl: 6px;
 
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  /* Pas d'ombre portée : les contenus sont séparés par des filets de 1 px. */
+  --shadow-2xs: 0 0 #0000;
+  --shadow-xs: 0 0 #0000;
+  --shadow-sm: 0 0 #0000;
+  --shadow-md: 0 0 #0000;
+  --shadow-lg: 0 0 #0000;
+  --shadow-xl: 0 0 #0000;
+  --shadow-2xl: 0 0 #0000;
 
-  @keyframes grow-x {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-  }
+  /* Échelle typographique : fort contraste entre la une et le reste. */
+  --text-une: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+  --text-une--line-height: 1.04;
+  --text-titre: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  --text-titre--line-height: 1.08;
+  --text-intertitre: clamp(1.35rem, 1.2rem + 0.6vw, 1.75rem);
+  --text-intertitre--line-height: 1.2;
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1.4;
 
-  @keyframes scene-drift {
-    from { transform: scale(1.08) translate3d(-1%, 0, 0); }
-    to { transform: scale(1.18) translate3d(1.5%, -1%, 0); }
-  }
+  /* Espacements de mise en page. */
+  --spacing-gouttiere: 1.25rem;
+  --spacing-section: 3rem;
+}
 
-  @keyframes thread {
-    from { transform: scaleX(0); opacity: 0; }
-    to { transform: scaleX(1); opacity: 0.9; }
-  }
-
-  @keyframes drift {
-    from { transform: scale(1.1) translate3d(-2%, -1%, 0); }
-    to { transform: scale(1.18) translate3d(2%, 2%, 0); }
-  }
+/* Couleurs qui suivent le thème clair / sombre (voir plus bas). */
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-on-ink: var(--on-ink);
 }
 
 :root {
-  /* Barre d'onglets flottante (mobile) : hauteur + marge sous la barre + zone système. */
-  --dock-h: 3.75rem;
-  --dock-gap: 0.5rem;
+  --page: #f3f0e8;
+  --surface: #fbfaf6;
+  --ink: #101d30;
+  /* 5,10:1 sur la page. */
+  --muted: #5b6678;
+  --rule: rgb(16 29 48 / 0.14);
+  --rule-strong: rgb(16 29 48 / 0.4);
+  --accent: var(--color-brick);
+  /* Texte posé sur un aplat d'encre (boutons pleins). */
+  --on-ink: #f3f0e8;
+  /* Traitement unique des photos : noir et blanc. */
+  --photo-filter: grayscale(1) contrast(1.06);
+  --focus: var(--accent);
+
+  /* Barre d'onglets (téléphone), posée en bas de l'écran. */
+  --dock-h: 3.5rem;
+  --dock-gap: 0rem;
   /* Place laissée libre sous la barre (bandeau Netlify sur les adresses *.netlify.app). */
   --badge-safe: 0rem;
   --nav-h: calc(var(--dock-h) + var(--dock-gap) + var(--badge-safe) + env(safe-area-inset-bottom));
@@ -71,13 +107,13 @@
    La barre d'onglets passe au-dessus pour qu'aucun onglet ne soit caché.
    Sur un futur nom de domaine propre, rien ne change. */
 html[data-netlify-host] {
-  --badge-safe: 3.5rem;
+  --badge-safe: 4rem;
 }
 
 @media (min-width: 768px) {
   :root {
     --nav-h: 0rem;
-    --header-h: 4rem;
+    --header-h: 3.5rem;
   }
 }
 
@@ -98,16 +134,15 @@ html {
 }
 
 body {
-  background: var(--color-ivory);
-  color: var(--color-ink);
+  background: var(--page);
+  color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-mint);
+  outline: 2px solid var(--focus);
   outline-offset: 2px;
-  border-radius: 6px;
 }
 
 .font-display {
@@ -149,48 +184,54 @@ body {
   height: calc(100dvh - var(--nav-h) - var(--header-h));
 }
 
-.grain {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 3px 3px;
+/* Boutons : rectangles à petits angles, sans flèche dans un rond. */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-sm);
+  padding: 0.625rem 1.125rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+@utility btn-primary {
+  background: var(--ink);
+  color: var(--on-ink);
+  &:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+}
+@utility btn-secondary {
+  border: 1px solid var(--rule-strong);
+  color: var(--ink);
+  &:hover {
+    border-color: var(--ink);
+  }
+}
+/* Sur le fond nuit du Fil. */
+@utility btn-light {
+  background: var(--color-ivory);
+  color: var(--color-night);
+  &:hover {
+    background: #fff;
+  }
+}
+@utility btn-outline-light {
+  border: 1px solid rgb(243 240 232 / 0.45);
+  color: var(--color-ivory);
+  &:hover {
+    border-color: var(--color-ivory);
+  }
 }
 
-/* Scènes plein écran (ticket #30) */
-.scene-image {
-  transform: scale(1.08);
-  will-change: transform;
-}
-
-/* Pause des décors animés, choisie par la personne (bouton « Pause »). */
-[data-motion-paused] .motion-pausable,
-[data-motion-paused] .motion-safe\:animate-drift {
-  animation-play-state: paused !important;
-}
-
-/*
- * Révélation des mots : seulement quand le fil est prêt (JavaScript chargé) et
- * que l'appareil autorise les animations. Sans cela, le texte est simplement visible.
- */
-@media (prefers-reduced-motion: no-preference) {
-  /* État d'attente : masqué sans transition (pas d'état intermédiaire peu contrasté). */
-  [data-motion="ready"] [data-reveal="off"] .reveal-word,
-  [data-motion="ready"] [data-fade="off"] {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  [data-reveal] .reveal-word {
-    display: inline-block;
-  }
-  [data-motion="ready"] [data-reveal="on"] .reveal-word {
-    transition:
-      opacity 0.85s cubic-bezier(0.2, 0.72, 0.23, 1),
-      transform 0.85s cubic-bezier(0.2, 0.72, 0.23, 1);
-    transition-delay: calc(var(--i, 0) * 70ms);
-  }
-  [data-motion="ready"] [data-fade="on"] {
-    transition:
-      opacity 0.85s cubic-bezier(0.2, 0.72, 0.23, 1) 0.33s,
-      transform 0.85s cubic-bezier(0.2, 0.72, 0.23, 1) 0.33s;
-  }
+/* Traitement unique des photos (noir et blanc), défini par --photo-filter. */
+.photo {
+  filter: var(--photo-filter);
 }
 
 @media (prefers-reduced-motion: reduce) {

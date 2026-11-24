@@ -7,12 +7,12 @@ import { Icon } from "./Icon";
 type Props = { media: ImageMedia; active: boolean; near: boolean; reducedMotion: boolean; fallback: ReactNode };
 
 /**
- * Image (photo ou illustration) en fond de carte : l'image entière est
- * visible en haut, un fond flou de la même image remplit le reste.
+ * Image (photo ou illustration) de la carte : l'image entière est visible,
+ * sur fond uni, sans flou ni zoom.
  * Chargement différé : rien n'est téléchargé tant que la carte est loin.
  * En cas d'erreur : visuel génératif + message discret ; le fil continue.
  */
-export function ImageStory({ media, active, near, reducedMotion, fallback }: Props) {
+export function ImageStory({ media, near, fallback }: Props) {
   const [failed, setFailed] = useState(false);
   const img = useRef<HTMLImageElement>(null);
   // Une erreur survenue avant l'hydratation n'est pas signalée par React : on vérifie au montage.
@@ -25,19 +25,16 @@ export function ImageStory({ media, active, near, reducedMotion, fallback }: Pro
     return (
       <div className="absolute inset-0" data-media="image" data-state="error">
         {fallback}
-        <p role="status" className="absolute inset-x-4 top-14 z-10 flex items-center gap-2 rounded-2xl bg-night/85 p-3 text-sm text-ivory ring-1 ring-amber/40">
+        <p role="status" className="absolute inset-x-4 top-14 z-10 flex items-center gap-2 rounded-md bg-night p-3 text-sm text-ivory ring-1 ring-amber/40">
           <Icon name="alert" className="size-5 shrink-0 text-amber" />
           Illustration indisponible pour le moment.
         </p>
       </div>
     );
   }
-  const zoom = active && !reducedMotion;
   return (
     <div className="absolute inset-0 overflow-hidden bg-night" data-media="image">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={media.src} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full scale-110 object-cover opacity-40 blur-2xl" />
-      <div className="absolute inset-x-6 top-14 bottom-6 flex items-center justify-center wide:top-24 wide:bottom-16">
+      <div className="absolute inset-x-6 top-10 bottom-4 flex items-center justify-center wide:top-16 wide:bottom-12">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={media.src}
@@ -48,7 +45,7 @@ export function ImageStory({ media, active, near, reducedMotion, fallback }: Pro
           decoding="async"
           ref={img}
           onError={() => setFailed(true)}
-          className={`h-auto max-h-full w-auto max-w-full rounded-3xl shadow-2xl ring-1 ring-ivory/10 transition-transform duration-[9000ms] ease-out ${zoom ? "scale-[1.04]" : "scale-100"}`}
+          className="h-auto max-h-full w-auto max-w-full"
         />
       </div>
     </div>

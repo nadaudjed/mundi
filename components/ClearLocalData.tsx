@@ -18,18 +18,18 @@ export function ClearLocalData() {
 
   if (!confirming) {
     return (
-      <button type="button" onClick={() => setConfirming(true)} className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
+      <button type="button" onClick={() => setConfirming(true)} className="btn btn-secondary">
         Effacer mes données MUNDI sur cet appareil
       </button>
     );
   }
   return (
     <div className="flex flex-wrap items-center gap-3" role="group" aria-label="Confirmer l'effacement">
-      <p className="text-sm text-night">Vos enregistrements, sujets et révisions seront effacés de cet appareil.</p>
-      <button type="button" onClick={clear} className="rounded-full bg-night px-5 py-2.5 text-sm font-medium text-ivory hover:bg-blue">
+      <p className="text-sm text-ink">Vos enregistrements, sujets et révisions seront effacés de cet appareil.</p>
+      <button type="button" onClick={clear} className="btn btn-primary">
         Oui, tout effacer
       </button>
-      <button type="button" onClick={() => setConfirming(false)} className="rounded-full px-3 py-2.5 text-sm font-medium text-night underline underline-offset-4">
+      <button type="button" onClick={() => setConfirming(false)} className="px-3 py-2.5 text-sm font-medium text-ink underline underline-offset-4">
         Annuler
       </button>
     </div>

@@ -28,8 +28,7 @@ export function DraftPreview({ data }: { data: PreviewData }) {
       data-testid="draft-preview"
       className="relative mx-auto flex h-[38rem] w-full max-w-[24rem] flex-col overflow-hidden rounded-[2rem] bg-night text-ivory shadow-2xl ring-1 ring-night/20"
     >
-      <EditorialBackdrop visual="sobre" color={topic.color} pattern={topic.pattern} seed={data.title || "brouillon"} />
-      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+      <EditorialBackdrop word={topic.name} />
       <p
         className="absolute inset-x-4 top-4 z-10 rounded-2xl border-2 border-dashed border-amber bg-night/85 px-3 py-2 text-center text-xs font-bold uppercase tracking-wider text-[#ffd98f]"
         data-testid="draft-badge"

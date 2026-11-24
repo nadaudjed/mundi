@@ -2,42 +2,37 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { DemoBadge } from "./DemoBadge";
 import { InstallChip } from "./InstallButton";
 import { Icon } from "./Icon";
 import { Logo } from "./Logo";
 import { isActive, navItems } from "./navItems";
 
 /**
- * En-tête affiché sur tablette et ordinateur. Sur tablette (768 à 1023 px),
- * il ne garde que le logo et les onglets pour que tout tienne sur une ligne.
+ * Barre de rubriques classique, affichée en haut de toutes les pages sur
+ * tablette et ordinateur (Fil compris). L'onglet actif est souligné.
+ * Sur téléphone, la navigation est la barre d'onglets du bas.
  */
 export function SiteHeader() {
   const pathname = usePathname();
   return (
-    <header data-site-header className="sticky top-0 z-40 hidden h-16 border-b border-night/10 bg-ivory md:block">
-      <div className="mx-auto flex h-full max-w-6xl items-center gap-4 px-5 lg:gap-6 lg:px-6">
-        <Logo />
-        <span className="hidden lg:inline-flex">
-          <DemoBadge />
+    <header data-site-header className="sticky top-0 z-40 hidden h-[var(--header-h)] border-b border-rule bg-page text-ink md:block">
+      <div className="mx-auto flex h-full max-w-6xl items-stretch gap-6 px-5 lg:px-8">
+        <span className="flex items-center">
+          <Logo />
         </span>
-        <span className="hidden lg:inline-flex">
-          <InstallChip tone="dark" />
-        </span>
-        <nav aria-label="Navigation principale" className="ml-auto min-w-0">
-          <ul className="flex items-center gap-0.5 rounded-full bg-night/[0.04] p-1 ring-1 ring-night/8">
+        <nav aria-label="Navigation principale" className="flex min-w-0 items-stretch">
+          <ul className="flex items-stretch gap-1 lg:gap-3">
             {navItems.map((item) => {
               const active = isActive(pathname, item.href);
               return (
-                <li key={item.href}>
+                <li key={item.href} className="flex">
                   <Link
                     href={item.href}
                     aria-current={active ? "page" : undefined}
-                    className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors lg:px-4 ${
-                      active ? "bg-night text-ivory shadow-sm" : "text-night/75 hover:bg-night/5 hover:text-night"
+                    className={`flex items-center border-b-2 px-2 pt-0.5 text-sm font-medium whitespace-nowrap transition-colors ${
+                      active ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink"
                     }`}
                   >
-                    <Icon name={active && item.icon === "bookmark" ? "bookmark-filled" : item.icon} className="size-4 shrink-0" />
                     {item.label}
                   </Link>
                 </li>
@@ -45,6 +40,14 @@ export function SiteHeader() {
             })}
           </ul>
         </nav>
+        <div className="ml-auto flex items-center gap-3">
+          <span className="hidden lg:inline-flex">
+            <InstallChip tone="dark" />
+          </span>
+          <Link href="/explorer/" aria-label="Rechercher (raccourci : / ou Ctrl+K)" className="flex size-9 items-center justify-center rounded-sm text-ink hover:text-accent">
+            <Icon name="search" className="size-5" />
+          </Link>
+        </div>
       </div>
     </header>
   );

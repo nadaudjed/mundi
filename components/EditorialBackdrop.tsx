@@ -1,27 +1,12 @@
-import { StoryVisual } from "./StoryVisual";
+import { TypeCover } from "./TypeCover";
 
-/** Variantes visuelles sans photo : aucune image dont les droits seraient incertains. */
+/** Ancien choix de visuel sans photo, conservé pour compatibilité (atelier). */
 export type CardVisual = "motif" | "sobre";
 
 /**
- * Fond éditorial original, sans média externe.
- * - « motif » : motif génératif du sujet, qui dérive lentement (seulement si
- *   l'appareil n'a pas demandé de réduire les animations) ;
- * - « sobre » : simple halo de couleur, totalement statique.
- * Purement décoratif : tout le sens est porté par le texte de la carte.
+ * Couverture sans photo : un mot-clé typographié sur fond uni (plus de motif
+ * génératif). Purement décorative : tout le sens est porté par le texte.
  */
-export function EditorialBackdrop({ visual, color, pattern, seed }: { visual: CardVisual; color: string; pattern: Parameters<typeof StoryVisual>[0]["pattern"]; seed: string }) {
-  if (visual === "sobre") {
-    return (
-      <div className="absolute inset-0" aria-hidden="true" data-visual="sobre">
-        <div className="absolute inset-0" style={{ background: `radial-gradient(120% 70% at 20% 10%, ${color}55, transparent 60%)` }} />
-      </div>
-    );
-  }
-  return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden="true" data-visual="motif">
-      <StoryVisual pattern={pattern} color={color} seed={seed} className="h-full w-full scale-110 opacity-70 motion-safe:animate-drift" />
-    </div>
-  );
+export function EditorialBackdrop({ word }: { word: string; visual?: CardVisual; color?: string; pattern?: unknown; seed?: string }) {
+  return <TypeCover word={word} className="absolute inset-0" />;
 }
-

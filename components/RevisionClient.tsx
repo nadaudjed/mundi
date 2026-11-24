@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRevision } from "@/lib/revision";
+import { verificationLabel } from "@/lib/verification";
 import { stories } from "@/lib/stories";
 import { getTopic } from "@/lib/topics";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
@@ -52,106 +53,94 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   }
 
   return (
-    <div className="mt-8">
-      <div role="group" aria-label="Choisir les contenus à réviser"
-        className="grid max-w-full grid-cols-2 gap-1 rounded-2xl sm:inline-grid border border-night/10 bg-paper p-1 shadow-sm">
+    <div className="mt-6">
+      <div role="group" aria-label="Choisir les contenus à réviser" className="flex gap-6 border-b border-rule">
         <button type="button" aria-pressed={kind === "publications"} onClick={() => changeKind("publications")}
-          className={"whitespace-nowrap rounded-xl px-2 py-2.5 text-sm font-semibold transition max-[359px]:text-[0.8rem] sm:px-4 " +
-            (kind === "publications" ? "bg-night text-ivory shadow-sm" : "text-night/75 hover:bg-night/5")}>
-          Publications ({publicCards.length})
+          className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
+            (kind === "publications" ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink")}>
+          Publications <span className="font-mono">({publicCards.length})</span>
         </button>
         <button type="button" aria-pressed={kind === "demos"} onClick={() => changeKind("demos")}
-          className={"whitespace-nowrap rounded-xl px-2 py-2.5 text-sm font-semibold transition max-[359px]:text-[0.8rem] sm:px-4 " +
-            (kind === "demos" ? "bg-night text-ivory shadow-sm" : "text-night/75 hover:bg-night/5")}>
-          Démonstrations ({demoCards.length})
+          className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
+            (kind === "demos" ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink")}>
+          Démonstrations <span className="font-mono">({demoCards.length})</span>
         </button>
       </div>
-      <p className="mt-3 text-sm text-muted">
+      <p className="mt-4 text-sm text-muted">
         {kind === "publications"
           ? "Révisez trois idées essentielles des articles sourcés de MUNDI. Le niveau de vérification est rappelé pour chaque carte."
           : "Entraînement sur des récits pédagogiques fictifs, sans actualités ni données attestées."}
       </p>
-      <div className="mt-6 grid grid-cols-3 gap-3">
-        <Stat label="À réviser" value={due.length} />
-        <Stat label="Déjà étudiés" value={learned} />
-        <Stat label="Bien retenus" value={mastered} />
-      </div>
-      <section className="relative mt-8 overflow-hidden rounded-[2rem] bg-night p-6 text-ivory shadow-[0_18px_55px_-25px_rgba(16,29,48,0.6)] md:p-9" aria-label="Carte de révision">
-        {story && <div className="pointer-events-none absolute -right-20 -top-32 size-80 rounded-full opacity-20 blur-3xl"
-          style={{ backgroundColor: getTopic(story.topic)?.color }} aria-hidden="true" />}
-        <div className="relative">
-          {story ? (
-            <>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-mint-soft">
-                Carte mémoire · {getTopic(story.topic)?.name} · {story.isDemo ? "Démonstration" : "Publication sourcée"}
-              </p>
-              <h2 className="mt-4 max-w-2xl font-display text-3xl font-semibold leading-tight text-balance md:text-4xl">{story.title}</h2>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-ivory/75">
-                Essayez de rappeler à voix haute les trois idées essentielles avant de révéler la réponse.
-              </p>
-              {revealed ? (
-                <div className="mt-7">
-                  <h3 className="text-sm font-semibold text-mint-soft">Les trois idées à retenir</h3>
-                  <ol className="mt-4 space-y-4">
-                    {story.keyPoints.map((point, i) => (
-                      <li key={i} className="flex gap-3 text-base leading-relaxed">
-                        <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-mint/15 text-sm font-semibold text-mint">{i + 1}</span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ol>
-                  <p className="mt-6 text-xs text-ivory/60">Auto-évaluation : indiquez si vous avez retrouvé les idées principales.</p>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <button type="button" onClick={() => grade(false)} className="rounded-full border border-ivory/40 px-5 py-3 text-sm font-semibold hover:bg-ivory/10">À revoir</button>
-                    <button type="button" onClick={() => grade(true)} className="rounded-full bg-mint px-5 py-3 text-sm font-semibold text-night hover:bg-mint-soft">J&apos;ai retenu</button>
-                  </div>
+      <p className="mt-2 text-base text-ink" data-testid="revision-progress">
+        <span className="font-mono">{due.length}</span> carte{due.length > 1 ? "s" : ""} à réviser,{" "}
+        <span className="font-mono">{learned}</span> déjà étudiée{learned > 1 ? "s" : ""},{" "}
+        <span className="font-mono">{mastered}</span> bien retenue{mastered > 1 ? "s" : ""}.
+      </p>
+      <section className="mt-8 rounded-md border border-rule-strong bg-surface p-6 md:p-9" aria-label="Carte de révision">
+        {story ? (
+          <>
+            <p className="text-meta text-muted">
+              <span className="font-semibold text-accent">{getTopic(story.topic)?.name}</span> · Carte mémoire · {story.isDemo ? "Démonstration" : "Publication sourcée"}
+            </p>
+            <h2 className="mt-3 max-w-2xl font-display text-titre font-semibold text-ink text-balance">{story.title}</h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">
+              Essayez de rappeler à voix haute les trois idées essentielles avant de révéler la réponse.
+            </p>
+            {revealed ? (
+              <div className="mt-7">
+                <h3 className="text-sm font-semibold text-ink">Les trois idées à retenir</h3>
+                <ol className="mt-3 border-t border-rule">
+                  {story.keyPoints.map((point, i) => (
+                    <li key={i} className="flex gap-4 border-b border-rule py-3 text-base leading-relaxed text-ink">
+                      <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p className="mt-6 text-meta text-muted">Auto-évaluation : indiquez si vous avez retrouvé les idées principales.</p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <button type="button" onClick={() => grade(false)} className="btn btn-secondary">À revoir</button>
+                  <button type="button" onClick={() => grade(true)} className="btn btn-primary">J&apos;ai retenu</button>
                 </div>
-              ) : (
-                <button type="button" onClick={() => setRevealed(true)} className="mt-8 rounded-full bg-mint px-6 py-3 text-sm font-semibold text-night hover:bg-mint-soft">
-                  Révéler les 3 idées
-                </button>
-              )}
-              <p className="mt-6 text-xs text-ivory/65">
-                {story.isDemo ? "Exemple fictif · " : story.aiVerified ? "Contrôle IA, sans relecture humaine · " : "Validation humaine · "}
-                <Link href={story.href} className="underline underline-offset-4 hover:text-white">
-                  {story.isDemo ? "Relire le récit de démonstration" : "Relire l'article et ses sources"}
-                </Link>
-              </p>
-            </>
-          ) : (
-            <div className="py-8 text-center">
-              <h2 className="font-display text-3xl font-semibold">Toutes vos révisions sont à jour !</h2>
-              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ivory/75">Revenez plus tard pour retrouver vos cartes. Les intervalles s&apos;allongent quand vous retenez les idées.</p>
-              <Link href="/" className="mt-6 inline-block rounded-full bg-mint px-6 py-3 text-sm font-semibold text-night">Retour au fil</Link>
-            </div>
-          )}
-        </div>
+              </div>
+            ) : (
+              <button type="button" onClick={() => setRevealed(true)} className="btn btn-primary mt-7">
+                Révéler les 3 idées
+              </button>
+            )}
+            <p className="mt-6 text-meta text-muted">
+              {story.isDemo ? "Exemple fictif · " : verificationLabel(story) + " · "}
+              <Link href={story.href} className="underline underline-offset-4 hover:text-ink">
+                {story.isDemo ? "Relire le récit de démonstration" : "Relire l'article et ses sources"}
+              </Link>
+            </p>
+          </>
+        ) : (
+          <div className="py-4">
+            <h2 className="font-display text-2xl font-semibold text-ink">Toutes vos révisions sont à jour</h2>
+            <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">Revenez plus tard pour retrouver vos cartes. Les intervalles s&apos;allongent quand vous retenez les idées.</p>
+            <Link href="/" className="btn btn-secondary mt-5">Retour au fil</Link>
+          </div>
+        )}
       </section>
       {due.length > 1 && (
-        <section className="mt-8">
-          <h2 className="font-display text-xl font-semibold text-night">Autres cartes disponibles</h2>
-          <div className="mt-3 flex flex-wrap gap-2">
+        <section className="mt-10">
+          <h2 className="border-b border-ink pb-2 font-display text-xl font-semibold text-ink">Autres cartes disponibles</h2>
+          <ul>
             {due.filter((card) => card.key !== story?.key).map((card) => (
-              <button key={card.key} type="button" onClick={() => { setSelected(card.key); setRevealed(false); }}
-                className="rounded-full border border-night/15 bg-paper px-4 py-2 text-left text-sm text-night hover:border-blue-ink hover:bg-blue/5">{card.title}</button>
+              <li key={card.key} className="border-b border-rule">
+                <button type="button" onClick={() => { setSelected(card.key); setRevealed(false); }}
+                  className="w-full py-3 text-left font-display text-base leading-snug text-ink hover:text-accent">{card.title}</button>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
       )}
-      <div className="mt-10 rounded-2xl border border-night/10 p-5 text-sm text-muted">
+      <div className="mt-10 border-t border-rule pt-4 text-sm text-muted">
         <p>La progression est conservée uniquement dans ce navigateur, pour les publications comme pour les démonstrations. Ce n&apos;est pas un test certifié.</p>
         {learned > 0 && <button type="button" onClick={() => { reset(); setSelected(null); setRevealed(false); }}
-          className="mt-3 font-semibold text-blue-ink underline underline-offset-4">Remettre toute ma progression à zéro</button>}
+          className="mt-3 font-semibold text-accent underline underline-offset-4">Remettre toute ma progression à zéro</button>}
       </div>
-    </div>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: number }) {
-  return (
-    <div className="rounded-2xl bg-paper p-4 ring-1 ring-night/10">
-      <p className="font-display text-3xl font-semibold text-night">{value}</p>
-      <p className="mt-1 text-xs text-muted">{label}</p>
     </div>
   );
 }

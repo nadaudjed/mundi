@@ -3,6 +3,7 @@ import { frenchSpacing } from "@/lib/typo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/format";
+import { verificationLabel } from "@/lib/verification";
 import { getVerifiedPublication as getPublication, verifiedPublications as publishedArticles } from "@/lib/verified";
 import { getTopic } from "@/lib/topics";
 import { ListenButton } from "@/components/ListenButton";
@@ -10,6 +11,12 @@ import {EditorialPhotoCredit} from "@/components/EditorialPhotoLayer";
 import { SaveButton, ShareButton } from "@/components/StoryActions";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
 import { SHARE_IMAGE, shareDefaults } from "@/lib/site";
+import { Chart } from "@/components/Chart";
+import { KeyFigure } from "@/components/KeyFigure";
+import { MemoryCard } from "@/components/MemoryCard";
+import { ReadingProgress } from "@/components/ReadingProgress";
+import { keyFigureOf } from "@/lib/covers";
+import type { ComparisonCard } from "@/lib/data-cards";
 
 type Params = { slug: string };
 export function generateStaticParams(): Params[] {
@@ -36,27 +43,51 @@ export default async function PublicationPage({ params }: { params: Promise<Para
   const { slug } = await params;
   const a = getPublication(slug);
   if (!a) notFound();
+  const topic = getTopic(a.topic);
+  const figure = keyFigureOf(a);
+  // Graphique : seulement une comparaison approuvée sur une échelle commune (même unité, même dénominateur).
+  const comparison = a.dataCards?.find((c): c is ComparisonCard => c.kind === "comparaison" && c.presentation === "echelle-commune");
   return (
-    <article className="mx-auto max-w-3xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-14 md:pb-20">
-      <Link href="/actualites/" className="text-sm font-semibold text-blue underline underline-offset-4">Toutes les publications</Link>
-      <p className="mt-10 text-xs font-semibold uppercase tracking-wider text-blue">{getTopic(a.topic)?.name} · {a.aiVerified ? "Vérifiée par l’IA, sans relecture humaine" : "Publication relue"}</p>
-      <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-night text-balance md:text-5xl">{frenchSpacing(a.title)}</h1>
-      <p className="mt-5 text-lg leading-relaxed text-muted">{a.summary}</p>
+    <article className="mx-auto max-w-6xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-12 md:pb-20">
+      <ReadingProgress />
+      <Link href="/actualites/" className="text-sm font-medium text-muted hover:text-ink">← Toutes les publications</Link>
+      {/* Couverture asymétrique : un grand bloc pour le titre, une colonne étroite pour le chiffre clé. */}
+      <header className={`mt-10 grid gap-8 ${figure ? "lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0" : ""}`}>
+        <div className={figure ? "lg:pr-10" : "max-w-4xl"}>
+          <p className="text-meta font-semibold text-accent">{topic?.name}</p>
+          <h1 className="mt-2 font-display text-une font-semibold text-ink text-balance">{frenchSpacing(a.title)}</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted">{a.summary}</p>
+        </div>
+        {figure && (
+          <div className="lg:border-l lg:border-rule lg:pl-10" data-testid="cover-key-figure">
+            <p className="mb-2 text-meta text-muted">Le chiffre</p>
+            <KeyFigure figure={figure} size="md" />
+          </div>
+        )}
+      </header>
+      <div className="mx-auto max-w-3xl lg:mx-0">
+      {/* Une seule ligne grise : contrôle, dates, sources, crédit photo. */}
+      <p className="mt-6 border-y border-rule py-3 text-meta text-muted" data-testid="publication-meta">
+        {a.fixture && <strong className="mr-2 text-demo">Exemple de test, jamais publié.</strong>}
+        <span className="font-semibold text-ink" data-testid="verification-label">{verificationLabel(a)}</span>
+        {!a.aiVerified && <> ({a.reviewedBy})</>} · publié le <time dateTime={a.publishedAt} className="font-mono">{formatDate(a.publishedAt)}</time> · actualisé le{" "}
+        <time dateTime={a.updatedAt} className="font-mono">{formatDate(a.updatedAt)}</time> ·{" "}
+        <a href="#sources" className="underline underline-offset-2 hover:text-ink"><span className="font-mono">{a.sources.length}</span> sources</a>
+      </p>
       {a.photo && (
-        <figure className="mt-8 overflow-hidden rounded-2xl bg-night ring-1 ring-night/10" data-testid="publication-photo">
+        <figure className="mt-6" data-testid="publication-photo">
           {/* Photo locale de Commons, sélectionnée thématiquement : jamais une preuve de l'événement. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={a.photo.src} alt={a.photo.alt} className="aspect-[16/9] w-full object-cover" loading="lazy" />
-          <figcaption className="px-4 py-3 text-xs leading-relaxed text-ivory/80">
+          <img src={a.photo.src} alt={a.photo.alt} className="photo aspect-[3/2] w-full bg-night object-cover" loading="lazy" />
+          <figcaption className="mt-2 text-meta leading-relaxed text-muted">
             <EditorialPhotoCredit photo={a.photo} />
           </figcaption>
         </figure>
       )}
-      <p className="mt-6 border-y border-night/10 py-4 text-sm text-muted" data-testid="publication-meta">{a.fixture && <strong className="mr-2 text-[#7a5410]">Exemple de test, jamais publié.</strong>}Publié le <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time> · Actualisé le <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time> · Validation : {a.aiVerified ? <strong className="font-semibold text-night" data-testid="ai-verified">vérification automatique par l&apos;IA MUNDI, sans relecture humaine</strong> : a.reviewedBy}</p>
       {a.corrections && a.corrections.length > 0 && (
-        <aside className="mt-6 rounded-2xl bg-[#fff6e5] p-5 text-sm text-night ring-1 ring-[#e0b45a]" data-testid="corrections" aria-label="Corrections">
+        <aside className="mt-6 border-l-2 border-amber py-1 pl-4 text-sm text-ink" data-testid="corrections" aria-label="Corrections">
           <p className="font-semibold">Correction{a.corrections.length > 1 ? "s" : ""} apportée{a.corrections.length > 1 ? "s" : ""} à cet article</p>
-          <ul className="mt-2 space-y-1">{a.corrections.map((c, i) => <li key={i}><time dateTime={c.date}>{formatDate(c.date)}</time> : {c.text}</li>)}</ul>
+          <ul className="mt-2 space-y-1">{a.corrections.map((c, i) => <li key={i}><time dateTime={c.date} className="font-mono">{formatDate(c.date)}</time> : {c.text}</li>)}</ul>
         </aside>
       )}
       <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -64,24 +95,41 @@ export default async function PublicationPage({ params }: { params: Promise<Para
         <ShareButton slug={a.slug} path={publicationPath(a.slug)} title={a.title} />
         <ListenButton title={a.title} summary={a.summary} points={a.keyPoints} tone="light" />
       </div>
-      <section className="mt-10">
-        <h2 className="font-display text-2xl font-semibold text-night">Trois idées à retenir</h2>
-        <ol className="mt-5 space-y-3">{a.keyPoints.map((point,i) => <li key={i} className="rounded-2xl bg-paper p-5 ring-1 ring-night/10"><strong className="mr-3 text-blue">{i+1}.</strong>{point}</li>)}</ol>
-      </section>
-      {a.sections.map((s,i) => (
+      {a.sections.map((s, i) => (
         <section key={i} className="mt-12">
-          <p className="text-xs font-semibold uppercase tracking-wider text-blue">{labels[s.kind]}</p>
-          <h2 className="mt-2 font-display text-2xl font-semibold text-night">{s.heading}</h2>
-          <p className="mt-4 whitespace-pre-line text-base leading-[1.85] text-night/90">{s.text}</p>
+          <p className="text-meta font-semibold text-muted">{labels[s.kind]}</p>
+          <h2 className="mt-1 font-display text-intertitre font-semibold text-ink">{s.heading}</h2>
+          <p className="mt-4 whitespace-pre-line text-[1.06rem] leading-[1.8] text-ink/90">{s.text}</p>
+          {comparison && i === a.sections.findIndex((x) => x.kind === "fait") && (
+            <div className="mt-8">
+              <Chart
+                title={comparison.headline}
+                unit={comparison.items[0].unit}
+                period={[...new Set(comparison.items.map((x) => x.period))].join(", ")}
+                source={comparison.source}
+                points={comparison.items.map((m) => ({ label: new Set(comparison.items.map((x) => x.period)).size > 1 ? `${m.label} (${m.period})` : m.label, value: m.value }))}
+                decimals={comparison.items[0].decimals}
+                note={comparison.note}
+              />
+            </div>
+          )}
         </section>
       ))}
-      <section className="mt-14 border-t border-night/15 pt-8">
-        <h2 className="font-display text-2xl font-semibold text-night">Sources</h2>
-        <ol className="mt-5 space-y-3">{a.sources.map((s,i) => <li key={s.url} className="rounded-xl bg-paper p-4 ring-1 ring-night/10">
-          <span className="mr-2 font-semibold text-blue">{i+1}.</span>
-          <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-blue underline underline-offset-4">{s.label}</a>
-        </li>)}</ol>
+      <MemoryCard points={a.keyPoints} />
+      <section id="sources" className="mt-14 scroll-mt-20" aria-labelledby="sources-titre">
+        <h2 id="sources-titre" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">Sources</h2>
+        <ol>{a.sources.map((s, i) => (
+          <li key={s.url} className="flex gap-4 border-b border-rule py-3 text-sm" data-testid="source-item">
+            <span className="font-mono text-accent">{String(i + 1).padStart(2, "0")}</span>
+            <a href={s.url} target="_blank" rel="noopener noreferrer" className="group/source min-w-0">
+              <span className="block font-medium text-ink underline decoration-rule-strong underline-offset-4 group-hover/source:decoration-accent">{s.label}</span>
+              <span className="mt-0.5 block font-mono text-[0.78rem] break-all text-muted">{s.url}</span>
+              <span className="sr-only"> (nouvel onglet)</span>
+            </a>
+          </li>
+        ))}</ol>
       </section>
+      </div>
     </article>
   );
 }

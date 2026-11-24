@@ -1,21 +1,25 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { searchPublications, searchStories } from "@/lib/search";
 import { feedStories } from "@/lib/stories";
 import { getTopic, topics } from "@/lib/topics";
 import type { TopicSlug } from "@/lib/types";
 import type { FeedPublication } from "@/lib/verified";
 import { Icon } from "./Icon";
+import { consumeSearchFocus } from "./SearchShortcut";
 import { PublicationTile } from "./PublicationTile";
 import { StoryTile } from "./StoryTile";
+
+const plural = (n: number, one: string, many = one + "s") => (n > 1 ? many : one);
 
 export function ExploreClient({ publications }: { publications: FeedPublication[] }) {
   const params = useSearchParams();
   const router = useRouter();
   const [query, setQuery] = useState(params.get("q") ?? "");
   const [topic, setTopic] = useState<TopicSlug | null>(getTopic(params.get("sujet") ?? "")?.slug ?? null);
+  const input = useRef<HTMLInputElement>(null);
 
   // Preserve shareable search URLs, without navigating on every keystroke.
   useEffect(() => {
@@ -47,102 +51,129 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
     return all;
   }, [publications]);
 
+  /** Domaines avec au moins une publication sourcée d'abord ; les autres sur une ligne secondaire. */
+  const withPublications = topics.filter((t) => counts.get(t.slug)!.published > 0);
+  const withoutPublications = topics.filter((t) => counts.get(t.slug)!.published === 0);
+  const searching = query.trim().length > 0;
   const selectedTopic = topic ? getTopic(topic) : null;
   const total = publishedResults.length + demoResults.length;
+  const [lead, ...others] = publishedResults;
+  useEffect(() => {
+    if (consumeSearchFocus()) input.current?.focus();
+  }, []);
   function clearFilters() { setQuery(""); setTopic(null); }
 
   return (
     <div className="mt-8">
       <form role="search" onSubmit={(e) => e.preventDefault()} className="relative">
         <label htmlFor="search" className="sr-only">Rechercher une publication ou un récit</label>
-        <Icon name="search" className="pointer-events-none absolute left-5 top-1/2 size-5 -translate-y-1/2 text-muted" />
-        <input id="search" type="search" value={query} onChange={(e) => setQuery(e.target.value)}
-          placeholder="Matières critiques, inflation, énergie…" autoComplete="off"
-          className="h-14 w-full rounded-full border border-night/15 bg-paper pl-13 pr-12 text-base text-night shadow-sm placeholder:text-muted/70 focus:border-blue focus:outline-none focus:ring-4 focus:ring-blue/15" />
+        <Icon name="search" className="pointer-events-none absolute left-0 top-1/2 size-5 -translate-y-1/2 text-muted" />
+        <input id="search" ref={input} type="search" value={query} onChange={(e) => setQuery(e.target.value)}
+          placeholder="Matières critiques, inflation, énergie…" autoComplete="off" aria-keyshortcuts="/ Control+K Meta+K"
+          className="h-14 w-full border-0 border-b-2 border-ink bg-transparent pl-8 pr-12 font-display text-xl text-ink placeholder:text-muted focus:border-accent focus:outline-none" />
         {query && (
           <button type="button" onClick={() => setQuery("")} aria-label="Effacer la recherche"
-            className="absolute right-3 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full text-muted hover:bg-night/5 hover:text-night">
+            className="absolute right-0 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-sm text-muted hover:text-ink">
             <Icon name="close" className="size-4" />
           </button>
         )}
       </form>
-      <p className="mt-2 px-2 text-xs text-muted" aria-live="polite">
-        {total} résultat{total > 1 ? "s" : ""} · {publishedResults.length} publication{publishedResults.length > 1 ? "s" : ""} sourcée{publishedResults.length > 1 ? "s" : ""} · {demoResults.length} démonstration{demoResults.length > 1 ? "s" : ""}
+      <p className="mt-2 flex flex-wrap justify-between gap-2 text-meta text-muted" aria-live="polite">
+        <span>
+          <span className="font-mono">{total}</span> {searching ? plural(total, "résultat") : plural(total, "contenu")} ·{" "}
+          <span className="font-mono">{publishedResults.length}</span> {plural(publishedResults.length, "publication sourcée", "publications sourcées")} ·{" "}
+          <span className="font-mono">{demoResults.length}</span> {plural(demoResults.length, "démonstration")}
+        </span>
       </p>
 
-      <section aria-labelledby="sujets" className="mt-8">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 id="sujets" className="text-xs font-bold uppercase tracking-[0.2em] text-blue-ink">Explorer par domaine</h2>
-          {(topic || query) && <button type="button" onClick={clearFilters} className="text-sm font-semibold text-blue-ink underline underline-offset-4">Effacer les filtres</button>}
+      <section aria-labelledby="sujets" className="mt-10">
+        <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-ink pb-2">
+          <h2 id="sujets" className="font-display text-intertitre font-semibold text-ink">Rubriques</h2>
+          {(topic || query) && <button type="button" onClick={clearFilters} className="text-sm font-semibold text-accent underline-offset-4 hover:underline">Effacer les filtres</button>}
         </div>
-        <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
-          {topics.map((t) => {
+        <ul className="grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
+          {withPublications.map((t) => {
             const selected = topic === t.slug;
             const n = counts.get(t.slug)!;
             return (
-              <li key={t.slug}>
+              <li key={t.slug} className="border-b border-rule">
                 <button type="button" aria-pressed={selected} onClick={() => setTopic(selected ? null : t.slug)}
-                  className={"group relative flex h-full min-h-[9rem] w-full flex-col overflow-hidden rounded-[1.25rem] border p-3.5 text-left transition duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-4 " +
-                    (selected ? "border-night bg-night text-ivory shadow-lg" : "border-night/10 bg-paper text-night hover:border-night/25")}
-                  style={{ backgroundImage: "radial-gradient(circle at 100% 0%, " + t.color + (selected ? "55" : "22") + ", transparent 70%)" }}>
-                  <span className="mb-3 h-1.5 w-10 rounded-full" style={{ backgroundColor: t.color }} aria-hidden="true" />
-                  <span className="font-display text-[1rem] font-semibold leading-tight sm:text-[1.08rem]">{t.name}</span>
-                  <span className={"mt-1 line-clamp-2 text-xs leading-snug " + (selected ? "text-ivory/75" : "text-muted")}>{t.description}</span>
-                  <span className={"mt-auto pt-3 text-[0.69rem] font-semibold " + (selected ? "text-mint-soft" : "text-blue-ink")}>
-                    {n.published} publication{n.published > 1 ? "s" : ""} · {n.demo} démo{n.demo > 1 ? "s" : ""}
+                  className="group flex w-full items-baseline justify-between gap-4 py-3.5 text-left">
+                  <span className="min-w-0">
+                    <span className={"title-link font-display text-lg font-semibold leading-tight " + (selected ? "text-accent" : "text-ink")}>{t.name}</span>
+                    <span className="mt-0.5 block text-sm leading-snug text-muted">{t.description}</span>
+                  </span>
+                  <span className="shrink-0 text-right font-mono text-meta text-muted">
+                    {n.published} {plural(n.published, "publication")}
+                    {n.demo > 0 && <span className="block">{n.demo} {plural(n.demo, "démo")}</span>}
                   </span>
                 </button>
               </li>
             );
           })}
         </ul>
-      </section>
-
-      <section aria-labelledby="publications" className="mt-12">
-        <div className="flex flex-wrap items-end justify-between gap-2 border-b border-night/10 pb-4">
-          <div>
-            <p className="mb-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#197560]">La rédaction MUNDI</p>
-            <h2 id="publications" className="font-display text-2xl font-semibold text-night sm:text-3xl">
-              {query.trim() ? "Publications correspondant à votre recherche" : selectedTopic ? "À lire en " + selectedTopic.name : "Les publications à découvrir"}
-            </h2>
-          </div>
-          <span className="rounded-full bg-night px-3 py-1.5 text-xs font-bold text-ivory">{publishedResults.length} article{publishedResults.length > 1 ? "s" : ""}</span>
-        </div>
-        {publishedResults.length ? (
-          <div className="mt-5 grid gap-4 md:grid-cols-2">
-            {publishedResults.map((p) => <PublicationTile key={p.slug} publication={p} />)}
-          </div>
-        ) : (
-          <div className="mt-5 rounded-3xl border border-dashed border-night/15 bg-paper p-7 text-sm leading-relaxed text-muted">
-            Pas encore de publication sourcée sur ce sujet. Les démonstrations sont présentées séparément ci-dessous.
-          </div>
+        {withoutPublications.length > 0 && (
+          <p className="mt-4 text-sm leading-relaxed text-muted" data-testid="topics-without-publications">
+            <span className="mr-1">Sans publication pour l&apos;instant :</span>
+            {withoutPublications.map((t, i) => (
+              <span key={t.slug}>
+                <button type="button" aria-pressed={topic === t.slug} onClick={() => setTopic(topic === t.slug ? null : t.slug)}
+                  className={"underline-offset-4 hover:text-ink hover:underline " + (topic === t.slug ? "font-semibold text-accent underline" : "")}>
+                  {t.name}
+                </button>
+                {i < withoutPublications.length - 1 ? ", " : "."}
+              </span>
+            ))}
+          </p>
         )}
       </section>
 
-      <section aria-labelledby="demonstrations" className="mt-12">
-        <div className="flex flex-wrap items-end justify-between gap-3 border-b border-night/10 pb-4">
-          <div>
-            <p className="mb-1 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#79571c]">Espace pédagogique · Contenus fictifs</p>
-            <h2 id="demonstrations" className="font-display text-2xl font-semibold text-night">Récits de démonstration</h2>
+      <section aria-labelledby="publications" className="mt-14">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-2">
+          <h2 id="publications" className="font-display text-intertitre font-semibold text-ink">
+            {searching ? "Publications correspondant à votre recherche" : selectedTopic ? "À lire en " + selectedTopic.name : "Les publications à découvrir"}
+          </h2>
+          <span className="font-mono text-meta text-muted">{publishedResults.length} {plural(publishedResults.length, "article")}</span>
+        </div>
+        {lead ? (
+          <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0">
+            <div className="lg:border-r lg:border-rule lg:pr-8">
+              <PublicationTile publication={lead} featured />
+            </div>
+            {others.length > 0 && (
+              <div className="border-t border-rule lg:border-t-0 lg:pl-8">
+                {others.map((p) => <PublicationTile key={p.slug} publication={p} />)}
+              </div>
+            )}
           </div>
-          <span className="rounded-full border border-amber/40 bg-amber/10 px-3 py-1.5 text-xs font-bold text-[#79571c]">{demoResults.length} exemple{demoResults.length > 1 ? "s" : ""}</span>
+        ) : (
+          <p className="mt-5 text-sm leading-relaxed text-muted">
+            Pas encore de publication sourcée sur ce sujet. Les démonstrations sont présentées séparément ci-dessous.
+          </p>
+        )}
+      </section>
+
+      <section aria-labelledby="demonstrations" className="mt-14">
+        <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-ink pb-2">
+          <h2 id="demonstrations" className="font-display text-intertitre font-semibold text-ink">Récits de démonstration</h2>
+          <span className="font-mono text-meta text-muted">{demoResults.length} {plural(demoResults.length, "exemple")}</span>
         </div>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-          Ces récits permettent de découvrir MUNDI. Leurs données, dates et sources sont illustratives et ne constituent pas des actualités vérifiées.
+          Espace pédagogique · Contenus fictifs. Ces récits permettent de découvrir MUNDI : leurs données, dates et sources sont illustratives et ne constituent pas des actualités.
         </p>
         {demoResults.length ? (
-          <div className="mt-5 grid gap-3 lg:grid-cols-2">
+          <div className="mt-4 grid lg:grid-cols-2 lg:gap-x-8">
             {demoResults.map((s) => <StoryTile key={s.slug} story={s} />)}
           </div>
         ) : (
-          <p className="mt-5 rounded-2xl border border-dashed border-night/15 p-6 text-sm text-muted">Aucun exemple correspondant à ces filtres.</p>
+          <p className="mt-5 text-sm text-muted">Aucun exemple correspondant à ces filtres.</p>
         )}
       </section>
       {total === 0 && (
-        <div role="status" className="mt-8 rounded-3xl bg-night p-6 text-ivory">
-          <p className="font-display text-xl font-semibold">Aucun résultat trouvé</p>
-          <p className="mt-1 text-sm text-ivory/75">Essayez une autre recherche ou un autre sujet.</p>
-          <button type="button" onClick={clearFilters} className="mt-4 rounded-full bg-mint px-5 py-2.5 text-sm font-bold text-night hover:bg-mint-soft">Tout afficher</button>
+        <div role="status" className="mt-10 border-t border-ink pt-4">
+          <p className="font-display text-xl font-semibold text-ink">Aucun résultat trouvé</p>
+          <p className="mt-1 text-sm text-muted">Essayez une autre recherche ou un autre sujet.</p>
+          <button type="button" onClick={clearFilters} className="btn btn-secondary mt-4">Tout afficher</button>
         </div>
       )}
     </div>

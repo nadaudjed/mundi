@@ -6,7 +6,8 @@ test.describe("Fil de découverte", () => {
     const first = page.locator('[data-index="0"]');
     await expect(first).toBeVisible();
     await expect(first).toHaveAttribute("data-testid", "verified-card");
-    await expect(first).toContainText("Vérifié");
+    await expect(first).toContainText(/Contrôle IA, sans relecture humaine|Validation humaine/);
+    await expect(first.getByText("Vérifié", { exact: true })).toHaveCount(0);
     await expect(page.getByTestId("demo-divider")).toHaveCount(1);
     await expect(page.locator("[data-story]")).not.toHaveCount(0);
   });

@@ -10,10 +10,7 @@ export function InstallChip({ tone = "light", compact = false }: { tone?: "light
   const state = useInstallState();
   const toast = useToast();
   if (state === "installed" || state === "unknown") return null;
-  const cls =
-    tone === "light"
-      ? "border-ivory/30 text-ivory hover:border-ivory/70"
-      : "border-night/15 text-night hover:border-night/40";
+  const cls = tone === "light" ? "text-ivory/85 hover:text-ivory" : "text-muted hover:text-ink";
   const content = (
     <>
       <Icon name="download" className="size-3.5" />
@@ -29,14 +26,14 @@ export function InstallChip({ tone = "light", compact = false }: { tone?: "light
           const r = await promptInstall();
           if (r === "accepted") toast("MUNDI est installé sur votre appareil");
         }}
-        className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.72rem] font-semibold ${cls}`}
+        className={`inline-flex items-center gap-1.5 py-1 text-[0.75rem] font-semibold underline-offset-4 hover:underline ${cls}`}
       >
         {content}
       </button>
     );
   }
   return (
-    <Link href="/application/" className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.72rem] font-semibold ${cls}`}>
+    <Link href="/application/" className={`inline-flex items-center gap-1.5 py-1 text-[0.75rem] font-semibold underline-offset-4 hover:underline ${cls}`}>
       {content}
     </Link>
   );
@@ -49,7 +46,7 @@ export function InstallPanel() {
 
   if (state === "installed") {
     return (
-      <p className="mt-8 rounded-3xl bg-mint/12 p-6 font-medium text-[#0f6e5b]" data-testid="install-state">
+      <p className="mt-8 border-y border-rule py-6 font-medium text-ink" data-testid="install-state">
         MUNDI est déjà installé et ouvert comme une application.
       </p>
     );
@@ -64,7 +61,7 @@ export function InstallPanel() {
             const r = await promptInstall();
             toast(r === "accepted" ? "MUNDI est installé sur votre appareil" : "Installation annulée");
           }}
-          className="inline-flex items-center gap-2 rounded-full bg-night px-6 py-3 text-sm font-semibold text-ivory hover:bg-blue"
+          className="btn btn-primary"
         >
           <Icon name="download" className="size-4" />
           Installer MUNDI
@@ -90,12 +87,12 @@ export function InstallPanel() {
 
 function Steps({ title, steps, highlight }: { title: string; steps: string[]; highlight: boolean }) {
   return (
-    <section className={`rounded-3xl p-6 ring-1 ${highlight ? "bg-paper ring-blue/40" : "bg-paper/60 ring-night/8"}`}>
-      <h2 className="font-semibold text-night">
+    <section className={`rounded-3xl p-6 ring-1 ${highlight ? "bg-surface ring-rule-strong" : "bg-surface/60 ring-rule"}`}>
+      <h2 className="font-semibold text-ink">
         {title}
-        {highlight && <span className="ml-2 inline-block whitespace-nowrap rounded-full bg-blue/10 px-2 py-0.5 text-xs font-semibold text-blue-ink">Votre appareil</span>}
+        {highlight && <span className="ml-2 inline-block whitespace-nowrap text-xs font-semibold text-accent">Votre appareil</span>}
       </h2>
-      <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-[0.95rem] text-night/85">
+      <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-[0.95rem] text-ink/85">
         {steps.map((s) => (
           <li key={s}>{s}</li>
         ))}

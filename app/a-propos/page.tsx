@@ -24,40 +24,40 @@ const commitments = [
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-12 md:pb-20">
-      <PageIntro eyebrow="À propos" title="Comprendre le monde n'a jamais été aussi simple.">
+      <PageIntro title="À propos de MUNDI">
         MUNDI est un média numérique indépendant qui rend les événements et les dynamiques du monde compréhensibles, sans
         sacrifier la rigueur.
       </PageIntro>
 
-      <div role="note" className="mt-8 rounded-2xl border border-blue/20 bg-blue/5 px-5 py-4 text-sm leading-relaxed text-night/85">
+      <div role="note" className="mt-8 border-l-2 border-accent py-1 pl-4 text-sm leading-relaxed text-ink/85">
         <strong className="font-semibold">Deux types de contenus coexistent.</strong> Les publications de la rédaction sont sourcées et indiquent leur mode de vérification, humaine ou automatisée par l&apos;IA. Les récits de démonstration sont séparés et utilisent des exemples fictifs, qui ne constituent pas une actualité.
       </div>
 
       <section aria-labelledby="piliers" className="mt-12">
-        <h2 id="piliers" className="text-xs font-semibold uppercase tracking-[0.2em] text-blue">
+        <h2 id="piliers" className="font-display text-2xl font-semibold text-ink">
           Notre méthode
         </h2>
-        <ol className="mt-4 grid gap-3 md:grid-cols-3">
+        <ol className="mt-4 grid border-t border-rule md:grid-cols-3 md:gap-8">
           {pillars.map((p, i) => (
-            <li key={p.title} className="rounded-3xl bg-night p-6 text-ivory">
-              <span className="font-display text-3xl font-semibold text-mint">{i + 1}</span>
+            <li key={p.title} className="border-b border-rule py-5 md:border-b-0">
+              <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
               <p className="mt-2 font-display text-xl font-semibold">{p.title}</p>
-              <p className="mt-1 text-sm leading-relaxed text-ivory/75">{p.text}</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted">{p.text}</p>
             </li>
           ))}
         </ol>
       </section>
 
       <section aria-labelledby="formats" className="mt-12">
-        <h2 id="formats" className="font-display text-2xl font-semibold text-night">
+        <h2 id="formats" className="font-display text-2xl font-semibold text-ink">
           Nos formats
         </h2>
-        <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+        <dl className="mt-4 grid border-t border-rule sm:grid-cols-2 sm:gap-x-8">
           {Object.values(formats).map((f) => (
-            <div key={f.slug} className="rounded-2xl bg-paper p-5 ring-1 ring-night/8">
+            <div key={f.slug} className="border-b border-rule py-4">
               <dt className="flex items-baseline justify-between gap-2">
-                <span className="font-semibold text-night">{f.name}</span>
-                <span className="text-xs font-medium text-blue">{f.duration}</span>
+                <span className="font-semibold text-ink">{f.name}</span>
+                <span className="text-xs font-medium text-accent">{f.duration}</span>
               </dt>
               <dd className="mt-1 text-sm text-muted">{f.description}</dd>
             </div>
@@ -66,24 +66,24 @@ export default function AboutPage() {
       </section>
 
       <section aria-labelledby="engagements" className="mt-12">
-        <h2 id="engagements" className="font-display text-2xl font-semibold text-night">
+        <h2 id="engagements" className="font-display text-2xl font-semibold text-ink">
           Nos engagements éditoriaux
         </h2>
-        <ul className="mt-4 divide-y divide-night/10 border-y border-night/10">
+        <ul className="mt-4 divide-y divide-night/10 border-y border-rule">
           {commitments.map(([title, text]) => (
             <li key={title} className="grid gap-1 py-4 md:grid-cols-[12rem_1fr] md:gap-6">
-              <span className="font-semibold text-night">{title}</span>
+              <span className="font-semibold text-ink">{title}</span>
               <span className="text-[0.95rem] leading-relaxed text-muted">{text}</span>
             </li>
           ))}
         </ul>
       </section>
 
-      <section aria-labelledby="ia" className="mt-12 rounded-3xl bg-ivory-2/70 p-6 md:p-8">
-        <h2 id="ia" className="font-display text-xl font-semibold text-night">
+      <section aria-labelledby="ia" className="mt-12 border-y border-rule py-6">
+        <h2 id="ia" className="font-display text-xl font-semibold text-ink">
           Intelligence artificielle et relecture humaine
         </h2>
-        <p className="mt-2 text-[0.95rem] leading-relaxed text-night/85">
+        <p className="mt-2 text-[0.95rem] leading-relaxed text-ink/85">
           L&apos;IA peut aider à rechercher, résumer et structurer les articles. Certaines publications sont
           vérifiées automatiquement par un autre agent IA et publiées sans relecture humaine ; cette limite est
           clairement indiquée sur l&apos;article. D&apos;autres contenus bénéficient d&apos;une validation humaine.
@@ -93,18 +93,18 @@ export default function AboutPage() {
       </section>
 
       <div className="mt-12 flex flex-wrap gap-3">
-        <Link href="/" className="rounded-full bg-night px-5 py-2.5 text-sm font-medium text-ivory hover:bg-blue">
+        <Link href="/" className="btn btn-primary">
           Découvrir le fil
         </Link>
-        <Link href="/actualites/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">Publications vérifiées</Link>
-        <Link href="/atelier/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">Atelier éditorial</Link>
-        <Link href="/explorer/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
+        <Link href="/actualites/" className="btn btn-secondary">Publications sourcées</Link>
+        <Link href="/atelier/" className="btn btn-secondary">Atelier éditorial</Link>
+        <Link href="/explorer/" className="btn btn-secondary">
           Explorer les sujets
         </Link>
-        <Link href="/application/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
+        <Link href="/application/" className="btn btn-secondary">
           Installer l&apos;application
         </Link>
-        <Link href="/confidentialite/" className="rounded-full border border-night/20 px-5 py-2.5 text-sm font-medium text-night hover:border-night/50">
+        <Link href="/confidentialite/" className="btn btn-secondary">
           Confidentialité
         </Link>
       </div>

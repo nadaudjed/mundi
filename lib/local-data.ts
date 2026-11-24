@@ -7,5 +7,7 @@ export const LOCAL_DATA: { key: string; what: string }[] = [
   { key: "mundi:bookmarks", what: "Les récits et publications que vous avez enregistrés (identifiant, titre, date d'enregistrement)." },
   { key: "mundi:topics:v1", what: "Les sujets choisis dans « Mes sujets », pour personnaliser l'ordre du fil." },
   { key: "mundi:revision:v1", what: "Votre progression dans « Réviser » : niveau atteint et date de la prochaine révision, pour chaque récit." },
-  { key: "mundi:motion-paused", what: "Votre choix de mettre en pause le mouvement des décors." },
+  { key: "mundi:theme", what: "Le thème choisi avec le bouton clair / sombre, s’il diffère du réglage de l’appareil." },
+  { key: "mundi:focus-search", what: "Repère temporaire (sessionStorage) posé par le raccourci / ou Ctrl+K pour placer le curseur dans la recherche ; effacé aussitôt utilisé." },
+  { key: "mundi:motion-paused", what: "Ancien réglage « pause des décors animés », qui n’est plus utilisé : les décors ne bougent plus. Effacé avec le reste." },
 ];

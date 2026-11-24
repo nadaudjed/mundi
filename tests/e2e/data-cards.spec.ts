@@ -119,18 +119,9 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
     await expect(page).toHaveURL(new RegExp(`/actualites/${FIRST}/$`));
   });
 
-  test("animations : jouées seulement sur la carte visible, coupées en mouvement réduit", async ({ browser }) => {
-    const normal = await browser.newContext({ baseURL: FIXTURES });
-    let page = await normal.newPage();
-    await page.goto("/");
-    await scrollFeedTo(page, 2);
-    await expect(page.locator('[data-index="2"]').getByTestId("comparison-bar").first()).toHaveClass(/animate-grow-x/);
-    const name = await page.locator('[data-index="2"]').getByTestId("comparison-bar").first().evaluate((el) => getComputedStyle(el).animationName);
-    expect(name).toBe("grow-x");
-    await normal.close();
-
+  test("barres de comparaison : affichées à leur taille finale, sans animation décorative", async ({ browser }) => {
     const reduced = await browser.newContext({ baseURL: FIXTURES, reducedMotion: "reduce" });
-    page = await reduced.newPage();
+    const page = await reduced.newPage();
     await page.goto("/");
     await scrollFeedTo(page, 2);
     const bar = page.locator('[data-index="2"]').getByTestId("comparison-bar").first();
@@ -146,9 +137,6 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
       await scrollFeedTo(page, i);
       const group = page.locator(`[data-index="${i}"]`).getByRole("group");
       await expect(group).toHaveAccessibleName(/Exemple de test/);
-      // Mesure du contraste une fois les révélations terminées.
-      await expect.poll(() => group.locator(".reveal-word").last().evaluate((el) => getComputedStyle(el).opacity)).toBe("1");
-      await expect.poll(() => group.locator("[data-fade]").evaluate((el) => getComputedStyle(el).opacity)).toBe("1");
       const results = await new AxeBuilder({ page }).include(`[data-index="${i}"]`).analyze();
       expect(results.violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
     }
@@ -188,7 +176,7 @@ test.describe("MUNDI Studio : aperçu des cartes de données", () => {
     await expect(preview.getByRole("link", { name: "Comprendre" })).toHaveCount(0);
     await expect(page.getByTestId("data-cards-studio")).toContainText("4 cartes importées (cartes-test.json)");
     const results = await new AxeBuilder({ page }).include('[data-testid="data-cards-studio"]').analyze();
-    expect(results.violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
+    expect(results.violations.map((v) => `${v.id}: ${v.help} ${v.nodes.map((n) => n.target.join(" ") + " " + n.failureSummary).join(" | ")}`)).toEqual([]);
 
     await page.getByRole("button", { name: "Retirer les cartes" }).click();
     await expect(preview).toHaveCount(0);

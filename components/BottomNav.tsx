@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Icon } from "./Icon";
 import { isActive, navItems } from "./navItems";
 
-/** Barre d'onglets flottante, posée en bas de l'écran (variable --dock-bottom). */
+/** Barre d'onglets du bas, sur téléphone uniquement (masquée à partir de 768 px), posée tout en bas de l'écran. */
 export function BottomNav() {
   const pathname = usePathname();
   return (
@@ -13,9 +13,9 @@ export function BottomNav() {
       aria-label="Navigation principale"
       data-testid="dock"
       data-dock
-      className="fixed bottom-[var(--dock-bottom)] left-[max(0.5rem,env(safe-area-inset-left))] right-[max(0.5rem,env(safe-area-inset-right))] z-40"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-page pb-[env(safe-area-inset-bottom)] text-ink"
     >
-      <ul className="mx-auto grid h-[var(--dock-h)] max-w-[30rem] grid-cols-5 md:max-w-[28rem] gap-0.5 rounded-[1.35rem] bg-night/92 p-1 shadow-[0_10px_30px_-8px_rgba(16,29,48,0.55)] ring-1 ring-white/10 backdrop-blur-xl">
+      <ul className="mx-auto grid h-[var(--dock-h)] max-w-[32rem] grid-cols-5 px-[max(0.25rem,env(safe-area-inset-left))]">
         {navItems.map((item) => {
           const active = isActive(pathname, item.href);
           return (
@@ -23,11 +23,11 @@ export function BottomNav() {
               <Link
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`flex h-full flex-col items-center justify-center gap-0.5 rounded-[1.05rem] px-0.5 text-[0.65rem] leading-none max-[359px]:text-[0.58rem] font-semibold transition-colors ${
-                  active ? "bg-mint/15 text-mint-soft" : "text-ivory/70 hover:bg-white/5 hover:text-ivory"
+                className={`flex h-full flex-col items-center justify-center gap-1 border-t-2 px-0.5 text-[0.68rem] leading-none font-medium max-[359px]:text-[0.6rem] transition-colors ${
+                  active ? "-mt-px border-accent text-ink" : "-mt-px border-transparent text-muted hover:text-ink"
                 }`}
               >
-                <Icon name={active && item.icon === "bookmark" ? "bookmark-filled" : item.icon} className="size-[1.3rem] shrink-0" />
+                <Icon name={active && item.icon === "bookmark" ? "bookmark-filled" : item.icon} className="size-5 shrink-0" />
                 <span className="max-w-full truncate">{item.label}</span>
               </Link>
             </li>

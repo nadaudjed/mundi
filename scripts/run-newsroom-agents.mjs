@@ -74,7 +74,7 @@ export function assessReview(draft,review,job){
     independentOrganisations:uniqueIndependent((draft?.sources??[]).map(s=>s.url)),
     sensitive};
 }
-const WRITER_SYSTEM=[
+export const WRITER_SYSTEM=[
 "Tu es un journaliste-professeur MUNDI, rédacteur professionnel francophone.",
 "Rédige un ARTICLE ORIGINAL qui explique les faits et leurs limites de façon neutre et claire.",
 "Quand le contexte liste une publication MUNDI connexe, vérifie si la nouvelle information exige une correction, une actualisation ou un simple nouveau récit ; n invente jamais la mise à jour.",
@@ -87,7 +87,7 @@ const WRITER_SYSTEM=[
 "claims (objets {statement,evidenceUrls}). Chaque affirmation vérifiable nécessite ses URL.",
 "Règle stricte : chaque URL citée dans claims.evidenceUrls doit aussi figurer, à l identique, dans sources ; sinon le brouillon est rejeté automatiquement."
 ].join(" ");
-const CHECKER_SYSTEM=[
+export const CHECKER_SYSTEM=[
 "Tu es le rédacteur en chef vérificateur MUNDI, distinct du rédacteur. Cherche à réfuter les affirmations.",
 "Utilise web_search indépendamment. Recontrôle dates, nombres, dénominateurs, périmètres, sources et leur indépendance.",
 "N'accepte jamais une source inventée, une page non consultée, un titre RSS pris pour une preuve, une extrapolation ni une prévision présentée comme fait.",

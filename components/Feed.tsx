@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { mixFeed, newFeedSeed } from "@/lib/feed-mix";
 import { personalized, useInterests } from "@/lib/preferences";
 import { getTopic, topics } from "@/lib/topics";
 import type { TopicSlug } from "@/lib/types";
@@ -25,12 +26,30 @@ type Entry =
 type Props = {
   /** Publications vérifiées, fournies au moment de la construction (jamais de brouillon). */
   verified?: FeedPublication[];
+  /** Mélange partiel de l'ordre à chaque visite (désactivé sur le site de test). */
+  mix?: boolean;
 };
 
 /** Position dans le Fil pour le retour arrière (sessionStorage, effacée à la fermeture de l'onglet). */
 const FEED_POSITION_KEY = "mundi:feed-position";
+/** Tirage du mélange pour cet onglet : le même ordre tant que l'onglet reste ouvert. */
+const FEED_SEED_KEY = "mundi:feed-seed";
 
-export function Feed({ verified = [] }: Props) {
+/** Lit (ou crée) le tirage de cet onglet ; 0 si le mélange est désactivé. */
+function readSeed(mix: boolean): number {
+  if (!mix) return 0;
+  try {
+    const saved = Number(sessionStorage.getItem(FEED_SEED_KEY));
+    if (Number.isInteger(saved) && saved > 0) return saved;
+    const seed = newFeedSeed();
+    sessionStorage.setItem(FEED_SEED_KEY, String(seed));
+    return seed;
+  } catch {
+    return newFeedSeed();
+  }
+}
+
+export function Feed({ verified = [], mix = true }: Props) {
   const [filter, setFilter] = useState<TopicSlug | "all">("all");
   const [active, setActive] = useState(0);
   const [topicsOpen, setTopicsOpen] = useState(false);
@@ -41,11 +60,19 @@ export function Feed({ verified = [] }: Props) {
   useEffect(() => root.current?.setAttribute("data-motion", "ready"), []);
   const scroller = useRef<HTMLDivElement>(null);
   const { interests } = useInterests();
+  /** Tirage du mélange, connu seulement dans le navigateur (null avant : ordre éditorial). */
+  const [seed, setSeed] = useState<number | null>(null);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setSeed(readSeed(mix)));
+    return () => cancelAnimationFrame(frame);
+  }, [mix]);
+  const mixed = useMemo(() => (seed ? mixFeed(verified, seed) : verified), [verified, seed]);
 
-  // « Pour vous » : vos sujets d'abord, en gardant des découvertes (voir Mes sujets).
+  // « Pour vous » : ordre un peu mélangé à chaque visite, vos sujets d'abord,
+  // en gardant des découvertes (voir Mes sujets).
   const publications = useMemo(
-    () => (filter === "all" ? personalized(verified, interests) : verified.filter((p) => p.topic === filter)),
-    [filter, verified, interests],
+    () => (filter === "all" ? personalized(mixed, interests) : mixed.filter((p) => p.topic === filter)),
+    [filter, mixed, interests],
   );
   const entries = useMemo<Entry[]>(() => {
     // Chaque publication approuvée peut être suivie de sa séquence de cartes de données.
@@ -85,23 +112,24 @@ export function Feed({ verified = [] }: Props) {
   useEffect(() => {
     const key = pendingKey.current;
     const el = scroller.current;
-    if (!key || !el) return;
+    // Attendre l'ordre mélangé de cet onglet avant de revenir sur l'écran mémorisé.
+    if (!key || !el || seed === null) return;
     const index = entries.findIndex((e) => e.key === key);
     if (index < 0) return;
     pendingKey.current = null;
     el.scrollTo({ top: index * el.clientHeight, behavior: "instant" as ScrollBehavior });
     setActive(index);
     setSeen((prev) => new Set(prev).add(index));
-  }, [entries]);
+  }, [entries, seed]);
   useEffect(() => {
-    if (!restored.current || pendingKey.current) return;
+    if (!restored.current || pendingKey.current || seed === null) return;
     const key = entries[active]?.key;
     try {
       if (key) sessionStorage.setItem(FEED_POSITION_KEY, JSON.stringify({ filter, key }));
     } catch {
       /* rien à faire */
     }
-  }, [active, entries, filter]);
+  }, [active, entries, filter, seed]);
 
   // Repère la carte visible pour l'indicateur de progression.
   useEffect(() => {

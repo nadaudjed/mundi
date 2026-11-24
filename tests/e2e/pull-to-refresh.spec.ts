@@ -15,6 +15,10 @@ async function pullFeed(page: Page, distance: number) {
 }
 
 test.describe("Tirer pour actualiser le Fil", () => {
+  // Le service worker prend la main sur la page dès qu'il est prêt (clients.claim) :
+  // ses requêtes vers /fil.json échappent alors à page.route, et le test ne voit
+  // jamais les « nouveaux articles » simulés (échec intermittent en CI).
+  test.use({ serviceWorkers: "block" });
   test.beforeEach(({ page }) => test.skip(!isMobile(page), "Geste tactile : téléphone"));
 
   test("sans nouvel article : « Vous êtes à jour »", async ({ page }) => {

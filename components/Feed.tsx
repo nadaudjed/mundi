@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { personalized, useInterests } from "@/lib/preferences";
 import { getTopic, topics } from "@/lib/topics";
 import type { TopicSlug } from "@/lib/types";
@@ -121,6 +121,9 @@ export function Feed({ verified = [] }: Props) {
     root.querySelectorAll("[data-index]").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, [entries]);
+
+  // Tirer vers le bas en haut du Fil : vérifier s'il y a de nouveaux articles.
+  const { pull, status: refresh, showFresh } = usePullToRefresh(scroller, verified, topicsOpen);
 
   const goTo = useCallback((index: number) => {
     const root = scroller.current;
@@ -250,6 +253,8 @@ export function Feed({ verified = [] }: Props) {
         <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />
       </div>
 
+      <RefreshIndicator pull={pull} status={refresh} onShow={showFresh} />
+
       {/* Commandes discrètes (tablette et ordinateur), sur le bord droit. */}
       <div className="pointer-events-none absolute inset-y-0 right-3 z-20 hidden flex-col items-center justify-center gap-2 md:flex lg:right-6">
         <button
@@ -335,5 +340,134 @@ function TransitionCard({ index, count, onRestart }: { index: number; count: num
         </div>
       </div>
     </article>
+  );
+}
+
+/** Distance (px, après amortissement) à partir de laquelle relâcher lance la vérification. */
+const PULL_THRESHOLD = 64;
+
+type RefreshStatus =
+  | { state: "idle" }
+  | { state: "checking" }
+  | { state: "uptodate" }
+  | { state: "offline" }
+  | { state: "fresh"; count: number };
+
+/**
+ * « Tirer pour actualiser » : en haut du Fil, tirer vers le bas puis relâcher relit
+ * /fil.json (liste des articles en ligne, sans cache). S'il y a de nouveaux articles,
+ * le Fil se recharge et repart du début. La même vérification a lieu, sans bruit,
+ * quand on revient sur l'onglet : un bouton « N nouveaux articles » apparaît alors.
+ */
+function usePullToRefresh(scroller: RefObject<HTMLDivElement | null>, verified: FeedPublication[], paused: boolean) {
+  const [pull, setPull] = useState(0);
+  const [status, setStatus] = useState<RefreshStatus>({ state: "idle" });
+  const known = useMemo(() => new Set(verified.map((p) => p.slug)), [verified]);
+  const pullRef = useRef(0);
+  const timer = useRef<number | undefined>(undefined);
+
+  const showFresh = useCallback(() => {
+    try {
+      sessionStorage.removeItem(FEED_POSITION_KEY);
+    } catch {
+      /* rien à faire */
+    }
+    window.location.reload();
+  }, []);
+
+  const check = useCallback(
+    async (manual: boolean) => {
+      window.clearTimeout(timer.current);
+      if (manual) setStatus({ state: "checking" });
+      try {
+        const res = await fetch("/fil.json", { cache: "no-store" });
+        const { slugs } = (await res.json()) as { slugs: string[] };
+        const count = slugs.filter((s) => !known.has(s)).length;
+        if (count > 0) {
+          setStatus({ state: "fresh", count });
+          // Geste volontaire : on affiche tout de suite les nouveaux articles.
+          if (manual) timer.current = window.setTimeout(showFresh, 700);
+          return;
+        }
+        if (!manual) return;
+        setStatus({ state: "uptodate" });
+      } catch {
+        if (!manual) return;
+        setStatus({ state: "offline" });
+      }
+      timer.current = window.setTimeout(() => setStatus({ state: "idle" }), 2200);
+    },
+    [known, showFresh],
+  );
+
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el) return;
+    let startY: number | null = null;
+    const set = (v: number) => {
+      pullRef.current = v;
+      setPull(v);
+    };
+    const onStart = (e: TouchEvent) => {
+      startY = !paused && el.scrollTop <= 0 ? e.touches[0].clientY : null;
+    };
+    const onMove = (e: TouchEvent) => {
+      if (startY === null) return;
+      const d = e.touches[0].clientY - startY;
+      if (d <= 0 || el.scrollTop > 0) return set(0);
+      set(Math.min(110, d * 0.5));
+    };
+    const onEnd = () => {
+      if (startY === null) return;
+      startY = null;
+      const reached = pullRef.current >= PULL_THRESHOLD;
+      set(0);
+      if (reached) void check(true);
+    };
+    el.addEventListener("touchstart", onStart, { passive: true });
+    el.addEventListener("touchmove", onMove, { passive: true });
+    el.addEventListener("touchend", onEnd);
+    el.addEventListener("touchcancel", onEnd);
+    const onVisible = () => {
+      if (document.visibilityState === "visible") void check(false);
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      el.removeEventListener("touchstart", onStart);
+      el.removeEventListener("touchmove", onMove);
+      el.removeEventListener("touchend", onEnd);
+      el.removeEventListener("touchcancel", onEnd);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, [scroller, paused, check]);
+
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+  return { pull, status, showFresh, check };
+}
+
+function RefreshIndicator({ pull, status, onShow }: { pull: number; status: RefreshStatus; onShow: () => void }) {
+  const pulling = pull > 0;
+  const label = pulling
+    ? pull >= PULL_THRESHOLD ? "Relâchez pour actualiser" : "Tirez pour voir les derniers articles"
+    : status.state === "checking" ? "Recherche des derniers articles…"
+    : status.state === "uptodate" ? "Vous êtes à jour"
+    : status.state === "offline" ? "Pas de connexion : réessayez plus tard"
+    : null;
+  return (
+    <div className="pointer-events-none absolute inset-x-0 top-12 z-20 flex justify-center px-4" aria-live="polite" data-testid="feed-refresh">
+      {status.state === "fresh" && !pulling ? (
+        <button type="button" onClick={onShow} className="pointer-events-auto mt-3 rounded-full bg-ivory px-4 py-2 text-sm font-semibold text-night shadow-lg" data-testid="feed-refresh-fresh">
+          {status.count > 1 ? `${status.count} nouveaux articles` : "1 nouvel article"} · Afficher
+        </button>
+      ) : label ? (
+        <p
+          className="mt-3 flex items-center gap-2 rounded-full border border-ivory/20 bg-night px-4 py-2 text-[0.8rem] font-semibold text-ivory"
+          style={pulling ? { transform: `translateY(${pull - 24}px)`, opacity: Math.min(1, pull / PULL_THRESHOLD) } : undefined}
+        >
+          <Icon name="chevron-down" className={`size-3.5 transition-transform ${pull >= PULL_THRESHOLD ? "rotate-180" : ""} ${status.state === "checking" ? "animate-spin" : ""}`} />
+          {label}
+        </p>
+      ) : null}
+    </div>
   );
 }

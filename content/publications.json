@@ -102,7 +102,8 @@
         "presentation": "valeurs-distinctes",
         "imageQuery": "BYD electric car"
       }
-    ]
+    ],
+    "imageQuery": "plug-in hybrid car"
   },
   {
     "slug": "ebola-en-afrique-de-l-ouest-comment-une-epidemie-partie-d-un-village-a-frappe",
@@ -190,7 +191,8 @@
         "context": "Plus de 28 600 personnes infectées selon l'OMS ; Britannica juge les chiffres réels plus élevés."
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "Ebola treatment"
   },
   {
     "slug": "charbon-et-acier-comment-la-ceca-a-lance-la-politique-industrielle-europeenne",
@@ -407,7 +409,8 @@
         "layout": "sequence"
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "oil tanker"
   },
   {
     "slug": "ver-morris-1988-la-premiere-cyberattaque-d-internet",
@@ -499,7 +502,8 @@
         "context": "Avec trois ans de mise à l’épreuve et plus de 10 000 dollars d’amende, selon Cornell."
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "VAX computer"
   },
   {
     "slug": "semaine-europeenne-de-la-reduction-des-dechets-ou-en-est-le-recyclage-en-france",
@@ -611,7 +615,8 @@
         "presentation": "valeurs-distinctes"
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "household waste bins"
   },
   {
     "slug": "enron-2001-la-faillite-qui-a-change-les-regles-de-la-comptabilite-des",
@@ -718,7 +723,8 @@
         "layout": "sequence"
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "Enron building"
   },
   {
     "slug": "une-boite-oubliee-en-1928-comment-fleming-a-decouvert-la-penicilline",
@@ -825,7 +831,8 @@
         }
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "penicillin culture"
   },
   {
     "slug": "nuremberg-1945-le-proces-qui-a-fait-des-crimes-contre-l-humanite-un-crime",
@@ -936,7 +943,8 @@
         "context": "161 ont été condamnés et 37 condamnés à mort."
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "Justizpalast Nürnberg"
   },
   {
     "slug": "de-bretton-woods-au-choc-nixon-comment-le-dollar-a-cesse-d-etre-convertible-en",
@@ -1047,7 +1055,8 @@
         "layout": "sequence"
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "Mount Washington Hotel"
   },
   {
     "slug": "lundi-noir-de-1987-le-krach-qui-a-invente-les-coupe-circuits-boursiers",
@@ -1157,7 +1166,8 @@
         "presentation": "echelle-commune",
         "imageQuery": "stock ticker"
       }
-    ]
+    ],
+    "imageQuery": "New York Stock Exchange"
   },
   {
     "slug": "terres-rares-quand-l-omc-a-condamne-les-restrictions-chinoises-a-l-exportation",
@@ -1264,7 +1274,8 @@
         "context": "La demande vise aussi plus de 30 mesures chinoises."
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "rare earth oxides"
   },
   {
     "slug": "koko-1988-le-scandale-des-futs-toxiques-qui-a-donne-naissance-a-la-convention-de",
@@ -1370,7 +1381,8 @@
         }
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "toxic waste barrels"
   },
   {
     "slug": "trou-dans-la-couche-d-ozone-la-decouverte-de-1985-qui-a-mene-a-un-accord-mondial",
@@ -1478,7 +1490,8 @@
         "layout": "sequence",
         "imageQuery": "aerosol spray can"
       }
-    ]
+    ],
+    "imageQuery": "Antarctic ice shelf"
   },
   {
     "slug": "emploi-des-femmes-l-ecart-avec-les-hommes-recule-a-9-7-points-dans-les-regions",
@@ -1690,7 +1703,8 @@
         }
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "bitcoin"
   },
   {
     "slug": "industrie-le-climat-des-affaires-se-replie-a-104-en-novembre-les-stocks-gonflent",
@@ -1811,7 +1825,8 @@
         "presentation": "echelle-commune",
         "imageQuery": "warehouse pallets"
       }
-    ]
+    ],
+    "imageQuery": "factory workers"
   },
   {
     "slug": "terres-rares-la-france-va-creer-des-stocks-strategiques-geres-par-la-caisse-des",
@@ -1914,7 +1929,8 @@
         }
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "rare earth metals"
   },
   {
     "slug": "gaz-les-stocks-francais-tombent-a-73-2-avant-le-prix-repere-record-de-decembre",
@@ -2052,7 +2068,8 @@
         "presentation": "echelle-commune",
         "imageQuery": "gas meter"
       }
-    ]
+    ],
+    "imageQuery": "natural gas pipeline"
   },
   {
     "slug": "grand-cormoran-l-ue-prepare-un-recensement-europeen-pour-2027",
@@ -2285,7 +2302,8 @@
         "presentation": "echelle-commune",
         "imageQuery": "coworking space"
       }
-    ]
+    ],
+    "imageQuery": "small business shop"
   },
   {
     "slug": "soudan-les-drones-ont-cause-pres-de-75-des-morts-civiles-en-2026-selon-l-onu",
@@ -2411,7 +2429,8 @@
         "presentation": "echelle-commune"
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "Khartoum"
   },
   {
     "slug": "meteo-northrop-grumman-fabriquera-trois-sondeurs-pour-les-satellites-neon-de-la",
@@ -2509,7 +2528,8 @@
         "layout": "sequence"
       }
     ],
-    "dataCardsInFeed": false
+    "dataCardsInFeed": false,
+    "imageQuery": "weather satellite"
   },
   {
     "slug": "russie-la-commission-propose-un-22e-paquet-de-sanctions-visant-60-banques-et-le",
@@ -2562,7 +2582,8 @@
         "label": "The Sofia Globe — 22e paquet proposé",
         "url": "https://sofiaglobe.com/2026/11/23/vdl-presents-proposed-22nd-package-of-sanctions-on-russia/"
       }
-    ]
+    ],
+    "imageQuery": "Berlaymont building"
   },
   {
     "slug": "bce-des-titres-emis-sur-blockchain-sous-regime-pilote-acceptes-en-garantie-des",
@@ -2619,7 +2640,8 @@
         "label": "Coin Edition — décision de la BCE du 23 novembre",
         "url": "https://coinedition.com/ecb-broadens-access-to-dlt-based-assets-under-eurosystem-collateral-rules/"
       }
-    ]
+    ],
+    "imageQuery": "European Central Bank Frankfurt"
   },
   {
     "slug": "minerais-critiques-l-usgs-prevoit-20-de-capacite-pour-le-graphite-d-ici-2030",
@@ -2717,7 +2739,8 @@
         "label": "Agence européenne pour l'environnement — déchets textiles par personne",
         "url": "https://www.eea.europa.eu/en/circularity/sectoral-modules/textiles/textile-waste-generation-per-person-in-the-eu-per-year"
       }
-    ]
+    ],
+    "imageQuery": "textile recycling"
   },
   {
     "slug": "la-cop31-s-acheve-sans-accord-final-les-energies-fossiles-au-c-ur-des",
@@ -2765,7 +2788,8 @@
         "label": "IISD, Earth Negotiations Bulletin n°910 (19/11/2026)",
         "url": "https://enb.iisd.org/sites/default/files/2026-11/enb12910e.pdf"
       }
-    ]
+    ],
+    "imageQuery": "climate change conference"
   },
   {
     "slug": "routes-centrales-ports-comment-les-etats-africains-financent-leurs",
@@ -2813,7 +2837,8 @@
         "label": "CABRI – Le financement des projets d'infrastructure (2010)",
         "url": "https://www.cabri-sbo.org/uploads/files/Documents/report_2010_cabri_value_for_money_infrastructure_1st_dialogue_french_cabri_2_le_financement_des_projets_dinfrastructure_francais.pdf"
       }
-    ]
+    ],
+    "imageQuery": "road construction Africa"
   },
   {
     "slug": "comment-lire-une-etude-scientifique-sans-se-tromper-sur-ce-qu-elle-prouve",
@@ -2857,7 +2882,8 @@
         "label": "Revue médicale de Liège – Durieux et al., la hiérarchisation des preuves (2013)",
         "url": "https://rmlg.uliege.be/download/2479/1784/N.-Durieux_2013_68_12_0.pdf"
       }
-    ]
+    ],
+    "imageQuery": "scientific journals"
   },
   {
     "slug": "pib-en-valeur-ou-en-volume-comment-on-mesure-vraiment-la-croissance",
@@ -2905,7 +2931,8 @@
         "label": "La finance pour tous – Fiche repère PIB",
         "url": "https://www.lafinancepourtous.com/html/IMG/pdf/fiches_reperes/Fiche_repere_PIB.pdf"
       }
-    ]
+    ],
+    "imageQuery": "shopping street"
   },
   {
     "slug": "comment-fonctionne-un-appel-d-offres-public-du-besoin-au-contrat",
@@ -2959,7 +2986,8 @@
         "label": "code-commande-publique.com, procédures formalisées (L2124-1 à L2124-4)",
         "url": "https://www.code-commande-publique.com/procedures-formalisees-l2124-1-a-l2124-4"
       }
-    ]
+    ],
+    "imageQuery": "construction site crane"
   },
   {
     "slug": "zone-euro-l-excedent-courant-recule-a-248-milliards-d-euros-sur-un-an-en",
@@ -3008,7 +3036,8 @@
         "label": "Banque de France — balance des paiements de la France, septembre 2026",
         "url": "https://www.banque-france.fr/fr/statistiques/balance-des-paiements/balance-des-paiements-de-la-france-2026-09"
       }
-    ]
+    ],
+    "imageQuery": "container ship port"
   },
   {
     "slug": "industrie-francaise-production-en-recul-au-3e-trimestre-2026-rebond-attendu",
@@ -3105,7 +3134,8 @@
         "label": "letsrecycle.com (23/11/2026)",
         "url": "https://www.letsrecycle.com/news/eu-plastic-waste-export-restrictions-come-into-effect/"
       }
-    ]
+    ],
+    "imageQuery": "plastic waste bales"
   },
   {
     "slug": "la-commission-europeenne-confirme-une-cyberattaque-menee-avec-des-outils-d-ia",
@@ -3153,7 +3183,8 @@
         "label": "Eunews (19/11/2026)",
         "url": "https://www.eunews.it/en/2026/11/19/the-eu-commission-has-been-the-victim-of-a-cyberattack-carried-out-using-ai/"
       }
-    ]
+    ],
+    "imageQuery": "server room"
   },
   {
     "slug": "climat-des-affaires-en-recul-et-defaillances-elevees-le-moral-des-entreprises",
@@ -3197,7 +3228,8 @@
         "label": "Banque de France, défaillances à fin septembre 2026",
         "url": "https://www.banque-france.fr/fr/statistiques/entreprises/defaillances-dentreprises-2026-09"
       }
-    ]
+    ],
+    "imageQuery": "closed shop"
   },
   {
     "slug": "rdc-des-combats-pres-d-un-hopital-de-l-ituri-perturbent-la-riposte-contre-ebola",
@@ -3241,7 +3273,8 @@
         "label": "Africanews (12/11/2026)",
         "url": "https://www.africanews.com/amp/2026/11/12/dr-congo-ebola-outbreak-surpasses-11000-cases-as-conflict-hampers-response/"
       }
-    ]
+    ],
+    "imageQuery": "Bunia"
   },
   {
     "slug": "la-nasa-cherche-des-industriels-pour-son-premier-reacteur-nucleaire-lunaire",
@@ -3293,7 +3326,8 @@
         "label": "Military & Aerospace Electronics (04/09/2025)",
         "url": "https://militaryaerospace.com/power/news/55314018/nasa-pushes-lunar-nuclear-power-plan-with-commercial-partnerships"
       }
-    ]
+    ],
+    "imageQuery": "nuclear reactor"
   },
   {
     "slug": "pourquoi-une-jeune-entreprise-ouvre-son-capital-a-des-investisseurs",
@@ -3341,7 +3375,8 @@
         "label": "CCI Paris Île-de-France – En quoi consiste vraiment une levée de fonds",
         "url": "https://www.entreprises.cci-paris-idf.fr/fiches-pratiques/en-quoi-consiste-vraiment-une-levee-de-fonds"
       }
-    ]
+    ],
+    "imageQuery": "startup office"
   },
   {
     "slug": "alliance-militaire-ce-que-l-article-5-de-l-otan-oblige-vraiment-a-faire",
@@ -3393,7 +3428,8 @@
         "label": "IRSEM – Brève stratégique n° 56 sur l'article 5 de l'OTAN",
         "url": "https://irsem.fr/storage/file_manager_files/2025/03/bs-56-mathey-article-5-otan.pdf"
       }
-    ]
+    ],
+    "imageQuery": "NATO headquarters"
   },
   {
     "slug": "comment-fonctionne-une-obligation-et-pourquoi-son-prix-baisse-quand-les-taux",
@@ -3495,7 +3531,8 @@
         "label": "FCNB, Norme canadienne 43-101 (refonte 2023)",
         "url": "https://www.fcnb.ca/sites/default/files/2024-12/43-101-NI-CONS-2023-06-09-F.pdf"
       }
-    ]
+    ],
+    "imageQuery": "mineral exploration drilling"
   },
   {
     "slug": "batterie-stationnaire-que-veulent-dire-mw-mwh-et-nombre-de-cycles",
@@ -3557,7 +3594,8 @@
         "label": "Modo Energy, la dégradation des batteries expliquée",
         "url": "https://modoenergy.com/research/fr/battery-degradation-explained"
       }
-    ]
+    ],
+    "imageQuery": "battery energy storage"
   },
   {
     "slug": "quand-un-produit-peut-il-etre-dit-recyclable-en-france",
@@ -3615,7 +3653,8 @@
         "label": "Citeo, communiquer sur la recyclabilité de vos emballages",
         "url": "https://clients-cms.citeo.com/uploads/fiche_reflexe_communication_sur_la_recyclabilite_26d82bbd44.pdf"
       }
-    ]
+    ],
+    "imageQuery": "recycling bins"
   },
   {
     "slug": "comment-fonctionne-le-marche-europeen-du-carbone",
@@ -3669,7 +3708,8 @@
         "label": "Commission européenne, système d'échange de quotas d'émission",
         "url": "https://commission.europa.eu/topics/climate-action/eu-emissions-trading-system-eu-ets_fr"
       }
-    ]
+    ],
+    "imageQuery": "coal power plant"
   },
   {
     "slug": "qu-est-ce-qu-un-jumeau-numerique-et-en-quoi-differe-t-il-d-une-simulation",
@@ -3727,7 +3767,8 @@
         "label": "Siemens, Jumeau numérique",
         "url": "https://www.siemens.com/fr-fr/technology/digital-twin/"
       }
-    ]
+    ],
+    "imageQuery": "computer simulation"
   },
   {
     "slug": "menages-avec-enfants-dans-l-ue-23-3-en-2025-selon-eurostat-23-4-dans-une",
@@ -3954,7 +3995,8 @@
         "label": "Brussels Times — Government debt split reveals sharp contrasts in EU ownership patterns",
         "url": "https://www.brusselstimes.com/eu-affairs/2416101/government-debt-split-reveals-sharp-contrasts-in-eu-ownership-patterns"
       }
-    ]
+    ],
+    "imageQuery": "euro banknotes"
   },
   {
     "slug": "dechets-textiles-europe-2024-23-millions-tonnes",

@@ -32,6 +32,17 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
     await expect(page.getByTestId("verified-count")).toHaveText(LIVE === 1 ? "1 publication sourcée disponible." : `${LIVE} publications sourcées disponibles.`);
   });
 
+  test("chaque carte de données montre la photo de sa publication, avec son crédit, sans zone vide", async ({ page }) => {
+    await page.goto("/");
+    const cards = page.getByTestId("data-card");
+    for (let i = 0; i < (await cards.count()); i++) {
+      const card = cards.nth(i);
+      await card.scrollIntoViewIfNeeded();
+      await expect(card.getByTestId("data-photo").locator("img")).toHaveAttribute("src", /\/media\/editorial\//);
+      await expect(card.getByTestId("editorial-photo-credit")).toHaveCount(1);
+    }
+  });
+
   test("aucune donnée de test n'est présente dans le site publié", async ({ page, request }) => {
     await page.goto("/actualites/");
     await expect(page.getByRole("link", { name: /déchets textiles/i }).first()).toBeVisible();
@@ -169,6 +180,9 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.locator('[data-index="0"]').getByTestId("news-date")).toHaveText("Événement du 19 novembre 2026");
     await expect(page.locator('[data-index="0"]').getByTestId("news-date").locator("time")).toHaveAttribute("datetime", "2026-11-19");
     await expect(page.locator('[data-index="0"]').getByTestId("verified-meta")).toContainText("publié le 20 novembre 2026");
+    // La date garde la police du reste de la ligne (plus de chiffres à chasse fixe).
+    const fonts = await page.locator('[data-index="0"]').getByTestId("verified-meta").evaluate((el) => [getComputedStyle(el).fontFamily, getComputedStyle(el.querySelector("time")!).fontFamily]);
+    expect(fonts[1]).toBe(fonts[0]);
     const full = "Événement du jeudi 19 novembre 2026 · publiée le 20 novembre 2026";
     await page.goto("/explorer/");
     await expect(page.getByTestId("publication-tile").first().getByTestId("news-date")).toHaveText(full);

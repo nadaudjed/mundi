@@ -7,8 +7,17 @@ on:
       - 'content/publications.json'
       - '.github/workflows/editorial-images.yml'
       - 'scripts/collect-editorial-images.mjs'
+  # Les publications des agents sont poussées avec le jeton du workflow : GitHub ne relance
+  # alors PAS ce workflow sur « push ». On le déclenche donc à la fin de chaque publication,
+  # et une vérification horaire rattrape tout oubli (aucun appel quand rien ne manque).
+  workflow_run:
+    workflows:
+      - "MUNDI — publication des brouillons Max (sans API payante)"
+      - "MUNDI — agents via API (secours manuel, payant)"
+      - "MUNDI — corriger ou retirer un article"
+    types: [completed]
   schedule:
-    - cron: '35 11 * * *'
+    - cron: '20 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -36,7 +45,7 @@ jobs:
         run: node --test tests/editorial-images.test.mjs
       - name: Search openly licensed documentary images without AI costs
         env:
-          MUNDI_IMAGES_MAX: '8'
+          MUNDI_IMAGES_MAX: '60'
         run: node scripts/collect-editorial-images.mjs
       - name: Publish local images and their permanent source credits
         shell: bash

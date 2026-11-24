@@ -15,7 +15,7 @@ import {
 import { formatDate } from "@/lib/format";
 import type { SceneBackdrop } from "@/lib/scenes";
 import type { EditorialPhoto } from "@/lib/editorial-images";
-import { EditorialPhotoCredit } from "../EditorialPhotoLayer";
+import { EditorialPhotoCredit, EditorialPhotoLayer } from "../EditorialPhotoLayer";
 import { luminance } from "@/lib/topics";
 import { RevealWords } from "../scene/RevealWords";
 import { SceneCredit, SceneLayer } from "../scene/SceneLayer";
@@ -69,7 +69,10 @@ function textAccentOnNight(color: string) {
   return ratio >= 4.5 ? color : "#F3F0E8";
 }
 
-export function DataCardView({ card, position, total, topicColor, revealed = true, status, href, showVisualPlaceholder = false, backdrop, photo }: Props) {
+/** Cadrages successifs de la photo d'une carte à l'autre, pour ne pas répéter la même vue. */
+const PHOTO_FOCUS = ["50% 35%", "50% 70%", "50% 15%", "50% 90%"];
+
+export function DataCardView({ card, position, total, topicColor, revealed = true, status, href, showVisualPlaceholder = false, backdrop, photo, near = true }: Props) {
   // Un texte sur un fond d'ambiance reste clair sur voile sombre : le ton ivoire est alors ignoré.
   const light = !photo && !backdrop && card.style?.tone === "ivory";
   const accent = accentOf(card.style, topicColor);
@@ -86,10 +89,18 @@ export function DataCardView({ card, position, total, topicColor, revealed = tru
       aria-labelledby={titleId}
       role="group"
     >
-      {/* La photo de la publication est montrée sur son propre écran, pas derrière les chiffres. Un fond approuvé reste possible. */}
+      {/* Sans photo, un fond approuvé reste possible derrière les chiffres. */}
       {!photo && backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} />}
-      {/* Sur petit écran, la carte défile plutôt que de cacher sa source sous la barre d'onglets. */}
-      <div className="feed-column no-scrollbar relative flex h-full flex-col overflow-y-auto px-5 pt-16 pb-6 md:pt-20 [@media(max-height:740px)]:pt-14 [@media(max-height:740px)]:pb-4" data-testid="card-scroll">
+      <div className={`relative flex h-full flex-col ${photo ? "pt-12" : ""}`}>
+      {/* Photo d'illustration de la publication : bandeau en haut (téléphone), moitié droite (écran large). */}
+      {photo && (
+        <div className="relative min-h-[16svh] shrink-[100] grow basis-[32svh] overflow-hidden border-b border-ivory/10 wide:absolute wide:inset-y-0 wide:right-0 wide:left-[50%] wide:min-h-0 wide:border-b-0 wide:border-l" data-testid="data-photo">
+          <EditorialPhotoLayer photo={photo} near={near} focus={PHOTO_FOCUS[position % PHOTO_FOCUS.length]} />
+        </div>
+      )}
+      {/* Avec photo, le texte prend sa hauteur et la photo le reste (jusqu'à 16 % de l'écran) ;
+          sur petit écran, la carte défile plutôt que de cacher sa source sous la barre d'onglets. */}
+      <div className={`feed-column no-scrollbar relative flex min-h-0 flex-col ${photo ? "shrink grow-0 wide:flex-1" : "flex-1"} overflow-y-auto px-5 pb-6 [@media(max-height:740px)]:pb-4 ${photo ? "pt-5 wide:pt-20 [@media(max-height:740px)]:pt-3" : "pt-16 md:pt-20 [@media(max-height:740px)]:pt-14"}`} data-testid="card-scroll">
         <div className="relative flex items-center justify-between gap-3 text-meta font-semibold">
           <span style={{ color: textAccent }} className={light ? "text-night/70" : ""}>
             Données · carte {position + 1} sur {total}
@@ -120,8 +131,9 @@ export function DataCardView({ card, position, total, topicColor, revealed = tru
           {card.kind === "stat" && <StatBody card={card} accent={textAccent} display={display} light={light} />}
           {card.kind === "comparaison" && <ComparisonBody card={card} accent={accent} light={light} />}
           {card.kind === "explication" && <ExplanationBody card={card} accent={accent} light={light} />}
-          <Footer card={card} light={light} href={href} backdrop={photo?undefined:backdrop} photo={photo} />
+          <Footer card={card} light={light} href={href} backdrop={photo ? undefined : backdrop} photo={photo} />
         </div>
+      </div>
       </div>
     </div>
   );

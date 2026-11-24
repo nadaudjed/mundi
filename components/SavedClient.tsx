@@ -46,7 +46,7 @@ export function SavedClient({ publications = [] }: { publications?: FeedPublicat
             </h2>
             <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted">{p.summary}</p>
             <p className="mt-2 text-meta text-muted">
-              {verificationLabel(p)} · publié le <time dateTime={p.publishedAt} className="font-mono">{formatDate(p.publishedAt)}</time> · <span className="font-mono">{p.sources.length}</span> sources
+              {verificationLabel(p)} · publié le <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time> · {p.sources.length} sources
             </p>
           </article>
         ))}

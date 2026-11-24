@@ -161,8 +161,12 @@ body:has([data-feed]) {
 }
 /* Téléphone : le Fil n'a pas de barre en haut (il a sa propre barre de filtres). */
 @media (max-width: 767px) {
+  /* L'heure et l'encoche de l'iPhone (app installée) gardent leur bande : la barre du fil passe dessous. */
   body:has([data-feed]) {
-    --header-h: 0rem;
+    --header-h: env(safe-area-inset-top);
+  }
+  [data-feed] {
+    margin-top: env(safe-area-inset-top);
   }
   body:has([data-feed]) [data-site-header] {
     display: none;

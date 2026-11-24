@@ -115,11 +115,12 @@ export function toPublication(output, date) {
     status: "published",
     reviewedBy: AI_REVIEWER,
     aiVerified: true,
-    // Journaliste : actualité ; professeur : concept (rangés séparément dans Explorer).
-    ...(output.role ? { kind: output.role === "journalist" ? "actualite" : "concept" } : {}),
     keyPoints: d.keyPoints.map((k) => k.trim()),
     sections: d.sections.map((s) => ({ kind: s.kind, heading: s.heading.trim(), text: s.text.trim() })),
     sources: d.sources.map((s) => ({ label: s.label.trim(), url: s.url })),
+    // "actualite" (dated event), "concept" or "recit"; eventDate is the day the news happened or was announced.
+    ...(output.kind ? { kind: output.kind } : output.role ? { kind: output.role === "journalist" ? "actualite" : "concept" } : {}),
+    ...(output.role === "journalist" && /^\d{4}-\d{2}-\d{2}$/.test(d.eventDate ?? "") ? { eventDate: d.eventDate } : {}),
   };
 }
 

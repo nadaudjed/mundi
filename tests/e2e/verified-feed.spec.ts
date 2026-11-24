@@ -66,7 +66,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(first.getByTestId("verified-meta")).toContainText("publié le 20 novembre 2026");
     await expect(first.getByTestId("verified-meta")).toContainText("actualisé le 21 novembre 2026");
     await expect(first.getByTestId("verification-label")).toHaveText("Validation humaine");
-    await expect(first.locator("time").first()).toHaveAttribute("datetime", "2026-11-20");
+    await expect(first.getByTestId("verified-meta").locator("time").first()).toHaveAttribute("datetime", "2026-11-20");
     // Aucune mention « Contenu illustratif » sur une publication vérifiée.
     await expect(first.getByText("illustratif")).toHaveCount(0);
   });
@@ -165,12 +165,15 @@ test.describe("Site de test : publications inventées approuvées", () => {
 
   test("chaque actualité affiche clairement sa date : carte du Fil, listes et page article", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator('[data-index="0"]').getByTestId("news-date")).toHaveText("Vendredi 20 novembre 2026");
-    await expect(page.locator('[data-index="0"]').getByTestId("news-date").locator("time")).toHaveAttribute("datetime", "2026-11-20");
+    // La date de l'événement (jeudi 19) passe avant celle de la publication (vendredi 20).
+    await expect(page.locator('[data-index="0"]').getByTestId("news-date")).toHaveText("Événement du 19 novembre 2026");
+    await expect(page.locator('[data-index="0"]').getByTestId("news-date").locator("time")).toHaveAttribute("datetime", "2026-11-19");
+    await expect(page.locator('[data-index="0"]').getByTestId("verified-meta")).toContainText("publié le 20 novembre 2026");
+    const full = "Événement du jeudi 19 novembre 2026 · publiée le 20 novembre 2026";
     await page.goto("/explorer/");
-    await expect(page.getByTestId("publication-tile").first().getByTestId("news-date")).toHaveText("Actualité publiée le vendredi 20 novembre 2026");
+    await expect(page.getByTestId("publication-tile").first().getByTestId("news-date")).toHaveText(full);
     await page.goto(`/actualites/${FIRST}/`);
-    await expect(page.getByTestId("news-date")).toHaveText("Actualité publiée le vendredi 20 novembre 2026");
+    await expect(page.getByTestId("news-date")).toHaveText(full);
     await page.goto(`/actualites/${SECOND}/`);
     await expect(page.getByTestId("news-date")).toContainText("Concept publié le");
   });

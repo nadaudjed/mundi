@@ -17,6 +17,7 @@ const plural = (n: number, one: string, many = one + "s") => (n > 1 ? many : one
 const GENRES: { kind: PublicationKind; param: string; name: string; hint: string; heading: string }[] = [
   { kind: "actualite", param: "actualites", name: "Actualités", hint: "Ce qui vient de se passer", heading: "Les dernières actualités" },
   { kind: "concept", param: "concepts", name: "Concepts", hint: "Les notions pour comprendre", heading: "Les concepts à connaître" },
+  { kind: "recit", param: "recits", name: "Récits", hint: "Histoires vraies, épisodes, idées", heading: "Les récits" },
 ];
 const genreOf = (param: string | null) => GENRES.find((g) => g.param === param) ?? GENRES[0];
 
@@ -58,7 +59,9 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
   }, [publications, genre, topic]);
 
   const searching = query.trim().length > 0;
-  const total = found.actualite.length + found.concept.length;
+  const total = found.actualite.length + found.concept.length + found.recit.length;
+  /** Un espace n'apparaît que s'il contient au moins une publication (les récits arrivent plus tard). */
+  const genres = GENRES.filter((g) => g.kind !== "recit" || g === genre || publications.some((p) => publicationKind(p) === "recit"));
   const selectedTopic = topic ? getTopic(topic) : null;
   const [lead, ...others] = results;
   useEffect(() => {
@@ -85,11 +88,16 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
         <span className="font-mono">{total}</span> {searching ? plural(total, "résultat") : plural(total, "contenu")} ·{" "}
         <span className="font-mono">{found.actualite.length}</span> {plural(found.actualite.length, "actualité")} ·{" "}
         <span className="font-mono">{found.concept.length}</span> {plural(found.concept.length, "concept")}
+        {genres.length > 2 && (
+          <>
+            {" "}· <span className="font-mono">{found.recit.length}</span> {plural(found.recit.length, "récit")}
+          </>
+        )}
       </p>
 
       {/* Les deux espaces : actualités d'un côté, concepts de l'autre. */}
-      <div role="group" aria-label="Choisir un espace" className="mt-8 grid grid-cols-2 border-b border-ink" data-testid="explore-genres">
-        {GENRES.map((g) => {
+      <div role="group" aria-label="Choisir un espace" className={"mt-8 grid border-b border-ink " + (genres.length > 2 ? "grid-cols-3" : "grid-cols-2")} data-testid="explore-genres">
+        {genres.map((g) => {
           const selected = g === genre;
           return (
             <button key={g.kind} type="button" aria-pressed={selected} onClick={() => { setGenre(g); setTopic(null); }}
@@ -142,7 +150,7 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
         ) : (
           <p className="mt-5 text-sm leading-relaxed text-muted">
             Rien dans les {genre.name.toLowerCase()} pour ces filtres.{" "}
-            {GENRES.filter((g) => g !== genre && found[g.kind].length > 0).map((g) => (
+            {genres.filter((g) => g !== genre && found[g.kind].length > 0).map((g) => (
               <button key={g.kind} type="button" onClick={() => setGenre(g)} className="font-semibold text-accent underline-offset-4 hover:underline">
                 Voir les {found[g.kind].length} {g.name.toLowerCase()}
               </button>

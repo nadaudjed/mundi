@@ -14,7 +14,8 @@ type Card = {
   key: string; title: string; topic: TopicSlug; keyPoints: readonly string[];
   href: string; kind: PublicationKind; aiVerified?: boolean;
 };
-const KINDS: PublicationKind[] = ["actualite", "concept"];
+const KINDS: PublicationKind[] = ["actualite", "concept", "recit"];
+const KIND_TABS: Record<PublicationKind, string> = { actualite: "Actualités", concept: "Concepts", recit: "Récits" };
 
 export function RevisionClient({ publications }: { publications: FeedPublication[] }) {
   const { records, mark, reset } = useRevision();
@@ -50,18 +51,20 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   return (
     <div className="mt-6">
       <div role="group" aria-label="Choisir les contenus à réviser" className="flex gap-6 border-b border-rule">
-        {KINDS.map((k) => (
+        {KINDS.filter((k) => k !== "recit" || publicCards.some((c) => c.kind === "recit")).map((k) => (
           <button key={k} type="button" aria-pressed={kind === k} onClick={() => changeKind(k)}
             className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
               (kind === k ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink")}>
-            {k === "actualite" ? "Actualités" : "Concepts"} <span className="font-mono">({publicCards.filter((c) => c.kind === k).length})</span>
+            {KIND_TABS[k]} <span className="font-mono">({publicCards.filter((c) => c.kind === k).length})</span>
           </button>
         ))}
       </div>
       <p className="mt-4 text-sm text-muted">
         {kind === "actualite"
           ? "Révisez les trois idées essentielles des actualités sourcées de MUNDI. Le niveau de vérification est rappelé pour chaque carte."
-          : "Révisez les notions durables expliquées par les concepts de MUNDI, chacun sourcé."}
+          : kind === "concept"
+            ? "Révisez les notions durables expliquées par les concepts de MUNDI, chacun sourcé."
+            : "Révisez les histoires vraies, épisodes et idées racontés par MUNDI, chacun sourcé."}
       </p>
       <p className="mt-2 text-base text-ink" data-testid="revision-progress">
         <span className="font-mono">{due.length}</span> carte{due.length > 1 ? "s" : ""} à réviser,{" "}

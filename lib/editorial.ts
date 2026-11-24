@@ -18,6 +18,8 @@ export type Publication = {
    * (un professeur, une notion durable). Sans valeur : traité comme une actualité.
    */
   kind?: PublicationKind;
+  /** Actualité : jour de l'événement ou de son annonce officielle (contrôlé par le vérificateur). */
+  eventDate?: string;
 };
 
 
@@ -49,7 +51,8 @@ export function validatePublication(value: unknown): string[] {
   if (!Array.isArray(p.sources) || p.sources.length < 2 || !p.sources.every(s => s && text(s.label,3) && validUrl(s.url))) errors.push("Deux sources HTTPS au minimum");
   if (!Array.isArray(p.sections) || p.sections.length < 1 || !p.sections.every(s => s && ["fait","analyse","hypothese"].includes(s.kind) && text(s.heading) && text(s.text,30))) errors.push("Sections invalides");
   if (p.corrections !== undefined && (!Array.isArray(p.corrections) || !p.corrections.every(c => c && date(c.date) && text(c.text, 10)))) errors.push("Corrections invalides");
-  if (p.kind !== undefined && p.kind !== "actualite" && p.kind !== "concept") errors.push("Genre invalide (actualite ou concept)");
+  if (p.kind !== undefined && p.kind !== "actualite" && p.kind !== "concept" && p.kind !== "recit") errors.push("Genre invalide (actualite, concept ou recit)");
+  if (p.eventDate !== undefined && (!date(p.eventDate) || (date(p.publishedAt) && (p.eventDate as string) > (p.publishedAt as string)))) errors.push("Date de l'événement invalide (ou postérieure à la publication)");
   return errors;
 }
 

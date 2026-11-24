@@ -1,4 +1,5 @@
 import type { EditorialPhoto } from "@/lib/editorial-images";
+import { FadeImage } from "./FadeImage";
 
 /**
  * Photo documentaire d'illustration, pas une preuve ni une image de l'événement.
@@ -10,10 +11,7 @@ export function EditorialPhotoLayer({ photo, near = true }: { photo: EditorialPh
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden bg-night-2" aria-hidden="true"
       data-testid="editorial-photo" data-image-source="wikimedia-commons">
-      {near && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={photo.src} alt="" decoding="async" className="photo h-full w-full object-cover" />
-      )}
+      {near && <FadeImage src={photo.src} className="h-full w-full object-cover" />}
     </div>
   );
 }

@@ -358,3 +358,32 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
 }
+
+/* Paragraphe ajusté à la place disponible : coupe sur une ligne entière, avec « … ». */
+.fit-lines-box {
+  min-height: 0;
+  overflow: hidden;
+}
+.fit-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (min-width: 900px) and (min-aspect-ratio: 5/4) {
+  .fit-lines-box { overflow: visible; }
+  .fit-lines { display: block; }
+}
+
+/* Photos du Fil : apparition douce une fois chargées (pas de saut visuel). */
+.photo-fade {
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+}
+.photo-fade[data-loaded="true"] {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-fade {
+    transition: none;
+  }
+}

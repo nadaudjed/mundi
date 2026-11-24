@@ -82,9 +82,18 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.getByTestId("verification-label")).toHaveText("Validation humaine");
   });
 
-  test("les sources restent visibles et cliquables dans la carte immersive", async ({ page }) => {
+  test("les sources restent visibles et cliquables dans la carte immersive", async ({ page }, testInfo) => {
     await page.goto("/");
-    const sources = page.locator('[data-index="0"]').getByTestId("verified-sources");
+    const card = page.locator('[data-index="0"]');
+    if (testInfo.project.name === "mobile") {
+      // Sur téléphone, la carte garde la place pour le texte : un lien mène aux sources de l'article.
+      const link = card.getByTestId("verified-sources-link");
+      await expect(link).toBeVisible();
+      await expect(link).toHaveText("4 sources");
+      await expect(link).toHaveAttribute("href", new RegExp(`/actualites/${FIRST}/?#sources$`));
+      return;
+    }
+    const sources = card.getByTestId("verified-sources");
     const links = sources.getByRole("link", { name: /Source fictive/ });
     await expect(links).toHaveCount(4);
     await expect(links.first()).toHaveAttribute("href", "https://sources.mundi.test/a");
@@ -122,6 +131,35 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.getByTestId("publication-meta")).toContainText("Exemple de test, jamais publié.");
     await expect(page.getByTestId("publication-meta")).toContainText("publié le 20 novembre 2026");
     await expect(page.getByRole("link", { name: /Source fictive/ })).toHaveCount(4);
+  });
+
+  test("le retour arrière ramène à la carte où l'on était, pas au début du fil", async ({ page }) => {
+    await page.goto("/");
+    await scrollFeedTo(page, 5);
+    await page.locator('[data-index="5"]').getByRole("link", { name: "Lire la publication" }).click();
+    await expect(page).toHaveURL(new RegExp(`/actualites/${SECOND}/$`));
+    await page.goBack();
+    await expect(page.locator('[data-index="5"]')).toBeInViewport({ ratio: 0.9 });
+  });
+
+  test("le résumé de la carte s'arrête sur une ligne entière, au-dessus des boutons", async ({ page }, testInfo) => {
+    await page.goto("/");
+    const card = page.locator('[data-index="0"]');
+    const summary = card.getByTestId("verified-summary");
+    await expect(summary).toBeVisible();
+    // Écran large : la colonne de texte affiche le résumé complet.
+    if (testInfo.project.name !== "mobile") return expect(summary).toHaveCSS("display", "block");
+    const box = await summary.evaluate((el) => {
+      const s = getComputedStyle(el);
+      const line = parseFloat(s.lineHeight);
+      const lines = Number(s.webkitLineClamp);
+      return { lines, visible: Math.min(el.clientHeight, lines * line), line, bottom: el.getBoundingClientRect().top + lines * line };
+    });
+    expect(box.lines).toBeGreaterThanOrEqual(2);
+    // La hauteur affichée est un nombre entier de lignes : aucune ligne coupée à mi-hauteur.
+    expect(Math.abs(box.visible / box.line - Math.round(box.visible / box.line))).toBeLessThan(0.05);
+    const actions = await card.getByRole("link", { name: "Lire la publication" }).boundingBox();
+    expect(box.bottom).toBeLessThanOrEqual(actions!.y);
   });
 
   test("écouter une publication vérifiée lit son résumé", async ({ page }) => {

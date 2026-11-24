@@ -50,6 +50,9 @@ type Props = {
   verified?: FeedPublication[];
 };
 
+/** Position dans le Fil pour le retour arrière (sessionStorage, effacée à la fermeture de l'onglet). */
+const FEED_POSITION_KEY = "mundi:feed-position";
+
 export function Feed({ verified = [] }: Props) {
   const [filter, setFilter] = useState<TopicSlug | "all">("all");
   const [active, setActive] = useState(0);
@@ -89,6 +92,42 @@ export function Feed({ verified = [] }: Props) {
   const entry = active < entries.length ? entries[active] : undefined;
   const current = entry?.kind === "story" ? entry.slide : undefined;
   const atEnd = active >= entries.length;
+
+  // Retour arrière : le Fil revient sur l'écran où l'on était (mémorisé pour cet onglet seulement).
+  const pendingKey = useRef<string | null>(null);
+  const restored = useRef(false);
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(FEED_POSITION_KEY) ?? "null") as { filter?: string; key?: string } | null;
+      if (saved?.key) {
+        pendingKey.current = saved.key;
+        if (saved.filter && saved.filter !== "all") requestAnimationFrame(() => setFilter(saved.filter as TopicSlug));
+      }
+    } catch {
+      /* stockage indisponible : on repart du début */
+    }
+    restored.current = true;
+  }, []);
+  useEffect(() => {
+    const key = pendingKey.current;
+    const el = scroller.current;
+    if (!key || !el) return;
+    const index = entries.findIndex((e) => e.key === key);
+    if (index < 0) return;
+    pendingKey.current = null;
+    el.scrollTo({ top: index * el.clientHeight, behavior: "instant" as ScrollBehavior });
+    setActive(index);
+    setSeen((prev) => new Set(prev).add(index));
+  }, [entries]);
+  useEffect(() => {
+    if (!restored.current || pendingKey.current) return;
+    const key = entries[active]?.key;
+    try {
+      if (key) sessionStorage.setItem(FEED_POSITION_KEY, JSON.stringify({ filter, key }));
+    } catch {
+      /* rien à faire */
+    }
+  }, [active, entries, filter]);
 
   // Repère la carte visible pour l'indicateur de progression.
   useEffect(() => {
@@ -218,7 +257,7 @@ export function Feed({ verified = [] }: Props) {
       >
         {entries.map((e, i) =>
           e.kind === "verified" ? (
-            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} near={Math.abs(i - active) <= 1} revealed={seen.has(i)} visual={e.visual} />
+            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} near={Math.abs(i - active) <= 2} revealed={seen.has(i)} visual={e.visual} />
           ) : e.kind === "data" ? (
             <article
               key={e.key}
@@ -235,7 +274,7 @@ export function Feed({ verified = [] }: Props) {
                 total={e.total}
                 topicColor={getTopic(e.publication.topic)?.color ?? "#20B99A"}
                 active={i === active}
-                near={Math.abs(i - active) <= 1}
+                near={Math.abs(i - active) <= 2}
                 revealed={seen.has(i)}
                 status="verifie"
                 href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}
@@ -246,7 +285,7 @@ export function Feed({ verified = [] }: Props) {
           ) : e.kind === "divider" ? (
             <DemoDivider key={e.key} index={i} count={items.length} />
           ) : (
-            <FeedCard key={e.key} slide={e.slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 1} />
+            <FeedCard key={e.key} slide={e.slide} index={i} total={items.length} active={i === active} near={Math.abs(i - active) <= 2} />
           ),
         )}
         <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />

@@ -1,8 +1,8 @@
 {
   "format": "mundi-agent-roster-v1",
-  "targetPerDay": 20,
+  "targetPerDay": 24,
   "journalistsPerDay": 12,
-  "professorsPerDay": 8,
+  "professorsPerDay": 12,
   "review": {
     "id": "editor-in-chief",
     "name": "Rédacteur en chef / vérificateur",
@@ -24,7 +24,7 @@
       "breaking",
       "personal_reputation"
     ],
-    "maxModelCallsPerDay": 40
+    "maxModelCallsPerDay": 300
   },
   "journalists": [
     {

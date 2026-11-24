@@ -1,8 +1,8 @@
-name: MUNDI — 20 missions quotidiennes des agents (révision privée)
+name: MUNDI — 24 agents quotidiens (12 actualités, 12 concepts)
 
 on:
   # Schedule and explicit manual launch only: a routine code/docs merge must not
-  # silently spend another 12 Anthropic jobs or race against editorial stock.
+  # silently spend another day of Anthropic jobs or race against editorial stock.
   schedule:
     - cron: '41 8 * * *'
   workflow_dispatch:
@@ -17,7 +17,7 @@ concurrency:
 jobs:
   newsroom:
     runs-on: ubuntu-latest
-    timeout-minutes: 70
+    timeout-minutes: 240
     permissions:
       contents: write
     steps:
@@ -46,7 +46,7 @@ jobs:
           if [ -f "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/ledger.json" ]; then
             cp "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/ledger.json" reports/agents-history.json
           fi
-      - name: Prepare 12 journalists and 8 teachers' assignments
+      - name: Prepare 12 journalists and 12 professors' assignments (with alternates)
         run: node scripts/plan-newsroom.mjs
       - name: Research originals and second-pass fact check (only with API secret)
         env:
@@ -56,7 +56,9 @@ jobs:
           MUNDI_CHECKER_PROVIDER: ${{ vars.MUNDI_CHECKER_PROVIDER }}
           MUNDI_AGENT_MODEL: ${{ vars.MUNDI_AGENT_MODEL }}
           MUNDI_CHECKER_MODEL: ${{ vars.MUNDI_CHECKER_MODEL }}
-          MUNDI_AGENT_MAX_JOBS: ${{ vars.MUNDI_AGENT_MAX_JOBS || '12' }}
+          MUNDI_AGENTS_PER_DAY: ${{ vars.MUNDI_AGENTS_PER_DAY || '24' }}
+          MUNDI_AGENT_MAX_ATTEMPTS: ${{ vars.MUNDI_AGENT_MAX_ATTEMPTS || '3' }}
+          MUNDI_AGENT_CONCURRENCY: ${{ vars.MUNDI_AGENT_CONCURRENCY || '6' }}
         run: node scripts/run-newsroom-agents.mjs
       - name: Update internal research ledger only
         env:
@@ -102,11 +104,11 @@ jobs:
           fi
       # V2 (#43), décidée par le fondateur : publication automatique des seuls brouillons validés
       # par le vérificateur, non sensibles, aux liens joignables. Interrupteur d'urgence :
-      # variable de dépôt MUNDI_AUTOPUBLISH=off. Plafond : MUNDI_AUTOPUBLISH_MAX (défaut 2, max 5).
+      # variable de dépôt MUNDI_AUTOPUBLISH=off. Plafond : MUNDI_PUBLISH_PER_DAY (défaut 24, max 24).
       - name: Select drafts that may be auto-published
         env:
           MUNDI_AUTOPUBLISH: ${{ vars.MUNDI_AUTOPUBLISH }}
-          MUNDI_AUTOPUBLISH_MAX: ${{ vars.MUNDI_AUTOPUBLISH_MAX || '5' }}
+          MUNDI_PUBLISH_PER_DAY: ${{ vars.MUNDI_PUBLISH_PER_DAY || '24' }}
         run: node scripts/autopublish-agents.mjs
       - name: Validate, build and publish to main
         shell: bash

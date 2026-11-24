@@ -9,6 +9,8 @@ const iso=s=>typeof s==="string"&&Number.isFinite(Date.parse(s))?new Date(s).toI
 const hash=s=>createHash("sha256").update(s).digest("hex").slice(0,16);
 const day=s=>s.slice(0,10);
 const hosts=url=>{try{const u=new URL(url);return u.protocol==="https:"&&!u.username&&!u.password?u.hostname:null}catch{return null}};
+/** Extra subjects an agent may try the same day when a draft fails verification. */
+export const ALTERNATES=2;
 export function makeDailyPlan({roster,ideas,stock,publications,history={version:1,entries:[]},now}){
   const date=iso(now),topicNames=roster?.journalists?.map(x=>x.topic)??[];
   if(!date||!Array.isArray(roster?.journalists)||!Array.isArray(roster?.professors)||
@@ -28,8 +30,12 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
   for(const agent of roster.journalists){
     const own=fresh.filter(x=>x.topicHint===agent.topic&&!previous.has("news:"+hash(x.link+"|"+x.title+"|"+x.publishedAt)));
     own.sort((a,b)=>(b.publishedAt||"").localeCompare(a.publishedAt||"")||a.link.localeCompare(b.link));
-    const candidate=own.find(x=>!used.has(x.link));
-    if(candidate)used.add(candidate.link);
+    const available=own.filter(x=>!used.has(x.link));
+    const candidate=available[0];
+    // Backup leads: if the first draft fails verification, the same reporter tries another
+    // fresh lead, then a free search on the last 48 hours (never an unsourced story).
+    const backups=available.slice(1,1+ALTERNATES);
+    for(const x of [candidate,...backups])if(x)used.add(x.link);
     const previousArticle=candidate?publications.find(p=>(p.sources??[]).some(s=>s.url===candidate.link)):null;
     jobs.push({
       id:hash(today+":"+agent.id),date:today,agentId:agent.id,role:"journalist",topic:agent.topic,
@@ -40,30 +46,42 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
       title:candidate?.title??null,angle:null,
       source:candidate?{label:candidate.publisher,url:candidate.link,publishedAt:candidate.publishedAt}:null,
       recordKey:candidate?"news:"+hash(candidate.link+"|"+candidate.title+"|"+candidate.publishedAt):null,
-      sourceCount:candidate?1:0,review:"not_started",published:false
+      sourceCount:candidate?1:0,review:"not_started",published:false,
+      alternates:[...backups.map(b=>({status:"candidate_unverified",title:b.title,angle:null,
+        source:{label:b.publisher,url:b.link,publishedAt:b.publishedAt},
+        recordKey:"news:"+hash(b.link+"|"+b.title+"|"+b.publishedAt)})),
+        ...(candidate?[{status:"research_required_no_lead",title:null,angle:null,source:null,recordKey:null}]:[])]
     });
   }
   const rotation=Math.floor(nowMs/86400000)%12;
-  const assigned=Array.from({length:8},(_,i)=>roster.professors[(rotation+i)%12]);
+  const perDay=Math.min(12,Math.max(0,Number(roster.professorsPerDay)||8));
+  const assigned=Array.from({length:perDay},(_,i)=>roster.professors[(rotation+i)%12]);
   for(const agent of assigned){
     const pool=ideas.items.filter(i=>i.topic===agent.topic&&i.status==="idea_unverified"&&i.approved===false);
     pool.sort((a,b)=>a.id.localeCompare(b.id));
     const unused=pool.filter(i=>!previous.has("lesson:"+i.id));
-    const idea=unused.length?unused[Math.floor(nowMs/86400000)%unused.length]:null;
+    const start=unused.length?Math.floor(nowMs/86400000)%unused.length:0;
+    const picks=Array.from({length:Math.min(unused.length,1+ALTERNATES)},(_,k)=>unused[(start+k)%unused.length]);
+    const idea=picks[0]??null;
     jobs.push({
       id:hash(today+":"+agent.id),date:today,agentId:agent.id,role:"professor",topic:agent.topic,
-      status:idea?"research_required":"blocked_no_unused_lesson",
+      // When the idea library is used up, the professor chooses a durable concept itself,
+      // avoiding the beats already published (listed in relatedPublications).
+      status:idea?"research_required":"research_required_free_concept",
       action:"prepare_evergreen_lesson",previousPublication:null,
+      relatedPublications:publications.filter(p=>p.topic===agent.topic).slice(0,30).map(p=>({slug:p.slug,title:p.title})),
       title:idea?.title??null,angle:idea?.angle??null,
       source:null,recordKey:idea?"lesson:"+idea.id:null,
-      sourceCount:0,review:"not_started",published:false
+      sourceCount:0,review:"not_started",published:false,
+      alternates:[...picks.slice(1).map(i=>({status:"research_required",title:i.title,angle:i.angle??null,source:null,recordKey:"lesson:"+i.id})),
+        ...(idea?[{status:"research_required_free_concept",title:null,angle:null,source:null,recordKey:null}]:[])]
     });
   }
   if(jobs.length!==roster.targetPerDay)throw new Error("Daily target and roster disagree");
   return {
     format:"mundi-daily-agent-plan-v1",date:today,createdAt:date,
     target:roster.targetPerDay,
-    notice:"This is a research plan, NOT 20 fact-checked publications. Zero automatic public edits.",
+    notice:"This is a research plan, NOT fact-checked publications. Zero automatic public edits.",
     counts:{
       scheduled:jobs.length,
       journalist:jobs.filter(x=>x.role==="journalist").length,

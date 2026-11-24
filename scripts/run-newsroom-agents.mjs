@@ -8,6 +8,7 @@ import {readFileSync,writeFileSync,mkdirSync} from "node:fs";
 import {resolve,dirname} from "node:path";
 import {pathToFileURL} from "node:url";
 import {askAgentModel,resolveAgentProviders,inferAgentSelection} from "./agent-providers.mjs";
+import {blockers,checkLinks,slugify} from "./autopublish-agents.mjs";
 const TOPICS=["geopolitique","economie","finance","industrie","materiaux-critiques","energie",
 "recyclage","environnement","technologie","entreprises","afrique","sciences-societe"];
 const SENSITIVE=new Set(["geopolitique","finance","sciences-societe"]);
@@ -128,11 +129,46 @@ export function sumUsage(list){
   return t;
 }
 function record(job,draft,review,assessment,error){
-  return {format:"mundi-agent-output-v1",id:job.id,date:job.date,role:job.role,topic:job.topic,
+  return {format:"mundi-agent-output-v1",id:job.id,date:job.date,agentId:job.agentId??null,attempt:job.attempt??1,role:job.role,topic:job.topic,
     originalAssignment:job.title,recordKey:job.recordKey,sourceLead:job.source,previousPublication:job.previousPublication,
     draft:draft??null,checker:review??null,
     assessment:assessment??{status:"not_run",safeForAutopublication:false,reasons:["No AI key or valid result"]},
     error:short(error,350)||null,createdAt:now(),status:"draft_not_published"};
+}
+const FREE_CONCEPT="Choisis toi-même un concept durable et important du domaine, différent des sujets déjà publiés (previouslyPublishedOnSameBeat), puis explique-le sans inventer de faits, avec au moins deux organismes sources.";
+export function taskFor(job){
+  if(job.role==="journalist")return (job.source?"Pars de la piste sourceLead, puis c":"Aucune piste fournie : c")+"herche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante et ne refais pas un sujet déjà publié.";
+  return job.status==="research_required_free_concept"?FREE_CONCEPT:"Expliquer un mécanisme durable sans inventer de faits, sans refaire un sujet déjà publié (previouslyPublishedOnSameBeat).";
+}
+/** Why an output could not be published (empty list = publishable), with the same rules as autopublish. */
+export async function publishBlockers(output,existing,{fetcher=fetch}={}){
+  const reasons=blockers(output,existing);
+  if(reasons.length)return reasons;
+  const links=await checkLinks(output.draft.sources.map(s=>s.url),{fetcher,searchedUrls:output.searchedUrls??[]});
+  return links.bad.length?["liens injoignables : "+links.bad.join(", ")]:[];
+}
+/** One agent's day: primary assignment, then its alternates, until one draft passes every check. */
+export async function runAgent(job,configuration,{maxAttempts=3,existing=[],accepted=[],fetcher=fetch,run=runOne}={}){
+  // Without credentials nothing can be researched: record the primary assignment only.
+  const ready=configuration.writer?.key&&configuration.checker?.key;
+  const tries=[job,...(job.alternates??[]).map(a=>({...job,...a}))].slice(0,ready?Math.max(1,maxAttempts):1);
+  const outputs=[];
+  for(let n=0;n<tries.length;n++){
+    const {alternates,...attemptJob}=tries[n];
+    attemptJob.attempt=n+1;if(n>0)attemptJob.id=job.id+"-"+(n+1);
+    const out=await run(attemptJob,configuration);
+    outputs.push(out);
+    if(!out.draft||out.assessment?.status!=="machine_checked_pending_policy")continue;
+    const reasons=await publishBlockers(out,[...existing,...accepted],{fetcher});
+    // Re-check after the network wait: another agent may have accepted the same story meanwhile.
+    if(!reasons.length&&!blockers(out,[...existing,...accepted]).length){
+      out.publishable=true;
+      accepted.push({title:out.draft.title,slug:slugify(out.draft.title),sources:out.draft.sources});
+      break;
+    }
+    out.publishable=false;out.publishBlockers=reasons.length?reasons:["doublon d'un autre agent du jour"];
+  }
+  return outputs;
 }
 async function runOne(job,configuration){
   const meter={};
@@ -151,7 +187,7 @@ async function runOneMetered(job,configuration,meter){
       assignment:job.title||("Recherche quotidienne des nouveautés fiables en "+job.topic),angle:job.angle,
       sourceLead:job.source,updateTarget:job.previousPublication,
       previouslyPublishedOnSameBeat:job.relatedPublications??[],
-      task:job.role==="journalist"?"Cherche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante.":"Expliquer un mécanisme durable sans inventer de faits."
+      task:taskFor(job)
     },writer,"writer",fetch,meter);
     tidyDraft(draft);
     const draftErrors=validateResearchDraft(draft,job);
@@ -179,11 +215,16 @@ export async function runAgentDesk(plan,{
   checkerProvider=process.env.MUNDI_CHECKER_PROVIDER||"",
   model=process.env.MUNDI_AGENT_MODEL||"",
   checkerModel=process.env.MUNDI_CHECKER_MODEL||"",
-  maximum=Number(process.env.MUNDI_AGENT_MAX_JOBS||2)
+  maximum=Number(process.env.MUNDI_AGENTS_PER_DAY||24),
+  maxAttempts=Number(process.env.MUNDI_AGENT_MAX_ATTEMPTS||3),
+  concurrency=Number(process.env.MUNDI_AGENT_CONCURRENCY||6),
+  existing=[],fetcher=fetch,run=runOne
 }={}){
-  if(plan?.format!=="mundi-daily-agent-plan-v1"||!Array.isArray(plan.jobs)||plan.jobs.length!==20)
+  if(plan?.format!=="mundi-daily-agent-plan-v1"||!Array.isArray(plan.jobs)||plan.jobs.length===0||plan.jobs.length>24||plan.jobs.length!==plan.target)
     throw new Error("Invalid daily editorial plan");
-  const max=Math.min(20,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));
+  const max=Math.min(24,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));
+  const attempts=Math.min(5,Math.max(1,Number.isFinite(maxAttempts)?Math.floor(maxAttempts):3));
+  const workers=Math.min(8,Math.max(1,Number.isFinite(concurrency)?Math.floor(concurrency):6));
   const selection=inferAgentSelection({provider,checkerProvider,model,checkerModel,anthropicKey:claudeKey});
   const config=resolveAgentProviders({...selection,openaiKey:key,anthropicKey:claudeKey});
   const missing=[];
@@ -200,12 +241,18 @@ export async function runAgentDesk(plan,{
   // Reporters and teachers alternate, so evergreen explanations also get daily slots.
   const reporters=plan.jobs.filter(j=>j.role==="journalist"),teachers=plan.jobs.filter(j=>j.role!=="journalist");
   const ordered=[];for(let i=0;i<Math.max(reporters.length,teachers.length);i++)ordered.push(...[reporters[i],teachers[i]].filter(Boolean));
-  const jobs=ordered.slice(0,max),out=new Array(jobs.length);let idx=0;
-  async function worker(){while(idx<jobs.length){const i=idx++;out[i]=await runOne(jobs[i],config);}}
-  await Promise.all(Array.from({length:Math.min(3,jobs.length)},worker));
+  const jobs=ordered.slice(0,max),perAgent=new Array(jobs.length),accepted=[];let idx=0;
+  async function worker(){while(idx<jobs.length){const i=idx++;
+    perAgent[i]=await runAgent(jobs[i],config,{maxAttempts:attempts,existing,accepted,fetcher,run});}}
+  await Promise.all(Array.from({length:Math.min(workers,jobs.length)},worker));
+  const out=perAgent.flat();
   const usage=sumUsage(out.map(x=>x.usage));
   usage.estimatedUsd=estimateCost(usage,config.writer.model);
-  return {format:"mundi-agent-day-v1",date:plan.date,target:20,completed:out.length,usage,
+  const publishable=out.filter(x=>x.publishable===true);
+  return {format:"mundi-agent-day-v1",date:plan.date,target:plan.target,completed:out.length,usage,
+    agents:jobs.length,agentsWithPublishableDraft:publishable.length,
+    publishableByRole:{journalist:publishable.filter(x=>x.role==="journalist").length,professor:publishable.filter(x=>x.role!=="journalist").length},
+    missingAgents:jobs.filter((j,i)=>!perAgent[i].some(x=>x.publishable)).map(j=>({agentId:j.agentId,role:j.role,topic:j.topic})),
     notice:"Internal AI research, not factual proof or publication. Checker verdict is advisory; public publishing remains disabled.",
     generated:out.filter(x=>x.draft!==null).length,
     machineChecked:out.filter(x=>x.assessment.status==="machine_checked_pending_policy").length,
@@ -213,7 +260,8 @@ export async function runAgentDesk(plan,{
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
   const plan=JSON.parse(readFileSync(resolve(process.env.MUNDI_PLAN_PATH||"reports/agents-plan.json"),"utf8"));
-  const result=await runAgentDesk(plan);
+  let existing=[];try{existing=JSON.parse(readFileSync(resolve("content/publications.json"),"utf8"));}catch{}
+  const result=await runAgentDesk(plan,{existing});
   const dest=resolve(process.env.MUNDI_AGENT_REPORT||"reports/agents-results.json");
   mkdirSync(dirname(dest),{recursive:true});writeFileSync(dest,JSON.stringify(result,null,2)+"\n");
   const cfg=result.configuration;
@@ -222,6 +270,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     "; writer provider:",cfg.writerProvider,"; model:",cfg.writerModel||"unset",
     "; checker provider:",cfg.checkerProvider,"; configured:",cfg.ready);
   console.log("MUNDI API usage:",JSON.stringify(result.usage));
+  console.log("MUNDI agents with a publishable draft:",result.agentsWithPublishableDraft+"/"+result.agents,JSON.stringify(result.publishableByRole));
+  for(const m of result.missingAgents)console.warn("MUNDI no publishable draft today:",m.agentId,m.role,m.topic);
   if(!cfg.ready)console.warn("MUNDI planning-only: missing",cfg.missing.join(", "));
   const rejected=result.outputs.filter(x=>x.error).length;
   if(result.generated===0&&cfg.ready)console.warn("MUNDI configured, but 0 drafts: inspect report outputs (blocked topics or API errors).");
@@ -233,7 +283,9 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
       "",
       "| Indicator | Result |","| --- | ---: |",
       "| Assignments planned | "+result.target+" |",
-      "| AI missions attempted | "+result.completed+" |",
+      "| Agents run | "+result.agents+" |",
+      "| AI attempts (incl. alternates) | "+result.completed+" |",
+      "| Agents with a publishable draft | "+result.agentsWithPublishableDraft+" ("+result.publishableByRole.journalist+" news, "+result.publishableByRole.professor+" concepts) |",
       "| Drafts generated | "+result.generated+" |",
       "| Machine-checked drafts | "+result.machineChecked+" |",
       "| Published stories | 0 |",

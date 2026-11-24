@@ -10,11 +10,11 @@
 - **12 professeurs de domaine**, dont **8 travaillent chaque jour par rotation** : approfondir une notion durable, avec un angle pédagogique et des preuves accessibles.
 - **1 rédacteur en chef / vérificateur**, second appel de modèle, vérification indépendante : rechercher les éléments qui contredisent chaque assertion, examiner la date, la source, le chiffre, l'unité, le dénominateur, les droits, les red flags, et renvoyer un verdict.
 
-Total **25 agents spécialisés configurés**, **20 missions quotidiennes** (12 journalistes + 8 professeurs) et un contrôle par article. Ce ne sont pas 25 modèles qui « tournent » en permanence : ce sont des rôles, des instructions et des traitements planifiés, ce qui limite le coût.
+Total **25 agents spécialisés configurés**, **24 agents actifs chaque jour** (12 journalistes + 12 professeurs) et un contrôle par article. Ce ne sont pas 25 modèles qui « tournent » en permanence : ce sont des rôles, des instructions et des traitements planifiés, ce qui limite le coût.
 
 ## Le circuit d'un sujet
 
-`Stock privé de pistes` → `12 journalistes` / `8 professeurs` → `premier brouillon IA original` → `vérificateur IA indépendant` → `rejet / re-recherche / feu orange` → `lot éditorial prépublication`.
+`Stock privé de pistes` → `12 journalistes` / `12 professeurs` → `premier brouillon IA original` → `vérificateur IA indépendant` → `rejet / re-recherche / feu orange` → `lot éditorial prépublication`.
 
 Le planificateur utilise :
 - `editorial/agents/roster.json` pour les rôles ;
@@ -29,9 +29,9 @@ Le planificateur utilise :
 
 ## Automatisation réelle et dépendances
 
-Le workflow GitHub `MUNDI — 20 missions quotidiennes des agents (révision privée)` fonctionne **tous les jours à 08:41 UTC** et manuellement. Il s'exécute en lecture seule sur `main` et n'écrit la mémoire de la recherche que sur `editorial-stock` (branche non déployée sur Netlify).
+Le workflow GitHub `MUNDI — 24 agents quotidiens (12 actualités, 12 concepts)` fonctionne **tous les jours à 08:41 UTC** et manuellement. Il s'exécute en lecture seule sur `main` et n'écrit la mémoire de la recherche que sur `editorial-stock` (branche non déployée sur Netlify).
 
-Sans accès à un modèle, il **fonctionne en mode planification** : 20 missions, présence/absence de sources, zéro faux article.
+Sans accès à un modèle, il **fonctionne en mode planification** : 24 missions, présence/absence de sources, zéro faux article.
 
 Pour activer la rédaction et la contre-vérification, configurer dans **GitHub > Settings > Secrets and variables > Actions** :
 
@@ -53,12 +53,14 @@ Pour activer la rédaction et la contre-vérification, configurer dans **GitHub 
 
 **Budget et garde-fous communs** :
 
-- **Variable** `MUNDI_AGENT_MAX_JOBS` : nombre de missions réellement envoyées aux modèles par jour, entier de 0 à 20 ; **défaut 2**, pour un essai à coût limité.
+- **Variable** `MUNDI_AGENTS_PER_DAY` : nombre d'agents lancés par jour, de 0 à 24 ; **défaut 24** (décision du fondateur du 24/11/2026 : au moins un sujet publié par agent et par jour).
+- **Variable** `MUNDI_AGENT_MAX_ATTEMPTS` : nombre d'essais par agent, de 1 à 5 ; **défaut 3**. Si le premier brouillon est refusé (vérificateur, liens, doublon), l'agent repart sur une autre piste RSS, puis sur une recherche libre (journalistes : nouveautés des 48 dernières heures ; professeurs : concept durable non encore publié). Il s'arrête au premier brouillon qui passe **tous** les contrôles. Les contrôles ne sont jamais allégés : 24 est un objectif, pas une garantie.
+- **Variable** `MUNDI_AGENT_CONCURRENCY` : agents traités en parallèle, défaut 6.
 - La clé API Claude et l'abonnement Claude Pro/Max/Ultra/Team sont des accès distincts ; une souscription au chat ne constitue pas une clé API automatiquement exploitable par GitHub. Les crédits et conditions dépendent du forfait et de Claude Console.
 - L'API Anthropic utilise [Messages API](https://platform.claude.com/docs/en/api/messages/create), le [web search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool) et les [sorties JSON structurées](https://platform.claude.com/docs/en/build-with-claude/structured-outputs). OpenAI conserve sa [Responses API](https://platform.openai.com/docs/api-reference/responses/create).
 - Le rédacteur et le vérificateur effectuent deux appels de modèle distincts. Claude est rejeté par le moteur si aucune recherche Web effective n'a été réalisée, si la recherche signale une erreur ou si le JSON est incomplet ; des sources citées doivent encore être contrôlées.
 - La séparation entre fournisseurs réduit certaines erreurs corrélées, **sans garantir l'exactitude**. Un article rejeté n'est jamais automatiquement publié.
-- Pour 20 sujets, prévoir **jusqu'à 40 appels de modèle**, les recherches Web supplémentaires et le risque de dépassement des limites de facturation. Sur Claude, le web search est facturé séparément des tokens ; consulter le [tarif officiel](https://platform.claude.com/docs/en/about-claude/pricing).
+- Pour 24 agents et 3 essais, prévoir **jusqu'à 288 appels de modèle** (4 par essai au plus) ; en pratique environ 100 à 150, les recherches Web supplémentaires et le risque de dépassement des limites de facturation. Sur Claude, le web search est facturé séparément des tokens ; consulter le [tarif officiel](https://platform.claude.com/docs/en/about-claude/pricing).
 
 **Exemple mixte recommandé pour le pilote :** Claude Sonnet comme rédacteur/professeur et un modèle OpenAI comme vérificateur, avec `MUNDI_AGENT_MAX_JOBS=2`. Une configuration « Claude pour les deux rôles » reste possible si on ne veut pas utiliser deux fournisseurs.
 
@@ -72,9 +74,9 @@ Le fondateur a demandé que le vérificateur publie seul, sans relecture humaine
 - au plus 5 incertitudes relevées ;
 - au moins deux organismes sources différents, et **chaque lien répond réellement** (contrôlé par le script, pas par l'IA) ;
 - pas de doublon (titre, adresse ou ensemble de sources déjà publiés) ;
-- au plus `MUNDI_AUTOPUBLISH_MAX` publications par jour (défaut 2, maximum 5).
+- au plus `MUNDI_PUBLISH_PER_DAY` publications par jour (défaut 24, maximum 24).
 
-La publication est validée (`validate-editorial`), construite (`next build`) puis poussée sur `main` ; Netlify la met en ligne. Elle porte `aiVerified: true` et le site affiche « vérifié par l'IA, sans relecture humaine » : aucune relecture humaine n'est jamais prétendue. Les missions alternent reporters et professeurs ; pour le pilote d'approvisionnement avant le 24 novembre, `MUNDI_AGENT_MAX_JOBS` vaut **12 par exécution** par défaut. Le plafond de publication est **5 articles IA par jour**, sous réserve de vérification; ce n'est pas une promesse de 5 articles publiés.
+La publication est validée (`validate-editorial`), construite (`next build`) puis poussée sur `main` ; Netlify la met en ligne. Elle porte `aiVerified: true` et le site affiche « vérifié par l'IA, sans relecture humaine » : aucune relecture humaine n'est jamais prétendue. Depuis le 24/11/2026, les 24 agents travaillent chaque jour (objectif : 12 actualités et 12 concepts publiés) et le plafond de publication est **24 articles IA par jour**, sous réserve de vérification ; ce n'est pas une promesse de 24 articles publiés. Le résumé de l'exécution indique combien d'agents ont obtenu un brouillon publiable et lesquels ont échoué.
 
 **Interrupteur d'urgence** : variable de dépôt `MUNDI_AUTOPUBLISH=off` (Settings → Secrets and variables → Actions → Variables). **Retirer un article** : supprimer son entrée de `content/publications.json`. Les audits par échantillons et les indicateurs de #43 restent à mettre en place.
 

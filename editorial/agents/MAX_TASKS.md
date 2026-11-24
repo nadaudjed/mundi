@@ -59,6 +59,9 @@ En cas de conflit sur `plan.json` pendant le rebase, garder la version distante 
    Si aucun essai n'aboutit : `"draft":null` et `"error"` explique pourquoi en une phrase.
 4. Vérifier le format : `MUNDI_STOCK_DIR=../mundi-stock node scripts/max-newsroom.mjs validate <agentId>` et corriger
    jusqu'à « OK ». Écrire en français, titre de 90 caractères au plus, sans parenthèse méthodologique.
+   **Cartes « Données »** : dès que le sujet a des chiffres, une comparaison ou des étapes, ajouter `dataCards`
+   (2 à 4 cartes, format dans `writerInstructions`). Chaque chiffre doit figurer tel quel dans une des sources de
+   l'article. `validate` signale les cartes à corriger ; une carte invalide est retirée, l'article reste publiable.
 5. Pousser les brouillons. Ne pas les vérifier soi-même : c'est le rôle d'une autre tâche.
 
 ## Révision (tâche « révision », une seule fois par brouillon)

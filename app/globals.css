@@ -81,28 +81,16 @@ html[data-netlify-host] {
   }
 }
 
-/* Le fil occupe tout l'écran, sur toutes les tailles : fond sombre, pas d'en-tête,
-   seule la barre d'onglets flottante reste visible. */
+/* Le fil occupe tout l'écran sous l'en-tête. Navigation identique partout :
+   en haut sur tablette et ordinateur, barre d'onglets en bas sur téléphone seulement. */
 body:has([data-feed]) {
   background: var(--color-night);
 }
 @media (min-width: 768px) {
-  body:has([data-feed]) {
-    --dock-gap: 0.75rem;
-    --nav-h: calc(var(--dock-h) + var(--dock-gap) + var(--badge-safe) + env(safe-area-inset-bottom));
-    --header-h: 0rem;
-  }
-  body:has([data-feed]) [data-site-header] {
-    display: none;
-  }
   [data-dock] {
     display: none;
   }
-  body:has([data-feed]) [data-dock] {
-    display: block;
-  }
 }
-
 
 html {
   -webkit-text-size-adjust: 100%;

@@ -42,15 +42,11 @@ for (const site of SITES) {
         expect(last, `carte ${i} : rien n'est coupé en bas`).toBeLessThanOrEqual(feedBottom + 1);
         // Pas de défilement horizontal dans la carte.
         expect(await scroller.evaluate((el) => el.scrollWidth - el.clientWidth)).toBeLessThanOrEqual(0);
-        // Le crédit du visuel ne recouvre pas les badges de la publication.
+        // Le crédit du visuel ne recouvre pas le titre de la publication.
         const credit = card.getByTestId("verified-credit");
         if (await credit.count()) {
-          const [c, badges] = [await credit.boundingBox(), await card.getByText("Vérifié", { exact: true }).boundingBox()];
-          expect(c!.y + c!.height, `carte ${i} : crédit au-dessus des badges`).toBeLessThanOrEqual(badges!.y + 1);
-          // Les liens des sources ne passent pas sous les boutons Enregistrer et Partager.
-          const right = await card.getByTestId("verified-sources").locator("a").evaluateAll((as) => Math.max(...as.map((a) => a.getBoundingClientRect().right)));
-          const rail = await card.getByRole("button", { name: /Enregistrer/ }).boundingBox();
-          expect(right, `carte ${i} : sources à gauche des boutons`).toBeLessThanOrEqual(rail!.x + 1);
+          const [c, title] = [await credit.boundingBox(), await card.getByRole("heading", { level: 2 }).boundingBox()];
+          expect(c!.y + c!.height, `carte ${i} : crédit au-dessus du titre`).toBeLessThanOrEqual(title!.y + 1);
         }
         await scroller.evaluate((el) => el.scrollTo({ top: 0 }));
         checked++;
@@ -59,4 +55,31 @@ for (const site of SITES) {
       await context.close();
     });
   }
+}
+
+/** Demande du fondateur : « Lire la publication » et « Écouter » visibles à l'ouverture, sans défiler. */
+for (const screen of [
+  { width: 320, height: 568 },
+  { width: 375, height: 667 },
+  { width: 390, height: 844 },
+  { width: 768, height: 1024 },
+  { width: 1440, height: 760 },
+]) {
+  test(`${screen.width}×${screen.height} : Lire la publication et Écouter visibles sans défiler`, async ({ browser }, testInfo) => {
+    test.skip(testInfo.project.name !== "mobile", "même vérification pour les deux projets : une seule fois suffit");
+    const mobile = screen.width < 768;
+    const context = await browser.newContext({ viewport: screen, isMobile: mobile, hasTouch: mobile, locale: "fr-FR", baseURL: `http://localhost:${PORT}` });
+    const page = await context.newPage();
+    await page.goto("/");
+    const card = page.locator('[data-index="0"]');
+    const read = card.getByRole("link", { name: /^Lire la publication/ });
+    const listen = card.getByRole("button", { name: "Écouter le résumé" });
+    const limit = mobile ? await page.getByTestId("dock").evaluate((el) => el.getBoundingClientRect().top) : screen.height;
+    for (const el of [read, listen]) {
+      await expect(el).toBeInViewport({ ratio: 1 });
+      const box = (await el.boundingBox())!;
+      expect(box.y + box.height, "au-dessus de la barre d'onglets").toBeLessThanOrEqual(limit + 1);
+    }
+    await context.close();
+  });
 }

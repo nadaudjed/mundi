@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatDate } from "@/lib/format";
+import { verificationLabel } from "@/lib/verification";
 import { publicationPath } from "@/lib/publication-links";
 import { getTopic, inkOn } from "@/lib/topics";
 import type { FeedPublication } from "@/lib/verified";
@@ -40,7 +41,7 @@ export function PublicationTile({ publication: p, featured = false }: {
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-blue-ink">
             <span className="inline-flex items-center gap-1"><Icon name="check" className="size-3.5" /> Publication sourcée</span>
             <span className="text-night/30" aria-hidden="true">·</span>
-            <span className="text-muted normal-case tracking-normal">{p.aiVerified ? "Contrôle IA, sans relecture humaine" : "Validation humaine"}</span>
+            <span className="text-muted normal-case tracking-normal">{verificationLabel(p)}</span>
           </p>
           <h2 className={"mt-3 font-display font-semibold leading-[1.13] text-night text-balance transition-colors group-hover:text-blue-ink " + (featured ? "text-[1.6rem] sm:text-[2.15rem]" : "text-[1.4rem] sm:text-[1.65rem]")}>{p.title}</h2>
           <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted">{p.summary}</p>

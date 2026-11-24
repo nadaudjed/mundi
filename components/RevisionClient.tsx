@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRevision } from "@/lib/revision";
+import { verificationLabel } from "@/lib/verification";
 import { stories } from "@/lib/stories";
 import { getTopic } from "@/lib/topics";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
@@ -112,7 +113,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
                 </button>
               )}
               <p className="mt-6 text-xs text-ivory/65">
-                {story.isDemo ? "Exemple fictif · " : story.aiVerified ? "Contrôle IA, sans relecture humaine · " : "Validation humaine · "}
+                {story.isDemo ? "Exemple fictif · " : verificationLabel(story) + " · "}
                 <Link href={story.href} className="underline underline-offset-4 hover:text-white">
                   {story.isDemo ? "Relire le récit de démonstration" : "Relire l'article et ses sources"}
                 </Link>

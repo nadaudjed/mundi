@@ -28,7 +28,7 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
     await expect(page.getByTestId("data-card")).toHaveCount(4);
     await expect(page.getByTestId("demo-divider")).toHaveCount(1);
     await expect(page.locator(`[data-testid="verified-card"][data-publication="${TEXTILES}"]`)).toHaveCount(1);
-    await expect(page.getByTestId("verified-count")).toHaveText(LIVE === 1 ? "1 publication vérifiée disponible." : `${LIVE} publications vérifiées disponibles.`);
+    await expect(page.getByTestId("verified-count")).toHaveText(LIVE === 1 ? "1 publication sourcée disponible." : `${LIVE} publications sourcées disponibles.`);
   });
 
   test("aucune donnée de test n'est présente dans le site publié", async ({ page, request }) => {
@@ -60,11 +60,11 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.locator('[data-index="7"]')).toHaveAttribute("data-story", /.+/);
 
     const first = page.locator('[data-index="0"]');
-    await expect(first.getByText("Vérifié", { exact: true })).toBeVisible();
+    await expect(first.getByText("Vérifié", { exact: true })).toHaveCount(0);
     await expect(first.getByText("Exemple de test", { exact: true })).toBeVisible();
     await expect(first.getByTestId("verified-meta")).toContainText("Publié le 20 novembre 2026");
     await expect(first.getByTestId("verified-meta")).toContainText("actualisé le 21 novembre 2026");
-    await expect(first.getByTestId("verified-meta")).toContainText("relu par Relecteur fictif (test)");
+    await expect(first.getByTestId("verification-label")).toHaveText("Validation humaine");
     await expect(first.locator("time").first()).toHaveAttribute("datetime", "2026-11-20");
     // Aucune mention « Contenu illustratif » sur une publication vérifiée.
     await expect(first.getByText("illustratif")).toHaveCount(0);
@@ -73,13 +73,13 @@ test.describe("Site de test : publications inventées approuvées", () => {
   test("une publication automatique dit clairement qu'elle n'a pas été relue par un humain", async ({ page }) => {
     await page.goto("/");
     const card = page.locator(`[data-publication="${SECOND}"]`);
-    await expect(card.getByTestId("verified-meta")).toContainText("vérifié par l'IA, sans relecture humaine");
-    await expect(card.getByTestId("verified-meta")).not.toContainText("relu par");
+    await expect(card.getByTestId("verification-label")).toHaveText("Contrôle IA, sans relecture humaine");
     await page.goto(`/actualites/${SECOND}/`);
-    await expect(page.getByTestId("ai-verified")).toHaveText("vérification automatique par l'IA MUNDI, sans relecture humaine");
+    await expect(page.getByTestId("verification-label")).toHaveText("Contrôle IA, sans relecture humaine");
+    await expect(page.getByText(/Vérifiée par l.IA/)).toHaveCount(0);
     // Une publication relue par une personne garde sa mention habituelle.
     await page.goto(`/actualites/${FIRST}/`);
-    await expect(page.getByTestId("ai-verified")).toHaveCount(0);
+    await expect(page.getByTestId("verification-label")).toHaveText("Validation humaine");
   });
 
   test("les sources restent visibles et cliquables dans la carte immersive", async ({ page }) => {
@@ -144,13 +144,13 @@ test.describe("Site de test : publications inventées approuvées", () => {
     const saved = page.getByTestId("saved-publication");
     await expect(saved).toHaveCount(1);
     await expect(saved).toHaveAttribute("href", `/actualites/${FIRST}/`);
-    await expect(saved).toContainText("Vérifié");
+    await expect(saved).toContainText("Validation humaine");
   });
 
-  test("le badge de l'en-tête suit la carte : Vérifié, puis Démonstration", async ({ page }) => {
+  test("l'en-tête du fil n'a plus de badge « Vérifié » ; il signale les démonstrations", async ({ page }) => {
     await page.goto("/");
     const header = page.getByTestId("feed-topbar");
-    await expect(header.getByText("Vérifié", { exact: true })).toBeVisible();
+    await expect(page.getByText("Vérifié", { exact: true })).toHaveCount(0);
     await scrollFeedTo(page, 7);
     await expect(header.getByText(/^Démo(nstration)?$/).locator("visible=true")).toBeVisible();
   });
@@ -166,7 +166,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   test("fin du fil : le nombre de publications vérifiées est affiché", async ({ page }) => {
     await page.goto("/");
     await page.getByTestId("feed-transition").scrollIntoViewIfNeeded();
-    await expect(page.getByTestId("verified-count")).toHaveText("2 publications vérifiées disponibles.");
+    await expect(page.getByTestId("verified-count")).toHaveText("2 publications sourcées disponibles.");
   });
 
   for (const path of ["/", `/actualites/`, `/actualites/${FIRST}/`, "/enregistres/"]) {

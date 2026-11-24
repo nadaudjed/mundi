@@ -250,3 +250,10 @@ test("an agent never exceeds its attempt budget and unreachable links block publ
   assert.equal(n,3);
   assert.ok(outs.every(o=>o.publishable===false&&/injoignables/.test(o.publishBlockers[0])));
 });
+
+test("règle des titres : 90 caractères au plus, sans parenthèse méthodologique",async()=>{
+  const {titleRuleProblems}=await import("../scripts/run-newsroom-agents.mjs");
+  assert.deepEqual(titleRuleProblems("Électricité : comprendre les réseaux"),[]);
+  assert.match(titleRuleProblems("Ménages avec enfants : 23,3 % en 2025 (23,4 % dans une publication de mai)").join(" "),/parenthesis/);
+  assert.match(titleRuleProblems("x".repeat(91)).join(" "),/longer than 90/);
+});

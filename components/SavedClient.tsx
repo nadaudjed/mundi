@@ -10,7 +10,7 @@ import type { Story } from "@/lib/types";
 import { Icon } from "./Icon";
 import { StoryTile } from "./StoryTile";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
-import { VerifiedBadge } from "./VerifiedCard";
+import { verificationLabel } from "@/lib/verification";
 
 export function SavedClient({ publications = [] }: { publications?: FeedPublication[] }) {
   const { saved, clear } = useBookmarks();
@@ -55,8 +55,7 @@ export function SavedClient({ publications = [] }: { publications?: FeedPublicat
             className="group flex flex-col rounded-3xl bg-paper p-5 ring-1 ring-night/8 transition hover:shadow-lg hover:shadow-night/10 hover:ring-night/15"
           >
             <span className="flex items-center gap-2 text-xs font-semibold text-muted">
-              <VerifiedBadge tone="dark" />
-              {getTopic(p.topic)?.name}
+              {getTopic(p.topic)?.name} · {verificationLabel(p)}
             </span>
             <span className="mt-2 font-display text-lg leading-snug font-semibold text-night text-balance group-hover:text-blue-ink">{p.title}</span>
             <span className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted">{p.summary}</span>

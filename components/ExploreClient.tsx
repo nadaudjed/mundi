@@ -47,6 +47,10 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
     return all;
   }, [publications]);
 
+  /** Domaines avec au moins une publication sourcée d'abord ; les autres sur une ligne secondaire. */
+  const withPublications = topics.filter((t) => counts.get(t.slug)!.published > 0);
+  const withoutPublications = topics.filter((t) => counts.get(t.slug)!.published === 0);
+  const searching = query.trim().length > 0;
   const selectedTopic = topic ? getTopic(topic) : null;
   const total = publishedResults.length + demoResults.length;
   function clearFilters() { setQuery(""); setTopic(null); }
@@ -67,7 +71,7 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
         )}
       </form>
       <p className="mt-2 px-2 text-xs text-muted" aria-live="polite">
-        {total} résultat{total > 1 ? "s" : ""} · {publishedResults.length} publication{publishedResults.length > 1 ? "s" : ""} sourcée{publishedResults.length > 1 ? "s" : ""} · {demoResults.length} démonstration{demoResults.length > 1 ? "s" : ""}
+        {total} {searching ? `résultat${total > 1 ? "s" : ""}` : `contenu${total > 1 ? "s" : ""}`} · {publishedResults.length} publication{publishedResults.length > 1 ? "s" : ""} sourcée{publishedResults.length > 1 ? "s" : ""} · {demoResults.length} démonstration{demoResults.length > 1 ? "s" : ""}
       </p>
 
       <section aria-labelledby="sujets" className="mt-8">
@@ -76,7 +80,7 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
           {(topic || query) && <button type="button" onClick={clearFilters} className="text-sm font-semibold text-blue-ink underline underline-offset-4">Effacer les filtres</button>}
         </div>
         <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-4">
-          {topics.map((t) => {
+          {withPublications.map((t) => {
             const selected = topic === t.slug;
             const n = counts.get(t.slug)!;
             return (
@@ -96,6 +100,20 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
             );
           })}
         </ul>
+        {withoutPublications.length > 0 && (
+          <p className="mt-4 text-sm leading-relaxed text-muted" data-testid="topics-without-publications">
+            <span className="mr-1">Sans publication pour l&apos;instant :</span>
+            {withoutPublications.map((t, i) => (
+              <span key={t.slug}>
+                <button type="button" aria-pressed={topic === t.slug} onClick={() => setTopic(topic === t.slug ? null : t.slug)}
+                  className={"underline-offset-4 hover:text-night hover:underline " + (topic === t.slug ? "font-semibold text-night underline" : "")}>
+                  {t.name}
+                </button>
+                {i < withoutPublications.length - 1 ? ", " : "."}
+              </span>
+            ))}
+          </p>
+        )}
       </section>
 
       <section aria-labelledby="publications" className="mt-12">
@@ -128,7 +146,7 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
           <span className="rounded-full border border-amber/40 bg-amber/10 px-3 py-1.5 text-xs font-bold text-[#79571c]">{demoResults.length} exemple{demoResults.length > 1 ? "s" : ""}</span>
         </div>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-          Ces récits permettent de découvrir MUNDI. Leurs données, dates et sources sont illustratives et ne constituent pas des actualités vérifiées.
+          Ces récits permettent de découvrir MUNDI. Leurs données, dates et sources sont illustratives et ne constituent pas des actualités.
         </p>
         {demoResults.length ? (
           <div className="mt-5 grid gap-3 lg:grid-cols-2">

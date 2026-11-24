@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/format";
+import { verificationLabel } from "@/lib/verification";
 import { getVerifiedPublication as getPublication, verifiedPublications as publishedArticles } from "@/lib/verified";
 import { getTopic } from "@/lib/topics";
 import { ListenButton } from "@/components/ListenButton";
@@ -38,7 +39,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
   return (
     <article className="mx-auto max-w-3xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-14 md:pb-20">
       <Link href="/actualites/" className="text-sm font-semibold text-blue underline underline-offset-4">Toutes les publications</Link>
-      <p className="mt-10 text-xs font-semibold uppercase tracking-wider text-blue">{getTopic(a.topic)?.name} · {a.aiVerified ? "Vérifiée par l’IA, sans relecture humaine" : "Publication relue"}</p>
+      <p className="mt-10 text-xs font-semibold uppercase tracking-wider text-blue">{getTopic(a.topic)?.name} · {verificationLabel(a)}</p>
       <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-night md:text-5xl">{a.title}</h1>
       <p className="mt-5 text-lg leading-relaxed text-muted">{a.summary}</p>
       {a.photo && (
@@ -51,7 +52,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
           </figcaption>
         </figure>
       )}
-      <p className="mt-6 border-y border-night/10 py-4 text-sm text-muted" data-testid="publication-meta">{a.fixture && <strong className="mr-2 text-[#7a5410]">Exemple de test, jamais publié.</strong>}Publié le <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time> · Actualisé le <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time> · Validation : {a.aiVerified ? <strong className="font-semibold text-night" data-testid="ai-verified">vérification automatique par l&apos;IA MUNDI, sans relecture humaine</strong> : a.reviewedBy}</p>
+      <p className="mt-6 border-y border-night/10 py-4 text-sm text-muted" data-testid="publication-meta">{a.fixture && <strong className="mr-2 text-[#7a5410]">Exemple de test, jamais publié.</strong>}Publié le <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time> · Actualisé le <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time> · <strong className="font-semibold text-night" data-testid="verification-label">{verificationLabel(a)}</strong>{!a.aiVerified && <> ({a.reviewedBy})</>}</p>
       {a.corrections && a.corrections.length > 0 && (
         <aside className="mt-6 rounded-2xl bg-[#fff6e5] p-5 text-sm text-night ring-1 ring-[#e0b45a]" data-testid="corrections" aria-label="Corrections">
           <p className="font-semibold">Correction{a.corrections.length > 1 ? "s" : ""} apportée{a.corrections.length > 1 ? "s" : ""} à cet article</p>

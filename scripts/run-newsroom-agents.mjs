@@ -23,11 +23,20 @@ function organisation(url){
   return parts.length>=2?parts.slice(-2).join("."):u.hostname;
 }
 function uniqueIndependent(urls){return new Set(urls.map(organisation).filter(Boolean)).size;}
+/** Règle des titres : 90 caractères au plus, sans parenthèse méthodologique (la précision va dans le résumé). */
+export const TITLE_MAX=90;
+export function titleRuleProblems(title){
+  const t=String(title??"").trim(),problems=[];
+  if(t.length>TITLE_MAX)problems.push("Title longer than "+TITLE_MAX+" characters");
+  if(/[()]/.test(t))problems.push("Title must not contain a methodological parenthesis");
+  return problems;
+}
 export function validateResearchDraft(draft,job){
   const errors=[];
   if(!draft||typeof draft!=="object")return ["Missing draft"];
   if(!TOPICS.includes(job.topic))errors.push("Unrecognized topic");
   if(!short(draft.title,180)||!short(draft.summary,1500))errors.push("Missing title/summary");
+  else for(const problem of titleRuleProblems(draft.title))errors.push(problem);
   if(!Array.isArray(draft.keyPoints)||draft.keyPoints.length!==3||draft.keyPoints.some(x=>short(x,350).length<15))
     errors.push("Exactly three substantial key points required");
   if(!Array.isArray(draft.sections)||draft.sections.length<2||draft.sections.some(s=>
@@ -82,6 +91,7 @@ const WRITER_SYSTEM=[
 "Ne te contente pas d'un seul organisme ; privilégie les sources primaires, identifie dates, périodes, unités, dénominateurs, licences, incertitudes.",
 "Si tu ne trouves pas au moins deux organismes réellement pertinents et indépendants, ne crée ni noms, ni chiffres, ni URLs : retourne un brouillon incomplet qui sera refusé.",
 "Évite les longues citations et ne copie pas les articles tiers.",
+"Titre : 90 caractères au maximum, sans parenthèse méthodologique ; les précisions de méthode, de période ou de révision vont dans le résumé.",
 "Retourne UNIQUEMENT un objet JSON contenant : topic, contentType (today ou evergreen), title, summary, keyPoints (EXACTEMENT 3 chaînes, chacune de 15 à 350 caractères),",
 "sections (au moins 2 objets {kind: fait/analyse/hypothese,heading,text}), sources (objets {label,url}),",
 "claims (objets {statement,evidenceUrls}). Chaque affirmation vérifiable nécessite ses URL.",

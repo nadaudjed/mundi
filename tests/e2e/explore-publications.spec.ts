@@ -51,3 +51,13 @@ test("news homepage uses image-rich cards with honest review labels and no overf
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);
 });
+
+test("Explorer : « contenus » tant que la recherche est vide, domaines sans publication à part", async ({ page }) => {
+  await page.goto("/explorer/");
+  await expect(page.getByText(/^\d+ contenus? ·/)).toBeVisible();
+  await expect(page.getByText(/^\d+ résultats? ·/)).toHaveCount(0);
+  await page.getByRole("searchbox").fill("énergie");
+  await expect(page.getByText(/^\d+ résultats? ·/)).toBeVisible();
+  const topicsWithPublications = new Set(publicArticles.map((p) => p.topic));
+  if (topicsWithPublications.size < 12) await expect(page.getByTestId("topics-without-publications")).toBeVisible();
+});

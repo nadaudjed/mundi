@@ -17,7 +17,7 @@ import { getStoryMedia } from "@/lib/media";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
 import { MediaStage } from "./MediaStage";
-import { VerifiedBadge, VerifiedCard, type CardVisual } from "./VerifiedCard";
+import { VerifiedCard, type CardVisual } from "./VerifiedCard";
 import { DataCardView } from "./data-cards/DataCardView";
 import type { DataCard } from "@/lib/data-cards";
 import { publicationPath } from "@/lib/publication-links";
@@ -163,15 +163,15 @@ export function Feed({ verified = [] }: Props) {
         className="pointer-events-none absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-night/85 via-night/40 to-transparent pb-8 pt-[max(env(safe-area-inset-top),0.75rem)]"
       >
         <div className="flex items-center justify-between gap-2 px-4 md:px-8">
-          <Link href="/" className="pointer-events-auto flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.22em] text-ivory" aria-label="MUNDI">
+          <Link href="/" className="pointer-events-auto flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.22em] text-ivory md:invisible" aria-label="MUNDI, retour au début du fil">
             <LogoMark className="size-6" />
             <span className="max-[359px]:sr-only">MUNDI</span>
           </Link>
           <div className="pointer-events-auto flex min-w-0 items-center gap-1.5 sm:gap-2">
-            <InstallChip compact />
-            {entry?.kind === "verified" || entry?.kind === "data" ? (
-              <VerifiedBadge />
-            ) : (
+            <span className="md:hidden">
+              <InstallChip compact />
+            </span>
+            {entry?.kind === "verified" || entry?.kind === "data" ? null : (
               <>
                 {/* Libellé court sur téléphone pour que la barre tienne sur une ligne. */}
                 <span className="sm:hidden">
@@ -278,7 +278,7 @@ export function Feed({ verified = [] }: Props) {
             "Fin"
           ) : entry?.kind === "verified" ? (
             <>
-              <span className="sr-only">Publications vérifiées : </span>
+              <span className="sr-only">Publications sourcées : </span>
               {entry.position + 1}/{publications.length}
             </>
           ) : entry?.kind === "data" ? (
@@ -359,7 +359,7 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
       {/* Sur très petit écran, le texte défile dans la carte plutôt que d'être coupé. */}
       <div
         data-testid="card-scroll"
-        className={`feed-column no-scrollbar pointer-events-none relative flex min-h-0 shrink items-end gap-2 overflow-y-auto px-5 pb-6 md:pb-10 wide:my-auto wide:pb-6 ${hasMedia ? "pt-3 wide:pt-32" : "mt-auto pt-32"}`}
+        className={`feed-column no-scrollbar pointer-events-none relative flex min-h-0 shrink items-end gap-2 overflow-y-auto px-5 pb-3 wide:my-auto ${hasMedia ? "pt-3 wide:pt-32" : "mt-auto pt-32"}`}
       >
         <div className="pointer-events-auto min-w-0 flex-1">
           <div className="mb-3 flex flex-wrap items-center gap-2 text-[0.75rem] font-semibold">
@@ -371,6 +371,7 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
               <Icon name="clock" className="size-3.5" />
               {formatMinutes(story.minutes)}
             </span>
+            <span className="text-[#ffd98f]/90">Contenu illustratif</span>
           </div>
 
           {beat ? (
@@ -379,23 +380,6 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
             <SummaryBody story={story} />
           )}
 
-          {last && (
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <Link
-                href={`/recit/${story.slug}/`}
-                className="inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night transition hover:bg-mint-soft"
-              >
-                Comprendre
-                <Icon name="arrow-right" className="size-4" />
-              </Link>
-              <ListenButton title={story.title} summary={story.dek} points={story.keyPoints} active={active} />
-              <span className="text-[0.65rem] leading-tight font-medium uppercase tracking-wider text-[#ffd98f]/90">
-                Contenu
-                <br />
-                illustratif
-              </span>
-            </div>
-          )}
           {!last && (
             <p className="mt-5 flex items-center gap-1.5 text-xs font-medium text-ivory/65 [@media(max-height:680px)]:mt-2">
               <Icon name="chevron-down" className="size-4 motion-safe:animate-bounce" />
@@ -403,8 +387,24 @@ function FeedCard({ slide, index, total, active, near }: { slide: Slide; index: 
             </p>
           )}
         </div>
+      </div>
 
-        <div className="pointer-events-auto flex shrink-0 flex-col items-center gap-1 self-end pb-12">
+      {/* Barre d'actions hors de la zone qui défile : toujours visible, quelle que soit la hauteur d'écran. */}
+      <div className="feed-column relative flex shrink-0 flex-wrap items-center gap-x-3 gap-y-2 px-5 pb-3 pt-2" data-testid="card-actions">
+        {last && (
+          <>
+            <Link
+              href={`/recit/${story.slug}/`}
+              aria-label={`Comprendre : ${story.title}`}
+              className="inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night transition hover:bg-mint-soft"
+            >
+              Comprendre
+              <Icon name="arrow-right" className="size-4" />
+            </Link>
+            <ListenButton title={story.title} summary={story.dek} points={story.keyPoints} active={active} />
+          </>
+        )}
+        <div className="ml-auto flex shrink-0 items-center">
           <SaveButton slug={story.slug} title={story.title} variant="rail" />
           <ShareButton slug={story.slug} title={story.title} variant="rail" />
         </div>
@@ -473,7 +473,7 @@ function TransitionCard({ index, count, onRestart }: { index: number; count: num
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#ffd98f]">Fin des récits illustratifs</p>
         {count === 0 ? (
           <>
-            <h2 className="mt-3 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">Bientôt : les récits vérifiés de la rédaction</h2>
+            <h2 className="mt-3 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">Bientôt : les publications sourcées de la rédaction</h2>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
               Ce que vous venez de parcourir sert à tester MUNDI. Les prochains récits s&apos;appuieront sur des sources réelles,
               vérifiées et relues par une personne avant publication.
@@ -483,7 +483,7 @@ function TransitionCard({ index, count, onRestart }: { index: number; count: num
           <>
             <h2 className="mt-3 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">Vous avez parcouru tout le fil</h2>
             <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
-              Les publications vérifiées ouvrent le fil. Les récits qui suivent sont des démonstrations : ils servent à tester
+              Les publications sourcées ouvrent le fil. Les récits qui suivent sont des démonstrations : ils servent à tester
               MUNDI et ne relatent aucune actualité.
             </p>
           </>
@@ -494,18 +494,18 @@ function TransitionCard({ index, count, onRestart }: { index: number; count: num
             <dd className="mt-1 text-ivory/80">Exemple pédagogique, sources fictives.</dd>
           </div>
           <div className="rounded-2xl bg-ivory/5 p-3 ring-1 ring-mint/50">
-            <dt className="text-xs font-bold uppercase tracking-wider text-mint-soft">Vérifié</dt>
-            <dd className="mt-1 text-ivory/80">Sources réelles, date, relecteur nommé.</dd>
+            <dt className="text-xs font-bold uppercase tracking-wider text-mint-soft">Publication</dt>
+            <dd className="mt-1 text-ivory/80">Sources réelles et datées, contrôle indiqué sur chaque article.</dd>
           </div>
         </dl>
         <p className="mt-5 text-sm font-medium text-ivory/90" data-testid="verified-count">
           {count === 0
-            ? "Aucune publication vérifiée pour l'instant."
-            : `${count} publication${count > 1 ? "s" : ""} vérifiée${count > 1 ? "s" : ""} disponible${count > 1 ? "s" : ""}.`}
+            ? "Aucune publication sourcée pour l'instant."
+            : `${count} publication${count > 1 ? "s" : ""} sourcée${count > 1 ? "s" : ""} disponible${count > 1 ? "s" : ""}.`}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link href="/actualites/" className="inline-flex items-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-night hover:bg-mint-soft">
-            Publications vérifiées
+            Publications sourcées
             <Icon name="arrow-right" className="size-4" />
           </Link>
           <button type="button" onClick={onRestart} className="rounded-full border border-ivory/35 px-5 py-2.5 text-sm font-semibold text-ivory hover:border-ivory/80">
@@ -531,7 +531,7 @@ function DemoDivider({ index, count }: { index: number; count: number }) {
         <DemoBadge tone="light" />
         <h2 className="mt-4 font-display text-[1.9rem] leading-[1.12] font-semibold text-balance">La suite est illustrative</h2>
         <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
-          Vous avez vu toutes les publications vérifiées. Les {count} récit{count > 1 ? "s" : ""} suivant{count > 1 ? "s" : ""} sont des
+          Vous avez vu toutes les publications sourcées. Les {count} récit{count > 1 ? "s" : ""} suivant{count > 1 ? "s" : ""} sont des
           exemples pédagogiques : leurs sources et leurs dates sont fictives.
         </p>
         <p className="mt-5 flex items-center gap-1.5 text-xs font-medium text-ivory/65">

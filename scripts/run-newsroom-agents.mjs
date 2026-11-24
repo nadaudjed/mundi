@@ -146,8 +146,10 @@ function record(job,draft,review,assessment,error){
     error:short(error,350)||null,createdAt:now(),status:"draft_not_published"};
 }
 const FREE_CONCEPT="Choisis toi-même un concept durable et important du domaine, différent des sujets déjà publiés (previouslyPublishedOnSameBeat), puis explique-le sans inventer de faits, avec au moins deux organismes sources.";
+const STORY="Raconte une histoire vraie du domaine : un épisode historique, un tournant, une découverte, une crise ou une idéologie, relié de près ou de loin à l'actualité (dis en une phrase pourquoi il éclaire l'actualité). Ce n'est pas une fiction : chaque fait, date et chiffre vient de sources consultées (au moins deux organismes, sources primaires ou historiens reconnus de préférence), distingue les faits établis des interprétations et débats, ne refais pas un sujet déjà publié (previouslyPublishedOnSameBeat). Sur les sujets graves (guerres, bombardements, génocides), reste factuel, sobre et précis sur les bilans et leurs incertitudes.";
 export function taskFor(job){
   if(job.role==="journalist")return (job.source?"Pars de la piste sourceLead, puis c":"Aucune piste fournie : c")+"herche en ligne les nouveautés des dernières 48 heures dans le domaine, consulte les sources primaires, recoupe avec un second organisme. Si aucune nouveauté réellement documentée, laisse le brouillon incomplet pour rejet. Vérifie si l information corrige une publication MUNDI existante et ne refais pas un sujet déjà publié.";
+  if(job.status==="research_required_story")return STORY;
   return job.status==="research_required_free_concept"?FREE_CONCEPT:"Expliquer un mécanisme durable sans inventer de faits, sans refaire un sujet déjà publié (previouslyPublishedOnSameBeat).";
 }
 /** Why an output could not be published (empty list = publishable), with the same rules as autopublish. */
@@ -232,7 +234,7 @@ export async function runAgentDesk(plan,{
 }={}){
   if(plan?.format!=="mundi-daily-agent-plan-v1"||!Array.isArray(plan.jobs)||plan.jobs.length===0||plan.jobs.length>24||plan.jobs.length!==plan.target)
     throw new Error("Invalid daily editorial plan");
-  const max=Math.min(24,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));
+  const max=Math.min(48,Math.max(0,Number.isFinite(maximum)?Math.floor(maximum):0));
   const attempts=Math.min(5,Math.max(1,Number.isFinite(maxAttempts)?Math.floor(maxAttempts):3));
   const workers=Math.min(8,Math.max(1,Number.isFinite(concurrency)?Math.floor(concurrency):6));
   const selection=inferAgentSelection({provider,checkerProvider,model,checkerModel,anthropicKey:claudeKey});

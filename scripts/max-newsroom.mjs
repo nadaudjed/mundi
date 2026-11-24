@@ -10,7 +10,8 @@
  *   node scripts/max-newsroom.mjs validate <agentId>                         # format check of one draft
  *   node scripts/max-newsroom.mjs revise                                     # drafts the checker sent back (one round)
  *   node scripts/max-newsroom.mjs assemble                                   # results.json for autopublish
- * Files live in the private editorial-stock worktree: editorial/agents/max/<day>/
+ * Files live in the private editorial-stock worktree: editorial/agents/max/<day>/ (morning) and
+ * editorial/agents/max/<day>-aprem/ (afternoon edition, MUNDI_EDITION=aprem).
  */
 import {readFileSync,writeFileSync,mkdirSync,existsSync,readdirSync} from "node:fs";
 import {resolve,join,dirname} from "node:path";
@@ -23,14 +24,17 @@ const read=p=>JSON.parse(readFileSync(p,"utf8"));
 const short=(s,n)=>typeof s==="string"?s.trim().slice(0,n):"";
 
 /** The day's 24 assignments, deterministic for a given stock, ledger and date. */
-export function dailyPlan({repo=".",stockDir,now=new Date().toISOString()}){
+export function dailyPlan({repo=".",stockDir,now=new Date().toISOString(),edition="matin"}){
   const roster=read(join(repo,"editorial/agents/roster.json"));
   const ideas=read(join(repo,"editorial/library/evergreen-ideas.json"));
   const publications=read(join(repo,"content/publications.json"));
   const s=join(stockDir,"editorial/library/candidates.json"),h=join(stockDir,"editorial/agents/ledger.json");
   const stock=existsSync(s)?read(s):{items:[]};
   const history=existsSync(h)?read(h):{version:1,entries:[]};
-  return makeDailyPlan({roster,ideas,stock,publications,history,now});
+  // The afternoon never reuses a lead already given to the morning edition.
+  const morning=join(stockDir,"editorial/agents/max",now.slice(0,10),"plan.json");
+  const exclude=edition!=="matin"&&existsSync(morning)?read(morning).jobs.flatMap(j=>[j,...(j.alternates??[])]).map(a=>a.source?.url).filter(Boolean):[];
+  return makeDailyPlan({roster,ideas,stock,publications,history,now,edition,exclude});
 }
 export function batchJobs(plan,role,batch){
   const jobs=plan.jobs.filter(j=>role==="journalist"?j.role==="journalist":j.role!=="journalist");
@@ -77,10 +81,13 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
   const [cmd,role,batchArg]=process.argv.slice(2);
   const stockDir=resolve(process.env.MUNDI_STOCK_DIR||"../mundi-stock");
   const now=process.env.MUNDI_RUN_DATE||new Date().toISOString();
-  const dayDir=join(stockDir,"editorial/agents/max",now.slice(0,10));
+  // MUNDI_EDITION=aprem works in editorial/agents/max/<day>-aprem/ (morning keeps editorial/agents/max/<day>/).
+  const edition=process.env.MUNDI_EDITION||"matin";
+  if(!["matin","aprem"].includes(edition)){console.error("MUNDI_EDITION inconnu");process.exit(2);}
+  const dayDir=join(stockDir,"editorial/agents/max",now.slice(0,10)+(edition==="matin"?"":"-"+edition));
   const planFile=join(dayDir,"plan.json");
   // The plan is frozen by the first task of the day, so every batch works from the same assignments.
-  const plan=existsSync(planFile)?read(planFile):dailyPlan({stockDir,now});
+  const plan=existsSync(planFile)?read(planFile):dailyPlan({stockDir,now,edition});
   if(!existsSync(planFile)){mkdirSync(dayDir,{recursive:true});writeFileSync(planFile,JSON.stringify(plan,null,2)+"\n");}
   if(cmd==="brief"){
     const batch=Number(batchArg)||1;

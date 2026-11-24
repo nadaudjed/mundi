@@ -52,3 +52,23 @@ test("an alternate attempt keeps its own record key for deduplication",()=>{
   assert.equal(r.outputs[0].recordKey,j.alternates[0].recordKey);
   assert.equal(r.outputs[0].id,j.id+"-2");
 });
+test("afternoon edition: new ids, real stories for professors, never a morning lead",async()=>{
+  const {makeDailyPlan}=await import("../scripts/plan-newsroom.mjs");
+  const {readFileSync}=await import("node:fs");
+  const read=p=>JSON.parse(readFileSync(p,"utf8"));
+  const roster=read("editorial/agents/roster.json"),ideas=read("editorial/library/evergreen-ideas.json");
+  const now="2026-11-24T13:00:00Z",topic=roster.journalists[0].topic;
+  const lead=(n)=>({status:"candidate_unverified",topicHint:topic,link:"https://www.example.org/"+n,title:"Piste "+n,publisher:"Ex",publishedAt:"2026-11-24T08:00:00Z"});
+  const stock={items:[lead(1),lead(2),lead(3),lead(4)]};
+  const morning=makeDailyPlan({roster,ideas,stock,publications:[],now});
+  const used=morning.jobs.flatMap(j=>[j,...j.alternates]).map(a=>a.source?.url).filter(Boolean);
+  const aprem=makeDailyPlan({roster,ideas,stock,publications:[],now,edition:"aprem",exclude:used});
+  assert.equal(aprem.jobs.length,24);
+  assert.equal(aprem.edition,"aprem");
+  const ids=new Set(morning.jobs.map(j=>j.id));
+  assert.ok(aprem.jobs.every(j=>!ids.has(j.id)));
+  const j0=aprem.jobs.find(j=>j.topic===topic&&j.role==="journalist");
+  assert.equal(j0.source?.url,"https://www.example.org/4");
+  assert.ok(aprem.jobs.filter(j=>j.role==="professor").every(j=>j.status==="research_required_story"));
+  assert.throws(()=>makeDailyPlan({roster,ideas,stock,publications:[],now,edition:"soir"}));
+});

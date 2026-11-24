@@ -158,7 +158,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   const file = resolve("content/publications.json");
   const existing = JSON.parse(readFileSync(file, "utf8"));
   const enabled = (process.env.MUNDI_AUTOPUBLISH || "on").toLowerCase() !== "off";
-  const max = Math.max(0, Math.min(24, Number.parseInt(process.env.MUNDI_PUBLISH_PER_DAY || "24", 10) || 0));
+  const max = Math.max(0, Math.min(48, Number.parseInt(process.env.MUNDI_PUBLISH_PER_DAY || "48", 10) || 0));
   const { published, decisions } = await autopublish(results, existing, { enabled, max });
   for (const d of decisions) console.log("MUNDI autopublish", d.id ?? "", d.topic ?? "", "—", d.decision, d.slug ?? "", (d.reasons ?? []).join(" ; "));
   if (published.length) writeFileSync(file, JSON.stringify([...published, ...existing], null, 2) + "\n");

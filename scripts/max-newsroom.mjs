@@ -61,6 +61,7 @@ export function assemble(plan,drafts,checks){
     outputs.push({format:"mundi-agent-output-v1",id:base.id,date:plan.date,agentId:job.agentId,attempt,role:job.role,kind,topic:job.topic,
       originalAssignment:base.title,recordKey:base.recordKey,sourceLead:base.source,previousPublication:job.previousPublication,
       draft,checker,assessment,error:short(d.error,350)||null,createdAt:d.createdAt||new Date().toISOString(),
+      dataCardsAllowed:job.dataCards===true,
       status:"draft_not_published",engine:"claude-max-scheduled-task",
       searchedUrls:Array.isArray(d.searchedUrls)?d.searchedUrls.filter(u=>typeof u==="string").slice(0,60):[]});
   }
@@ -95,12 +96,14 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     const batch=Number(batchArg)||1;
     const jobs=batchJobs(plan,role,batch).map(j=>({agentId:j.agentId,role:j.role,topic:j.topic,
       attempts:[j,...j.alternates].map((a,i)=>({attempt:i+1,status:a.status,title:a.title,angle:a.angle,sourceLead:a.source,task:taskFor({...j,...a})})),
-      previousPublication:j.previousPublication,previouslyPublishedOnSameBeat:j.relatedPublications}));
+      previousPublication:j.previousPublication,previouslyPublishedOnSameBeat:j.relatedPublications,
+      // Cartes « Données » : seulement pour environ un article sur trois (voir writerInstructions).
+      dataCards:j.dataCards===true}));
     console.log(JSON.stringify({date:plan.date,outputDir:join(dayDir,"drafts"),writerInstructions:WRITER_SYSTEM,jobs},null,2));
   }else if(cmd==="check"){
     const drafts=readDir(join(dayDir,"drafts")),checks=readDir(join(dayDir,"checks"));
     const todo=plan.jobs.filter(j=>(role?(role==="journalist")===(j.role==="journalist"):true)&&drafts[j.agentId]?.draft&&!checks[j.agentId])
-      .map(j=>({agentId:j.agentId,topic:j.topic,draft:drafts[j.agentId].draft}));
+      .map(j=>({agentId:j.agentId,topic:j.topic,dataCards:j.dataCards===true,draft:drafts[j.agentId].draft}));
     console.log(JSON.stringify({date:plan.date,outputDir:join(dayDir,"checks"),checkerInstructions:CHECKER_SYSTEM,drafts:todo},null,2));
   }else if(cmd==="revise"){
     // One correction round, as in the API newsroom: the writer fixes what the checker could not confirm,
@@ -112,7 +115,7 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     const broken=id=>Array.isArray(links[id])?links[id]:[];
     const todo=plan.jobs.filter(j=>drafts[j.agentId]?.draft&&checks[j.agentId]?.checker&&!(drafts[j.agentId].revision>=1)
         &&(checks[j.agentId].checker.verdict==="needs_review"||(checks[j.agentId].checker.verdict==="pass"&&broken(j.agentId).length)))
-      .map(j=>({agentId:j.agentId,topic:j.topic,role:j.role,draft:drafts[j.agentId].draft,checkerReport:checks[j.agentId].checker,
+      .map(j=>({agentId:j.agentId,topic:j.topic,role:j.role,dataCards:j.dataCards===true,draft:drafts[j.agentId].draft,checkerReport:checks[j.agentId].checker,
         brokenLinks:broken(j.agentId),
         draftFile:join(dayDir,"drafts",j.agentId+".json"),checkFile:join(dayDir,"checks",j.agentId+".json"),
         archiveCheckTo:join(dayDir,"checks","history",j.agentId+"-1.json")}));
@@ -123,7 +126,8 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     if(!job){console.error("agentId inconnu dans le plan du jour");process.exit(1);}
     const errors=d.draft?validateResearchDraft(tidyDraft(structuredClone(d.draft)),job):["draft absent"];
     const cardErrors=d.draft?.dataCards===undefined?[]:dataCardErrors(d.draft.dataCards.map?.(cleanCard)??d.draft.dataCards,(d.draft.sources??[]).map(s=>s?.url));
-    if(cardErrors.length)console.log("CARTES DONNÉES À CORRIGER (sinon elles seront retirées) : "+cardErrors.join(" ; "));
+    if(d.draft?.dataCards!==undefined&&job.dataCards!==true)console.log("CARTES DONNÉES NON PRÉVUES pour cet article (dataCards false) : retirer dataCards, elles ne seront pas publiées.");
+    else if(cardErrors.length)console.log("CARTES DONNÉES À CORRIGER (sinon elles seront retirées) : "+cardErrors.join(" ; "));
     const fcErrors=d.draft?.flashcards===undefined?[]:flashcardErrors(d.draft.flashcards);
     if(fcErrors.length)console.log("CARTES MÉMOIRE À CORRIGER (sinon elles seront retirées) : "+fcErrors.join(" ; "));
     if(d.draft&&job.role!=="journalist"&&!(d.draft.flashcards?.length>=3))console.log("CARTES MÉMOIRE : un concept ou un récit en demande 3 à 5.");

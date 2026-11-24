@@ -77,9 +77,13 @@ En cas de conflit sur `plan.json` pendant le rebase, garder la version distante 
    Si aucun essai n'aboutit : `"draft":null` et `"error"` explique pourquoi en une phrase.
 4. Vérifier le format : `MUNDI_STOCK_DIR=../mundi-stock node scripts/max-newsroom.mjs validate <agentId>` et corriger
    jusqu'à « OK ». Écrire en français, titre de 90 caractères au plus, sans parenthèse méthodologique.
-   **Cartes « Données »** : dès que le sujet a des chiffres, une comparaison ou des étapes, ajouter `dataCards`
-   (2 à 4 cartes, format dans `writerInstructions`). Chaque chiffre doit figurer tel quel dans une des sources de
-   l'article. `validate` signale les cartes à corriger ; une carte invalide est retirée, l'article reste publiable.
+   **Cartes « Données »** : SEULEMENT si la mission indique `"dataCards": true` (environ un article sur trois, pour
+   varier le fil ; les autres restent de simples articles, sans `dataCards`). Même autorisé, n'en mettre que si des
+   chiffres solides, une comparaison ou des étapes se montrent mieux en carte que dans le texte. 2 à 4 cartes, format
+   dans `writerInstructions`. Chaque chiffre doit figurer tel quel dans une des sources de l'article. Chaque carte a
+   son `imageQuery` (2 à 4 mots en anglais, photo concrète propre à CETTE carte, différente des autres cartes et du
+   sujet général) : la photo de la carte est cherchée ensuite sur Wikimedia Commons, jamais celle de l'article.
+   `validate` signale les cartes à corriger ; une carte invalide ou non prévue est retirée, l'article reste publiable.
    **Cartes mémoire** (`flashcards`, rubrique Réviser) : 3 à 5 pour un concept ou un récit, 0 à 2 pour une actualité ;
    une notion par question, réponse compréhensible seule, tirée uniquement du texte de l'article. Le vérificateur
    contrôle que chaque réponse est dans l'article.

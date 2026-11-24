@@ -78,7 +78,8 @@ export function Feed({ verified = [], mix = true }: Props) {
     // Chaque publication approuvée peut être suivie de sa séquence de cartes de données.
     const list: Entry[] = publications.flatMap((publication, position): Entry[] => [
       { kind: "verified", key: `pub:${publication.slug}`, publication, position, visual: position % 2 === 0 ? "motif" : "sobre" },
-      ...(publication.dataCards ?? []).map((card, i, all): Entry => ({
+      // Tous les articles ne sont pas « en cartes » : dataCardsInFeed false garde un simple article.
+      ...(publication.dataCardsInFeed === false ? [] : (publication.dataCards ?? [])).map((card, i, all): Entry => ({
         kind: "data",
         key: `pub:${publication.slug}:${card.id}`,
         publication,
@@ -273,7 +274,7 @@ export function Feed({ verified = [], mix = true }: Props) {
                 status="verifie"
                 href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}
                 backdrop={e.card.scene ? e.publication.backdrops?.[e.card.scene.backdrop] : undefined}
-                photo={e.publication.photo}
+                photo={e.publication.cardPhotos?.[e.card.id]}
               />
             </article>
           ) : null,

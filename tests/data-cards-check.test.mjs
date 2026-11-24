@@ -53,3 +53,16 @@ test("publication : cartes mémoire transmises seulement si valides", () => {
   assert.equal(toPublication({ draft, role: "professor" }, "2026-11-24").flashcards.length, 1);
   assert.equal(toPublication({ draft: { ...draft, flashcards: [{ question: "?", answer: "" }] }, role: "professor" }, "2026-11-24").flashcards, undefined);
 });
+
+test("cartes « Données » publiées seulement pour les articles prévus, avec leur recherche de photo", async () => {
+  const { toPublication, dataCardsAllowed } = await import("../scripts/autopublish-agents.mjs");
+  const d = { title: "Un titre", summary: "Résumé assez long pour passer.", topic: "economie", keyPoints: ["a", "b", "c"], sections: [], sources: [{ label: "S", url: src }],
+    dataCards: cards.map((c, i) => ({ ...c, imageQuery: i ? "  gas   meter " : "stock exchange" })) };
+  const yes = toPublication({ draft: d, role: "journalist", dataCardsAllowed: true }, "2026-11-24");
+  assert.equal(yes.dataCards.length, 2);
+  assert.deepEqual(yes.dataCards.map((c) => c.imageQuery), ["stock exchange", "gas meter"]);
+  assert.equal(toPublication({ draft: d, role: "journalist", dataCardsAllowed: false }, "2026-11-24").dataCards, undefined);
+  // Ancien brouillon sans indication : tirage stable sur le titre, environ un sur trois.
+  const share = Array.from({ length: 300 }, (_, i) => dataCardsAllowed({ draft: { title: "Titre " + i } })).filter(Boolean).length;
+  assert.ok(share > 70 && share < 130, String(share));
+});

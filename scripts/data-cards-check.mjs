@@ -2,7 +2,8 @@
  * Contrôle, côté rédaction automatique, des cartes « Données » proposées par les agents.
  * Mêmes règles que lib/data-cards.ts (validateDataCards), qui fait échouer la construction du site
  * si une carte publiée est mal formée : une carte refusée ici est retirée, l'article reste publiable.
- * Les agents ne fournissent ni visuel, ni fond, ni style : les photos viennent du catalogue approuvé.
+ * Les agents ne fournissent ni visuel, ni fond, ni style. Ils proposent seulement imageQuery : la recherche
+ * de la photo propre à chaque carte, faite ensuite sous licence libre par scripts/collect-editorial-images.mjs.
  */
 const isText=(v,min=1,max=400)=>typeof v==="string"&&v.trim().length>=min&&v.trim().length<=max;
 const isDate=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&!Number.isNaN(Date.parse(v));
@@ -23,6 +24,8 @@ const pick=(o,keys)=>Object.fromEntries(keys.filter(k=>o?.[k]!==undefined).map(k
 /** Garde seulement les champs que les agents ont le droit de remplir. */
 export function cleanCard(c){
   const base=pick(c,["id","kind","headline","source","asOf","note"]);
+  // Recherche de la photo propre à la carte (Wikimedia Commons), jamais la photo de l'article.
+  if(typeof c?.imageQuery==="string"&&c.imageQuery.trim())base.imageQuery=c.imageQuery.trim().replace(/\s+/g," ").slice(0,80);
   if(base.source)base.source=pick(base.source,["label","url"]);
   if(c?.kind==="stat")return {...base,measure:pick(c.measure,MEASURE_KEYS),...pick(c,["context"])};
   if(c?.kind==="comparaison")return {...base,items:(Array.isArray(c.items)?c.items:[]).map(m=>pick(m,MEASURE_KEYS)),presentation:c.presentation};
@@ -43,6 +46,7 @@ export function dataCardErrors(cards,sourceUrls=[]){
     else if(!allowed.has(c.source.url))errors.push(where+" : la source doit être une des sources de l'article");
     if(!isDate(c.asOf))errors.push(where+" : date de la donnée invalide (AAAA-MM-JJ)");
     if(c.note!==undefined&&!isText(c.note,3,400))errors.push(where+" : note méthodologique invalide");
+    if(c.imageQuery!==undefined&&!isText(c.imageQuery,3,80))errors.push(where+" : imageQuery invalide (3 à 80 caractères)");
     if(c.kind==="stat"){measure(c.measure,where,errors);if(c.context!==undefined&&!isText(c.context,3,240))errors.push(where+" : contexte invalide");}
     else if(c.kind==="comparaison"){
       const items=Array.isArray(c.items)?c.items:[];

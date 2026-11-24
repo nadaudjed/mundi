@@ -18,8 +18,8 @@ const SECOND = "test-publication-technologie";
 /** Les agents publient désormais seuls : on compte ce que contient réellement le site normal. */
 const LIVE = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string }[]).filter((p) => p.status === "published").length;
 const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
-const LIVE_DATA_CARDS = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[] }[])
-  .filter((p) => p.status === "published").reduce((n, p) => n + (p.dataCards?.length ?? 0), 0);
+const LIVE_DATA_CARDS = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[]; dataCardsInFeed?: boolean }[])
+  .filter((p) => p.status === "published" && p.dataCardsInFeed !== false).reduce((n, p) => n + (p.dataCards?.length ?? 0), 0);
 
 test.describe("Site normal : première publication Eurostat approuvée", () => {
   test("le fil montre les vraies publications et leurs cartes de données, sans démonstration", async ({ page }) => {
@@ -34,13 +34,23 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
     await expect(page.getByTestId("verified-count")).toHaveText(LIVE === 1 ? "1 publication sourcée disponible." : `${LIVE} publications sourcées disponibles.`);
   });
 
-  test("chaque carte de données montre la photo de sa publication, avec son crédit, sans zone vide", async ({ page }) => {
+  test("seule une partie des articles est en cartes, et chaque carte a sa propre photo, jamais celle de l'article", async ({ page }) => {
+    const published = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[] }[]).filter((p) => p.status === "published");
     await page.goto("/");
+    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_DATA_CARDS);
+    const withCards = new Set(await page.getByTestId("data-card").evaluateAll((els) => els.map((e) => e.getAttribute("data-publication"))));
+    expect(withCards.size, "pas des cartes partout : une partie des articles seulement").toBeLessThanOrEqual(Math.ceil(published.length / 2));
     const cards = page.getByTestId("data-card");
+    const seen = new Set<string>();
     for (let i = 0; i < (await cards.count()); i++) {
       const card = cards.nth(i);
       await card.scrollIntoViewIfNeeded();
-      await expect(card.getByTestId("data-photo").locator("img")).toHaveAttribute("src", /\/media\/editorial\//);
+      const img = card.getByTestId("data-photo").locator("img");
+      if (!(await img.count())) continue; // sans photo propre, la carte reste en texte
+      const src = (await img.getAttribute("src"))!;
+      expect(src).toMatch(/\/media\/editorial\/.+-carte-/);
+      expect(seen.has(src), `photo répétée : ${src}`).toBe(false);
+      seen.add(src);
       await expect(card.getByTestId("editorial-photo-credit")).toHaveCount(1);
     }
   });

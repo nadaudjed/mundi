@@ -13,6 +13,8 @@ const hosts=url=>{try{const u=new URL(url);return u.protocol==="https:"&&!u.user
 export const ALTERNATES=2;
 /** Editions: "matin" (concepts from the idea library) and "aprem" (fresh news + real stories, history, ideas). */
 export const EDITIONS=["matin","aprem"];
+/** Part des articles d'une édition qui reçoivent une série de cartes « Données ». */
+export const DATA_CARDS_SHARE=1/3;
 export function makeDailyPlan({roster,ideas,stock,publications,history={version:1,entries:[]},now,edition="matin",exclude=[]}){
   if(!EDITIONS.includes(edition))throw new Error("Unknown edition");
   const date=iso(now),topicNames=roster?.journalists?.map(x=>x.topic)??[];
@@ -93,6 +95,10 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
     });
   }
   if(jobs.length!==roster.targetPerDay)throw new Error("Daily target and roster disagree");
+  // Cartes « Données » : environ un article sur trois seulement, pour varier le fil
+  // (les autres restent de simples articles). Tirage stable, fondé sur l'identifiant du travail.
+  const withCards=new Set([...jobs].sort((a,b)=>a.id.localeCompare(b.id)).slice(0,Math.ceil(jobs.length*DATA_CARDS_SHARE)).map(j=>j.id));
+  for(const job of jobs)job.dataCards=withCards.has(job.id);
   return {
     format:"mundi-daily-agent-plan-v1",date:today,edition,createdAt:date,
     target:roster.targetPerDay,
@@ -104,6 +110,7 @@ export function makeDailyPlan({roster,ideas,stock,publications,history={version:
       journalistGrounded:jobs.filter(x=>x.role==="journalist"&&x.source).length,
       journalistNeedsFreshResearch:jobs.filter(x=>x.role==="journalist"&&!x.source).length,
       blocked:jobs.filter(x=>x.status.startsWith("blocked_")).length,
+      withDataCards:jobs.filter(x=>x.dataCards).length,
       verified:0,published:0
     },
     jobs

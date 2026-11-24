@@ -24,6 +24,23 @@ Dans le fil, les cartes se placent juste **après** la carte de leur publication
 
 Une publication approuvée dont les cartes sont mal formées **fait échouer la construction du site**. Un build rouge vaut mieux qu'un chiffre sans unité ni source.
 
+## Tous les articles ne sont pas « en cartes »
+
+Pour varier le fil, seule une partie des articles montre une série de cartes :
+
+- **Rédaction automatique** : le plan du jour (`scripts/plan-newsroom.mjs`) marque environ **un article sur trois** (`"dataCards": true`, part réglée par `DATA_CARDS_SHARE`). Les autres rédacteurs n'ajoutent aucune carte. Même autorisé, un rédacteur n'en met que si les chiffres se montrent mieux en carte que dans le texte. Des cartes non prévues sont retirées à la publication (`dataCardsAllowed` dans `scripts/autopublish-agents.mjs`).
+- **Articles déjà publiés** : `"dataCardsInFeed": false` garde les chiffres dans l'article, la couverture et Réviser, mais la série de cartes n'apparaît pas dans le fil.
+
+## Une photo propre à chaque carte
+
+Une carte ne reprend **jamais** la photo de son article. Chaque carte porte `imageQuery` (2 à 4 mots en anglais, une photo concrète propre à cette carte). Le robot photo (`scripts/collect-editorial-images.mjs`, workflow « photos documentaires ») cherche alors sur Wikimedia Commons une photo sous licence libre :
+
+- tous les mots de la recherche doivent figurer dans le titre ou la description de l'image, et au moins un dans son titre ;
+- la photo doit être différente de celle de l'article, des autres cartes et de toutes les photos déjà au catalogue ;
+- mêmes règles de licence, de crédit et de lien d'origine que les photos des articles.
+
+Elle est rangée dans `content/editorial-images.json` avec `publication` et `card`, et son fichier s'appelle `<publication>-carte-<carte>.jpg`. Sans photo trouvée, la carte reste en texte. Quand une carte quitte le fil, sa photo est retirée du catalogue.
+
 ## Schéma (`mundi-data-cards-v1`)
 
 Fichier pour l'atelier : `{ "format": "mundi-data-cards-v1", "cards": [ … ] }`. Dans une publication, le champ s'écrit `"dataCards": [ … ]`.
@@ -38,6 +55,7 @@ Une séquence contient 2 à 4 cartes. Champs communs à chaque carte :
 | `source` | oui | `{ "label", "url" }`, adresse HTTPS |
 | `asOf` | oui | date de la donnée, `AAAA-MM-JJ` |
 | `note` | non | note méthodologique (« À savoir : … ») |
+| `imageQuery` | non | recherche de la photo propre à la carte (voir plus haut) |
 | `visual` | non | visuel fourni par la direction artistique (voir plus bas) |
 | `style` | non | paramètres de style (voir plus bas) |
 

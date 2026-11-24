@@ -3,6 +3,8 @@ export type EditorialPhoto={
   slug:string;src:string;alt:string;title:string;credit:string;license:string;
   licenseUrl:string;sourceUrl:string;kind:"illustration";
   review:"automated-license-and-title-check";retrievedAt:string;searchQuery:string;
+  /** Photo propre à une carte « Données » : la publication et l'identifiant de la carte. */
+  publication?:string;card?:string;
 };
 const LICENSES=["https://creativecommons.org/licenses/by/4.0/",
   "https://creativecommons.org/licenses/by-sa/4.0/",
@@ -32,6 +34,8 @@ export function validateEditorialPhotos(items:unknown):string[]{
       errors.push(where+" : lien d'origine Wikimedia requis");
     if(typeof p.licenseUrl!=="string"||!LICENSES.includes(p.licenseUrl))
       errors.push(where+" : licence autorisée requise");
+    if((p.publication!==undefined||p.card!==undefined)&&(typeof p.publication!=="string"||typeof p.card!=="string"||!/^[a-z0-9-]{1,60}$/.test(p.card)))
+      errors.push(where+" : photo de carte : publication et carte requises");
     if(typeof p.retrievedAt!=="string"||!/^\d{4}-\d{2}-\d{2}$/.test(p.retrievedAt))
       errors.push(where+" : date de récupération requise");
   }

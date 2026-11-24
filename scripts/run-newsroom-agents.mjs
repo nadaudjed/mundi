@@ -104,7 +104,7 @@ export const WRITER_SYSTEM=[
 "sections (au moins 2 objets {kind: fait/analyse/hypothese,heading,text}), sources (objets {label,url}),",
 "claims (objets {statement,evidenceUrls}). Chaque affirmation vérifiable nécessite ses URL.",
 "Cartes mémoire (rubrique Réviser) : ajoute flashcards, liste de {question,answer}. Concept ou récit : 3 à 5 cartes ; actualité : 0 à 2. Chaque question (10 à 160 caractères, finit par « ? ») porte sur une seule notion ; chaque réponse (3 à 280 caractères) se comprend sans l'article et reprend uniquement ce que dit ton texte : aucun fait, chiffre ou nom nouveau.",
-"Visuels : dès que le sujet contient des chiffres, des comparaisons ou des étapes, ajoute dataCards : 2 à 4 cartes « Données » (on communique mieux avec du visuel). Types : {id,kind:\"stat\",headline,source:{label,url},asOf,measure,context?,note?} ; {id,kind:\"comparaison\",headline,source,asOf,items:[2 à 4 measure],presentation:\"echelle-commune\" (même unité et même dénominateur) ou \"valeurs-distinctes\",note?} ; {id,kind:\"explication\",headline,source,asOf,steps:[2 à 5 {label,text,nature:\"fait\"|\"hypothese\"}],layout?:\"sequence\"|\"alternatives\"}. measure = {value (nombre),unit,label,scope,period,denominator (obligatoire pour un % ou un taux),decimals?}. id en minuscules-avec-tirets, headline 140 caractères maximum, asOf AAAA-MM-JJ = date de la donnée ; source.url doit être une des sources de l'article et chaque chiffre doit y figurer exactement (aucun calcul, aucun arrondi caché). Pas de carte si les chiffres ne sont pas solides.",
+"Cartes « Données » : seulement si dataCards vaut true dans ta mission (environ un article sur trois, pour varier le fil ; sinon n'en mets AUCUNE, l'article reste un simple article). Même autorisé, n'en mets que si des chiffres solides, une comparaison ou des étapes se montrent mieux en carte que dans le texte ; sinon aucune. Alors ajoute dataCards : 2 à 4 cartes, chacune sur une idée différente. Types : {id,kind:\"stat\",headline,source:{label,url},asOf,measure,context?,note?,imageQuery} ; {id,kind:\"comparaison\",headline,source,asOf,items:[2 à 4 measure],presentation:\"echelle-commune\" (même unité et même dénominateur) ou \"valeurs-distinctes\",note?,imageQuery} ; {id,kind:\"explication\",headline,source,asOf,steps:[2 à 5 {label,text,nature:\"fait\"|\"hypothese\"}],layout?:\"sequence\"|\"alternatives\",imageQuery}. measure = {value (nombre),unit,label,scope,period,denominator (obligatoire pour un % ou un taux),decimals?}. id en minuscules-avec-tirets, headline 140 caractères maximum, asOf AAAA-MM-JJ = date de la donnée ; source.url doit être une des sources de l'article et chaque chiffre doit y figurer exactement (aucun calcul, aucun arrondi caché). imageQuery : 2 à 4 mots en anglais décrivant une photo concrète et propre à CETTE carte (objet, lieu ou geste visible, par ex. \"underground gas storage\", \"stock exchange trading floor\"), différente pour chaque carte et différente du sujet général de l'article ; jamais une personne nommée ni la scène précise d'un événement. Chaque carte recevra sa propre photo sous licence libre (Wikimedia Commons), jamais la photo de l'article.",
 "Pour une actualité, ajoute eventDate (AAAA-MM-JJ) : le jour où l'événement s'est produit ou a été officiellement annoncé, tel qu'il figure dans une source consultée (pas la date de ta rédaction).",
 "Règle stricte : chaque URL citée dans claims.evidenceUrls doit aussi figurer, à l identique, dans sources ; sinon le brouillon est rejeté automatiquement."
 ].join(" ");
@@ -112,7 +112,7 @@ export const CHECKER_SYSTEM=[
 "Tu es le rédacteur en chef vérificateur MUNDI, distinct du rédacteur. Cherche à réfuter les affirmations.",
 "Utilise web_search indépendamment. Recontrôle dates, nombres, dénominateurs, périmètres, sources et leur indépendance.",
 "Vérifie que chaque réponse des flashcards est bien dite dans le texte de l'article (sections ou points clés) et qu'elle est exacte ; une carte mémoire qui ajoute un fait absent de l'article ou qui le déforme impose needs_review.",
-"Vérifie aussi chaque chiffre, unité, périmètre, période et dénominateur des dataCards contre la source citée ; une valeur fausse ou trompeuse impose needs_review.",
+"Vérifie aussi chaque chiffre, unité, périmètre, période et dénominateur des dataCards contre la source citée ; une valeur fausse ou trompeuse impose needs_review. Des dataCards alors que la mission indique dataCards false, ou des cartes qui répètent le texte sans rien montrer de plus, imposent aussi needs_review (demander de les retirer). Chaque imageQuery doit décrire une photo concrète, propre à sa carte, sans personne nommée ni scène d'événement présentée comme réelle.",
 "Pour une actualité, vérifie que eventDate est bien le jour de l'événement ou de son annonce officielle ; une date fausse ou absente impose needs_review.",
 "N'accepte jamais une source inventée, une page non consultée, un titre RSS pris pour une preuve, une extrapolation ni une prévision présentée comme fait.",
 "sensitiveFlags signale, pour information, ces catégories : élections ou politique partisane, guerre, conflit armé ou terrorisme, santé ou médical, justice, crime ou accusation visant une personne ou une entreprise nommée, conseil financier ou marchés, migration, religion.",
@@ -158,6 +158,7 @@ function record(job,draft,review,assessment,error){
     originalAssignment:job.title,recordKey:job.recordKey,sourceLead:job.source,previousPublication:job.previousPublication,
     draft:draft??null,checker:review??null,
     assessment:assessment??{status:"not_run",safeForAutopublication:false,reasons:["No AI key or valid result"]},
+    dataCardsAllowed:job.dataCards===true,
     error:short(error,350)||null,createdAt:now(),status:"draft_not_published"};
 }
 const FREE_CONCEPT="Choisis toi-même un concept durable et important du domaine, différent des sujets déjà publiés (previouslyPublishedOnSameBeat), puis explique-le sans inventer de faits, avec au moins deux organismes sources.";
@@ -214,6 +215,7 @@ async function runOneMetered(job,configuration,meter){
       assignment:job.title||("Recherche quotidienne des nouveautés fiables en "+job.topic),angle:job.angle,
       sourceLead:job.source,updateTarget:job.previousPublication,
       previouslyPublishedOnSameBeat:job.relatedPublications??[],
+      dataCards:job.dataCards===true,
       task:taskFor(job)
     },writer,"writer",fetch,meter);
     tidyDraft(draft);

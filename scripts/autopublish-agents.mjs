@@ -104,6 +104,19 @@ export async function unreachable(urls, fetcher = fetch) {
   return (await checkLinks(urls, { fetcher })).bad.map((u) => u.replace(/ \((HTTP \d+|injoignable)\)$/, ""));
 }
 
+/**
+ * Un article reçoit-il une série de cartes « Données » ? Le plan du jour le décide (dataCards) pour
+ * environ un article sur trois. Pour les brouillons plus anciens, sans cette indication, un tirage
+ * stable sur le titre garde la même proportion.
+ */
+export function dataCardsAllowed(output) {
+  if (typeof output?.dataCardsAllowed === "boolean") return output.dataCardsAllowed;
+  const title = String(output?.draft?.title ?? "");
+  let h = 0;
+  for (const ch of title) h = (h * 31 + ch.codePointAt(0)) >>> 0;
+  return h % 3 === 0;
+}
+
 export function toPublication(output, date) {
   const d = output.draft;
   return {
@@ -122,8 +135,9 @@ export function toPublication(output, date) {
     // "actualite" (dated event), "concept" or "recit"; eventDate is the day the news happened or was announced.
     ...(output.kind ? { kind: output.kind } : output.role ? { kind: output.role === "journalist" ? "actualite" : "concept" } : {}),
     ...(output.role === "journalist" && /^\d{4}-\d{2}-\d{2}$/.test(d.eventDate ?? "") ? { eventDate: d.eventDate } : {}),
-    // Cartes « Données » : seulement si elles respectent le format exigé par le site (sinon retirées).
-    ...(publishableCards(d) ? { dataCards: publishableCards(d) } : {}),
+    // Cartes « Données » : seulement pour les articles prévus (environ un sur trois, pour varier le fil)
+    // et si elles respectent le format exigé par le site (sinon retirées, l'article reste publiable).
+    ...(dataCardsAllowed(output) && publishableCards(d) ? { dataCards: publishableCards(d) } : {}),
     // Cartes mémoire de la rubrique Réviser, tirées du texte publié et contrôlées par le vérificateur.
     ...(publishableFlashcards(d) ? { flashcards: publishableFlashcards(d) } : {}),
   };

@@ -32,6 +32,13 @@ export type VerifiedPublication = Publication & {
   /** Fichier MP3 de la version audio, s'il est prêt. */
   audio?: string;
   dataCards?: DataCard[];
+  /**
+   * false : les chiffres restent dans l'article, la couverture et Réviser, mais la série de cartes
+   * n'apparaît pas dans le fil (tous les articles ne sont pas « en cartes », pour varier).
+   */
+  dataCardsInFeed?: boolean;
+  /** Photo propre à chaque carte du fil, par identifiant de carte (jamais la photo de l'article). */
+  cardPhotos?: Record<string, EditorialPhoto>;
   scene?: SceneRef;
   /** Fonds approuvés utilisés par la publication et ses cartes, résolus au build. */
   backdrops?: Record<string, SceneBackdrop>;
@@ -120,7 +127,17 @@ function attachEditorialPhotos(list:VerifiedPublication[]):VerifiedPublication[]
     if(!existsSync(resolve(process.cwd(),"public"+photo.src)))
       throw new Error("Photographie référencée mais introuvable : "+photo.src);
   }
-  return list.map(p=>({ ...p, ...(bySlug.has(p.slug)?{photo:bySlug.get(p.slug)}:{})}));
+  // Photos des cartes « Données » : rangées à part dans le catalogue (publication + carte).
+  const byCard=new Map<string,Record<string,EditorialPhoto>>();
+  for(const photo of editorialImages as EditorialPhoto[]){
+    if(!photo.publication||!photo.card)continue;
+    byCard.set(photo.publication,{...byCard.get(photo.publication),[photo.card]:photo});
+  }
+  return list.map(p=>{
+    const own=byCard.get(p.slug);
+    const cards=own&&Object.fromEntries(Object.entries(own).filter(([id,ph])=>(p.dataCards??[]).some(c=>c.id===id)&&ph.sourceUrl!==bySlug.get(p.slug)?.sourceUrl));
+    return { ...p, ...(bySlug.has(p.slug)?{photo:bySlug.get(p.slug)}:{}), ...(cards&&Object.keys(cards).length?{cardPhotos:cards}:{})};
+  });
 }
 export const verifiedPublications: VerifiedPublication[] = attachArticleAudio(resolveScenes(
   checkDataCards(attachEditorialPhotos(testFile ? loadTestFixtures(testFile).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)) : publishedArticles)),

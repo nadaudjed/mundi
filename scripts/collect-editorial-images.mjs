@@ -5,7 +5,7 @@
  * conspicuously labelled "photographie d'illustration" in the UI.
  * Never use these photographs as evidence of an event described in an article.
  */
-import {readFileSync,writeFileSync,mkdirSync,existsSync} from "node:fs";
+import {readFileSync,writeFileSync,mkdirSync,existsSync,rmSync} from "node:fs";
 import {resolve,dirname} from "node:path";
 import {fileURLToPath,pathToFileURL} from "node:url";
 
@@ -129,7 +129,15 @@ function validLicenseURL(raw,canonical){
     return actual===base||actual.startsWith(base+"/deed");
   }catch{return false;}
 }
-export function selectImage(pages,query){
+/** Mots d'une recherche de photo de carte qui doivent tous figurer dans le titre ou la description de l'image. */
+const CARD_STOP=new Set("a an the of in on and or with for at by from to".split(" "));
+export const cardTerms=q=>String(q).toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>=3&&!CARD_STOP.has(w));
+/**
+ * exclude : liens d'origine déjà utilisés (photo de l'article, autres cartes, autres articles) ;
+ * strict : photo d'une carte, TOUS les mots de la recherche doivent figurer dans le titre ou la
+ * description de l'image, et au moins un dans son titre (mieux vaut une carte sans photo qu'une photo hors sujet).
+ */
+export function selectImage(pages,query,{exclude=new Set(),strict=false}={}){
   const values=Object.values(pages??{});
   const candidates=[];
   for(const page of values){
@@ -174,27 +182,32 @@ export function selectImage(pages,query){
     }
     if((info.width??0)<700||(info.height??0)<400)continue;
     const url="https://commons.wikimedia.org/wiki/"+encodeURIComponent(String(page.title).replace(/ /g,"_"));
+    if(exclude.has(url))continue;
     const terms=String(query).toLowerCase().split(/\W+/).filter(w=>w.length>=5);
     const description=clean(ext.ImageDescription?.value,850).toLowerCase();
     const relevant=(imageTitle+" "+description).toLowerCase();
     const match=terms.filter(word=>relevant.includes(word)).length;
+    if(strict){
+      const words=cardTerms(query),inTitle=imageTitle.toLowerCase();
+      if(!words.length||!words.every(w=>relevant.includes(w))||!words.some(w=>inTitle.includes(w)))continue;
+    }
     // The Wikimedia search relevance alone does not prove exact-event identity.
     candidates.push({match,url,src:info.thumburl,
       title:imageTitle,author:artist,license:clean(ext.LicenseShortName?.value,45),
       licenseUrl:expected,width:info.thumbwidth??info.width,height:info.thumbheight??info.height});
   }
   candidates.sort((a,b)=>b.match-a.match);
-  return candidates.find(x=>x.match>=1)??null;
+  return candidates.find(x=>strict||x.match>=1)??null;
 }
-export async function searchCommons(query,fetcher=fetch){
+export async function searchCommons(query,fetcher=fetch,options={}){
   const url=new URL("https://commons.wikimedia.org/w/api.php");
   for(const [k,v] of Object.entries({action:"query",generator:"search",gsrsearch:query,
-    gsrnamespace:"6",gsrlimit:"18",prop:"imageinfo",iiprop:"url|mime|size|extmetadata",
+    gsrnamespace:"6",gsrlimit:options.strict?"40":"18",prop:"imageinfo",iiprop:"url|mime|size|extmetadata",
     iiurlwidth:"1280",format:"json",formatversion:"2"}))url.searchParams.set(k,v);
   const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
   if(!reply.ok)throw new Error("Wikimedia Commons HTTP "+reply.status);
   const data=await reply.json();
-  const found=selectImage(data?.query?.pages,query);
+  const found=selectImage(data?.query?.pages,query,options);
   if(!found){
     const pages=Object.values(data?.query?.pages??{});
     const examples=pages.slice(0,3).map(page=>({
@@ -260,6 +273,48 @@ export async function collectEditorialImages(articles,existing=[],{
     }
     if(selected){out.push(selected);known.add(p.slug);report.push({slug:p.slug,status:"added",query:selected.searchQuery});}
     else report.push({slug:p.slug,status:"no_licensed_photo",error:lastError});
+  }
+  return collectCardPhotos(articles,out,report,{search,download,limit,root,day});
+}
+/** Slug (et nom de fichier) de la photo propre à une carte « Données ». */
+export const cardPhotoSlug=(publication,card)=>(publication+"-carte-"+card).replace(/-+/g,"-").replace(/^-|-$/g,"");
+/**
+ * Photos des cartes « Données » montrées dans le fil : une photo par carte, chacune différente de la
+ * photo de l'article, des autres cartes et de toutes les photos déjà au catalogue. Chaque carte porte sa
+ * propre recherche (imageQuery). Rien de trouvé : la carte reste en texte, jamais la photo de l'article.
+ * Les photos de cartes retirées du fil sont enlevées du catalogue.
+ */
+async function collectCardPhotos(articles,images,report,{search,download,limit,root,day}){
+  const shown=new Map();
+  for(const p of articles)if(p?.status==="published"&&p.dataCardsInFeed!==false)
+    for(const c of p.dataCards??[])shown.set(cardPhotoSlug(p.slug,c.id),{p,c});
+  const out=images.filter(x=>!x.card||shown.has(x.slug));
+  for(const x of images)if(x.card&&!shown.has(x.slug)){
+    const path=resolve(root,"public"+x.src);
+    if(existsSync(path))rmSync(path);
+    report.push({slug:x.slug,status:"card_photo_removed"});
+  }
+  const known=new Set(out.map(x=>x.slug));
+  for(const [slug,{p,c}] of shown){
+    if(known.has(slug)||typeof c.imageQuery!=="string"||!c.imageQuery.trim())continue;
+    if(report.filter(x=>x.status==="added").length>=limit)break;
+    const query=c.imageQuery.trim();
+    try{
+      const candidate=await search(query,undefined,{exclude:new Set(out.map(x=>x.sourceUrl)),strict:true});
+      if(!candidate){report.push({slug,status:"no_card_photo",query});continue;}
+      const file=await download(candidate);
+      const local="/media/editorial/"+slug+"."+file.ext;
+      const path=resolve(root,"public"+local);
+      mkdirSync(dirname(path),{recursive:true});
+      writeFileSync(path,file.buffer);
+      out.push({slug,src:local,alt:"Photographie d'illustration : "+candidate.title,
+        title:candidate.title,credit:candidate.author,license:candidate.license,
+        licenseUrl:candidate.licenseUrl,sourceUrl:candidate.url,
+        kind:"illustration",review:"automated-license-and-title-check",
+        retrievedAt:day,searchQuery:query,publication:p.slug,card:c.id});
+      known.add(slug);
+      report.push({slug,status:"added",query});
+    }catch(error){report.push({slug,status:"no_card_photo",query,error:String(error?.message||error).slice(0,120)});}
   }
   return {images:out,report};
 }

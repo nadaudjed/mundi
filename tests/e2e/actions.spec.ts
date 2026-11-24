@@ -10,7 +10,7 @@ test.describe("Écoute, sauvegarde et navigation", () => {
     const card = page.locator('[data-index="0"]');
     const listen = card.getByRole("button", { name: "Écouter le résumé" });
     await listen.click();
-    await expect(card.getByRole("button", { name: "Arrêter la lecture audio" })).toHaveAttribute("aria-pressed", "true");
+    await expect(card.getByRole("button", { name: "Mettre en pause la lecture audio" })).toHaveAttribute("aria-pressed", "true");
     const spoken = await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken);
     expect(spoken).toHaveLength(1);
     expect(spoken[0]).toContain(first.title.slice(0, 20));

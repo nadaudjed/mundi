@@ -1,5 +1,446 @@
 [
   {
+    "slug": "russie-la-commission-propose-un-22e-paquet-de-sanctions-visant-60-banques-et-le",
+    "title": "Russie : la Commission propose un 22e paquet de sanctions visant 60 banques et le sport",
+    "summary": "Le 23 novembre 2026, Ursula von der Leyen a présenté le 22e paquet de sanctions de l'UE contre la Russie. Il s'agit d'une proposition de la Commission : pour entrer en vigueur, elle doit être approuvée par les 27 États membres. Le texte vise une soixantaine de banques russes, plus de 70 navires de la flotte fantôme, pour la première fois les services d'électricité, ainsi que la participation d'équipes russes à des compétitions sportives dans l'UE.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La Commission propose d'étendre l'interdiction de transactions à environ 60 banques russes et de toutes les exclure du système de messagerie SWIFT.",
+      "Le paquet ajoute plus de 70 navires de la flotte fantôme, propose d'interdire les pétroliers assurés en Russie et étend l'interdiction de services énergétiques aux services d'électricité.",
+      "Ce n'est qu'une proposition : les 27 États membres doivent tous l'approuver avant toute entrée en vigueur, et aucune date d'adoption n'est fixée."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que contient la proposition",
+        "text": "Selon Interfax-Ukraine, qui rend compte de la présentation de la présidente de la Commission, l'interdiction de transactions serait étendue à une soixantaine de banques russes, toutes exclues de SWIFT. La Commission vise aussi les réseaux de cryptoactifs et de paiement, y compris dans des pays tiers qui aident la Russie à contourner les sanctions, et annonce un groupe de travail dédié aux sanctions sur les cryptoactifs. L'interdiction de services énergétiques couvrirait les raffineries et, pour la première fois, les services d'électricité. Plus de 70 navires seraient ajoutés à la liste de la flotte fantôme."
+      },
+      {
+        "kind": "fait",
+        "heading": "Visas, entreprises et sport",
+        "text": "La Commission propose une interdiction de visa pour les anciens combattants russes, rapportent Al Jazeera et Interfax-Ukraine, et interdirait aux Européens de siéger dans les organes dirigeants d'entreprises en Russie. Pour les compétitions organisées dans l'UE, les équipes et athlètes russes ne pourraient plus concourir sous drapeau russe, et l'affichage des symboles officiels russes serait interdit. Les flux financiers de sponsors russes vers des associations sportives et culturelles européennes seraient restreints. The Sofia Globe rapporte que la Commission a publié le même jour de nouvelles lignes directrices sur les visas."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une étape, pas une décision",
+        "text": "Al Jazeera rappelle que le paquet doit être approuvé par les 27 États membres avant d'entrer en vigueur. Selon The Sofia Globe, c'est le Conseil qui décidera quand l'interdiction de visa pour les anciens combattants s'appliquera. Aucune des sources consultées ne donne de date d'adoption : le contenu final peut encore changer pendant les négociations entre États."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qu'on ne sait pas encore",
+        "text": "Les sources ne publient pas la liste nominative des banques ni des navires visés, et ne chiffrent pas l'effet attendu sur l'économie russe. L'efficacité de mesures contre des réseaux situés dans des pays tiers dépendra de leur application, qui n'est pas encore connue."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Al Jazeera — proposition de sanctions du 23 novembre",
+        "url": "https://www.aljazeera.com/news/2026/11/23/eu-plans-sports-ban-in-sweeping-new-russia-sanctions-proposal"
+      },
+      {
+        "label": "Interfax-Ukraine — présentation du 22e paquet",
+        "url": "https://en.interfax.com.ua/news/general/1241146.html"
+      },
+      {
+        "label": "The Sofia Globe — 22e paquet proposé",
+        "url": "https://sofiaglobe.com/2026/11/23/vdl-presents-proposed-22nd-package-of-sanctions-on-russia/"
+      }
+    ]
+  },
+  {
+    "slug": "bce-des-titres-emis-sur-blockchain-sous-regime-pilote-acceptes-en-garantie-des",
+    "title": "BCE : des titres émis sur blockchain sous régime pilote acceptés en garantie dès juin 2027",
+    "summary": "Le 23 novembre 2026, le conseil des gouverneurs de la BCE a approuvé l'acceptation, comme garanties dans les opérations de crédit de l'Eurosystème, de titres émis sur des plateformes à registre distribué agréées dans le cadre du régime pilote européen. Les exigences détaillées doivent être publiées au printemps 2027, pour une mise en œuvre prévue en juin 2027. Ce régime, créé par le règlement (UE) 2022/858, s'applique depuis mars 2023 à des titres de taille limitée.",
+    "topic": "economie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La BCE accepte en principe comme garanties des titres émis sur des plateformes à registre distribué agréées au titre du régime pilote européen (règlement 2022/858).",
+      "Les exigences détaillées sont attendues au printemps 2027 et la mise en œuvre est prévue en juin 2027 ; les titres doivent remplir tous les critères habituels d'éligibilité.",
+      "Le régime pilote, en vigueur depuis le 23 mars 2023, ne couvre que des titres de taille limitée, par exemple des obligations de moins d'un milliard d'euros d'émission."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "La décision du 23 novembre",
+        "text": "Selon le communiqué de la BCE, le conseil des gouverneurs a approuvé l'acceptation de titres négociables émis sur des plateformes à registre distribué agréées au titre du régime pilote européen comme garanties pour les opérations de crédit de l'Eurosystème, sous réserve d'exigences propres à l'Eurosystème. Les titres doivent remplir les critères habituels et être mobilisables via un lien vers un dépositaire central et un système de règlement éligibles, qui règlent dans TARGET2-Securities. La BCE prévoit de publier les exigences détaillées au printemps 2027 et une mise en œuvre en juin 2027."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce qui existait déjà",
+        "text": "Le 27 janvier 2026, la BCE avait annoncé qu'à partir du 30 mars 2026, les titres émis dans des dépositaires centraux utilisant des services fondés sur cette technologie deviendraient éligibles, s'ils sont réglables dans des systèmes éligibles reliés à TARGET2-Securities. La décision de novembre élargit ce cadre aux plateformes du régime pilote. Les titres émis et réglés entièrement sur des réseaux à registre distribué restent à l'étude et ne sont pas couverts."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un régime pilote de taille limitée",
+        "text": "D'après l'Autorité européenne des marchés financiers, le régime pilote, créé par le règlement (UE) 2022/858, s'applique depuis le 23 mars 2023. Il autorise trois types d'infrastructures : plateformes de négociation, systèmes de règlement, et systèmes combinant les deux. Il ne couvre que des actions de sociétés de moins de 500 millions d'euros de capitalisation, des obligations de moins d'un milliard d'euros d'émission et certains fonds de moins de 500 millions d'euros. L'effet immédiat sur le volume des garanties de l'Eurosystème devrait donc rester limité, la BCE ne donnant aucun chiffre sur ce point."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qui reste ouvert",
+        "text": "Le contenu précis des exigences de sécurité juridique et opérationnelle ne sera connu qu'au printemps 2027. Le nombre de titres concernés dépendra des plateformes effectivement agréées et de leur capacité à se relier aux systèmes de règlement de l'Eurosystème."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE — communiqué du 23 novembre 2026",
+        "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261123~76b6f57b74.en.html"
+      },
+      {
+        "label": "BCE — communiqué du 27 janvier 2026",
+        "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr260127_1~a946167ce1.en.html"
+      },
+      {
+        "label": "Autorité européenne des marchés financiers — régime pilote",
+        "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime"
+      },
+      {
+        "label": "Coin Edition — décision de la BCE du 23 novembre",
+        "url": "https://coinedition.com/ecb-broadens-access-to-dlt-based-assets-under-eurosystem-collateral-rules/"
+      }
+    ]
+  },
+  {
+    "slug": "minerais-critiques-l-usgs-prevoit-20-de-capacite-pour-le-graphite-d-ici-2030",
+    "title": "Minerais critiques : l'USGS prévoit +20 % de capacité pour le graphite d'ici 2030",
+    "summary": "L'Institut d'études géologiques des États-Unis (USGS) a annoncé le 12 novembre 2026 la deuxième édition de ses perspectives mondiales des minerais. Elle estime l'évolution de la capacité mondiale de production de huit minerais critiques entre 2025 et 2030 : de 4 à 9 % pour l'argent, le silicium métal, l'antimoine, le niobium et le cuivre, au moins 10 % pour le tungstène, 18 % pour la potasse et 20 % pour le graphite naturel. L'offre reste très concentrée, notamment en Chine et au Brésil.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Entre 2025 et 2030, l'USGS projette une hausse de capacité de 20 % pour le graphite naturel, 18 % pour la potasse, 9 % pour le cuivre et 4 % pour l'argent.",
+      "Plus de 70 % de l'offre mondiale de graphite naturel, de silicium et de tungstène est concentrée en Chine, et 92 % de celle du niobium au Brésil.",
+      "Il s'agit de capacités de production, pas de prévisions de production réelle : la méthode retient les projets annoncés et financés et retire les exploitations proches de la fin de vie."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Huit minerais, horizon 2030",
+        "text": "Les perspectives de l'USGS couvrent l'antimoine, le cuivre, le graphite naturel, le niobium, la potasse, le silicium métal, l'argent et le tungstène, tous inscrits sur la liste américaine des minerais critiques de 2025, selon InvestorNews qui reprend le communiqué. La capacité mondiale progresserait de 2025 à 2030 de 6 % pour l'antimoine, 9 % pour le cuivre, 20 % pour le graphite naturel, 8 % pour le niobium, 18 % pour la potasse, 5 % pour le silicium métal, 4 % pour l'argent et d'au moins 10 % pour le tungstène."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une offre concentrée",
+        "text": "Selon l'USGS, cité par InvestorNews, plus de 70 % de l'offre mondiale de graphite naturel, de silicium et de tungstène est concentrée en Chine, et 92 % de celle du niobium au Brésil. Les États-Unis importent plus de la moitié de leur consommation annuelle de chacun de ces huit minerais. Metal Tech News, qui a analysé le rapport, relève que la Chine assurait 48 % de la production mondiale de cuivre raffiné en 2025 et 87 % de celle de silicium métal."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Capacité ne veut pas dire production",
+        "text": "D'après InvestorNews, la méthode de l'USGS retient les projets annoncés et financés et leur date de démarrage prévue, retire les exploitations proches de la fin de leur vie annoncée ou aux ressources épuisées, et tient compte des capacités à l'arrêt. Metal Tech News rappelle qu'une capacité est un maximum, pas une production attendue : pour le graphite, le taux d'utilisation des capacités était d'environ 45 % en 2025. Une hausse de capacité ne garantit donc pas une offre plus abondante."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qui pourrait changer la donne",
+        "text": "Le calendrier réel des projets, les décisions d'exportation des pays producteurs et la demande industrielle détermineront si ces capacités sont utilisées. Une capacité décrit ce que l'industrie pourrait produire ; les conditions commerciales décident de ce qu'elle produira."
+      }
+    ],
+    "sources": [
+      {
+        "label": "InvestorNews — les huit minerais critiques des perspectives de l'USGS (12/11/2026)",
+        "url": "https://investornews.com/market-opinion/eight-critical-minerals-and-the-fight-for-americas-industrial-future/?print=print"
+      },
+      {
+        "label": "Metal Tech News — analyse du rapport de l'USGS",
+        "url": "https://www.metaltechnews.com/story/2026/11/18/tech-metals/usgs-forecasts-critical-minerals-supplies/3022.html"
+      }
+    ]
+  },
+  {
+    "slug": "dechets-textiles-de-l-ue-en-2024-13-des-dechets-traites-incineres-pour-l-energie",
+    "title": "Déchets textiles de l'UE en 2024 : 13 % des déchets traités incinérés pour l'énergie",
+    "summary": "Selon les chiffres d'Eurostat rapportés par The Brussels Times, l'Union européenne a produit 2,3 millions de tonnes de déchets textiles en 2024, dont plus de la moitié venant des ménages. 1,4 million de tonnes ont été traitées dans l'année, soit 63 % du total. Parmi les déchets traités, 78 % ont été recyclés et 13 % incinérés avec récupération d'énergie. L'Agence européenne pour l'environnement retient un périmètre plus large, qui inclut les textiles jetés dans les ordures ménagères mélangées : les deux chiffres ne sont pas comparables.",
+    "topic": "energie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Eurostat compte 2,3 millions de tonnes de déchets textiles produits dans l'UE en 2024, dont plus de la moitié par les ménages.",
+      "1,4 million de tonnes ont été traitées en 2024 (63 %) ; sur ces déchets traités, 78 % ont été recyclés, 13 % incinérés avec récupération d'énergie, 8 % mis en décharge et 1 % incinérés sans récupération.",
+      "L'Agence européenne pour l'environnement estime à environ 16 kg par personne la production totale de déchets textiles en 2022, en ajoutant les textiles jetés avec les ordures mélangées."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que mesure Eurostat pour 2024",
+        "text": "D'après la publication d'Eurostat du 12 novembre 2026, rapportée par The Brussels Times, 2,3 millions de tonnes de déchets textiles ont été produites dans l'UE en 2024, et les ménages en représentent plus de la moitié. 1,4 million de tonnes ont été traitées dans l'année, soit 63 % de la quantité produite. L'Italie (441 736 tonnes), la France (339 965 tonnes) et l'Allemagne (212 107 tonnes) produisent les volumes les plus élevés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Recyclage, énergie, décharge",
+        "text": "Sur les déchets textiles traités, 91 % ont fait l'objet d'une valorisation : 78 % de recyclage et 13 % d'incinération avec récupération d'énergie. 8 % ont été mis en décharge et 1 % incinéré sans récupération d'énergie. La part énergétique reste donc minoritaire : l'essentiel de la valorisation déclarée passe par le recyclage."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi l'Agence européenne pour l'environnement donne un chiffre plus élevé",
+        "text": "L'Agence européenne pour l'environnement estime la production totale de déchets textiles de l'UE à environ 16 kg par personne en 2022, soit près de 6,9 millions de tonnes. Elle additionne les textiles collectés séparément et une estimation des textiles jetés dans les ordures ménagères mélangées, calculée à partir d'analyses de composition des déchets propres à chaque pays. Ce périmètre est plus large que celui des 2,3 millions de tonnes, et l'Agence précise que ces analyses ne sont pas harmonisées en Europe. Les deux chiffres ne doivent pas être comparés directement."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce que les chiffres ne disent pas",
+        "text": "Les 37 % non traités dans l'année ne sont pas forcément perdus : la statistique porte sur ce qui a été traité pendant l'année de référence. Les chiffres ne disent pas non plus combien d'énergie a été produite à partir de ces textiles ni quelle part des textiles recyclés redevient de la fibre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Brussels Times — chiffres Eurostat sur les déchets textiles",
+        "url": "https://www.brusselstimes.com/2404311/eu-faces-mounting-textile-waste-crisis-as-over-a-third-goes-untreated"
+      },
+      {
+        "label": "Agence européenne pour l'environnement — déchets textiles par personne",
+        "url": "https://www.eea.europa.eu/en/circularity/sectoral-modules/textiles/textile-waste-generation-per-person-in-the-eu-per-year"
+      }
+    ]
+  },
+  {
+    "slug": "la-cop31-s-acheve-sans-accord-final-les-energies-fossiles-au-c-ur-des",
+    "title": "La COP31 s’achève sans accord final, les énergies fossiles au cœur des divergences",
+    "summary": "La conférence de l’ONU sur le climat d’Antalya s’est terminée le dimanche 22 novembre, après deux jours de prolongation, sans accord sur le projet de décision finale. L’absence de référence à la sortie des énergies fossiles a cristallisé les oppositions, notamment de l’Union européenne, du Panama et des Îles Marshall.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La COP31, prévue du 9 au 20 novembre à Antalya, s’est achevée le 22 novembre sans accord sur le texte final, a constaté son président Murat Kurum.",
+      "L’Union européenne a jugé inadmissible un texte sans référence aux énergies fossiles, tandis que l’Arabie saoudite, au nom de la Ligue des États arabes, a défendu les mentions du captage et stockage du carbone.",
+      "Antonio Guterres et Simon Stiell ont appelé à accélérer la transition hors des énergies fossiles et à ce que la COP32 s’appuie sur les acquis sans revenir en arrière."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une clôture sans accord sur le texte final",
+        "text": "Après deux semaines de négociations et deux jours de prolongation, la COP31 s’est close le dimanche 22 novembre 2026. Le président de la conférence, le Turc Murat Kurum, a constaté l’absence d’accord sur le texte et indiqué que les projets de décision finale n’avaient pas été adoptés, selon ONU Info. Les projets de compromis, présentés par la Türkiye et l’Australie, reconnaissaient que le réchauffement se dirige au-delà de 1,5 °C. Dans le système onusien, les décisions se prennent par consensus : une objection formelle suffit à bloquer un texte."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les énergies fossiles, ligne de fracture",
+        "text": "L’Union européenne s’est formellement opposée au projet de décision finale, jugeant inadmissible un texte sans référence aux énergies fossiles ni à leur abandon. Le Panama et les Îles Marshall ont aussi refusé le résultat. À l’inverse, l’Arabie saoudite, au nom de la Ligue des États arabes, a défendu les références au captage et stockage du carbone. Le Ghana, pour le Groupe africain, a jugé le texte insuffisant sur la finance climatique et les pertes et dommages, sans pour autant bloquer le consensus."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des désaccords visibles dès la fin des négociations techniques",
+        "text": "Le bulletin des négociations de l’IISD daté du 19 novembre montrait déjà des blocages sur la finance : le Groupe arabe refusait des engagements accrus sans obligations des pays développés, tandis que l’UE, la Suisse et la Nouvelle-Zélande voulaient viser toutes les sources de financement. Plusieurs dossiers, comme la revue périodique de l’objectif de long terme, étaient renvoyés vers la COP32. Les sources consultées ne disent pas encore quels textes techniques adoptés séparément restent valables."
+      }
+    ],
+    "sources": [
+      {
+        "label": "ONU Info, clôture de la COP31 (22/11/2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159887"
+      },
+      {
+        "label": "ONU Info, dernier jour prévu (20/11/2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159882"
+      },
+      {
+        "label": "IISD, Earth Negotiations Bulletin n°910 (19/11/2026)",
+        "url": "https://enb.iisd.org/sites/default/files/2026-11/enb12910e.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "routes-centrales-ports-comment-les-etats-africains-financent-leurs",
+    "title": "Routes, centrales, ports : comment les États africains financent leurs infrastructures",
+    "summary": "Pour construire une route ou une centrale, un État peut payer sur son budget, emprunter, ou confier le projet à une entreprise privée dans le cadre d'une concession ou d'un partenariat public-privé (PPP). Chaque option répartit différemment les coûts et les risques. Cet article explique ces mécanismes à partir du guide de référence des PPP de la Banque mondiale, d'une enquête de la Facilité africaine de soutien juridique publiée sur le portail de la Banque mondiale et d'un rapport de CABRI, réseau africain de responsables budgétaires.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Traditionnellement, les gouvernements financent les infrastructures sur leur budget, souvent complété par l'emprunt ; CABRI note que seule la première année d'un cadre budgétaire pluriannuel est normalement garantie.",
+      "Dans un PPP, un partenaire privé assume des risques et des responsabilités de gestion importants sur un contrat de long terme, rémunéré par les usagers, par l'État, ou par les deux.",
+      "Selon l'enquête de la Facilité africaine de soutien juridique, 42 des 54 pays africains disposent d'un cadre législatif sur les PPP (lois en vigueur au 30 juin 2023)."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Le budget et la dette, voies classiques",
+        "text": "Le rapport de CABRI rappelle que les gouvernements financent traditionnellement les infrastructures au moyen de leur budget. Cette voie a une limite : dans un cadre de dépenses à moyen terme, seul le montant de la première année est normalement garanti, ce qui crée une incertitude sur les fonds des années suivantes, et l'entretien est souvent sous-provisionné. Les États empruntent aussi beaucoup pour investir. Le rapport observe que les projets ne comparent pas toujours le coût de cet emprunt aux rendements attendus. CABRI relativise par ailleurs le poids des PPP : même dans les économies avancées, ils ne représentent qu'environ 10 % du programme d'infrastructures publiques, et moins de 5 % en Afrique du Sud selon ce rapport de 2010."
+      },
+      {
+        "kind": "fait",
+        "heading": "Concession et PPP : faire payer l'usager ou l'État",
+        "text": "La Banque mondiale souligne qu'il n'existe aucun consensus international sur la définition d'un partenariat public-privé. Son guide décrit des contrats généralement de moyen ou long terme par lesquels un acteur privé fournit un service public. Deux modes de rémunération coexistent. Dans le modèle « usager payeur », l'entreprise se rémunère grâce aux redevances des usagers, comme un péage : on parle le plus souvent de concession. Dans le modèle « gouvernement payeur », l'État est la seule source de revenus, avec des paiements liés à la disponibilité de l'ouvrage ou aux résultats. Les deux peuvent être combinés. Selon CABRI, le secteur public ne paie alors que lorsque les services sont fournis, et les prêteurs comptent sur les flux de trésorerie du projet pour être remboursés."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des cadres juridiques en place, des risques à surveiller",
+        "text": "L'enquête de la Facilité africaine de soutien juridique recense 42 pays africains sur 54 dotés d'un cadre législatif sur les PPP, et 41 disposant d'une ou plusieurs unités d'appui dédiées, souvent rattachées au ministère des Finances. Le rythme d'adoption a été le plus élevé entre 2015 et 2017, avec 16 pays. Au niveau régional, l'UEMOA a adopté une directive en 2022, en cours de transposition. Un PPP ne fait pas disparaître le coût pour l'État : il le déplace dans le temps et le partage. Le guide de la Banque mondiale insiste sur le fait que la répartition des risques peut faire toute la différence. Les paiements futurs promis et les garanties accordées doivent donc être évalués comme des engagements budgétaires, au même titre qu'une dette."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Banque mondiale – Guide de référence des PPP, version 2 (2016, en français)",
+        "url": "https://ppp.worldbank.org/public-private-partnership/sites/default/files/2022-07/Reference-Guide-French-Final-June2016.pdf"
+      },
+      {
+        "label": "Facilité africaine de soutien juridique – Cadres juridiques et institutionnels des PPP en Afrique (2024)",
+        "url": "https://ppp.worldbank.org/public-private-partnership/sites/default/files/2024-03/2024-02-20%20-%20Survey%20PPP%20Legal%20%26%20Institutional%20Frameworks%20in%20Africa%20%28FR%29.pdf"
+      },
+      {
+        "label": "CABRI – Le financement des projets d'infrastructure (2010)",
+        "url": "https://www.cabri-sbo.org/uploads/files/Documents/report_2010_cabri_value_for_money_infrastructure_1st_dialogue_french_cabri_2_le_financement_des_projets_dinfrastructure_francais.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "comment-lire-une-etude-scientifique-sans-se-tromper-sur-ce-qu-elle-prouve",
+    "title": "Comment lire une étude scientifique sans se tromper sur ce qu'elle prouve",
+    "summary": "Toutes les études ne se valent pas. Leur force dépend de leur méthode, de la taille de leur échantillon et des biais qui peuvent fausser leurs résultats. Les autorités sanitaires classent ainsi les études selon un « niveau de preuve ». Cet article explique comment repérer ces critères, pourquoi une corrélation ne suffit pas à prouver une cause et quelles limites garder en tête, à partir d'un état des lieux de la Haute Autorité de santé (HAS) et d'un article de la Revue médicale de Liège sur la hiérarchie des preuves.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La HAS classe les études par niveau de preuve : les essais randomisés de forte puissance et leurs méta-analyses en haut, les études de cohortes et cas-témoins au milieu, les séries de cas et études descriptives en bas.",
+      "La qualité d'une étude dépend notamment de sa puissance, en particulier de la taille de l'échantillon, et de l'absence de biais importants dans sa réalisation.",
+      "Les essais contrôlés randomisés sont en principe plus fiables que les études d'observation, mais une étude peut monter ou descendre d'un niveau de preuve selon ses qualités propres."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une échelle des preuves",
+        "text": "Dans son état des lieux de 2013, la HAS décrit la gradation utilisée pour ses recommandations. Le niveau 1, qui fonde une « preuve scientifique établie » (grade A), regroupe les essais comparatifs randomisés de forte puissance, les méta-analyses d'essais randomisés et les analyses de décision fondées sur des études bien menées. Le niveau 2 comprend les essais randomisés de faible puissance, les études comparatives non randomisées bien menées et les études de cohortes ; le niveau 3, les études cas-témoins (grade B, « présomption scientifique »). Le niveau 4 réunit les études comparatives avec des biais importants, les études rétrospectives, les séries de cas et les études descriptives (grade C, « faible niveau de preuve »). Sans données disponibles, une recommandation peut reposer sur un accord d'experts, défini par la HAS comme l'approbation d'au moins 80 % des membres du groupe de travail."
+      },
+      {
+        "kind": "fait",
+        "heading": "Méthode, échantillon et biais",
+        "text": "Pourquoi l'essai randomisé est-il si bien classé ? Parce que tirer au sort qui reçoit un traitement permet de comparer des groupes semblables, et donc d'attribuer une différence au traitement plutôt qu'à autre chose. Une étude de cohorte, qui suit un groupe exposé à un facteur et un groupe non exposé, observe sans intervenir : elle peut montrer une association sans prouver une cause, d'autres facteurs pouvant l'expliquer. La HAS souligne que la capacité d'une étude à répondre à sa question dépend de sa puissance, en particulier de la taille de l'échantillon, et de l'existence ou non de biais importants dans sa réalisation. Un petit effectif donne des résultats plus incertains."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Les bons réflexes et les limites",
+        "text": "Un article de la Revue médicale de Liège consacré à la hiérarchie des preuves du Centre for Evidence-Based Medicine d'Oxford rappelle que les études expérimentales, en particulier les essais contrôlés randomisés, sont en principe plus fiables que les études d'observation. Il précise aussi que, dans cette classification, une étude peut descendre ou monter d'un niveau en fonction de ses qualités intrinsèques, et que certains auteurs jugent ces hiérarchies rigides. Face à une étude, quelques questions aident : quel type d'étude, combien de participants, quel groupe de comparaison, les auteurs signalent-ils leurs limites, d'autres travaux vont-ils dans le même sens ? La HAS note de son côté que l'analyse de la littérature permet rarement de répondre à toutes les questions posées. Une seule étude, même solide, est donc rarement le dernier mot."
+      }
+    ],
+    "sources": [
+      {
+        "label": "HAS – Niveau de preuve et gradation des recommandations (état des lieux, 2013)",
+        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2013-06/etat_des_lieux_niveau_preuve_gradation.pdf"
+      },
+      {
+        "label": "Revue médicale de Liège – Durieux et al., la hiérarchisation des preuves (2013)",
+        "url": "https://rmlg.uliege.be/download/2479/1784/N.-Durieux_2013_68_12_0.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "pib-en-valeur-ou-en-volume-comment-on-mesure-vraiment-la-croissance",
+    "title": "PIB en valeur ou en volume : comment on mesure vraiment la croissance",
+    "summary": "Le produit intérieur brut (PIB) mesure la richesse créée sur un territoire pendant une période. On peut le calculer de trois façons, qui doivent aboutir au même total. Pour parler de croissance, les statisticiens utilisent le PIB « en volume », c'est-à-dire corrigé de la hausse des prix. Cet article explique ces notions et les limites du PIB, à partir des définitions de l'Insee, d'Eurostat et de l'Institut pour l'éducation financière du public (La finance pour tous).",
+    "topic": "economie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l'Insee, le PIB vise à mesurer la richesse créée par tous les agents, privés et publics, sur un territoire national pendant une période donnée.",
+      "Le PIB en valeur (nominal) est exprimé aux prix courants ; le PIB en volume (réel) neutralise l'effet de la hausse des prix. Eurostat déconseille de calculer des taux d'évolution à partir des données en prix courants.",
+      "Le PIB ne compte ni le travail bénévole ni le travail domestique, et n'intègre pas directement les dimensions sociales, environnementales ou le bien-être, rappelle La finance pour tous."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Trois façons de calculer le même agrégat",
+        "text": "L'Insee décrit trois optiques. Par la production, le PIB est la somme des valeurs ajoutées, augmentée des impôts sur les produits et diminuée des subventions sur les produits. Par la demande, il additionne les dépenses de consommation finale, l'investissement (formation brute de capital fixe), la variation des stocks et les exportations, moins les importations. Par les revenus, il additionne la rémunération des salariés, l'excédent brut d'exploitation et le revenu mixte, ainsi que les impôts sur la production et les importations, moins les subventions. Ces trois chemins décrivent la même richesse vue sous des angles différents : ce qui est produit, ce qui est dépensé et ce qui est distribué."
+      },
+      {
+        "kind": "fait",
+        "heading": "Valeur et volume : séparer l'effet des prix",
+        "text": "Si les prix augmentent de 3 % et que les quantités produites ne changent pas, le PIB en valeur progresse quand même. C'est pourquoi on distingue le PIB en valeur, dit aussi nominal ou aux prix courants, du PIB en volume, dit aussi réel, qui est corrigé de l'inflation. La fiche de La finance pour tous indique qu'en l'absence de précision, la croissance annoncée correspond au PIB en volume. Elle donne l'exemple de la France en 2016 : environ 2 229 milliards d'euros en valeur et 2 122 milliards en volume. Eurostat précise que les données en prix courants ne doivent pas servir à calculer des taux de variation, en raison de l'inflation et des fluctuations de change."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que le PIB ne dit pas",
+        "text": "Le PIB est un indicateur de production, pas de bien-être. La finance pour tous rappelle qu'il ignore le travail bénévole et le travail réalisé pour soi-même, et qu'il n'intègre ni les données sociales, ni l'environnement, ni le bien-être des individus. D'autres indicateurs existent en complément, comme l'indice de développement humain, qui ajoute l'espérance de vie et l'éducation. Pour comparer des pays, Eurostat utilise des standards de pouvoir d'achat, mais l'office souligne qu'ils servent aux comparaisons entre pays plutôt qu'aux comparaisons dans le temps. Lire un chiffre de croissance suppose donc de vérifier s'il est en valeur ou en volume, sur quelle période, et s'il est rapporté ou non au nombre d'habitants."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Insee – Définition du produit intérieur brut",
+        "url": "https://insee.fr/fr/metadonnees/definition/c1365"
+      },
+      {
+        "label": "Eurostat – Comptes nationaux et PIB (Statistics Explained, version PDF, juillet 2026)",
+        "url": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/1136.pdf"
+      },
+      {
+        "label": "La finance pour tous – Fiche repère PIB",
+        "url": "https://www.lafinancepourtous.com/html/IMG/pdf/fiches_reperes/Fiche_repere_PIB.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "comment-fonctionne-un-appel-d-offres-public-du-besoin-au-contrat",
+    "title": "Comment fonctionne un appel d'offres public, du besoin au contrat ?",
+    "summary": "Quand un acheteur public commande des équipements, des services ou des travaux à des industriels, il suit des règles précises fixées en France par le code de la commande publique. Le besoin doit être défini avant la consultation, la procédure dépend du montant, et l'offre retenue est la plus avantageuse économiquement selon des critères connus à l'avance. Explication des grandes étapes et de leurs limites.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-24",
+    "updatedAt": "2026-11-24",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le code de la commande publique impose de déterminer avec précision la nature et l'étendue du besoin avant de lancer la consultation (article L. 2111-1).",
+      "Au-dessus des seuils européens, l'acheteur doit suivre une procédure formalisée : appel d'offres ouvert ou restreint, procédure avec négociation ou dialogue compétitif.",
+      "En appel d'offres, l'acheteur choisit sans négociation l'offre économiquement la plus avantageuse, sur des critères objectifs portés à la connaissance des candidats."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "D'abord définir le besoin",
+        "text": "Un marché public est un contrat conclu par un ou plusieurs acheteurs avec un ou plusieurs opérateurs économiques, en contrepartie d'un prix ou d'un équivalent. Avant de consulter, l'acheteur doit déterminer avec précision ce qu'il veut obtenir. Il peut échanger au préalable avec des entreprises pour connaître l'offre du marché, ce que l'on appelle le sourcing. Les spécifications techniques peuvent renvoyer à des normes, à condition d'accepter tout équivalent, ou être exprimées en performances attendues."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le montant fixe la procédure",
+        "text": "Sous les seuils européens, l'acheteur peut recourir à une procédure adaptée, en respectant les principes de la commande publique. Au-dessus, la procédure formalisée est obligatoire. Selon la fiche du Conseil d'État, les seuils applicables depuis le 1er janvier 2026 sont de 140 000 euros hors taxes pour les fournitures et services de l'État, 216 000 euros pour les collectivités, 432 000 euros pour les entités adjudicatrices et 5 404 000 euros pour les travaux. Découper artificiellement un achat pour passer sous un seuil est irrégulier."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ouvert, restreint, négocié",
+        "text": "Dans l'appel d'offres ouvert, toute entreprise intéressée peut remettre une offre. Dans l'appel d'offres restreint, seuls les candidats sélectionnés y sont autorisés ; le choix entre les deux est libre. La procédure avec négociation permet de discuter les conditions du marché, mais seulement dans des cas prévus, par exemple pour une solution innovante ou un besoin complexe. Le dialogue compétitif sert à définir ou développer avec les candidats les solutions qui répondront au besoin."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Comment l'offre est choisie",
+        "text": "L'acheteur retient l'offre économiquement la plus avantageuse. Il combine en général plusieurs critères liés à l'objet du marché, comme la qualité, le prix, la valeur technique ou les délais. Le prix ne peut être retenu comme critère unique que pour des services ou fournitures standardisés. Les marchés sont en principe découpés en lots séparés, ce qui ouvre la compétition à des entreprises plus petites."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce que cette présentation ne couvre pas",
+        "text": "Ces règles concernent les acheteurs publics. Une entreprise privée qui lance son propre appel d'offres industriel n'y est pas soumise et fixe librement sa méthode, même si elle reprend souvent la même logique : besoin, consultation, comparaison, contrat. Les délais de publicité, l'information des candidats écartés et l'exécution du contrat obéissent à d'autres règles détaillées, non traitées ici."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Conseil d'État, fiche 12 « Marchés publics » (2026)",
+        "url": "https://conseil-etat.fr/Media/contenu-froid/documents/guide-des-outils-d-action-economique/gae_2026/f12-2026"
+      },
+      {
+        "label": "code-commande-publique.com, procédures formalisées (L2124-1 à L2124-4)",
+        "url": "https://www.code-commande-publique.com/procedures-formalisees-l2124-1-a-l2124-4"
+      }
+    ]
+  },
+  {
     "slug": "zone-euro-l-excedent-courant-recule-a-248-milliards-d-euros-sur-un-an-en",
     "title": "Zone euro : l'excédent courant recule à 248 milliards d'euros sur un an en septembre 2026",
     "summary": "Selon la BCE, la zone euro a enregistré en septembre 2026 un excédent de sa balance courante de 12 milliards d'euros, stable par rapport à août. Sur douze mois, l'excédent atteint 248 milliards d'euros, soit 1,5 % du PIB de la zone, contre 279 milliards un an plus tôt. Le recul vient surtout des biens. La France, elle, reste en déficit : 2,7 milliards d'euros en septembre selon la Banque de France.",

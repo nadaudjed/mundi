@@ -8,6 +8,7 @@
  *   node scripts/max-newsroom.mjs brief <journalist|professor> <batch 1|2>   # writer brief
  *   node scripts/max-newsroom.mjs check <journalist|professor>               # checker brief
  *   node scripts/max-newsroom.mjs validate <agentId>                         # format check of one draft
+ *   node scripts/max-newsroom.mjs revise                                     # drafts the checker sent back (one round)
  *   node scripts/max-newsroom.mjs assemble                                   # results.json for autopublish
  * Files live in the private editorial-stock worktree: editorial/agents/max/<day>/
  */
@@ -15,7 +16,7 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync,readdirSync} from "node:
 import {resolve,join,dirname} from "node:path";
 import {pathToFileURL} from "node:url";
 import {makeDailyPlan} from "./plan-newsroom.mjs";
-import {WRITER_SYSTEM,CHECKER_SYSTEM,assessReview,validateResearchDraft,tidyDraft,taskFor} from "./run-newsroom-agents.mjs";
+import {WRITER_SYSTEM,CHECKER_SYSTEM,REVISION_TASK,assessReview,validateResearchDraft,tidyDraft,taskFor} from "./run-newsroom-agents.mjs";
 
 export const BATCH=6;
 const read=p=>JSON.parse(readFileSync(p,"utf8"));
@@ -92,6 +93,21 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     const todo=plan.jobs.filter(j=>(role?(role==="journalist")===(j.role==="journalist"):true)&&drafts[j.agentId]?.draft&&!checks[j.agentId])
       .map(j=>({agentId:j.agentId,topic:j.topic,draft:drafts[j.agentId].draft}));
     console.log(JSON.stringify({date:plan.date,outputDir:join(dayDir,"checks"),checkerInstructions:CHECKER_SYSTEM,drafts:todo},null,2));
+  }else if(cmd==="revise"){
+    // One correction round, as in the API newsroom: the writer fixes what the checker could not confirm,
+    // then a NEW independent check decides (the old check is archived in checks/history/).
+    const drafts=readDir(join(dayDir,"drafts")),checks=readDir(join(dayDir,"checks"));
+    // link-issues.json is written by the publication workflow: {agentId: ["url (HTTP 404)", ...]} for drafts the
+    // checker passed but whose links failed the independent link check. They get the same single correction round.
+    const linkFile=join(dayDir,"link-issues.json"),links=existsSync(linkFile)?read(linkFile):{};
+    const broken=id=>Array.isArray(links[id])?links[id]:[];
+    const todo=plan.jobs.filter(j=>drafts[j.agentId]?.draft&&checks[j.agentId]?.checker&&!(drafts[j.agentId].revision>=1)
+        &&(checks[j.agentId].checker.verdict==="needs_review"||(checks[j.agentId].checker.verdict==="pass"&&broken(j.agentId).length)))
+      .map(j=>({agentId:j.agentId,topic:j.topic,role:j.role,draft:drafts[j.agentId].draft,checkerReport:checks[j.agentId].checker,
+        brokenLinks:broken(j.agentId),
+        draftFile:join(dayDir,"drafts",j.agentId+".json"),checkFile:join(dayDir,"checks",j.agentId+".json"),
+        archiveCheckTo:join(dayDir,"checks","history",j.agentId+"-1.json")}));
+    console.log(JSON.stringify({date:plan.date,writerInstructions:WRITER_SYSTEM,revisionTask:REVISION_TASK,drafts:todo},null,2));
   }else if(cmd==="validate"){
     // Writers check the format of their own file before pushing it: node scripts/max-newsroom.mjs validate <agentId>
     const f=join(dayDir,"drafts",role+".json");const d=read(f);const job=plan.jobs.find(j=>j.agentId===d.agentId);

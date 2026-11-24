@@ -23,7 +23,8 @@ export function FitLines({ children, className = "", testId }: { children: React
         return;
       }
       const line = parseFloat(getComputedStyle(el).lineHeight) || 20;
-      const lines = Math.floor((outer.clientHeight + 1) / line);
+      // Tolérance de quelques pixels : seul l'interligne vide de la dernière ligne peut être rogné.
+      const lines = Math.floor((outer.clientHeight + 4) / line);
       el.hidden = lines < 1;
       el.style.setProperty("-webkit-line-clamp", String(Math.max(1, lines)));
       el.style.maxHeight = `${Math.max(1, lines) * line}px`;

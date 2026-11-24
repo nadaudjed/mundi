@@ -222,7 +222,8 @@ body {
 }
 @media (min-width: 900px) and (min-aspect-ratio: 5/4) {
   .feed-column {
-    max-width: 38rem;
+    /* Le visuel occupe la moitié droite : la colonne reste dans la moitié gauche. */
+    max-width: min(38rem, calc(50% - max(1.5rem, (100% - 80rem) / 2) - 1.5rem));
     margin-left: max(1.5rem, calc((100% - 80rem) / 2));
     margin-right: auto;
     padding-inline: 2rem;

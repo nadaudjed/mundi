@@ -335,7 +335,7 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
           </button>
         )}
       </span>
-      <span role="status" className="sr-only">{status}</span>
+      {on && <span role="status" className="sr-only">{status}</span>}
       {error && !on && <span role="status" className={"max-w-72 text-xs leading-relaxed " + (tone === "light" ? "text-[#79571c]" : "text-[#ffd98f]")}>{error}</span>}
     </span>
   );

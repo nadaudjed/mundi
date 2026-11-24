@@ -2,62 +2,68 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { searchPublications, searchStories } from "@/lib/search";
-import { feedStories } from "@/lib/stories";
+import { publicationKind, type PublicationKind } from "@/lib/publication-kind";
+import { searchPublications } from "@/lib/search";
 import { getTopic, topics } from "@/lib/topics";
 import type { TopicSlug } from "@/lib/types";
 import type { FeedPublication } from "@/lib/verified";
 import { Icon } from "./Icon";
 import { consumeSearchFocus } from "./SearchShortcut";
 import { PublicationTile } from "./PublicationTile";
-import { StoryTile } from "./StoryTile";
 
 const plural = (n: number, one: string, many = one + "s") => (n > 1 ? many : one);
+
+/** Deux espaces séparés : les actualités (journalistes) et les concepts (professeurs). */
+const GENRES: { kind: PublicationKind; param: string; name: string; hint: string; heading: string }[] = [
+  { kind: "actualite", param: "actualites", name: "Actualités", hint: "Ce qui vient de se passer", heading: "Les dernières actualités" },
+  { kind: "concept", param: "concepts", name: "Concepts", hint: "Les notions pour comprendre", heading: "Les concepts à connaître" },
+  { kind: "recit", param: "recits", name: "Récits", hint: "Histoires vraies, épisodes, idées", heading: "Les récits" },
+];
+const genreOf = (param: string | null) => GENRES.find((g) => g.param === param) ?? GENRES[0];
 
 export function ExploreClient({ publications }: { publications: FeedPublication[] }) {
   const params = useSearchParams();
   const router = useRouter();
   const [query, setQuery] = useState(params.get("q") ?? "");
   const [topic, setTopic] = useState<TopicSlug | null>(getTopic(params.get("sujet") ?? "")?.slug ?? null);
+  const [genre, setGenre] = useState(() => genreOf(params.get("genre")));
   const input = useRef<HTMLInputElement>(null);
 
-  // Preserve shareable search URLs, without navigating on every keystroke.
+  // Adresse partageable (recherche, espace, rubrique), sans naviguer à chaque frappe.
   useEffect(() => {
     const timer = window.setTimeout(() => {
       const next = new URLSearchParams();
       if (query.trim()) next.set("q", query.trim());
+      if (genre !== GENRES[0]) next.set("genre", genre.param);
       if (topic) next.set("sujet", topic);
       const href = next.size ? "/explorer/?" + next.toString() : "/explorer/";
       const current = params.size ? "/explorer/?" + params.toString() : "/explorer/";
       if (href !== current) router.replace(href, { scroll: false });
     }, 350);
     return () => window.clearTimeout(timer);
-  }, [query, topic, params, router]);
+  }, [query, topic, genre, params, router]);
 
-  const publishedResults = useMemo(() => {
-    const found = searchPublications(publications, query);
-    return topic ? found.filter((p) => p.topic === topic) : found;
-  }, [publications, query, topic]);
-  const demoResults = useMemo(() => {
-    const found = query.trim() ? searchStories(query) : feedStories;
-    return topic ? found.filter((s) => s.topic === topic) : found;
-  }, [query, topic]);
+  /** Résultats de la recherche, par espace (avant le filtre de rubrique). */
+  const found = useMemo(() => {
+    const all = searchPublications(publications, query);
+    return Object.fromEntries(GENRES.map((g) => [g.kind, all.filter((p) => publicationKind(p) === g.kind)])) as Record<PublicationKind, FeedPublication[]>;
+  }, [publications, query]);
+  const inGenre = found[genre.kind];
+  const results = useMemo(() => (topic ? inGenre.filter((p) => p.topic === topic) : inGenre), [inGenre, topic]);
+  /** Rubriques présentes dans l'espace choisi, pour ne jamais proposer un filtre vide. */
+  const genreTopics = useMemo(() => {
+    const inThisGenre = publications.filter((p) => publicationKind(p) === genre.kind);
+    return topics
+      .map((t) => ({ topic: t, count: inThisGenre.filter((p) => p.topic === t.slug).length }))
+      .filter((t) => t.count > 0 || t.topic.slug === topic);
+  }, [publications, genre, topic]);
 
-  const counts = useMemo(() => {
-    const all = new Map<string, { published: number; demo: number }>();
-    topics.forEach((t) => all.set(t.slug, { published: 0, demo: 0 }));
-    for (const p of publications) all.get(p.topic)!.published++;
-    for (const s of feedStories) all.get(s.topic)!.demo++;
-    return all;
-  }, [publications]);
-
-  /** Domaines avec au moins une publication sourcée d'abord ; les autres sur une ligne secondaire. */
-  const withPublications = topics.filter((t) => counts.get(t.slug)!.published > 0);
-  const withoutPublications = topics.filter((t) => counts.get(t.slug)!.published === 0);
   const searching = query.trim().length > 0;
+  const total = found.actualite.length + found.concept.length + found.recit.length;
+  /** Un espace n'apparaît que s'il contient au moins une publication (les récits arrivent plus tard). */
+  const genres = GENRES.filter((g) => g.kind !== "recit" || g === genre || publications.some((p) => publicationKind(p) === "recit"));
   const selectedTopic = topic ? getTopic(topic) : null;
-  const total = publishedResults.length + demoResults.length;
-  const [lead, ...others] = publishedResults;
+  const [lead, ...others] = results;
   useEffect(() => {
     if (consumeSearchFocus()) input.current?.focus();
   }, []);
@@ -66,7 +72,7 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
   return (
     <div className="mt-8">
       <form role="search" onSubmit={(e) => e.preventDefault()} className="relative">
-        <label htmlFor="search" className="sr-only">Rechercher une publication ou un récit</label>
+        <label htmlFor="search" className="sr-only">Rechercher une actualité ou un concept</label>
         <Icon name="search" className="pointer-events-none absolute left-0 top-1/2 size-5 -translate-y-1/2 text-muted" />
         <input id="search" ref={input} type="search" value={query} onChange={(e) => setQuery(e.target.value)}
           placeholder="Matières critiques, inflation, énergie…" autoComplete="off" aria-keyshortcuts="/ Control+K Meta+K"
@@ -78,62 +84,51 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
           </button>
         )}
       </form>
-      <p className="mt-2 flex flex-wrap justify-between gap-2 text-meta text-muted" aria-live="polite">
-        <span>
-          <span className="font-mono">{total}</span> {searching ? plural(total, "résultat") : plural(total, "contenu")} ·{" "}
-          <span className="font-mono">{publishedResults.length}</span> {plural(publishedResults.length, "publication sourcée", "publications sourcées")} ·{" "}
-          <span className="font-mono">{demoResults.length}</span> {plural(demoResults.length, "démonstration")}
-        </span>
+      <p className="mt-2 text-meta text-muted" aria-live="polite">
+        <span className="font-mono">{total}</span> {searching ? plural(total, "résultat") : plural(total, "contenu")} ·{" "}
+        <span className="font-mono">{found.actualite.length}</span> {plural(found.actualite.length, "actualité")} ·{" "}
+        <span className="font-mono">{found.concept.length}</span> {plural(found.concept.length, "concept")}
+        {genres.length > 2 && (
+          <>
+            {" "}· <span className="font-mono">{found.recit.length}</span> {plural(found.recit.length, "récit")}
+          </>
+        )}
       </p>
 
-      <section aria-labelledby="sujets" className="mt-10">
-        <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-ink pb-2">
-          <h2 id="sujets" className="font-display text-intertitre font-semibold text-ink">Rubriques</h2>
-          {(topic || query) && <button type="button" onClick={clearFilters} className="text-sm font-semibold text-accent underline-offset-4 hover:underline">Effacer les filtres</button>}
-        </div>
-        <ul className="grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
-          {withPublications.map((t) => {
-            const selected = topic === t.slug;
-            const n = counts.get(t.slug)!;
-            return (
-              <li key={t.slug} className="border-b border-rule">
-                <button type="button" aria-pressed={selected} onClick={() => setTopic(selected ? null : t.slug)}
-                  className="group flex w-full items-baseline justify-between gap-4 py-3.5 text-left">
-                  <span className="min-w-0">
-                    <span className={"title-link font-display text-lg font-semibold leading-tight " + (selected ? "text-accent" : "text-ink")}>{t.name}</span>
-                    <span className="mt-0.5 block text-sm leading-snug text-muted">{t.description}</span>
-                  </span>
-                  <span className="shrink-0 text-right font-mono text-meta text-muted">
-                    {n.published} {plural(n.published, "publication")}
-                    {n.demo > 0 && <span className="block">{n.demo} {plural(n.demo, "démo")}</span>}
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-        {withoutPublications.length > 0 && (
-          <p className="mt-4 text-sm leading-relaxed text-muted" data-testid="topics-without-publications">
-            <span className="mr-1">Sans publication pour l&apos;instant :</span>
-            {withoutPublications.map((t, i) => (
-              <span key={t.slug}>
-                <button type="button" aria-pressed={topic === t.slug} onClick={() => setTopic(topic === t.slug ? null : t.slug)}
-                  className={"underline-offset-4 hover:text-ink hover:underline " + (topic === t.slug ? "font-semibold text-accent underline" : "")}>
-                  {t.name}
-                </button>
-                {i < withoutPublications.length - 1 ? ", " : "."}
+      {/* Les deux espaces : actualités d'un côté, concepts de l'autre. */}
+      <div role="group" aria-label="Choisir un espace" className={"mt-8 grid border-b border-ink " + (genres.length > 2 ? "grid-cols-3" : "grid-cols-2")} data-testid="explore-genres">
+        {genres.map((g) => {
+          const selected = g === genre;
+          return (
+            <button key={g.kind} type="button" aria-pressed={selected} onClick={() => { setGenre(g); setTopic(null); }}
+              data-testid={`genre-${g.param}`}
+              className={"-mb-px border-b-[3px] pb-3 pt-1 text-left transition-colors " + (selected ? "border-accent" : "border-transparent hover:border-rule")}>
+              <span className={"flex items-baseline gap-2 font-display text-xl font-semibold leading-tight md:text-2xl " + (selected ? "text-ink" : "text-muted")}>
+                {g.name}
+                <span className="font-mono text-meta font-normal text-muted">{found[g.kind].length}</span>
               </span>
-            ))}
-          </p>
-        )}
-      </section>
+              <span className="mt-0.5 block text-sm leading-snug text-muted">{g.hint}</span>
+            </button>
+          );
+        })}
+      </div>
 
-      <section aria-labelledby="publications" className="mt-14">
-        <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-2">
+      {/* Rubriques de l'espace choisi, sur une ligne qui défile horizontalement. */}
+      <div role="group" aria-label="Filtrer par rubrique" className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5 pb-1 md:mx-0 md:flex-wrap md:px-0" data-testid="explore-topics">
+        <button type="button" aria-pressed={!topic} onClick={() => setTopic(null)} className={chip(!topic)}>Toutes</button>
+        {genreTopics.map(({ topic: t, count }) => (
+          <button key={t.slug} type="button" aria-pressed={topic === t.slug} onClick={() => setTopic(topic === t.slug ? null : t.slug)} className={chip(topic === t.slug)}>
+            {t.name} <span className="font-mono text-[0.8em] opacity-70">{count}</span>
+          </button>
+        ))}
+      </div>
+
+      <section aria-labelledby="publications" className="mt-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-rule pb-2">
           <h2 id="publications" className="font-display text-intertitre font-semibold text-ink">
-            {searching ? "Publications correspondant à votre recherche" : selectedTopic ? "À lire en " + selectedTopic.name : "Les publications à découvrir"}
+            {searching ? `${genre.name} correspondant à votre recherche` : selectedTopic ? `${genre.name} · ${selectedTopic.name}` : genre.heading}
           </h2>
-          <span className="font-mono text-meta text-muted">{publishedResults.length} {plural(publishedResults.length, "article")}</span>
+          <span className="font-mono text-meta text-muted">{results.length} {plural(results.length, "article")}</span>
         </div>
         {lead ? (
           <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0">
@@ -146,36 +141,28 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
               </div>
             )}
           </div>
+        ) : total === 0 ? (
+          <div role="status" className="mt-6">
+            <p className="font-display text-xl font-semibold text-ink">Aucun résultat trouvé</p>
+            <p className="mt-1 text-sm text-muted">Essayez une autre recherche ou une autre rubrique.</p>
+            <button type="button" onClick={clearFilters} className="btn btn-secondary mt-4">Tout afficher</button>
+          </div>
         ) : (
           <p className="mt-5 text-sm leading-relaxed text-muted">
-            Pas encore de publication sourcée sur ce sujet. Les démonstrations sont présentées séparément ci-dessous.
+            Rien dans les {genre.name.toLowerCase()} pour ces filtres.{" "}
+            {genres.filter((g) => g !== genre && found[g.kind].length > 0).map((g) => (
+              <button key={g.kind} type="button" onClick={() => setGenre(g)} className="font-semibold text-accent underline-offset-4 hover:underline">
+                Voir les {found[g.kind].length} {g.name.toLowerCase()}
+              </button>
+            ))}
           </p>
         )}
       </section>
-
-      <section aria-labelledby="demonstrations" className="mt-14">
-        <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-ink pb-2">
-          <h2 id="demonstrations" className="font-display text-intertitre font-semibold text-ink">Récits de démonstration</h2>
-          <span className="font-mono text-meta text-muted">{demoResults.length} {plural(demoResults.length, "exemple")}</span>
-        </div>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-          Espace pédagogique · Contenus fictifs. Ces récits permettent de découvrir MUNDI : leurs données, dates et sources sont illustratives et ne constituent pas des actualités.
-        </p>
-        {demoResults.length ? (
-          <div className="mt-4 grid lg:grid-cols-2 lg:gap-x-8">
-            {demoResults.map((s) => <StoryTile key={s.slug} story={s} />)}
-          </div>
-        ) : (
-          <p className="mt-5 text-sm text-muted">Aucun exemple correspondant à ces filtres.</p>
-        )}
-      </section>
-      {total === 0 && (
-        <div role="status" className="mt-10 border-t border-ink pt-4">
-          <p className="font-display text-xl font-semibold text-ink">Aucun résultat trouvé</p>
-          <p className="mt-1 text-sm text-muted">Essayez une autre recherche ou un autre sujet.</p>
-          <button type="button" onClick={clearFilters} className="btn btn-secondary mt-4">Tout afficher</button>
-        </div>
-      )}
     </div>
   );
+}
+
+function chip(selected: boolean) {
+  return "shrink-0 whitespace-nowrap rounded-full border px-3.5 py-1.5 text-sm font-semibold transition-colors " +
+    (selected ? "border-ink bg-ink text-on-ink" : "border-rule text-ink hover:border-ink");
 }

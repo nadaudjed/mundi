@@ -6,7 +6,7 @@ import { expect, test } from "./fixtures";
  * coin bas-droit à l'outil « Netlify Drawer » (qui cachait « Mes sujets »).
  */
 const PORT = Number(process.env.E2E_PORT ?? 4173);
-const PAGES = ["/", "/explorer/", "/reviser/", "/enregistres/", "/mes-sujets/", "/recit/equilibre-reseau-electrique/", "/a-propos/"];
+const PAGES = ["/", "/explorer/", "/reviser/", "/enregistres/", "/mes-sujets/", "/a-propos/"];
 const SCREENS = [
   { name: "petit téléphone", width: 320, height: 640, mobile: true },
   { name: "téléphone", width: 390, height: 844, mobile: true },

@@ -7,6 +7,7 @@ import { verificationLabel } from "@/lib/verification";
 import type { FeedPublication } from "@/lib/verified";
 import { EditorialPhotoCredit } from "./EditorialPhotoLayer";
 import { KeyFigure } from "./KeyFigure";
+import { NewsDate } from "./NewsDate";
 
 /**
  * Publication dans une liste (Actualités, Explorer).
@@ -33,7 +34,10 @@ export function PublicationTile({ publication: p, featured = false, headingLevel
           <img src={p.photo.src} alt="" loading="eager" decoding="async" className="photo aspect-[3/2] w-full object-cover" />
         </Link>
       ) : null)}
-      <p className="text-meta font-semibold text-accent">{topic.name}</p>
+      <p className="text-meta font-semibold text-accent">
+        {topic.name}
+      </p>
+      <NewsDate publication={p} className="mt-0.5 text-meta font-semibold text-ink" />
       <H className={"mt-1.5 font-display font-semibold text-ink text-balance " + (featured ? "text-titre" : "text-xl leading-snug")}>
         <Link href={href} className="title-link">{p.title}</Link>
       </H>

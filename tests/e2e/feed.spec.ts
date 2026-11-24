@@ -1,15 +1,16 @@
-import { expect, isMobile, scrollFeedTo, test } from "./fixtures";
+import { expect, isMobile, test } from "./fixtures";
 
 test.describe("Fil de découverte", () => {
-  test("affiche d’abord le récit vérifié puis distingue les démonstrations", async ({ page }) => {
+  test("ne montre que des publications sourcées, sans démonstration", async ({ page }) => {
     await page.goto("/");
     const first = page.locator('[data-index="0"]');
     await expect(first).toBeVisible();
     await expect(first).toHaveAttribute("data-testid", "verified-card");
     await expect(first).toContainText(/Contrôle IA, sans relecture humaine|Validation humaine/);
     await expect(first.getByText("Vérifié", { exact: true })).toHaveCount(0);
-    await expect(page.getByTestId("demo-divider")).toHaveCount(1);
-    await expect(page.locator("[data-story]")).not.toHaveCount(0);
+    await expect(page.getByTestId("demo-divider")).toHaveCount(0);
+    await expect(page.locator("[data-story]")).toHaveCount(0);
+    await expect(page.getByText(/^Démo(nstration)?$/)).toHaveCount(0);
   });
 
   test("le défilement passe d'un écran à l'autre (molette et clavier)", async ({ page }) => {
@@ -28,33 +29,6 @@ test.describe("Fil de découverte", () => {
     }
   });
 
-  test("un récit narratif raconte une idée par écran : accroche, fait, explication", async ({ page }) => {
-    await page.goto("/");
-    const story = "correlation-causalite";
-    const screens = page.locator(`[data-story="${story}"]`);
-    await expect(screens).toHaveCount(3);
-    await expect(screens.nth(0)).toContainText("L'accroche");
-    await expect(screens.nth(1)).toContainText("Le fait");
-    await expect(screens.nth(2)).toContainText("L'explication");
-    // Le bouton « Comprendre » n'apparaît qu'au dernier écran.
-    await expect(screens.nth(0).getByRole("link", { name: "Comprendre" })).toHaveCount(0);
-    await expect(screens.nth(2).getByRole("link", { name: "Comprendre" })).toHaveCount(1);
-  });
-
-  test("ouvre la page d'un récit depuis le fil", async ({ page }) => {
-    await page.goto("/");
-    const index = await page.locator("[data-index]").evaluateAll((els) =>
-      els.findIndex((el) => el.querySelector('a[href^="/recit/"]')),
-    );
-    await scrollFeedTo(page, index);
-    const card = page.locator(`[data-index="${index}"]`);
-    const title = (await card.getAttribute("aria-label"))!.split(" : ").slice(1).join(" : ");
-    await card.getByRole("link", { name: "Comprendre" }).click();
-    await expect(page).toHaveURL(/\/recit\/.+\/$/);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
-    await expect(page.getByRole("heading", { name: "Sources" })).toBeVisible();
-  });
-
   test("le filtre par sujet ne garde que ce sujet", async ({ page }) => {
     await page.goto("/");
     // Les sujets sont rangés derrière un seul bouton, sur tous les écrans.
@@ -62,7 +36,9 @@ test.describe("Fil de découverte", () => {
     const group = page.getByRole("group", { name: "Filtrer le fil par sujet" });
     await group.getByRole("button", { name: "Énergie" }).click();
     await expect(group).toBeHidden();
-    const stories = await page.locator("[data-story]").evaluateAll((els) => [...new Set(els.map((e) => (e as HTMLElement).dataset.story))]);
-    expect(stories).toEqual(["equilibre-reseau-electrique"]);
+    const cards = page.locator("[data-publication]");
+    await expect(cards.first()).toBeVisible();
+    const topics = await page.locator('[data-testid="verified-card"]').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.topic));
+    expect(new Set(topics)).toEqual(new Set(["energie"]));
   });
 });

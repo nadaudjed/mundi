@@ -6,3 +6,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Les récits de démonstration ont été retirés : leurs anciennes adresses mènent à Explorer.
+[[redirects]]
+  from = "/recit/*"
+  to = "/explorer/"
+  status = 301

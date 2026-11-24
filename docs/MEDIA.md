@@ -1,5 +1,7 @@
 # Médias immersifs du fil MUNDI
 
+> **24 novembre 2026 :** les récits et médias de démonstration ont été retirés du site. Le Fil ne contient plus que les publications sourcées et leurs cartes de données ; ce qui suit sur les démonstrations est historique.
+
 ## Composants
 | Composant | Rôle |
 | --- | --- |

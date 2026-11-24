@@ -1,17 +1,19 @@
+import { readFileSync } from "node:fs";
 import { expect, isMobile, test } from "./fixtures";
+
+const first = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { slug: string; title: string; status: string }[])
+  .filter((p) => p.status === "published")[0];
 
 test.describe("Écoute, sauvegarde et navigation", () => {
   test("le bouton Écouter lit le résumé avec la voix de l'appareil, puis s'arrête", async ({ page }) => {
     await page.goto("/");
-    const index = await page.locator('[data-story="inflation-expliquee-simplement"]').first().getAttribute("data-index");
-    const card = page.locator(`[data-index="${index}"]`);
-    await card.scrollIntoViewIfNeeded();
+    const card = page.locator('[data-index="0"]');
     const listen = card.getByRole("button", { name: "Écouter le résumé" });
     await listen.click();
     await expect(card.getByRole("button", { name: "Arrêter la lecture audio" })).toHaveAttribute("aria-pressed", "true");
     const spoken = await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken);
     expect(spoken).toHaveLength(1);
-    expect(spoken[0]).toContain("L'inflation");
+    expect(spoken[0]).toContain(first.title.slice(0, 20));
     // A device may read a story in several shorter utterances to avoid
     // intermittent iOS/Android speech stalls. Drain every synthetic chunk.
     await page.evaluate(() => {
@@ -23,13 +25,13 @@ test.describe("Écoute, sauvegarde et navigation", () => {
     await expect(card.getByRole("button", { name: "Écouter le résumé" })).toHaveAttribute("aria-pressed", "false");
   });
 
-  test("enregistrer un récit le fait apparaître dans Enregistrés, même après rechargement", async ({ page }) => {
-    await page.goto("/recit/inflation-expliquee-simplement/");
-    await page.getByRole("button", { name: /^Enregistrer « L'inflation/ }).click();
-    await expect(page.getByRole("status")).toContainText("Enregistré");
+  test("enregistrer une publication la fait apparaître dans Enregistrés, même après rechargement", async ({ page }) => {
+    await page.goto(`/actualites/${first.slug}/`);
+    await page.locator("#contenu").getByRole("button", { name: /^Enregistrer « / }).first().click();
+    await expect(page.getByRole("status").filter({ hasText: "Enregistré" }).first()).toBeVisible();
     await page.goto("/enregistres/");
     await page.reload();
-    await expect(page.getByRole("link", { name: /L'inflation expliquée simplement/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: first.title })).toBeVisible();
     await page.getByRole("button", { name: "Tout effacer" }).click();
     await expect(page.getByText("Rien d'enregistré pour l'instant")).toBeVisible();
   });
@@ -50,11 +52,5 @@ test.describe("Écoute, sauvegarde et navigation", () => {
       await expect(nav.getByRole("link", { name: label, exact: true })).toHaveAttribute("aria-current", "page");
     }
     expect(isMobile(page) ? "mobile" : "desktop").toBeTruthy();
-  });
-
-  test("une page de récit montre son média avec crédits", async ({ page }) => {
-    await page.goto("/recit/recycler-une-batterie/");
-    await expect(page.getByRole("img", { name: /batterie usagée est broyée/ })).toBeVisible();
-    await expect(page.getByText("Création originale, droits détenus par MUNDI")).toBeVisible();
   });
 });

@@ -1,5 +1,7 @@
 # Publications vérifiées dans le fil immersif (ticket #17)
 
+> **24 novembre 2026 :** les récits et médias de démonstration ont été retirés du site. Le Fil ne contient plus que les publications sourcées et leurs cartes de données ; ce qui suit sur les démonstrations est historique.
+
 ## Ce qui s'affiche
 
 Le fil d'accueil est **unique** :

@@ -20,13 +20,14 @@ const LIVE = (JSON.parse(readFileSync("content/publications.json", "utf8")) as {
 const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
 
 test.describe("Site normal : première publication Eurostat approuvée", () => {
-  test("le fil montre les vraies publications, quatre cartes, puis des démonstrations séparées", async ({ page }) => {
+  test("le fil montre les vraies publications et leurs cartes de données, sans démonstration", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-testid", "verified-card");
     await expect(page.getByTestId("verified-card")).toHaveCount(LIVE);
     await expect(page.getByTestId("data-card")).toHaveCount(4);
-    await expect(page.getByTestId("demo-divider")).toHaveCount(1);
+    await expect(page.getByTestId("demo-divider")).toHaveCount(0);
+    await expect(page.locator("[data-story]")).toHaveCount(0);
     await expect(page.locator(`[data-testid="verified-card"][data-publication="${TEXTILES}"]`)).toHaveCount(1);
     await expect(page.getByTestId("verified-count")).toHaveText(LIVE === 1 ? "1 publication sourcée disponible." : `${LIVE} publications sourcées disponibles.`);
   });
@@ -47,7 +48,7 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
 test.describe("Site de test : publications inventées approuvées", () => {
   test.use({ baseURL: FIXTURES });
 
-  test("les publications vérifiées ouvrent le fil, puis un écran sépare les démonstrations", async ({ page }) => {
+  test("les publications vérifiées forment tout le fil, puis l'écran de fin", async ({ page }) => {
     // La première publication est suivie de ses 4 cartes de données (tests/e2e/data-cards.spec.ts).
     await page.goto("/");
     const cards = page.getByTestId("verified-card");
@@ -56,8 +57,8 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-publication", FIRST);
     for (const i of [1, 2, 3, 4]) await expect(page.locator(`[data-index="${i}"]`)).toHaveAttribute("data-testid", "data-card");
     await expect(page.locator('[data-index="5"]')).toHaveAttribute("data-publication", SECOND);
-    await expect(page.locator('[data-index="6"]')).toHaveAttribute("data-testid", "demo-divider");
-    await expect(page.locator('[data-index="7"]')).toHaveAttribute("data-story", /.+/);
+    await expect(page.locator('[data-index="6"]')).toHaveAttribute("data-testid", "feed-transition");
+    await expect(page.locator('[data-index="7"]')).toHaveCount(0);
 
     const first = page.locator('[data-index="0"]');
     await expect(first.getByText("Vérifié", { exact: true })).toHaveCount(0);
@@ -65,7 +66,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(first.getByTestId("verified-meta")).toContainText("publié le 20 novembre 2026");
     await expect(first.getByTestId("verified-meta")).toContainText("actualisé le 21 novembre 2026");
     await expect(first.getByTestId("verification-label")).toHaveText("Validation humaine");
-    await expect(first.locator("time").first()).toHaveAttribute("datetime", "2026-11-20");
+    await expect(first.getByTestId("verified-meta").locator("time").first()).toHaveAttribute("datetime", "2026-11-20");
     // Aucune mention « Contenu illustratif » sur une publication vérifiée.
     await expect(first.getByText("illustratif")).toHaveCount(0);
   });
@@ -82,9 +83,18 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.getByTestId("verification-label")).toHaveText("Validation humaine");
   });
 
-  test("les sources restent visibles et cliquables dans la carte immersive", async ({ page }) => {
+  test("les sources restent visibles et cliquables dans la carte immersive", async ({ page }, testInfo) => {
     await page.goto("/");
-    const sources = page.locator('[data-index="0"]').getByTestId("verified-sources");
+    const card = page.locator('[data-index="0"]');
+    if (testInfo.project.name === "mobile") {
+      // Sur téléphone, la carte garde la place pour le texte : un lien mène aux sources de l'article.
+      const link = card.getByTestId("verified-sources-link");
+      await expect(link).toBeVisible();
+      await expect(link).toHaveText("4 sources");
+      await expect(link).toHaveAttribute("href", new RegExp(`/actualites/${FIRST}/?#sources$`));
+      return;
+    }
+    const sources = card.getByTestId("verified-sources");
     const links = sources.getByRole("link", { name: /Source fictive/ });
     await expect(links).toHaveCount(4);
     await expect(links.first()).toHaveAttribute("href", "https://sources.mundi.test/a");
@@ -124,6 +134,50 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.getByRole("link", { name: /Source fictive/ })).toHaveCount(4);
   });
 
+  test("le retour arrière ramène à la carte où l'on était, pas au début du fil", async ({ page }) => {
+    await page.goto("/");
+    await scrollFeedTo(page, 5);
+    await page.locator('[data-index="5"]').getByRole("link", { name: "Lire la publication" }).click();
+    await expect(page).toHaveURL(new RegExp(`/actualites/${SECOND}/$`));
+    await page.goBack();
+    await expect(page.locator('[data-index="5"]')).toBeInViewport({ ratio: 0.9 });
+  });
+
+  test("le résumé de la carte s'arrête sur une ligne entière, au-dessus des boutons", async ({ page }, testInfo) => {
+    await page.goto("/");
+    const card = page.locator('[data-index="0"]');
+    const summary = card.getByTestId("verified-summary");
+    await expect(summary).toBeVisible();
+    // Écran large : la colonne de texte affiche le résumé complet.
+    if (testInfo.project.name !== "mobile") return expect(summary).toHaveCSS("display", "block");
+    const box = await summary.evaluate((el) => {
+      const s = getComputedStyle(el);
+      const line = parseFloat(s.lineHeight);
+      const lines = Number(s.webkitLineClamp);
+      return { lines, visible: Math.min(el.clientHeight, lines * line), line, bottom: el.getBoundingClientRect().top + lines * line };
+    });
+    expect(box.lines).toBeGreaterThanOrEqual(2);
+    // La hauteur affichée est un nombre entier de lignes : aucune ligne coupée à mi-hauteur.
+    expect(Math.abs(box.visible / box.line - Math.round(box.visible / box.line))).toBeLessThan(0.05);
+    const actions = await card.getByRole("link", { name: "Lire la publication" }).boundingBox();
+    expect(box.bottom).toBeLessThanOrEqual(actions!.y);
+  });
+
+  test("chaque actualité affiche clairement sa date : carte du Fil, listes et page article", async ({ page }) => {
+    await page.goto("/");
+    // La date de l'événement (jeudi 19) passe avant celle de la publication (vendredi 20).
+    await expect(page.locator('[data-index="0"]').getByTestId("news-date")).toHaveText("Événement du 19 novembre 2026");
+    await expect(page.locator('[data-index="0"]').getByTestId("news-date").locator("time")).toHaveAttribute("datetime", "2026-11-19");
+    await expect(page.locator('[data-index="0"]').getByTestId("verified-meta")).toContainText("publié le 20 novembre 2026");
+    const full = "Événement du jeudi 19 novembre 2026 · publiée le 20 novembre 2026";
+    await page.goto("/explorer/");
+    await expect(page.getByTestId("publication-tile").first().getByTestId("news-date")).toHaveText(full);
+    await page.goto(`/actualites/${FIRST}/`);
+    await expect(page.getByTestId("news-date")).toHaveText(full);
+    await page.goto(`/actualites/${SECOND}/`);
+    await expect(page.getByTestId("news-date")).toContainText("Concept publié le");
+  });
+
   test("écouter une publication vérifiée lit son résumé", async ({ page }) => {
     await page.goto("/");
     const card = page.locator('[data-index="0"]');
@@ -144,12 +198,12 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(saved).toContainText("Validation humaine");
   });
 
-  test("l'en-tête du fil n'a plus de badge « Vérifié » ; il signale les démonstrations", async ({ page }) => {
+  test("l'en-tête du fil n'a ni badge « Vérifié » ni mention « Démo »", async ({ page }) => {
     await page.goto("/");
     const header = page.getByTestId("feed-topbar");
     await expect(page.getByText("Vérifié", { exact: true })).toHaveCount(0);
-    await scrollFeedTo(page, 7);
-    await expect(header.getByText(/^Démo(nstration)?$/).locator("visible=true")).toBeVisible();
+    await scrollFeedTo(page, 5);
+    await expect(header.getByText(/^Démo(nstration)?$/)).toHaveCount(0);
   });
 
   test("filtrer par sujet garde seulement la publication de ce sujet", async ({ page }) => {

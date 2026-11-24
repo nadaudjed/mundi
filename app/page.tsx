@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <>
       <h1 className="sr-only">
-        {feedPublications.length > 0 ? "MUNDI — fil : publications sourcées puis démonstrations" : "MUNDI — fil de découverte (démonstration)"}
+        MUNDI — fil des publications sourcées
       </h1>
       <Feed verified={feedPublications} />
     </>

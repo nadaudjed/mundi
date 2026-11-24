@@ -1,7 +1,4 @@
-import { expect, scrollFeedTo, test } from "./fixtures";
-
-const firstScreenOf = (page: import("@playwright/test").Page, slug: string) =>
-  page.locator(`[data-story="${slug}"]`).first().evaluate((el) => Number((el as HTMLElement).dataset.index));
+import { expect, test } from "./fixtures";
 
 test.describe("Réseau mobile lent et chargement progressif", () => {
   test("sur réseau lent, le premier écran s'affiche et seuls les médias proches sont chargés", async ({ page, browserName }) => {
@@ -29,70 +26,8 @@ test.describe("Réseau mobile lent et chargement progressif", () => {
     // Garde-fou large : sur 3G lente, le premier affichage doit rester sous 5 s.
     expect(fcp).toBeGreaterThan(0);
     expect(fcp).toBeLessThan(5_000);
-    // Aucune vidéo du fil n'est loin de l'écran au départ : aucune ne doit être téléchargée.
-    expect(media.filter((m) => /\.(mp4|webm)$/.test(m))).toEqual([]);
-    expect(media.some((m) => m.includes("detroit"))).toBe(false);
-  });
-
-  test("en mode économie de données, la vidéo attend un geste de la personne", async ({ page }) => {
-    await page.addInitScript(() => {
-      Object.defineProperty(navigator, "connection", {
-        configurable: true,
-        value: Object.assign(new EventTarget(), { saveData: true, effectiveType: "4g" }),
-      });
-    });
-    await page.goto("/");
-    const index = await firstScreenOf(page, "equilibre-reseau-electrique");
-    await scrollFeedTo(page, index);
-    const card = page.locator(`[data-index="${index}"]`);
-    await expect(card.getByTestId("save-data-note")).toBeVisible();
-    await expect(card.locator("video source")).toHaveCount(0);
-    await page.waitForTimeout(800);
-    expect(await card.locator("video").evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
-    await card.getByRole("button", { name: "Lire la vidéo" }).click();
-    await expect(card.locator("video source")).toHaveCount(2);
-    await expect.poll(() => card.locator("video").evaluate((v: HTMLVideoElement) => !v.paused), { timeout: 10_000 }).toBe(true);
-  });
-});
-
-test.describe("Erreurs de médias", () => {
-  test.use({ allowedErrors: /Failed to load resource|net::ERR_FAILED/ });
-
-  test("une vidéo indisponible affiche l'aperçu, un message et ne bloque pas le fil", async ({ page }) => {
-    let blocked = true;
-    await page.route(/\/media\/demo\/reseau-electrique\.(mp4|webm)$/, (route) => (blocked ? route.abort() : route.continue()));
-    await page.goto("/");
-    const index = await firstScreenOf(page, "equilibre-reseau-electrique");
-    await scrollFeedTo(page, index);
-    const card = page.locator(`[data-index="${index}"]`);
-    await expect(card.getByRole("status")).toContainText("Vidéo indisponible");
-    await expect(card.locator('[data-state="error"] img')).toBeVisible();
-    // Le texte du récit reste lisible et le fil continue.
-    await expect(card.getByText("L'accroche")).toBeVisible();
-    await scrollFeedTo(page, index + 1);
-    await scrollFeedTo(page, index);
-    // Réessayer quand le réseau revient.
-    blocked = false;
-    await card.getByRole("button", { name: "Réessayer" }).click();
-    await expect.poll(() => card.locator("video").evaluate((v: HTMLVideoElement) => !v.paused), { timeout: 10_000 }).toBe(true);
-  });
-
-  test("si la vidéo et son aperçu manquent, le visuel de secours s'affiche", async ({ page }) => {
-    await page.route(/\/media\/demo\/reseau-electrique[^/]*$/, (route) => route.abort());
-    await page.goto("/");
-    const index = await firstScreenOf(page, "equilibre-reseau-electrique");
-    await scrollFeedTo(page, index);
-    const card = page.locator(`[data-index="${index}"]`);
-    await expect(card.getByRole("status")).toContainText("Vidéo indisponible");
-    await expect(card.locator('[data-state="error"] svg').first()).toBeVisible();
-  });
-
-  test("une illustration indisponible est remplacée sans casser la carte", async ({ page }) => {
-    await page.route(/\/media\/demo\/correlation\.jpg$/, (route) => route.abort());
-    await page.goto("/");
-    const card = page.locator('[data-story="correlation-causalite"]').first();
-    await card.scrollIntoViewIfNeeded();
-    await expect(card.getByRole("status")).toContainText("Illustration indisponible");
-    await expect(card.getByText("L'accroche")).toBeVisible();
+    // Seules les photos des cartes proches (la carte visible et ses deux voisines) sont téléchargées.
+    const photos = new Set(media.filter((m) => m.startsWith("/media/editorial/")));
+    expect(photos.size).toBeLessThanOrEqual(3);
   });
 });

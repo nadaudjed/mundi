@@ -4,26 +4,22 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRevision } from "@/lib/revision";
 import { verificationLabel } from "@/lib/verification";
-import { stories } from "@/lib/stories";
+import { KIND_LABEL, publicationKind, type PublicationKind } from "@/lib/publication-kind";
 import { getTopic } from "@/lib/topics";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
 import type { FeedPublication } from "@/lib/verified";
 import type { TopicSlug } from "@/lib/types";
 
-type Kind = "publications" | "demos";
 type Card = {
   key: string; title: string; topic: TopicSlug; keyPoints: readonly string[];
-  href: string; isDemo: boolean; aiVerified?: boolean;
+  href: string; kind: PublicationKind; aiVerified?: boolean;
 };
-
-const demoCards: Card[] = stories.map((s) => ({
-  key: s.slug, title: s.title, topic: s.topic,
-  keyPoints: s.keyPoints, href: "/recit/" + s.slug + "/", isDemo: true,
-}));
+const KINDS: PublicationKind[] = ["actualite", "concept", "recit"];
+const KIND_TABS: Record<PublicationKind, string> = { actualite: "Actualités", concept: "Concepts", recit: "Récits" };
 
 export function RevisionClient({ publications }: { publications: FeedPublication[] }) {
   const { records, mark, reset } = useRevision();
-  const [kind, setKind] = useState<Kind>(publications.length ? "publications" : "demos");
+  const [kind, setKind] = useState<PublicationKind>("actualite");
   const [selected, setSelected] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [now] = useState(() => Date.now());
@@ -31,16 +27,16 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   const publicCards = useMemo<Card[]>(() => publications.map((p) => ({
     key: publicationKey(p.slug), title: p.title, topic: p.topic,
     keyPoints: p.keyPoints, href: publicationPath(p.slug),
-    isDemo: false, aiVerified: p.aiVerified,
+    kind: publicationKind(p), aiVerified: p.aiVerified,
   })), [publications]);
 
-  const cards = kind === "publications" ? publicCards : demoCards;
+  const cards = publicCards.filter((card) => card.kind === kind);
   const due = cards.filter((card) => !records[card.key] || records[card.key].level === 0 || new Date(records[card.key].nextAt).getTime() <= now);
   const mastered = cards.filter((card) => (records[card.key]?.level ?? 0) >= 3).length;
   const learned = cards.filter((card) => Boolean(records[card.key])).length;
   const story = due.find((card) => card.key === selected) ?? due[0] ?? null;
 
-  function changeKind(next: Kind) {
+  function changeKind(next: PublicationKind) {
     setKind(next);
     setSelected(null);
     setRevealed(false);
@@ -55,21 +51,20 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   return (
     <div className="mt-6">
       <div role="group" aria-label="Choisir les contenus à réviser" className="flex gap-6 border-b border-rule">
-        <button type="button" aria-pressed={kind === "publications"} onClick={() => changeKind("publications")}
-          className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
-            (kind === "publications" ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink")}>
-          Publications <span className="font-mono">({publicCards.length})</span>
-        </button>
-        <button type="button" aria-pressed={kind === "demos"} onClick={() => changeKind("demos")}
-          className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
-            (kind === "demos" ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink")}>
-          Démonstrations <span className="font-mono">({demoCards.length})</span>
-        </button>
+        {KINDS.filter((k) => k !== "recit" || publicCards.some((c) => c.kind === "recit")).map((k) => (
+          <button key={k} type="button" aria-pressed={kind === k} onClick={() => changeKind(k)}
+            className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
+              (kind === k ? "border-accent text-ink" : "border-transparent text-muted hover:text-ink")}>
+            {KIND_TABS[k]} <span className="font-mono">({publicCards.filter((c) => c.kind === k).length})</span>
+          </button>
+        ))}
       </div>
       <p className="mt-4 text-sm text-muted">
-        {kind === "publications"
-          ? "Révisez trois idées essentielles des articles sourcés de MUNDI. Le niveau de vérification est rappelé pour chaque carte."
-          : "Entraînement sur des récits pédagogiques fictifs, sans actualités ni données attestées."}
+        {kind === "actualite"
+          ? "Révisez les trois idées essentielles des actualités sourcées de MUNDI. Le niveau de vérification est rappelé pour chaque carte."
+          : kind === "concept"
+            ? "Révisez les notions durables expliquées par les concepts de MUNDI, chacun sourcé."
+            : "Révisez les histoires vraies, épisodes et idées racontés par MUNDI, chacun sourcé."}
       </p>
       <p className="mt-2 text-base text-ink" data-testid="revision-progress">
         <span className="font-mono">{due.length}</span> carte{due.length > 1 ? "s" : ""} à réviser,{" "}
@@ -80,7 +75,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
         {story ? (
           <>
             <p className="text-meta text-muted">
-              <span className="font-semibold text-accent">{getTopic(story.topic)?.name}</span> · Carte mémoire · {story.isDemo ? "Démonstration" : "Publication sourcée"}
+              <span className="font-semibold text-accent">{getTopic(story.topic)?.name}</span> · Carte mémoire · {KIND_LABEL[story.kind]}
             </p>
             <h2 className="mt-3 max-w-2xl font-display text-titre font-semibold text-ink text-balance">{story.title}</h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">
@@ -109,9 +104,9 @@ export function RevisionClient({ publications }: { publications: FeedPublication
               </button>
             )}
             <p className="mt-6 text-meta text-muted">
-              {story.isDemo ? "Exemple fictif · " : verificationLabel(story) + " · "}
+              {verificationLabel(story) + " · "}
               <Link href={story.href} className="underline underline-offset-4 hover:text-ink">
-                {story.isDemo ? "Relire le récit de démonstration" : "Relire l'article et ses sources"}
+                Relire l&apos;article et ses sources
               </Link>
             </p>
           </>
@@ -137,7 +132,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
         </section>
       )}
       <div className="mt-10 border-t border-rule pt-4 text-sm text-muted">
-        <p>La progression est conservée uniquement dans ce navigateur, pour les publications comme pour les démonstrations. Ce n&apos;est pas un test certifié.</p>
+        <p>La progression est conservée uniquement dans ce navigateur, pour les actualités comme pour les concepts. Ce n&apos;est pas un test certifié.</p>
         {learned > 0 && <button type="button" onClick={() => { reset(); setSelected(null); setRevealed(false); }}
           className="mt-3 font-semibold text-accent underline underline-offset-4">Remettre toute ma progression à zéro</button>}
       </div>

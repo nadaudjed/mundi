@@ -11,8 +11,15 @@ test.describe("Écoute, sauvegarde et navigation", () => {
     await expect(card.getByRole("button", { name: "Arrêter la lecture audio" })).toHaveAttribute("aria-pressed", "true");
     const spoken = await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken);
     expect(spoken).toHaveLength(1);
-    expect(spoken[0]).toContain("Trois points à retenir");
-    await page.evaluate(() => (window.speechSynthesis as unknown as { finish: () => void }).finish());
+    expect(spoken[0]).toContain("L'inflation");
+    // A device may read a story in several shorter utterances to avoid
+    // intermittent iOS/Android speech stalls. Drain every synthetic chunk.
+    await page.evaluate(() => {
+      const synth = window.speechSynthesis as unknown as { speaking: boolean; finish: () => void };
+      for (let i = 0; i < 40 && synth.speaking; i++) synth.finish();
+    });
+    const completeSpeech = await page.evaluate(() => (window as unknown as { __spoken: string[] }).__spoken.join(" "));
+    expect(completeSpeech).toContain("Trois points à retenir");
     await expect(card.getByRole("button", { name: "Écouter le résumé" })).toHaveAttribute("aria-pressed", "false");
   });
 

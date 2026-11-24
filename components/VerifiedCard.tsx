@@ -28,19 +28,18 @@ export function VerifiedBadge({ tone = "light" }: { tone?: "light" | "dark" }) {
 }
 
 type Props = {
-  /** Écran proche (ou déjà vu) : sa photo peut être téléchargée. */
-  near?: boolean;
   publication: FeedPublication;
   index: number;
   position: number;
   total: number;
   active: boolean;
+  near?: boolean;
   /** Texte déjà révélé (scène vue au moins une fois). Par défaut : scène active. */
   revealed?: boolean;
   visual: CardVisual;
 };
 
-export function VerifiedCard({ publication: p, index, position, total, active, revealed = active, visual, near = true }: Props) {
+export function VerifiedCard({ publication: p, index, position, total, active, near = active, revealed = active, visual }: Props) {
   const topic = getTopic(p.topic)!;
   const shown = p.sources.slice(0, 3);
   const more = p.sources.length - shown.length;
@@ -57,7 +56,7 @@ export function VerifiedCard({ publication: p, index, position, total, active, r
       className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night text-ivory"
     >
       {photo ? (
-        <EditorialPhotoLayer photo={photo} active={active} load={near} />
+        <EditorialPhotoLayer photo={photo} active={active} near={near} />
       ) : backdrop ? (
         <SceneLayer backdrop={backdrop} focus={p.scene?.focus} active={active} />
       ) : (

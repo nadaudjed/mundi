@@ -4,7 +4,7 @@
 
 1. Conserver `ANTHROPIC_API_KEY` uniquement dans les **Repository secrets** de GitHub Actions ; ne jamais la copier ici ou dans des fichiers.
 2. En l'absence de `MUNDI_AGENT_PROVIDER`, une clé Anthropic active sélectionne Claude pour les deux passes (rédaction et vérification) et le modèle `claude-sonnet-5-5` par défaut.
-3. Le workflow **MUNDI — 20 missions quotidiennes des agents (révision privée)** s'exécute sur calendrier et peut être lancé manuellement dans l'onglet **Actions > Run workflow**.
+3. Le workflow **MUNDI — 24 agents quotidiens (12 actualités, 12 concepts)** s'exécute sur calendrier et peut être lancé manuellement dans l'onglet **Actions > Run workflow**.
 
 ## Lecture du résultat
 
@@ -17,14 +17,14 @@
 
 ## Coûts et sécurité
 
-- `MUNDI_AGENT_MAX_JOBS` est limité à **2 par exécution** en l'absence de configuration explicite ; plusieurs exécutions peuvent néanmoins être facturées le même jour.
+- `MUNDI_AGENTS_PER_DAY` (défaut 24) et `MUNDI_AGENT_MAX_ATTEMPTS` (défaut 3 essais par agent) règlent le volume ; chaque relance manuelle du workflow est facturée en plus.
 - Surveiller la facturation API Anthropic avant d'augmenter ce plafond et ne pas confondre accès à Claude et crédits d'API.
 - En cas d'erreur ou de réponse incomplète, **ne jamais inventer de brouillons**, contourner la vérification ou remplacer silencieusement le fournisseur.
 - Conserver les dossiers de recherche hors du contenu publié ; les sujets sensibles et les vérifications insuffisantes nécessitent une escalade humaine.
 
 ## Validation
 
-Le passage de 2 à 20 missions par jour nécessite un retour d'expérience sur les erreurs, sources accessibles, coût moyen, diversité des sujets et fiabilité des contrôles. Voir les issues #41 et #43.
+Le passage à 24 agents par jour (24/11/2026) est suivi par le tableau de bord interne : erreurs, liens, coût estimé, agents sans brouillon publiable. Voir les issues #41 et #43.
 
 ## Diagnostic API HTTP
 

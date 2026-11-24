@@ -38,8 +38,6 @@ const ACCENTS = { mint: "#20B99A", blue: "#5B93E0", amber: "#E0A43A" } as const;
 type Status = "verifie" | "brouillon";
 
 type Props = {
-  /** Écran proche (ou déjà vu) : sa photo peut être téléchargée. */
-  near?: boolean;
   card: DataCard;
   position: number;
   total: number;
@@ -47,6 +45,7 @@ type Props = {
   topicColor: string;
   /** Lance l'animation d'apparition (seulement si l'appareil l'autorise). */
   active: boolean;
+  near?: boolean;
   /** Texte déjà révélé (scène vue au moins une fois). Par défaut : scène active. */
   revealed?: boolean;
   status: Status;
@@ -71,7 +70,7 @@ function textAccentOnNight(color: string) {
   return ratio >= 4.5 ? color : "#F3F0E8";
 }
 
-export function DataCardView({ card, position, total, topicColor, active, revealed = active, status, href, showVisualPlaceholder = false, backdrop, photo, near = true }: Props) {
+export function DataCardView({ card, position, total, topicColor, active, near = active, revealed = active, status, href, showVisualPlaceholder = false, backdrop, photo }: Props) {
   // Un texte sur un fond d'ambiance reste clair sur voile sombre : le ton ivoire est alors ignoré.
   const light = !photo && !backdrop && card.style?.tone === "ivory";
   const accent = accentOf(card.style, topicColor);
@@ -88,7 +87,7 @@ export function DataCardView({ card, position, total, topicColor, active, reveal
       aria-labelledby={titleId}
       role="group"
     >
-      {photo ? <EditorialPhotoLayer photo={photo} active={active} load={near} /> : backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} active={active} />}
+      {photo ? <EditorialPhotoLayer photo={photo} active={active} near={near} /> : backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} active={active} />}
       {/* Sur petit écran, la carte défile plutôt que de cacher sa source sous la barre d'onglets. */}
       <div className="feed-column no-scrollbar relative flex h-full flex-col overflow-y-auto px-5 pt-28 pb-6 md:pt-24 [@media(max-height:740px)]:pt-[5.75rem] [@media(max-height:740px)]:pb-4" data-testid="card-scroll">
         <div className="relative flex items-center justify-between gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em]">

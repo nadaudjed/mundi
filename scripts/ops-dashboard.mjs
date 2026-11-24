@@ -49,7 +49,7 @@ export function buildDashboard({ stock = null, days = [], publications = [], smo
     const rejected = outputs.filter((o) => o?.draft && o?.assessment?.status !== "machine_checked_pending_policy")
       .map((o) => ({ topic: o.topic, title: String(o.draft?.title || "").slice(0, 120), reasons: (o.assessment?.reasons || []).slice(0, 4) }));
     return {
-      date: d.date, missions: d.completed ?? outputs.length, target: d.target ?? 20,
+      date: d.date, missions: d.completed ?? outputs.length, target: d.target ?? 24, publishableAgents: d.agentsWithPublishableDraft ?? null,
       journalists: outputs.filter((o) => o?.role === "journalist").length,
       professors: outputs.filter((o) => o?.role && o.role !== "journalist").length,
       drafts: d.generated ?? 0, accepted: d.machineChecked ?? 0, rejected: rejected.length,

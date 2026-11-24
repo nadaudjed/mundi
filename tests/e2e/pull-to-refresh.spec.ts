@@ -20,6 +20,8 @@ test.describe("Tirer pour actualiser le Fil", () => {
   test("sans nouvel article : « Vous êtes à jour »", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("[data-feed]")).toHaveAttribute("data-motion", "ready");
+    // Le Fil peut se réorganiser juste après l'affichage (préférences, photos) : on attend la fin du chargement.
+    await page.waitForLoadState("networkidle");
     await pullFeed(page, 200);
     await expect(page.getByTestId("feed-refresh")).toContainText("Vous êtes à jour");
   });
@@ -29,6 +31,8 @@ test.describe("Tirer pour actualiser le Fil", () => {
     await page.route("**/fil.json", (route) => { calls++; return route.continue(); });
     await page.goto("/");
     await expect(page.locator("[data-feed]")).toHaveAttribute("data-motion", "ready");
+    // Le Fil peut se réorganiser juste après l'affichage (préférences, photos) : on attend la fin du chargement.
+    await page.waitForLoadState("networkidle");
     await pullFeed(page, 60);
     await page.waitForTimeout(300);
     expect(calls).toBe(0);
@@ -37,6 +41,8 @@ test.describe("Tirer pour actualiser le Fil", () => {
   test("avec un nouvel article : il est annoncé puis le Fil se recharge depuis le début", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("[data-feed]")).toHaveAttribute("data-motion", "ready");
+    // Le Fil peut se réorganiser juste après l'affichage (préférences, photos) : on attend la fin du chargement.
+    await page.waitForLoadState("networkidle");
     await page.route("**/fil.json", async (route) => {
       const res = await route.fetch();
       const body = (await res.json()) as { slugs: string[] };
@@ -51,6 +57,8 @@ test.describe("Tirer pour actualiser le Fil", () => {
   test("en revenant sur l'onglet, les nouveaux articles sont signalés sans recharger", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("[data-feed]")).toHaveAttribute("data-motion", "ready");
+    // Le Fil peut se réorganiser juste après l'affichage (préférences, photos) : on attend la fin du chargement.
+    await page.waitForLoadState("networkidle");
     await page.route("**/fil.json", async (route) => {
       const res = await route.fetch();
       const body = (await res.json()) as { slugs: string[] };

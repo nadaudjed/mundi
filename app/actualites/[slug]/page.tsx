@@ -15,6 +15,8 @@ import { SHARE_IMAGE, shareDefaults } from "@/lib/site";
 import { Chart } from "@/components/Chart";
 import { KeyFigure } from "@/components/KeyFigure";
 import { MemoryCard } from "@/components/MemoryCard";
+import { RelatedPublications } from "@/components/RelatedPublications";
+import { feedPublications } from "@/lib/verified";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { keyFigureOf } from "@/lib/covers";
 import type { ComparisonCard } from "@/lib/data-cards";
@@ -118,6 +120,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
         </section>
       ))}
       <MemoryCard points={a.keyPoints} />
+      <RelatedPublications publication={a} all={feedPublications} />
       <section id="sources" className="mt-14 scroll-mt-20" aria-labelledby="sources-titre">
         <h2 id="sources-titre" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">Sources</h2>
         <ol>{a.sources.map((s, i) => (

@@ -56,6 +56,21 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
   });
 });
 
+test.describe("Site normal : liens entre actualités et concepts", () => {
+  test("un concept renvoie aux actualités liées, et une actualité à ses notions « Pour comprendre »", async ({ page }) => {
+    await page.goto("/explorer/?genre=concepts");
+    await page.getByTestId("publication-tile").first().locator("a").first().click();
+    const back = page.getByTestId("related");
+    await expect(back).toHaveAttribute("data-related-kind", "actualite");
+    await expect(back.getByRole("heading", { name: "Dans l'actualité" })).toBeVisible();
+    await back.getByTestId("publication-tile").first().locator("a").first().click();
+    const forward = page.getByTestId("related");
+    await expect(forward).toHaveAttribute("data-related-kind", "comprendre");
+    await expect(forward.getByRole("heading", { name: "Pour comprendre" })).toBeVisible();
+    await expect(forward.getByTestId("publication-tile").first()).toBeVisible();
+  });
+});
+
 test.describe("Site de test : publications inventées approuvées", () => {
   test.use({ baseURL: FIXTURES });
 
@@ -187,9 +202,9 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await page.goto("/explorer/");
     await expect(page.getByTestId("publication-tile").first().getByTestId("news-date")).toHaveText(full);
     await page.goto(`/actualites/${FIRST}/`);
-    await expect(page.getByTestId("news-date")).toHaveText(full);
+    await expect(page.locator("article header").getByTestId("news-date")).toHaveText(full);
     await page.goto(`/actualites/${SECOND}/`);
-    await expect(page.getByTestId("news-date")).toContainText("Concept publié le");
+    await expect(page.locator("article header").getByTestId("news-date")).toContainText("Concept publié le");
   });
 
   test("sans version audio enregistrée, Écouter lit le résumé avec la voix de l'appareil", async ({ page }) => {

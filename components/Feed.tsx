@@ -67,6 +67,10 @@ export function Feed({ verified = [], mix = true }: Props) {
     return () => cancelAnimationFrame(frame);
   }, [mix]);
   const mixed = useMemo(() => (seed ? mixFeed(verified, seed) : verified), [verified, seed]);
+  /** Cartes dont on charge la photo : la carte visible et ses voisines. Tant que l'ordre
+      mélangé n'est pas connu, seule la première (qui reste en tête) : sinon les photos
+      des voisines de l'ordre éditorial seraient téléchargées pour rien. */
+  const isNear = (i: number) => (seed === null ? i === 0 : Math.abs(i - active) <= 2);
 
   // « Pour vous » : ordre un peu mélangé à chaque visite, vos sujets d'abord,
   // en gardant des découvertes (voir Mes sujets).
@@ -252,7 +256,7 @@ export function Feed({ verified = [], mix = true }: Props) {
       >
         {entries.map((e, i) =>
           e.kind === "verified" ? (
-            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} near={Math.abs(i - active) <= 2} revealed={seen.has(i)} visual={e.visual} />
+            <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} near={isNear(i)} revealed={seen.has(i)} visual={e.visual} />
           ) : e.kind === "data" ? (
             <article
               key={e.key}
@@ -269,7 +273,7 @@ export function Feed({ verified = [], mix = true }: Props) {
                 total={e.total}
                 topicColor={getTopic(e.publication.topic)?.color ?? "#20B99A"}
                 active={i === active}
-                near={Math.abs(i - active) <= 2}
+                near={isNear(i)}
                 revealed={seen.has(i)}
                 status="verifie"
                 href={e.position === e.total - 1 ? publicationPath(e.publication.slug) : undefined}

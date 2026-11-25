@@ -7,16 +7,28 @@ import { topics } from "@/lib/topics";
 export function InterestsClient() {
   const { interests, toggle, reset } = useInterests();
   const n = interests.length;
+  const names = topics.filter((t) => interests.includes(t.slug)).map((t) => t.name);
 
   return (
     <div className="mt-6">
-      <p className="max-w-2xl text-base leading-relaxed text-ink" data-testid="interests-summary">
-        {n === 0 ? "Aucune rubrique choisie : le fil suit l'ordre de la rédaction." : <><span className="font-mono">{n}</span> rubrique{n > 1 ? "s" : ""} choisie{n > 1 ? "s" : ""}.</>}{" "}
-        <span className="text-muted">MUNDI continue de proposer les autres rubriques, pour éviter les bulles d&apos;information.</span>
-      </p>
+      <div className="max-w-2xl" data-testid="interests-summary">
+        {n === 0 ? (
+          <p className="text-base leading-relaxed text-ink">Aucune rubrique choisie : le fil suit l&apos;ordre de la rédaction.</p>
+        ) : (
+          <>
+            <p className="text-base leading-relaxed text-ink">
+              <span className="font-mono">{n}</span> rubrique{n > 1 ? "s" : ""} choisie{n > 1 ? "s" : ""} : <span className="font-semibold">{names.join(", ")}</span>.
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-muted" data-testid="interests-effect">
+              Effet : dans le fil, deux publications sur trois viennent de ces rubriques, la troisième d&apos;une autre rubrique, tant qu&apos;il y en a.
+            </p>
+          </>
+        )}
+        <p className="mt-1 text-sm text-muted">MUNDI continue de proposer les autres rubriques, pour éviter les bulles d&apos;information.</p>
+      </div>
       <p className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-        <Link href="/" className="font-semibold text-accent underline-offset-4 hover:underline">Voir mon fil</Link>
-        {n > 0 && <button type="button" onClick={reset} className="font-medium text-muted underline-offset-4 hover:text-ink hover:underline">Réinitialiser</button>}
+        <Link href="/fil/" className="font-semibold text-accent underline-offset-4 hover:underline">Voir mon fil</Link>
+        {n > 0 && <button type="button" onClick={reset} className="font-medium text-muted underline-offset-4 hover:text-ink hover:underline">Revenir aux réglages de départ</button>}
       </p>
 
       <section aria-labelledby="choose-topics" className="mt-10">

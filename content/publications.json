@@ -1,5 +1,793 @@
 [
   {
+    "slug": "gaza-la-commission-denonce-l-acces-bloque-a-l-aide-150-000-tentes-attendent",
+    "title": "Gaza : la Commission dénonce l'accès bloqué à l'aide, 150 000 tentes attendent dehors",
+    "summary": "Devant le Parlement européen le 24 novembre 2026, la commissaire européenne Hadja Lahbib a affirmé que l'aide humanitaire manque moins que l'accès à Gaza. Selon elle, plus de 1 600 personnes ont été tuées depuis l'annonce du cessez-le-feu d'octobre 2025, et certains articles jugés « à double usage » n'entrent qu'un jour par semaine. Le bureau humanitaire de l'ONU (OCHA) confirme que plus de 150 000 tentes attendent hors du territoire après les pluies de début novembre.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 24 novembre 2026, la commissaire Hadja Lahbib a déclaré au Parlement européen que Gaza ne manque pas de financements ni de fournitures humanitaires, mais d'accès à ceux-ci.",
+      "Selon la commissaire, plus de 1 600 personnes ont été tuées depuis l'annonce du cessez-le-feu d'octobre 2025, et des articles humanitaires classés « à double usage » ne peuvent entrer qu'un jour par semaine.",
+      "Selon l'OCHA, plus de 150 000 tentes sont stockées hors de Gaza, prêtes à être acheminées, alors que les stocks à l'intérieur du territoire sont pratiquement épuisés."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce qu'a dit la commissaire",
+        "text": "Hadja Lahbib, commissaire européenne chargée de l'aide humanitaire, s'est exprimée le 24 novembre 2026 devant le Parlement européen. Elle a indiqué qu'un employé de l'UNRWA, l'agence de l'ONU pour les réfugiés palestiniens, avait été tué ce jour-là et trois autres blessés après une frappe israélienne. Selon elle, plus de 1 600 personnes ont été tuées depuis l'annonce du cessez-le-feu en octobre 2025, et des articles humanitaires essentiels n'entrent qu'un jour par semaine en raison de leur classement « à double usage », qu'elle juge arbitraire. Elle a demandé à Israël d'ouvrir tous les points de passage et de lever ces restrictions."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les tentes bloquées hors de Gaza",
+        "text": "La commissaire affirme que la première tempête de l'hiver a inondé plus de 70 000 tentes et touché plus de 220 000 personnes, et que plus de 150 000 tentes achetées par des organisations humanitaires et des États membres attendent à l'extérieur de Gaza. Dans son rapport daté du 8 novembre 2026, l'OCHA relève aussi plus de 150 000 tentes prêtes hors du territoire, dont environ 117 000 du Comité de secours égyptien à Al-Arich. L'OCHA compte plus de 26 000 ménages ayant demandé de l'aide, plus de 6 000 abris familiaux détruits et 17 400 endommagés. L'ONG International Rescue Committee évoque environ 2 800 tentes disponibles dans Gaza pour un besoin d'environ 121 000."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des chiffres qui ne mesurent pas la même chose",
+        "text": "Les 70 000 tentes citées par la commissaire et les 26 000 ménages de l'OCHA ne se contredisent pas forcément : l'un compte des tentes, l'autre les ménages qui ont sollicité l'aide de l'ONU, et l'OCHA précise que l'impact réel est probablement plus important. Selon l'OCHA, 65 % des habitants, soit 1,4 million de personnes, vivent dans des tentes ou des abris de fortune. Le bilan de plus de 1 600 morts depuis le cessez-le-feu est avancé par la commissaire sans source détaillée dans son discours."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les moyens européens mis en avant",
+        "text": "La Commission dit avoir confirmé plus de 217 millions d'euros d'aide humanitaire pour la Palestine en 2026. La commissaire rappelle que la mission européenne au point de passage de Rafah est prête à faciliter l'entrée de l'aide si on le lui demande, et que l'accès humanitaire était la demande commune de 53 États et organisations internationales ainsi que des 27 pays de l'UE."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — discours de la commissaire Lahbib, 24 novembre 2026",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2581"
+      },
+      {
+        "label": "OCHA — rapport de situation sur les fortes pluies à Gaza, 8 novembre 2026",
+        "url": "https://ochaopt.org/content/humanitarian-situation-report-heavy-rains-gaza-strip-8-november-2026"
+      },
+      {
+        "label": "International Rescue Committee — communiqué du 9 novembre 2026",
+        "url": "https://www.rescue.org/press-release/least-5-dead-26000-households-flooded-people-gaza-face-fourth-winter-tents"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Pourquoi la commissaire Lahbib critique-t-elle le classement « à double usage » à Gaza ?",
+        "answer": "Selon elle, il ne permet l'entrée d'articles humanitaires essentiels qu'un jour par semaine et devrait reposer sur des critères clairs et prévisibles."
+      }
+    ]
+  },
+  {
+    "slug": "logement-l-investissement-des-menages-de-l-ue-tombe-a-8-1-au-plus-bas-depuis",
+    "title": "Logement : l'investissement des ménages de l'UE tombe à 8,1 %, au plus bas depuis 2015",
+    "summary": "Selon Eurostat, les ménages de l'Union européenne ont consacré en 2025 8,1 % de leur revenu disponible brut à l'investissement, surtout l'achat et la rénovation de logements, contre 8,2 % en 2024. C'est le niveau le plus bas depuis 2015. Les écarts entre pays sont larges, de 15,3 % à Chypre à 4,7 % en Suède. En France, le taux est stable autour de 8 %, et l'Insee décrit un investissement des ménages qui cesse de chuter en 2025 après deux années de baisse. Les chiffres 2025 restent provisoires.",
+    "topic": "economie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon Eurostat, le taux d'investissement des ménages de l'UE atteint 8,1 % du revenu disponible brut en 2025, contre 8,2 % en 2024 : c'est le plus bas depuis 2015.",
+      "Chypre (15,3 %), les Pays-Bas (11,3 %) et la Tchéquie (10,5 %) ont les taux les plus élevés ; la Suède (4,7 %), la Pologne (5,0 %) et la Slovaquie (5,7 %) les plus faibles.",
+      "En France, le taux mesuré par Eurostat est de 7,99 % en 2025 (provisoire), contre 10,25 % en 2022 ; l'Insee note que l'investissement des ménages se stabilise en volume (-0,2 % après -9,8 %)."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que mesure Eurostat",
+        "text": "Eurostat a publié le 24 novembre 2026 le taux d'investissement des ménages de l'Union européenne : 8,1 % de leur revenu disponible brut en 2025, après 8,2 % en 2024. Ce taux est le plus bas depuis 2015. Avant la crise financière de 2008, il se situait autour de 10 à 11 %, puis il est tombé vers 8 %. Il a remonté entre 2021 et 2023 avant de reculer de nouveau. Dans la base de données d'Eurostat, il passe de 9,78 % en 2022 à 9,32 % en 2023, puis 8,21 % en 2024."
+      },
+      {
+        "kind": "fait",
+        "heading": "De fortes différences entre pays",
+        "text": "En 2025, Chypre affiche le taux le plus élevé (15,3 %), devant les Pays-Bas (11,3 %) et la Tchéquie (10,5 %). Les taux les plus faibles sont ceux de la Suède (4,7 %), de la Pologne (5,0 %) et de la Slovaquie (5,7 %). En France, le taux passe de 10,25 % en 2022 à 9,08 % en 2023, puis 7,94 % en 2024 et 7,99 % en 2025, ces deux dernières valeurs étant provisoires. En Allemagne, il recule de 10,24 % en 2022 à 8,61 % en 2025."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que recouvre ce chiffre",
+        "text": "Dans les comptes nationaux, l'investissement des ménages correspond surtout aux dépenses d'achat et de rénovation de logements. Il peut aussi inclure l'investissement des entrepreneurs individuels. Il ne comprend ni les voitures, ni les loyers, ni les factures d'énergie, ni les placements financiers. C'est donc surtout un indicateur du marché du logement."
+      },
+      {
+        "kind": "fait",
+        "heading": "La lecture de l'Insee pour la France",
+        "text": "Dans ses comptes de la Nation 2025, publiés le 29 mai 2026, l'Insee indique que l'investissement des ménages se stabilise en volume (-0,2 % après -9,8 % en 2024). Leur investissement en construction baisse moins qu'en 2024 (-3,6 % après -10,4 %), dans un contexte de légère baisse des taux de crédit immobilier. L'Insee ajoute que le nombre de transactions immobilières rebondit et que l'investissement des ménages, hors entrepreneurs individuels, augmente de 1,2 % en valeur, sans effacer deux années de baisse."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des chiffres encore révisables",
+        "text": "Les valeurs 2024 et 2025 de plusieurs pays, dont la France et l'Allemagne, sont marquées comme provisoires par Eurostat. Une stabilisation en France ne signifie pas encore une reprise : les deux sources décrivent un niveau qui reste bas après le recul de 2023 et 2024."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — Household investment rate in the EU at 8.1% in 2025, 24 novembre 2026",
+        "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261124-1"
+      },
+      {
+        "label": "Eurostat — base nasa_10_ki, taux d'investissement des ménages",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/nasa_10_ki/default/table"
+      },
+      {
+        "label": "Insee — Les comptes de la Nation en 2025, Insee Première n° 2105",
+        "url": "https://www.insee.fr/fr/statistiques/8996855"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Que recouvre surtout l'investissement des ménages dans les comptes nationaux ?",
+        "answer": "Surtout les dépenses d'achat et de rénovation de logements ; il exclut les voitures, les loyers, les factures d'énergie et les placements financiers."
+      }
+    ]
+  },
+  {
+    "slug": "impots-non-collectes-l-ue-perd-plus-de-200-milliards-d-euros-par-an-selon",
+    "title": "Impôts non collectés : l'UE perd plus de 200 milliards d'euros par an, selon Bruxelles",
+    "summary": "La Commission européenne a publié le 24 novembre 2026 sa communication « Mind the Gap 2026 » sur les écarts fiscaux. Selon elle, plus de 200 milliards d'euros d'impôts dus échappent chaque année aux États membres, dont environ 125 milliards de TVA et près de 50 milliards d'impôt sur les sociétés. S'y ajoutent environ 750 milliards de recettes auxquelles les États renoncent volontairement par des exonérations et taux réduits. Les estimations portent sur l'année 2023 selon Agence Europe. Bruxelles ne propose ni nouvel impôt ni nouvelle loi.",
+    "topic": "finance",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la Commission, plus de 200 milliards d'euros de recettes fiscales légalement dues ne sont pas collectés chaque année dans l'UE, dont environ 125 milliards de TVA et près de 50 milliards d'impôt sur les sociétés.",
+      "Les États membres déclarent en outre environ 750 milliards d'euros par an de recettes abandonnées via des dépenses fiscales : exonérations, taux réduits, crédits d'impôt.",
+      "Selon Agence Europe, l'écart de TVA représente près de 10 % de la TVA due en 2023 ; selon Eunews, un responsable européen assure que le texte ne crée ni impôt ni législation nouvelle."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que chiffre la Commission",
+        "text": "Dans sa communication publiée le 24 novembre 2026, la Commission européenne estime que plus de 200 milliards d'euros de recettes fiscales sont perdus chaque année dans l'UE. Il s'agit d'impôts légalement dus mais non collectés, à cause de la fraude, de l'évasion fiscale, de défaillances administratives ou d'erreurs involontaires. Environ 125 milliards concernent la TVA et près de 50 milliards l'impôt sur les sociétés. La communication est accompagnée de 27 fiches par pays."
+      },
+      {
+        "kind": "fait",
+        "heading": "Deux notions différentes",
+        "text": "La Commission distingue ces pertes des dépenses fiscales, c'est-à-dire les recettes auxquelles les États renoncent volontairement par des exonérations, des taux réduits, des crédits d'impôt ou des incitations. Les États membres en déclarent environ 750 milliards d'euros par an. Selon Agence Europe, l'écart de TVA représente près de 10 % de la TVA due en 2023 et l'écart d'impôt sur les sociétés 9,2 %, des chiffres presque inchangés par rapport aux estimations de 2025."
+      },
+      {
+        "kind": "fait",
+        "heading": "La feuille de route proposée",
+        "text": "Bruxelles demande aux États de mieux mesurer leurs écarts fiscaux, de publier des rapports détaillés sur leurs dépenses fiscales et de les évaluer régulièrement. Elle les invite aussi à remplacer des systèmes informatiques fragmentés par des plateformes intégrées utilisant les données et l'analyse de risque par intelligence artificielle, et à renforcer le recouvrement. Selon Eunews, un responsable européen a présenté le texte comme une orientation « purement pratique », sans nouvel impôt ni nouvelle législation."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des écarts très inégaux selon les pays",
+        "text": "Les moyennes européennes masquent de fortes différences. Selon Eunews, l'Italie a un écart de TVA de 15 % en 2023, parmi les plus élevés de l'UE. Selon Polish Insight, la Commission estime celui de la Pologne à 16 % des recettes potentielles en 2023, alors que le ministère polonais des Finances avance des chiffres plus bas pour les années suivantes, après l'introduction de la facturation électronique obligatoire en 2026. Ces écarts de méthode expliquent que Bruxelles réclame des estimations harmonisées."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Une marge budgétaire théorique",
+        "text": "Pour la Commission, récupérer même une partie de ces recettes allégerait la pression sur les budgets et dégagerait des marges pour l'investissement. Le texte ne fixe toutefois pas d'objectif chiffré de recouvrement, et son effet dépendra des réformes que chaque État décidera de mener."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — communiqué Mind the Gap 2026",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2562"
+      },
+      {
+        "label": "Eunews — 24 novembre 2026",
+        "url": "https://www.eunews.it/en/2026/11/24/taxes-commission-issues-a-communication-to-improve-tax-collection-in-the-eu/"
+      },
+      {
+        "label": "Agence Europe — bulletin du 25 novembre 2026",
+        "url": "https://agenceurope.eu/en/bulletin/article/13989/3/european-commission-estimates-nearly-eur200-billion-in-tax-revenue-was-not-collected-including-eur125-billion-in-uncollected-vat"
+      },
+      {
+        "label": "Polish Insight — 24 novembre 2026",
+        "url": "https://polandinsight.com/eu-tax-gap-poland-vat/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "dataCards": [
+      {
+        "id": "tva-et-impot-societes",
+        "kind": "comparaison",
+        "headline": "Sur plus de 200 milliards d'euros d'impôts non collectés chaque année, la TVA pèse le plus lourd",
+        "source": {
+          "label": "Commission européenne — communiqué Mind the Gap 2026",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2562"
+        },
+        "asOf": "2026-11-24",
+        "note": "Valeurs arrondies par la Commission : « environ » 125 milliards et « près de » 50 milliards.",
+        "imageQuery": "cash register receipt",
+        "items": [
+          {
+            "value": 125,
+            "unit": "milliards d'euros",
+            "label": "TVA non collectée",
+            "scope": "Union européenne",
+            "period": "par an, estimation publiée en 2026"
+          },
+          {
+            "value": 50,
+            "unit": "milliards d'euros",
+            "label": "Impôt sur les sociétés non collecté",
+            "scope": "Union européenne",
+            "period": "par an, estimation publiée en 2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "depenses-fiscales",
+        "kind": "stat",
+        "headline": "Exonérations, taux réduits, crédits d'impôt : environ 750 milliards d'euros de recettes abandonnées chaque année",
+        "source": {
+          "label": "Commission européenne — communiqué Mind the Gap 2026",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2562"
+        },
+        "asOf": "2026-11-24",
+        "imageQuery": "tax forms calculator",
+        "measure": {
+          "value": 750,
+          "unit": "milliards d'euros",
+          "label": "Dépenses fiscales déclarées par les États membres",
+          "scope": "Union européenne",
+          "period": "par an"
+        },
+        "context": "Ces recettes ne sont pas fraudées : les États y renoncent volontairement."
+      },
+      {
+        "id": "feuille-de-route",
+        "kind": "explication",
+        "headline": "Les cinq chantiers demandés aux États pour réduire les écarts fiscaux",
+        "source": {
+          "label": "Commission européenne — communiqué Mind the Gap 2026",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2562"
+        },
+        "asOf": "2026-11-24",
+        "imageQuery": "server room data center",
+        "steps": [
+          {
+            "label": "Mesurer",
+            "text": "Former du personnel et harmoniser les méthodes d'estimation des écarts fiscaux.",
+            "nature": "fait"
+          },
+          {
+            "label": "Publier",
+            "text": "Rendre compte en détail du coût, des bénéficiaires et des résultats des dépenses fiscales.",
+            "nature": "fait"
+          },
+          {
+            "label": "Évaluer",
+            "text": "Évaluer régulièrement les dépenses fiscales pour vérifier qu'elles atteignent leur but.",
+            "nature": "fait"
+          },
+          {
+            "label": "Numériser",
+            "text": "Remplacer les systèmes informatiques fragmentés par des plateformes intégrées et l'analyse de risque par IA.",
+            "nature": "fait"
+          },
+          {
+            "label": "Recouvrer",
+            "text": "Centraliser le recouvrement et coopérer davantage avec les tribunaux et les autorités d'insolvabilité.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Quelle différence entre un écart fiscal et une dépense fiscale ?",
+        "answer": "L'écart fiscal correspond à des impôts dus mais non collectés ; la dépense fiscale à des recettes auxquelles l'État renonce volontairement par des exonérations, taux réduits ou crédits d'impôt."
+      }
+    ]
+  },
+  {
+    "slug": "premier-froid-de-l-hiver-chaque-degre-perdu-ajoute-2-300-mw-de-demande",
+    "title": "Premier froid de l'hiver : chaque degré perdu ajoute 2 300 MW de demande électrique",
+    "summary": "Météo-France annonce l'arrivée d'un temps hivernal en fin de semaine, avec des maximales parfois 6 à 10 degrés sous les normales jeudi 26 novembre près des frontières du Nord et du Nord-Est. Selon RTE, une baisse de 1 °C pendant une vague de froid fait monter la consommation française d'environ 2 300 MW. Dans ses perspectives publiées le 18 novembre 2026, le gestionnaire du réseau juge pourtant les marges confortables cet hiver, avec environ 50 GW de nucléaire disponible en moyenne.",
+    "topic": "energie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon Météo-France, les températures peuvent rester négatives toute la journée du jeudi 26 novembre près des frontières du Nord et du Nord-Est, avec des maximales parfois 6 à 10 degrés sous les normales.",
+      "Selon RTE, une baisse de température de 1 °C lors d'une vague de froid augmente la consommation française d'électricité de 2 300 MW, l'équivalent de Marseille et Lyon réunies.",
+      "RTE prévoit environ 50 GW de nucléaire disponible en moyenne cet hiver et n'identifie pas, à ce stade, de risque particulier, y compris lors des pointes de consommation."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que prévoit Météo-France",
+        "text": "Dans son bulletin du 24 novembre 2026, Météo-France annonce l'arrivée d'un temps hivernal. Mercredi 25 novembre, les pluies peuvent être verglaçantes dans le Nord-Est, près des frontières belge, luxembourgeoise et allemande, et la neige tombe en abondance sur les Alpes, parfois dès 1 000 mètres. Jeudi 26, les températures peuvent rester négatives toute la journée localement près des frontières du Nord et du Nord-Est, avec des maximales parfois 6 à 10 degrés sous les normales. Vendredi 27, des gelées quasi généralisées sont attendues sur la moitié nord-est, avec des maximales de 2 à 5 degrés sous les normales."
+      },
+      {
+        "kind": "fait",
+        "heading": "Pourquoi le froid pèse sur le réseau",
+        "text": "La France chauffe une partie de ses logements à l'électricité, si bien que la demande suit de près la température. RTE, le gestionnaire du réseau de transport, indique qu'une baisse de 1 °C pendant une vague de froid entraîne une hausse de la consommation de 2 300 MW, soit l'équivalent de la consommation cumulée de Marseille et de Lyon. Le site spécialisé L'EnerGeek reprend ce chiffre dans son article du 25 novembre consacré à cet épisode."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des marges jugées confortables par RTE",
+        "text": "Dans ses perspectives pour l'hiver 2026-2027, publiées le 18 novembre, RTE prévoit une disponibilité du parc nucléaire de l'ordre de 50 GW en moyenne. Le gestionnaire n'identifie « pas à ce stade de risque particulier pour cet hiver, y compris lors des pointes de consommation » et juge le risque de déséquilibre très faible, même lors de froids comparables à ceux du début des années 2010. Il note toutefois que les réserves hydrauliques étaient sous 50 % début novembre, contre environ 70 % en moyenne sur dix ans, et que les stocks de gaz européens étaient à 74 %, leur plus bas niveau en dix ans."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qui pourrait changer la donne",
+        "text": "RTE précise que des tensions ne peuvent pas être totalement exclues : il faudrait plusieurs événements défavorables en même temps, ce qu'il juge peu probable. Un froid plus durable ou plus étendu que celui annoncé pour la fin de semaine accroîtrait la demande, sans que les sources consultées ne chiffrent la pointe attendue pour cet épisode."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Météo-France — bulletin du 24 novembre 2026",
+        "url": "https://meteofrance.com/actualites/meteo-nouvelles-pluies-dans-le-sud-est-et-arrivee-dun-temps-hivernal"
+      },
+      {
+        "label": "RTE — perspectives pour l'hiver 2026-2027, 18 novembre 2026",
+        "url": "https://www.rte-france.com/actualites/2026-11-18-hiver-2026-2027"
+      },
+      {
+        "label": "RTE — équilibrer l'offre et la demande d'électricité",
+        "url": "https://www.rte-france.com/decouvrir-rte/missions/piloter-optimiser-reseau/equilibrer-offre-demande-electricite"
+      },
+      {
+        "label": "L'EnerGeek — 25 novembre 2026",
+        "url": "https://lenergeek.com/2026/11/25/meteo-froid-consommation-electrique-france-25-novembre-2026/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "De combien la consommation électrique française augmente-t-elle quand il fait 1 °C de moins lors d'une vague de froid ?",
+        "answer": "D'environ 2 300 MW selon RTE, l'équivalent de la consommation cumulée de Marseille et de Lyon."
+      }
+    ]
+  },
+  {
+    "slug": "batteries-basf-cede-son-activite-de-recyclage-a-la-jeune-pousse-allemande-cylib",
+    "title": "Batteries : BASF cède son activité de recyclage à la jeune pousse allemande cylib",
+    "summary": "Le chimiste allemand BASF a annoncé le 23 novembre 2026 la vente de son activité de recyclage de batteries en Europe et en Amérique du Nord à cylib, une entreprise issue de l’université RWTH d’Aix-la-Chapelle. L’accord, signé le 20 novembre, comprend l’usine de « masse noire » de Schwarzheide. Le prix n’est pas communiqué et la finalisation est attendue entre le deuxième et le troisième trimestre 2027.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "BASF vend à cylib ses activités de recyclage de batteries en Europe et en Amérique du Nord, dont l’usine de masse noire et l’usine prototype de Schwarzheide, en Allemagne.",
+      "Le groupe veut concentrer sa division matériaux pour batteries sur les matériaux actifs de cathode ; le montant de la vente n’est pas divulgué.",
+      "La transaction, soumise à l’accord des autorités, doit être finalisée entre le deuxième et le troisième trimestre 2027."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que comprend la vente",
+        "text": "Dans un communiqué du 23 novembre 2026, BASF annonce la cession de ses activités de recyclage de batteries en Europe et en Amérique du Nord à cylib. Selon le média spécialisé ICIS, l’accord a été signé le 20 novembre. La transaction comprend la propriété intellectuelle, les contrats clients et les partenariats, ainsi que l’usine de production de masse noire et l’usine prototype de recyclage de Schwarzheide, en Allemagne. La masse noire est la poudre obtenue en broyant les batteries usagées, dont on extrait ensuite les métaux. Selon Resource Recycling, l’usine de Schwarzheide, ouverte en juin 2025, peut traiter 15 000 tonnes par an de batteries lithium-ion et de chutes de production. Les deux parties ont convenu de ne pas divulguer les conditions financières."
+      },
+      {
+        "kind": "fait",
+        "heading": "L’acheteur et le calendrier",
+        "text": "Fondée en 2022, cylib est une entreprise allemande issue de l’université RWTH d’Aix-la-Chapelle, selon ESG Today. D’après Resource Recycling, son procédé à base d’eau récupère plus de 90 % du lithium, du graphite, du nickel et du cobalt des batteries en fin de vie. Elle construit à Dormagen une usine d’une capacité de 30 000 tonnes par an, selon ICIS et Resource Recycling. L’opération lui ouvre le marché nord-américain. La finalisation est attendue entre le deuxième et le troisième trimestre 2027, sous réserve de l’accord des autorités compétentes et des conditions habituelles."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un recentrage dans un marché risqué",
+        "text": "BASF explique vouloir consacrer sa division matériaux pour batteries exclusivement aux matériaux actifs de cathode, où il voit le plus fort potentiel de rentabilité. Anup Kothari, membre du directoire, décrit un marché de croissance attractif à long terme mais marqué par d’importants risques de marché et de technologie. Le groupe étudie aussi des options pour ses sites de Battle Creek, aux États-Unis, et de Harjavalta, en Finlande, mis en sommeil. Pour le recyclage, BASF estime que l’activité profitera d’une plus grande échelle et d’une meilleure intégration chez un spécialiste. Le recyclage des batteries reste stratégique pour l’Europe, qui cherche à sécuriser lithium, nickel et cobalt ; le transfert ne dit pas encore si les volumes traités augmenteront."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BASF — BASF Battery Materials focuses its portfolio on Cathode Active Materials",
+        "url": "https://www.basf.com/global/en/media/news-releases/2026/11/p-26-192"
+      },
+      {
+        "label": "ICIS — BASF to sell Battery Recycling business to cylib",
+        "url": "https://www.icis.com/explore/resources/news/2026/11/23/11243013/basf-to-sell-battery-recycling-business-to-cylib-focus-on-cathode-active-materials/"
+      },
+      {
+        "label": "ESG Today — BASF Sells Battery Recycling Business to Cylib",
+        "url": "https://www.esgtoday.com/basf-sells-battery-recycling-business-to-cylib/"
+      },
+      {
+        "label": "Resource Recycling — BASF to sell off battery recycling assets",
+        "url": "https://resource-recycling.com/e-scrap/2026/11/24/basf-to-sell-off-battery-recycling-assets/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "flashcards": [
+      {
+        "question": "Qu’appelle-t-on la « masse noire » dans le recyclage des batteries ?",
+        "answer": "La poudre obtenue en broyant les batteries usagées, dont on extrait ensuite les métaux."
+      },
+      {
+        "question": "À qui BASF a-t-il cédé son activité de recyclage de batteries en novembre 2026 ?",
+        "answer": "À cylib, une entreprise allemande fondée en 2022 et issue de l’université RWTH d’Aix-la-Chapelle."
+      }
+    ]
+  },
+  {
+    "slug": "guimaraes-capitale-verte-europeenne-2026-mise-sur-un-laboratoire-scientifique",
+    "title": "Guimarães, capitale verte européenne 2026, mise sur un laboratoire scientifique local",
+    "summary": "Le 24 novembre 2026, la Commission européenne a mis en avant le rôle du Laboratório da Paisagem dans la transition écologique de Guimarães, au Portugal, capitale verte européenne en 2026. Ce centre de recherche, fondé par la municipalité et deux universités, travaille sur le climat, l’eau et la biodiversité et anime un programme d’éducation qui touche plus de 20 000 élèves par an, selon la Commission.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Guimarães, ville portugaise de 156 830 habitants, porte en 2026 le titre de capitale verte européenne, décerné par la Commission européenne le 27 novembre 2024 à Valence.",
+      "Le Laboratório da Paisagem, créé par la municipalité et les universités du Minho et de Trás-os-Montes et Alto Douro, compte environ 30 professionnels selon la Commission.",
+      "Selon la Commission, il avait contribué en 2024 à plus de 30 projets avec des partenaires de 21 pays européens et du Brésil, et son programme PEGADAS touche plus de 20 000 élèves par an."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un laboratoire au service de la ville",
+        "text": "Dans un article publié le 24 novembre 2026, la direction générale de l’environnement de la Commission européenne décrit le Laboratório da Paisagem, ou laboratoire du paysage, comme un pilier de la transition écologique de Guimarães. Selon la Commission, il a été fondé en 2014 par la municipalité, l’université du Minho et l’université de Trás-os-Montes et Alto Douro. Parti d’une équipe de trois chercheurs en 2015, il réunit aujourd’hui environ 30 professionnels qui travaillent sur la biodiversité, l’eau, le changement climatique, l’économie circulaire, le paysage et l’aménagement du territoire. Ses travaux portent notamment sur la modélisation du climat, les vagues de chaleur, les îlots de chaleur urbains et les solutions fondées sur la nature."
+      },
+      {
+        "kind": "fait",
+        "heading": "Éducation, projets européens et entreprises",
+        "text": "Selon la Commission, le laboratoire avait contribué en 2024 à plus de 30 projets avec des partenaires de 21 pays européens et du Brésil. Il coordonne PEGADAS, un programme d’éducation à l’environnement qui touche plus de 20 000 élèves chaque année, et a participé aux candidatures de la ville au titre de capitale verte en 2017, 2023 et 2024. Une Green Academy, présentée en septembre 2026, doit accompagner entreprises et professionnels vers une économie durable. Le réseau européen URBACT relève de son côté que la ville a aménagé trois bassins d’irrigation naturelle pour limiter les risques de crues soudaines et adopté en 2023 un plan d’action pour la biodiversité, appuyé sur le travail du laboratoire."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que dit et ne dit pas ce modèle",
+        "text": "Guimarães a reçu le titre de capitale verte européenne 2026 le 27 novembre 2024 à Valence ; c’est la deuxième ville portugaise ainsi distinguée, après Lisbonne en 2020, selon l’université du Minho. La Commission souligne aussi que 97 % de ses 156 830 habitants respirent un air jugé « bon » ou « très bon ». L’exemple montre comment une ville moyenne peut s’appuyer sur une structure scientifique de proximité pour orienter ses politiques. Les sources consultées décrivent toutefois surtout des moyens et des programmes : elles ne donnent pas de mesure chiffrée des effets de ces actions sur les émissions ou la biodiversité. Les dates de création du laboratoire diffèrent par ailleurs selon les sources ; ce texte retient celle de la Commission."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — How science is shaping Guimarães’ green transition",
+        "url": "https://environment.ec.europa.eu/news/how-science-shaping-guimaraes-green-transition-2026-11-24_en"
+      },
+      {
+        "label": "Commission européenne — Guimarães 2026, capitale verte européenne",
+        "url": "https://environment.ec.europa.eu/topics/urban-environment/european-green-capital-award/winning-cities/guimaraes-2026_en"
+      },
+      {
+        "label": "URBACT — Three ways Guimarães has become a frontrunner of nature-based solutions",
+        "url": "https://urbact.eu/whats-new/articles/three-ways-guimaraes-has-become-frontrunner-nature-based-solutions"
+      },
+      {
+        "label": "Université du Minho, école d’ingénieurs — Guimarães receives European Green Capital title",
+        "url": "https://www.engium.uminho.pt/en/guimaraes-receives-european-green-capital-title"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Quelle ville porte le titre de capitale verte européenne en 2026 ?",
+        "answer": "Guimarães, au Portugal, deuxième ville portugaise ainsi distinguée après Lisbonne en 2020."
+      },
+      {
+        "question": "Qu’est-ce que le Laboratório da Paisagem de Guimarães ?",
+        "answer": "Un centre de recherche créé par la municipalité et deux universités, qui travaille sur le climat, l’eau et la biodiversité et anime un programme d’éducation à l’environnement."
+      }
+    ]
+  },
+  {
+    "slug": "cancer-du-sein-le-royaume-uni-lance-le-plus-grand-essai-de-depistage-assiste-par",
+    "title": "Cancer du sein : le Royaume-Uni lance le plus grand essai de dépistage assisté par IA",
+    "summary": "Les premières femmes ont rejoint fin novembre 2026 l’essai EDITH, présenté comme le plus grand essai au monde de dépistage du cancer du sein assisté par intelligence artificielle. Près de 700 000 femmes doivent y être invitées en trois ans au Royaume-Uni. L’objectif est de vérifier si l’IA peut aider les radiologues, sans les remplacer ; l’effectif prévu varie selon les documents.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L’essai EDITH, financé à hauteur de 10 millions de livres par l’Institut national de recherche en santé britannique (NIHR), doit inviter près de 700 000 femmes en trois ans.",
+      "Le recrutement a commencé à l’hôpital universitaire de Cambridge, premier des 30 sites prévus ; quatre systèmes d’IA ont été testés au préalable pour leur précision.",
+      "Aujourd’hui, chaque mammographie est lue par deux spécialistes ; l’essai vérifie si l’IA permettrait qu’un seul suffise, chaque image restant lue par au moins un radiologue."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un essai à grande échelle",
+        "text": "Selon l’université de Warwick, qui coordonne l’essai, et le média professionnel Nursing in Practice, le recrutement de l’essai EDITH a commencé à Cambridge University Hospitals, premier des 30 sites prévus au Royaume-Uni ; d’autres sites ouvriront dans les mois suivants. Au cours des trois prochaines années, près de 700 000 femmes venant à leur dépistage de routine du NHS, le service public de santé, doivent être invitées à y participer. La page de présentation scientifique de l’essai indique un échantillon de 660 000 femmes et une durée prévue de quatre ans, suivi compris. L’essai, doté de 10 millions de livres, est financé par le NIHR et codirigé par les professeures Sian Taylor-Phillips, de l’université de Warwick, et Fiona Gilbert, de l’université de Cambridge."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que l’essai compare",
+        "text": "Au Royaume-Uni, chaque mammographie est actuellement examinée par deux radiologues spécialisés. Certaines participantes recevront ce dépistage standard, d’autres un dépistage assisté par IA. Selon l’université de Warwick, deux usages sont testés : l’IA intervient après le spécialiste pour repérer des cancers qui auraient pu lui échapper, ou elle intervient d’abord pour classer le risque de cancer comme élevé ou faible. Les deux critères principaux sont le taux de détection des cancers et le taux de rappel des femmes pour des examens complémentaires. Quatre systèmes d’IA ont été testés pour leur précision avant l’essai ; leurs fournisseurs ne sont pas nommés dans les sources consultées. Les femmes qui ne souhaitent pas que leurs images soient analysées avec l’aide de l’IA peuvent refuser."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Gagner du temps sans perdre en sécurité",
+        "text": "L’enjeu est à la fois médical et organisationnel. Si une seule lecture humaine accompagnée de l’IA s’avérait aussi sûre que deux lectures, des centaines de radiologues et d’autres spécialistes pourraient consacrer plus de temps aux patientes, selon Nursing in Practice. Les promoteurs insistent sur le fait que chaque mammographie restera lue par au moins un radiologue et que les décisions cliniques resteront prises par le personnel du NHS. Les résultats ne sont pas encore connus : c’est précisément l’objet de l’essai de mesurer si l’IA améliore la détection sans multiplier les rappels inutiles. Les chiffres annoncés diffèrent légèrement selon les documents, entre près de 700 000 invitations et 660 000 participantes prévues."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Université de Warwick — First women join world’s largest AI assisted breast screening trial",
+        "url": "https://warwick.ac.uk/news/pressreleases/first-women-join-EDITH-trial/"
+      },
+      {
+        "label": "Université de Warwick — Essai EDITH, informations clés",
+        "url": "https://warwick.ac.uk/fac/sci/med/research/ctu/trials/edith"
+      },
+      {
+        "label": "Nursing in Practice — AI-assisted breast cancer screening trial hopes to ‘free up staff time’",
+        "url": "https://www.nursinginpractice.com/clinical/cancer/ai-assisted-breast-cancer-screening-trial-hopes-to-free-up-staff-time/"
+      },
+      {
+        "label": "Open Access Government — EDITH: The NHS breast cancer trial that will involve 700,000 women",
+        "url": "https://www.openaccessgovernment.org/edith-the-nhs-breast-cancer-trial-that-will-involve-700000-women/216744/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "flashcards": [
+      {
+        "question": "Combien de spécialistes examinent aujourd’hui chaque mammographie de dépistage au Royaume-Uni ?",
+        "answer": "Deux radiologues spécialisés ; l’essai EDITH vérifie si l’aide de l’IA permettrait qu’un seul suffise."
+      },
+      {
+        "question": "Quels sont les deux critères principaux de l’essai EDITH ?",
+        "answer": "Le taux de détection des cancers et le taux de rappel des femmes pour des examens complémentaires."
+      }
+    ]
+  },
+  {
+    "slug": "entreprises-francaises-en-2025-marges-solides-mais-tresorerie-et-cotes-en-recul",
+    "title": "Entreprises françaises en 2025 : marges solides, mais trésorerie et cotes en recul",
+    "summary": "Selon une étude de la Banque de France mise en ligne le 23 novembre 2026, portant sur 1,8 million de liasses fiscales de 2025, les entreprises françaises ont maintenu des taux de marge élevés et réduit leur endettement. Mais leur chiffre d’affaires progresse peu, leur trésorerie se replie et leur capacité de remboursement, mesurée par la cotation de la Banque de France, s’est dégradée.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le taux de marge, rapport entre l’excédent brut d’exploitation et la valeur ajoutée, progresse en 2025 pour toutes les tailles d’entreprise ; il atteint en moyenne 25 % pour les PME hors microentreprises.",
+      "Le chiffre d’affaires augmente de 3,5 % pour les microentreprises, de 1,8 % pour les PME et de 1,3 % pour les ETI, mais recule de 0,8 % pour les grandes entreprises.",
+      "La trésorerie médiane des PME passe de 51 à 47 jours de chiffre d’affaires entre 2024 et 2025, et la part des PME les mieux cotées tombe de 66 % en 2022 à 58 % en 2025."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Des marges qui résistent",
+        "text": "La Banque de France a mis en ligne le 23 novembre 2026 son étude annuelle sur la situation financière des entreprises en 2025. Elle s’appuie sur 1,8 million de liasses fiscales de sociétés soumises à l’impôt sur les sociétés, hors secteur financier et administrations. Le taux de marge, c’est-à-dire l’excédent brut d’exploitation rapporté à la valeur ajoutée, selon la définition aussi retenue par l’Insee, progresse par rapport à 2024 pour toutes les tailles d’entreprise. Pour les PME hors microentreprises, il atteint en moyenne 25 %. L’activité, elle, avance peu : le chiffre d’affaires croît de 3,5 % pour les microentreprises, de 1,8 % pour les PME et de 1,3 % pour les ETI, tandis qu’il recule de 0,8 % pour les grandes entreprises, après une baisse de 1,9 % en 2024."
+      },
+      {
+        "kind": "fait",
+        "heading": "Moins de dettes, un coût de la dette contrasté",
+        "text": "Le taux d’endettement brut, rapport entre les dettes financières et les capitaux propres, diminue en 2025 pour toutes les tailles d’entreprise, car les fonds propres augmentent plus vite que les dettes. La baisse des taux d’intérêt profite surtout aux plus grandes : le coût apparent de la dette baisse pour 72 % des grandes entreprises et 61 % des ETI, contre 43 % des PME. Pour les PME, ce coût a continué d’augmenter légèrement en moyenne. La trésorerie médiane recule : de 51 à 47 jours de chiffre d’affaires pour les PME, de 59 à 51 jours pour les ETI et de 59 à 53 jours pour les grandes entreprises. Elle reste toutefois supérieure à son niveau de 2019 pour les PME et les ETI."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une capacité de remboursement qui s’érode",
+        "text": "La Banque de France conclut que la capacité de remboursement des entreprises s’est dégradée en 2025. Sa cotation, attribuée à environ 275 000 entreprises, le montre : la part des meilleures cotes passe entre 2022 et 2025 de 66 % à 58 % pour les PME, de 68 % à 58 % pour les ETI et de 67 % à 60 % pour les microentreprises. Le tableau d’ensemble est donc nuancé : des marges et des fonds propres solides en moyenne, mais une activité atone et des coussins de trésorerie qui s’amenuisent. Ces moyennes cachent de fortes disparités entre entreprises, et les données portent sur 2025 : elles ne disent rien de l’évolution récente de 2026."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Banque de France — La situation financière des entreprises en 2025 (page de présentation)",
+        "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/la-situation-financiere-des-entreprises-en-2025"
+      },
+      {
+        "label": "Banque de France — La situation financière des entreprises en 2025 (étude, novembre 2026)",
+        "url": "https://www.banque-france.fr/system/files/2026-11/826453%20Situation%20financi%C3%A8re%20des%20entreprises_vf.pdf"
+      },
+      {
+        "label": "Insee — Entreprises non financières en 2025, comptes nationaux annuels",
+        "url": "https://www.insee.fr/fr/statistiques/8988829"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "dataCards": [
+      {
+        "id": "tresorerie-par-taille",
+        "kind": "comparaison",
+        "headline": "En 2025, la trésorerie médiane des PME ne couvre plus que 47 jours de chiffre d’affaires",
+        "source": {
+          "label": "Banque de France",
+          "url": "https://www.banque-france.fr/system/files/2026-11/826453%20Situation%20financi%C3%A8re%20des%20entreprises_vf.pdf"
+        },
+        "asOf": "2025-12-31",
+        "note": "Valeurs médianes.",
+        "imageQuery": "cash register coins",
+        "items": [
+          {
+            "value": 60,
+            "unit": "jours de chiffre d’affaires",
+            "label": "Microentreprises",
+            "scope": "France, sociétés non financières",
+            "period": "2025"
+          },
+          {
+            "value": 47,
+            "unit": "jours de chiffre d’affaires",
+            "label": "PME hors microentreprises",
+            "scope": "France, sociétés non financières",
+            "period": "2025"
+          },
+          {
+            "value": 51,
+            "unit": "jours de chiffre d’affaires",
+            "label": "ETI",
+            "scope": "France, sociétés non financières",
+            "period": "2025"
+          },
+          {
+            "value": 53,
+            "unit": "jours de chiffre d’affaires",
+            "label": "Grandes entreprises",
+            "scope": "France, sociétés non financières",
+            "period": "2025"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "chiffre-affaires-par-taille",
+        "kind": "comparaison",
+        "headline": "Le chiffre d’affaires progresse peu en 2025 et recule pour les grandes entreprises",
+        "source": {
+          "label": "Banque de France",
+          "url": "https://www.banque-france.fr/system/files/2026-11/826453%20Situation%20financi%C3%A8re%20des%20entreprises_vf.pdf"
+        },
+        "asOf": "2025-12-31",
+        "imageQuery": "factory loading dock",
+        "items": [
+          {
+            "value": 3.5,
+            "unit": "%",
+            "label": "Microentreprises",
+            "scope": "France, sociétés non financières",
+            "period": "2025",
+            "denominator": "chiffre d’affaires de 2024",
+            "decimals": 1
+          },
+          {
+            "value": 1.8,
+            "unit": "%",
+            "label": "PME hors microentreprises",
+            "scope": "France, sociétés non financières",
+            "period": "2025",
+            "denominator": "chiffre d’affaires de 2024",
+            "decimals": 1
+          },
+          {
+            "value": 1.3,
+            "unit": "%",
+            "label": "ETI",
+            "scope": "France, sociétés non financières",
+            "period": "2025",
+            "denominator": "chiffre d’affaires de 2024",
+            "decimals": 1
+          },
+          {
+            "value": -0.8,
+            "unit": "%",
+            "label": "Grandes entreprises",
+            "scope": "France, sociétés non financières",
+            "period": "2025",
+            "denominator": "chiffre d’affaires de 2024",
+            "decimals": 1
+          }
+        ],
+        "presentation": "valeurs-distinctes"
+      },
+      {
+        "id": "cout-dette-baisse",
+        "kind": "comparaison",
+        "headline": "La baisse du coût de la dette a surtout profité aux grandes entreprises",
+        "source": {
+          "label": "Banque de France",
+          "url": "https://www.banque-france.fr/system/files/2026-11/826453%20Situation%20financi%C3%A8re%20des%20entreprises_vf.pdf"
+        },
+        "asOf": "2025-12-31",
+        "note": "Part des entreprises dont le coût apparent de la dette a baissé.",
+        "imageQuery": "bank loan documents",
+        "items": [
+          {
+            "value": 43,
+            "unit": "%",
+            "label": "PME",
+            "scope": "France, sociétés non financières",
+            "period": "2025",
+            "denominator": "PME"
+          },
+          {
+            "value": 61,
+            "unit": "%",
+            "label": "ETI",
+            "scope": "France, sociétés non financières",
+            "period": "2025",
+            "denominator": "ETI"
+          },
+          {
+            "value": 72,
+            "unit": "%",
+            "label": "Grandes entreprises",
+            "scope": "France, sociétés non financières",
+            "period": "2025",
+            "denominator": "grandes entreprises"
+          }
+        ],
+        "presentation": "valeurs-distinctes"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Comment calcule-t-on le taux de marge d’une entreprise ?",
+        "answer": "C’est le rapport entre l’excédent brut d’exploitation et la valeur ajoutée."
+      }
+    ]
+  },
+  {
+    "slug": "libye-l-onu-reclame-une-enquete-apres-la-destruction-d-un-navire-russe-a",
+    "title": "Libye : l’ONU réclame une enquête après la destruction d’un navire russe à Benghazi",
+    "summary": "Le dimanche 22 novembre 2026, une corvette russe amarrée au port de Benghazi, dans l’est de la Libye, a été touchée par des drones navals et a coulé ; un cargo russe a aussi été visé. L’Ukraine a revendiqué l’opération. La mission de l’ONU en Libye demande une enquête immédiate, indépendante et transparente et met en garde contre le risque de voir le pays devenir le terrain de conflits étrangers.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le président ukrainien Volodymyr Zelensky a affirmé que sept drones navals de fabrication ukrainienne avaient coulé la corvette russe Merkury à Benghazi, et qu’un cargo russe, le MV Angara, avait été touché.",
+      "La Mission d’appui des Nations unies en Libye exprime une « profonde inquiétude » et réclame une enquête « immédiate, indépendante et transparente », en proposant son aide aux autorités libyennes.",
+      "Les autorités de l’est libyen affirment que le navire faisait escale pour se ravitailler ; un responsable libyen cité par la presse fait état d’au moins dix blessés, libyens et russes."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une attaque à 2 400 km de la ligne de front",
+        "text": "Le dimanche 22 novembre 2026, des attaques ont visé le port de Benghazi et les eaux au large de cette ville de l’est libyen. Selon ONU Info, un navire de guerre russe amarré dans le port a été frappé par des drones marins présumés, a explosé et coulé, tandis qu’un navire commercial était touché lors d’une autre attaque. Le lendemain, le président ukrainien Volodymyr Zelensky a revendiqué l’opération : selon ABC News et Middle East Eye, il affirme que sept drones navals de fabrication ukrainienne ont été lancés et que la corvette russe Merkury a été coulée. Il dit qu’un second objectif, le cargo russe MV Angara, accusé par Kiev de transporter des armes, a été atteint. Middle East Eye situe l’attaque à environ 2 400 km de la ligne de front ukrainienne. Des images satellite montrent la corvette chavirée dans le port, selon ABC News."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que disent les autorités libyennes et russes",
+        "text": "Selon ABC News, le gouvernement basé à Benghazi indique que le navire rentrait en Russie et faisait escale pour se ravitailler, dans le cadre d’un accord de coopération ; il annonce une enquête conjointe avec la Russie. Middle East Eye rapporte que le chef de ce gouvernement, Oussama Hammad, a demandé une enquête internationale par l’intermédiaire de l’Assemblée générale et du Conseil de sécurité de l’ONU. D’après deux responsables militaires libyens cités par l’agence AP et repris par ce média, l’attaque a provoqué un incendie dans la base navale, et un responsable libyen a fait état d’au moins dix blessés, libyens et russes. Ce bilan n’a pas été confirmé par l’ONU. Le porte-parole du Kremlin, Dmitri Peskov, a seulement déclaré que la Russie avait « pris note » de la déclaration de Zelensky."
+      },
+      {
+        "kind": "analyse",
+        "heading": "La Libye, pays divisé exposé aux rivalités extérieures",
+        "text": "La mission de l’ONU en Libye demande à toutes les parties une « retenue maximale » et leur demande de ne pas diffuser d’informations non vérifiées pendant l’enquête. Elle rappelle que la souveraineté et l’intégrité territoriale du pays doivent être respectées et estime que la Libye « ne doit pas devenir » un champ de bataille pour des conflits étrangers. Le pays est divisé entre le gouvernement d’unité nationale reconnu par la communauté internationale, à Tripoli, et une administration rivale à Benghazi, soutenue par la Chambre des représentants et l’Armée nationale libyenne du maréchal Khalifa Haftar. La présence de navires russes dans l’est du pays expose ainsi la Libye au conflit entre l’Ukraine et la Russie. L’ONU voit dans cet épisode une raison de plus d’accélérer la réunification des institutions libyennes."
+      }
+    ],
+    "sources": [
+      {
+        "label": "ONU Info — Libye : l’ONU réclame une enquête sur des attaques contre le port de Benghazi",
+        "url": "https://news.un.org/fr/story/2026/11/1159890"
+      },
+      {
+        "label": "UN News — Libya: UN mission urges probe into Benghazi port attacks",
+        "url": "https://news.un.org/en/story/2026/11/1168857"
+      },
+      {
+        "label": "ABC News — Ukrainian naval drones sank Russia's Merkury warship in Libya, Zelenskyy confirms",
+        "url": "https://abcnews.com/International/ukrainian-naval-drones-sank-russias-merkury-warship-libya/story?id=138369738"
+      },
+      {
+        "label": "Middle East Eye — Ukraine claims drone attack that sank Russian warship at Libyan naval base",
+        "url": "https://www.middleeasteye.net/news/ukraine-claims-russian-warship-sunk-drone-attack-libyan-naval-base"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-22",
+    "flashcards": [
+      {
+        "question": "Qu’a demandé la mission de l’ONU en Libye après l’attaque du port de Benghazi en novembre 2026 ?",
+        "answer": "Une enquête immédiate, indépendante et transparente, ainsi qu’une retenue maximale de toutes les parties."
+      },
+      {
+        "question": "Entre quelles autorités la Libye est-elle divisée ?",
+        "answer": "Entre le gouvernement d’unité nationale reconnu par la communauté internationale, à Tripoli, et une administration rivale à Benghazi, soutenue par l’Armée nationale libyenne de Khalifa Haftar."
+      }
+    ]
+  },
+  {
     "slug": "hybrides-chinois-l-ue-impose-des-quotas-d-importation-provisoires-des-le-1er",
     "title": "Hybrides chinois : l'UE impose des quotas d'importation provisoires dès le 1er décembre",
     "summary": "La Commission européenne a publié des mesures de sauvegarde provisoires qui fixent des quotas d'importation pour certains véhicules hybrides, avec une entrée en vigueur le 1er décembre. Selon la presse spécialisée, le plafond visant les hybrides et hybrides rechargeables fabriqués en Chine serait de 350 000 voitures par an, en hausse de 6 % chaque année. Il s'agit d'une mesure de sauvegarde fondée sur les règles de l'OMC, et non d'une enquête antidumping.",

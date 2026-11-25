@@ -84,7 +84,9 @@ export default function PrivacyPage() {
       </section>
 
       <p className="mt-10 text-sm text-muted">
-        Les mentions légales (éditeur, contact, responsable de publication) seront ajoutées avant l&apos;ouverture au public.{" "}
+        Éditeur, contact et hébergeur :{" "}
+        <Link href="/mentions-legales/" className="font-semibold text-accent underline underline-offset-4">mentions légales</Link>
+        {" · "}
         <Link href="/a-propos/" className="font-semibold text-accent underline underline-offset-4">À propos de MUNDI</Link>
       </p>
     </div>

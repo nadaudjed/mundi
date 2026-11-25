@@ -52,6 +52,13 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 const labels = { fait: "Faits", analyse: "Analyse", hypothese: "Hypothèses" };
+/** Sommaire discret à partir de quatre parties : en dessous, le texte se lit d'un coup d'œil. */
+const TOC_MIN_SECTIONS = 4;
+/** Durée de lecture estimée sur le texte réel (résumé et parties), à 200 mots par minute. */
+function readingMinutes(texts: string[]) {
+  const words = texts.join(" ").split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
 
 export default async function PublicationPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
@@ -61,6 +68,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
   const topic = getTopic(a.topic);
   const figure = keyFigureOf(a);
   // Graphique : seulement une comparaison approuvée sur une échelle commune (même unité, même dénominateur).
+  const minutes = readingMinutes([a.summary, ...a.sections.map((x) => x.text)]);
   const comparison = a.dataCards?.find((c): c is ComparisonCard => c.kind === "comparaison" && c.presentation === "echelle-commune");
   return (
     <article className="mx-auto max-w-6xl px-5 pt-8 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-12 md:pb-20">
@@ -88,7 +96,8 @@ export default async function PublicationPage({ params }: { params: Promise<Para
         <span className="font-semibold text-ink" data-testid="verification-label">{verificationLabel(a)}</span>
         {!a.aiVerified && <> ({a.reviewedBy})</>} · publié le <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time> · actualisé le{" "}
         <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time> ·{" "}
-        <a href="#sources" className="underline underline-offset-2 hover:text-ink">{a.sources.length} sources</a>
+        <a href="#sources" className="underline underline-offset-2 hover:text-ink">{a.sources.length} sources</a> ·{" "}
+        <span data-testid="reading-time">{minutes} min de lecture</span>
       </p>
       {a.photo && (
         <figure className="mt-6" data-testid="publication-photo">
@@ -111,8 +120,19 @@ export default async function PublicationPage({ params }: { params: Promise<Para
         <ShareButton slug={a.slug} path={publicationPath(a.slug)} title={a.title} />
         <ListenButton title={a.title} summary={a.summary} points={a.keyPoints} tone="light" audioSrc={a.audio} />
       </div>
+      {a.sections.length >= TOC_MIN_SECTIONS && (
+        <nav aria-label="Sommaire" className="mt-8 border-l-2 border-rule pl-4" data-testid="article-toc">
+          <p className="text-meta font-semibold text-muted">Sommaire</p>
+          <ol className="mt-2 space-y-1.5 text-sm">
+            {a.sections.map((s, i) => (
+              <li key={i}><a href={`#partie-${i + 1}`} className="text-ink underline decoration-rule-strong underline-offset-4 hover:decoration-accent">{s.heading}</a></li>
+            ))}
+            <li><a href="#sources" className="text-ink underline decoration-rule-strong underline-offset-4 hover:decoration-accent">Sources</a></li>
+          </ol>
+        </nav>
+      )}
       {a.sections.map((s, i) => (
-        <section key={i} className="mt-12">
+        <section key={i} id={`partie-${i + 1}`} className="mt-12 scroll-mt-20">
           <p className="text-meta font-semibold text-muted">{labels[s.kind]}</p>
           <h2 className="mt-1 font-display text-intertitre font-semibold text-ink">{s.heading}</h2>
           <p className="mt-4 whitespace-pre-line text-[1.06rem] leading-[1.8] text-ink/90">{s.text}</p>

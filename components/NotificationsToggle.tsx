@@ -10,6 +10,16 @@ const HELP: Record<Exclude<PushState, "loading" | "on" | "off">, string> = {
   denied: "Les notifications sont bloquées pour MUNDI. Vous pouvez les autoriser dans les réglages de votre navigateur ou de votre téléphone.",
 };
 
+/** État affiché en clair, pour distinguer « désactivé », « indisponible » et « refusé ». */
+const STATE_LABEL: Record<Exclude<PushState, "loading">, string> = {
+  on: "Activées",
+  off: "Désactivées (réglage de départ)",
+  "ios-install": "Indisponibles tant que MUNDI n'est pas installé",
+  unsupported: "Indisponibles dans ce navigateur",
+  unavailable: "Indisponibles pour l'instant",
+  denied: "Bloquées : la permission a été refusée",
+};
+
 /** Interrupteur « Prévenez-moi à chaque édition » : rien n'est demandé sans un toucher. */
 export function NotificationsToggle() {
   const [state, setState] = useState<PushState>("loading");
@@ -30,6 +40,11 @@ export function NotificationsToggle() {
   const ready = state === "on" || state === "off";
   return (
     <div className="mt-4" data-testid="notifications" data-state={state}>
+      {state !== "loading" && (
+        <p className="mb-3 text-sm text-ink" data-testid="notifications-state">
+          <span className="font-semibold">État :</span> {STATE_LABEL[state]}
+        </p>
+      )}
       {ready ? (
         <button type="button" role="switch" aria-checked={state === "on"} disabled={busy} onClick={toggle}
           className="flex items-center gap-3 text-left text-sm font-semibold text-ink disabled:opacity-60">
@@ -44,6 +59,14 @@ export function NotificationsToggle() {
         <p className="max-w-2xl text-sm leading-relaxed text-muted" role="status">{HELP[state]}</p>
       )}
       {state === "on" && <p className="mt-2 text-sm text-muted" role="status">C&apos;est activé : une notification le matin et une l&apos;après-midi, au plus.</p>}
+      <details className="mt-4 max-w-2xl text-sm text-muted">
+        <summary className="cursor-pointer font-medium text-ink">Désactivées, indisponibles ou bloquées : quelle différence ?</summary>
+        <dl className="mt-2 space-y-2 leading-relaxed">
+          <div><dt className="inline font-semibold text-ink">Désactivées : </dt><dd className="inline">c&apos;est le réglage de départ. Rien ne vous est envoyé tant que vous n&apos;activez pas l&apos;interrupteur.</dd></div>
+          <div><dt className="inline font-semibold text-ink">Indisponibles : </dt><dd className="inline">ce navigateur ou cet appareil ne permet pas de les recevoir, ou le service n&apos;est pas encore ouvert. Vous n&apos;y pouvez rien ici.</dd></div>
+          <div><dt className="inline font-semibold text-ink">Bloquées : </dt><dd className="inline">vous avez refusé la permission. Seuls les réglages du navigateur ou du téléphone peuvent la rendre.</dd></div>
+        </dl>
+      </details>
     </div>
   );
 }

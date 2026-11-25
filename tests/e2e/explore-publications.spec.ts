@@ -61,10 +61,15 @@ test("shareable topics filter public articles and persist on reload", async ({ p
   await expect(page.getByTestId("publication-tile").filter({ hasText: article.title })).toBeVisible();
 });
 
-test("news homepage uses image-rich cards with honest review labels and no overflow", async ({ page }) => {
+test("archive : une publication en tête, puis des lignes compactes par mois, sans débordement", async ({ page }) => {
   await page.goto("/actualites/");
   const tiles = page.getByTestId("publication-tile");
-  await expect(tiles).toHaveCount(publicArticles.length);
+  await expect(tiles).toHaveCount(Math.min(1, publicArticles.length));
+  await expect(page.getByTestId("archive-item")).toHaveCount(Math.max(0, publicArticles.length - 1));
+  if (publicArticles.length > 1) {
+    await expect(page.getByTestId("archive-month").first().getByRole("heading", { level: 2 })).toHaveText(/^[A-ZÀ-Ý][a-zéû]+ \d{4} \(\d+\)$/);
+    await expect(page.getByTestId("archive-item").first().getByRole("link")).toHaveAttribute("href", /^\/(actualites|concepts|recits)\/.+\/$/);
+  }
   await expect(tiles.first().getByText(/Contrôle IA, sans relecture humaine|Validation humaine/)).toBeVisible();
   // Le titre mène à l'article. (La date d'une actualité peut porter un lien vers sa source officielle,
   // placé avant le titre quand la une n'a pas de photo : on vise donc le lien du titre.)
@@ -95,4 +100,20 @@ test("Explorer : une recherche trouve tous les formats, et « Effacer les filtre
   const shown = await page.getByTestId("publication-tile").count();
   expect(shown).toBeGreaterThan(0);
   expect(kinds.size).toBeGreaterThan(0);
+});
+
+test("article long : sommaire discret vers chaque partie et les sources, durée de lecture", async ({ page }) => {
+  const all = JSON.parse(readFileSync("content/publications.json", "utf8")) as { slug: string; status: string; sections?: { heading: string }[] }[];
+  const decryptages = readFileSync("content/decryptages.json", "utf8");
+  const long = all.find((p) => p.status === "published" && (p.sections?.length ?? 0) >= 4 && !decryptages.includes(`"${p.slug}"`));
+  test.skip(!long, "Aucun article long publié");
+  await page.goto("/actualites/" + long!.slug + "/");
+  await expect(page.getByTestId("reading-time")).toHaveText(/^\d+ min de lecture$/);
+  const toc = page.getByRole("navigation", { name: "Sommaire" });
+  await expect(toc.getByRole("link")).toHaveCount(long!.sections!.length + 1);
+  for (const link of await toc.getByRole("link").all()) {
+    await expect(page.locator((await link.getAttribute("href"))!)).toBeAttached();
+  }
+  await toc.getByRole("link", { name: "Sources" }).click();
+  await expect(page).toHaveURL(/#sources$/);
 });

@@ -5,11 +5,11 @@ import { publicationPath } from "@/lib/publication-links";
 import { getTopic } from "@/lib/topics";
 
 /** Ligne compacte de « Dernières publications » : format, rubrique, titre, date et sources. */
-export function HomeRow({ item }: { item: HomeItem }) {
+export function HomeRow({ item, testId = "home-latest-item" }: { item: HomeItem; testId?: string }) {
   const topic = getTopic(item.topic);
   const date = item.kind === "actualite" && item.eventDate ? item.eventDate : item.publishedAt;
   return (
-    <li data-testid="home-latest-item" data-publication={item.slug} className="border-b border-rule py-4 last:border-b-0">
+    <li data-testid={testId} data-publication={item.slug} className="border-b border-rule py-4 last:border-b-0">
       <p className="text-[0.75rem] font-semibold text-accent">
         {item.format}
         {topic && <span className="font-normal text-muted"> · {topic.name}</span>}

@@ -7,6 +7,30 @@ test.describe("Notifications d'édition", () => {
     await page.goto("/mes-sujets/");
     await expect(page.getByTestId("notifications")).toHaveAttribute("data-state", "unavailable");
     await expect(page.getByTestId("notifications")).toContainText("pas encore disponibles");
+    // « Indisponible » se distingue de « désactivé » et de « bloqué ».
+    await expect(page.getByTestId("notifications-state")).toHaveText("État : Indisponibles pour l'instant");
+  });
+
+  test("permission refusée : l'état le dit et renvoie aux réglages du navigateur", async ({ page, browserName }) => {
+    test.skip(browserName !== "chromium", "Web Push simulé sous Chromium");
+    await page.route("**/api/push", (route) => route.fulfill({ json: { enabled: true, publicKey: "BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U" } }));
+    await page.addInitScript(() => Object.defineProperty(Notification, "permission", { get: () => "denied" }));
+    await page.goto("/mes-sujets/");
+    await expect(page.getByTestId("notifications")).toHaveAttribute("data-state", "denied");
+    await expect(page.getByTestId("notifications-state")).toHaveText("État : Bloquées : la permission a été refusée");
+    await expect(page.getByTestId("notifications")).toContainText("réglages de votre navigateur");
+  });
+
+  test("Mes sujets : les rubriques choisies et leur effet sont affichés, avec un retour au départ", async ({ page }) => {
+    await page.goto("/mes-sujets/");
+    await expect(page.getByTestId("interests-summary")).toContainText("Aucune rubrique choisie");
+    const first = page.getByRole("button", { pressed: false }).filter({ has: page.locator(".font-display") }).first();
+    const name = (await first.locator(".font-display").textContent())!;
+    await first.click();
+    await expect(page.getByTestId("interests-summary")).toContainText(name);
+    await expect(page.getByTestId("interests-effect")).toContainText("deux publications sur trois");
+    await page.getByRole("button", { name: "Revenir aux réglages de départ" }).click();
+    await expect(page.getByTestId("interests-summary")).toContainText("Aucune rubrique choisie");
   });
 
   test("activer puis désactiver : l'abonnement est envoyé, puis retiré", async ({ page, browserName }) => {

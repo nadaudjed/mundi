@@ -196,3 +196,13 @@ test("editorial image catalog contains no broken (lone surrogate) character",asy
  assert.doesNotMatch(raw,/\\ud[89ab][0-9a-f]{2}(?!\\ud[c-f][0-9a-f]{2})/i);
  assert.doesNotMatch(raw,/[\ud800-\udbff](?![\udc00-\udfff])|(?<![\ud800-\udbff])[\udc00-\udfff]/);
 });
+test("sujets du 25/11 : des repères visuels précis au lieu d'un jeu de plateau ou d'une statue", () => {
+  const first=(title,topic)=>imageQueries({title,topic})[0];
+  assert.equal(first("Gaza : la Commission dénonce l'accès bloqué à l'aide, 150 000 tentes attendent dehors","geopolitique"),"humanitarian aid trucks");
+  assert.equal(first("Premier froid de l'hiver : chaque degré perdu ajoute 2 300 MW de demande électrique","energie"),"electricity pylons winter");
+  assert.equal(first("Cancer du sein : le Royaume-Uni lance le plus grand essai de dépistage assisté par IA","technologie"),"mammography");
+  assert.equal(first("Logement : l'investissement des ménages de l'UE tombe à 8,1 %, au plus bas depuis 2015","economie"),"housing construction");
+  assert.equal(first("Libye : l’ONU réclame une enquête après la destruction d’un navire russe à Benghazi","afrique"),"naval ship harbour");
+  assert.equal(first("Impôts non collectés : l'UE perd plus de 200 milliards d'euros par an, selon Bruxelles","finance"),"tax office");
+  assert.ok(imageQueries({title:"!!!",topic:"geopolitique"}).includes("diplomatic conference"));
+});

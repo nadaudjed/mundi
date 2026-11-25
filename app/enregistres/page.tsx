@@ -3,6 +3,7 @@ import { PageIntro } from "@/components/PageIntro";
 import { SavedClient } from "@/components/SavedClient";
 import { FollowedDossiers } from "@/components/dossier/FollowedDossiers";
 import { dossierSummaries } from "@/lib/dossiers";
+import { toSavedItem } from "@/lib/light-publications";
 import { feedPublications } from "@/lib/verified";
 
 export const metadata: Metadata = { title: "Bibliothèque" };
@@ -16,7 +17,7 @@ export default function SavedPage() {
       <FollowedDossiers dossiers={dossierSummaries()} />
       <section aria-labelledby="articles-enregistres" className="mt-12">
         <h2 id="articles-enregistres" className="border-b border-ink pb-2 font-display text-intertitre font-semibold text-ink">Articles enregistrés</h2>
-        <SavedClient publications={feedPublications} />
+        <SavedClient publications={feedPublications.map(toSavedItem)} />
       </section>
     </div>
   );

@@ -1,19 +1,18 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRevision } from "@/lib/revision";
 import { verificationLabel } from "@/lib/verification";
 import { KIND_LABEL, type PublicationKind } from "@/lib/publication-kind";
 import { getTopic } from "@/lib/topics";
-import { reviewCards, type ReviewCard } from "@/lib/flashcards";
-import type { FeedPublication } from "@/lib/verified";
+import type { ReviewCard } from "@/lib/flashcards";
 
 const TYPE_LABEL: Record<ReviewCard["type"], string> = { idees: "Trois idées", question: "Question", chiffre: "Chiffre clé" };
 const KINDS: PublicationKind[] = ["actualite", "concept", "recit"];
 const KIND_TABS: Record<PublicationKind, string> = { actualite: "Actualités", concept: "Concepts", recit: "Récits" };
 
-export function RevisionClient({ publications }: { publications: FeedPublication[] }) {
+export function RevisionClient({ cards: publicCards }: { cards: ReviewCard[] }) {
   const { records, mark, reset } = useRevision();
   const [kind, setKind] = useState<PublicationKind>("actualite");
   const [selected, setSelected] = useState<string | null>(null);
@@ -24,7 +23,6 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   const [now] = useState(() => Date.now());
 
   // Chaque publication donne ses cartes : trois idées, questions écrites par les agents, chiffres clés.
-  const publicCards = useMemo<ReviewCard[]>(() => publications.flatMap(reviewCards), [publications]);
 
   const cards = publicCards.filter((card) => card.kind === kind);
   const due = cards.filter((card) => !records[card.key] || records[card.key].level === 0 || new Date(records[card.key].nextAt).getTime() <= now);

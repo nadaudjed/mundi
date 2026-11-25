@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { ExploreClient } from "@/components/ExploreClient";
 import { PageIntro } from "@/components/PageIntro";
+import { toExploreItem } from "@/lib/light-publications";
 import { feedPublications } from "@/lib/verified";
 
 export const metadata: Metadata = { title: "Explorer les sujets et les publications" };
@@ -20,7 +21,7 @@ export default function ExplorerPage() {
         <span className="font-mono">({feedPublications.length})</span>, de la plus récente à la plus ancienne.
       </p>
       <Suspense fallback={<div className="mt-8 h-12 border-b border-rule" />}>
-        <ExploreClient publications={feedPublications} />
+        <ExploreClient publications={feedPublications.map(toExploreItem)} />
       </Suspense>
     </div>
   );

@@ -4,9 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { useBookmarks } from "@/lib/bookmarks";
 import { formatDate } from "@/lib/format";
-import { formatOf } from "@/lib/home";
 import { getTopic } from "@/lib/topics";
-import type { FeedPublication } from "@/lib/verified";
+import type { SavedItem } from "@/lib/light-publications";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
 import { verificationLabel } from "@/lib/verification";
 
@@ -18,7 +17,7 @@ type Undo = { label: string; previous: string[] };
  * - « Tout effacer » demande une confirmation, puis propose aussi « Annuler » ;
  * - un contenu retiré du site est signalé au lieu de disparaître sans explication.
  */
-export function SavedClient({ publications = [] }: { publications?: FeedPublication[] }) {
+export function SavedClient({ publications = [] }: { publications?: SavedItem[] }) {
   const { saved, toggle, clear, restore } = useBookmarks();
   const [confirming, setConfirming] = useState(false);
   const [undo, setUndo] = useState<Undo | null>(null);
@@ -27,7 +26,7 @@ export function SavedClient({ publications = [] }: { publications?: FeedPublicat
   const missing = saved.filter((key) => !bySlug.has(key));
   const total = savedPublications.length;
 
-  function remove(p: FeedPublication) {
+  function remove(p: SavedItem) {
     setUndo({ label: `« ${p.title} » retiré de la bibliothèque.`, previous: saved });
     toggle(publicationKey(p.slug));
   }
@@ -95,14 +94,14 @@ export function SavedClient({ publications = [] }: { publications?: FeedPublicat
           <li key={p.slug} data-testid="saved-publication" className="group flex min-w-0 items-start gap-3 border-b border-rule py-4">
             <div className="min-w-0 flex-1">
               <p className="text-[0.75rem] font-semibold text-accent">
-                {formatOf(p)}
+                {p.format}
                 <span className="font-normal text-muted"> · {getTopic(p.topic)?.name}</span>
               </p>
               <h3 className="mt-1 text-[1.05rem] leading-snug font-semibold text-ink text-balance">
                 <Link href={publicationPath(p.slug)} className="title-link">{p.title}</Link>
               </h3>
               <p className="mt-1.5 text-meta text-muted">
-                <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time> · {verificationLabel(p)} · {p.sources.length} sources
+                <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time> · {verificationLabel(p)} · {p.sourceCount} sources
               </p>
             </div>
             <button type="button" onClick={() => remove(p)} aria-label={`Retirer de la bibliothèque : ${p.title}`} className="min-h-11 shrink-0 text-sm font-medium text-muted underline-offset-4 hover:text-ink hover:underline" data-testid="saved-remove">

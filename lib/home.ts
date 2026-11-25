@@ -64,3 +64,19 @@ export function latestAfter<T extends { slug: string; publishedAt: string }>(pub
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug))
     .filter((p) => !skip.has(p.slug) && !seen.has(p.slug) && seen.add(p.slug));
 }
+
+/** Archive chronologique : blocs par mois de publication, dans l'ordre reçu (le plus récent d'abord). */
+export function byMonth<T extends { publishedAt: string }>(items: readonly T[]): { key: string; label: string; items: T[] }[] {
+  const groups: { key: string; label: string; items: T[] }[] = [];
+  for (const item of items) {
+    const key = item.publishedAt.slice(0, 7);
+    let group = groups.find((g) => g.key === key);
+    if (!group) {
+      const label = new Intl.DateTimeFormat("fr-FR", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${key}-01T00:00:00Z`));
+      group = { key, label: label.charAt(0).toUpperCase() + label.slice(1), items: [] };
+      groups.push(group);
+    }
+    group.items.push(item);
+  }
+  return groups;
+}

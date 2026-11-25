@@ -14,7 +14,7 @@ const VALID = readFileSync("tests/fixtures/data-cards/valide.json", "utf8");
 
 test.describe("Site normal : cartes vérifiées Eurostat", () => {
   test("le fil public présente toutes ses cartes chiffrées et aucune source fictive", async ({ page, request }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     await expect(page.getByTestId("data-card")).toHaveCount(LIVE_FEED_DATA_CARDS);
     // Sujet du jour : le chiffre et son dénominateur sont sur sa carte « Aujourd'hui » (graphique).
@@ -22,7 +22,7 @@ test.describe("Site normal : cartes vérifiées Eurostat", () => {
       const today = page.locator('[data-testid="today-card"][data-publication="dechets-textiles-europe-2024-23-millions-tonnes"]');
       await expect(today.getByTestId("decryptage-visual")).toContainText("Répartition des 1,4 Mt traitées");
       await expect(today.getByTestId("decryptage-visual")).toContainText("78");
-      expect(await (await request.get("/")).text()).not.toContain("donnees.mundi.test");
+      expect(await (await request.get("/fil/")).text()).not.toContain("donnees.mundi.test");
       return;
     }
     // Les publications automatiques peuvent précéder le récit Eurostat : on cible sa carte par son contenu.
@@ -31,7 +31,7 @@ test.describe("Site normal : cartes vérifiées Eurostat", () => {
       .filter({ hasText: "déchets textiles traités" })
       .filter({ has: page.getByTestId("stat-value").filter({ hasText: "78" }) });
     await expect(card).toHaveCount(1);
-    const html = await (await request.get("/")).text();
+    const html = await (await request.get("/fil/")).text();
     expect(html).not.toContain("donnees.mundi.test");
   });
 });
@@ -40,7 +40,7 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
   test.use({ baseURL: FIXTURES });
 
   test("les cartes suivent leur publication, dans l'ordre, avec leur position", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const cards = page.getByTestId("data-card");
     await expect(cards).toHaveCount(4);
     const kinds = ["stat", "comparaison", "comparaison", "explication"];
@@ -55,7 +55,7 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
   });
 
   test("chiffre clé : valeur au format français, unité, périmètre, période et source", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await scrollFeedTo(page, 1);
     const card = page.locator('[data-index="1"]');
     const value = card.getByTestId("stat-value");
@@ -79,7 +79,7 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
   });
 
   test("échelle commune : barres proportionnelles aux valeurs fournies", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await scrollFeedTo(page, 2);
     const card = page.locator('[data-index="2"]');
     await expect(card.locator("[data-tone]")).toHaveAttribute("data-tone", "ivory");
@@ -95,7 +95,7 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
   });
 
   test("dénominateurs différents : pas de barres communes, avertissement affiché", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await scrollFeedTo(page, 3);
     const card = page.locator('[data-index="3"]');
     const cmp = card.getByTestId("comparison");
@@ -107,7 +107,7 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
   });
 
   test("explication en alternatives : un point de départ, des issues sans numéro ni ordre", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await scrollFeedTo(page, 4);
     const card = page.locator('[data-index="4"]');
     const ex = card.getByTestId("explanation");
@@ -130,7 +130,7 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
   test("barres de comparaison : affichées à leur taille finale, sans animation décorative", async ({ browser }) => {
     const reduced = await browser.newContext({ baseURL: FIXTURES, reducedMotion: "reduce" });
     const page = await reduced.newPage();
-    await page.goto("/");
+    await page.goto("/fil/");
     await scrollFeedTo(page, 2);
     const bar = page.locator('[data-index="2"]').getByTestId("comparison-bar").first();
     expect(await bar.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
@@ -140,7 +140,7 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
   });
 
   test("accessibilité : chaque carte est un groupe nommé et passe axe", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     for (const i of [1, 2, 3, 4]) {
       await scrollFeedTo(page, i);
       const group = page.locator(`[data-index="${i}"]`).getByRole("group");
@@ -151,7 +151,7 @@ test.describe("Site de test : cartes d'une publication approuvée", () => {
   });
 
   test("téléphone : la carte tient dans l'écran sans défilement horizontal", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     for (const i of [1, 2, 3, 4]) {
       await scrollFeedTo(page, i);
       const overflow = await page.locator(`[data-index="${i}"] [data-card-kind]`).evaluate((el) => el.scrollWidth - el.clientWidth);

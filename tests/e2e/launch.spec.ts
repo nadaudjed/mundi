@@ -46,7 +46,7 @@ test("la page À propos mène à la page Confidentialité", async ({ page }) => 
 });
 
 test("partage : chaque page annonce un titre et une image (Open Graph)", async ({ page, request }) => {
-  await page.goto("/");
+  await page.goto("/fil/");
   const og = (p: string) => page.locator(`meta[property="${p}"]`).getAttribute("content");
   expect(await og("og:site_name")).toBe("MUNDI");
   expect(await og("og:locale")).toBe("fr_FR");

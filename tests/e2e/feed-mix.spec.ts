@@ -2,7 +2,7 @@ import { expect, test } from "./fixtures";
 
 /** Ordre du Fil « Pour vous » : la suite des publications (cartes de données comprises). */
 async function feedOrder(page: import("@playwright/test").Page) {
-  await page.goto("/");
+  await page.goto("/fil/");
   await expect(page.locator('[data-index="0"]')).toBeVisible();
   // Le mélange s'applique juste après le chargement : attendre qu'il soit stable.
   await page.waitForFunction(() => sessionStorage.getItem("mundi:feed-seed") !== null);

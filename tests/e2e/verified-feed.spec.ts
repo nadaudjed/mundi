@@ -21,7 +21,7 @@ const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
 
 test.describe("Site normal : première publication Eurostat approuvée", () => {
   test("le fil montre les vraies publications et leurs cartes de données, sans démonstration", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     await expect(page.locator(`[data-index="${FIRST_FEED_INDEX}"]`)).toHaveAttribute("data-testid", "verified-card");
     // Les sujets du jour sont en tête, une seule fois : le reste du fil suit, sans doublon.
@@ -36,7 +36,7 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
 
   test("seule une partie des articles est en cartes, et chaque carte a sa propre photo, jamais celle de l'article", async ({ page }) => {
     const published = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[] }[]).filter((p) => p.status === "published");
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.getByTestId("data-card")).toHaveCount(LIVE_FEED_DATA_CARDS);
     const withCards = new Set(await page.getByTestId("data-card").evaluateAll((els) => els.map((e) => e.getAttribute("data-publication"))));
     expect(withCards.size, "pas des cartes partout : une partie des articles seulement").toBeLessThanOrEqual(Math.ceil(published.length / 2));
@@ -62,7 +62,8 @@ test.describe("Site normal : première publication Eurostat approuvée", () => {
     expect(first.status()).toBe(200);
     const res = await request.get(`/actualites/${FIRST}/`);
     expect(res.status()).toBe(404);
-    const html = await (await request.get("/")).text();
+    const html = await (await request.get("/fil/")).text();
+    expect(await (await request.get("/")).text()).not.toContain("test-publication");
     expect(html).not.toContain("test-publication");
     expect(html).not.toContain("sources.mundi.test");
   });
@@ -88,7 +89,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
 
   test("les publications vérifiées forment tout le fil, puis l'écran de fin", async ({ page }) => {
     // La première publication est suivie de ses 4 cartes de données (tests/e2e/data-cards.spec.ts).
-    await page.goto("/");
+    await page.goto("/fil/");
     const cards = page.getByTestId("verified-card");
     await expect(cards).toHaveCount(2);
     // Ordre : la plus récente d'abord.
@@ -110,7 +111,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("une publication automatique dit clairement qu'elle n'a pas été relue par un humain", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.locator(`[data-publication="${SECOND}"]`);
     await expect(card.getByTestId("verification-label")).toHaveText("Contrôle IA, sans relecture humaine");
     await page.goto(`/actualites/${SECOND}/`);
@@ -122,7 +123,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("les sources restent visibles et cliquables dans la carte immersive", async ({ page }, testInfo) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.locator('[data-index="0"]');
     if (testInfo.project.name === "mobile") {
       // Sur téléphone, la carte garde la place pour le texte : un lien mène aux sources de l'article.
@@ -143,7 +144,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("une carte sans photo affiche son chiffre clé ; une carte avec fond approuvé affiche la scène", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const first = page.locator('[data-index="0"]');
     await expect(first.getByTestId("verified-credit")).toHaveText("Chiffre clé : Jeu de données fictif (test)");
     await expect(first.getByTestId("card-visual")).toContainText("1 234,5");
@@ -157,13 +158,13 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("plus aucun motif génératif animé dans le fil", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator('[data-visual="motif"]')).toHaveCount(0);
     await expect(page.locator(".grain")).toHaveCount(0);
   });
 
   test("le lien « Lire la publication » ouvre la page complète, avec sources et dates", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await page.locator('[data-index="0"]').getByRole("link", { name: "Lire la publication" }).click();
     await expect(page).toHaveURL(new RegExp(`/actualites/${FIRST}/$`));
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Exemple de test");
@@ -173,7 +174,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("le retour arrière ramène à la carte où l'on était, pas au début du fil", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await scrollFeedTo(page, 5);
     await page.locator('[data-index="5"]').getByRole("link", { name: "Lire la publication" }).click();
     await expect(page).toHaveURL(new RegExp(`/actualites/${SECOND}/$`));
@@ -182,7 +183,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("le résumé de la carte s'arrête sur une ligne entière, au-dessus des boutons", async ({ page }, testInfo) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.locator('[data-index="0"]');
     const summary = card.getByTestId("verified-summary");
     await expect(summary).toBeVisible();
@@ -202,7 +203,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("chaque actualité affiche clairement sa date : carte du Fil, listes et page article", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     // La date de l'événement (jeudi 19) passe avant celle de la publication (vendredi 20).
     await expect(page.locator('[data-index="0"]').getByTestId("news-date")).toHaveText("Événement du 19 novembre 2026");
     await expect(page.locator('[data-index="0"]').getByTestId("news-date").locator("time")).toHaveAttribute("datetime", "2026-11-19");
@@ -228,7 +229,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("une publication enregistrée apparaît dans Enregistrés", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await page.locator('[data-index="0"]').getByRole("button", { name: /^Enregistrer « Exemple de test/ }).click();
     await page.goto("/enregistres/");
     await page.reload();
@@ -239,7 +240,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("l'en-tête du fil n'a ni badge « Vérifié » ni mention « Démo »", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const header = page.getByTestId("feed-topbar");
     await expect(page.getByText("Vérifié", { exact: true })).toHaveCount(0);
     await scrollFeedTo(page, 5);
@@ -247,7 +248,7 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("filtrer par sujet garde seulement la publication de ce sujet", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await page.getByRole("button", { name: /Choisir un sujet/ }).click();
     await page.getByRole("group", { name: "Filtrer le fil par sujet" }).getByRole("button", { name: "Technologie" }).click();
     await expect(page.getByTestId("verified-card")).toHaveCount(1);
@@ -255,12 +256,12 @@ test.describe("Site de test : publications inventées approuvées", () => {
   });
 
   test("fin du fil : le nombre de publications vérifiées est affiché", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await page.getByTestId("feed-transition").scrollIntoViewIfNeeded();
     await expect(page.getByTestId("verified-count")).toHaveText("2 publications sourcées disponibles.");
   });
 
-  for (const path of ["/", `/actualites/`, `/actualites/${FIRST}/`, "/enregistres/"]) {
+  for (const path of ["/", "/fil/", `/actualites/`, `/actualites/${FIRST}/`, "/enregistres/"]) {
     test(`contrastes et règles WCAG A/AA avec publications : ${path}`, async ({ page }) => {
       await page.goto(path);
       await page.waitForTimeout(500);

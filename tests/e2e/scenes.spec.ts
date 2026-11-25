@@ -19,7 +19,7 @@ const opacity = (el: Element) => Number(getComputedStyle(el).opacity);
 
 test.describe("Site normal : fonds approuvés, sans médias de test", () => {
   test("le fil utilise des fonds MUNDI approuvés, mais aucun fond de test", async ({ page, request }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     // The article has either its original approved abstract scenes, or a
     // credited Commons documentary illustration added after publication.
@@ -44,7 +44,7 @@ test.describe("Site de test : scènes et transitions", () => {
   test.use({ baseURL: FIXTURES });
 
   test("une carte de données avec fond : décor plein écran, texte et chiffres en HTML", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await scrollFeedTo(page, SCENE_STAT);
     const card = page.locator(`[data-index="${SCENE_STAT}"]`);
     const scene = card.getByTestId("scene-backdrop");
@@ -70,7 +70,7 @@ test.describe("Site de test : scènes et transitions", () => {
   });
 
   test("les titres s'affichent tout de suite, sans révélation mot à mot", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator("[data-motion='ready']")).toHaveCount(1);
     const firstTitle = page.locator('[data-index="0"] h2');
     expect(await firstTitle.evaluate((el) => (el as HTMLElement).innerText.replace(/\s+/g, " ").trim())).toBe("Exemple de test : une publication vérifiée sur l'énergie");
@@ -81,7 +81,7 @@ test.describe("Site de test : scènes et transitions", () => {
   });
 
   test("les décors sont immobiles : ni dérive, ni filet animé, ni bouton Pause", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await scrollFeedTo(page, SECOND);
     const scene = page.locator(`[data-index="${SECOND}"] .scene-image`);
     expect(await scene.evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
@@ -90,7 +90,7 @@ test.describe("Site de test : scènes et transitions", () => {
   });
 
   test("clavier : flèches haut et bas passent d'une scène à l'autre", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator("[data-motion='ready']")).toHaveCount(1);
     await expect(page.locator('[data-index="0"]')).toBeInViewport({ ratio: 0.9 });
     await page.keyboard.press("ArrowDown");
@@ -104,7 +104,7 @@ test.describe("Site de test : scènes et transitions", () => {
   test("écran étroit (320 px) : pas de défilement horizontal, sources visibles", async ({ browser }) => {
     const context = await browser.newContext({ baseURL: FIXTURES, viewport: { width: 320, height: 640 }, hasTouch: true, isMobile: true });
     const page = await context.newPage();
-    await page.goto("/");
+    await page.goto("/fil/");
     for (const i of [SCENE_STAT, 4, SECOND]) {
       await scrollFeedTo(page, i);
       const card = page.locator(`[data-index="${i}"]`);
@@ -117,7 +117,7 @@ test.describe("Site de test : scènes et transitions", () => {
   });
 
   test("accessibilité : les scènes avec fond passent axe", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     for (const i of [SCENE_STAT, 4, SECOND]) {
       await scrollFeedTo(page, i);
       const results = await new AxeBuilder({ page }).include(`[data-index="${i}"]`).analyze();

@@ -22,7 +22,7 @@ test.describe("Tirer pour actualiser le Fil", () => {
   test.beforeEach(({ page }) => test.skip(!isMobile(page), "Geste tactile : téléphone"));
 
   test("sans nouvel article : « Vous êtes à jour »", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator("[data-feed]")).toHaveAttribute("data-motion", "ready");
     // Le Fil peut se réorganiser juste après l'affichage (préférences, photos) : on attend la fin du chargement.
     await page.waitForLoadState("networkidle");
@@ -33,7 +33,7 @@ test.describe("Tirer pour actualiser le Fil", () => {
   test("un petit geste ne déclenche rien", async ({ page }) => {
     let calls = 0;
     await page.route("**/fil.json", (route) => { calls++; return route.continue(); });
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator("[data-feed]")).toHaveAttribute("data-motion", "ready");
     // Le Fil peut se réorganiser juste après l'affichage (préférences, photos) : on attend la fin du chargement.
     await page.waitForLoadState("networkidle");
@@ -43,7 +43,7 @@ test.describe("Tirer pour actualiser le Fil", () => {
   });
 
   test("avec un nouvel article : il est annoncé puis le Fil se recharge depuis le début", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator("[data-feed]")).toHaveAttribute("data-motion", "ready");
     // Le Fil peut se réorganiser juste après l'affichage (préférences, photos) : on attend la fin du chargement.
     await page.waitForLoadState("networkidle");
@@ -59,7 +59,7 @@ test.describe("Tirer pour actualiser le Fil", () => {
   });
 
   test("en revenant sur l'onglet, les nouveaux articles sont signalés sans recharger", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator("[data-feed]")).toHaveAttribute("data-motion", "ready");
     // Le Fil peut se réorganiser juste après l'affichage (préférences, photos) : on attend la fin du chargement.
     await page.waitForLoadState("networkidle");

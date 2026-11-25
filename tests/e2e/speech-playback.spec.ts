@@ -52,7 +52,7 @@ test("navigating away from a speaking feed card does not leave its button active
   // Un MP3, lui, continue dans le mini-lecteur (tests/e2e/today.spec.ts).
   const article = articles[0];
   test.skip(!article, "Aucun article de test sans audio");
-  await page.goto(FIXTURES + "/");
+  await page.goto(FIXTURES + "/fil/");
   const first = page.locator(`[data-testid="verified-card"][data-publication="${article.slug}"]`);
   await first.scrollIntoViewIfNeeded();
   const button = first.getByRole("button", { name: "Écouter le résumé" });
@@ -112,7 +112,7 @@ test("moteur vocal figé (iPhone) : la lecture est relancée automatiquement une
 });
 
 test("écouter une deuxième carte arrête la première", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/fil/");
   // Les cartes de données s'intercalent : on prend les deux premières publications.
   const cards = page.getByTestId("verified-card");
   const first = cards.nth(0);

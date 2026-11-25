@@ -10,7 +10,7 @@ const [SHABA, TEXTILES, LEHMAN] = today.selection;
 
 test.describe("Édition « Aujourd'hui »", () => {
   test("trois sujets en tête du fil, puis le fil complet sans doublon", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const cards = page.getByTestId("today-card");
     await expect(cards).toHaveCount(3);
     for (const [i, slug] of today.selection.entries()) {
@@ -24,7 +24,7 @@ test.describe("Édition « Aujourd'hui »", () => {
   });
 
   test("carte : rubrique, format, visuel du sujet, deux phrases et « Comprendre »", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.locator('[data-index="0"]');
     await expect(card).toContainText("Aujourd'hui · 1/3");
     await expect(card).toContainText("Matériaux critiques");
@@ -38,7 +38,7 @@ test.describe("Édition « Aujourd'hui »", () => {
   });
 
   test("Comprendre ouvre le décryptage, et le retour retrouve la carte du fil", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await page.locator('[data-index="0"]').getByTestId("today-skip").click();
     await page.locator('[data-index="2"]').scrollIntoViewIfNeeded();
     await expect(page.locator('[data-index="2"]')).toBeInViewport({ ratio: 0.9 });
@@ -80,7 +80,7 @@ test.describe("Édition « Aujourd'hui »", () => {
     test.use({ allowedErrors: /404|Failed to load resource/ });
     test("visuel introuvable : couverture typographique, jamais une image cassée", async ({ page }) => {
       await page.route("**/media/pilote/**", (route) => route.fulfill({ status: 404, body: "" }));
-      await page.goto("/");
+      await page.goto("/fil/");
       const visual = page.locator('[data-index="0"]').getByTestId("card-visual");
       await expect(visual.locator('[data-visual="typographie"]')).toBeVisible();
       await expect(visual.locator("img")).toHaveCount(0);
@@ -90,7 +90,7 @@ test.describe("Édition « Aujourd'hui »", () => {
 
 test.describe("Mini-lecteur partagé", () => {
   test("lecture après appui, pause, reprise, puis continuité en ouvrant l'article", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.locator('[data-index="0"]');
     await expect(page.getByTestId("mini-player")).toHaveCount(0);
     await card.getByRole("button", { name: "Écouter le résumé" }).click();
@@ -111,7 +111,7 @@ test.describe("Mini-lecteur partagé", () => {
   });
 
   test("une autre piste remplace la première", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await page.locator('[data-index="0"]').getByRole("button", { name: "Écouter le résumé" }).click();
     await expect(page.getByTestId("mini-player")).toContainText("Shaba");
     await page.locator('[data-index="0"]').getByTestId("today-skip").click();
@@ -142,7 +142,7 @@ test("320 px : pas de défilement horizontal, titre, essentiel et Comprendre vis
     await page.goto(path);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBe(0);
   }
-  await page.goto("/");
+  await page.goto("/fil/");
   const card = page.locator('[data-index="0"]');
   await expect(card.getByRole("heading", { level: 2 })).toBeInViewport();
   await expect(card.getByTestId("today-text")).toBeInViewport();

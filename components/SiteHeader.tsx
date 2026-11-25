@@ -12,8 +12,9 @@ import { isActive, navItems } from "./navItems";
  * En-tête des pages.
  * Tablette et ordinateur : barre de rubriques classique, identique sur toutes
  * les pages (Fil compris), onglet actif souligné.
- * Téléphone : barre fine avec le logo, sous l'heure et l'encoche de l'iPhone ;
- * les onglets sont dans la barre du bas, et le Fil n'a pas cette barre.
+ * Téléphone : barre fine avec le logo, la recherche et Mes sujets, sous l'heure et
+ * l'encoche de l'iPhone ; les onglets sont dans la barre du bas, et le fil immersif
+ * (/fil/) n'a pas cette barre.
  */
 export function SiteHeader() {
   const pathname = usePathname();
@@ -48,8 +49,19 @@ export function SiteHeader() {
             <InstallChip tone="dark" />
           </span>
           <ThemeToggle />
-          <Link href="/explorer/" aria-label="Rechercher (raccourci : / ou Ctrl+K)" className="flex size-9 items-center justify-center rounded-sm text-ink hover:text-accent">
+          <Link href="/explorer/" aria-label="Rechercher (raccourci : / ou Ctrl+K)" data-testid="header-search" className="flex size-11 items-center justify-center rounded-sm text-ink hover:text-accent">
             <Icon name="search" className="size-5" />
+          </Link>
+          {/* Mes sujets : rubriques préférées, thème et notifications (même URL qu'avant). */}
+          <Link
+            href="/mes-sujets/"
+            aria-label="Mes sujets et réglages"
+            aria-current={isActive(pathname, "/mes-sujets/") ? "page" : undefined}
+            data-testid="header-settings"
+            className={`flex h-11 min-w-11 items-center justify-center gap-2 rounded-sm px-1 text-sm font-medium hover:text-accent ${isActive(pathname, "/mes-sujets/") ? "text-accent" : "text-ink"}`}
+          >
+            <Icon name="sliders" className="size-5" />
+            <span className="hidden lg:inline" aria-hidden="true">Mes sujets</span>
           </Link>
         </div>
       </div>

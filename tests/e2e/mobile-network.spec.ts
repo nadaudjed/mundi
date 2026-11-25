@@ -17,7 +17,7 @@ test.describe("Réseau mobile lent et chargement progressif", () => {
       if (sizes) bytes += sizes.responseBodySize;
     });
     const start = Date.now();
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/fil/", { waitUntil: "domcontentloaded" });
     await expect(page.locator('[data-index="0"] h2, [data-index="0"] p').first()).toBeVisible({ timeout: 30_000 });
     const firstScreenMs = Date.now() - start;
     const fcp = await page.evaluate(() => Math.round(performance.getEntriesByName("first-contentful-paint")[0]?.startTime ?? -1));

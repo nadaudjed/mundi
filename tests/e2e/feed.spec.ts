@@ -2,7 +2,7 @@ import { expect, FIRST_FEED_INDEX, isMobile, test } from "./fixtures";
 
 test.describe("Fil de découverte", () => {
   test("ne montre que des publications sourcées, sans démonstration", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     // Après l'édition « Aujourd'hui » (tests/e2e/today.spec.ts), le fil ordinaire.
     const first = page.locator(`[data-index="${FIRST_FEED_INDEX}"]`);
     await expect(first).toBeAttached();
@@ -17,7 +17,7 @@ test.describe("Fil de découverte", () => {
   test("le défilement passe d'un écran à l'autre (molette et clavier)", async ({ page }) => {
     // Site de test : contenu court et stable. Sur le site normal, un long article publié
     // automatiquement fait d'abord défiler son propre texte, ce qui est voulu.
-    await page.goto(`http://localhost:${Number(process.env.E2E_PORT ?? 4173) + 1}/`);
+    await page.goto(`http://localhost:${Number(process.env.E2E_PORT ?? 4173) + 1}/fil/`);
     const feed = page.getByLabel("Fil de découverte");
     await feed.hover();
     await page.mouse.wheel(0, 900);
@@ -31,7 +31,7 @@ test.describe("Fil de découverte", () => {
   });
 
   test("le filtre par sujet ne garde que ce sujet", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     // Les sujets sont rangés derrière un seul bouton, sur tous les écrans.
     await page.getByRole("button", { name: /Choisir un sujet/ }).click();
     const group = page.getByRole("group", { name: "Filtrer le fil par sujet" });

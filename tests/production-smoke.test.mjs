@@ -21,7 +21,7 @@ test("smoke passes only with actual news HTML on the expected host",async()=>{
 test("home and publications needles exist in the current pages",async()=>{
   const {readFileSync}=await import("node:fs");
   const norm=s=>s.replace(/\s+/g," ");
-  assert.ok(norm(readFileSync("app/page.tsx","utf8")).includes("MUNDI — fil des publications sourcées"));
+  assert.ok(norm(readFileSync("components/home/HomeEdition.tsx","utf8")).includes("MUNDI — fil des publications sourcées"));
   assert.ok(readFileSync("app/actualites/page.tsx","utf8").includes("Publications documentées"));
   assert.ok(readFileSync("app/explorer/page.tsx","utf8").includes("Explorer les sujets et les publications"));
   assert.ok(readFileSync("app/reviser/page.tsx","utf8").includes("Réviser les actualités et les cours"));

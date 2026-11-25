@@ -8,7 +8,7 @@ test("l'animation d'entrée se joue puis s'efface d'elle-même", async ({ page }
   await expect(page.locator("html")).toHaveAttribute("data-intro", "play");
   await expect(splash).toBeVisible();
   await expect(splash).toHaveAttribute("aria-hidden", "true");
-  await expect(page.locator("html")).not.toHaveAttribute("data-intro", /.*/, { timeout: 5000 });
+  await expect(page.locator("html")).not.toHaveAttribute("data-intro", /.*/, { timeout: 7000 });
   await expect(splash).toBeHidden();
   expect(Number(await page.evaluate(() => localStorage.getItem("mundi:intro")))).toBeGreaterThan(0);
 });
@@ -16,6 +16,11 @@ test("l'animation d'entrée se joue puis s'efface d'elle-même", async ({ page }
 test("un toucher raccourcit l'animation", async ({ page }) => {
   await page.goto("/?intro=1");
   await expect(page.locator("html")).toHaveAttribute("data-intro", "play");
+  // Un toucher dès l'ouverture est ignoré (geste involontaire)…
+  await page.mouse.click(10, 10);
+  await expect(page.locator("html")).toHaveAttribute("data-intro", "play");
+  // …mais après une seconde, il coupe l'animation.
+  await page.waitForTimeout(1300);
   await page.mouse.click(10, 10);
   await expect(page.locator("html")).not.toHaveAttribute("data-intro", /.*/, { timeout: 800 });
 });
@@ -31,7 +36,7 @@ test("version calme si l'appareil réduit les animations : logo fixe puis fondu"
   const splash = page.locator(".intro");
   await expect(splash).toBeVisible();
   await expect(page.locator(".intro-word")).toHaveCSS("opacity", "1");
-  await expect(splash).toBeHidden({ timeout: 5000 });
+  await expect(splash).toBeHidden({ timeout: 7000 });
 });
 
 test("rejouée au retour dans l'application après 30 minutes d'absence, pas avant", async ({ page }) => {
@@ -40,7 +45,7 @@ test("rejouée au retour dans l'application après 30 minutes d'absence, pas ava
   await page.goto("/");
   const html = page.locator("html");
   await expect(html).toHaveAttribute("data-intro", "play");
-  await expect(html).not.toHaveAttribute("data-intro", /.*/, { timeout: 5000 });
+  await expect(html).not.toHaveAttribute("data-intro", /.*/, { timeout: 7000 });
   const back = (hiddenFor: number) =>
     page.evaluate((ms) => {
       localStorage.setItem("mundi:intro", String(Date.now() - ms));

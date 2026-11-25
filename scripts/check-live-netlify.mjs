@@ -16,8 +16,10 @@ export function checkTargets(publications){
   if(news.some(p=>typeof p?.slug!=="string"||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(p.slug)))
     throw new Error("Unsafe published slug");
   return [
-    {path:"/",needle:"aucune piste audio",label:"Accueil — lecteur vocal corrigé"},
-    {path:"/actualites/",needle:"Les publications documentées",label:"Galerie Actualités"},
+    // Repères stables : titre principal de l'accueil et titre de la page Publications.
+    // Ne pas choisir un message d'interface qui change à chaque refonte (fausse alerte #103).
+    {path:"/",needle:"MUNDI — fil des publications sourcées",label:"Accueil"},
+    {path:"/actualites/",needle:"Publications documentées",label:"Page Publications"},
     {path:"/explorer/",needle:"Explorer les sujets et les publications",label:"Recherche publique"},
     {path:"/reviser/",needle:"Réviser les actualités et les cours",label:"Révision des publications"},
     ...news.slice(0,5).map(p=>({

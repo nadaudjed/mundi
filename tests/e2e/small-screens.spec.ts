@@ -23,7 +23,7 @@ for (const site of SITES) {
       test.skip(testInfo.project.name !== "mobile", "même vérification pour les deux projets : une seule fois suffit");
       const context = await browser.newContext({ baseURL: site.url, viewport: screen, isMobile: true, hasTouch: true, locale: "fr-FR" });
       const page = await context.newPage();
-      await page.goto("/");
+      await page.goto("/fil/");
       await expect(page.locator("[data-motion='ready']")).toHaveCount(1);
       const feedBottom = await page.getByLabel("Fil de découverte").evaluate((el) => el.getBoundingClientRect().bottom);
       const count = await page.locator("[data-index]").count();
@@ -70,7 +70,7 @@ for (const screen of [
     const mobile = screen.width < 768;
     const context = await browser.newContext({ viewport: screen, isMobile: mobile, hasTouch: mobile, locale: "fr-FR", baseURL: `http://localhost:${PORT}` });
     const page = await context.newPage();
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.locator('[data-index="0"]');
     // Première carte : « Comprendre » (édition « Aujourd'hui ») ou « Lire la publication ».
     const read = card.getByRole("link", { name: /^(Lire la publication|Comprendre)/ });

@@ -9,7 +9,7 @@ const spoken = (page: import("@playwright/test").Page) =>
 
 test.describe("Version audio enregistrée des articles", () => {
   test("le Fil lit le fichier audio (pas la voix du téléphone), avec pause et reprise", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.locator('[data-index="0"]');
     await expect(card).toContainText("Exemple de test");
     const audioRequest = page.waitForRequest((r) => r.url().endsWith("/media/audio/" + SLUG + ".mp3"));

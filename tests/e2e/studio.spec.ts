@@ -165,7 +165,7 @@ test.describe("MUNDI Studio : prévisualisation", () => {
   test("un brouillon importé n'apparaît jamais dans le fil public", async ({ page }) => {
     await page.goto("/atelier/");
     await upload(page, VALID);
-    await page.goto("/");
+    await page.goto("/fil/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
     await expect(page.getByText("titre de veille inventé")).toHaveCount(0);
     await page.goto("/actualites/");

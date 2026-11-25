@@ -31,7 +31,7 @@ for (const screen of SCREENS) {
       expect(overflow, `${path} : pas de défilement horizontal`).toBeLessThanOrEqual(0);
       const nav = page.getByRole("navigation", { name: "Navigation principale" }).locator("visible=true");
       const links = nav.getByRole("link");
-      await expect(links).toHaveCount(5);
+      await expect(links).toHaveCount(4);
       for (const box of await links.evaluateAll((as) => as.map((a) => a.getBoundingClientRect().toJSON()))) {
         expect(box.left, `${path} : onglet visible à gauche`).toBeGreaterThanOrEqual(0);
         expect(box.right, `${path} : onglet visible à droite`).toBeLessThanOrEqual(screen.width);
@@ -46,18 +46,35 @@ test("téléphone : la barre d'onglets est posée en bas de l'écran et ne cache
   for (const width of [320, 390]) {
     const context = await browser.newContext({ baseURL: `http://localhost:${PORT}`, viewport: { width, height: 760 }, isMobile: true, hasTouch: true, locale: "fr-FR", serviceWorkers: "block" });
     const page = await context.newPage();
-    for (const path of ["/", "/reviser/"]) {
+    for (const path of ["/", "/fil/", "/reviser/"]) {
       await page.goto(path);
       const dock = page.getByTestId("dock");
       const bottom = await dock.evaluate((el) => window.innerHeight - el.getBoundingClientRect().bottom);
       expect(bottom, `${path} à ${width} px : barre en bas de l'écran`).toBeLessThanOrEqual(16);
-      if (path === "/") {
+      if (path === "/fil/") {
         const feedBottom = await page.getByLabel("Fil de découverte").evaluate((el) => el.getBoundingClientRect().bottom);
         const dockTop = await dock.evaluate((el) => el.getBoundingClientRect().top);
         expect(feedBottom, "le fil s'arrête au-dessus de la barre").toBeLessThanOrEqual(dockTop + 1);
       }
     }
-    await page.getByTestId("dock").getByRole("link", { name: "Mes sujets", exact: true }).click();
+    // Quatre entrées, libellés entiers à la même taille, cibles d'au moins 44 × 44 px.
+    const links = page.getByTestId("dock").getByRole("link");
+    await expect(links).toHaveText(["Accueil", "Explorer", "Réviser", "Bibliothèque"]);
+    for (const link of await links.all()) {
+      const fits = await link.evaluate((el) => {
+        const label = el.querySelector("span")!;
+        const r = el.getBoundingClientRect();
+        return { fits: label.scrollWidth <= r.width, w: r.width, h: r.height, size: getComputedStyle(label).fontSize };
+      });
+      expect(fits.fits, `${width} px : libellé entier`).toBe(true);
+      expect(fits.w).toBeGreaterThanOrEqual(44);
+      expect(fits.h).toBeGreaterThanOrEqual(44);
+      expect(fits.size).toBe("12px");
+    }
+    await page.getByTestId("dock").getByRole("link", { name: "Bibliothèque", exact: true }).click();
+    await expect(page).toHaveURL(/\/enregistres\/$/);
+    // Mes sujets reste à la même URL, dans l'en-tête.
+    await page.getByTestId("header-settings").click();
     await expect(page).toHaveURL(/\/mes-sujets\/$/);
     await context.close();
   }
@@ -68,7 +85,7 @@ test("téléphone : la barre du haut du fil tient sur une ligne, sur chaque cart
   for (const width of [320, 375, 402, 430]) {
     const context = await browser.newContext({ baseURL: `http://localhost:${PORT}`, viewport: { width, height: 800 }, isMobile: true, hasTouch: true, locale: "fr-FR" });
     const page = await context.newPage();
-    await page.goto("/");
+    await page.goto("/fil/");
     const feed = page.getByLabel("Fil de découverte");
     const count = await page.locator("[data-index]").count();
     for (const i of [0, Math.floor(count / 2), count - 1]) {
@@ -93,7 +110,7 @@ test("téléphone : les pages ont une barre fine avec le logo, le fil n'en a pas
     const h = await header.evaluate((el) => el.getBoundingClientRect().height);
     expect(h).toBeLessThanOrEqual(64);
   }
-  await page.goto("/");
+  await page.goto("/fil/");
   await expect(page.locator("[data-site-header]")).toBeHidden();
 });
 
@@ -102,7 +119,7 @@ test("tablette en paysage et ordinateur : la photo occupe toute la moitié droit
   for (const viewport of [{ width: 1180, height: 750 }, { width: 1024, height: 700 }, { width: 1440, height: 900 }]) {
     const context = await browser.newContext({ baseURL: `http://localhost:${PORT}`, viewport, hasTouch: true, locale: "fr-FR", serviceWorkers: "block" });
     const page = await context.newPage();
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.getByTestId("verified-card").first();
     const cardBox = (await card.boundingBox())!;
     const visual = (await card.getByTestId("card-visual").boundingBox())!;
@@ -125,7 +142,7 @@ test("tablette en portrait : la photo remplit la place libre au lieu d'un vide s
   for (const viewport of [{ width: 820, height: 1110 }, { width: 744, height: 1060 }]) {
     const context = await browser.newContext({ baseURL: `http://localhost:${PORT}`, viewport, isMobile: true, hasTouch: true, locale: "fr-FR", serviceWorkers: "block" });
     const page = await context.newPage();
-    await page.goto("/");
+    await page.goto("/fil/");
     const card = page.getByTestId("verified-card").first();
     const meta = (await card.getByTestId("verified-meta").boundingBox())!;
     const actions = (await card.getByTestId("card-actions").boundingBox())!;

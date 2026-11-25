@@ -2,7 +2,7 @@ import { expect, test } from "./fixtures";
 
 test.describe("Application installable (PWA)", () => {
   test("le manifeste et les icônes sont valides", async ({ page, request }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const href = await page.locator('link[rel="manifest"]').getAttribute("href");
     expect(href).toBeTruthy();
     const res = await request.get(href!);
@@ -21,7 +21,7 @@ test.describe("Application installable (PWA)", () => {
   });
 
   test("le bouton Installer ouvre la fenêtre d'installation du navigateur", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     // Attendre que l'application soit prête (le lien d'aide n'apparaît qu'une fois hydratée).
     await expect(page.getByRole("link", { name: "Installer" }).locator("visible=true")).toBeVisible();
     // Simule l'événement que Chrome envoie quand le site est installable.
@@ -41,7 +41,7 @@ test.describe("Application installable (PWA)", () => {
   });
 
   test("sans fenêtre d'installation, la page d'aide explique la marche à suivre", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     await page.getByRole("link", { name: "Installer" }).locator("visible=true").click();
     await expect(page).toHaveURL(/\/application\/$/);
     await expect(page.getByRole("heading", { name: /Sur iPhone ou iPad/ })).toBeVisible();
@@ -55,7 +55,7 @@ test.describe("Hors connexion", () => {
   test.use({ allowedErrors: /Failed to load resource|net::ERR_INTERNET_DISCONNECTED|net::ERR_FAILED|Failed to fetch/ });
 
   test("le service worker s'installe et affiche une page claire hors connexion", async ({ page, context }) => {
-    await page.goto("/");
+    await page.goto("/fil/");
     const scope = await page.evaluate(async () => (await navigator.serviceWorker.ready).scope);
     expect(scope).toMatch(/\/$/);
     await page.reload(); // la page est désormais contrôlée par le service worker
@@ -65,6 +65,6 @@ test.describe("Hors connexion", () => {
     await expect(page.getByRole("heading", { name: "Vous êtes hors connexion" })).toBeVisible();
     await context.setOffline(false);
     await page.getByRole("link", { name: "Réessayer" }).click();
-    await expect(page.locator('[data-index="0"]')).toBeVisible();
+    await expect(page.getByTestId("home-topic").first()).toBeVisible();
   });
 });

@@ -224,7 +224,7 @@ export function Feed({ verified = [], mix = true, today }: Props) {
       {/* Barre du fil : marque (téléphone), choix du sujet. Fond uni, sans flou. */}
       <div data-testid="feed-topbar" className="absolute inset-x-0 top-0 z-30 border-b border-ivory/10 bg-night">
         <div className="flex h-12 items-center justify-between gap-2 px-4 md:px-8">
-          <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.2em] text-ivory md:invisible" aria-label="MUNDI, retour au début du fil">
+          <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.2em] text-ivory md:invisible" aria-label="MUNDI, retour à l’accueil">
             <LogoMark className="size-5" />
             <span className="max-[359px]:sr-only">MUNDI</span>
           </Link>

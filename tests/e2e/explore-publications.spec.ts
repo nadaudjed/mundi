@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { expect, test } from "./fixtures";
 
 const publicArticles = (JSON.parse(readFileSync("content/publications.json", "utf8")) as
-  { slug: string; title: string; status: string; topic: string; kind?: "actualite" | "concept" }[])
+  { slug: string; title: string; status: string; topic: string; kind?: "actualite" | "concept" | "recit" }[])
   .filter((p) => p.status === "published");
 const news = publicArticles.filter((p) => (p.kind ?? "actualite") === "actualite");
 const concepts = publicArticles.filter((p) => p.kind === "concept");
@@ -11,8 +11,9 @@ test("Explorer searches actual published articles and offers their full page", a
   const article = news[0];
   test.skip(!article, "No published MUNDI article");
   await page.goto("/explorer/");
-  await expect(page.getByRole("heading", { name: "Les dernières actualités" })).toBeVisible();
-  await expect(page.getByTestId("publication-tile")).toHaveCount(news.length);
+  // Tous les formats par défaut.
+  await expect(page.getByRole("heading", { name: "Toutes les publications" })).toBeVisible();
+  await expect(page.getByTestId("publication-tile")).toHaveCount(publicArticles.length);
 
   const word = article.title.split(/\W+/).find((w) => w.length > 5);
   test.skip(!word, "No usable search term in article title");
@@ -23,9 +24,12 @@ test("Explorer searches actual published articles and offers their full page", a
   await expect(tile.getByRole("link", { name: article.title })).toHaveAttribute("href", "/actualites/" + article.slug + "/");
 });
 
-test("Explorer sépare les actualités et les concepts, sans aucun contenu de démonstration", async ({ page }) => {
+test("Explorer filtre par format (Tous par défaut), sans aucun contenu de démonstration", async ({ page }) => {
   test.skip(!concepts.length, "No published concept");
   await page.goto("/explorer/");
+  await expect(page.getByTestId("genre-tous")).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByTestId("publication-tile")).toHaveCount(publicArticles.length);
+  await page.getByTestId("genre-actualites").click();
   await expect(page.getByTestId("genre-actualites")).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTestId("genre-actualites")).toContainText(String(news.length));
   await expect(page.getByTestId("genre-concepts")).toContainText(String(concepts.length));
@@ -43,7 +47,8 @@ test("Explorer sépare les actualités et les concepts, sans aucun contenu de d�
   await page.getByRole("searchbox").fill("termequinexistepas123");
   await expect(page.getByText("Aucun résultat trouvé")).toBeVisible();
   await page.getByRole("button", { name: "Tout afficher" }).click();
-  await expect(page.getByTestId("publication-tile")).toHaveCount(concepts.length);
+  await expect(page.getByTestId("genre-tous")).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByTestId("publication-tile")).toHaveCount(publicArticles.length);
 });
 
 test("shareable topics filter public articles and persist on reload", async ({ page }) => {
@@ -74,4 +79,20 @@ test("Explorer : « contenus » tant que la recherche est vide, « résultats »
   await expect(page.getByText(/^\d+ résultats? ·/)).toHaveCount(0);
   await page.getByRole("searchbox").fill("énergie");
   await expect(page.getByText(/^\d+ résultats? ·/)).toBeVisible();
+});
+
+test("Explorer : une recherche trouve tous les formats, et « Effacer les filtres » revient à tout", async ({ page }) => {
+  await page.goto("/explorer/?genre=concepts&sujet=" + (concepts[0]?.topic ?? ""));
+  await expect(page.getByTestId("explore-clear")).toBeVisible();
+  await page.getByTestId("explore-clear").click();
+  await expect(page).toHaveURL(/\/explorer\/$/);
+  await expect(page.getByTestId("publication-tile")).toHaveCount(publicArticles.length);
+  await expect(page.getByTestId("explore-clear")).toHaveCount(0);
+  // Une recherche sans filtre couvre tous les formats.
+  const kinds = new Set(publicArticles.map((p) => p.kind ?? "actualite"));
+  await page.getByRole("searchbox").fill("e");
+  await expect(page).toHaveURL(/q=e/);
+  const shown = await page.getByTestId("publication-tile").count();
+  expect(shown).toBeGreaterThan(0);
+  expect(kinds.size).toBeGreaterThan(0);
 });

@@ -11,7 +11,7 @@ export default function ExplorerPage() {
   return (
     <div className="mx-auto max-w-5xl px-5 pb-[calc(var(--nav-h)+3rem)] pt-8 md:px-8 md:pb-20 md:pt-12">
       <PageIntro title="Explorer">
-        Deux espaces séparés : les actualités, pour savoir ce qui vient de changer, et les concepts, pour comprendre les notions qui reviennent dans l’actualité. Tous les articles sont sourcés.
+        Cherchez dans tous les formats à la fois, puis filtrez si besoin : les actualités pour savoir ce qui vient de changer, les récits pour les histoires vraies qui l’éclairent, les concepts pour comprendre les notions qui reviennent. Tous les articles sont sourcés.
       </PageIntro>
       <p className="mt-4 text-sm text-muted">
         <Link href="/actualites/" className="font-semibold text-accent underline-offset-4 hover:underline">

@@ -13,12 +13,18 @@ import { PublicationTile } from "./PublicationTile";
 
 const plural = (n: number, one: string, many = one + "s") => (n > 1 ? many : one);
 
-/** Deux espaces séparés : les actualités (journalistes) et les concepts (professeurs). */
-const GENRES: { kind: PublicationKind; param: string; name: string; hint: string; heading: string }[] = [
+/**
+ * Formats (refonte #113) : « Tous » par défaut, puis trois filtres explicites.
+ * Les anciennes adresses (?genre=actualites…) restent valables.
+ */
+type Genre = { kind: PublicationKind | "tous"; param: string; name: string; hint: string; heading: string };
+const GENRES: Genre[] = [
+  { kind: "tous", param: "tous", name: "Tous", hint: "Tous les formats", heading: "Toutes les publications" },
   { kind: "actualite", param: "actualites", name: "Actualités", hint: "Ce qui vient de se passer", heading: "Les dernières actualités" },
-  { kind: "concept", param: "concepts", name: "Concepts", hint: "Les notions pour comprendre", heading: "Les concepts à connaître" },
   { kind: "recit", param: "recits", name: "Récits", hint: "Histoires vraies, épisodes, idées", heading: "Les récits" },
+  { kind: "concept", param: "concepts", name: "Concepts", hint: "Les notions pour comprendre", heading: "Les concepts à connaître" },
 ];
+const ALL = GENRES[0];
 const genreOf = (param: string | null) => GENRES.find((g) => g.param === param) ?? GENRES[0];
 
 export function ExploreClient({ publications }: { publications: FeedPublication[] }) {
@@ -46,33 +52,34 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
   /** Résultats de la recherche, par espace (avant le filtre de rubrique). */
   const found = useMemo(() => {
     const all = searchPublications(publications, query);
-    return Object.fromEntries(GENRES.map((g) => [g.kind, all.filter((p) => publicationKind(p) === g.kind)])) as Record<PublicationKind, FeedPublication[]>;
+    return Object.fromEntries(GENRES.map((g) => [g.kind, g === ALL ? all : all.filter((p) => publicationKind(p) === g.kind)])) as Record<Genre["kind"], FeedPublication[]>;
   }, [publications, query]);
   const inGenre = found[genre.kind];
   const results = useMemo(() => (topic ? inGenre.filter((p) => p.topic === topic) : inGenre), [inGenre, topic]);
   /** Rubriques présentes dans l'espace choisi, pour ne jamais proposer un filtre vide. */
   const genreTopics = useMemo(() => {
-    const inThisGenre = publications.filter((p) => publicationKind(p) === genre.kind);
+    const inThisGenre = genre === ALL ? publications : publications.filter((p) => publicationKind(p) === genre.kind);
     return topics
       .map((t) => ({ topic: t, count: inThisGenre.filter((p) => p.topic === t.slug).length }))
       .filter((t) => t.count > 0 || t.topic.slug === topic);
   }, [publications, genre, topic]);
 
   const searching = query.trim().length > 0;
-  const total = found.actualite.length + found.concept.length + found.recit.length;
-  /** Un espace n'apparaît que s'il contient au moins une publication (les récits arrivent plus tard). */
-  const genres = GENRES.filter((g) => g.kind !== "recit" || g === genre || publications.some((p) => publicationKind(p) === "recit"));
+  const total = found.tous.length;
+  /** Un format n'apparaît que s'il contient au moins une publication. */
+  const genres = GENRES.filter((g) => g === ALL || g === genre || publications.some((p) => publicationKind(p) === g.kind));
+  const filtered = searching || genre !== ALL || topic !== null;
   const selectedTopic = topic ? getTopic(topic) : null;
   const [lead, ...others] = results;
   useEffect(() => {
     if (consumeSearchFocus()) input.current?.focus();
   }, []);
-  function clearFilters() { setQuery(""); setTopic(null); }
+  function clearFilters() { setQuery(""); setTopic(null); setGenre(ALL); }
 
   return (
     <div className="mt-8">
       <form role="search" onSubmit={(e) => e.preventDefault()} className="relative">
-        <label htmlFor="search" className="sr-only">Rechercher une actualité ou un concept</label>
+        <label htmlFor="search" className="sr-only">Rechercher une actualité, un récit ou un concept</label>
         <Icon name="search" className="pointer-events-none absolute left-0 top-1/2 size-5 -translate-y-1/2 text-muted" />
         <input id="search" ref={input} type="search" value={query} onChange={(e) => setQuery(e.target.value)}
           placeholder="Matières critiques, inflation, énergie…" autoComplete="off" aria-keyshortcuts="/ Control+K Meta+K"
@@ -84,30 +91,28 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
           </button>
         )}
       </form>
-      <p className="mt-2 text-meta text-muted" aria-live="polite">
-        <span className="font-mono">{total}</span> {searching ? plural(total, "résultat") : plural(total, "contenu")} ·{" "}
-        <span className="font-mono">{found.actualite.length}</span> {plural(found.actualite.length, "actualité")} ·{" "}
-        <span className="font-mono">{found.concept.length}</span> {plural(found.concept.length, "concept")}
-        {genres.length > 2 && (
-          <>
-            {" "}· <span className="font-mono">{found.recit.length}</span> {plural(found.recit.length, "récit")}
-          </>
-        )}
+      <p className="mt-2 text-meta text-muted" aria-live="polite" data-testid="explore-count">
+        <span className="font-mono">{total}</span> {searching ? plural(total, "résultat") : plural(total, "contenu")}
+        {genres.filter((g) => g !== ALL).map((g) => (
+          <span key={g.kind}>
+            {" "}· <span className="font-mono">{found[g.kind].length}</span> {g.name.toLowerCase().replace(/s$/, found[g.kind].length > 1 ? "s" : "")}
+          </span>
+        ))}
       </p>
 
-      {/* Les deux espaces : actualités d'un côté, concepts de l'autre. */}
-      <div role="group" aria-label="Choisir un espace" className={"mt-8 grid border-b border-ink " + (genres.length > 2 ? "grid-cols-3" : "grid-cols-2")} data-testid="explore-genres">
+      {/* Formats : Tous, puis Actualités, Récits, Concepts. */}
+      <div role="group" aria-label="Filtrer par format" className="no-scrollbar -mx-5 mt-8 flex gap-x-5 overflow-x-auto border-b border-ink px-5 md:mx-0 md:px-0" data-testid="explore-genres">
         {genres.map((g) => {
           const selected = g === genre;
           return (
             <button key={g.kind} type="button" aria-pressed={selected} onClick={() => { setGenre(g); setTopic(null); }}
               data-testid={`genre-${g.param}`}
-              className={"-mb-px border-b-[3px] pb-3 pt-1 text-left transition-colors " + (selected ? "border-accent" : "border-transparent hover:border-rule")}>
-              <span className={"flex items-baseline gap-2 font-display text-xl font-semibold leading-tight md:text-2xl " + (selected ? "text-ink" : "text-muted")}>
+              className={"-mb-px min-h-11 shrink-0 border-b-[3px] pb-3 pt-1 text-left transition-colors " + (selected ? "border-accent" : "border-transparent hover:border-rule")}>
+              <span className={"flex items-baseline gap-2 whitespace-nowrap font-display text-xl font-semibold leading-tight md:text-2xl " + (selected ? "text-ink" : "text-muted")}>
                 {g.name}
                 <span className="font-mono text-meta font-normal text-muted">{found[g.kind].length}</span>
               </span>
-              <span className="mt-0.5 block text-sm leading-snug text-muted">{g.hint}</span>
+              <span className="mt-0.5 hidden text-sm leading-snug text-muted sm:block">{g.hint}</span>
             </button>
           );
         })}
@@ -126,9 +131,16 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
       <section aria-labelledby="publications" className="mt-8">
         <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-rule pb-2">
           <h2 id="publications" className="font-display text-intertitre font-semibold text-ink">
-            {searching ? `${genre.name} correspondant à votre recherche` : selectedTopic ? `${genre.name} · ${selectedTopic.name}` : genre.heading}
+            {searching ? (genre === ALL ? "Résultats de votre recherche" : `${genre.name} correspondant à votre recherche`) : selectedTopic ? `${genre === ALL ? "Publications" : genre.name} · ${selectedTopic.name}` : genre.heading}
           </h2>
-          <span className="font-mono text-meta text-muted">{results.length} {plural(results.length, "article")}</span>
+          <span className="flex items-baseline gap-3">
+            <span className="font-mono text-meta text-muted" data-testid="explore-results-count">{results.length} {plural(results.length, "article")}</span>
+            {filtered && (
+              <button type="button" onClick={clearFilters} className="min-h-11 text-sm font-semibold text-accent underline-offset-4 hover:underline" data-testid="explore-clear">
+                Effacer les filtres
+              </button>
+            )}
+          </span>
         </div>
         {lead ? (
           <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0">
@@ -149,9 +161,9 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
           </div>
         ) : (
           <p className="mt-5 text-sm leading-relaxed text-muted">
-            Rien dans les {genre.name.toLowerCase()} pour ces filtres.{" "}
-            {genres.filter((g) => g !== genre && found[g.kind].length > 0).map((g) => (
-              <button key={g.kind} type="button" onClick={() => setGenre(g)} className="font-semibold text-accent underline-offset-4 hover:underline">
+            Rien dans {genre === ALL ? "cette rubrique" : "les " + genre.name.toLowerCase()} pour ces filtres.{" "}
+            {genres.filter((g) => g !== genre && g !== ALL && found[g.kind].length > 0).map((g) => (
+              <button key={g.kind} type="button" onClick={() => setGenre(g)} className="mr-3 font-semibold text-accent underline-offset-4 hover:underline">
                 Voir les {found[g.kind].length} {g.name.toLowerCase()}
               </button>
             ))}

@@ -381,7 +381,7 @@ function TransitionCard({ index, count, onRestart }: { index: number; count: num
           {count === 0 ? "Les premières publications arrivent bientôt" : "Vous êtes à jour"}
         </h2>
         <p className="mt-3 text-[0.95rem] leading-relaxed text-ivory/80">
-          Chaque jour, la rédaction publie des actualités et des concepts sourcés. Explorer les range dans deux espaces séparés.
+          Chaque jour, la rédaction publie des actualités, des récits et des concepts sourcés. Explorer permet de les chercher et de les filtrer par format.
         </p>
         <p className="mt-5 text-sm font-medium text-ivory/90" data-testid="verified-count">
           {count === 0

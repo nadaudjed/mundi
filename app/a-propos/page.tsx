@@ -30,7 +30,7 @@ export default function AboutPage() {
       </PageIntro>
 
       <div role="note" className="mt-8 border-l-2 border-accent py-1 pl-4 text-sm leading-relaxed text-ink/85">
-        <strong className="font-semibold">Deux types de publications.</strong> Les actualités racontent ce qui vient de changer ; les concepts expliquent une notion durable. Toutes sont sourcées et indiquent leur mode de vérification, humaine ou automatisée par l&apos;IA.
+        <strong className="font-semibold">Trois formats.</strong> Les actualités racontent ce qui vient de changer ; les récits racontent une histoire vraie qui l&apos;éclaire ; les concepts expliquent une notion durable. Toutes sont sourcées et indiquent leur mode de vérification, humaine ou automatisée par l&apos;IA.
       </div>
 
       <section aria-labelledby="piliers" className="mt-12">

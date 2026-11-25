@@ -33,3 +33,25 @@ test("version calme si l'appareil réduit les animations : logo fixe puis fondu"
   await expect(page.locator(".intro-word")).toHaveCSS("opacity", "1");
   await expect(splash).toBeHidden({ timeout: 5000 });
 });
+
+test("rejouée au retour dans l'application après 30 minutes d'absence, pas avant", async ({ page }) => {
+  // Lecteur réel (pas un robot de test) : l'animation se joue au premier chargement.
+  await page.addInitScript(() => Object.defineProperty(Navigator.prototype, "webdriver", { get: () => false }));
+  await page.goto("/");
+  const html = page.locator("html");
+  await expect(html).toHaveAttribute("data-intro", "play");
+  await expect(html).not.toHaveAttribute("data-intro", /.*/, { timeout: 5000 });
+  const back = (hiddenFor: number) =>
+    page.evaluate((ms) => {
+      localStorage.setItem("mundi:intro", String(Date.now() - ms));
+      Object.defineProperty(document, "visibilityState", { value: "visible", configurable: true });
+      document.dispatchEvent(new Event("visibilitychange"));
+    }, hiddenFor);
+  await back(5 * 60 * 1000);
+  await expect(html).not.toHaveAttribute("data-intro", /.*/);
+  await back(45 * 60 * 1000);
+  await expect(html).toHaveAttribute("data-intro", "play");
+  // Rechargement juste après : pas de nouvelle animation.
+  await page.reload();
+  await expect(page.locator(".intro")).toBeHidden();
+});

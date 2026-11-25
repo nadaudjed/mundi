@@ -1,14 +1,15 @@
 /**
- * Animation d'entrée (logo MUNDI) : jouée à l'arrivée sur le site, puis plus
- * pendant 30 minutes, même si l'onglet ou l'application est rouvert. Jamais lors
- * des navigations internes (la mise en page ne se recharge pas).
+ * Animation d'entrée (logo MUNDI) : jouée à l'arrivée sur le site, c'est-à-dire
+ * au chargement d'une page ou au retour dans l'onglet ou l'application après au
+ * moins 30 minutes d'absence (Safari et l'application iPhone reprennent souvent
+ * la page sans la recharger). Jamais lors des navigations internes.
  * Si l'appareil demande moins d'animations : version calme (logo fixe qui s'efface).
- * Le repère « mundi:intro » (localStorage) garde l'heure du dernier affichage.
+ * Le repère « mundi:intro » (localStorage) garde l'heure de la dernière visite.
  */
 export const INTRO_KEY = "mundi:intro";
 /** Durée totale de l'animation, en millisecondes (doit correspondre à globals.css). */
 export const INTRO_MS = 3600;
-/** Délai avant de rejouer l'animation à une nouvelle visite. */
+/** Absence minimale avant de rejouer l'animation. */
 export const INTRO_GAP_MS = 30 * 60 * 1000;
 
 /**
@@ -16,4 +17,4 @@ export const INTRO_GAP_MS = 30 * 60 * 1000;
  * pose html[data-intro] ; la retire à la fin. Un toucher, un clic ou une touche
  * la raccourcit. `?intro=1` force l'animation (vérifications). Doit rester autonome.
  */
-export const introScript = `try{var d=document.documentElement,n=Date.now(),f=/[?&]intro=1(&|$)/.test(location.search),l=0;try{l=Number(localStorage.getItem("${INTRO_KEY}"))||0}catch(y){}if(f||(!navigator.webdriver&&!(n-l>=0&&n-l<${INTRO_GAP_MS}))){try{localStorage.setItem("${INTRO_KEY}",String(n))}catch(y){}d.setAttribute("data-intro","play");var e=function(){d.removeAttribute("data-intro")},s=function(){if(d.getAttribute("data-intro")==="play"){d.setAttribute("data-intro","skip");setTimeout(e,260)}};setTimeout(e,${INTRO_MS + 50});["pointerdown","keydown","wheel"].forEach(function(k){addEventListener(k,s,{once:true,passive:true})})}}catch(x){}`;
+export const introScript = `try{(function(){var d=document.documentElement,K="${INTRO_KEY}",G=${INTRO_GAP_MS},t=0;function last(){try{return Number(localStorage.getItem(K))||0}catch(y){return 0}}function seen(){try{localStorage.setItem(K,String(Date.now()))}catch(y){}}function end(){d.removeAttribute("data-intro")}function skip(){if(d.getAttribute("data-intro")==="play"){d.setAttribute("data-intro","skip");clearTimeout(t);t=setTimeout(end,260)}}function play(){seen();d.removeAttribute("data-intro");void d.offsetWidth;d.setAttribute("data-intro","play");clearTimeout(t);t=setTimeout(end,${INTRO_MS + 50});["pointerdown","keydown","wheel"].forEach(function(k){addEventListener(k,skip,{once:true,passive:true})})}function away(){var n=Date.now()-last();return !navigator.webdriver&&!(n>=0&&n<G)}if(/[?&]intro=1(&|$)/.test(location.search)||away())play();else seen();document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")seen();else if(away())play()});addEventListener("pagehide",seen);addEventListener("pageshow",function(e){if(e.persisted&&away())play()})})()}catch(x){}`;

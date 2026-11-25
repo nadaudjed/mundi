@@ -73,7 +73,6 @@ export function Feed({ verified = [], mix = true, today }: Props) {
     const frame = requestAnimationFrame(() => setSeed(readSeed(mix)));
     return () => cancelAnimationFrame(frame);
   }, [mix]);
-  const mixed = useMemo(() => (seed ? mixFeed(verified, seed) : verified), [verified, seed]);
   /** Cartes dont on charge la photo : la carte visible et ses voisines. Tant que l'ordre
       mélangé n'est pas connu, seule la première (qui reste en tête) : sinon les photos
       des voisines de l'ordre éditorial seraient téléchargées pour rien. */
@@ -90,9 +89,15 @@ export function Feed({ verified = [], mix = true, today }: Props) {
     });
   }, [filter, today, verified]);
   const todaySlugs = useMemo(() => new Set(todayEntries.map((e) => e.publication.slug)), [todayEntries]);
+  // Le mélange porte sur ce qui reste après la tête « Aujourd'hui » : retirer ces sujets
+  // après coup pouvait recoller deux publications du même sujet.
+  const mixed = useMemo(() => {
+    const base = filter === "all" ? verified.filter((p) => !todaySlugs.has(p.slug)) : verified;
+    return seed ? mixFeed(base, seed) : base;
+  }, [verified, seed, filter, todaySlugs]);
   const publications = useMemo(
-    () => (filter === "all" ? personalized(mixed, interests).filter((p) => !todaySlugs.has(p.slug)) : mixed.filter((p) => p.topic === filter)),
-    [filter, mixed, interests, todaySlugs],
+    () => (filter === "all" ? personalized(mixed, interests) : mixed.filter((p) => p.topic === filter)),
+    [filter, mixed, interests],
   );
   const entries = useMemo<Entry[]>(() => {
     // Chaque publication approuvée peut être suivie de sa séquence de cartes de données.

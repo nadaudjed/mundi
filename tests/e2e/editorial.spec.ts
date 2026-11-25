@@ -6,7 +6,8 @@ const ARTICLE = "/actualites/dechets-textiles-europe-2024-23-millions-tonnes/";
 test.describe("Direction éditoriale numérique", () => {
   test("article : chiffre clé en couverture, graphique sourcé, carte mémoire vers Réviser", async ({ page }) => {
     await page.goto(ARTICLE);
-    await expect(page.getByTestId("cover-key-figure")).toContainText("2,3");
+    // Article du pilote « Aujourd'hui » : le chiffre clé est dans « L'essentiel ».
+    await expect(page.locator('[data-testid="cover-key-figure"], [data-testid="figures"]').first()).toContainText("2,3");
     const chart = page.getByTestId("chart");
     await expect(chart).toHaveCount(1);
     await expect(chart.getByRole("img")).toHaveAttribute("aria-label", /Déchets textiles générés : 2,3/);

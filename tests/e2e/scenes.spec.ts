@@ -1,6 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import {readFileSync} from "node:fs";
-import { expect, scrollFeedTo, test } from "./fixtures";
+import { expect, scrollFeedTo, test, TODAY_SLUGS } from "./fixtures";
 const PHOTO_INDEX = JSON.parse(readFileSync("content/editorial-images.json","utf8")) as {slug:string}[];
 const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
 
@@ -24,7 +24,10 @@ test.describe("Site normal : fonds approuvés, sans médias de test", () => {
     // The article has either its original approved abstract scenes, or a
     // credited Commons documentary illustration added after publication.
     const textiles = page.locator('[data-testid="verified-card"][data-publication="' + TEXTILES + '"]');
-    if(PHOTO_INDEX.some(p=>p.slug===TEXTILES)){
+    if(TODAY_SLUGS.includes(TEXTILES)){
+      // Sujet du jour (pilote) : sa carte montre le graphique du sujet, ni photo ni fond.
+      await expect(page.locator(`[data-testid="today-card"][data-publication="${TEXTILES}"]`).getByTestId("card-visual")).toHaveAttribute("data-visual-kind","graphique");
+    }else if(PHOTO_INDEX.some(p=>p.slug===TEXTILES)){
       await expect(textiles.getByTestId("editorial-photo")).toHaveAttribute("data-image-source","wikimedia-commons");
       await expect(textiles.getByTestId("editorial-photo-credit")).toContainText(/Photo d[’\x27]illustration/);
       await expect(textiles.getByTestId("editorial-photo-credit").getByRole("link",{name:/source Wikimedia Commons/i})).toHaveAttribute("href",/commons\.wikimedia\.org/);

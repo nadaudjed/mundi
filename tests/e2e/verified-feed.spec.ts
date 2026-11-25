@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
-import { expect, scrollFeedTo, test } from "./fixtures";
+import { expect, FIRST_FEED_INDEX, LIVE_FEED_DATA_CARDS, scrollFeedTo, test, TODAY_SLUGS } from "./fixtures";
 
 /**
  * Publications vérifiées dans le fil immersif.
@@ -18,26 +18,26 @@ const SECOND = "test-publication-technologie";
 /** Les agents publient désormais seuls : on compte ce que contient réellement le site normal. */
 const LIVE = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string }[]).filter((p) => p.status === "published").length;
 const TEXTILES = "dechets-textiles-europe-2024-23-millions-tonnes";
-const LIVE_DATA_CARDS = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[]; dataCardsInFeed?: boolean }[])
-  .filter((p) => p.status === "published" && p.dataCardsInFeed !== false).reduce((n, p) => n + (p.dataCards?.length ?? 0), 0);
 
 test.describe("Site normal : première publication Eurostat approuvée", () => {
   test("le fil montre les vraies publications et leurs cartes de données, sans démonstration", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
-    await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-testid", "verified-card");
-    await expect(page.getByTestId("verified-card")).toHaveCount(LIVE);
-    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_DATA_CARDS);
+    await expect(page.locator(`[data-index="${FIRST_FEED_INDEX}"]`)).toHaveAttribute("data-testid", "verified-card");
+    // Les sujets du jour sont en tête, une seule fois : le reste du fil suit, sans doublon.
+    await expect(page.getByTestId("today-card")).toHaveCount(TODAY_SLUGS.length);
+    await expect(page.getByTestId("verified-card")).toHaveCount(LIVE - TODAY_SLUGS.length);
+    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_FEED_DATA_CARDS);
     await expect(page.getByTestId("demo-divider")).toHaveCount(0);
     await expect(page.locator("[data-story]")).toHaveCount(0);
-    await expect(page.locator(`[data-testid="verified-card"][data-publication="${TEXTILES}"]`)).toHaveCount(1);
+    await expect(page.locator(`[data-publication="${TEXTILES}"]:is([data-testid="verified-card"], [data-testid="today-card"])`)).toHaveCount(1);
     await expect(page.getByTestId("verified-count")).toHaveText(LIVE === 1 ? "1 publication sourcée disponible." : `${LIVE} publications sourcées disponibles.`);
   });
 
   test("seule une partie des articles est en cartes, et chaque carte a sa propre photo, jamais celle de l'article", async ({ page }) => {
     const published = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[] }[]).filter((p) => p.status === "published");
     await page.goto("/");
-    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_DATA_CARDS);
+    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_FEED_DATA_CARDS);
     const withCards = new Set(await page.getByTestId("data-card").evaluateAll((els) => els.map((e) => e.getAttribute("data-publication"))));
     expect(withCards.size, "pas des cartes partout : une partie des articles seulement").toBeLessThanOrEqual(Math.ceil(published.length / 2));
     const cards = page.getByTestId("data-card");

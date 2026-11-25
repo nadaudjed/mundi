@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { selectToday } from "../../lib/today";
 import { test as base, expect, type Page } from "@playwright/test";
 
 /**
@@ -63,6 +65,19 @@ export const test = base.extend<{ consoleErrors: string[]; allowedErrors: RegExp
 });
 
 export { expect };
+
+/**
+ * Édition « Aujourd'hui » du site normal (pilote, ticket 109) : ses sujets sont en tête du Fil
+ * et ne réapparaissent pas plus bas (ni leurs cartes de données).
+ */
+const livePublications = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { slug: string; status: string; publishedAt: string; dataCards?: unknown[]; dataCardsInFeed?: boolean }[]).filter((p) => p.status === "published");
+export const TODAY_SLUGS: string[] = selectToday(livePublications, JSON.parse(readFileSync("content/aujourdhui.json", "utf8"))).map((p) => p.publication.slug);
+/** Premier écran « ordinaire » du Fil sur le site normal, après l'édition du jour. */
+export const FIRST_FEED_INDEX = TODAY_SLUGS.length;
+/** Cartes de données visibles dans le Fil du site normal (hors sujets du jour). */
+export const LIVE_FEED_DATA_CARDS = livePublications
+  .filter((p) => p.dataCardsInFeed !== false && !TODAY_SLUGS.includes(p.slug))
+  .reduce((n, p) => n + (p.dataCards?.length ?? 0), 0);
 
 export const isMobile = (page: Page) => (page.viewportSize()?.width ?? 1024) < 768;
 

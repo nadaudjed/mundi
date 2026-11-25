@@ -167,7 +167,7 @@ export function DecryptageArticle({ a, d, all }: { a: VerifiedPublication; d: De
             <p className="text-meta font-semibold text-muted">{LABELS[s.kind]}</p>
             <h3 className="font-serif mt-1 text-[1.6rem] leading-tight text-ink">{s.heading}</h3>
             <p className="mt-3 whitespace-pre-line text-[1.04rem] leading-[1.8] text-ink/90">{s.text}</p>
-            {comparison && i === a.sections.findIndex((x) => x.kind === "fait") && d.visual?.type !== "graphique" && (
+            {comparison && i === a.sections.findIndex((x) => x.kind === "fait") && (
               <div className="mt-8">
                 <Chart title={comparison.headline} unit={comparison.items[0].unit} period={[...new Set(comparison.items.map((x) => x.period))].join(", ")} source={comparison.source}
                   points={comparison.items.map((m) => ({ label: m.label, value: m.value }))} decimals={comparison.items[0].decimals} note={comparison.note} />

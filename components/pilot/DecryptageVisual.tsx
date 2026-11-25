@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Decryptage, DecryptageVisual as Visual } from "@/lib/decryptage";
 import type { EditorialPhoto } from "@/lib/editorial-images";
 import { TypeCover } from "../TypeCover";
@@ -16,6 +16,12 @@ export function DecryptageVisual({ decryptage, photo, word, variant }: {
 }) {
   const v = decryptage?.visual;
   const [broken, setBroken] = useState(false);
+  const img = useRef<HTMLImageElement>(null);
+  // L'image a pu échouer avant que la page ne soit interactive : « error » est alors déjà passé.
+  useEffect(() => {
+    const el = img.current;
+    if (el?.complete && el.naturalWidth === 0) queueMicrotask(() => setBroken(true));
+  }, []);
   if (!v || broken || (v.type === "archive" && !photo)) {
     return <TypeCover word={word} tone="paper" className={variant === "card" ? "absolute inset-0" : "aspect-[3/2] w-full"} />;
   }
@@ -24,6 +30,7 @@ export function DecryptageVisual({ decryptage, photo, word, variant }: {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
+      ref={img}
       src={src}
       alt={v.alt}
       onError={() => setBroken(true)}

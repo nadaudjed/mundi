@@ -72,7 +72,8 @@ for (const screen of [
     const page = await context.newPage();
     await page.goto("/");
     const card = page.locator('[data-index="0"]');
-    const read = card.getByRole("link", { name: /^Lire la publication/ });
+    // Première carte : « Comprendre » (édition « Aujourd'hui ») ou « Lire la publication ».
+    const read = card.getByRole("link", { name: /^(Lire la publication|Comprendre)/ });
     const listen = card.getByRole("button", { name: "Écouter le résumé" });
     const limit = mobile ? await page.getByTestId("dock").evaluate((el) => el.getBoundingClientRect().top) : screen.height;
     for (const el of [read, listen]) {

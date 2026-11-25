@@ -12,7 +12,7 @@
     "validate:editorial": "node scripts/validate-editorial.mjs",
     "test:e2e": "playwright test",
     "sources:collect": "node scripts/collect-sources.mjs",
-    "test:sources": "node --test tests/collect-sources.test.mjs tests/editorial-report.test.mjs tests/editorial-manual.test.mjs tests/editorial-candidates.test.mjs tests/source-health.test.mjs tests/review-packs.test.mjs tests/story-preview.test.mjs tests/editorial-library.test.mjs tests/agents-newsroom.test.mjs tests/agent-providers.test.mjs tests/autopublish.test.mjs tests/ops-dashboard.test.mjs tests/correct-publication.test.mjs tests/editorial-images.test.mjs tests/max-newsroom.test.mjs tests/data-cards-check.test.mjs tests/official-data.test.mjs tests/push-edition.test.mjs",
+    "test:sources": "node --test tests/collect-sources.test.mjs tests/editorial-report.test.mjs tests/editorial-manual.test.mjs tests/editorial-candidates.test.mjs tests/source-health.test.mjs tests/review-packs.test.mjs tests/story-preview.test.mjs tests/editorial-library.test.mjs tests/agents-newsroom.test.mjs tests/agent-providers.test.mjs tests/autopublish.test.mjs tests/ops-dashboard.test.mjs tests/correct-publication.test.mjs tests/editorial-images.test.mjs tests/max-newsroom.test.mjs tests/data-cards-check.test.mjs tests/official-data.test.mjs tests/push-edition.test.mjs tests/today.test.mjs",
     "sources:report": "node scripts/render-editorial-report.mjs",
     "icons:generate": "node scripts/generate-icons.mjs",
     "sources:run": "node scripts/run-editorial-inbox.mjs",

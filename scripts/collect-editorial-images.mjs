@@ -11,7 +11,7 @@ import {fileURLToPath,pathToFileURL} from "node:url";
 
 export const MEDIA_CATALOG="content/editorial-images.json";
 export const PHOTO_QUERIES={
-  "geopolitique":"diplomacy",
+  "geopolitique":"diplomatic conference",
   "economie":"market",
   "finance":"trading",
   "industrie":"factory",
@@ -27,6 +27,15 @@ export const PHOTO_QUERIES={
 // Editors' French headlines are converted to short visual cues, NOT treated as
 // exact documentary evidence of a specific person, event, place or date.
 const HINTS=[
+  // Sujets du 25/11 restés sans repère visuel : un jeu de plateau pour Gaza (« diplomacy »), une
+  // statue de bronze pour le froid (« fonte à froid »), un enfant centrafricain pour un port libyen.
+  [/aide humanitaire|humanitaire|tentes|r[eé]fugi[eé]s|d[eé]plac[eé]s/i,["humanitarian aid trucks","humanitarian aid distribution","refugee camp tents"]],
+  [/cancer|d[eé]pistage|mammograph/i,["mammography","breast cancer screening"]],
+  [/logement|immobilier|r[eé]novation [eé]nerg|construction de maisons/i,["housing construction","residential building construction"]],
+  [/imp[oô]ts?|fiscal|fraude [aà] la TVA|[eé]vasion fiscale/i,["tax office","European Commission Berlaymont"]],
+  [/demande [eé]lectrique|vague de froid|premier froid|consommation d.[eé]lectricit[eé]/i,["electricity pylons winter","high voltage power lines snow","electricity substation"]],
+  [/navire|corvette|cargo|port de [A-Z]|drones? nava/i,["naval ship harbour","cargo ship harbour"]],
+  [/guimar[aã]es/i,["Guimarães"]],
   [/textil|v[eê]tement|tri des d[eé]chets/i,["textile recycling sorting","clothing recycling"]],
   [/appels? d.offres|march[eé]s? publics?|commande publique/i,["public procurement","government contract signing"]],
   [/m[eé]nag|enfant|famill/i,["family children","parents with children"]],

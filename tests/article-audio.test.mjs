@@ -30,3 +30,13 @@ test("le manifeste garde la source locale, l'empreinte et la durée ; un échec 
   assert.equal(r.manifest.a.duration,61);
   assert.deepEqual(r.failed,["b"]);
 });
+
+test("un script parlé du pilote remplace la lecture du résumé et change l'empreinte",()=>{
+  const a=art("a");
+  const script="Script parlé. ".repeat(30);
+  assert.equal(narrationFor(a,{audioScript:script}),script.trim());
+  assert.equal(narrationFor(a,{audioScript:"trop court"}),narrationFor(a));
+  const manifest={a:{hash:hashOf(narrationFor(a))}};
+  assert.deepEqual(planAudio([a],manifest).keep,["a"]);
+  assert.deepEqual(planAudio([a],manifest,40,{a:{audioScript:script}}).todo.map(x=>x.slug),["a"]);
+});

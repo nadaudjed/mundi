@@ -1,10 +1,11 @@
-import { expect, isMobile, test } from "./fixtures";
+import { expect, FIRST_FEED_INDEX, isMobile, test } from "./fixtures";
 
 test.describe("Fil de découverte", () => {
   test("ne montre que des publications sourcées, sans démonstration", async ({ page }) => {
     await page.goto("/");
-    const first = page.locator('[data-index="0"]');
-    await expect(first).toBeVisible();
+    // Après l'édition « Aujourd'hui » (tests/e2e/today.spec.ts), le fil ordinaire.
+    const first = page.locator(`[data-index="${FIRST_FEED_INDEX}"]`);
+    await expect(first).toBeAttached();
     await expect(first).toHaveAttribute("data-testid", "verified-card");
     await expect(first).toContainText(/Contrôle IA, sans relecture humaine|Validation humaine/);
     await expect(first.getByText("Vérifié", { exact: true })).toHaveCount(0);

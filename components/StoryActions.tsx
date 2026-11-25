@@ -4,7 +4,7 @@ import { useBookmarks } from "@/lib/bookmarks";
 import { Icon } from "./Icon";
 import { useToast } from "./Toast";
 
-type Variant = "rail" | "inline";
+type Variant = "rail" | "inline" | "paper";
 
 export function SaveButton({ slug, title, variant = "inline" }: { slug: string; title: string; variant?: Variant }) {
   const { isSaved, toggle } = useBookmarks();
@@ -23,7 +23,7 @@ export function SaveButton({ slug, title, variant = "inline" }: { slug: string; 
       className={buttonClass(variant, saved)}
     >
       <Icon name={saved ? "bookmark-filled" : "bookmark"} className="size-5" />
-      <span className={variant === "rail" ? "sr-only" : ""}>{saved ? "Enregistré" : "Enregistrer"}</span>
+      <span className={variant === "inline" ? "" : "sr-only"}>{saved ? "Enregistré" : "Enregistrer"}</span>
     </button>
   );
 }
@@ -48,7 +48,7 @@ export function ShareButton({ slug, title, path, variant = "inline" }: { slug: s
   return (
     <button type="button" onClick={share} aria-label={`Partager « ${title} »`} className={buttonClass(variant, false)}>
       <Icon name="share" className="size-5" />
-      <span className={variant === "rail" ? "sr-only" : ""}>Partager</span>
+      <span className={variant === "inline" ? "" : "sr-only"}>Partager</span>
     </button>
   );
 }
@@ -59,6 +59,10 @@ function buttonClass(variant: Variant, active: boolean) {
     return `flex size-10 items-center justify-center rounded-sm transition-colors ${
       active ? "text-brick-light" : "text-ivory/85 hover:text-ivory"
     }`;
+  }
+  // « paper » : bouton-icône sur les cartes ivoire du pilote « Aujourd'hui ».
+  if (variant === "paper") {
+    return `flex size-10 items-center justify-center rounded-sm transition-colors ${active ? "text-brick" : "text-graphite hover:text-brick"}`;
   }
   return `btn btn-secondary ${active ? "border-accent text-accent" : ""}`;
 }

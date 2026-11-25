@@ -14,12 +14,17 @@ import { VerifiedCard, type CardVisual } from "./VerifiedCard";
 import { DataCardView } from "./data-cards/DataCardView";
 import type { DataCard } from "@/lib/data-cards";
 import { publicationPath } from "@/lib/publication-links";
+import { TodayCard } from "./pilot/TodayCard";
+
+/** Édition « Aujourd'hui » calculée au build (lib/today.ts) : trois sujets au plus. */
+export type TodayEdition = { edition: string; picks: { slug: string; fallback: boolean }[] };
 
 /**
  * Entrées du fil : uniquement les publications sourcées, chacune suivie
  * de ses éventuelles cartes de données. Aucun contenu de démonstration.
  */
 type Entry =
+  | { kind: "today"; key: string; publication: FeedPublication; rank: number; fallback: boolean }
   | { kind: "verified"; key: string; publication: FeedPublication; position: number; visual: CardVisual }
   | { kind: "data"; key: string; publication: FeedPublication; card: DataCard; position: number; total: number };
 
@@ -28,6 +33,8 @@ type Props = {
   verified?: FeedPublication[];
   /** Mélange partiel de l'ordre à chaque visite (désactivé sur le site de test). */
   mix?: boolean;
+  /** Sujets du jour, en tête du fil « Pour vous » (le fil complet suit, sans doublon). */
+  today?: TodayEdition;
 };
 
 /** Position dans le Fil pour le retour arrière (sessionStorage, effacée à la fermeture de l'onglet). */
@@ -49,7 +56,7 @@ function readSeed(mix: boolean): number {
   }
 }
 
-export function Feed({ verified = [], mix = true }: Props) {
+export function Feed({ verified = [], mix = true, today }: Props) {
   const [filter, setFilter] = useState<TopicSlug | "all">("all");
   const [active, setActive] = useState(0);
   const [topicsOpen, setTopicsOpen] = useState(false);
@@ -74,9 +81,18 @@ export function Feed({ verified = [], mix = true }: Props) {
 
   // « Pour vous » : ordre un peu mélangé à chaque visite, vos sujets d'abord,
   // en gardant des découvertes (voir Mes sujets).
+  const todayEntries = useMemo<Entry[]>(() => {
+    if (filter !== "all" || !today) return [];
+    const bySlug = new Map(verified.map((p) => [p.slug, p]));
+    return today.picks.flatMap((pick, rank): Entry[] => {
+      const publication = bySlug.get(pick.slug);
+      return publication ? [{ kind: "today", key: `today:${pick.slug}`, publication, rank, fallback: pick.fallback }] : [];
+    });
+  }, [filter, today, verified]);
+  const todaySlugs = useMemo(() => new Set(todayEntries.map((e) => e.publication.slug)), [todayEntries]);
   const publications = useMemo(
-    () => (filter === "all" ? personalized(mixed, interests) : mixed.filter((p) => p.topic === filter)),
-    [filter, mixed, interests],
+    () => (filter === "all" ? personalized(mixed, interests).filter((p) => !todaySlugs.has(p.slug)) : mixed.filter((p) => p.topic === filter)),
+    [filter, mixed, interests, todaySlugs],
   );
   const entries = useMemo<Entry[]>(() => {
     // Chaque publication approuvée peut être suivie de sa séquence de cartes de données.
@@ -92,8 +108,8 @@ export function Feed({ verified = [], mix = true }: Props) {
         total: all.length,
       })),
     ]);
-    return list;
-  }, [publications]);
+    return [...todayEntries, ...list];
+  }, [publications, todayEntries]);
   /** Sujets réellement présents dans le fil, pour ne pas proposer de filtre vide. */
   const feedTopics = useMemo(() => topics.filter((t) => verified.some((p) => p.topic === t.slug)), [verified]);
   const entry = active < entries.length ? entries[active] : undefined;
@@ -255,7 +271,9 @@ export function Feed({ verified = [], mix = true }: Props) {
         className="no-scrollbar h-full w-full touch-pan-y snap-y snap-mandatory overflow-y-scroll overscroll-y-contain"
       >
         {entries.map((e, i) =>
-          e.kind === "verified" ? (
+          e.kind === "today" ? (
+            <TodayCard key={e.key} publication={e.publication} index={i} rank={e.rank} size={todayEntries.length} edition={today?.edition ?? ""} active={i === active} near={isNear(i)} fallback={e.fallback} onSkip={() => goTo(todayEntries.length)} />
+          ) : e.kind === "verified" ? (
             <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} near={isNear(i)} revealed={seen.has(i)} visual={e.visual} />
           ) : e.kind === "data" ? (
             <article
@@ -302,6 +320,11 @@ export function Feed({ verified = [], mix = true }: Props) {
         <p className="pointer-events-auto min-w-10 text-center font-mono text-[0.7rem] text-ivory/75" aria-live="polite" data-testid="feed-counter">
           {atEnd ? (
             "Fin"
+          ) : entry?.kind === "today" ? (
+            <>
+              <span className="sr-only">Aujourd&apos;hui, sujet </span>
+              {entry.rank + 1}/{todayEntries.length}
+            </>
           ) : entry?.kind === "verified" ? (
             <>
               <span className="sr-only">Publications sourcées : </span>

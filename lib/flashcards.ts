@@ -39,6 +39,10 @@ export function reviewCards(p: FeedPublication): ReviewCard[] {
     answer: p.keyPoints,
   }];
   (p.flashcards ?? []).forEach((c, i) => cards.push({ ...base, key: `${key}#q${i + 1}`, type: "question", question: c.question, answer: c.answer }));
+  // Pilote « Aujourd'hui » : la question du décryptage, avec sa réponse expliquée (clé à part :
+  // la progression des cartes existantes ne bouge pas).
+  const quiz = p.decryptage?.quiz;
+  if (quiz) cards.push({ ...base, key: `${key}#decryptage`, type: "question", question: quiz.question, answer: quiz.answer, detail: quiz.explanation });
   (p.dataCards ?? [])
     .filter((c): c is StatCard => c.kind === "stat")
     .slice(0, MAX_FIGURES)

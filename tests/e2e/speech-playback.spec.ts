@@ -48,12 +48,17 @@ test("unsupported speech reports a useful message and offers retry, rather than 
 });
 
 test("navigating away from a speaking feed card does not leave its button active", async ({ page }) => {
-  await page.goto("/");
-  const first = page.locator('[data-index="0"]');
+  // Voix du téléphone (carte sans MP3) : elle s'arrête quand la carte quitte l'écran.
+  // Un MP3, lui, continue dans le mini-lecteur (tests/e2e/today.spec.ts).
+  const article = articles[0];
+  test.skip(!article, "Aucun article de test sans audio");
+  await page.goto(FIXTURES + "/");
+  const first = page.locator(`[data-testid="verified-card"][data-publication="${article.slug}"]`);
+  await first.scrollIntoViewIfNeeded();
   const button = first.getByRole("button", { name: "Écouter le résumé" });
   await button.click();
   await expect(first.getByRole("button", { name: "Mettre en pause la lecture audio" })).toHaveAttribute("aria-pressed", "true");
-  await page.locator('[data-index="1"]').scrollIntoViewIfNeeded();
+  await page.locator('[data-index="0"]').scrollIntoViewIfNeeded();
   await expect(first.getByRole("button", { name: "Écouter le résumé" })).toHaveAttribute("aria-pressed", "false");
 });
 

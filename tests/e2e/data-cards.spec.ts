@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
-import { expect, scrollFeedTo, test } from "./fixtures";
+import { expect, LIVE_FEED_DATA_CARDS, scrollFeedTo, test, TODAY_SLUGS } from "./fixtures";
 
 /**
  * Cartes de données (ticket #25). Toutes les valeurs utilisées ici sont
@@ -11,16 +11,20 @@ const PORT = Number(process.env.E2E_PORT ?? 4173);
 const FIXTURES = `http://localhost:${PORT + 1}`;
 const FIRST = "test-publication-energie";
 const VALID = readFileSync("tests/fixtures/data-cards/valide.json", "utf8");
-/** Les rédacteurs automatiques ajoutent des cartes : on compte celles réellement publiées. */
-// Seuls les articles « en cartes » les montrent dans le fil (dataCardsInFeed false : simple article).
-const LIVE_DATA_CARDS = (JSON.parse(readFileSync("content/publications.json", "utf8")) as { status: string; dataCards?: unknown[]; dataCardsInFeed?: boolean }[])
-  .filter((p) => p.status === "published" && p.dataCardsInFeed !== false).reduce((n, p) => n + (p.dataCards?.length ?? 0), 0);
 
 test.describe("Site normal : cartes vérifiées Eurostat", () => {
   test("le fil public présente toutes ses cartes chiffrées et aucune source fictive", async ({ page, request }) => {
     await page.goto("/");
     await expect(page.locator('[data-index="0"]')).toBeVisible();
-    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_DATA_CARDS);
+    await expect(page.getByTestId("data-card")).toHaveCount(LIVE_FEED_DATA_CARDS);
+    // Sujet du jour : le chiffre et son dénominateur sont sur sa carte « Aujourd'hui » (graphique).
+    if (TODAY_SLUGS.includes("dechets-textiles-europe-2024-23-millions-tonnes")) {
+      const today = page.locator('[data-testid="today-card"][data-publication="dechets-textiles-europe-2024-23-millions-tonnes"]');
+      await expect(today.getByTestId("decryptage-visual")).toContainText("Répartition des 1,4 Mt traitées");
+      await expect(today.getByTestId("decryptage-visual")).toContainText("78");
+      expect(await (await request.get("/")).text()).not.toContain("donnees.mundi.test");
+      return;
+    }
     // Les publications automatiques peuvent précéder le récit Eurostat : on cible sa carte par son contenu.
     const card = page
       .getByTestId("data-card")

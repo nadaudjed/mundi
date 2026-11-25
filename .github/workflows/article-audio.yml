@@ -7,6 +7,7 @@ on:
     branches: [main]
     paths:
       - 'content/publications.json'
+      - 'content/decryptages.json'
       - 'scripts/generate-article-audio.mjs'
       - 'scripts/audio-narration.mjs'
       - '.github/workflows/article-audio.yml'
@@ -52,7 +53,8 @@ jobs:
           import('./scripts/generate-article-audio.mjs').then(m=>{
             const p=JSON.parse(fs.readFileSync('content/publications.json','utf8'));
             const man=JSON.parse(fs.readFileSync(m.MANIFEST,'utf8'));
-            const r=m.planAudio(p,man);
+            const d=fs.existsSync(m.DECRYPTAGES)?JSON.parse(fs.readFileSync(m.DECRYPTAGES,'utf8')):{};
+            const r=m.planAudio(p,man,40,d);
             console.log('à enregistrer',r.todo.length,'à retirer',r.remove.length);
             fs.appendFileSync(process.env.GITHUB_OUTPUT,'work='+(r.todo.length+r.remove.length>0)+'\n');
           })"

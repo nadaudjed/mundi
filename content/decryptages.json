@@ -1,0 +1,280 @@
+{
+ "shaba-1977-1978-la-guerre-miniere-qui-a-fait-flamber-le-cobalt": {
+  "format": "Décryptage · carte",
+  "shortTitle": "Shaba, 1978 : la guerre qui a fait flamber le cobalt",
+  "essentiel": {
+   "fait": "En 1977 puis en 1978, des rebelles venus d'Angola envahissent le Shaba, la province minière du Zaïre d'où venait alors l'essentiel du cobalt mondial.",
+   "consequence": "L'extraction s'interrompt, le prix mondial atteint un pic et des industriels inventent un aimant qui se passe de cobalt."
+  },
+  "eventDate": "1978-05-11",
+  "eventDateLabel": "8 mars 1977 et 11 mai 1978",
+  "questions": [
+   {
+    "question": "Que s'est-il passé ?",
+    "answer": "Le 8 mars 1977, environ 2 000 combattants du Front national de libération du Congo (FNLC) entrent au Shaba depuis l'Angola, par Dilolo. Ils sont repoussés en avril et mai par l'armée zaïroise, aidée de parachutistes marocains transportés par la France. Le 11 mai 1978, une force environ deux fois plus nombreuse vise Kolwezi, le centre minier. Près de 1 000 Africains et Européens sont tués avant que des parachutistes belges et des légionnaires français ne repoussent les assaillants.",
+    "sources": [
+     1
+    ]
+   },
+   {
+    "question": "Pourquoi ça compte ?",
+    "answer": "Dans les années 1970, le cobalt est extrait au Shaba comme sous-produit du cuivre, par l'entreprise d'État Gécamines. Comme l'essentiel de l'offre mondiale venait de là, une crise dans une seule province a suffi à provoquer le pic des prix de la fin des années 1970. Les aimants samarium-cobalt sont devenus moins attractifs, et des ingénieurs de General Motors et de Sumitomo Special Metals ont mis au point les aimants néodyme-fer-bore, aujourd'hui les principaux aimants des moteurs et de l'électronique.",
+    "sources": [
+     0
+    ]
+   },
+   {
+    "question": "Qu'est-ce qui reste incertain ?",
+    "answer": "Les sources parlent de « l'essentiel » du cobalt mondial et d'un « pic » des prix, sans donner ici de part exacte ni d'ampleur chiffrée de la hausse. Gécamines avait aussi laissé vieillir ses équipements, ce qui a pesé sur la production sans qu'on puisse séparer les deux effets. Enfin, l'épisode est une leçon, pas une prévision : rien ne dit qu'une crise comparable aurait aujourd'hui les mêmes conséquences.",
+    "sources": [
+     0
+    ]
+   }
+  ],
+  "figures": [
+   {
+    "value": "≈ 2 000",
+    "label": "combattants du FNLC entrent au Shaba",
+    "scope": "Invasion du 8 mars 1977",
+    "source": 1
+   },
+   {
+    "value": "≈ 1 000",
+    "label": "Africains et Européens tués",
+    "scope": "Attaque de Kolwezi, mai 1978",
+    "source": 1
+   }
+  ],
+  "visual": {
+   "type": "carte",
+   "id": "shaba",
+   "title": "Le Shaba, cœur minier du Zaïre",
+   "caption": "Le Shaba, nom donné sous Mobutu à la province du Katanga, au sud-est du Zaïre (actuelle république démocratique du Congo). Les rebelles entrent par Dilolo, près de la frontière angolaise, et visent Kolwezi en 1978.",
+   "alt": "Carte de l'Afrique centrale : la république démocratique du Congo, l'Angola et la Zambie. La province du Shaba, au sud-est du Congo, est colorée en rouge ; Dilolo, Kolwezi et Lubumbashi y sont placées. Un médaillon situe la zone en Afrique.",
+   "credit": "Carte MUNDI. Frontières actuelles et limite de l'ancienne province du Katanga : Natural Earth (domaine public).",
+   "license": "Domaine public"
+  },
+  "link": {
+   "slug": "cobalt-la-rdc-suspend-de-nouveau-toutes-ses-exportations-a-partir-du-30-novembre",
+   "label": "L'actualité qui fait écho",
+   "text": "Près de cinquante ans plus tard, le cobalt dépend toujours largement du même pays : la RDC vient d'annoncer la suspension de toutes ses exportations à partir du 30 novembre."
+  },
+  "quiz": {
+   "question": "Pourquoi une guerre dans une seule province a-t-elle pu faire flamber le prix mondial du cobalt ?",
+   "answer": "Parce que l'essentiel du cobalt mondial venait alors du Shaba.",
+   "explanation": "Le cobalt y était un sous-produit du cuivre de Gécamines. Quand l'extraction s'est interrompue, les acheteurs n'avaient pas d'autre source équivalente : c'est le risque d'une offre concentrée dans une seule région."
+  },
+  "audioScript": "Shaba, 1978 : la guerre qui a fait flamber le cobalt.\n\nDans les années 1970, l'essentiel du cobalt mondial vient d'une seule région : le Shaba, la province minière du Zaïre, l'actuelle République démocratique du Congo. Le cobalt y est un sous-produit du cuivre.\n\nLe 8 mars 1977, environ deux mille combattants du Front national de libération du Congo entrent au Shaba depuis l'Angola. Ils sont repoussés au printemps. Le 11 mai 1978, ils reviennent, environ deux fois plus nombreux, et visent Kolwezi, le centre minier. Près de mille Africains et Européens sont tués.\n\nL'extraction s'interrompt, et le prix mondial du cobalt atteint un pic à la fin des années 1970. Pour s'en passer, General Motors et Sumitomo Special Metals mettent au point les aimants au néodyme, aujourd'hui les principaux aimants des moteurs et de l'électronique.\n\nLa leçon reste actuelle : une offre concentrée dans une seule région expose les acheteurs aux crises locales.\n\nSources : le programme InTeGrate, à partir de données de l'USGS, et EBSCO. La carte et le décryptage sont sur MUNDI.",
+  "verification": {
+   "status": "ia",
+   "writtenBy": "Claude (IA), à partir du seul texte de l'article et de ses sources citées",
+   "checkedAt": "2026-11-25",
+   "toReview": [
+    "Le décryptage reformule l'article : relire chaque phrase contre InTeGrate et EBSCO.",
+    "La photo actuelle de l'article (bac de recyclage de piles) est hors sujet : la carte la remplace dans le pilote.",
+    "Sujet de conflit armé avec des victimes : vérifier le ton et le bilan humain."
+   ]
+  },
+  "sensitive": "Conflit armé, bilan humain"
+ },
+ "dechets-textiles-europe-2024-23-millions-tonnes": {
+  "format": "Décryptage · graphique",
+  "shortTitle": "Textiles : 78 % recyclés, mais 78 % de quoi ?",
+  "essentiel": {
+   "fait": "En 2024, l'Union européenne a généré 2,3 millions de tonnes de déchets textiles et en a traité 1,4 million, selon Eurostat.",
+   "consequence": "Le taux de recyclage de 78 % porte sur les seuls déchets traités : il ne veut pas dire que 78 % des textiles jetés sont recyclés."
+  },
+  "eventDate": "2026-11-12",
+  "eventDateLabel": "Chiffres 2024 publiés par Eurostat le 12 novembre 2026",
+  "questions": [
+   {
+    "question": "Que s'est-il passé ?",
+    "answer": "Eurostat a publié le 12 novembre 2026 ses chiffres 2024 : 2,3 millions de tonnes de déchets textiles générées dans l'Union européenne, dont plus de la moitié par les ménages, et 1,4 million de tonnes traitées la même année, soit environ 63 % du volume généré. Parmi les déchets traités, 78 % ont été recyclés et 13 % incinérés avec récupération d'énergie.",
+    "sources": [
+     0
+    ]
+   },
+   {
+    "question": "Pourquoi ça compte ?",
+    "answer": "Le chiffre de 78 % circule seul, mais son dénominateur change tout : il s'applique aux 1,4 million de tonnes traitées, pas aux 2,3 millions générées. Or l'Europe change les règles : la révision de la directive-cadre sur les déchets, entrée en vigueur le 16 octobre 2025, prévoit que les producteurs de textiles et de chaussures contribuent à financer la collecte et la gestion des produits en fin de vie. Pour juger ces règles, il faudra lire chaque taux avec son périmètre.",
+    "sources": [
+     0,
+     1
+    ]
+   },
+   {
+    "question": "Qu'est-ce qui reste incertain ?",
+    "answer": "Les volumes générés et traités sont deux flux statistiques annuels distincts : ils ne suivent pas forcément le même lot de textiles, et la part non traitée dans l'année n'est pas forcément perdue. Les États membres ont encore des délais pour appliquer la directive : les chiffres de 2024 ne disent rien de ses effets.",
+    "sources": [
+     0,
+     1
+    ]
+   }
+  ],
+  "figures": [
+   {
+    "value": "2,3 Mt",
+    "label": "déchets textiles générés",
+    "scope": "Union européenne, 2024",
+    "source": 0
+   },
+   {
+    "value": "1,4 Mt",
+    "label": "déchets textiles traités (≈ 63 % du volume généré)",
+    "scope": "Union européenne, 2024",
+    "source": 0
+   },
+   {
+    "value": "78 %",
+    "label": "recyclés, parmi les déchets traités",
+    "scope": "Dénominateur : 1,4 Mt traitées, pas 2,3 Mt générées",
+    "source": 0
+   }
+  ],
+  "visual": {
+   "type": "graphique",
+   "id": "textiles",
+   "title": "Générés, traités, recyclés : trois chiffres, deux dénominateurs",
+   "caption": "En haut, deux volumes annuels sur la même échelle. En bas, la répartition des seuls déchets traités : c'est à cette barre, et à elle seule, que s'applique le taux de 78 %.",
+   "alt": "Graphique en barres. Déchets textiles générés dans l'UE en 2024 : 2,3 millions de tonnes. Déchets traités : 1,4 million de tonnes. Répartition des déchets traités : 78 % recyclés, 13 % incinérés avec récupération d'énergie, 9 % autres traitements.",
+   "credit": "Graphique MUNDI d'après Eurostat (12 novembre 2026).",
+   "license": "Données Eurostat (réutilisation autorisée avec mention de la source)",
+   "bars": [
+    {
+     "label": "Déchets textiles générés",
+     "value": 2.3,
+     "unit": "Mt"
+    },
+    {
+     "label": "Déchets textiles traités",
+     "value": 1.4,
+     "unit": "Mt"
+    }
+   ],
+   "split": {
+    "label": "Répartition des 1,4 Mt traitées",
+    "parts": [
+     {
+      "label": "Recyclés",
+      "value": 78
+     },
+     {
+      "label": "Incinérés avec récupération d'énergie",
+      "value": 13
+     },
+     {
+      "label": "Autres traitements",
+      "value": 9,
+      "note": "Mise en décharge (8 %) et incinération sans récupération (1 %), selon les chiffres d'Eurostat rapportés par The Brussels Times."
+     }
+    ]
+   }
+  },
+  "link": {
+   "slug": "quand-un-produit-peut-il-etre-dit-recyclable-en-france",
+   "label": "Le concept pour aller plus loin",
+   "text": "« Recyclé » et « recyclable » ne veulent pas dire la même chose : en France, cinq critères cumulatifs fixent quand un produit peut être dit recyclable."
+  },
+  "quiz": {
+   "question": "Si 78 % des déchets textiles traités sont recyclés, peut-on dire que 78 % des déchets textiles de l'UE le sont ?",
+   "answer": "Non.",
+   "explanation": "Le dénominateur est le volume traité (1,4 million de tonnes), pas le volume généré (2,3 millions). Et les deux chiffres sont des flux annuels distincts, qui ne suivent pas forcément le même lot de textiles."
+  },
+  "audioScript": "Déchets textiles : 78 pour cent recyclés, mais 78 pour cent de quoi ?\n\nEn 2024, l'Union européenne a généré 2,3 millions de tonnes de déchets textiles, selon Eurostat. Plus de la moitié vient des ménages. La même année, 1,4 million de tonnes ont été traitées.\n\nUn chiffre circule : 78 pour cent de recyclage. Il est exact, mais il ne porte que sur les déchets traités, c'est-à-dire sur 1,4 million de tonnes, et non sur les 2,3 millions générées. Parmi ces déchets traités, 13 pour cent ont été incinérés pour produire de l'énergie.\n\nAutre précaution : les volumes générés et traités sont deux statistiques annuelles distinctes. Elles ne suivent pas forcément le même lot de vêtements.\n\nPourquoi ça compte ? Une révision de la directive européenne sur les déchets, entrée en vigueur en octobre 2025, prévoit que les producteurs de textiles contribuent à financer la collecte et la gestion des vêtements en fin de vie. Les États ont encore des délais pour l'appliquer. Pour juger ces règles, il faudra lire chaque taux avec son dénominateur.\n\nSources : Eurostat et la Commission européenne. Le graphique est sur MUNDI.",
+  "verification": {
+   "status": "humain",
+   "writtenBy": "Claude (IA), à partir de l'article validé par le fondateur",
+   "checkedAt": "2026-11-25",
+   "toReview": [
+    "L'article est validé par le fondateur, mais le décryptage et le graphique sont nouveaux : à relire.",
+    "La barre « Autres traitements » (9 %) vient de l'article voisin sur les mêmes chiffres, qui cite The Brussels Times : vérifier sur la page Eurostat."
+   ]
+  }
+ },
+ "lehman-brothers-15-septembre-2008-la-faillite-qui-a-fait-basculer-la-crise": {
+  "format": "Récit audio",
+  "shortTitle": "Lehman Brothers : la faillite qui a fait basculer 2008",
+  "essentiel": {
+   "fait": "Le 15 septembre 2008, Lehman Brothers se déclare en faillite avec 639 milliards de dollars d'actifs, la plus grande faillite de l'histoire des États-Unis.",
+   "consequence": "La panique gagne les marchés, un fonds monétaire « casse le dollar » et Washington lance un plan de sauvetage de 700 milliards de dollars."
+  },
+  "eventDate": "2008-09-15",
+  "eventDateLabel": "Lundi 15 septembre 2008",
+  "questions": [
+   {
+    "question": "Que s'est-il passé ?",
+    "answer": "Tôt le matin du lundi 15 septembre 2008, la banque d'affaires Lehman Brothers, fondée en 1850, se place sous la protection du chapitre 11 de la loi américaine sur les faillites. Elle déclare 639 milliards de dollars d'actifs. Le jour même, le Dow Jones perd plus de 500 points. Le fonds monétaire Reserve Primary Fund passe ensuite sous la valeur d'un dollar par part, et les pouvoirs publics américains lancent le TARP, un plan de sauvetage de 700 milliards de dollars.",
+    "sources": [
+     0,
+     1,
+     2,
+     4
+    ]
+   },
+   {
+    "question": "Pourquoi ça compte ?",
+    "answer": "Le choix de laisser tomber Lehman Brothers a montré qu'une très grande banque pouvait faire faillite, mais la panique qui a suivi a poussé les États à sauver d'autres établissements. Depuis, les règles sur les fonds propres et la surveillance des banques jugées trop grandes pour faire faillite reviennent dans chaque débat sur la stabilité financière.",
+    "sources": [],
+    "nature": "analyse"
+   },
+   {
+    "question": "Qu'est-ce qui reste incertain ?",
+    "answer": "Les sources divergent sur les dettes (613 milliards de dollars pour History.com, 619 pour EBSCO) et sur les effectifs (de 25 000 à plus de 28 000 salariés). La faillite n'a pas déclenché la Grande Récession : la Réserve fédérale fait courir celle-ci de décembre 2007 à juin 2009. Enfin, savoir s'il fallait sauver Lehman reste un débat ouvert.",
+    "sources": [
+     0,
+     1,
+     2,
+     3
+    ]
+   }
+  ],
+  "figures": [
+   {
+    "value": "639 Md$",
+    "label": "d'actifs déclarés lors de la faillite",
+    "scope": "Lehman Brothers, 15 septembre 2008",
+    "source": 0
+   },
+   {
+    "value": "> 500 pts",
+    "label": "de baisse du Dow Jones le jour même",
+    "scope": "15 septembre 2008",
+    "source": 1
+   },
+   {
+    "value": "700 Md$",
+    "label": "pour le plan de sauvetage TARP",
+    "scope": "États-Unis, 2008",
+    "source": 0
+   }
+  ],
+  "visual": {
+   "type": "archive",
+   "title": "Le siège de Lehman Brothers à Times Square",
+   "caption": "Photo d'archive prise avant la faillite : la façade affiche la date du 12 août. Le planisphère lumineux et les noms des places financières rappellent l'ambition mondiale de la banque.",
+   "alt": "Le siège de Lehman Brothers à Times Square, New York : une tour de verre dont la façade porte le nom de la banque, un planisphère et, au rez-de-chaussée, des écrans publicitaires et les noms London, New York, Hong Kong et Tokyo."
+  },
+  "link": {
+   "slug": "lundi-noir-de-1987-le-krach-qui-a-invente-les-coupe-circuits-boursiers",
+   "label": "Le précédent",
+   "text": "Vingt et un ans plus tôt, le lundi noir de 1987 avait déjà fait plonger le Dow Jones de 22,6 % en une séance, et donné naissance aux coupe-circuits boursiers."
+  },
+  "quiz": {
+   "question": "La faillite de Lehman Brothers a-t-elle déclenché la Grande Récession ?",
+   "answer": "Non : elle survient en plein milieu.",
+   "explanation": "Selon l'historique de la Réserve fédérale, la Grande Récession court de décembre 2007 à juin 2009. La faillite de septembre 2008 l'a aggravée en propageant la panique, mais elle ne l'a pas déclenchée."
+  },
+  "audioScript": "Lehman Brothers : la faillite qui a fait basculer 2008.\n\nLundi 15 septembre 2008, tôt le matin. La banque d'affaires Lehman Brothers, fondée en 1850, se place sous la protection du chapitre 11 de la loi américaine sur les faillites. Elle déclare 639 milliards de dollars d'actifs. C'est la plus grande faillite de l'histoire des États-Unis.\n\nLe jour même, le Dow Jones perd plus de 500 points. Ensuite, un grand fonds monétaire, le Reserve Primary Fund, passe sous la valeur d'un dollar par part. On dit qu'il « casse le dollar ». Washington lance un plan de sauvetage de 700 milliards de dollars, le TARP.\n\nPourquoi ça compte encore ? Le choix de laisser tomber Lehman reste débattu. Il a montré qu'une très grande banque pouvait faire faillite, mais la panique qui a suivi a poussé les États à en sauver d'autres. Depuis, chaque débat sur la stabilité financière revient sur les banques jugées trop grandes pour faire faillite.\n\nSources : Britannica, History.com, EBSCO et la Réserve fédérale. Le récit complet est sur MUNDI.",
+  "verification": {
+   "status": "ia",
+   "writtenBy": "Claude (IA), à partir du seul texte de l'article et de ses sources citées",
+   "checkedAt": "2026-11-25",
+   "toReview": [
+    "Le décryptage reformule l'article : relire chaque phrase contre les cinq sources.",
+    "Photo d'archive : l'année de prise de vue n'est pas vérifiée (seule la date du 12 août est lisible sur la façade). Contrôler la fiche Wikimedia Commons.",
+    "Sujet financier : vérifier que l'analyse distingue bien les faits du débat."
+   ]
+  },
+  "sensitive": "Finance, crise systémique"
+ }
+}

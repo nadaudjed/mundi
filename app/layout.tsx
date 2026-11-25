@@ -3,12 +3,16 @@ import "@fontsource-variable/dm-sans";
 import "@fontsource-variable/fraunces";
 import "@fontsource/ibm-plex-mono/latin-400.css";
 import "@fontsource/ibm-plex-mono/latin-500.css";
+// Pilote « Aujourd'hui » : titres en Instrument Serif, interface en Inter (licences OFL, auto-hébergées).
+import "@fontsource/instrument-serif/latin-400.css";
+import "@fontsource-variable/inter/wght.css";
 import "./globals.css";
 import { BottomNav } from "@/components/BottomNav";
 import { PwaSetup } from "@/components/PwaSetup";
 import { SearchShortcut } from "@/components/SearchShortcut";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ToastProvider } from "@/components/Toast";
+import { AudioPlayerProvider } from "@/components/audio/AudioPlayer";
 import { themeScript } from "@/lib/theme";
 import { introScript } from "@/lib/intro";
 import { headCleanScript } from "@/lib/head-clean";
@@ -57,9 +61,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <PwaSetup />
         <SearchShortcut />
         <ToastProvider>
-          <SiteHeader />
-          <main id="contenu">{children}</main>
-          <BottomNav />
+          <AudioPlayerProvider>
+            <SiteHeader />
+            <main id="contenu">{children}</main>
+            <BottomNav />
+          </AudioPlayerProvider>
         </ToastProvider>
       </body>
     </html>

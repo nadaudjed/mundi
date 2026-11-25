@@ -61,7 +61,8 @@ test("news homepage uses image-rich cards with honest review labels and no overf
   const tiles = page.getByTestId("publication-tile");
   await expect(tiles).toHaveCount(publicArticles.length);
   await expect(tiles.first().getByText(/Contrôle IA, sans relecture humaine|Validation humaine/)).toBeVisible();
-  await expect(tiles.first().getByRole("link").first()).toHaveAttribute("href", /^\/actualites\/.+\/$/);
+  // La carte mène à l'article (le crédit de la photo, lien externe, peut venir avant).
+  await expect(tiles.first().locator('a[href^="/actualites/"]').first()).toHaveAttribute("href", /^\/actualites\/.+\/$/);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);
 });

@@ -540,6 +540,12 @@ html[data-intro="skip"] .intro {
     transform: rotate(-90deg);
   }
 }
+/* En attente du premier affichage réel : tout reste figé au début
+   (placé après la version calme pour l'emporter sur elle aussi). */
+html[data-intro="wait"] .intro,
+html[data-intro="wait"] .intro * {
+  animation-play-state: paused !important;
+}
 @media print {
   html[data-intro] .intro {
     display: none;

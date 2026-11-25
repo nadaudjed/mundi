@@ -21,6 +21,7 @@ import { ReadingProgress } from "@/components/ReadingProgress";
 import { keyFigureOf } from "@/lib/covers";
 import type { ComparisonCard } from "@/lib/data-cards";
 import { DecryptageArticle } from "@/components/pilot/DecryptageArticle";
+import { DossierLink } from "@/components/dossier/DossierLink";
 
 type Params = { slug: string };
 export function generateStaticParams(): Params[] {
@@ -120,6 +121,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
         <ShareButton slug={a.slug} path={publicationPath(a.slug)} title={a.title} />
         <ListenButton title={a.title} summary={a.summary} points={a.keyPoints} tone="light" audioSrc={a.audio} />
       </div>
+      <DossierLink slug={a.slug} />
       {a.sections.length >= TOC_MIN_SECTIONS && (
         <nav aria-label="Sommaire" className="mt-8 border-l-2 border-rule pl-4" data-testid="article-toc">
           <p className="text-meta font-semibold text-muted">Sommaire</p>

@@ -5,6 +5,7 @@ import { MemoryCard } from "@/components/MemoryCard";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { RelatedPublications } from "@/components/RelatedPublications";
 import { SaveButton, ShareButton } from "@/components/StoryActions";
+import { DossierLink } from "@/components/dossier/DossierLink";
 import type { ComparisonCard } from "@/lib/data-cards";
 import type { Decryptage } from "@/lib/decryptage";
 import { formatDate } from "@/lib/format";
@@ -96,6 +97,7 @@ export function DecryptageArticle({ a, d, all }: { a: VerifiedPublication; d: De
         <SaveButton slug={publicationKey(a.slug)} title={a.title} />
         <ShareButton slug={a.slug} path={publicationPath(a.slug)} title={a.title} />
       </div>
+      <DossierLink slug={a.slug} />
 
       {/* 1. L'essentiel */}
       <section id="essentiel" aria-labelledby="essentiel-titre" className="mt-10 scroll-mt-20">

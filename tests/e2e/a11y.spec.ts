@@ -12,7 +12,7 @@ test.describe("Accessibilité", () => {
     await expect(page).toHaveURL(/#contenu$/);
   });
 
-  for (const path of ["/", "/explorer/", "/reviser/", "/application/", "/a-propos/", "/confidentialite/", "/mentions-legales/", "/hors-ligne/"]) {
+  for (const path of ["/", "/explorer/", "/reviser/", "/application/", "/a-propos/", "/confidentialite/", "/mentions-legales/", "/hors-ligne/", "/enregistres/", "/dossiers/cobalt-congolais/"]) {
     test(`contrastes et règles WCAG A/AA : ${path}`, async ({ page }) => {
       await page.goto(path);
       await page.waitForTimeout(500);

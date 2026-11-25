@@ -98,9 +98,9 @@ export function SavedClient({ publications = [] }: { publications?: FeedPublicat
                 {formatOf(p)}
                 <span className="font-normal text-muted"> · {getTopic(p.topic)?.name}</span>
               </p>
-              <h2 className="mt-1 text-[1.05rem] leading-snug font-semibold text-ink text-balance">
+              <h3 className="mt-1 text-[1.05rem] leading-snug font-semibold text-ink text-balance">
                 <Link href={publicationPath(p.slug)} className="title-link">{p.title}</Link>
-              </h2>
+              </h3>
               <p className="mt-1.5 text-meta text-muted">
                 <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time> · {verificationLabel(p)} · {p.sources.length} sources
               </p>

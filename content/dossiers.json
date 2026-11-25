@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cobalt-congolais",
+    "status": "pilote",
+    "title": "Cobalt congolais : qui capte la valeur entre la mine et la batterie ?",
+    "shortTitle": "Cobalt congolais",
+    "topic": "materiaux-critiques",
+    "createdAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "byline": "Rédaction MUNDI",
+    "verification": "Contrôle IA, sans relecture humaine. Chaque élément reprend une publication déjà vérifiée de MUNDI.",
+    "intro": "La république démocratique du Congo fournit l'essentiel du cobalt extrait dans le monde. Ce dossier réunit ce que MUNDI a publié sur ce métal des batteries : la décision la plus récente, l'histoire qui l'éclaire et les chiffres à connaître.",
+    "publications": [
+      { "slug": "cobalt-la-rdc-suspend-de-nouveau-toutes-ses-exportations-a-partir-du-30-novembre", "role": "L'actualité" },
+      { "slug": "shaba-1977-1978-la-guerre-miniere-qui-a-fait-flamber-le-cobalt", "role": "Le récit" }
+    ],
+    "essentiel": [
+      "La RDC produisait, avant ses restrictions de 2025, environ les trois quarts du cobalt extrait dans le monde.",
+      "Le 23 novembre 2026, le régulateur congolais, l'Arecoms, a annoncé la suspension de toutes les exportations de cobalt à partir du 30 novembre, sans date de reprise.",
+      "Ce n'est pas la première fois que l'offre congolaise se bloque : en 1977 et 1978, deux invasions du Shaba ont interrompu l'extraction et fait flamber les prix mondiaux."
+    ],
+    "figures": [
+      { "value": "≈ 3/4", "label": "du cobalt extrait dans le monde venait de la RDC", "scope": "Avant les restrictions de 2025", "year": "avant 2025", "source": { "label": "Mining.com.au, 24 novembre 2026", "url": "https://mining.com.au/drc-to-reinstate-cobalt-export-ban-as-prices-slump/" } },
+      { "value": "33 525 $", "label": "la tonne : prix de référence du cobalt", "scope": "Le 20 novembre 2026, contre près de 58 000 $ au premier trimestre 2026", "year": "2026", "source": { "label": "Ecofin (d'après Trading Economics), 24 novembre 2026", "url": "https://www.ecofinagency.com/news-industry/2411-61107-drc-suspends-cobalt-exports-again-to-counter-falling-prices-and-global-oversupply" } },
+      { "value": "96 600 t", "label": "quota d'exportation prévu pour 2026", "scope": "Système de quotas instauré en octobre 2025", "year": "2026", "source": { "label": "Ecofin, 24 novembre 2026", "url": "https://www.ecofinagency.com/news-industry/2411-61107-drc-suspends-cobalt-exports-again-to-counter-falling-prices-and-global-oversupply" } }
+    ],
+    "map": {
+      "src": "/media/pilote/shaba-carte.svg",
+      "title": "Le Shaba, cœur minier du Zaïre",
+      "alt": "Carte de l'Afrique centrale : la république démocratique du Congo, l'Angola et la Zambie. La province du Shaba, au sud-est du Congo, est colorée en rouge ; Dilolo, Kolwezi et Lubumbashi y sont placées. Un médaillon situe la zone en Afrique.",
+      "caption": "Le Shaba, nom donné sous Mobutu à la province du Katanga, au sud-est du Zaïre (actuelle république démocratique du Congo).",
+      "credit": "Carte MUNDI. Frontières actuelles et limite de l'ancienne province du Katanga : Natural Earth (domaine public)."
+    },
+    "timeline": [
+      { "date": "1977-03-08", "label": "8 mars 1977", "text": "Environ 2 000 combattants du FNLC entrent au Shaba depuis l'Angola.", "source": { "label": "EBSCO Research Starters", "url": "https://www.ebsco.com/research-starters/history/angolan-rebels-invade-shaba-province" } },
+      { "date": "1978-05-11", "label": "11 mai 1978", "text": "Une nouvelle invasion vise Kolwezi, le centre minier. L'extraction s'interrompt et les prix mondiaux du cobalt atteignent un pic.", "source": { "label": "InTeGrate (Carleton College)", "url": "https://serc.carleton.edu/integrate/teaching_materials/mineral_resources/student_materials/unit2cobaltexample.html" } },
+      { "date": "2025-02", "label": "Février 2025", "text": "La RDC interdit toutes les exportations de cobalt.", "source": { "label": "Ecofin", "url": "https://www.ecofinagency.com/news-industry/2411-61107-drc-suspends-cobalt-exports-again-to-counter-falling-prices-and-global-oversupply" } },
+      { "date": "2025-10", "label": "Octobre 2025", "text": "L'interdiction est remplacée par des quotas : 96 600 tonnes pour 2026.", "source": { "label": "Ecofin", "url": "https://www.ecofinagency.com/news-industry/2411-61107-drc-suspends-cobalt-exports-again-to-counter-falling-prices-and-global-oversupply" } },
+      { "date": "2026-11-23", "label": "23 novembre 2026", "text": "L'Arecoms annonce la suspension de toutes les exportations à partir du 30 novembre.", "source": { "label": "Ecofin", "url": "https://www.ecofinagency.com/news-industry/2411-61107-drc-suspends-cobalt-exports-again-to-counter-falling-prices-and-global-oversupply" } }
+    ],
+    "updates": [
+      { "id": "2026-11-25-suspension", "date": "2026-11-25", "kind": "fait", "text": "Ajout de l'annonce du 23 novembre : la RDC suspend toutes ses exportations de cobalt à partir du 30 novembre.", "href": "/actualites/cobalt-la-rdc-suspend-de-nouveau-toutes-ses-exportations-a-partir-du-30-novembre/", "source": { "label": "Ecofin, 24 novembre 2026", "url": "https://www.ecofinagency.com/news-industry/2411-61107-drc-suspends-cobalt-exports-again-to-counter-falling-prices-and-global-oversupply" } }
+    ],
+    "corrections": [],
+    "interview": null,
+    "missing": [
+      "Entretien original (à fournir ou valider par Jacques).",
+      "Données originales sur la répartition de la valeur entre la mine, le raffinage et la batterie : aucune publication vérifiée ne les couvre encore.",
+      "Visuel propre au dossier (la carte du Shaba est réutilisée en attendant)."
+    ]
+  }
+]

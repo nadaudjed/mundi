@@ -1,5 +1,669 @@
 [
   {
+    "slug": "1960-l-annee-de-l-afrique-17-independances-en-douze-mois",
+    "title": "1960, l'année de l'Afrique : 17 indépendances en douze mois",
+    "summary": "Entre le 1er janvier et le 28 novembre 1960, 17 pays africains proclament leur indépendance, dont 14 anciennes colonies françaises. Ce récit retrace cette année charnière à partir du musée royal de l'Afrique centrale (Belgique), de la Bibliothèque du Congrès américaine et des Origins de l'université d'État de l'Ohio. Il éclaire l'actualité du continent : beaucoup des États d'aujourd'hui, leurs frontières et leurs liens avec les anciennes puissances coloniales datent de ce moment.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En 1960, 17 pays africains deviennent indépendants : 14 anciennes colonies françaises, 2 britanniques et 1 belge, selon le décompte retenu par l'encyclopédie Wikipédia.",
+      "Le mouvement s'ouvre avec le Cameroun le 1er janvier et se termine avec la Mauritanie le 28 novembre ; le seul mois d'août voit neuf proclamations, selon le musée royal de l'Afrique centrale.",
+      "Le 14 décembre 1960, l'Assemblée générale de l'ONU adopte, sans voix contre, la déclaration sur l'octroi de l'indépendance aux pays et aux peuples coloniaux."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une cascade d'indépendances",
+        "text": "Le musée royal de l'Afrique centrale, à Tervuren, résume l'année : entre le 1er janvier et le 28 novembre 1960, 18 pays proclament leur indépendance, Chypre et 17 pays africains. La Bibliothèque du Congrès américaine parle elle aussi de 17 pays. Le Cameroun ouvre la série le 1er janvier, suivi du Togo le 27 avril, de Madagascar le 26 juin, du Congo belge le 30 juin et de la Somalie le 1er juillet, née de la réunion du Somaliland britannique et du territoire sous tutelle italienne."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'été des drapeaux",
+        "text": "Août 1960 concentre les proclamations, selon le musée royal de l'Afrique centrale : Dahomey, l'actuel Bénin, le 1er ; Niger le 3 ; Haute-Volta, l'actuel Burkina Faso, le 5 ; Côte d'Ivoire le 7 ; Tchad le 11 ; République centrafricaine le 13 ; Congo-Brazzaville le 15 ; Gabon le 17 ; puis Sénégal le 20. Le Mali suit le 22 septembre, le Nigeria le 1er octobre et la Mauritanie le 28 novembre. EBSCO rappelle que trois puissances coloniales étaient concernées : le Royaume-Uni, la France et la Belgique."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une nouvelle carte du monde",
+        "text": "Selon Wikipédia, le nombre de pays indépendants en Afrique passe en 1960 de neuf à vingt-six. Le 14 décembre 1960, l'Assemblée générale des Nations unies approuve la déclaration sur l'octroi de l'indépendance aux pays et aux peuples coloniaux, qui affirme le droit des peuples à disposer d'eux-mêmes ; elle passe sans voix contre, les États-Unis et sept autres puissances coloniales s'abstenant. Les auteurs d'Origins, à l'université d'État de l'Ohio, notent que 17 pays naissent cette année-là et que 13 autres suivent avant la fin de la décennie."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi 1960 compte encore",
+        "text": "Les indépendances de 1960 n'ont pas réglé toutes les questions : frontières héritées, liens économiques et militaires avec les anciennes métropoles, crises politiques comme celle qui suit l'indépendance du Congo. Une partie des débats actuels sur la présence française au Sahel ou sur la place de l'Afrique à l'ONU renvoie à ce moment. C'est une lecture d'historien ; les dates et les décomptes, eux, sont établis par les sources citées."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Musée royal de l'Afrique centrale, 17 pays africains deviennent indépendants",
+        "url": "https://independance.africamuseum.be/en/node/168"
+      },
+      {
+        "label": "Bibliothèque du Congrès, Mapping the Year of Africa",
+        "url": "https://blogs.loc.gov/maps/2023/10/mapping-the-year-of-africa/"
+      },
+      {
+        "label": "Origins (Ohio State University), Year of Africa 1960",
+        "url": "https://origins.osu.edu/index.php/article/year-of-africa-1960-rumba-pan-africanism-Kariba"
+      },
+      {
+        "label": "EBSCO, Africa's Year of Independence",
+        "url": "https://www.ebsco.com/research-starters/history/africas-year-independence"
+      },
+      {
+        "label": "Wikipédia (anglais), Year of Africa",
+        "url": "https://en.wikipedia.org/wiki/Year_of_Africa"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "pays-independants-1960",
+        "kind": "stat",
+        "headline": "17 pays africains deviennent indépendants en 1960",
+        "source": {
+          "label": "Bibliothèque du Congrès",
+          "url": "https://blogs.loc.gov/maps/2023/10/mapping-the-year-of-africa/"
+        },
+        "asOf": "1960-12-31",
+        "imageQuery": "african national flags",
+        "measure": {
+          "value": 17,
+          "unit": "pays",
+          "label": "Indépendances africaines",
+          "scope": "Afrique",
+          "period": "1960"
+        }
+      },
+      {
+        "id": "puissances-coloniales-1960",
+        "kind": "comparaison",
+        "headline": "Sur les 17 indépendances de 1960, 14 concernent d'anciennes colonies françaises",
+        "source": {
+          "label": "Wikipédia",
+          "url": "https://en.wikipedia.org/wiki/Year_of_Africa"
+        },
+        "asOf": "1960-12-31",
+        "imageQuery": "colonial era map",
+        "items": [
+          {
+            "value": 14,
+            "unit": "pays",
+            "label": "Anciennes colonies françaises",
+            "scope": "Afrique",
+            "period": "1960"
+          },
+          {
+            "value": 2,
+            "unit": "pays",
+            "label": "Anciennes colonies britanniques",
+            "scope": "Afrique",
+            "period": "1960"
+          },
+          {
+            "value": 1,
+            "unit": "pays",
+            "label": "Ancienne colonie belge",
+            "scope": "Afrique",
+            "period": "1960"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "pays-africains-independants",
+        "kind": "comparaison",
+        "headline": "Le nombre de pays africains indépendants passe de neuf à vingt-six en 1960",
+        "source": {
+          "label": "Wikipédia",
+          "url": "https://en.wikipedia.org/wiki/Year_of_Africa"
+        },
+        "asOf": "1960-12-31",
+        "imageQuery": "africa political globe",
+        "items": [
+          {
+            "value": 9,
+            "unit": "pays",
+            "label": "Avant 1960",
+            "scope": "Afrique",
+            "period": "début 1960"
+          },
+          {
+            "value": 26,
+            "unit": "pays",
+            "label": "Fin 1960",
+            "scope": "Afrique",
+            "period": "fin 1960"
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Combien de pays africains deviennent indépendants en 1960 ?",
+        "answer": "17 pays, dont 14 anciennes colonies françaises, 2 britanniques et 1 belge."
+      },
+      {
+        "question": "Quel pays ouvre la série des indépendances africaines de 1960 ?",
+        "answer": "Le Cameroun, le 1er janvier 1960."
+      },
+      {
+        "question": "Quel mois de 1960 concentre le plus d'indépendances africaines ?",
+        "answer": "Août 1960, avec notamment le Niger, la Côte d'Ivoire, le Tchad, le Gabon et le Sénégal."
+      },
+      {
+        "question": "Quel texte l'ONU adopte-t-elle le 14 décembre 1960 ?",
+        "answer": "La déclaration sur l'octroi de l'indépendance aux pays et aux peuples coloniaux, adoptée sans voix contre."
+      }
+    ]
+  },
+  {
+    "slug": "variole-comment-le-monde-a-eradique-une-maladie-pour-la-premiere-fois",
+    "title": "Variole : comment le monde a éradiqué une maladie pour la première fois",
+    "summary": "Le 8 mai 1980, la 33e Assemblée mondiale de la santé déclare le monde libéré de la variole, une maladie qui avait tué 300 millions de personnes au seul XXe siècle selon l'OMS. Ce récit retrace le programme intensifié lancé en 1967, la stratégie de surveillance et d'endiguement, et les derniers cas, à partir de l'OMS et des CDC américains. Il éclaire les ripostes actuelles aux épidémies, qui reposent toujours sur le repérage rapide des cas et la vaccination de leur entourage.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L'OMS lance en 1967 le programme intensifié d'éradication de la variole ; son coût est estimé à environ 300 millions de dollars, dont les deux tiers venus des pays touchés.",
+      "Le dernier cas naturel connu est celui d'Ali Maow Maalin, cuisinier d'hôpital à Merca, en Somalie, tombé malade en octobre 1977, selon les CDC.",
+      "Une commission mondiale certifie l'éradication en décembre 1979, puis la 33e Assemblée mondiale de la santé la déclare le 8 mai 1980 : c'est la seule maladie infectieuse humaine éradiquée."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un fléau millénaire",
+        "text": "La variole tuait en moyenne trois malades sur dix, selon les CDC, et jusqu'à 30 % des cas selon l'OMS. L'OMS estime qu'elle a tué 300 millions de personnes au seul XXe siècle. L'Assemblée mondiale de la santé appelle à l'éradiquer dès 1958, et un premier programme de l'OMS démarre en 1959, selon l'OMS et les CDC."
+      },
+      {
+        "kind": "fait",
+        "heading": "1967, le grand effort",
+        "text": "En 1967, l'OMS lance le programme intensifié d'éradication de la variole. Les CDC attribuent son succès à un système de surveillance des cas et à des campagnes de vaccination de masse. En fin de parcours, l'OMS décrit des stratégies ciblées de surveillance et d'endiguement : rechercher les malades maison par maison et vacciner leurs contacts. L'OMS parle aussi des bénéfices de la vaccination en anneau autour des cas. Le programme a coûté environ 300 millions de dollars, dont les deux tiers venus des pays où la maladie sévissait, selon l'OMS."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les derniers malades",
+        "text": "La variole disparaît d'Amérique du Sud en 1971, d'Asie en 1975 et d'Afrique en 1977, selon l'OMS. Fin 1975, Rahima Banu, une fillette de trois ans du Bangladesh, est la dernière personne à contracter naturellement la forme majeure de la maladie, selon les CDC. Le dernier cas naturel connu est celui d'Ali Maow Maalin, cuisinier d'hôpital à Merca, en Somalie : sa fièvre commence le 22 octobre 1977. En 1978, Janet Parker, photographe médicale à l'université de Birmingham, est contaminée dans le bâtiment de l'école de médecine et meurt le 11 septembre 1978 : selon les CDC, c'est la dernière personne morte de la variole."
+      },
+      {
+        "kind": "fait",
+        "heading": "La victoire officielle",
+        "text": "Une commission mondiale de scientifiques venus de 19 pays certifie l'éradication en décembre 1979, selon l'OMS. Le 8 mai 1980, la 33e Assemblée mondiale de la santé déclare le monde libéré de la maladie, selon les CDC. L'OMS souligne que la variole reste la seule maladie infectieuse à avoir été éradiquée."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que la variole enseigne encore",
+        "text": "La recette décrite par l'OMS et les CDC, repérer vite chaque cas et vacciner autour de lui, sert encore dans les ripostes actuelles aux épidémies. Mais la variole avait des traits rares : un vaccin efficace et une maladie visible. Toutes les maladies ne s'y prêtent pas, ce qui explique en partie pourquoi elle reste la seule éradiquée."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OMS, Histoire de la vaccination contre la variole",
+        "url": "https://www.who.int/news-room/spotlight/history-of-vaccination/history-of-smallpox-vaccination"
+      },
+      {
+        "label": "OMS, 40e anniversaire de l'éradication de la variole (2019)",
+        "url": "https://www.who.int/news/item/13-12-2019-who-commemorates-the-40th-anniversary-of-smallpox-eradication"
+      },
+      {
+        "label": "OMS, Variole",
+        "url": "https://www.who.int/health-topics/smallpox"
+      },
+      {
+        "label": "CDC, History of Smallpox",
+        "url": "https://www.cdc.gov/smallpox/about/history.html"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "En quelle année l'OMS lance-t-elle le programme intensifié d'éradication de la variole ?",
+        "answer": "En 1967."
+      },
+      {
+        "question": "Où a été recensé le dernier cas naturel connu de variole ?",
+        "answer": "À Merca, en Somalie, en octobre 1977 : Ali Maow Maalin, cuisinier d'hôpital."
+      },
+      {
+        "question": "Quand l'Assemblée mondiale de la santé a-t-elle déclaré le monde libéré de la variole ?",
+        "answer": "Le 8 mai 1980, lors de la 33e Assemblée mondiale de la santé."
+      },
+      {
+        "question": "Sur quelle stratégie reposait la fin de la campagne contre la variole ?",
+        "answer": "Sur la surveillance et l'endiguement : rechercher les malades et vacciner leurs contacts, en anneau autour des cas."
+      }
+    ]
+  },
+  {
+    "slug": "plan-marshall-comment-13-3-milliards-de-dollars-ont-relance-l-europe-d-apres",
+    "title": "Plan Marshall : comment 13,3 milliards de dollars ont relancé l'Europe d'après-guerre",
+    "summary": "Annoncé à Harvard le 5 juin 1947 par le secrétaire d'État George Marshall, le plan de reconstruction européenne devient loi le 3 avril 1948. Les États-Unis y consacrent 13,3 milliards de dollars, répartis entre seize pays, tandis que l'URSS refuse d'y participer. Ce récit s'appuie sur les Archives nationales américaines, la Bibliothèque du Congrès et le Service de recherche du Congrès. Il éclaire les débats actuels sur l'aide à la reconstruction des pays sortant d'une guerre.",
+    "topic": "economie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 5 juin 1947, à Harvard, George Marshall propose une aide américaine à la reconstruction de l'Europe ; Truman signe la loi le 3 avril 1948.",
+      "Le Congrès américain vote 13,3 milliards de dollars sur quatre ans, soit environ 143 milliards de dollars de 2017 selon le Service de recherche du Congrès.",
+      "Le Royaume-Uni reçoit environ 25 % des aides versées aux pays, la France 21 %, l'Italie 12 % et l'Allemagne de l'Ouest 11 % ; l'URSS et ses alliés refusent le programme."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un discours à Harvard",
+        "text": "Le 5 juin 1947, lors de la remise des diplômes à l'université Harvard, le secrétaire d'État George Marshall propose que les États-Unis aident l'Europe à se reconstruire, selon les Archives nationales américaines et la Bibliothèque du Congrès. Le 12 juillet 1947, une conférence s'ouvre à Paris ; l'Union soviétique refuse d'y venir et pousse la Tchécoslovaquie, la Pologne et la Hongrie à rester à l'écart, selon la chronologie de la Bibliothèque du Congrès."
+      },
+      {
+        "kind": "fait",
+        "heading": "La loi de 1948",
+        "text": "Le 3 avril 1948, le président Harry Truman signe la loi qui crée le programme, selon les Archives nationales, le Service de recherche du Congrès et Britannica. Le Congrès vote 13,3 milliards de dollars pour la reconstruction européenne sur quatre ans. Le Service de recherche du Congrès estime ce montant à 143 milliards de dollars de 2017, et précise que les estimations des sommes réellement dépensées vont de 10,3 à 13,6 milliards. L'Organisation européenne de coopération économique (OECE), créée par les pays participants, tient sa première réunion officielle à Paris le 15 avril 1948."
+      },
+      {
+        "kind": "fait",
+        "heading": "Qui a reçu quoi",
+        "text": "Selon le Service de recherche du Congrès, le programme aide seize pays. Les premiers bénéficiaires sont le Royaume-Uni, avec environ 25 % des totaux par pays, la France avec 21 %, l'Italie avec 12 %, l'Allemagne de l'Ouest avec 11 % et les Pays-Bas avec 8 %. Prévu pour durer jusqu'au 30 juin 1952, le programme s'arrête six mois plus tôt, fin 1951, en raison de la guerre de Corée, selon la Bibliothèque du Congrès."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une aide et une stratégie",
+        "text": "Le plan Marshall est à la fois une aide économique et un choix de guerre froide : le refus soviétique, rapporté par toutes les sources, a contribué à séparer l'Europe en deux blocs. Son effet exact sur la croissance européenne reste débattu, et le Service de recherche du Congrès souligne que même les montants dépensés varient selon les estimations. L'expression « plan Marshall » revient pourtant dès qu'on parle de reconstruire un pays après une guerre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Archives nationales des États-Unis, Marshall Plan (1948)",
+        "url": "https://www.archives.gov/milestone-documents/marshall-plan"
+      },
+      {
+        "label": "Bibliothèque du Congrès, For European Recovery : présentation",
+        "url": "https://www.loc.gov/exhibits/marshall/marsh-overview.html"
+      },
+      {
+        "label": "Bibliothèque du Congrès, For European Recovery : chronologie",
+        "url": "https://loc.gov/exhibits/marshall/marsh-dates.html"
+      },
+      {
+        "label": "Service de recherche du Congrès, The Marshall Plan: Design, Accomplishments, and Significance (R45079)",
+        "url": "https://www.everycrsreport.com/files/20180118_R45079_e780785cbab8be720446a91e63adf6689bf739a5.html"
+      },
+      {
+        "label": "Britannica, Marshall Plan",
+        "url": "https://www.britannica.com/event/Marshall-Plan"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Où et quand George Marshall a-t-il proposé son plan d'aide à l'Europe ?",
+        "answer": "À l'université Harvard, le 5 juin 1947."
+      },
+      {
+        "question": "Combien le Congrès américain a-t-il voté pour le plan Marshall ?",
+        "answer": "13,3 milliards de dollars sur quatre ans, environ 143 milliards de dollars de 2017."
+      },
+      {
+        "question": "Quel pays a reçu la plus grande part de l'aide du plan Marshall ?",
+        "answer": "Le Royaume-Uni, avec environ 25 % des totaux par pays, devant la France avec 21 %."
+      },
+      {
+        "question": "Pourquoi le plan Marshall s'arrête-t-il six mois avant la date prévue ?",
+        "answer": "En raison de la guerre de Corée ; il devait durer jusqu'au 30 juin 1952."
+      }
+    ]
+  },
+  {
+    "slug": "shaba-1977-1978-la-guerre-miniere-qui-a-fait-flamber-le-cobalt",
+    "title": "Shaba, 1977-1978 : la guerre minière qui a fait flamber le cobalt",
+    "summary": "En 1977 puis en 1978, des rebelles venus d'Angola envahissent le Shaba, la province minière du Zaïre, qui fournissait alors l'essentiel du cobalt mondial. L'interruption de l'extraction fait bondir les prix et pousse des industriels à inventer un aimant qui s'en passe. Ce récit s'appuie sur un module pédagogique du programme InTeGrate, construit à partir de données de l'USGS, et sur une notice historique d'EBSCO Research Starters. Alors que la république démocratique du Congo domine de nouveau l'offre de cobalt, il rappelle ce que coûte la dépendance à une seule région productrice.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Dans les années 1970, la plus grande partie du cobalt mondial était produite au Zaïre, comme sous-produit des mines de cuivre de la province du Shaba.",
+      "Le 8 mars 1977, environ 2 000 combattants du FNLC entrent au Shaba ; le 11 mai 1978, une force environ deux fois plus nombreuse vise le centre minier de Kolwezi.",
+      "L'interruption de l'extraction provoque une flambée des prix du cobalt ; les aimants samarium-cobalt deviennent moins attractifs et General Motors et Sumitomo Special Metals mettent au point les aimants au néodyme."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Le cobalt, un sous-produit du cuivre zaïrois",
+        "text": "Dans les années 1970, selon le module InTeGrate consacré au cobalt, l'essentiel de ce métal est produit au Zaïre, l'actuelle république démocratique du Congo. Il est extrait comme sous-produit des mines de cuivre de la province du Shaba, l'ancien Katanga, exploitées par l'entreprise d'État Gécamines dans une industrie nationalisée sous Mobutu."
+      },
+      {
+        "kind": "fait",
+        "heading": "Deux invasions en deux ans",
+        "text": "Selon EBSCO Research Starters, le 8 mars 1977, environ 2 000 combattants du Front national de libération du Congo (FNLC) entrent au Shaba depuis l'Angola, par Dilolo, et progressent vers Kolwezi et Kapanga. Des parachutistes marocains, transportés par la France, aident l'armée zaïroise à les repousser en avril et mai. Le 11 mai 1978, une force environ deux fois plus nombreuse vise uniquement le centre minier de Kolwezi, où vivent des Belges, des Français et quelques Américains. Près de 1 000 Africains et Européens sont tués. Des parachutistes belges et des légionnaires français sautent sur la ville environ une semaine plus tard, et les assaillants sont repoussés vers l'Angola en quelques jours."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des prix qui s'envolent",
+        "text": "Le module InTeGrate explique que l'interruption de l'extraction au Shaba a provoqué le pic des prix mondiaux du cobalt de la fin des années 1970, bien visible sur la courbe des prix établie à partir des données de l'USGS. Gécamines avait par ailleurs laissé vieillir ses équipements. Le cobalt fait partie des matières du stock de défense nationale des États-Unis, rappelle la même source."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un choc qui a changé l'industrie",
+        "text": "La flambée a eu un effet durable : selon InTeGrate, les aimants samarium-cobalt sont devenus moins attractifs, et des ingénieurs de General Motors et de Sumitomo Special Metals ont inventé les aimants au néodyme, fer et bore, aujourd'hui les principaux aimants de l'électronique et des moteurs. Le même module note que le Congo est redevenu le principal producteur mondial de cobalt. L'épisode illustre une leçon souvent rappelée dans les débats actuels sur les matériaux critiques : une offre concentrée dans une seule région expose les acheteurs aux crises locales, et pousse à chercher des substituts."
+      }
+    ],
+    "sources": [
+      {
+        "label": "InTeGrate (Carleton College) – Cobalt: How Disruptions in Supply Affect the Price of a Mineral Resource",
+        "url": "https://serc.carleton.edu/integrate/teaching_materials/mineral_resources/student_materials/unit2cobaltexample.html"
+      },
+      {
+        "label": "EBSCO Research Starters – Angolan Rebels Invade Shaba Province",
+        "url": "https://www.ebsco.com/research-starters/history/angolan-rebels-invade-shaba-province"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "D'où venait l'essentiel du cobalt mondial dans les années 1970 ?",
+        "answer": "Du Zaïre, où il était extrait comme sous-produit des mines de cuivre de la province du Shaba."
+      },
+      {
+        "question": "Quelle ville minière du Shaba a été visée par l'invasion du 11 mai 1978 ?",
+        "answer": "Kolwezi, centre minier où vivaient notamment des Belges et des Français."
+      },
+      {
+        "question": "Quel effet les invasions du Shaba ont-elles eu sur le cobalt ?",
+        "answer": "L'interruption de l'extraction a provoqué un pic des prix mondiaux du cobalt à la fin des années 1970."
+      },
+      {
+        "question": "Quel aimant a été inventé pour remplacer les aimants samarium-cobalt devenus trop chers ?",
+        "answer": "L'aimant au néodyme, fer et bore, mis au point par General Motors et Sumitomo Special Metals."
+      }
+    ]
+  },
+  {
+    "slug": "4-novembre-2006-quand-un-navire-a-plonge-15-millions-de-foyers-europeens-dans-le",
+    "title": "4 novembre 2006 : quand un navire a plongé 15 millions de foyers européens dans le noir",
+    "summary": "Le soir du 4 novembre 2006, la coupure programmée d'une ligne à très haute tension au-dessus de l'Ems, en Allemagne, pour laisser passer un paquebot, a scindé le réseau électrique européen en trois. Plus de 15 millions de foyers ont été privés de courant. Ce récit s'appuie sur le rapport intermédiaire de l'UCTE, l'association des gestionnaires de réseau de l'époque, et sur les rapports des régulateurs européens réunis dans l'ERGEG. À l'entrée de l'hiver, quand la demande d'électricité grimpe, il rappelle pourquoi la sécurité d'un réseau interconnecté dépend de règles communes.",
+    "topic": "energie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 4 novembre 2006, E.ON Netz ouvre la double ligne à 380 kV Conneforde-Diele au-dessus de l'Ems pour le passage du navire Norwegian Pearl ; vers 22 h 10, le réseau de l'UCTE se divise en trois zones.",
+      "Plus de 15 millions de foyers européens sont déconnectés ; la zone Ouest, en déficit d'environ 9 000 MW, voit sa fréquence tomber à environ 49 Hz.",
+      "L'UCTE et les régulateurs retiennent deux causes principales : le non-respect du critère N-1 et une coordination inappropriée entre gestionnaires de réseau."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une manœuvre avancée de quelques heures",
+        "text": "La coupure de la double ligne à 380 kV Conneforde-Diele, qui enjambe l'Ems dans le nord-ouest de l'Allemagne, était prévue pour le 5 novembre à 1 heure du matin afin de laisser passer le navire Norwegian Pearl. Elle est avancée au 4 novembre à 22 heures. Selon l'UCTE et l'ERGEG, le gestionnaire E.ON Netz ouvre la ligne vers 21 h 38. Une demi-heure plus tard, une manœuvre de couplage au poste de Landesbergen précède de deux secondes le déclenchement de la ligne Landesbergen-Wehrendorf, puis une cascade de déclenchements."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un réseau coupé en trois",
+        "text": "À 22 h 10 min 28 s, le réseau synchrone de l'UCTE se scinde en trois zones, Ouest, Nord-Est et Sud-Est, indique le rapport intermédiaire de l'UCTE. Le rapport final de l'ERGEG précise que la zone Ouest manque alors d'environ 9 000 MW et que sa fréquence chute à environ 49 Hz. Des délestages automatiques privent de courant plus de 15 millions de foyers européens."
+      },
+      {
+        "kind": "fait",
+        "heading": "Moins de deux heures pour rétablir",
+        "text": "Selon l'UCTE, la resynchronisation complète intervient dans les 38 minutes qui suivent la séparation, et la situation redevient normale en moins de deux heures. Les rapports de l'ERGEG situent la reconnexion des zones Ouest et Est à 22 h 47, après plusieurs tentatives, et le rétablissement complet vers 23 h 45."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Les leçons d'une nuit de novembre",
+        "text": "L'UCTE désigne deux causes profondes : le non-respect du critère N-1, qui veut qu'un réseau supporte la perte de n'importe quel élément sans incident en cascade, et une coordination régionale inappropriée entre gestionnaires de réseau. Les régulateurs de l'ERGEG font le même constat et demandent que le calcul N-1 soit réalisé régulièrement par tous les gestionnaires. Vingt ans plus tard, l'épisode reste une référence quand l'Europe discute de la sûreté d'un réseau électrique toujours plus interconnecté."
+      }
+    ],
+    "sources": [
+      {
+        "label": "UCTE – Rapport intermédiaire sur l'incident du 4 novembre 2006 (30 novembre 2006)",
+        "url": "https://eepublicdownloads.entsoe.eu/clean-documents/pre2015/publications/ce/otherreports/IC-Interim-Report-20061130.pdf"
+      },
+      {
+        "label": "ERGEG – Rapport final sur les leçons de l'incident du 4 novembre 2006 (6 février 2007)",
+        "url": "https://www.cre.fr/fileadmin/Documents/Communiques_de_presse/import/1172593700898.pdf"
+      },
+      {
+        "label": "ERGEG – Rapport intermédiaire sur l'incident du 4 novembre 2006 (20 décembre 2006)",
+        "url": "https://ceer.eu/wp-content/uploads/2024/04/E06-BAG-01-05_InterimReport.pdf"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quel événement a déclenché la panne électrique européenne du 4 novembre 2006 ?",
+        "answer": "La coupure de la ligne à 380 kV Conneforde-Diele au-dessus de l'Ems, en Allemagne, pour laisser passer le navire Norwegian Pearl."
+      },
+      {
+        "question": "Combien de foyers ont été privés de courant le 4 novembre 2006 ?",
+        "answer": "Plus de 15 millions de foyers européens."
+      },
+      {
+        "question": "Que dit le critère N-1 de sécurité d'un réseau électrique ?",
+        "answer": "Le réseau doit supporter la perte de n'importe quel élément sans déclencher d'incident en cascade."
+      },
+      {
+        "question": "Quelles sont les deux causes principales de la panne de 2006 selon l'UCTE ?",
+        "answer": "Le non-respect du critère N-1 et une coordination inappropriée entre gestionnaires de réseau."
+      }
+    ]
+  },
+  {
+    "slug": "2017-le-jour-ou-la-chine-a-ferme-sa-porte-aux-dechets-plastiques-du-monde",
+    "title": "2017 : le jour où la Chine a fermé sa porte aux déchets plastiques du monde",
+    "summary": "En juillet 2017, la Chine annonce à l'Organisation mondiale du commerce qu'elle interdira d'ici la fin de l'année l'importation de 24 sortes de déchets solides, dont des plastiques et des papiers non triés. Ce récit s'appuie sur les publications spécialisées Waste360 et Resource Recycling, qui ont suivi la mesure et ses effets. Au moment où l'Union européenne cesse d'exporter ses déchets plastiques vers les pays hors OCDE, il rappelle comment un pays importateur a bouleversé le commerce mondial du recyclage.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 18 juillet 2017, la Chine notifie à l'OMC qu'elle interdira d'ici la fin de 2017 l'importation de 4 catégories et 24 sortes de déchets solides, dont des déchets plastiques, du papier non trié et des déchets textiles.",
+      "Cette interdiction prolonge la campagne « Green Fence » de 2013, au cours de laquelle près de 70 % des conteneurs entrants ont été inspectés la première année.",
+      "À partir du 1er mars 2018, une limite de contamination de 0,5 % s'applique aux lots importés ; selon Resource Recycling, les importations chinoises de plastiques recyclés ont chuté de 99 % en 2018 par rapport à 2017."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une notification à l'OMC",
+        "text": "Le 18 juillet 2017, la Chine dépose auprès de l'Organisation mondiale du commerce une notification annonçant que, d'ici la fin de 2017, elle interdira l'importation de 4 catégories et 24 sortes de déchets solides. Selon Waste360, la liste comprend notamment des déchets plastiques d'origine domestique, des chutes et rebuts de plastiques, des scories de vanadium, des déchets textiles et des papiers non triés. Resource Recycling résume les plastiques visés : PET, PE, PVC et PS recyclés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Après la « clôture verte »",
+        "text": "La mesure ne sort pas de nulle part. En février 2013, la Chine avait lancé l'opération « Green Fence », des inspections intensives des cargaisons de déchets importées pour faire appliquer des règles de 2006 et 2010. Waste360 rapporte que près de 70 % des conteneurs entrants ont été inspectés la première année. Avant l'interdiction, les États-Unis exportaient vers la Chine, selon des chiffres de la fédération professionnelle ISRI cités par Waste360, 5,6 milliards de dollars de déchets recyclables, dont 1,42 million de tonnes de déchets plastiques."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un seuil de 0,5 % et des flux effondrés",
+        "text": "L'interdiction entre en vigueur au début de 2018. Resource Recycling indique qu'en novembre 2017 la Chine a fixé une limite de contamination de 0,5 % pour la plupart des matières recyclables non interdites, en vigueur le 1er mars 2018, contre 1,5 % auparavant pour le papier. La même chronologie rapporte que les importations de plastiques recyclés de la Chine ont chuté de 99 % en 2018 par rapport à 2017."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi l'épisode éclaire l'actualité",
+        "text": "Pendant des années, une partie du recyclage des pays riches reposait sur l'exportation de balles de déchets vers la Chine. La fermeture de 2017-2018 a obligé les pays exportateurs à chercher d'autres débouchés ou à traiter davantage chez eux. Les restrictions européennes actuelles sur l'exportation de déchets plastiques s'inscrivent dans ce même mouvement : faire porter le recyclage par ceux qui produisent les déchets. Les volumes cités ici proviennent de la presse spécialisée et de la fédération ISRI, non de statistiques douanières consultées directement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Waste360 – China Notifies WTO of Intent to Ban 24 Types of Solid Waste Imports (juillet 2017)",
+        "url": "https://www.waste360.com/waste-recycling/china-notifies-wto-of-intent-to-ban-24-types-of-solid-waste-imports"
+      },
+      {
+        "label": "Resource Recycling – Green Fence to red alert: a China timeline",
+        "url": "https://resource-recycling.com/plastics/2018/02/14/green-fence-red-alert-china-timeline/"
+      },
+      {
+        "label": "Resource Recycling – China says it will ban imports of key recovered plastics (juillet 2017)",
+        "url": "https://www.resource-recycling.com/plastics/2017/07/19/china-says-it-will-ban-imports-of-key-recovered-plastics/"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Qu'a annoncé la Chine à l'OMC en juillet 2017 ?",
+        "answer": "L'interdiction d'importer, d'ici la fin de 2017, 24 sortes de déchets solides, dont des plastiques, du papier non trié et des textiles."
+      },
+      {
+        "question": "Qu'était l'opération chinoise « Green Fence » de 2013 ?",
+        "answer": "Des inspections intensives des cargaisons de déchets importées ; près de 70 % des conteneurs ont été inspectés la première année."
+      },
+      {
+        "question": "Quelle limite de contamination la Chine a-t-elle imposée en 2018 aux déchets recyclables importés ?",
+        "answer": "0,5 %, en vigueur à partir du 1er mars 2018."
+      }
+    ]
+  },
+  {
+    "slug": "londres-1952-le-grand-smog-qui-a-conduit-a-la-loi-sur-la-purete-de-l-air",
+    "title": "Londres, 1952 : le grand smog qui a conduit à la loi sur la pureté de l'air",
+    "summary": "Du 5 au 9 décembre 1952, un brouillard chargé de fumée de charbon s'est figé sur Londres. Environ 4 000 décès ont été constatés dans l'immédiat, et les estimations montent jusqu'à 12 000 en comptant les mois suivants. Ce récit s'appuie sur le Met Office, les Archives nationales britanniques et le London Museum. Alors que la pollution de l'air reste un enjeu de santé publique dans les grandes villes, il rappelle comment une catastrophe a fait naître le Clean Air Act de 1956.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Du vendredi 5 au mardi 9 décembre 1952, un anticyclone a bloqué au-dessus de Londres la fumée des foyers au charbon, des centrales et des usines, sous une inversion de température.",
+      "Le Met Office indique qu'environ 4 000 décès sont connus, mais que le bilan pourrait être bien plus élevé ; les Archives nationales et le London Museum avancent un total estimé de 12 000 morts.",
+      "Après le rapport du comité présidé par Sir Hugh Beaver, les lois sur la pureté de l'air de 1956 et 1968 ont interdit les émissions de fumée noire et imposé le passage aux combustibles sans fumée."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Cinq jours sous une chape de fumée",
+        "text": "Le matin du vendredi 5 décembre 1952, un brouillard de rayonnement se forme sur Londres par temps clair et froid. Selon le Met Office, un anticyclone stationne alors sur la région : l'air qui descend se réchauffe et crée une inversion de température, qui empêche la fumée de s'élever. Par ce froid, les Londoniens chargent leurs poêles au charbon. Le London Museum ajoute la fumée des centrales électriques au charbon, comme Battersea et Lots Road, celle des usines, et un charbon de qualité médiocre en raison des pénuries de l'après-guerre. Un vent d'est apporte en plus de l'air pollué venu du continent. Le smog ne se dissipe que le mardi 9 décembre."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un bilan longtemps sous-estimé",
+        "text": "Le Met Office indique qu'environ 4 000 personnes sont connues pour être mortes, en précisant que le chiffre pourrait être bien plus élevé. Les Archives nationales britanniques, qui s'appuient sur les relevés hebdomadaires du Registrar General et sur les rapports des coroners, évoquent plus de 4 000 décès dans l'immédiat et 8 000 autres au cours de l'année suivante. Le London Museum retient lui aussi un total estimé de 12 000 morts. Ce second chiffre reste une estimation : les pages consultées ne détaillent pas la méthode utilisée pour l'établir."
+      },
+      {
+        "kind": "fait",
+        "heading": "De la catastrophe à la loi",
+        "text": "Selon les Archives nationales, le gouvernement confie à Sir Hugh Beaver la présidence d'un comité sur la pollution de l'air, qui recommande d'intégrer l'air pur à la politique énergétique, notamment en remplaçant le charbon domestique par des combustibles sans fumée. La City de Londres interdit la fumée dès 1954, rappelle le London Museum. Le Clean Air Act de 1956 crée des zones sans fumée à Londres et encadre la combustion du charbon dans les logements et les usines. Avec la loi de 1968, il interdit les émissions de fumée noire et oblige habitants des villes et industriels à passer aux combustibles sans fumée, selon le Met Office."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce récit éclaire l'actualité",
+        "text": "Le Met Office note qu'un brouillard a encore tué 750 Londoniens en 1962, mais qu'aucun smog de cette ampleur ne s'est reproduit depuis. La pollution a changé de nature : le London Museum explique qu'elle vient aujourd'hui surtout du trafic routier, cite une étude de 2019 liant la pollution à environ 6 000 décès en excès à Londres cette année-là, et rappelle l'instauration de la zone à ultra-faibles émissions (ULEZ) en 2019. L'épisode de 1952 reste l'exemple classique d'une crise sanitaire qui a transformé la réglementation environnementale."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Met Office – The Great Smog of 1952",
+        "url": "https://weather.metoffice.gov.uk/learn-about/weather/case-studies/great-smog"
+      },
+      {
+        "label": "The National Archives (Royaume-Uni) – The Great Smog of 1952",
+        "url": "https://blog.nationalarchives.gov.uk/the-great-smog-of-1952/"
+      },
+      {
+        "label": "London Museum – The Great Smog of 1952",
+        "url": "https://londonmuseum.org.uk/collections/london-stories/the-great-smog-of-1952"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand le grand smog de Londres a-t-il eu lieu ?",
+        "answer": "Du vendredi 5 au mardi 9 décembre 1952."
+      },
+      {
+        "question": "Quel phénomène météorologique a piégé la fumée au-dessus de Londres en 1952 ?",
+        "answer": "Un anticyclone, qui a créé une inversion de température empêchant la fumée de charbon de s'élever."
+      },
+      {
+        "question": "Quel est le bilan humain estimé du grand smog de 1952 ?",
+        "answer": "Environ 4 000 décès connus dans l'immédiat ; les estimations montent à 12 000 morts en comptant les mois suivants."
+      },
+      {
+        "question": "Quelle loi britannique est issue du grand smog de 1952 ?",
+        "answer": "Le Clean Air Act de 1956, complété en 1968, qui a interdit la fumée noire et imposé les combustibles sans fumée."
+      }
+    ]
+  },
+  {
+    "slug": "ariane-501-1996-le-bug-logiciel-qui-a-fait-exploser-une-fusee-en-40-secondes",
+    "title": "Ariane 501, 1996 : le bug logiciel qui a fait exploser une fusée en 40 secondes",
+    "summary": "Le 4 juin 1996, le premier vol d'Ariane 5 s'achève une quarantaine de secondes après le décollage, à Kourou. La commission d'enquête désigne une erreur de conception logicielle : un calcul hérité d'Ariane 4 a dépassé la capacité d'un nombre entier. Ce récit s'appuie sur le communiqué de l'Agence spatiale européenne et sur le rapport de la commission daté du 19 juillet 1996. À l'heure où les logiciels pilotent de plus en plus de systèmes critiques, il rappelle pourquoi réutiliser du code sans le retester peut coûter cher.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 4 juin 1996, lors du vol inaugural d'Ariane 5, le lanceur dévie de sa trajectoire environ 40 secondes après le début de la séquence de vol, à environ 3 700 mètres d'altitude, puis s'autodétruit.",
+      "La commission d'enquête explique que la conversion d'un nombre à virgule flottante de 64 bits en entier signé de 16 bits a provoqué une erreur d'opérande dans les deux centrales inertielles.",
+      "Le logiciel venait d'Ariane 4 : Ariane 5 accélérant horizontalement environ cinq fois plus vite, la variable de biais horizontal a dépassé la limite prévue pour l'ancien lanceur."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Quarante secondes de vol",
+        "text": "Le 4 juin 1996, Ariane 5 décolle pour son premier vol depuis Kourou, en Guyane, à 9 h 33 min 59 s heure locale. Selon le rapport de la commission d'enquête, le lanceur commence à dévier peu après 37 secondes de vol, se disloque vers 39 secondes, puis s'autodétruit à environ 4 kilomètres d'altitude et à 1 kilomètre du pas de tir. L'Agence spatiale européenne résume : environ 40 secondes après le début de la séquence de vol, à 3 700 mètres d'altitude, la fusée a quitté sa trajectoire."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un nombre trop grand pour sa case",
+        "text": "La commission, présidée par le professeur Jacques-Louis Lions, de l'Académie des sciences, a commencé ses travaux le 13 juin 1996. Elle établit que la centrale inertielle de secours, puis la centrale active environ 0,05 seconde plus tard, ont cessé de fonctionner. En cause : une conversion d'un nombre à virgule flottante de 64 bits en entier signé de 16 bits, appliquée à la variable de biais horizontal, a déclenché une erreur d'opérande. Cette conversion n'était pas protégée, et le processeur s'est arrêté."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'héritage d'Ariane 4",
+        "text": "Le rapport indique que la centrale inertielle d'Ariane 5 était pratiquement identique à celle d'Ariane 4, en particulier son logiciel. Or Ariane 5 prend de la vitesse horizontale environ cinq fois plus vite. La fonction d'alignement en cause ne produisait des résultats utiles qu'avant le décollage ; elle continuait pourtant de tourner environ 40 secondes après, une disposition conservée pour rester commune avec Ariane 4."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que la catastrophe a changé",
+        "text": "L'Agence spatiale européenne a retenu plusieurs actions : corriger la centrale inertielle, réexaminer tous les logiciels embarqués, rendre les essais de qualification plus représentatifs et multiplier les recoupements entre essais. Le rapport recommande notamment d'arrêter la fonction d'alignement après le décollage, de tester le système complet avec du matériel réel et de vérifier les plages de valeurs de tous les logiciels de vol. L'épisode reste un cas d'école du génie logiciel : un code éprouvé sur un système peut échouer sur un autre si ses hypothèses ne sont pas revérifiées."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Agence spatiale européenne – Ariane 501, présentation du rapport de la commission d'enquête (1996)",
+        "url": "https://www.esa.int/Newsroom/Press_Releases/Ariane_501_-_Presentation_of_Inquiry_Board_report"
+      },
+      {
+        "label": "Rapport de la commission d'enquête Ariane 501, Paris, 19 juillet 1996 (copie hébergée par l'université du Minnesota)",
+        "url": "https://www-users.cse.umn.edu/%7Earnold/disasters/ariane5rep.html"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand et comment s'est terminé le premier vol d'Ariane 5 ?",
+        "answer": "Le 4 juin 1996, environ 40 secondes après le décollage depuis Kourou : le lanceur a dévié puis s'est autodétruit."
+      },
+      {
+        "question": "Quelle erreur logicielle a provoqué l'échec d'Ariane 501 ?",
+        "answer": "La conversion d'un nombre à virgule flottante de 64 bits en entier signé de 16 bits, non protégée, a provoqué une erreur d'opérande."
+      },
+      {
+        "question": "Pourquoi le logiciel d'Ariane 4 a-t-il échoué sur Ariane 5 ?",
+        "answer": "Ariane 5 accélère horizontalement environ cinq fois plus vite, si bien que la variable de biais horizontal a dépassé la limite prévue."
+      },
+      {
+        "question": "Qui a présidé la commission d'enquête sur Ariane 501 ?",
+        "answer": "Le professeur Jacques-Louis Lions, de l'Académie des sciences."
+      }
+    ]
+  },
+  {
     "slug": "part-des-profits-les-entreprises-de-l-ue-reculent-pour-la-quatrieme-annee-d",
     "title": "Part des profits : les entreprises de l'UE reculent pour la quatrième année d'affilée",
     "summary": "Selon Eurostat, la part des profits des sociétés non financières de l'Union européenne est tombée à 39,8 % de leur valeur ajoutée en 2025, en baisse de 0,2 point sur un an et pour la quatrième année consécutive. La France affiche la part la plus faible de l'UE, à 32,2 %. Données annuelles des comptes de secteurs, publiées le 24 novembre 2026.",

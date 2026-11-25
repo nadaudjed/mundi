@@ -107,6 +107,9 @@ export default function AboutPage() {
         <Link href="/confidentialite/" className="btn btn-secondary">
           Confidentialité
         </Link>
+        <Link href="/mentions-legales/" className="btn btn-secondary">
+          Mentions légales
+        </Link>
       </div>
     </div>
   );

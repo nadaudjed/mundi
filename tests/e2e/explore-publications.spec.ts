@@ -61,8 +61,9 @@ test("news homepage uses image-rich cards with honest review labels and no overf
   const tiles = page.getByTestId("publication-tile");
   await expect(tiles).toHaveCount(publicArticles.length);
   await expect(tiles.first().getByText(/Contrôle IA, sans relecture humaine|Validation humaine/)).toBeVisible();
-  // La carte mène à l'article (le crédit de la photo, lien externe, peut venir avant).
-  await expect(tiles.first().locator('a[href^="/actualites/"]').first()).toHaveAttribute("href", /^\/actualites\/.+\/$/);
+  // Le titre mène à l'article. (La date d'une actualité peut porter un lien vers sa source officielle,
+  // placé avant le titre quand la une n'a pas de photo : on vise donc le lien du titre.)
+  await expect(tiles.first().getByRole("heading").getByRole("link")).toHaveAttribute("href", /^\/actualites\/.+\/$/);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);
 });

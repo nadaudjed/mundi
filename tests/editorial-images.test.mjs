@@ -203,6 +203,19 @@ test("sujets du 25/11 : des repères visuels précis au lieu d'un jeu de plateau
   assert.equal(first("Cancer du sein : le Royaume-Uni lance le plus grand essai de dépistage assisté par IA","technologie"),"mammography");
   assert.equal(first("Logement : l'investissement des ménages de l'UE tombe à 8,1 %, au plus bas depuis 2015","economie"),"housing construction");
   assert.equal(first("Libye : l’ONU réclame une enquête après la destruction d’un navire russe à Benghazi","afrique"),"naval ship harbour");
-  assert.equal(first("Impôts non collectés : l'UE perd plus de 200 milliards d'euros par an, selon Bruxelles","finance"),"tax office");
+  assert.equal(first("Impôts non collectés : l'UE perd plus de 200 milliards d'euros par an, selon Bruxelles","finance"),"European Commission Berlaymont");
   assert.ok(imageQueries({title:"!!!",topic:"geopolitique"}).includes("diplomatic conference"));
+});
+test("une même photo n'illustre jamais deux articles : la recherche exclut les photos déjà au catalogue", async () => {
+  const fs=await import("node:fs"),os=await import("node:os"),path=await import("node:path");
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),"mundi-dedup-"));
+  const lab=selectImage([candidate("File:Biochemistry laboratory panorama.jpg")],"laboratory");
+  const existing=[{slug:"guimaraes",sourceUrl:lab.url}];
+  const seen=[];
+  const result=await collectEditorialImages([{status:"published",slug:"variole",title:"Recherche en laboratoire",topic:"sciences-societe"}],existing,{root,
+    search:async(query,_f,options)=>{seen.push(options?.exclude);return selectImage([candidate("File:Biochemistry laboratory panorama.jpg")],query,options);},
+    download:async()=>({ext:"jpg",buffer:Buffer.alloc(5000)})});
+  assert.ok(seen.every(x=>x instanceof Set&&x.has(lab.url)));
+  assert.equal(result.images.filter(x=>x.sourceUrl===lab.url).length,1);
+  assert.equal(result.report[0].status,"no_licensed_photo");
 });

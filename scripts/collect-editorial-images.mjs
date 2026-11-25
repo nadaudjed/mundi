@@ -32,10 +32,25 @@ const HINTS=[
   [/aide humanitaire|humanitaire|tentes|r[eé]fugi[eé]s|d[eé]plac[eé]s/i,["humanitarian aid trucks","humanitarian aid distribution","refugee camp tents"]],
   [/cancer|d[eé]pistage|mammograph/i,["mammography","breast cancer screening"]],
   [/logement|immobilier|r[eé]novation [eé]nerg|construction de maisons/i,["housing construction","residential building construction"]],
-  [/imp[oô]ts?|fiscal|fraude [aà] la TVA|[eé]vasion fiscale/i,["tax office","European Commission Berlaymont"]],
+  [/imp[oô]ts?|fiscal|fraude [aà] la TVA|[eé]vasion fiscale/i,["European Commission Berlaymont","euro banknotes and coins"]],
   [/demande [eé]lectrique|vague de froid|premier froid|consommation d.[eé]lectricit[eé]/i,["electricity pylons winter","high voltage power lines snow","electricity substation"]],
   [/navire|corvette|cargo|port de [A-Z]|drones? nava/i,["naval ship harbour","cargo ship harbour"]],
   [/guimar[aã]es/i,["Guimarães"]],
+  // Édition du 25/11 après-midi : sujets historiques et industriels sans repère, illustrés par des
+  // photos génériques (drapeau, immeuble « Grand » pour le smog, poste électrique pour un navire).
+  [/variole|vaccination/i,["smallpox vaccination","vaccination campaign"]],
+  [/smog|pollution de l.air|puret[eé] de l.air/i,["smog London","air pollution city"]],
+  [/d[eé]chets plastiques|plastique/i,["plastic waste recycling","plastic waste bales"]],
+  [/cobalt|shaba|katanga/i,["cobalt mine Congo","copper cobalt mine Katanga"]],
+  [/quantique|quantum/i,["quantum computer","quantum computing laboratory"]],
+  [/ariane|fus[eé]e|lanceur spatial/i,["Ariane 5 rocket","rocket launch Kourou"]],
+  [/cha[iî]ne mobile|ford|mod[eè]le T/i,["Ford Model T assembly line","Highland Park Ford Plant"]],
+  [/doctorat|doctorant|th[eè]se/i,["PhD students laboratory","doctoral students research"]],
+  [/ind[eé]pendances?|d[eé]colonisation/i,["independence day Africa 1960","African independence celebration"]],
+  [/lehman|faillite bancaire|crise financi[eè]re/i,["Lehman Brothers headquarters","financial crisis 2008 Wall Street"]],
+  [/john law|compagnie des indes|krach/i,["John Law Banque Royale","Mississippi Company"]],
+  [/black.out|panne g[eé]n[eé]rale|d[eé]lestage/i,["electricity control room","high voltage power lines"]],
+  [/automobile|voitures?|usine de Hambach/i,["car factory assembly line","electric car production"]],
   [/textil|v[eê]tement|tri des d[eé]chets/i,["textile recycling sorting","clothing recycling"]],
   [/appels? d.offres|march[eé]s? publics?|commande publique/i,["public procurement","government contract signing"]],
   [/m[eé]nag|enfant|famill/i,["family children","parents with children"]],
@@ -264,7 +279,9 @@ export async function collectEditorialImages(articles,existing=[],{
     let selected=null,lastError="";
     for(const query of imageQueries(p)){
       try{
-        const candidate=await search(query);
+        // Jamais deux fois la même photo : le 25/11, un même laboratoire illustrait quatre articles
+        // et une même boîte de piles le cobalt congolais comme la guerre du Shaba.
+        const candidate=await search(query,undefined,{exclude:new Set(out.map(x=>x.sourceUrl))});
         if(!candidate)continue;
         const file=await download(candidate);
         const local="/media/editorial/"+p.slug+"."+file.ext;

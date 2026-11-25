@@ -101,3 +101,19 @@ test("Explorer : une recherche trouve tous les formats, et « Effacer les filtre
   expect(shown).toBeGreaterThan(0);
   expect(kinds.size).toBeGreaterThan(0);
 });
+
+test("article long : sommaire discret vers chaque partie et les sources, durée de lecture", async ({ page }) => {
+  const all = JSON.parse(readFileSync("content/publications.json", "utf8")) as { slug: string; status: string; sections?: { heading: string }[] }[];
+  const decryptages = readFileSync("content/decryptages.json", "utf8");
+  const long = all.find((p) => p.status === "published" && (p.sections?.length ?? 0) >= 4 && !decryptages.includes(`"${p.slug}"`));
+  test.skip(!long, "Aucun article long publié");
+  await page.goto("/actualites/" + long!.slug + "/");
+  await expect(page.getByTestId("reading-time")).toHaveText(/^\d+ min de lecture$/);
+  const toc = page.getByRole("navigation", { name: "Sommaire" });
+  await expect(toc.getByRole("link")).toHaveCount(long!.sections!.length + 1);
+  for (const link of await toc.getByRole("link").all()) {
+    await expect(page.locator((await link.getAttribute("href"))!)).toBeAttached();
+  }
+  await toc.getByRole("link", { name: "Sources" }).click();
+  await expect(page).toHaveURL(/#sources$/);
+});

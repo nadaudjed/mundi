@@ -183,3 +183,16 @@ test("photo de carte : tous les mots de la recherche doivent figurer, sinon pas 
  const used=new Set(["https://commons.wikimedia.org/wiki/File%3AOld_gas_meter.jpg"]);
  assert.equal(selectImage([candidate("File:Old gas meter.jpg")],"gas meter",{strict:true,exclude:used}),null);
 });
+test("credit cut never splits an emoji (half-emoji broke the site build)",()=>{
+ const c=candidate();c.imageinfo[0].extmetadata.Artist={value:"A".repeat(139)+"😀 suite"};
+ const pic=selectImage([c],"textile recycling");
+ assert.ok(pic);
+ assert.doesNotMatch(JSON.stringify(pic),/\\ud[89ab][0-9a-f]{2}(?!\\ud[c-f])/i);
+ assert.doesNotMatch(JSON.stringify(pic).normalize(),/[\ud800-\udbff](?![\udc00-\udfff])/);
+});
+test("editorial image catalog contains no broken (lone surrogate) character",async()=>{
+ const {readFileSync}=await import("node:fs");
+ const raw=readFileSync("content/editorial-images.json","utf8");
+ assert.doesNotMatch(raw,/\\ud[89ab][0-9a-f]{2}(?!\\ud[c-f][0-9a-f]{2})/i);
+ assert.doesNotMatch(raw,/[\ud800-\udbff](?![\udc00-\udfff])|(?<![\ud800-\udbff])[\udc00-\udfff]/);
+});

@@ -84,7 +84,8 @@ const ALLOWED_LICENSES=new Map([
   ["cc by 2.0","https://creativecommons.org/licenses/by/2.0/"],
   ["cc by-sa 2.0","https://creativecommons.org/licenses/by-sa/2.0/"]
 ]);
-const clean=(s,n=160)=>String(s??"").replace(/<[^>]*>/g," ").replace(/&(?:nbsp|amp|quot|lt|gt);/gi,m=>({"&nbsp;":" ","&amp;":"&","&quot;":'"',"&lt;":"<","&gt;":">"}[m.toLowerCase()]??m)).replace(/\s+/g," ").trim().slice(0,n);
+/* Coupe par caractères (pas par unités UTF-16) : un demi-emoji rendait le JSON illisible au build. */
+const clean=(s,n=160)=>Array.from(String(s??"").replace(/<[^>]*>/g," ").replace(/&(?:nbsp|amp|quot|lt|gt);/gi,m=>({"&nbsp;":" ","&amp;":"&","&quot;":'"',"&lt;":"<","&gt;":">"}[m.toLowerCase()]??m)).replace(/\s+/g," ").trim()).slice(0,n).join("");
 export function imageQueries(article){
   const fromTitle=String(article?.title??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"")
     .replace(/[^a-zA-Z\s-]/g," ").toLowerCase().split(/\s+/).filter(w=>w.length>=4&&!STOPWORDS.has(w)).slice(0,2).join(" ");

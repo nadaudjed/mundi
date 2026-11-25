@@ -60,3 +60,25 @@ test("rejouée au retour dans l'application après 30 minutes d'absence, pas ava
   await page.reload();
   await expect(page.locator(".intro")).toBeHidden();
 });
+
+test("le commentaire ajouté par Netlify ne casse ni la page ni l'animation", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  // Netlify insère ce commentaire dans le <head> des pages servies en ligne.
+  await page.route(/\/(\?intro=1)?$/, async (route) => {
+    const response = await route.fetch();
+    const html = (await response.text()).replace(
+      '<meta charSet="utf-8"/>',
+      '<meta charSet="utf-8"/>\n<!-- This site is hosted on Netlify. -->',
+    );
+    await route.fulfill({ response, body: html });
+  });
+  await page.goto("/?intro=1");
+  const html = page.locator("html");
+  await expect(html).toHaveAttribute("data-intro", "play");
+  // L'animation dure jusqu'au bout : encore là après 3 s (avant, elle disparaissait dès l'hydratation).
+  await page.waitForTimeout(3000);
+  await expect(html).toHaveAttribute("data-intro", "play");
+  await expect(page.locator(".intro")).toBeVisible();
+  expect(errors.filter((m) => m.includes("418"))).toEqual([]);
+});

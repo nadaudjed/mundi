@@ -11,6 +11,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { ToastProvider } from "@/components/Toast";
 import { themeScript } from "@/lib/theme";
 import { introScript } from "@/lib/intro";
+import { headCleanScript } from "@/lib/head-clean";
 import { IntroSplash } from "@/components/IntroSplash";
 import { SITE_URL, SHARE_IMAGE, shareDefaults } from "@/lib/site";
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: headCleanScript }} />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script dangerouslySetInnerHTML={{ __html: introScript }} />
       </head>

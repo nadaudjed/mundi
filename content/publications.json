@@ -1,5 +1,367 @@
 [
   {
+    "slug": "part-des-profits-les-entreprises-de-l-ue-reculent-pour-la-quatrieme-annee-d",
+    "title": "Part des profits : les entreprises de l'UE reculent pour la quatrième année d'affilée",
+    "summary": "Selon Eurostat, la part des profits des sociétés non financières de l'Union européenne est tombée à 39,8 % de leur valeur ajoutée en 2025, en baisse de 0,2 point sur un an et pour la quatrième année consécutive. La France affiche la part la plus faible de l'UE, à 32,2 %. Données annuelles des comptes de secteurs, publiées le 24 novembre 2026.",
+    "topic": "economie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En 2025, la part des profits des sociétés non financières de l'UE atteint 39,8 % de leur valeur ajoutée, 0,2 point de moins qu'en 2024, selon Eurostat.",
+      "Le recul dure depuis 2021 : 42,0 % cette année-là, puis 41,7 % en 2022, 41,5 % en 2023 et 40,1 % en 2024. Le point le plus bas reste 39,5 %, en 2012.",
+      "La France ferme la marche avec 32,2 %, devant la Slovénie (33,2 %) et le Portugal (34,2 %) ; l'Irlande (74,9 %), Malte (55,2 %) et la Roumanie (51,8 %) sont en tête."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un indicateur en baisse depuis 2021",
+        "text": "Eurostat a publié le 24 novembre 2026 ses données sur la part des profits des sociétés non financières, c'est-à-dire des entreprises dont l'activité principale n'est pas financière. En 2025, cette part s'établit à 39,8 % dans l'Union européenne, contre 40,1 % en 2024. Elle était de 42,0 % en 2021, puis de 41,7 % en 2022 et de 41,5 % en 2023. Sur vingt ans, le sommet a été atteint en 2007, à 42,1 %, et le point le plus bas en 2012, à 39,5 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "De quoi parle-t-on ?",
+        "text": "La part des profits est l'excédent brut d'exploitation divisé par la valeur ajoutée brute. Elle mesure la part de la richesse créée par l'entreprise qui rémunère le capital plutôt que le travail ; c'est le complément de la part des coûts salariaux. Eurostat précise qu'une part basse ne signifie pas seulement des profits faibles : elle peut aussi refléter une économie plus intensive en main-d'œuvre, tandis qu'une part élevée peut traduire une production plus gourmande en capital."
+      },
+      {
+        "kind": "fait",
+        "heading": "De fortes différences entre pays",
+        "text": "L'Irlande enregistre la valeur la plus élevée (74,9 %), ce qu'Eurostat attribue aux grandes multinationales étrangères très capitalistiques installées dans le pays. Suivent Malte (55,2 %) et la Roumanie (51,8 %). À l'autre bout, la France (32,2 %), la Slovénie (33,2 %) et le Portugal (34,2 %) ont les parts les plus faibles."
+      },
+      {
+        "kind": "analyse",
+        "heading": "En France, l'Insee mesure une stabilité récente",
+        "text": "L'Insee suit le même ratio sous le nom de taux de marge, en données trimestrielles. Au deuxième trimestre 2026, il se maintient à 31,5 % de la valeur ajoutée des sociétés non financières françaises, comme au premier trimestre. Selon l'Insee, il reste fortement pénalisé par les termes de l'échange, avec la hausse des prix mondiaux de l'énergie, un effet contrebalancé par la baisse des salaires réels. Les deux chiffres ne portent pas sur la même période ni sur les mêmes méthodes de publication et ne doivent pas être comparés directement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — Profit share of EU businesses down 4 years in a row (24 novembre 2026)",
+        "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261124-3"
+      },
+      {
+        "label": "Insee — Comptes nationaux trimestriels, résultats détaillés du deuxième trimestre 2026",
+        "url": "https://www.insee.fr/fr/statistiques/9039499"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Comment Eurostat définit-il la part des profits d'une entreprise ?",
+        "answer": "C'est l'excédent brut d'exploitation divisé par la valeur ajoutée brute : la part de la richesse créée qui rémunère le capital plutôt que le travail."
+      },
+      {
+        "question": "Quel pays de l'UE avait la part des profits la plus faible en 2025 ?",
+        "answer": "La France, avec 32,2 % de la valeur ajoutée des sociétés non financières, selon Eurostat."
+      }
+    ]
+  },
+  {
+    "slug": "automobile-byd-negocie-le-rachat-de-l-usine-ineos-de-hambach-en-moselle",
+    "title": "Automobile : BYD négocie le rachat de l'usine Ineos de Hambach, en Moselle",
+    "summary": "Le constructeur chinois BYD a annoncé le 24 novembre 2026 être entré en négociations exclusives avec Ineos Automotive pour acquérir son usine de Hambach, en Moselle, où travaillent près de 900 personnes. L'opération reste soumise à la consultation des représentants du personnel. Ni les modèles, ni les volumes, ni le montant de l'investissement n'ont été communiqués.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "BYD confirme des négociations exclusives avec Ineos Automotive pour acquérir l'usine de Hambach, en Moselle, et veut y produire des véhicules conçus pour les automobilistes européens.",
+      "L'usine, l'ancienne Smartville, emploie près de 900 personnes ; Ineos y assemble le 4x4 Grenadier depuis 2022 et prévoit de produire aux États-Unis à partir de 2028.",
+      "L'opération reste soumise à la consultation des instances représentatives du personnel ; aucun modèle, volume ni montant d'investissement n'a été rendu public."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que BYD a annoncé",
+        "text": "Dans un communiqué daté du 24 novembre 2026 à Paris, BYD confirme avoir engagé des négociations exclusives avec Ineos Automotive en vue d'acquérir son usine de production de Hambach. Le groupe indique vouloir y produire des véhicules spécifiquement conçus pour les automobilistes européens, pérenniser l'activité industrielle du site et préserver les emplois locaux. Sa vice-présidente exécutive Stella Li y affirme que l'engagement du groupe envers l'Europe s'inscrit dans le long terme. Le communiqué précise que l'opération reste soumise à la consultation des instances représentatives du personnel."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un site au passé chargé",
+        "text": "L'usine de Hambach a été construite pour la Smart et a ouvert à la fin des années 1990. Ineos Automotive l'a rachetée en 2020 après le retrait de Mercedes-Benz et y assemble depuis 2022 le 4x4 Grenadier, puis le pick-up Quartermaster. Selon la presse régionale, près de 900 personnes y travaillent. Ineos prévoit de produire le Grenadier aux États-Unis à partir de 2028."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Beaucoup d'inconnues",
+        "text": "Le communiqué de BYD ne donne aucun chiffre : ni montant d'investissement, ni capacité de production, ni modèles, ni calendrier. Selon Tout-Metz, Emmanuel Macron a donné rendez-vous au sommet Choose France du 18 janvier pour des annonces détaillées. Les estimations de volumes ou d'investissement qui circulent dans la presse ne sont pas confirmées par l'entreprise."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BYD — Négociations exclusives en vue d'acquérir l'usine de Hambach (24 novembre 2026)",
+        "url": "https://media.byd.com/byd-a-engage-des-negociations-exclusives-en-vue-dacquerir-l-usine-de-hambach-en-france/?lang=fra&media=image&page_media=1"
+      },
+      {
+        "label": "Tout-Metz — BYD veut reprendre l'usine Ineos d'Hambach (25 novembre 2026)",
+        "url": "https://tout-metz.com/moselle-geant-automobile-chinois-byd-veut-reprendre-usine-ineos-hambach-2026-842948"
+      },
+      {
+        "label": "Info du jour — BYD à Hambach (25 novembre 2026)",
+        "url": "https://infodujour.fr/societe/consommation/88229-byd-a-hambach-la-chine-a-la-conquete-de-lindustrie-automobile-francaise"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Quel véhicule Ineos Automotive assemble-t-il à Hambach depuis 2022 ?",
+        "answer": "Le 4x4 Grenadier, puis le pick-up Quartermaster, dans l'ancienne usine construite pour la Smart."
+      }
+    ]
+  },
+  {
+    "slug": "cobalt-la-rdc-suspend-de-nouveau-toutes-ses-exportations-a-partir-du-30-novembre",
+    "title": "Cobalt : la RDC suspend de nouveau toutes ses exportations à partir du 30 novembre",
+    "summary": "Le régulateur congolais des minerais stratégiques, l'Arecoms, a annoncé le 23 novembre 2026 la suspension de toutes les exportations de cobalt de la République démocratique du Congo à partir du 30 novembre, sans date de reprise. Il invoque la chute des prix et l'excès d'offre. Une réévaluation est prévue au bout de quatre mois. Faits rapportés par la presse spécialisée ; le communiqué officiel n'a pas pu être consulté directement.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L'Arecoms, régulateur congolais des marchés des substances minérales stratégiques, suspend toutes les exportations de cobalt à partir du 30 novembre 2026, jusqu'à nouvel ordre.",
+      "Il invoque un déséquilibre persistant du marché : demande faible, stocks en hausse et excès d'offre. Le prix de référence est tombé à 33 525 dollars la tonne le 20 novembre, contre près de 58 000 au premier trimestre.",
+      "C'est un retour en arrière : la RDC avait interdit les exportations en février 2025, puis instauré des quotas en octobre 2025, avec un quota de 96 600 tonnes pour 2026."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une suspension sans date de fin",
+        "text": "Selon l'agence Ecofin et le site Mining.com.au, l'Autorité de régulation et de contrôle des marchés des substances minérales stratégiques (Arecoms) a annoncé le 23 novembre 2026 la suspension de toutes les exportations de cobalt à partir du 30 novembre. La mesure vise les productions industrielles, semi-industrielles, artisanales et à petite échelle. Les exportateurs ont jusqu'au 29 novembre pour achever les expéditions déjà programmées. Elle restera en vigueur jusqu'à une nouvelle décision de l'Arecoms ; une réévaluation est prévue quatre mois après son entrée en vigueur."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des prix en forte baisse",
+        "text": "Le régulateur évoque un déséquilibre persistant du marché du cobalt, lié à une demande faible, à la hausse des stocks et à un excès d'offre. Selon Ecofin, qui cite Trading Economics, le prix de référence approchait 58 000 dollars la tonne au premier trimestre 2026, était d'environ 56 300 dollars le 1er juillet et est tombé à 33 525 dollars le 20 novembre, soit 30,98 % de moins qu'un an plus tôt. De janvier à septembre 2026, la RDC a expédié 61 440 tonnes de cobalt, contre 44 338 tonnes sur toute l'année 2025."
+      },
+      {
+        "kind": "fait",
+        "heading": "Interdiction, quotas, puis nouvelle interdiction",
+        "text": "La RDC avait instauré une interdiction totale des exportations de cobalt en février 2025, remplacée en octobre 2025 par un système de quotas. Le quota annuel pour 2026 était fixé à 96 600 tonnes. Selon Ecofin, les volumes de quota non expédiés ne seront pas reportés. Mining.com.au indique que la RDC produisait, avant ces restrictions, environ les trois quarts du cobalt extrait dans le monde, notamment par CMOC, Glencore et Eurasian Resources Group."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce qu'il faut surveiller",
+        "text": "Le cobalt sert notamment aux batteries. La reprise dépendra d'une nouvelle décision de l'Arecoms, qui doit aussi revoir le système d'attribution des quotas pendant la suspension. Le communiqué officiel du régulateur n'a pas été consulté directement : les faits ci-dessus proviennent de médias spécialisés qui le citent et concordent sur les dates et les chiffres."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Ecofin — DRC suspends cobalt exports again (24 novembre 2026)",
+        "url": "https://www.ecofinagency.com/news-industry/2411-61107-drc-suspends-cobalt-exports-again-to-counter-falling-prices-and-global-oversupply"
+      },
+      {
+        "label": "Mining.com.au — DRC to reinstate cobalt export ban as prices slump (24 novembre 2026)",
+        "url": "https://mining.com.au/drc-to-reinstate-cobalt-export-ban-as-prices-slump/"
+      },
+      {
+        "label": "MiningWrap — DRC suspends cobalt exports again (24 novembre 2026)",
+        "url": "https://miningwrap.co.za/articles/drc-suspends-cobalt-exports-again-as-prices-fall-and-oversupply-builds"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "flashcards": [
+      {
+        "question": "Quel organisme congolais a décidé la suspension des exportations de cobalt en novembre 2026 ?",
+        "answer": "L'Arecoms, l'Autorité de régulation et de contrôle des marchés des substances minérales stratégiques de la RDC."
+      }
+    ]
+  },
+  {
+    "slug": "black-out-la-cre-fixe-a-125-5-millions-le-budget-de-rte-pour-tenir-24-heures",
+    "title": "Black-out : la CRE fixe à 125,5 millions le budget de RTE pour tenir 24 heures",
+    "summary": "La Commission de régulation de l'énergie a fixé à 125,5 millions d'euros, aux prix de 2026, le budget cible du volet « Résilience 24h » du plan de reconstitution du réseau de RTE, contre 129,4 millions demandés. Le programme doit permettre à 763 sites électriques critiques de tenir 24 heures en cas de black-out national. Délibération du 21 octobre 2026, publiée le 17 novembre.",
+    "topic": "energie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Par une délibération du 21 octobre 2026, la CRE fixe à 125,5 millions d'euros de 2026 le budget cible du volet « Résilience 24h » de RTE, contre 129,4 millions proposés, soit environ 3,9 millions de moins.",
+      "Le programme équipe 763 sites électriques critiques pour qu'ils tiennent 24 heures pendant un black-out : 322 groupes électrogènes à installer et 85 cuves à remplacer.",
+      "Si la dépense réelle s'écarte de plus de 5 % du budget cible, RTE reçoit un bonus ou paie une pénalité égale à 20 % de l'écart."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Se préparer à un black-out national",
+        "text": "RTE, le gestionnaire du réseau de transport d'électricité, dispose d'un plan de reconstitution du réseau pour faire face à un black-out national, un événement que la CRE situe à environ une fois tous les cinquante ans. Le droit européen impose que certaines installations critiques, dont les postes électriques indispensables à la reconstitution, résistent 24 heures. Le volet « Résilience 24h » vise à garantir cette autonomie aux 763 sites électriques critiques recensés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que fixe la CRE",
+        "text": "Dans sa délibération n° 2026-196 du 21 octobre 2026, la CRE fixe le budget cible à 125,5 millions d'euros aux prix de 2026, contre 129,4 millions proposés par RTE, soit une baisse de 3 855 milliers d'euros. L'essentiel de l'écart vient de la révision des provisions pour risques spécifiques, dont la probabilité a été ramenée de 45 % à 20 %. Sur les 763 sites, 441 disposent déjà d'au moins un groupe électrogène et 322 n'en ont pas ; 85 cuves de carburant doivent être remplacées. Six sites ont été équipés en 2025 et seize entre janvier et mai 2026."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un mécanisme d'incitation",
+        "text": "Le budget cible s'inscrit dans le tarif d'utilisation des réseaux TURPE 7. Entre 95 % et 105 % du budget cible, il n'y a ni bonus ni pénalité. En dessous de 95 %, RTE reçoit 20 % de l'économie ; au-delà de 105 %, il supporte 20 % du dépassement. La dépense est prévue surtout de 2026 à 2028, pour une fin en 2029."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un budget distinct du programme annuel",
+        "text": "Selon Les Smart Grids, qui a rendu compte de la décision le 24 novembre 2026, ce budget de résilience ne doit pas être confondu avec le programme annuel d'investissements de RTE. Il illustre la manière dont le régulateur contrôle, avant engagement, les gros projets financés par le tarif payé par les consommateurs."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CRE — Délibération n° 2026-196 du 21 octobre 2026, budget cible du volet Résilience 24h",
+        "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261021_2026-196_Budget_cible_PRR.pdf"
+      },
+      {
+        "label": "Les Smart Grids — RTE : la CRE réduit le budget de résilience du réseau (24 novembre 2026)",
+        "url": "https://les-smartgrids.fr/rte-cre-budget-resilience-24h-2026/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-17",
+    "dataCards": [
+      {
+        "id": "budget-cible-resilience-24h",
+        "kind": "comparaison",
+        "headline": "La CRE retient 125,5 M€ contre 129,4 M€ proposés par RTE",
+        "source": {
+          "label": "CRE — Délibération n° 2026-196",
+          "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261021_2026-196_Budget_cible_PRR.pdf"
+        },
+        "asOf": "2026-10-21",
+        "imageQuery": "diesel generator industrial",
+        "items": [
+          {
+            "value": 129.4,
+            "unit": "M€2026",
+            "label": "Budget proposé par RTE",
+            "scope": "Volet Résilience 24h",
+            "period": "2025-2029",
+            "decimals": 1
+          },
+          {
+            "value": 125.5,
+            "unit": "M€2026",
+            "label": "Budget cible fixé par la CRE",
+            "scope": "Volet Résilience 24h",
+            "period": "2025-2029",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "sites-critiques-763",
+        "kind": "stat",
+        "headline": "763 sites électriques critiques doivent tenir 24 heures en cas de black-out",
+        "source": {
+          "label": "CRE — Délibération n° 2026-196",
+          "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261021_2026-196_Budget_cible_PRR.pdf"
+        },
+        "asOf": "2026-10-21",
+        "imageQuery": "electrical substation transformer",
+        "measure": {
+          "value": 763,
+          "unit": "sites",
+          "label": "Sites électriques critiques du volet Résilience 24h",
+          "scope": "Réseau de RTE, France",
+          "period": "2026"
+        }
+      },
+      {
+        "id": "groupes-electrogenes-322",
+        "kind": "stat",
+        "headline": "322 sites critiques n'ont pas encore de groupe électrogène",
+        "source": {
+          "label": "CRE — Délibération n° 2026-196",
+          "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261021_2026-196_Budget_cible_PRR.pdf"
+        },
+        "asOf": "2026-10-21",
+        "imageQuery": "fuel storage tank",
+        "measure": {
+          "value": 322,
+          "unit": "sites",
+          "label": "Sites critiques sans groupe électrogène",
+          "scope": "Réseau de RTE, France",
+          "period": "2026"
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Combien de sites électriques critiques le volet « Résilience 24h » de RTE concerne-t-il ?",
+        "answer": "763 sites, qui doivent pouvoir tenir 24 heures en cas de black-out national."
+      }
+    ]
+  },
+  {
+    "slug": "quantique-bruxelles-propose-un-quantum-act-et-un-fonds-souverain-pour-les",
+    "title": "Quantique : Bruxelles propose un Quantum Act et un fonds souverain pour les technologies",
+    "summary": "Le 25 novembre 2026, à Strasbourg, la Commission européenne a proposé le Quantum Act, un cadre destiné à transformer la recherche européenne en technologies quantiques en produits et services, à sécuriser les chaînes d’approvisionnement et à préparer la cryptographie post-quantique. Le texte pose aussi les bases d’un fonds souverain d’investissement, le Sovereign Tech Equity Fund. Il doit encore être examiné par le Parlement européen et le Conseil ; son financement dépendra des futures décisions budgétaires.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le Quantum Act repose sur trois piliers : l’excellence de la recherche, la mise en usage des technologies quantiques et la sécurité des systèmes et des approvisionnements.",
+      "Le texte prévoit un nouvel instrument d’investissement, le Sovereign Tech Equity Fund, qui apportera des fonds propres aux technologies jugées essentielles à la souveraineté technologique de l’Union.",
+      "La proposition doit maintenant être examinée par le Parlement européen et le Conseil ; selon la Commission, les futurs financements dépendront des décisions budgétaires et des règles des programmes concernés."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que la Commission a proposé",
+        "text": "La Commission européenne a présenté le 25 novembre 2026 à Strasbourg sa proposition de Quantum Act, un nouveau cadre pour aider l’Europe à passer de la recherche quantique aux produits et services. Le texte s’organise autour de trois piliers : l’excellence de la recherche, la mise en usage des technologies quantiques et la sécurité des systèmes et des approvisionnements. Ces priorités seraient portées par une Quantum Europe Framework Initiative, qui réunirait programmes européens et nationaux. La Commission propose un réseau d’instituts de recherche de premier plan, des « grands défis » sous forme de concours de financement, par exemple pour construire des ordinateurs quantiques capables de continuer à fonctionner malgré des erreurs ou des appareils de navigation fonctionnant sans signal satellite, ainsi que des infrastructures paneuropéennes (ordinateurs et simulateurs quantiques, imagerie médicale) et des pôles d’innovation pour les jeunes entreprises et les PME. Le site spécialisé The Quantum Insider a rendu compte de la même proposition le jour de sa présentation."
+      },
+      {
+        "kind": "fait",
+        "heading": "Sécurité, cryptographie et financement",
+        "text": "La Commission et les États membres surveilleraient les chaînes d’approvisionnement pour repérer les fournisseurs et composants critiques. Le texte prévoit aussi une transition coordonnée vers la cryptographie post-quantique, c’est-à-dire des méthodes de chiffrement conçues pour résister aux futurs ordinateurs quantiques, avec un suivi de l’état de préparation et des garde-fous dans les marchés publics. Enfin, il permet la création du Sovereign Tech Equity Fund, qui fournira des fonds propres et des financements similaires aux technologies essentielles à la souveraineté technologique et à la sécurité économique de l’Union. La Commission indique qu’elle travaillera avec le groupe Banque européenne d’investissement pour l’établir. Le communiqué officiel ne chiffre pas la taille de ce fonds ; le site Tech.eu évoque dans son titre un fonds de 50 milliards d’euros, un montant qui ne figure pas dans le communiqué de la Commission."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une proposition, pas encore une loi",
+        "text": "Le Quantum Act n’est à ce stade qu’une proposition : le Parlement européen et le Conseil doivent l’examiner et peuvent la modifier. La Commission précise elle-même que les futurs financements dépendront des décisions budgétaires et des règles des programmes concernés. Pour situer l’effort, elle rappelle que sa stratégie quantique de 2025 recensait plus de 11 milliards d’euros d’investissements publics dans le quantique par l’Union et ses États membres. Le texte s’inscrit dans l’objectif de faire de l’Europe un leader mondial des technologies quantiques d’ici 2030, aux côtés de l’intelligence artificielle, des semi-conducteurs et du cloud, que la Commission range parmi les technologies critiques."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — Commission proposes Quantum Act and new Sovereign Tech Equity Fund (communiqué, 25 novembre 2026)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2567"
+      },
+      {
+        "label": "Commission européenne — Communiqué IP/26/2567, version PDF",
+        "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_2567/IP_26_2567_EN.pdf"
+      },
+      {
+        "label": "The Quantum Insider — European Commission Proposes Quantum Act and New Sovereign Tech Equity Fund",
+        "url": "https://thequantuminsider.com/2026/11/25/european-commission-proposes-quantum-act-and-new-sovereign-tech-equity-fund/"
+      },
+      {
+        "label": "Tech.eu — EU proposes €50BN equity fund to support quantum and essential sovereign tech",
+        "url": "https://tech.eu/2026/11/25/eu-proposes-eur50-billion-equity-fund-to-support-quantum-and-essential-sovereign-tech"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Qu’est-ce que la cryptographie post-quantique ?",
+        "answer": "Des méthodes de chiffrement conçues pour résister aux futurs ordinateurs quantiques ; le Quantum Act prévoit une transition coordonnée de l’Europe vers ces méthodes."
+      },
+      {
+        "question": "Quel est le rôle prévu du Sovereign Tech Equity Fund ?",
+        "answer": "Fournir des fonds propres et des financements similaires aux technologies jugées essentielles à la souveraineté technologique et à la sécurité économique de l’Union européenne."
+      }
+    ]
+  },
+  {
     "slug": "gaza-la-commission-denonce-l-acces-bloque-a-l-aide-150-000-tentes-attendent",
     "title": "Gaza : la Commission dénonce l'accès bloqué à l'aide, 150 000 tentes attendent dehors",
     "summary": "Devant le Parlement européen le 24 novembre 2026, la commissaire européenne Hadja Lahbib a affirmé que l'aide humanitaire manque moins que l'accès à Gaza. Selon elle, plus de 1 600 personnes ont été tuées depuis l'annonce du cessez-le-feu d'octobre 2025, et certains articles jugés « à double usage » n'entrent qu'un jour par semaine. Le bureau humanitaire de l'ONU (OCHA) confirme que plus de 150 000 tentes attendent hors du territoire après les pluies de début novembre.",

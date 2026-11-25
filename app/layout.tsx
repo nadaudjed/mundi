@@ -10,6 +10,8 @@ import { SearchShortcut } from "@/components/SearchShortcut";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ToastProvider } from "@/components/Toast";
 import { themeScript } from "@/lib/theme";
+import { introScript } from "@/lib/intro";
+import { IntroSplash } from "@/components/IntroSplash";
 import { SITE_URL, SHARE_IMAGE, shareDefaults } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -40,8 +42,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: introScript }} />
       </head>
       <body className="min-h-dvh">
+        <IntroSplash />
         <a
           href="#contenu"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-sm focus:bg-ink focus:px-4 focus:py-2 focus:text-on-ink"

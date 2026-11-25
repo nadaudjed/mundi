@@ -1,6 +1,6 @@
 /**
  * Écran d'entrée : le globe MUNDI se dessine, le point rouge brique apparaît,
- * puis le nom et « Comprendre le monde », et l'écran s'efface sur la page (environ 3 s). Version calme
+ * puis le nom et « Comprendre le monde », et l'écran s'efface sur la page (environ 5 s). Version calme
  * (logo fixe, simple fondu) si l'appareil demande moins d'animations.
  * Rendu dans le HTML statique mais masqué ; seul html[data-intro] (posé par
  * lib/intro.ts avant l'affichage) le fait apparaître. Purement décoratif.

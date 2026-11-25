@@ -10,6 +10,10 @@ test("review mode starts with the news, with verified evidence links", async ({ 
   test.skip(!first, "No published article");
   await page.goto("/reviser/");
   await expect(page.getByRole("button", { name: /^Actualités/ })).toHaveAttribute("aria-pressed", "true");
+  // La révision commence sur action, puis le focus va sur la carte active.
+  await expect(page.getByRole("region", { name: "Carte de révision" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Commencer la révision" }).click();
+  await expect(page.getByRole("region", { name: "Carte de révision" }).getByRole("heading", { level: 2 })).toBeFocused();
   await expect(page.getByTestId("revision-card-type")).toHaveAttribute("data-type", "idees");
   await expect(page.getByRole("link", { name: "Relire l'article et ses sources" })).toHaveAttribute("href", "/actualites/" + first.slug + "/");
   await page.getByRole("button", { name: "Révéler les 3 idées" }).click();
@@ -22,6 +26,9 @@ test("review mode starts with the news, with verified evidence links", async ({ 
     const raw = localStorage.getItem("mundi:revision:v1");
     return raw ? Boolean(JSON.parse(raw)[key]) : false;
   }, key)).toBe(true);
+  // Au retour, la page propose de reprendre.
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Reprendre la révision" })).toBeVisible();
 });
 
 test("concepts are reviewed separately, and no demonstration remains", async ({ page }) => {
@@ -31,6 +38,7 @@ test("concepts are reviewed separately, and no demonstration remains", async ({ 
   await expect(page.getByRole("button", { name: /^Démonstrations/ })).toHaveCount(0);
   await page.getByRole("button", { name: /^Concepts/ }).click();
   await expect(page.getByRole("button", { name: /^Concepts/ })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("button", { name: "Commencer la révision" }).click();
   await page.getByRole("button", { name: "Révéler les 3 idées" }).click();
   await expect(page.getByRole("region", { name: "Carte de révision" })).toContainText(first.title);
   await expect(page.getByRole("region", { name: "Carte de révision" })).toContainText("Concept");

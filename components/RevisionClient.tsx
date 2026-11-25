@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRevision } from "@/lib/revision";
 import { verificationLabel } from "@/lib/verification";
@@ -18,6 +18,9 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   const [kind, setKind] = useState<PublicationKind>("actualite");
   const [selected, setSelected] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
+  // La révision commence sur action : une seule carte active à la fois.
+  const [started, setStarted] = useState(false);
+  const cardRef = useRef<HTMLHeadingElement>(null);
   const [now] = useState(() => Date.now());
 
   // Chaque publication donne ses cartes : trois idées, questions écrites par les agents, chiffres clés.
@@ -29,8 +32,19 @@ export function RevisionClient({ publications }: { publications: FeedPublication
   const learned = cards.filter((card) => Boolean(records[card.key])).length;
   const story = due.find((card) => card.key === selected) ?? due[0] ?? null;
 
+  // Au clavier et au lecteur d'écran, le focus suit la carte active.
+  useEffect(() => {
+    if (started) cardRef.current?.focus();
+  }, [started, story?.key]);
+
+  function start(key: string | null = null) {
+    setSelected(key);
+    setRevealed(false);
+    setStarted(true);
+  }
   function changeKind(next: PublicationKind) {
     setKind(next);
+    setStarted(false);
     setSelected(null);
     setRevealed(false);
   }
@@ -43,7 +57,27 @@ export function RevisionClient({ publications }: { publications: FeedPublication
 
   return (
     <div className="mt-6">
-      <div role="group" aria-label="Choisir les contenus à réviser" className="flex gap-5 overflow-x-auto border-b border-rule max-[359px]:gap-3">
+      <div className="rounded-md border border-rule-strong bg-surface p-5 md:p-6" data-testid="revision-start">
+        <p className="text-base text-ink" data-testid="revision-progress">
+          <span className="font-mono">{due.length}</span> carte{due.length > 1 ? "s" : ""} à réviser,{" "}
+          <span className="font-mono">{learned}</span> déjà étudiée{learned > 1 ? "s" : ""},{" "}
+          <span className="font-mono">{mastered}</span> bien retenue{mastered > 1 ? "s" : ""}.
+        </p>
+        {due.length > 0 ? (
+          started ? (
+            <button type="button" onClick={() => { setStarted(false); setRevealed(false); setSelected(null); }} className="btn btn-secondary mt-4">
+              Faire une pause
+            </button>
+          ) : (
+            <button type="button" onClick={() => start()} className="btn btn-primary mt-4">
+              {learned > 0 ? "Reprendre la révision" : "Commencer la révision"}
+            </button>
+          )
+        ) : (
+          <p className="mt-2 text-sm text-muted">Rien à réviser dans cet onglet pour l&apos;instant.</p>
+        )}
+      </div>
+      <div role="group" aria-label="Choisir les contenus à réviser" className="mt-6 flex gap-5 overflow-x-auto border-b border-rule max-[359px]:gap-3">
         {KINDS.filter((k) => k !== "recit" || publicCards.some((c) => c.kind === "recit")).map((k) => (
           <button key={k} type="button" aria-pressed={kind === k} onClick={() => changeKind(k)}
             className={"-mb-px whitespace-nowrap border-b-2 pb-2 text-sm font-semibold transition-colors " +
@@ -59,18 +93,13 @@ export function RevisionClient({ publications }: { publications: FeedPublication
             ? "Révisez les notions durables expliquées par les concepts de MUNDI, chacun sourcé."
             : "Révisez les histoires vraies, épisodes et idées racontés par MUNDI, chacun sourcé."}
       </p>
-      <p className="mt-2 text-base text-ink" data-testid="revision-progress">
-        <span className="font-mono">{due.length}</span> carte{due.length > 1 ? "s" : ""} à réviser,{" "}
-        <span className="font-mono">{learned}</span> déjà étudiée{learned > 1 ? "s" : ""},{" "}
-        <span className="font-mono">{mastered}</span> bien retenue{mastered > 1 ? "s" : ""}.
-      </p>
-      <section className="mt-8 rounded-md border border-rule-strong bg-surface p-6 md:p-9" aria-label="Carte de révision">
+      {(started || !story) && <section className="mt-8 rounded-md border border-rule-strong bg-surface p-6 md:p-9" aria-label="Carte de révision">
         {story ? (
           <>
             <p className="text-meta text-muted" data-testid="revision-card-type" data-type={story.type}>
               <span className="font-semibold text-accent">{getTopic(story.topic)?.name}</span> · {KIND_LABEL[story.kind]} · {TYPE_LABEL[story.type]}
             </p>
-            <h2 className="mt-3 max-w-2xl font-display text-titre font-semibold text-ink text-balance">{story.question}</h2>
+            <h2 ref={cardRef} tabIndex={-1} className="mt-3 max-w-2xl font-display text-titre font-semibold text-ink text-balance outline-none">{story.question}</h2>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">
               {story.type === "idees" ? "Essayez de rappeler à voix haute les trois idées essentielles avant de révéler la réponse." : "Cherchez la réponse de tête avant de la révéler."}
             </p>
@@ -116,17 +145,17 @@ export function RevisionClient({ publications }: { publications: FeedPublication
           <div className="py-4">
             <h2 className="font-display text-2xl font-semibold text-ink">Toutes vos révisions sont à jour</h2>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">Revenez plus tard pour retrouver vos cartes. Les intervalles s&apos;allongent quand vous retenez les idées.</p>
-            <Link href="/" className="btn btn-secondary mt-5">Retour au fil</Link>
+            <Link href="/" className="btn btn-secondary mt-5">Retour à l&apos;accueil</Link>
           </div>
         )}
-      </section>
-      {due.length > 1 && (
+      </section>}
+      {due.length > (started ? 1 : 0) && (
         <section className="mt-10">
-          <h2 className="border-b border-ink pb-2 font-display text-xl font-semibold text-ink">Autres cartes disponibles</h2>
+          <h2 className="border-b border-ink pb-2 font-display text-xl font-semibold text-ink">{started ? "Autres cartes disponibles" : "Cartes à réviser"}</h2>
           <ul>
-            {due.filter((card) => card.key !== story?.key).map((card) => (
+            {due.filter((card) => !started || card.key !== story?.key).map((card) => (
               <li key={card.key} className="border-b border-rule">
-                <button type="button" onClick={() => { setSelected(card.key); setRevealed(false); }}
+                <button type="button" onClick={() => start(card.key)}
                   className="w-full py-3 text-left font-display text-base leading-snug text-ink hover:text-accent">
                   <span className="mr-2 font-sans text-meta font-semibold text-muted">{TYPE_LABEL[card.type]}</span>{card.question === card.title ? card.title : card.question}
                 </button>
@@ -137,7 +166,7 @@ export function RevisionClient({ publications }: { publications: FeedPublication
       )}
       <div className="mt-10 border-t border-rule pt-4 text-sm text-muted">
         <p>La progression est conservée uniquement dans ce navigateur, pour les actualités comme pour les concepts. Ce n&apos;est pas un test certifié.</p>
-        {learned > 0 && <button type="button" onClick={() => { reset(); setSelected(null); setRevealed(false); }}
+        {learned > 0 && <button type="button" onClick={() => { reset(); setStarted(false); setSelected(null); setRevealed(false); }}
           className="mt-3 font-semibold text-accent underline underline-offset-4">Remettre toute ma progression à zéro</button>}
       </div>
     </div>

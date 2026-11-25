@@ -7,7 +7,7 @@ export default function NotFound() {
       <h1 className="mt-4 font-display text-2xl font-semibold text-ink">Cette page n&apos;existe pas</h1>
       <p className="mt-2 text-muted">Le lien est peut-être incorrect, ou le récit a été retiré.</p>
       <Link href="/" className="mt-6 btn btn-primary">
-        Retour au fil
+        Retour à l&apos;accueil
       </Link>
     </div>
   );

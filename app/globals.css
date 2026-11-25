@@ -445,11 +445,11 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /*
- * Animation d'entrée (components/IntroSplash.tsx, lib/intro.ts), environ 5 s.
+ * Animation d'entrée (components/IntroSplash.tsx, lib/intro.ts), environ 3 s.
  * Fond nuit, comme le Fil et l'écran de lancement de l'application : le globe se
- * dessine (0–1,5 s), le méridien s'ouvre puis tourne doucement, l'équateur se
- * trace, le point rouge brique apparaît (1,7 s), le nom puis « Comprendre le
- * monde » suivent (2,0–3,6 s), puis l'écran s'efface (4,3–5,0 s).
+ * dessine (0–0,9 s), le méridien s'ouvre puis tourne doucement, l'équateur se
+ * trace, le point rouge brique apparaît (1 s), le nom puis « Comprendre le
+ * monde » suivent (1,2–2,2 s), puis l'écran s'efface (2,6–3 s).
  * Masqué sans html[data-intro].
  */
 .intro {
@@ -464,7 +464,7 @@ html[data-intro] .intro {
   justify-content: center;
   background: var(--color-night);
   color: var(--color-ivory);
-  animation: intro-out 0.7s cubic-bezier(0.4, 0, 0.2, 1) 4.3s forwards;
+  animation: intro-out 0.42s cubic-bezier(0.4, 0, 0.2, 1) 2.58s forwards;
 }
 html[data-intro="skip"] .intro {
   animation: intro-out 0.22s ease-out forwards;
@@ -473,7 +473,7 @@ html[data-intro="skip"] .intro {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: intro-lift 0.7s cubic-bezier(0.4, 0, 0.2, 1) 4.3s forwards;
+  animation: intro-lift 0.42s cubic-bezier(0.4, 0, 0.2, 1) 2.58s forwards;
 }
 .intro-mark {
   width: clamp(4.5rem, 18vmin, 8rem);
@@ -493,7 +493,7 @@ html[data-intro="skip"] .intro {
   stroke-dashoffset: 1;
   transform: rotate(-90deg);
   transform-origin: 16px 16px;
-  animation: intro-draw 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: intro-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 .intro-meridian {
   stroke-width: 1.8;
@@ -501,21 +501,21 @@ html[data-intro="skip"] .intro {
   transform: scaleX(0);
   transform-origin: 16px 16px;
   animation:
-    intro-meridian 1s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards,
-    intro-turn 2.2s ease-in-out 1.7s;
+    intro-meridian 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards,
+    intro-turn 1.32s ease-in-out 1.02s;
 }
 .intro-equator {
   stroke-width: 1.8;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: intro-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.8s forwards;
+  animation: intro-draw 0.54s cubic-bezier(0.65, 0, 0.35, 1) 0.48s forwards;
 }
 .intro-mark .intro-dot {
   fill: var(--color-brick-light);
   stroke: none;
   transform: scale(0);
   transform-origin: 23.5px 8.5px;
-  animation: intro-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.7s forwards;
+  animation: intro-pop 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) 1.02s forwards;
 }
 .intro-word {
   margin-top: clamp(0.9rem, 2.5vmin, 1.4rem);
@@ -526,7 +526,7 @@ html[data-intro="skip"] .intro {
   /* Le dernier espacement de lettre décale le mot : on le compense. */
   margin-right: -0.2em;
   opacity: 0;
-  animation: intro-word 1s cubic-bezier(0.22, 1, 0.36, 1) 2s forwards;
+  animation: intro-word 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards;
 }
 .intro-tagline {
   margin-top: 0.5rem;
@@ -536,7 +536,7 @@ html[data-intro="skip"] .intro {
   color: rgb(243 240 232 / 0.78);
   opacity: 0;
   transform: translateY(0.35rem);
-  animation: intro-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 2.7s forwards;
+  animation: intro-rise 0.54s cubic-bezier(0.22, 1, 0.36, 1) 1.62s forwards;
 }
 @keyframes intro-draw {
   to { stroke-dashoffset: 0; }
@@ -570,7 +570,7 @@ html[data-intro="skip"] .intro {
    règle générale qui coupe les animations). */
 @media (prefers-reduced-motion: reduce) {
   html[data-intro] .intro {
-    animation: intro-out 0.7s ease-out 3.6s forwards !important;
+    animation: intro-out 0.42s ease-out 2.16s forwards !important;
   }
   html[data-intro="skip"] .intro {
     animation: intro-out 0.22s ease-out forwards !important;

@@ -31,6 +31,12 @@
   --font-sans: "DM Sans Variable", "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
   /* Chasse fixe (IBM Plex Mono, licence OFL, auto-hébergée) : chiffres, dates, numéros de sources. */
+  /* Pilote « Aujourd'hui » : titres de magazine et interface. */
+  --font-serif: "Instrument Serif", "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-ui: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Graphite : texte du pilote sur ivoire (13,9:1). */
+  --color-graphite: #23262b;
+  --color-graphite-2: #3a3e45;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   /* Rayons : 4 à 6 px au plus pour les conteneurs, angles droits pour les images. */
@@ -232,7 +238,35 @@ body {
 
 /* Hauteur utile du fil : écran moins l'en-tête (ordinateur) ou la barre d'onglets (mobile). */
 .feed-h {
-  height: calc(100dvh - var(--nav-h) - var(--header-h));
+  height: calc(100dvh - var(--nav-h) - var(--header-h) - var(--mini-space, 0px));
+}
+
+/* Mini-lecteur audio partagé : le Fil et les pages lui laissent sa place en bas de l'écran. */
+:root {
+  --mini-h: 3.5rem;
+}
+:root:has([data-mini-player]) {
+  --mini-space: var(--mini-h);
+}
+@media (min-width: 768px) {
+  /* Grand écran : le mini-lecteur flotte en bas à droite, sans réduire le Fil. */
+  :root:has([data-mini-player]) {
+    --mini-space: 0px;
+  }
+}
+body:has([data-mini-player]) main {
+  padding-bottom: var(--mini-space, 0px);
+}
+
+/* Composition « magazine » du pilote : ivoire, graphite, rouge MUNDI. */
+.magazine {
+  font-family: var(--font-ui);
+}
+.magazine .font-serif,
+.font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 /* Boutons : rectangles à petits angles, sans flèche dans un rond. */
@@ -277,6 +311,23 @@ body {
   color: var(--color-ivory);
   &:hover {
     border-color: var(--color-ivory);
+  }
+}
+
+/* Pilote « Aujourd'hui » : cartes ivoire en thème clair comme sombre (couleurs fixes). */
+@utility btn-graphite {
+  background: var(--color-graphite);
+  color: var(--color-ivory);
+  &:hover {
+    background: var(--color-brick);
+    color: #fff;
+  }
+}
+@utility btn-outline-graphite {
+  border: 1px solid rgb(35 38 43 / 0.45);
+  color: var(--color-graphite);
+  &:hover {
+    border-color: var(--color-graphite);
   }
 }
 

@@ -20,6 +20,7 @@ import { feedPublications } from "@/lib/verified";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { keyFigureOf } from "@/lib/covers";
 import type { ComparisonCard } from "@/lib/data-cards";
+import { DecryptageArticle } from "@/components/pilot/DecryptageArticle";
 
 type Params = { slug: string };
 export function generateStaticParams(): Params[] {
@@ -32,12 +33,22 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const a = getPublication(slug);
   if (!a) return {};
+  // Aperçu de partage : l'image du sujet quand elle est pertinente (carte du pilote, photo
+  // d'archive ou photo de l'article), sinon l'image générale de MUNDI.
+  // (Pilote seulement : les autres articles gardent l'image générale.)
+  const v = a.decryptage?.visual;
+  const image = v?.type === "carte"
+    ? { url: `/media/pilote/${v.id}-partage.png`, width: 1200, height: 630, alt: v.alt }
+    : v && a.photo ? { url: a.photo.src, alt: v.type === "archive" ? v.alt : a.photo.alt }
+    : SHARE_IMAGE;
+  const description = a.decryptage ? `${a.decryptage.essentiel.fait} ${a.decryptage.essentiel.consequence}` : a.summary;
+  const title = a.decryptage?.shortTitle ?? a.title;
   return {
-    title: a.title,
-    description: a.summary,
+    title,
+    description,
     alternates: { canonical: publicationPath(a.slug) },
-    openGraph: { ...shareDefaults, type: "article", title: a.title, description: a.summary, url: publicationPath(a.slug), publishedTime: a.publishedAt, modifiedTime: a.updatedAt },
-    twitter: { card: "summary_large_image", title: a.title, description: a.summary, images: [SHARE_IMAGE.url] },
+    openGraph: { ...shareDefaults, type: "article", title, description, url: publicationPath(a.slug), publishedTime: a.publishedAt, modifiedTime: a.updatedAt, images: [image] },
+    twitter: { card: "summary_large_image", title, description, images: [image.url] },
   };
 }
 const labels = { fait: "Faits", analyse: "Analyse", hypothese: "Hypothèses" };
@@ -46,6 +57,7 @@ export default async function PublicationPage({ params }: { params: Promise<Para
   const { slug } = await params;
   const a = getPublication(slug);
   if (!a) notFound();
+  if (a.decryptage) return <DecryptageArticle a={a} d={a.decryptage} all={feedPublications} />;
   const topic = getTopic(a.topic);
   const figure = keyFigureOf(a);
   // Graphique : seulement une comparaison approuvée sur une échelle commune (même unité, même dénominateur).

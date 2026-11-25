@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { clock, usePlayer } from "./audio/AudioPlayer";
 
 /**
  * « Écouter » : lecture du résumé par la voix de l'appareil (speechSynthesis),
@@ -18,9 +19,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
  *   au retour, l'état passe en « pause » plutôt que de rester bloqué.
  */
 type Props = {
-  title: string; summary: string; points: string[]; active?: boolean; tone?: "dark" | "light";
+  title: string; summary: string; points: string[]; active?: boolean; tone?: "dark" | "light" | "paper";
   /** Version audio enregistrée (MP3) : lue en priorité, la voix du téléphone sert de secours. */
   audioSrc?: string;
+  /** Page de l'article, pour le lien du mini-lecteur. */
+  href?: string;
 };
 type Phase = "idle" | "starting" | "speaking" | "paused";
 type Session = {
@@ -127,28 +130,34 @@ function warmVoices() {
   } catch { /* ignore */ }
 }
 
-const clock = (t: number) => Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0");
-
-export function ListenButton({ title, summary, points, active = true, tone = "dark", audioSrc }: Props) {
-  const [phase, setPhase] = useState<Phase>("idle");
+export function ListenButton({ title, summary, points, active = true, tone = "dark", audioSrc, href }: Props) {
+  const [speechPhase, setPhase] = useState<Phase>("idle");
   const [progress, setProgress] = useState({ index: 0, total: 0 });
   const [error, setError] = useState("");
   const session = useRef<Session | null>(null);
   const speakNext = useRef<(s: Session) => void>(() => {});
-  const audio = useRef<HTMLAudioElement | null>(null);
   const [audioFailed, setAudioFailed] = useState(false);
   const useRecording = !!audioSrc && !audioFailed;
+  // Le fichier MP3 est lu par le lecteur partagé (mini-lecteur) : il continue quand on fait
+  // défiler le Fil ou qu'on change de page. La voix du téléphone reste locale à ce bouton.
+  const player = usePlayer();
+  const mine = useRecording && player?.track?.src === audioSrc;
+  const playerPhase = mine ? player!.phase : "idle";
+  const failedTrack = mine && playerPhase === "error";
+  useEffect(() => {
+    if (!failedTrack) return;
+    queueMicrotask(() => {
+      setAudioFailed(true);
+      setError("Version audio indisponible pour le moment. Touchez Réessayer pour la voix du téléphone.");
+      player?.stop();
+    });
+  }, [failedTrack, player]);
+  const phase: Phase = useRecording
+    ? playerPhase === "playing" ? "speaking" : playerPhase === "starting" ? "starting" : playerPhase === "paused" ? "paused" : "idle"
+    : speechPhase;
 
   /** Coupe la voix sans toucher à l'état React (utilisable dans les effets). */
   const release = useCallback(() => {
-    const a = audio.current;
-    if (a) {
-      audio.current = null;
-      if (currentOwner?.session === a) currentOwner = null;
-      a.onplaying = a.onwaiting = a.ontimeupdate = a.onended = a.onerror = a.onpause = null;
-      try { a.pause(); a.removeAttribute("src"); a.load(); } catch { /* ignore */ }
-      return true;
-    }
     const s = session.current;
     if (!s) return false;
     session.current = null;
@@ -172,7 +181,6 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
   }, [release]);
 
   const pause = useCallback(() => {
-    if (audio.current) { audio.current.pause(); setPhase("paused"); return; }
     const s = session.current;
     if (!s) return;
     if (s.watchdog !== null) window.clearTimeout(s.watchdog);
@@ -264,57 +272,13 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
     } else speakCurrent(s);
   }, [speakCurrent]);
 
-  /** Lecture du fichier audio enregistré : fiable sur iPhone, continue écran verrouillé. */
-  function playRecording(src: string) {
-    let a = audio.current;
-    if (a && phase !== "idle") {
-      if (!a.paused) { a.pause(); setPhase("paused"); return; }
-      setPhase("starting");
-      void a.play().catch(() => setPhase("paused"));
+  function onMainClick() {
+    if (useRecording && audioSrc && player) {
+      if (currentOwner) currentOwner.stop();
+      setError("");
+      player.toggle({ src: audioSrc, title, href });
       return;
     }
-    if (currentOwner) currentOwner.stop();
-    a = new Audio(src);
-    a.preload = "auto";
-    a.setAttribute("playsinline", "");
-    audio.current = a;
-    currentOwner = { session: a, stop };
-    const mine = () => audio.current === a;
-    a.onplaying = () => { if (mine()) setPhase("speaking"); };
-    a.onwaiting = () => { if (mine()) setPhase("starting"); };
-    a.onpause = () => { if (mine() && !a.ended) setPhase("paused"); };
-    a.ontimeupdate = () => {
-      if (mine() && a.duration) setProgress({ index: a.currentTime, total: a.duration });
-    };
-    a.onended = () => { if (mine()) stop(); };
-    a.onerror = () => {
-      if (!mine()) return;
-      release();
-      setPhase("idle");
-      setAudioFailed(true);
-      setError("Version audio indisponible pour le moment. Touchez Réessayer pour la voix du téléphone.");
-    };
-    try {
-      const ms = navigator.mediaSession;
-      if (ms && "MediaMetadata" in window) {
-        ms.metadata = new MediaMetadata({ title, artist: "MUNDI", artwork: [{ src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" }] });
-        ms.setActionHandler("play", () => { if (mine()) void a.play(); });
-        ms.setActionHandler("pause", () => { if (mine()) a.pause(); });
-      }
-    } catch { /* lecture sans commandes d'écran verrouillé */ }
-    setError("");
-    setProgress({ index: 0, total: 0 });
-    setPhase("starting");
-    a.play().catch((e: unknown) => {
-      if (!mine()) return;
-      // Lecture refusée (rare, hors geste) : on laisse l'utilisateur relancer.
-      if (e instanceof DOMException && e.name === "NotAllowedError") { setPhase("paused"); return; }
-      a.onerror?.(new Event("error"));
-    });
-  }
-
-  function onMainClick() {
-    if (useRecording && audioSrc) { playRecording(audioSrc); return; }
     const s = session.current;
     if (s && (phase === "speaking" || phase === "starting")) { pause(); return; }
     if (s && phase === "paused") {
@@ -338,6 +302,7 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
     const fresh: Session = { chunks, index: 0, utterance: null, watchdog: null, retried: false };
     session.current = fresh;
     currentOwner = { session: fresh, stop };
+    player?.onExternalStart(stop); // un seul son à la fois : le lecteur partagé s'arrête
     play(fresh);
   }
 
@@ -370,17 +335,19 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
     };
   }, [pause, stop]);
 
-  const on = active && phase !== "idle";
+  // Le fichier enregistré continue hors de l'écran (mini-lecteur) ; la voix du téléphone, non.
+  const on = (useRecording ? mine : active) && phase !== "idle";
+  const progressNow = useRecording && mine ? { index: player!.time, total: player!.duration } : progress;
   const playing = on && (phase === "speaking" || phase === "starting");
   const label = playing ? "Pause" : phase === "paused" && on ? "Reprendre" : error ? "Réessayer" : "Écouter";
   const recording = useRecording;
   const status = !on ? "" : phase === "starting" ? "Démarrage de la lecture"
     : (phase === "paused" ? "En pause" : "Lecture en cours") +
-      (recording ? (progress.total ? ", " + clock(progress.index) + " sur " + clock(progress.total) : "")
+      (recording ? (progressNow.total ? ", " + clock(progressNow.index) + " sur " + clock(progressNow.total) : "")
         : progress.total > 1 ? ", passage " + (progress.index + 1) + " sur " + progress.total : "");
-  const pct = !progress.total ? 0 : recording ? Math.round((progress.index / progress.total) * 100)
+  const pct = !progressNow.total ? 0 : recording ? Math.round((progressNow.index / progressNow.total) * 100)
     : Math.round(((progress.index + (phase === "paused" ? 0 : 0.5)) / progress.total) * 100);
-  const btn = "btn " + (tone === "light" ? "btn-secondary" : "btn-outline-light");
+  const btn = "btn " + (tone === "light" ? "btn-secondary" : tone === "paper" ? "btn-outline-graphite" : "btn-outline-light");
 
   return (
     <span className="inline-flex max-w-full flex-col items-start gap-1.5" data-testid="listen" data-phase={on ? phase : "idle"}>
@@ -400,14 +367,14 @@ export function ListenButton({ title, summary, points, active = true, tone = "da
           )}
         </button>
         {on && (
-          <button type="button" onClick={stop} aria-label="Arrêter la lecture audio" title="Arrêter"
+          <button type="button" onClick={recording ? () => player?.stop() : stop} aria-label="Arrêter la lecture audio" title="Arrêter"
             className={btn + " px-3"}>
             <span aria-hidden="true">■</span>
           </button>
         )}
       </span>
       {on && <span role="status" className="sr-only">{status}</span>}
-      {error && !on && <span role="status" className={"max-w-72 text-xs leading-relaxed " + (tone === "light" ? "text-[#79571c]" : "text-[#ffd98f]")}>{error}</span>}
+      {error && !on && <span role="status" className={"max-w-72 text-xs leading-relaxed " + (tone === "dark" ? "text-[#ffd98f]" : "text-[#79571c]")}>{error}</span>}
     </span>
   );
 }

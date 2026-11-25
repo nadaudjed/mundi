@@ -17,13 +17,13 @@ function entries(): Record<string, Entry> {
 }
 
 /** Ajoute `audio` aux articles dont le fichier existe et correspond à la version actuelle. */
-export function attachArticleAudio<T extends { slug: string; updatedAt?: string }>(list: T[]): (T & { audio?: string })[] {
+export function attachArticleAudio<T extends { slug: string; updatedAt?: string }>(list: T[]): (T & { audio?: string; audioDuration?: number })[] {
   const all = entries();
   return list.map((p) => {
     const e = all[p.slug];
     if (!e || !/^\/media\/audio\/[a-z0-9-]+\.mp3$/.test(e.src)) return p;
     if (p.updatedAt && e.updatedAt && e.updatedAt !== p.updatedAt) return p; // corrigé : en attente du nouvel enregistrement
     if (!testAudio && !existsSync(resolve(process.cwd(), "public" + e.src))) return p;
-    return { ...p, audio: e.src };
+    return { ...p, audio: e.src, ...(e.duration > 0 ? { audioDuration: e.duration } : {}) };
   });
 }

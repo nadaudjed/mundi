@@ -8,6 +8,10 @@ import {existsSync} from "node:fs";
 import {validateEditorialPhotos,type EditorialPhoto} from "./editorial-images";
 import { validateBackdrops, type SceneBackdrop, type SceneRef } from "./scenes";
 import { attachArticleAudio } from "./article-audio";
+import decryptageData from "@/content/decryptages.json";
+import todayData from "@/content/aujourdhui.json";
+import { validateDecryptage, type Decryptage } from "./decryptage";
+import type { TodayConfig } from "./today";
 
 /**
  * Publications vérifiées affichées par le site (fil, liste, pages, enregistrés).
@@ -31,6 +35,8 @@ export type VerifiedPublication = Publication & {
   photo?: EditorialPhoto;
   /** Fichier MP3 de la version audio, s'il est prêt. */
   audio?: string;
+  /** Durée du MP3, en secondes. */
+  audioDuration?: number;
   dataCards?: DataCard[];
   /**
    * false : les chiffres restent dans l'article, la couverture et Réviser, mais la série de cartes
@@ -42,6 +48,8 @@ export type VerifiedPublication = Publication & {
   scene?: SceneRef;
   /** Fonds approuvés utilisés par la publication et ses cartes, résolus au build. */
   backdrops?: Record<string, SceneBackdrop>;
+  /** Pilote « Aujourd'hui » : décryptage en trois niveaux (content/decryptages.json). */
+  decryptage?: Decryptage;
 };
 
 /** Données utiles au fil et aux enregistrements (sans le corps de l'article). */
@@ -139,14 +147,54 @@ function attachEditorialPhotos(list:VerifiedPublication[]):VerifiedPublication[]
     return { ...p, ...(bySlug.has(p.slug)?{photo:bySlug.get(p.slug)}:{}), ...(cards&&Object.keys(cards).length?{cardPhotos:cards}:{})};
   });
 }
-export const verifiedPublications: VerifiedPublication[] = attachArticleAudio(resolveScenes(
+const testDecryptages = process.env.MUNDI_TEST_DECRYPTAGES;
+const testToday = process.env.MUNDI_TEST_TODAY;
+function testOnly(file: string): unknown {
+  if (process.env.NETLIFY || process.env.CONTEXT) throw new Error("Les fichiers de test du pilote sont réservés aux tests locaux.");
+  return JSON.parse(readFileSync(resolve(process.cwd(), file), "utf8"));
+}
+
+/**
+ * Décryptages du pilote : une entrée mal formée fait échouer la construction. Un lien vers
+ * un article retiré est simplement retiré (repli), sans casser la page.
+ */
+function attachDecryptages(list: VerifiedPublication[]): VerifiedPublication[] {
+  // Le site de test ne reçoit jamais les décryptages des vrais articles (et inversement).
+  const all = (testDecryptages ? testOnly(testDecryptages) : testFile ? {} : decryptageData) as Record<string, Decryptage>;
+  const slugs = new Set(list.map((p) => p.slug));
+  const errors: string[] = [];
+  const result = list.map((p) => {
+    const d = all[p.slug];
+    if (!d) return p;
+    errors.push(...validateDecryptage(p.slug, d, p.sources.length));
+    const link = d.link && slugs.has(d.link.slug) && d.link.slug !== p.slug ? d.link : undefined;
+    return { ...p, decryptage: { ...d, link } };
+  });
+  if (errors.length) throw new Error("Décryptages invalides : " + errors.join(" ; "));
+  return result;
+}
+
+export const verifiedPublications: VerifiedPublication[] = attachDecryptages(attachArticleAudio(resolveScenes(
   checkDataCards(attachEditorialPhotos(testFile ? loadTestFixtures(testFile).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt)) : publishedArticles)),
-));
+)));
+
+/**
+ * Configuration de l'édition « Aujourd'hui ». Le site de test (publications inventées) n'a
+ * pas d'édition du jour, sauf configuration inventée (MUNDI_TEST_TODAY) : ses scénarios
+ * historiques gardent ainsi le fil tel quel.
+ */
+export const todayConfig: TodayConfig | null = (testToday ? testOnly(testToday) : testFile ? null : todayData) as TodayConfig | null;
 
 export const getVerifiedPublication = (slug: string) => verifiedPublications.find((p) => p.slug === slug);
 
 export function toFeedPublication({ sections: _sections, ...rest }: VerifiedPublication): FeedPublication {
   void _sections;
+  // Le script parlé ne sert qu'à fabriquer le MP3 : inutile dans le navigateur.
+  if (rest.decryptage) {
+    const { audioScript: _script, ...decryptage } = rest.decryptage;
+    void _script;
+    return { ...rest, decryptage };
+  }
   return rest;
 }
 

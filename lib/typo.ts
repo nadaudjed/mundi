@@ -1,7 +1,7 @@
 /**
  * Espaces insécables du français : « : », « ? », « ! », « ; » et les guillemets
- * ne partent jamais seuls en début de ligne.
+ * ne partent jamais seuls en début de ligne (de même que « % » après un chiffre).
  */
 export function frenchSpacing(text: string): string {
-  return text.replace(/ ([:;?!»])/g, " $1").replace(/« /g, "« ");
+  return text.replace(/ ([:;?!»%])/g, " $1").replace(/« /g, "« ");
 }

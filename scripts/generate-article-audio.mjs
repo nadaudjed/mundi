@@ -19,15 +19,17 @@ import {narrationFor} from "./audio-narration.mjs";
 export const VOICE={id:"piper-fr_FR-siwis-medium",lengthScale:"1.05",sentenceSilence:"0.35",bitrate:"48k"};
 export const MANIFEST="content/article-audio.json";
 export const DIR="public/media/audio";
+/** Scripts parlés du pilote « Aujourd'hui » (facultatifs). */
+export const DECRYPTAGES="content/decryptages.json";
 
 export const hashOf=text=>createHash("sha256").update(VOICE.id+"|"+VOICE.lengthScale+"|"+text).digest("hex").slice(0,16);
 
 /** Ce qu'il faut enregistrer, garder ou supprimer. Pure : testable sans Piper. */
-export function planAudio(publications,manifest,max=40){
+export function planAudio(publications,manifest,max=40,decryptages={}){
   const published=publications.filter(p=>p.status==="published"&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(p.slug));
   const keep=[],todo=[];
   for(const p of published){
-    const text=narrationFor(p),hash=hashOf(text),entry=manifest[p.slug];
+    const text=narrationFor(p,decryptages[p.slug]),hash=hashOf(text),entry=manifest[p.slug];
     if(entry&&entry.hash===hash)keep.push(p.slug);
     else todo.push({slug:p.slug,text,hash,updatedAt:p.updatedAt||p.publishedAt});
   }
@@ -52,8 +54,8 @@ export function record({slug,text},model){
   return Math.round(d)||0;
 }
 
-export function generateArticleAudio({publications,manifest,model,max=40,recorder=record,now=new Date().toISOString()}){
-  const plan=planAudio(publications,manifest,max);
+export function generateArticleAudio({publications,manifest,model,max=40,recorder=record,now=new Date().toISOString(),decryptages={}}){
+  const plan=planAudio(publications,manifest,max,decryptages);
   const next={};
   for(const slug of plan.keep)next[slug]=manifest[slug];
   mkdirSync(DIR,{recursive:true});
@@ -78,7 +80,8 @@ if(import.meta.url==="file://"+process.argv[1]){
   const model=process.env.MUNDI_PIPER_MODEL||"voices/fr_FR-siwis-medium.onnx";
   const publications=JSON.parse(readFileSync("content/publications.json","utf8"));
   const manifest=existsSync(MANIFEST)?JSON.parse(readFileSync(MANIFEST,"utf8")):{};
-  const r=generateArticleAudio({publications,manifest,model,max:Number(process.env.MUNDI_AUDIO_MAX||40)});
+  const decryptages=existsSync(DECRYPTAGES)?JSON.parse(readFileSync(DECRYPTAGES,"utf8")):{};
+  const r=generateArticleAudio({publications,manifest,model,decryptages,max:Number(process.env.MUNDI_AUDIO_MAX||40)});
   writeFileSync(MANIFEST,JSON.stringify(r.manifest,null,1)+"\n");
   console.log(JSON.stringify({recorded:r.recorded,failed:r.failed,removed:r.removed,waiting:r.waiting}));
   if(r.failed.length&&!r.recorded)process.exitCode=1;

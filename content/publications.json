@@ -1,5 +1,444 @@
 [
   {
+    "slug": "doctorats-europeens-marie-curie-1-939-candidatures-20-de-plus-qu-en-2025",
+    "title": "Doctorats européens Marie Curie : 1 939 candidatures, 20 % de plus qu’en 2025",
+    "summary": "L’appel 2026 des réseaux doctoraux des actions Marie Skłodowska-Curie, clos le 24 novembre, a reçu 1 939 propositions, contre 1 616 en 2025, a annoncé la Commission européenne le 25 novembre 2026. Doté d’un budget indicatif de 628 millions d’euros, il doit financer plus de 150 programmes doctoraux et plus de 2 000 doctorants, à comparer aux 726 765 doctorants recensés par Eurostat dans l’UE en 2024.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La Commission européenne a reçu 1 939 propositions pour l’appel 2026 des réseaux doctoraux Marie Skłodowska-Curie, soit 20 % de plus que les 1 616 de l’appel 2025.",
+      "Le budget indicatif atteint 628 millions d’euros, après un ajout de 35 millions d’euros au titre de l’initiative Choose Europe ; plus de 150 programmes et plus de 2 000 doctorants doivent être soutenus.",
+      "Ces places financées restent modestes face aux 726 765 étudiants inscrits en doctorat dans l’Union européenne en 2024, selon Eurostat ; les premiers projets retenus démarreront en septembre 2027."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un appel très demandé",
+        "text": "Selon la Commission européenne, l’appel 2026 pour les réseaux doctoraux des actions Marie Skłodowska-Curie (MSCA), le programme européen de mobilité et de formation des chercheurs, a été clôturé le 24 novembre 2026. Il a reçu 1 939 propositions déposées par des organisations d’Europe et d’ailleurs, contre 1 616 pour l’appel 2025, soit une hausse de 20 %. Les propositions se répartissent entre trois formats : 1 732 réseaux doctoraux classiques, 74 doctorats industriels, menés avec des entreprises, et 133 doctorats conjoints, qui délivrent un diplôme commun à plusieurs établissements."
+      },
+      {
+        "kind": "fait",
+        "heading": "628 millions d’euros pour plus de 2 000 doctorants",
+        "text": "Le budget indicatif de l’appel s’élève à 628 millions d’euros. Il comprend 35 millions d’euros supplémentaires décidés dans le cadre de l’initiative Choose Europe, destinée à attirer et retenir les chercheurs en Europe, et annoncés le 1er octobre 2026 par la commissaire chargée des start-up, de la recherche et de l’innovation, Ekaterina Zaharieva. La Commission prévoit de soutenir plus de 150 programmes doctoraux et plus de 2 000 doctorants. Les premiers projets sélectionnés devraient commencer en septembre 2027."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une goutte d’eau à l’échelle des doctorants européens",
+        "text": "Pour mesurer la portée de ce dispositif, Eurostat, l’office statistique de l’Union, recense 726 765 étudiants inscrits au niveau doctorat ou équivalent dans l’Union européenne à 27 en 2024, dont 679 149 dans des établissements publics. Les places financées par cet appel concernent donc une faible part des doctorants européens. Leur intérêt tient surtout au modèle proposé : des formations en réseau entre universités, laboratoires et entreprises de plusieurs pays. La forte hausse des candidatures signifie aussi qu’une part importante des projets déposés ne sera pas retenue ; la Commission n’a pas encore communiqué de taux de sélection."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un enjeu de compétitivité pour la recherche européenne",
+        "text": "Ce programme s’inscrit dans un effort plus large. Selon la Banque mondiale, l’Union européenne consacrait environ 2,26 % de son produit intérieur brut à la recherche et développement en 2023 et comptait environ 4 741 chercheurs par million d’habitants la même année, contre environ 4 404 en 2021. Dans son rapport 2026 sur la performance de la science, de la recherche et de l’innovation, publié le 1er octobre, la Commission estimait qu’il faudrait environ 560 milliards d’euros d’investissements supplémentaires pour atteindre l’objectif de 3 % du PIB consacrés à la recherche d’ici 2030."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce que l’on ne sait pas encore",
+        "text": "La Commission n’explique pas, à ce stade, les raisons de la hausse des candidatures, ni la répartition des propositions par pays ou par discipline. L’effet réel de l’enveloppe supplémentaire ne pourra être apprécié qu’à la publication des résultats de sélection, avant le démarrage des projets prévu en septembre 2027."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — Daily News du 25 novembre 2026 (MEX/26/2584)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2584"
+      },
+      {
+        "label": "Eurostat — Étudiants de l’enseignement supérieur par niveau d’étude (educ_uoe_enrt01)",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/educ_uoe_enrt01/default/table"
+      },
+      {
+        "label": "Banque mondiale — Dépenses de R&D (% du PIB), Union européenne (données de l'API, mise à jour du 11 novembre 2026)",
+        "url": "https://api.worldbank.org/v2/country/EUU/indicator/GB.XPD.RSDV.GD.ZS?format=json&mrv=4"
+      },
+      {
+        "label": "Banque mondiale — Chercheurs en R&D par million d’habitants, Union européenne (données de l'API, mise à jour du 11 novembre 2026)",
+        "url": "https://api.worldbank.org/v2/country/EUU/indicator/SP.POP.SCIE.RD.P6?format=json&mrv=4"
+      },
+      {
+        "label": "Commission européenne — Rapport SRIP 2026 (IP/26/2041)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2041"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "dataCards": [
+      {
+        "id": "candidatures-reseaux-doctoraux",
+        "kind": "comparaison",
+        "headline": "Propositions déposées aux appels Réseaux doctoraux Marie Skłodowska-Curie",
+        "source": {
+          "label": "Commission européenne",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2584"
+        },
+        "asOf": "2026-11-24",
+        "imageQuery": "university library reading room",
+        "items": [
+          {
+            "value": 1616,
+            "unit": "propositions",
+            "label": "Appel 2025",
+            "scope": "Réseaux doctoraux MSCA",
+            "period": "appel 2025"
+          },
+          {
+            "value": 1939,
+            "unit": "propositions",
+            "label": "Appel 2026",
+            "scope": "Réseaux doctoraux MSCA",
+            "period": "appel 2026, clos le 24 novembre 2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "budget-appel-msca",
+        "kind": "stat",
+        "headline": "Budget indicatif de l’appel 2026, pour plus de 150 programmes doctoraux",
+        "source": {
+          "label": "Commission européenne",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2584"
+        },
+        "asOf": "2026-11-25",
+        "note": "Dont 35 millions d’euros ajoutés au titre de Choose Europe.",
+        "imageQuery": "laboratory pipette research",
+        "measure": {
+          "value": 628,
+          "unit": "millions d’euros",
+          "label": "Budget indicatif",
+          "scope": "Réseaux doctoraux MSCA",
+          "period": "appel 2026"
+        }
+      },
+      {
+        "id": "doctorants-ue",
+        "kind": "stat",
+        "headline": "Étudiants inscrits en doctorat dans l’Union européenne",
+        "source": {
+          "label": "Eurostat",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/educ_uoe_enrt01/default/table"
+        },
+        "asOf": "2024-12-31",
+        "imageQuery": "graduation ceremony gowns",
+        "measure": {
+          "value": 726765,
+          "unit": "étudiants",
+          "label": "Doctorants",
+          "scope": "Union européenne à 27",
+          "period": "2024"
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Combien de propositions l’appel 2026 des réseaux doctoraux Marie Skłodowska-Curie a-t-il reçues ?",
+        "answer": "1 939 propositions, contre 1 616 pour l’appel 2025, soit une hausse de 20 %."
+      },
+      {
+        "question": "Qu’est-ce qu’un doctorat conjoint dans les actions Marie Skłodowska-Curie ?",
+        "answer": "Un doctorat mené en réseau qui délivre un diplôme commun à plusieurs établissements."
+      }
+    ]
+  },
+  {
+    "slug": "lehman-brothers-15-septembre-2008-la-faillite-qui-a-fait-basculer-la-crise",
+    "title": "Lehman Brothers, 15 septembre 2008 : la faillite qui a fait basculer la crise",
+    "summary": "Le 15 septembre 2008, la banque d'affaires Lehman Brothers, fondée en 1850, se déclare en faillite avec 639 milliards de dollars d'actifs : la plus grande faillite de l'histoire des États-Unis. Ce récit s'appuie sur Britannica, History.com, EBSCO et Wikipédia ; les sources divergent sur le montant des dettes et le nombre de salariés, précisés dans le texte. Il éclaire les débats actuels sur le risque des grandes institutions financières et sur le rôle des pouvoirs publics quand elles vacillent.",
+    "topic": "finance",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 15 septembre 2008, Lehman Brothers dépose son bilan sous le chapitre 11 de la loi américaine sur les faillites, avec 639 milliards de dollars d'actifs.",
+      "Le jour même, l'indice Dow Jones perd plus de 500 points ; Britannica décrit ensuite deux séances de pertes record en Bourse, dont celle du 29 septembre 2008.",
+      "Des fonds monétaires passent sous un dollar par part et Washington adopte un plan de sauvetage de 700 milliards de dollars, le TARP."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une banque née en 1850",
+        "text": "Lehman Brothers est fondée en 1850 par trois frères, selon Britannica et EBSCO ; History.com précise qu'Henry Lehman avait ouvert un magasin à Montgomery, en Alabama, en 1844, avant d'être rejoint par ses frères. En 2008, la banque emploie plus de 28 000 personnes selon Britannica, environ 25 000 selon History.com et près de 26 000 selon EBSCO."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le lundi de la faillite",
+        "text": "Tôt le matin du lundi 15 septembre 2008, Lehman Brothers se place sous la protection du chapitre 11 de la loi sur les faillites. Elle déclare 639 milliards de dollars d'actifs, selon Britannica, History.com et EBSCO ; History.com chiffre ses dettes à 613 milliards de dollars, EBSCO à 619 milliards. Toutes les sources la décrivent comme la plus grande faillite de l'histoire des États-Unis. Ce jour-là, le Dow Jones perd plus de 500 points, sa plus forte baisse depuis la réouverture des marchés après les attentats du 11 septembre 2001, selon History.com."
+      },
+      {
+        "kind": "fait",
+        "heading": "La contagion",
+        "text": "Selon Wikipédia, le fonds monétaire Reserve Primary Fund passe sous la valeur d'un dollar par part, ce que les marchés appellent « casser le dollar », une première depuis 1994 pour un fonds de ce type. Britannica décrit deux séances de pertes record sur le marché boursier, la seconde le 29 septembre 2008. Les pouvoirs publics américains lancent un plan de sauvetage de 700 milliards de dollars, le programme TARP, selon Britannica et EBSCO."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une leçon toujours discutée",
+        "text": "Le choix de laisser tomber Lehman Brothers reste débattu : il a montré qu'une grande banque pouvait faire faillite, mais la panique qui a suivi a poussé les États à sauver d'autres établissements. Depuis, les règles sur les fonds propres et la surveillance des banques jugées trop grandes pour faire faillite reviennent dans chaque débat sur la stabilité financière. Le site d'histoire de la Réserve fédérale fait courir la Grande Récession de décembre 2007 à juin 2009 ; la faillite de Lehman Brothers survient en plein milieu."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Britannica, Bankruptcy of Lehman Brothers",
+        "url": "https://www.britannica.com/print/article/2208103"
+      },
+      {
+        "label": "History.com, Lehman Brothers collapses",
+        "url": "https://www.history.com/this-day-in-history/september-15/lehman-brothers-collapses"
+      },
+      {
+        "label": "EBSCO, Collapse of Lehman Brothers",
+        "url": "https://www.ebsco.com/research-starters/economics/collapse-lehman-brothers"
+      },
+      {
+        "label": "Federal Reserve History, The Great Recession",
+        "url": "https://www.federalreservehistory.org/essays/great-recession-of-200709"
+      },
+      {
+        "label": "Wikipédia (anglais), Bankruptcy of Lehman Brothers",
+        "url": "https://en.wikipedia.org/wiki/Bankruptcy_of_Lehman_Brothers"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand Lehman Brothers s'est-elle déclarée en faillite ?",
+        "answer": "Le lundi 15 septembre 2008, sous le chapitre 11 de la loi américaine sur les faillites."
+      },
+      {
+        "question": "Quel montant d'actifs Lehman Brothers déclarait-elle lors de sa faillite ?",
+        "answer": "639 milliards de dollars, ce qui en fait la plus grande faillite de l'histoire des États-Unis."
+      },
+      {
+        "question": "Que veut dire « casser le dollar » pour un fonds monétaire ?",
+        "answer": "Passer sous la valeur d'un dollar par part, comme le Reserve Primary Fund après la faillite de Lehman Brothers."
+      },
+      {
+        "question": "Quel plan de sauvetage les États-Unis adoptent-ils en 2008 ?",
+        "answer": "Le TARP, un plan de 700 milliards de dollars."
+      }
+    ]
+  },
+  {
+    "slug": "highland-park-1913-comment-la-chaine-mobile-de-ford-a-change-l-usine",
+    "title": "Highland Park, 1913 : comment la chaîne mobile de Ford a changé l'usine",
+    "summary": "En 1913, dans son usine de Highland Park (Michigan), Ford fait passer la Ford T sur une chaîne d'assemblage mobile. L'assemblage d'un châssis tombe de 12 heures et demie à 93 minutes, le prix de la voiture baisse fortement, mais le travail devient si pénible que la rotation du personnel explose. Ce récit, tiré du musée The Henry Ford et de History.com, éclaire les débats actuels sur la productivité et l'automatisation de l'industrie.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La chaîne mobile arrive par étapes en 1913 à Highland Park : les magnétos vers le 1er avril, puis les moteurs et les transmissions, et les châssis complets en août, selon le musée The Henry Ford.",
+      "L'ancienne méthode, où la voiture restait immobile, demandait 12 heures et demie par châssis ; début 1914, une Ford T sortait toutes les 93 minutes, selon The Henry Ford.",
+      "Le gain a un coût humain : fin 1913, la rotation du personnel atteint 380 %, et Ford répond en janvier 1914 avec la journée de huit heures payée cinq dollars."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une idée testée pièce par pièce",
+        "text": "Le musée The Henry Ford raconte que la chaîne mobile n'est pas apparue d'un coup. Vers le 1er avril 1913, les ouvriers de Highland Park assemblent les magnétos sur une ligne mobile : une pièce sortait toutes les 13 minutes, puis environ toutes les cinq minutes. Les moteurs et les transmissions suivent, puis, en août 1913, le châssis complet. History.com retient le 7 octobre 1913 comme date où toute l'usine passe à l'assemblage continu."
+      },
+      {
+        "kind": "fait",
+        "heading": "De 12 heures et demie à 93 minutes",
+        "text": "Avec l'ancienne méthode, la voiture restait en place et les ouvriers tournaient autour : il fallait 12 heures et demie par châssis, selon The Henry Ford. Début 1914, une Ford T terminée sortait toutes les 93 minutes, d'après le musée ; History.com parle de 93 minutes de travail en moins d'un an. Au sommet, History.com indique qu'une Ford T sortait toutes les 24 secondes, et le musée cite une production record de 1,8 million de voitures en 1923."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une voiture de moins en moins chère",
+        "text": "La Ford T est lancée en 1908. History.com donne un prix de départ de 850 dollars, tombé à 360 dollars en 1916. Plus de 15 millions de Ford T ont été construites avant l'arrêt du modèle en 1927, selon History.com et The Henry Ford."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le prix humain de la cadence",
+        "text": "Le travail à la chaîne est répétitif et épuisant. Selon le service documentaire du musée The Henry Ford, la rotation du personnel atteignait 380 % fin 1913. En janvier 1914, l'entreprise annonce cinq dollars pour une journée de huit heures, contre 2,34 dollars pour neuf heures auparavant, selon The Henry Ford."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi cette histoire parle encore",
+        "text": "Highland Park montre qu'un gain de productivité vient autant de l'organisation du travail que des machines, et qu'il pose aussitôt la question des salaires et des conditions de travail. Ces deux questions reviennent aujourd'hui avec les robots et l'automatisation des usines. L'idée que la hausse des salaires visait aussi à faire des ouvriers des clients de Ford est répandue, mais les sources consultées ici l'expliquent d'abord par la volonté de retenir les ouvriers."
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Henry Ford, Ford Methods and the Ford Shops",
+        "url": "https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops"
+      },
+      {
+        "label": "The Henry Ford, Assembly Line (service documentaire)",
+        "url": "https://askus.thehenryford.org/K12/faq/433848"
+      },
+      {
+        "label": "History.com, Moving assembly line at Ford",
+        "url": "https://www.history.com/this-day-in-history/october-7/moving-assembly-line-at-ford"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "temps-assemblage-chassis",
+        "kind": "explication",
+        "headline": "Assembler un châssis de Ford T : avant et après la chaîne mobile",
+        "source": {
+          "label": "The Henry Ford",
+          "url": "https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops"
+        },
+        "asOf": "1914-01-01",
+        "imageQuery": "vintage car chassis",
+        "steps": [
+          {
+            "label": "Avant",
+            "text": "Voiture immobile, ouvriers autour : 12 heures et demie par châssis.",
+            "nature": "fait"
+          },
+          {
+            "label": "Août 1913",
+            "text": "Le châssis complet passe sur une ligne mobile à Highland Park.",
+            "nature": "fait"
+          },
+          {
+            "label": "Début 1914",
+            "text": "Une Ford T terminée sort toutes les 93 minutes.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      },
+      {
+        "id": "rotation-personnel-1913",
+        "kind": "stat",
+        "headline": "Fin 1913, la rotation du personnel chez Ford atteint 380 %",
+        "source": {
+          "label": "The Henry Ford",
+          "url": "https://askus.thehenryford.org/K12/faq/433848"
+        },
+        "asOf": "1913-12-31",
+        "note": "Le taux rapporte les départs à l'effectif ; la méthode exacte n'est pas détaillée par la source.",
+        "imageQuery": "factory time clock",
+        "measure": {
+          "value": 380,
+          "unit": "%",
+          "label": "Rotation du personnel",
+          "scope": "Ford, usine de Highland Park",
+          "period": "fin 1913",
+          "denominator": "effectif moyen de l'entreprise"
+        }
+      },
+      {
+        "id": "ford-t-production-totale",
+        "kind": "stat",
+        "headline": "Plus de 15 millions de Ford T construites de 1908 à 1927",
+        "source": {
+          "label": "History.com",
+          "url": "https://www.history.com/this-day-in-history/october-7/moving-assembly-line-at-ford"
+        },
+        "asOf": "1927-12-31",
+        "imageQuery": "antique automobile museum",
+        "measure": {
+          "value": 15000000,
+          "unit": "voitures",
+          "label": "Ford T construites (plus de)",
+          "scope": "Production mondiale de la Ford T",
+          "period": "1908-1927"
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Dans quelle usine Ford a-t-il lancé la chaîne d'assemblage mobile en 1913 ?",
+        "answer": "À Highland Park, dans le Michigan, où la Ford T est passée sur une chaîne mobile en 1913."
+      },
+      {
+        "question": "Combien de temps fallait-il pour assembler un châssis de Ford T avant la chaîne mobile ?",
+        "answer": "12 heures et demie par châssis, quand la voiture restait immobile."
+      },
+      {
+        "question": "À quel rythme sortait une Ford T début 1914, selon le musée The Henry Ford ?",
+        "answer": "Une Ford T terminée sortait toutes les 93 minutes."
+      },
+      {
+        "question": "Quelle mesure Ford annonce-t-il en janvier 1914 face au départ de ses ouvriers ?",
+        "answer": "Cinq dollars pour une journée de huit heures, contre 2,34 dollars pour neuf heures auparavant."
+      }
+    ]
+  },
+  {
+    "slug": "john-law-1720-l-envolee-des-actions-de-la-compagnie-des-indes-avant-le-krach",
+    "title": "John Law, 1720 : l'envolée des actions de la Compagnie des Indes avant le krach",
+    "summary": "Entre 1716 et 1720, l'Écossais John Law crée en France une banque puis une compagnie commerciale chargée de reprendre la dette publique. L'action de la Compagnie des Indes, émise à 500 livres, atteint son sommet au début de 1720, puis s'effondre. Ce récit s'appuie sur la Bibliothèque nationale de France, l'encyclopédie Britannica et un document de travail de l'économiste François Velde pour la Réserve fédérale de Chicago. Il éclaire une question toujours actuelle pour les entreprises cotées : ce qui arrive quand la valeur d'une action se détache de l'activité réelle.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En mai 1716, John Law fonde la Banque générale ; en 1717, il lance la Compagnie d'Occident, dont les actions de 500 livres se paient uniquement en titres de la dette de l'État.",
+      "Devenue la Compagnie des Indes en 1719, la société voit son action culminer au début de 1720, selon l'économiste François Velde, pendant que la banque devenue royale émet des billets.",
+      "L'excès de billets mine la confiance, le système s'effondre en 1720 et Law fuit à Bruxelles en décembre ; l'État reprend ensuite les dettes et lève l'impôt pour les rembourser."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une banque, puis une compagnie",
+        "text": "Selon la Bibliothèque nationale de France, l'Écossais John Law pense pouvoir éteindre la dette de l'État par un système de crédit fondé sur le papier-monnaie. En mai 1716, il fonde la Banque générale, rappelle l'économiste François Velde. L'année suivante, il crée la Compagnie d'Occident, dont la souscription commence le 14 septembre 1717. Ses actions de 500 livres ne se paient qu'en billets d'État, c'est-à-dire en titres de la dette publique."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une action qui s'envole",
+        "text": "En décembre 1718, la Banque générale devient Banque royale. En 1719, la compagnie est devenue la Compagnie des Indes. Law espère retirer la dette publique en échangeant les actions contre les billets d'État, explique Britannica. L'engouement est immense : selon François Velde, le cours de l'action culmine au début de 1720, et la compagnie rachète alors ses propres actions à 9 925 livres pour en soutenir le prix."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'effondrement",
+        "text": "Selon la Bibliothèque nationale de France, l'émission excessive de billets de banque affaiblit la confiance, et le système s'écroule en 1720. Britannica souligne que la chute des actions provoque un krach boursier général en France et dans d'autres pays. Ruiné, Law fuit à Bruxelles en décembre 1720. Les dettes sont ensuite consolidées et reprises par l'État, qui augmente les impôts pour les rembourser."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi l'épisode reste une référence",
+        "text": "L'épisode montre comment une entreprise peut devenir l'instrument de la politique financière d'un État, et comment le cours d'une action peut s'emballer bien au-delà des revenus réels de l'activité. Ce que les sources établissent tient aux dates, aux prix et à l'enchaînement ; le jugement porté sur le projet de Law relève, lui, de l'interprétation."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bibliothèque nationale de France (Gallica) – John Law et la Compagnie d'Occident",
+        "url": "https://gallica.bnf.fr/dossiers/html/dossiers/FranceAmerique/en/D2/T2-2-3-b.htm"
+      },
+      {
+        "label": "François R. Velde, Government Equity and Money: John Law's System in 1720 France, Federal Reserve Bank of Chicago, document de travail 2003-31",
+        "url": "https://www.chicagofed.org/-/media/publications/working-papers/2003/wp2003-31-pdf.pdf"
+      },
+      {
+        "label": "Encyclopædia Britannica – Mississippi Bubble",
+        "url": "https://www.britannica.com/print/article/385600"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quelle banque John Law a-t-il fondée en France en 1716 ?",
+        "answer": "La Banque générale, devenue Banque royale en décembre 1718."
+      },
+      {
+        "question": "Avec quoi payait-on les actions de la Compagnie d'Occident créée par Law ?",
+        "answer": "Uniquement avec des billets d'État, c'est-à-dire des titres de la dette publique."
+      },
+      {
+        "question": "Quand l'action de la Compagnie des Indes a-t-elle atteint son sommet ?",
+        "answer": "Au début de 1720, avant de s'effondrer la même année ; la compagnie la rachetait alors à 9 925 livres pour soutenir son prix."
+      },
+      {
+        "question": "Qu'est devenu John Law après l'effondrement de son système ?",
+        "answer": "Ruiné, il a fui à Bruxelles en décembre 1720."
+      }
+    ]
+  },
+  {
     "slug": "1960-l-annee-de-l-afrique-17-independances-en-douze-mois",
     "title": "1960, l'année de l'Afrique : 17 indépendances en douze mois",
     "summary": "Entre le 1er janvier et le 28 novembre 1960, 17 pays africains proclament leur indépendance, dont 14 anciennes colonies françaises. Ce récit retrace cette année charnière à partir du musée royal de l'Afrique centrale (Belgique), de la Bibliothèque du Congrès américaine et des Origins de l'université d'État de l'Ohio. Il éclaire l'actualité du continent : beaucoup des États d'aujourd'hui, leurs frontières et leurs liens avec les anciennes puissances coloniales datent de ce moment.",

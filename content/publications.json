@@ -1,5 +1,1470 @@
 [
   {
+    "slug": "doctorats-europeens-marie-curie-1-939-candidatures-20-de-plus-qu-en-2025",
+    "title": "Doctorats européens Marie Curie : 1 939 candidatures, 20 % de plus qu’en 2025",
+    "summary": "L’appel 2026 des réseaux doctoraux des actions Marie Skłodowska-Curie, clos le 24 novembre, a reçu 1 939 propositions, contre 1 616 en 2025, a annoncé la Commission européenne le 25 novembre 2026. Doté d’un budget indicatif de 628 millions d’euros, il doit financer plus de 150 programmes doctoraux et plus de 2 000 doctorants, à comparer aux 726 765 doctorants recensés par Eurostat dans l’UE en 2024.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La Commission européenne a reçu 1 939 propositions pour l’appel 2026 des réseaux doctoraux Marie Skłodowska-Curie, soit 20 % de plus que les 1 616 de l’appel 2025.",
+      "Le budget indicatif atteint 628 millions d’euros, après un ajout de 35 millions d’euros au titre de l’initiative Choose Europe ; plus de 150 programmes et plus de 2 000 doctorants doivent être soutenus.",
+      "Ces places financées restent modestes face aux 726 765 étudiants inscrits en doctorat dans l’Union européenne en 2024, selon Eurostat ; les premiers projets retenus démarreront en septembre 2027."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un appel très demandé",
+        "text": "Selon la Commission européenne, l’appel 2026 pour les réseaux doctoraux des actions Marie Skłodowska-Curie (MSCA), le programme européen de mobilité et de formation des chercheurs, a été clôturé le 24 novembre 2026. Il a reçu 1 939 propositions déposées par des organisations d’Europe et d’ailleurs, contre 1 616 pour l’appel 2025, soit une hausse de 20 %. Les propositions se répartissent entre trois formats : 1 732 réseaux doctoraux classiques, 74 doctorats industriels, menés avec des entreprises, et 133 doctorats conjoints, qui délivrent un diplôme commun à plusieurs établissements."
+      },
+      {
+        "kind": "fait",
+        "heading": "628 millions d’euros pour plus de 2 000 doctorants",
+        "text": "Le budget indicatif de l’appel s’élève à 628 millions d’euros. Il comprend 35 millions d’euros supplémentaires décidés dans le cadre de l’initiative Choose Europe, destinée à attirer et retenir les chercheurs en Europe, et annoncés le 1er octobre 2026 par la commissaire chargée des start-up, de la recherche et de l’innovation, Ekaterina Zaharieva. La Commission prévoit de soutenir plus de 150 programmes doctoraux et plus de 2 000 doctorants. Les premiers projets sélectionnés devraient commencer en septembre 2027."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une goutte d’eau à l’échelle des doctorants européens",
+        "text": "Pour mesurer la portée de ce dispositif, Eurostat, l’office statistique de l’Union, recense 726 765 étudiants inscrits au niveau doctorat ou équivalent dans l’Union européenne à 27 en 2024, dont 679 149 dans des établissements publics. Les places financées par cet appel concernent donc une faible part des doctorants européens. Leur intérêt tient surtout au modèle proposé : des formations en réseau entre universités, laboratoires et entreprises de plusieurs pays. La forte hausse des candidatures signifie aussi qu’une part importante des projets déposés ne sera pas retenue ; la Commission n’a pas encore communiqué de taux de sélection."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un enjeu de compétitivité pour la recherche européenne",
+        "text": "Ce programme s’inscrit dans un effort plus large. Selon la Banque mondiale, l’Union européenne consacrait environ 2,26 % de son produit intérieur brut à la recherche et développement en 2023 et comptait environ 4 741 chercheurs par million d’habitants la même année, contre environ 4 404 en 2021. Dans son rapport 2026 sur la performance de la science, de la recherche et de l’innovation, publié le 1er octobre, la Commission estimait qu’il faudrait environ 560 milliards d’euros d’investissements supplémentaires pour atteindre l’objectif de 3 % du PIB consacrés à la recherche d’ici 2030."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce que l’on ne sait pas encore",
+        "text": "La Commission n’explique pas, à ce stade, les raisons de la hausse des candidatures, ni la répartition des propositions par pays ou par discipline. L’effet réel de l’enveloppe supplémentaire ne pourra être apprécié qu’à la publication des résultats de sélection, avant le démarrage des projets prévu en septembre 2027."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — Daily News du 25 novembre 2026 (MEX/26/2584)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2584"
+      },
+      {
+        "label": "Eurostat — Étudiants de l’enseignement supérieur par niveau d’étude (educ_uoe_enrt01)",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/educ_uoe_enrt01/default/table"
+      },
+      {
+        "label": "Banque mondiale — Dépenses de R&D (% du PIB), Union européenne (données de l'API, mise à jour du 11 novembre 2026)",
+        "url": "https://api.worldbank.org/v2/country/EUU/indicator/GB.XPD.RSDV.GD.ZS?format=json&mrv=4"
+      },
+      {
+        "label": "Banque mondiale — Chercheurs en R&D par million d’habitants, Union européenne (données de l'API, mise à jour du 11 novembre 2026)",
+        "url": "https://api.worldbank.org/v2/country/EUU/indicator/SP.POP.SCIE.RD.P6?format=json&mrv=4"
+      },
+      {
+        "label": "Commission européenne — Rapport SRIP 2026 (IP/26/2041)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2041"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "dataCards": [
+      {
+        "id": "candidatures-reseaux-doctoraux",
+        "kind": "comparaison",
+        "headline": "Propositions déposées aux appels Réseaux doctoraux Marie Skłodowska-Curie",
+        "source": {
+          "label": "Commission européenne",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2584"
+        },
+        "asOf": "2026-11-24",
+        "imageQuery": "university library reading room",
+        "items": [
+          {
+            "value": 1616,
+            "unit": "propositions",
+            "label": "Appel 2025",
+            "scope": "Réseaux doctoraux MSCA",
+            "period": "appel 2025"
+          },
+          {
+            "value": 1939,
+            "unit": "propositions",
+            "label": "Appel 2026",
+            "scope": "Réseaux doctoraux MSCA",
+            "period": "appel 2026, clos le 24 novembre 2026"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "budget-appel-msca",
+        "kind": "stat",
+        "headline": "Budget indicatif de l’appel 2026, pour plus de 150 programmes doctoraux",
+        "source": {
+          "label": "Commission européenne",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2584"
+        },
+        "asOf": "2026-11-25",
+        "note": "Dont 35 millions d’euros ajoutés au titre de Choose Europe.",
+        "imageQuery": "laboratory pipette research",
+        "measure": {
+          "value": 628,
+          "unit": "millions d’euros",
+          "label": "Budget indicatif",
+          "scope": "Réseaux doctoraux MSCA",
+          "period": "appel 2026"
+        }
+      },
+      {
+        "id": "doctorants-ue",
+        "kind": "stat",
+        "headline": "Étudiants inscrits en doctorat dans l’Union européenne",
+        "source": {
+          "label": "Eurostat",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/educ_uoe_enrt01/default/table"
+        },
+        "asOf": "2024-12-31",
+        "imageQuery": "graduation ceremony gowns",
+        "measure": {
+          "value": 726765,
+          "unit": "étudiants",
+          "label": "Doctorants",
+          "scope": "Union européenne à 27",
+          "period": "2024"
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Combien de propositions l’appel 2026 des réseaux doctoraux Marie Skłodowska-Curie a-t-il reçues ?",
+        "answer": "1 939 propositions, contre 1 616 pour l’appel 2025, soit une hausse de 20 %."
+      },
+      {
+        "question": "Qu’est-ce qu’un doctorat conjoint dans les actions Marie Skłodowska-Curie ?",
+        "answer": "Un doctorat mené en réseau qui délivre un diplôme commun à plusieurs établissements."
+      }
+    ]
+  },
+  {
+    "slug": "lehman-brothers-15-septembre-2008-la-faillite-qui-a-fait-basculer-la-crise",
+    "title": "Lehman Brothers, 15 septembre 2008 : la faillite qui a fait basculer la crise",
+    "summary": "Le 15 septembre 2008, la banque d'affaires Lehman Brothers, fondée en 1850, se déclare en faillite avec 639 milliards de dollars d'actifs : la plus grande faillite de l'histoire des États-Unis. Ce récit s'appuie sur Britannica, History.com, EBSCO et Wikipédia ; les sources divergent sur le montant des dettes et le nombre de salariés, précisés dans le texte. Il éclaire les débats actuels sur le risque des grandes institutions financières et sur le rôle des pouvoirs publics quand elles vacillent.",
+    "topic": "finance",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 15 septembre 2008, Lehman Brothers dépose son bilan sous le chapitre 11 de la loi américaine sur les faillites, avec 639 milliards de dollars d'actifs.",
+      "Le jour même, l'indice Dow Jones perd plus de 500 points ; Britannica décrit ensuite deux séances de pertes record en Bourse, dont celle du 29 septembre 2008.",
+      "Des fonds monétaires passent sous un dollar par part et Washington adopte un plan de sauvetage de 700 milliards de dollars, le TARP."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une banque née en 1850",
+        "text": "Lehman Brothers est fondée en 1850 par trois frères, selon Britannica et EBSCO ; History.com précise qu'Henry Lehman avait ouvert un magasin à Montgomery, en Alabama, en 1844, avant d'être rejoint par ses frères. En 2008, la banque emploie plus de 28 000 personnes selon Britannica, environ 25 000 selon History.com et près de 26 000 selon EBSCO."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le lundi de la faillite",
+        "text": "Tôt le matin du lundi 15 septembre 2008, Lehman Brothers se place sous la protection du chapitre 11 de la loi sur les faillites. Elle déclare 639 milliards de dollars d'actifs, selon Britannica, History.com et EBSCO ; History.com chiffre ses dettes à 613 milliards de dollars, EBSCO à 619 milliards. Toutes les sources la décrivent comme la plus grande faillite de l'histoire des États-Unis. Ce jour-là, le Dow Jones perd plus de 500 points, sa plus forte baisse depuis la réouverture des marchés après les attentats du 11 septembre 2001, selon History.com."
+      },
+      {
+        "kind": "fait",
+        "heading": "La contagion",
+        "text": "Selon Wikipédia, le fonds monétaire Reserve Primary Fund passe sous la valeur d'un dollar par part, ce que les marchés appellent « casser le dollar », une première depuis 1994 pour un fonds de ce type. Britannica décrit deux séances de pertes record sur le marché boursier, la seconde le 29 septembre 2008. Les pouvoirs publics américains lancent un plan de sauvetage de 700 milliards de dollars, le programme TARP, selon Britannica et EBSCO."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une leçon toujours discutée",
+        "text": "Le choix de laisser tomber Lehman Brothers reste débattu : il a montré qu'une grande banque pouvait faire faillite, mais la panique qui a suivi a poussé les États à sauver d'autres établissements. Depuis, les règles sur les fonds propres et la surveillance des banques jugées trop grandes pour faire faillite reviennent dans chaque débat sur la stabilité financière. Le site d'histoire de la Réserve fédérale fait courir la Grande Récession de décembre 2007 à juin 2009 ; la faillite de Lehman Brothers survient en plein milieu."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Britannica, Bankruptcy of Lehman Brothers",
+        "url": "https://www.britannica.com/print/article/2208103"
+      },
+      {
+        "label": "History.com, Lehman Brothers collapses",
+        "url": "https://www.history.com/this-day-in-history/september-15/lehman-brothers-collapses"
+      },
+      {
+        "label": "EBSCO, Collapse of Lehman Brothers",
+        "url": "https://www.ebsco.com/research-starters/economics/collapse-lehman-brothers"
+      },
+      {
+        "label": "Federal Reserve History, The Great Recession",
+        "url": "https://www.federalreservehistory.org/essays/great-recession-of-200709"
+      },
+      {
+        "label": "Wikipédia (anglais), Bankruptcy of Lehman Brothers",
+        "url": "https://en.wikipedia.org/wiki/Bankruptcy_of_Lehman_Brothers"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand Lehman Brothers s'est-elle déclarée en faillite ?",
+        "answer": "Le lundi 15 septembre 2008, sous le chapitre 11 de la loi américaine sur les faillites."
+      },
+      {
+        "question": "Quel montant d'actifs Lehman Brothers déclarait-elle lors de sa faillite ?",
+        "answer": "639 milliards de dollars, ce qui en fait la plus grande faillite de l'histoire des États-Unis."
+      },
+      {
+        "question": "Que veut dire « casser le dollar » pour un fonds monétaire ?",
+        "answer": "Passer sous la valeur d'un dollar par part, comme le Reserve Primary Fund après la faillite de Lehman Brothers."
+      },
+      {
+        "question": "Quel plan de sauvetage les États-Unis adoptent-ils en 2008 ?",
+        "answer": "Le TARP, un plan de 700 milliards de dollars."
+      }
+    ]
+  },
+  {
+    "slug": "highland-park-1913-comment-la-chaine-mobile-de-ford-a-change-l-usine",
+    "title": "Highland Park, 1913 : comment la chaîne mobile de Ford a changé l'usine",
+    "summary": "En 1913, dans son usine de Highland Park (Michigan), Ford fait passer la Ford T sur une chaîne d'assemblage mobile. L'assemblage d'un châssis tombe de 12 heures et demie à 93 minutes, le prix de la voiture baisse fortement, mais le travail devient si pénible que la rotation du personnel explose. Ce récit, tiré du musée The Henry Ford et de History.com, éclaire les débats actuels sur la productivité et l'automatisation de l'industrie.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La chaîne mobile arrive par étapes en 1913 à Highland Park : les magnétos vers le 1er avril, puis les moteurs et les transmissions, et les châssis complets en août, selon le musée The Henry Ford.",
+      "L'ancienne méthode, où la voiture restait immobile, demandait 12 heures et demie par châssis ; début 1914, une Ford T sortait toutes les 93 minutes, selon The Henry Ford.",
+      "Le gain a un coût humain : fin 1913, la rotation du personnel atteint 380 %, et Ford répond en janvier 1914 avec la journée de huit heures payée cinq dollars."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une idée testée pièce par pièce",
+        "text": "Le musée The Henry Ford raconte que la chaîne mobile n'est pas apparue d'un coup. Vers le 1er avril 1913, les ouvriers de Highland Park assemblent les magnétos sur une ligne mobile : une pièce sortait toutes les 13 minutes, puis environ toutes les cinq minutes. Les moteurs et les transmissions suivent, puis, en août 1913, le châssis complet. History.com retient le 7 octobre 1913 comme date où toute l'usine passe à l'assemblage continu."
+      },
+      {
+        "kind": "fait",
+        "heading": "De 12 heures et demie à 93 minutes",
+        "text": "Avec l'ancienne méthode, la voiture restait en place et les ouvriers tournaient autour : il fallait 12 heures et demie par châssis, selon The Henry Ford. Début 1914, une Ford T terminée sortait toutes les 93 minutes, d'après le musée ; History.com parle de 93 minutes de travail en moins d'un an. Au sommet, History.com indique qu'une Ford T sortait toutes les 24 secondes, et le musée cite une production record de 1,8 million de voitures en 1923."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une voiture de moins en moins chère",
+        "text": "La Ford T est lancée en 1908. History.com donne un prix de départ de 850 dollars, tombé à 360 dollars en 1916. Plus de 15 millions de Ford T ont été construites avant l'arrêt du modèle en 1927, selon History.com et The Henry Ford."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le prix humain de la cadence",
+        "text": "Le travail à la chaîne est répétitif et épuisant. Selon le service documentaire du musée The Henry Ford, la rotation du personnel atteignait 380 % fin 1913. En janvier 1914, l'entreprise annonce cinq dollars pour une journée de huit heures, contre 2,34 dollars pour neuf heures auparavant, selon The Henry Ford."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi cette histoire parle encore",
+        "text": "Highland Park montre qu'un gain de productivité vient autant de l'organisation du travail que des machines, et qu'il pose aussitôt la question des salaires et des conditions de travail. Ces deux questions reviennent aujourd'hui avec les robots et l'automatisation des usines. L'idée que la hausse des salaires visait aussi à faire des ouvriers des clients de Ford est répandue, mais les sources consultées ici l'expliquent d'abord par la volonté de retenir les ouvriers."
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Henry Ford, Ford Methods and the Ford Shops",
+        "url": "https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops"
+      },
+      {
+        "label": "The Henry Ford, Assembly Line (service documentaire)",
+        "url": "https://askus.thehenryford.org/K12/faq/433848"
+      },
+      {
+        "label": "History.com, Moving assembly line at Ford",
+        "url": "https://www.history.com/this-day-in-history/october-7/moving-assembly-line-at-ford"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "temps-assemblage-chassis",
+        "kind": "explication",
+        "headline": "Assembler un châssis de Ford T : avant et après la chaîne mobile",
+        "source": {
+          "label": "The Henry Ford",
+          "url": "https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops"
+        },
+        "asOf": "1914-01-01",
+        "imageQuery": "vintage car chassis",
+        "steps": [
+          {
+            "label": "Avant",
+            "text": "Voiture immobile, ouvriers autour : 12 heures et demie par châssis.",
+            "nature": "fait"
+          },
+          {
+            "label": "Août 1913",
+            "text": "Le châssis complet passe sur une ligne mobile à Highland Park.",
+            "nature": "fait"
+          },
+          {
+            "label": "Début 1914",
+            "text": "Une Ford T terminée sort toutes les 93 minutes.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      },
+      {
+        "id": "rotation-personnel-1913",
+        "kind": "stat",
+        "headline": "Fin 1913, la rotation du personnel chez Ford atteint 380 %",
+        "source": {
+          "label": "The Henry Ford",
+          "url": "https://askus.thehenryford.org/K12/faq/433848"
+        },
+        "asOf": "1913-12-31",
+        "note": "Le taux rapporte les départs à l'effectif ; la méthode exacte n'est pas détaillée par la source.",
+        "imageQuery": "factory time clock",
+        "measure": {
+          "value": 380,
+          "unit": "%",
+          "label": "Rotation du personnel",
+          "scope": "Ford, usine de Highland Park",
+          "period": "fin 1913",
+          "denominator": "effectif moyen de l'entreprise"
+        }
+      },
+      {
+        "id": "ford-t-production-totale",
+        "kind": "stat",
+        "headline": "Plus de 15 millions de Ford T construites de 1908 à 1927",
+        "source": {
+          "label": "History.com",
+          "url": "https://www.history.com/this-day-in-history/october-7/moving-assembly-line-at-ford"
+        },
+        "asOf": "1927-12-31",
+        "imageQuery": "antique automobile museum",
+        "measure": {
+          "value": 15000000,
+          "unit": "voitures",
+          "label": "Ford T construites (plus de)",
+          "scope": "Production mondiale de la Ford T",
+          "period": "1908-1927"
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Dans quelle usine Ford a-t-il lancé la chaîne d'assemblage mobile en 1913 ?",
+        "answer": "À Highland Park, dans le Michigan, où la Ford T est passée sur une chaîne mobile en 1913."
+      },
+      {
+        "question": "Combien de temps fallait-il pour assembler un châssis de Ford T avant la chaîne mobile ?",
+        "answer": "12 heures et demie par châssis, quand la voiture restait immobile."
+      },
+      {
+        "question": "À quel rythme sortait une Ford T début 1914, selon le musée The Henry Ford ?",
+        "answer": "Une Ford T terminée sortait toutes les 93 minutes."
+      },
+      {
+        "question": "Quelle mesure Ford annonce-t-il en janvier 1914 face au départ de ses ouvriers ?",
+        "answer": "Cinq dollars pour une journée de huit heures, contre 2,34 dollars pour neuf heures auparavant."
+      }
+    ]
+  },
+  {
+    "slug": "john-law-1720-l-envolee-des-actions-de-la-compagnie-des-indes-avant-le-krach",
+    "title": "John Law, 1720 : l'envolée des actions de la Compagnie des Indes avant le krach",
+    "summary": "Entre 1716 et 1720, l'Écossais John Law crée en France une banque puis une compagnie commerciale chargée de reprendre la dette publique. L'action de la Compagnie des Indes, émise à 500 livres, atteint son sommet au début de 1720, puis s'effondre. Ce récit s'appuie sur la Bibliothèque nationale de France, l'encyclopédie Britannica et un document de travail de l'économiste François Velde pour la Réserve fédérale de Chicago. Il éclaire une question toujours actuelle pour les entreprises cotées : ce qui arrive quand la valeur d'une action se détache de l'activité réelle.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En mai 1716, John Law fonde la Banque générale ; en 1717, il lance la Compagnie d'Occident, dont les actions de 500 livres se paient uniquement en titres de la dette de l'État.",
+      "Devenue la Compagnie des Indes en 1719, la société voit son action culminer au début de 1720, selon l'économiste François Velde, pendant que la banque devenue royale émet des billets.",
+      "L'excès de billets mine la confiance, le système s'effondre en 1720 et Law fuit à Bruxelles en décembre ; l'État reprend ensuite les dettes et lève l'impôt pour les rembourser."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une banque, puis une compagnie",
+        "text": "Selon la Bibliothèque nationale de France, l'Écossais John Law pense pouvoir éteindre la dette de l'État par un système de crédit fondé sur le papier-monnaie. En mai 1716, il fonde la Banque générale, rappelle l'économiste François Velde. L'année suivante, il crée la Compagnie d'Occident, dont la souscription commence le 14 septembre 1717. Ses actions de 500 livres ne se paient qu'en billets d'État, c'est-à-dire en titres de la dette publique."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une action qui s'envole",
+        "text": "En décembre 1718, la Banque générale devient Banque royale. En 1719, la compagnie est devenue la Compagnie des Indes. Law espère retirer la dette publique en échangeant les actions contre les billets d'État, explique Britannica. L'engouement est immense : selon François Velde, le cours de l'action culmine au début de 1720, et la compagnie rachète alors ses propres actions à 9 925 livres pour en soutenir le prix."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'effondrement",
+        "text": "Selon la Bibliothèque nationale de France, l'émission excessive de billets de banque affaiblit la confiance, et le système s'écroule en 1720. Britannica souligne que la chute des actions provoque un krach boursier général en France et dans d'autres pays. Ruiné, Law fuit à Bruxelles en décembre 1720. Les dettes sont ensuite consolidées et reprises par l'État, qui augmente les impôts pour les rembourser."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi l'épisode reste une référence",
+        "text": "L'épisode montre comment une entreprise peut devenir l'instrument de la politique financière d'un État, et comment le cours d'une action peut s'emballer bien au-delà des revenus réels de l'activité. Ce que les sources établissent tient aux dates, aux prix et à l'enchaînement ; le jugement porté sur le projet de Law relève, lui, de l'interprétation."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bibliothèque nationale de France (Gallica) – John Law et la Compagnie d'Occident",
+        "url": "https://gallica.bnf.fr/dossiers/html/dossiers/FranceAmerique/en/D2/T2-2-3-b.htm"
+      },
+      {
+        "label": "François R. Velde, Government Equity and Money: John Law's System in 1720 France, Federal Reserve Bank of Chicago, document de travail 2003-31",
+        "url": "https://www.chicagofed.org/-/media/publications/working-papers/2003/wp2003-31-pdf.pdf"
+      },
+      {
+        "label": "Encyclopædia Britannica – Mississippi Bubble",
+        "url": "https://www.britannica.com/print/article/385600"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quelle banque John Law a-t-il fondée en France en 1716 ?",
+        "answer": "La Banque générale, devenue Banque royale en décembre 1718."
+      },
+      {
+        "question": "Avec quoi payait-on les actions de la Compagnie d'Occident créée par Law ?",
+        "answer": "Uniquement avec des billets d'État, c'est-à-dire des titres de la dette publique."
+      },
+      {
+        "question": "Quand l'action de la Compagnie des Indes a-t-elle atteint son sommet ?",
+        "answer": "Au début de 1720, avant de s'effondrer la même année ; la compagnie la rachetait alors à 9 925 livres pour soutenir son prix."
+      },
+      {
+        "question": "Qu'est devenu John Law après l'effondrement de son système ?",
+        "answer": "Ruiné, il a fui à Bruxelles en décembre 1720."
+      }
+    ]
+  },
+  {
+    "slug": "1960-l-annee-de-l-afrique-17-independances-en-douze-mois",
+    "title": "1960, l'année de l'Afrique : 17 indépendances en douze mois",
+    "summary": "Entre le 1er janvier et le 28 novembre 1960, 17 pays africains proclament leur indépendance, dont 14 anciennes colonies françaises. Ce récit retrace cette année charnière à partir du musée royal de l'Afrique centrale (Belgique), de la Bibliothèque du Congrès américaine et des Origins de l'université d'État de l'Ohio. Il éclaire l'actualité du continent : beaucoup des États d'aujourd'hui, leurs frontières et leurs liens avec les anciennes puissances coloniales datent de ce moment.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En 1960, 17 pays africains deviennent indépendants : 14 anciennes colonies françaises, 2 britanniques et 1 belge, selon le décompte retenu par l'encyclopédie Wikipédia.",
+      "Le mouvement s'ouvre avec le Cameroun le 1er janvier et se termine avec la Mauritanie le 28 novembre ; le seul mois d'août voit neuf proclamations, selon le musée royal de l'Afrique centrale.",
+      "Le 14 décembre 1960, l'Assemblée générale de l'ONU adopte, sans voix contre, la déclaration sur l'octroi de l'indépendance aux pays et aux peuples coloniaux."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une cascade d'indépendances",
+        "text": "Le musée royal de l'Afrique centrale, à Tervuren, résume l'année : entre le 1er janvier et le 28 novembre 1960, 18 pays proclament leur indépendance, Chypre et 17 pays africains. La Bibliothèque du Congrès américaine parle elle aussi de 17 pays. Le Cameroun ouvre la série le 1er janvier, suivi du Togo le 27 avril, de Madagascar le 26 juin, du Congo belge le 30 juin et de la Somalie le 1er juillet, née de la réunion du Somaliland britannique et du territoire sous tutelle italienne."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'été des drapeaux",
+        "text": "Août 1960 concentre les proclamations, selon le musée royal de l'Afrique centrale : Dahomey, l'actuel Bénin, le 1er ; Niger le 3 ; Haute-Volta, l'actuel Burkina Faso, le 5 ; Côte d'Ivoire le 7 ; Tchad le 11 ; République centrafricaine le 13 ; Congo-Brazzaville le 15 ; Gabon le 17 ; puis Sénégal le 20. Le Mali suit le 22 septembre, le Nigeria le 1er octobre et la Mauritanie le 28 novembre. EBSCO rappelle que trois puissances coloniales étaient concernées : le Royaume-Uni, la France et la Belgique."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une nouvelle carte du monde",
+        "text": "Selon Wikipédia, le nombre de pays indépendants en Afrique passe en 1960 de neuf à vingt-six. Le 14 décembre 1960, l'Assemblée générale des Nations unies approuve la déclaration sur l'octroi de l'indépendance aux pays et aux peuples coloniaux, qui affirme le droit des peuples à disposer d'eux-mêmes ; elle passe sans voix contre, les États-Unis et sept autres puissances coloniales s'abstenant. Les auteurs d'Origins, à l'université d'État de l'Ohio, notent que 17 pays naissent cette année-là et que 13 autres suivent avant la fin de la décennie."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi 1960 compte encore",
+        "text": "Les indépendances de 1960 n'ont pas réglé toutes les questions : frontières héritées, liens économiques et militaires avec les anciennes métropoles, crises politiques comme celle qui suit l'indépendance du Congo. Une partie des débats actuels sur la présence française au Sahel ou sur la place de l'Afrique à l'ONU renvoie à ce moment. C'est une lecture d'historien ; les dates et les décomptes, eux, sont établis par les sources citées."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Musée royal de l'Afrique centrale, 17 pays africains deviennent indépendants",
+        "url": "https://independance.africamuseum.be/en/node/168"
+      },
+      {
+        "label": "Bibliothèque du Congrès, Mapping the Year of Africa",
+        "url": "https://blogs.loc.gov/maps/2023/10/mapping-the-year-of-africa/"
+      },
+      {
+        "label": "Origins (Ohio State University), Year of Africa 1960",
+        "url": "https://origins.osu.edu/index.php/article/year-of-africa-1960-rumba-pan-africanism-Kariba"
+      },
+      {
+        "label": "EBSCO, Africa's Year of Independence",
+        "url": "https://www.ebsco.com/research-starters/history/africas-year-independence"
+      },
+      {
+        "label": "Wikipédia (anglais), Year of Africa",
+        "url": "https://en.wikipedia.org/wiki/Year_of_Africa"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "pays-independants-1960",
+        "kind": "stat",
+        "headline": "17 pays africains deviennent indépendants en 1960",
+        "source": {
+          "label": "Bibliothèque du Congrès",
+          "url": "https://blogs.loc.gov/maps/2023/10/mapping-the-year-of-africa/"
+        },
+        "asOf": "1960-12-31",
+        "imageQuery": "african national flags",
+        "measure": {
+          "value": 17,
+          "unit": "pays",
+          "label": "Indépendances africaines",
+          "scope": "Afrique",
+          "period": "1960"
+        }
+      },
+      {
+        "id": "puissances-coloniales-1960",
+        "kind": "comparaison",
+        "headline": "Sur les 17 indépendances de 1960, 14 concernent d'anciennes colonies françaises",
+        "source": {
+          "label": "Wikipédia",
+          "url": "https://en.wikipedia.org/wiki/Year_of_Africa"
+        },
+        "asOf": "1960-12-31",
+        "imageQuery": "colonial era map",
+        "items": [
+          {
+            "value": 14,
+            "unit": "pays",
+            "label": "Anciennes colonies françaises",
+            "scope": "Afrique",
+            "period": "1960"
+          },
+          {
+            "value": 2,
+            "unit": "pays",
+            "label": "Anciennes colonies britanniques",
+            "scope": "Afrique",
+            "period": "1960"
+          },
+          {
+            "value": 1,
+            "unit": "pays",
+            "label": "Ancienne colonie belge",
+            "scope": "Afrique",
+            "period": "1960"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "pays-africains-independants",
+        "kind": "comparaison",
+        "headline": "Le nombre de pays africains indépendants passe de neuf à vingt-six en 1960",
+        "source": {
+          "label": "Wikipédia",
+          "url": "https://en.wikipedia.org/wiki/Year_of_Africa"
+        },
+        "asOf": "1960-12-31",
+        "imageQuery": "africa political globe",
+        "items": [
+          {
+            "value": 9,
+            "unit": "pays",
+            "label": "Avant 1960",
+            "scope": "Afrique",
+            "period": "début 1960"
+          },
+          {
+            "value": 26,
+            "unit": "pays",
+            "label": "Fin 1960",
+            "scope": "Afrique",
+            "period": "fin 1960"
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Combien de pays africains deviennent indépendants en 1960 ?",
+        "answer": "17 pays, dont 14 anciennes colonies françaises, 2 britanniques et 1 belge."
+      },
+      {
+        "question": "Quel pays ouvre la série des indépendances africaines de 1960 ?",
+        "answer": "Le Cameroun, le 1er janvier 1960."
+      },
+      {
+        "question": "Quel mois de 1960 concentre le plus d'indépendances africaines ?",
+        "answer": "Août 1960, avec notamment le Niger, la Côte d'Ivoire, le Tchad, le Gabon et le Sénégal."
+      },
+      {
+        "question": "Quel texte l'ONU adopte-t-elle le 14 décembre 1960 ?",
+        "answer": "La déclaration sur l'octroi de l'indépendance aux pays et aux peuples coloniaux, adoptée sans voix contre."
+      }
+    ]
+  },
+  {
+    "slug": "variole-comment-le-monde-a-eradique-une-maladie-pour-la-premiere-fois",
+    "title": "Variole : comment le monde a éradiqué une maladie pour la première fois",
+    "summary": "Le 8 mai 1980, la 33e Assemblée mondiale de la santé déclare le monde libéré de la variole, une maladie qui avait tué 300 millions de personnes au seul XXe siècle selon l'OMS. Ce récit retrace le programme intensifié lancé en 1967, la stratégie de surveillance et d'endiguement, et les derniers cas, à partir de l'OMS et des CDC américains. Il éclaire les ripostes actuelles aux épidémies, qui reposent toujours sur le repérage rapide des cas et la vaccination de leur entourage.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L'OMS lance en 1967 le programme intensifié d'éradication de la variole ; son coût est estimé à environ 300 millions de dollars, dont les deux tiers venus des pays touchés.",
+      "Le dernier cas naturel connu est celui d'Ali Maow Maalin, cuisinier d'hôpital à Merca, en Somalie, tombé malade en octobre 1977, selon les CDC.",
+      "Une commission mondiale certifie l'éradication en décembre 1979, puis la 33e Assemblée mondiale de la santé la déclare le 8 mai 1980 : c'est la seule maladie infectieuse humaine éradiquée."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un fléau millénaire",
+        "text": "La variole tuait en moyenne trois malades sur dix, selon les CDC, et jusqu'à 30 % des cas selon l'OMS. L'OMS estime qu'elle a tué 300 millions de personnes au seul XXe siècle. L'Assemblée mondiale de la santé appelle à l'éradiquer dès 1958, et un premier programme de l'OMS démarre en 1959, selon l'OMS et les CDC."
+      },
+      {
+        "kind": "fait",
+        "heading": "1967, le grand effort",
+        "text": "En 1967, l'OMS lance le programme intensifié d'éradication de la variole. Les CDC attribuent son succès à un système de surveillance des cas et à des campagnes de vaccination de masse. En fin de parcours, l'OMS décrit des stratégies ciblées de surveillance et d'endiguement : rechercher les malades maison par maison et vacciner leurs contacts. L'OMS parle aussi des bénéfices de la vaccination en anneau autour des cas. Le programme a coûté environ 300 millions de dollars, dont les deux tiers venus des pays où la maladie sévissait, selon l'OMS."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les derniers malades",
+        "text": "La variole disparaît d'Amérique du Sud en 1971, d'Asie en 1975 et d'Afrique en 1977, selon l'OMS. Fin 1975, Rahima Banu, une fillette de trois ans du Bangladesh, est la dernière personne à contracter naturellement la forme majeure de la maladie, selon les CDC. Le dernier cas naturel connu est celui d'Ali Maow Maalin, cuisinier d'hôpital à Merca, en Somalie : sa fièvre commence le 22 octobre 1977. En 1978, Janet Parker, photographe médicale à l'université de Birmingham, est contaminée dans le bâtiment de l'école de médecine et meurt le 11 septembre 1978 : selon les CDC, c'est la dernière personne morte de la variole."
+      },
+      {
+        "kind": "fait",
+        "heading": "La victoire officielle",
+        "text": "Une commission mondiale de scientifiques venus de 19 pays certifie l'éradication en décembre 1979, selon l'OMS. Le 8 mai 1980, la 33e Assemblée mondiale de la santé déclare le monde libéré de la maladie, selon les CDC. L'OMS souligne que la variole reste la seule maladie infectieuse à avoir été éradiquée."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que la variole enseigne encore",
+        "text": "La recette décrite par l'OMS et les CDC, repérer vite chaque cas et vacciner autour de lui, sert encore dans les ripostes actuelles aux épidémies. Mais la variole avait des traits rares : un vaccin efficace et une maladie visible. Toutes les maladies ne s'y prêtent pas, ce qui explique en partie pourquoi elle reste la seule éradiquée."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OMS, Histoire de la vaccination contre la variole",
+        "url": "https://www.who.int/news-room/spotlight/history-of-vaccination/history-of-smallpox-vaccination"
+      },
+      {
+        "label": "OMS, 40e anniversaire de l'éradication de la variole (2019)",
+        "url": "https://www.who.int/news/item/13-12-2019-who-commemorates-the-40th-anniversary-of-smallpox-eradication"
+      },
+      {
+        "label": "OMS, Variole",
+        "url": "https://www.who.int/health-topics/smallpox"
+      },
+      {
+        "label": "CDC, History of Smallpox",
+        "url": "https://www.cdc.gov/smallpox/about/history.html"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "En quelle année l'OMS lance-t-elle le programme intensifié d'éradication de la variole ?",
+        "answer": "En 1967."
+      },
+      {
+        "question": "Où a été recensé le dernier cas naturel connu de variole ?",
+        "answer": "À Merca, en Somalie, en octobre 1977 : Ali Maow Maalin, cuisinier d'hôpital."
+      },
+      {
+        "question": "Quand l'Assemblée mondiale de la santé a-t-elle déclaré le monde libéré de la variole ?",
+        "answer": "Le 8 mai 1980, lors de la 33e Assemblée mondiale de la santé."
+      },
+      {
+        "question": "Sur quelle stratégie reposait la fin de la campagne contre la variole ?",
+        "answer": "Sur la surveillance et l'endiguement : rechercher les malades et vacciner leurs contacts, en anneau autour des cas."
+      }
+    ]
+  },
+  {
+    "slug": "plan-marshall-comment-13-3-milliards-de-dollars-ont-relance-l-europe-d-apres",
+    "title": "Plan Marshall : comment 13,3 milliards de dollars ont relancé l'Europe d'après-guerre",
+    "summary": "Annoncé à Harvard le 5 juin 1947 par le secrétaire d'État George Marshall, le plan de reconstruction européenne devient loi le 3 avril 1948. Les États-Unis y consacrent 13,3 milliards de dollars, répartis entre seize pays, tandis que l'URSS refuse d'y participer. Ce récit s'appuie sur les Archives nationales américaines, la Bibliothèque du Congrès et le Service de recherche du Congrès. Il éclaire les débats actuels sur l'aide à la reconstruction des pays sortant d'une guerre.",
+    "topic": "economie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 5 juin 1947, à Harvard, George Marshall propose une aide américaine à la reconstruction de l'Europe ; Truman signe la loi le 3 avril 1948.",
+      "Le Congrès américain vote 13,3 milliards de dollars sur quatre ans, soit environ 143 milliards de dollars de 2017 selon le Service de recherche du Congrès.",
+      "Le Royaume-Uni reçoit environ 25 % des aides versées aux pays, la France 21 %, l'Italie 12 % et l'Allemagne de l'Ouest 11 % ; l'URSS et ses alliés refusent le programme."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un discours à Harvard",
+        "text": "Le 5 juin 1947, lors de la remise des diplômes à l'université Harvard, le secrétaire d'État George Marshall propose que les États-Unis aident l'Europe à se reconstruire, selon les Archives nationales américaines et la Bibliothèque du Congrès. Le 12 juillet 1947, une conférence s'ouvre à Paris ; l'Union soviétique refuse d'y venir et pousse la Tchécoslovaquie, la Pologne et la Hongrie à rester à l'écart, selon la chronologie de la Bibliothèque du Congrès."
+      },
+      {
+        "kind": "fait",
+        "heading": "La loi de 1948",
+        "text": "Le 3 avril 1948, le président Harry Truman signe la loi qui crée le programme, selon les Archives nationales, le Service de recherche du Congrès et Britannica. Le Congrès vote 13,3 milliards de dollars pour la reconstruction européenne sur quatre ans. Le Service de recherche du Congrès estime ce montant à 143 milliards de dollars de 2017, et précise que les estimations des sommes réellement dépensées vont de 10,3 à 13,6 milliards. L'Organisation européenne de coopération économique (OECE), créée par les pays participants, tient sa première réunion officielle à Paris le 15 avril 1948."
+      },
+      {
+        "kind": "fait",
+        "heading": "Qui a reçu quoi",
+        "text": "Selon le Service de recherche du Congrès, le programme aide seize pays. Les premiers bénéficiaires sont le Royaume-Uni, avec environ 25 % des totaux par pays, la France avec 21 %, l'Italie avec 12 %, l'Allemagne de l'Ouest avec 11 % et les Pays-Bas avec 8 %. Prévu pour durer jusqu'au 30 juin 1952, le programme s'arrête six mois plus tôt, fin 1951, en raison de la guerre de Corée, selon la Bibliothèque du Congrès."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une aide et une stratégie",
+        "text": "Le plan Marshall est à la fois une aide économique et un choix de guerre froide : le refus soviétique, rapporté par toutes les sources, a contribué à séparer l'Europe en deux blocs. Son effet exact sur la croissance européenne reste débattu, et le Service de recherche du Congrès souligne que même les montants dépensés varient selon les estimations. L'expression « plan Marshall » revient pourtant dès qu'on parle de reconstruire un pays après une guerre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Archives nationales des États-Unis, Marshall Plan (1948)",
+        "url": "https://www.archives.gov/milestone-documents/marshall-plan"
+      },
+      {
+        "label": "Bibliothèque du Congrès, For European Recovery : présentation",
+        "url": "https://www.loc.gov/exhibits/marshall/marsh-overview.html"
+      },
+      {
+        "label": "Bibliothèque du Congrès, For European Recovery : chronologie",
+        "url": "https://loc.gov/exhibits/marshall/marsh-dates.html"
+      },
+      {
+        "label": "Service de recherche du Congrès, The Marshall Plan: Design, Accomplishments, and Significance (R45079)",
+        "url": "https://www.everycrsreport.com/files/20180118_R45079_e780785cbab8be720446a91e63adf6689bf739a5.html"
+      },
+      {
+        "label": "Britannica, Marshall Plan",
+        "url": "https://www.britannica.com/event/Marshall-Plan"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Où et quand George Marshall a-t-il proposé son plan d'aide à l'Europe ?",
+        "answer": "À l'université Harvard, le 5 juin 1947."
+      },
+      {
+        "question": "Combien le Congrès américain a-t-il voté pour le plan Marshall ?",
+        "answer": "13,3 milliards de dollars sur quatre ans, environ 143 milliards de dollars de 2017."
+      },
+      {
+        "question": "Quel pays a reçu la plus grande part de l'aide du plan Marshall ?",
+        "answer": "Le Royaume-Uni, avec environ 25 % des totaux par pays, devant la France avec 21 %."
+      },
+      {
+        "question": "Pourquoi le plan Marshall s'arrête-t-il six mois avant la date prévue ?",
+        "answer": "En raison de la guerre de Corée ; il devait durer jusqu'au 30 juin 1952."
+      }
+    ]
+  },
+  {
+    "slug": "shaba-1977-1978-la-guerre-miniere-qui-a-fait-flamber-le-cobalt",
+    "title": "Shaba, 1977-1978 : la guerre minière qui a fait flamber le cobalt",
+    "summary": "En 1977 puis en 1978, des rebelles venus d'Angola envahissent le Shaba, la province minière du Zaïre, qui fournissait alors l'essentiel du cobalt mondial. L'interruption de l'extraction fait bondir les prix et pousse des industriels à inventer un aimant qui s'en passe. Ce récit s'appuie sur un module pédagogique du programme InTeGrate, construit à partir de données de l'USGS, et sur une notice historique d'EBSCO Research Starters. Alors que la république démocratique du Congo domine de nouveau l'offre de cobalt, il rappelle ce que coûte la dépendance à une seule région productrice.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Dans les années 1970, la plus grande partie du cobalt mondial était produite au Zaïre, comme sous-produit des mines de cuivre de la province du Shaba.",
+      "Le 8 mars 1977, environ 2 000 combattants du FNLC entrent au Shaba ; le 11 mai 1978, une force environ deux fois plus nombreuse vise le centre minier de Kolwezi.",
+      "L'interruption de l'extraction provoque une flambée des prix du cobalt ; les aimants samarium-cobalt deviennent moins attractifs et General Motors et Sumitomo Special Metals mettent au point les aimants au néodyme."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Le cobalt, un sous-produit du cuivre zaïrois",
+        "text": "Dans les années 1970, selon le module InTeGrate consacré au cobalt, l'essentiel de ce métal est produit au Zaïre, l'actuelle république démocratique du Congo. Il est extrait comme sous-produit des mines de cuivre de la province du Shaba, l'ancien Katanga, exploitées par l'entreprise d'État Gécamines dans une industrie nationalisée sous Mobutu."
+      },
+      {
+        "kind": "fait",
+        "heading": "Deux invasions en deux ans",
+        "text": "Selon EBSCO Research Starters, le 8 mars 1977, environ 2 000 combattants du Front national de libération du Congo (FNLC) entrent au Shaba depuis l'Angola, par Dilolo, et progressent vers Kolwezi et Kapanga. Des parachutistes marocains, transportés par la France, aident l'armée zaïroise à les repousser en avril et mai. Le 11 mai 1978, une force environ deux fois plus nombreuse vise uniquement le centre minier de Kolwezi, où vivent des Belges, des Français et quelques Américains. Près de 1 000 Africains et Européens sont tués. Des parachutistes belges et des légionnaires français sautent sur la ville environ une semaine plus tard, et les assaillants sont repoussés vers l'Angola en quelques jours."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des prix qui s'envolent",
+        "text": "Le module InTeGrate explique que l'interruption de l'extraction au Shaba a provoqué le pic des prix mondiaux du cobalt de la fin des années 1970, bien visible sur la courbe des prix établie à partir des données de l'USGS. Gécamines avait par ailleurs laissé vieillir ses équipements. Le cobalt fait partie des matières du stock de défense nationale des États-Unis, rappelle la même source."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un choc qui a changé l'industrie",
+        "text": "La flambée a eu un effet durable : selon InTeGrate, les aimants samarium-cobalt sont devenus moins attractifs, et des ingénieurs de General Motors et de Sumitomo Special Metals ont inventé les aimants au néodyme, fer et bore, aujourd'hui les principaux aimants de l'électronique et des moteurs. Le même module note que le Congo est redevenu le principal producteur mondial de cobalt. L'épisode illustre une leçon souvent rappelée dans les débats actuels sur les matériaux critiques : une offre concentrée dans une seule région expose les acheteurs aux crises locales, et pousse à chercher des substituts."
+      }
+    ],
+    "sources": [
+      {
+        "label": "InTeGrate (Carleton College) – Cobalt: How Disruptions in Supply Affect the Price of a Mineral Resource",
+        "url": "https://serc.carleton.edu/integrate/teaching_materials/mineral_resources/student_materials/unit2cobaltexample.html"
+      },
+      {
+        "label": "EBSCO Research Starters – Angolan Rebels Invade Shaba Province",
+        "url": "https://www.ebsco.com/research-starters/history/angolan-rebels-invade-shaba-province"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "D'où venait l'essentiel du cobalt mondial dans les années 1970 ?",
+        "answer": "Du Zaïre, où il était extrait comme sous-produit des mines de cuivre de la province du Shaba."
+      },
+      {
+        "question": "Quelle ville minière du Shaba a été visée par l'invasion du 11 mai 1978 ?",
+        "answer": "Kolwezi, centre minier où vivaient notamment des Belges et des Français."
+      },
+      {
+        "question": "Quel effet les invasions du Shaba ont-elles eu sur le cobalt ?",
+        "answer": "L'interruption de l'extraction a provoqué un pic des prix mondiaux du cobalt à la fin des années 1970."
+      },
+      {
+        "question": "Quel aimant a été inventé pour remplacer les aimants samarium-cobalt devenus trop chers ?",
+        "answer": "L'aimant au néodyme, fer et bore, mis au point par General Motors et Sumitomo Special Metals."
+      }
+    ]
+  },
+  {
+    "slug": "4-novembre-2006-quand-un-navire-a-plonge-15-millions-de-foyers-europeens-dans-le",
+    "title": "4 novembre 2006 : quand un navire a plongé 15 millions de foyers européens dans le noir",
+    "summary": "Le soir du 4 novembre 2006, la coupure programmée d'une ligne à très haute tension au-dessus de l'Ems, en Allemagne, pour laisser passer un paquebot, a scindé le réseau électrique européen en trois. Plus de 15 millions de foyers ont été privés de courant. Ce récit s'appuie sur le rapport intermédiaire de l'UCTE, l'association des gestionnaires de réseau de l'époque, et sur les rapports des régulateurs européens réunis dans l'ERGEG. À l'entrée de l'hiver, quand la demande d'électricité grimpe, il rappelle pourquoi la sécurité d'un réseau interconnecté dépend de règles communes.",
+    "topic": "energie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 4 novembre 2006, E.ON Netz ouvre la double ligne à 380 kV Conneforde-Diele au-dessus de l'Ems pour le passage du navire Norwegian Pearl ; vers 22 h 10, le réseau de l'UCTE se divise en trois zones.",
+      "Plus de 15 millions de foyers européens sont déconnectés ; la zone Ouest, en déficit d'environ 9 000 MW, voit sa fréquence tomber à environ 49 Hz.",
+      "L'UCTE et les régulateurs retiennent deux causes principales : le non-respect du critère N-1 et une coordination inappropriée entre gestionnaires de réseau."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une manœuvre avancée de quelques heures",
+        "text": "La coupure de la double ligne à 380 kV Conneforde-Diele, qui enjambe l'Ems dans le nord-ouest de l'Allemagne, était prévue pour le 5 novembre à 1 heure du matin afin de laisser passer le navire Norwegian Pearl. Elle est avancée au 4 novembre à 22 heures. Selon l'UCTE et l'ERGEG, le gestionnaire E.ON Netz ouvre la ligne vers 21 h 38. Une demi-heure plus tard, une manœuvre de couplage au poste de Landesbergen précède de deux secondes le déclenchement de la ligne Landesbergen-Wehrendorf, puis une cascade de déclenchements."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un réseau coupé en trois",
+        "text": "À 22 h 10 min 28 s, le réseau synchrone de l'UCTE se scinde en trois zones, Ouest, Nord-Est et Sud-Est, indique le rapport intermédiaire de l'UCTE. Le rapport final de l'ERGEG précise que la zone Ouest manque alors d'environ 9 000 MW et que sa fréquence chute à environ 49 Hz. Des délestages automatiques privent de courant plus de 15 millions de foyers européens."
+      },
+      {
+        "kind": "fait",
+        "heading": "Moins de deux heures pour rétablir",
+        "text": "Selon l'UCTE, la resynchronisation complète intervient dans les 38 minutes qui suivent la séparation, et la situation redevient normale en moins de deux heures. Les rapports de l'ERGEG situent la reconnexion des zones Ouest et Est à 22 h 47, après plusieurs tentatives, et le rétablissement complet vers 23 h 45."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Les leçons d'une nuit de novembre",
+        "text": "L'UCTE désigne deux causes profondes : le non-respect du critère N-1, qui veut qu'un réseau supporte la perte de n'importe quel élément sans incident en cascade, et une coordination régionale inappropriée entre gestionnaires de réseau. Les régulateurs de l'ERGEG font le même constat et demandent que le calcul N-1 soit réalisé régulièrement par tous les gestionnaires. Vingt ans plus tard, l'épisode reste une référence quand l'Europe discute de la sûreté d'un réseau électrique toujours plus interconnecté."
+      }
+    ],
+    "sources": [
+      {
+        "label": "UCTE – Rapport intermédiaire sur l'incident du 4 novembre 2006 (30 novembre 2006)",
+        "url": "https://eepublicdownloads.entsoe.eu/clean-documents/pre2015/publications/ce/otherreports/IC-Interim-Report-20061130.pdf"
+      },
+      {
+        "label": "ERGEG – Rapport final sur les leçons de l'incident du 4 novembre 2006 (6 février 2007)",
+        "url": "https://www.cre.fr/fileadmin/Documents/Communiques_de_presse/import/1172593700898.pdf"
+      },
+      {
+        "label": "ERGEG – Rapport intermédiaire sur l'incident du 4 novembre 2006 (20 décembre 2006)",
+        "url": "https://ceer.eu/wp-content/uploads/2024/04/E06-BAG-01-05_InterimReport.pdf"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quel événement a déclenché la panne électrique européenne du 4 novembre 2006 ?",
+        "answer": "La coupure de la ligne à 380 kV Conneforde-Diele au-dessus de l'Ems, en Allemagne, pour laisser passer le navire Norwegian Pearl."
+      },
+      {
+        "question": "Combien de foyers ont été privés de courant le 4 novembre 2006 ?",
+        "answer": "Plus de 15 millions de foyers européens."
+      },
+      {
+        "question": "Que dit le critère N-1 de sécurité d'un réseau électrique ?",
+        "answer": "Le réseau doit supporter la perte de n'importe quel élément sans déclencher d'incident en cascade."
+      },
+      {
+        "question": "Quelles sont les deux causes principales de la panne de 2006 selon l'UCTE ?",
+        "answer": "Le non-respect du critère N-1 et une coordination inappropriée entre gestionnaires de réseau."
+      }
+    ]
+  },
+  {
+    "slug": "2017-le-jour-ou-la-chine-a-ferme-sa-porte-aux-dechets-plastiques-du-monde",
+    "title": "2017 : le jour où la Chine a fermé sa porte aux déchets plastiques du monde",
+    "summary": "En juillet 2017, la Chine annonce à l'Organisation mondiale du commerce qu'elle interdira d'ici la fin de l'année l'importation de 24 sortes de déchets solides, dont des plastiques et des papiers non triés. Ce récit s'appuie sur les publications spécialisées Waste360 et Resource Recycling, qui ont suivi la mesure et ses effets. Au moment où l'Union européenne cesse d'exporter ses déchets plastiques vers les pays hors OCDE, il rappelle comment un pays importateur a bouleversé le commerce mondial du recyclage.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 18 juillet 2017, la Chine notifie à l'OMC qu'elle interdira d'ici la fin de 2017 l'importation de 4 catégories et 24 sortes de déchets solides, dont des déchets plastiques, du papier non trié et des déchets textiles.",
+      "Cette interdiction prolonge la campagne « Green Fence » de 2013, au cours de laquelle près de 70 % des conteneurs entrants ont été inspectés la première année.",
+      "À partir du 1er mars 2018, une limite de contamination de 0,5 % s'applique aux lots importés ; selon Resource Recycling, les importations chinoises de plastiques recyclés ont chuté de 99 % en 2018 par rapport à 2017."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une notification à l'OMC",
+        "text": "Le 18 juillet 2017, la Chine dépose auprès de l'Organisation mondiale du commerce une notification annonçant que, d'ici la fin de 2017, elle interdira l'importation de 4 catégories et 24 sortes de déchets solides. Selon Waste360, la liste comprend notamment des déchets plastiques d'origine domestique, des chutes et rebuts de plastiques, des scories de vanadium, des déchets textiles et des papiers non triés. Resource Recycling résume les plastiques visés : PET, PE, PVC et PS recyclés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Après la « clôture verte »",
+        "text": "La mesure ne sort pas de nulle part. En février 2013, la Chine avait lancé l'opération « Green Fence », des inspections intensives des cargaisons de déchets importées pour faire appliquer des règles de 2006 et 2010. Waste360 rapporte que près de 70 % des conteneurs entrants ont été inspectés la première année. Avant l'interdiction, les États-Unis exportaient vers la Chine, selon des chiffres de la fédération professionnelle ISRI cités par Waste360, 5,6 milliards de dollars de déchets recyclables, dont 1,42 million de tonnes de déchets plastiques."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un seuil de 0,5 % et des flux effondrés",
+        "text": "L'interdiction entre en vigueur au début de 2018. Resource Recycling indique qu'en novembre 2017 la Chine a fixé une limite de contamination de 0,5 % pour la plupart des matières recyclables non interdites, en vigueur le 1er mars 2018, contre 1,5 % auparavant pour le papier. La même chronologie rapporte que les importations de plastiques recyclés de la Chine ont chuté de 99 % en 2018 par rapport à 2017."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi l'épisode éclaire l'actualité",
+        "text": "Pendant des années, une partie du recyclage des pays riches reposait sur l'exportation de balles de déchets vers la Chine. La fermeture de 2017-2018 a obligé les pays exportateurs à chercher d'autres débouchés ou à traiter davantage chez eux. Les restrictions européennes actuelles sur l'exportation de déchets plastiques s'inscrivent dans ce même mouvement : faire porter le recyclage par ceux qui produisent les déchets. Les volumes cités ici proviennent de la presse spécialisée et de la fédération ISRI, non de statistiques douanières consultées directement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Waste360 – China Notifies WTO of Intent to Ban 24 Types of Solid Waste Imports (juillet 2017)",
+        "url": "https://www.waste360.com/waste-recycling/china-notifies-wto-of-intent-to-ban-24-types-of-solid-waste-imports"
+      },
+      {
+        "label": "Resource Recycling – Green Fence to red alert: a China timeline",
+        "url": "https://resource-recycling.com/plastics/2018/02/14/green-fence-red-alert-china-timeline/"
+      },
+      {
+        "label": "Resource Recycling – China says it will ban imports of key recovered plastics (juillet 2017)",
+        "url": "https://www.resource-recycling.com/plastics/2017/07/19/china-says-it-will-ban-imports-of-key-recovered-plastics/"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Qu'a annoncé la Chine à l'OMC en juillet 2017 ?",
+        "answer": "L'interdiction d'importer, d'ici la fin de 2017, 24 sortes de déchets solides, dont des plastiques, du papier non trié et des textiles."
+      },
+      {
+        "question": "Qu'était l'opération chinoise « Green Fence » de 2013 ?",
+        "answer": "Des inspections intensives des cargaisons de déchets importées ; près de 70 % des conteneurs ont été inspectés la première année."
+      },
+      {
+        "question": "Quelle limite de contamination la Chine a-t-elle imposée en 2018 aux déchets recyclables importés ?",
+        "answer": "0,5 %, en vigueur à partir du 1er mars 2018."
+      }
+    ]
+  },
+  {
+    "slug": "londres-1952-le-grand-smog-qui-a-conduit-a-la-loi-sur-la-purete-de-l-air",
+    "title": "Londres, 1952 : le grand smog qui a conduit à la loi sur la pureté de l'air",
+    "summary": "Du 5 au 9 décembre 1952, un brouillard chargé de fumée de charbon s'est figé sur Londres. Environ 4 000 décès ont été constatés dans l'immédiat, et les estimations montent jusqu'à 12 000 en comptant les mois suivants. Ce récit s'appuie sur le Met Office, les Archives nationales britanniques et le London Museum. Alors que la pollution de l'air reste un enjeu de santé publique dans les grandes villes, il rappelle comment une catastrophe a fait naître le Clean Air Act de 1956.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Du vendredi 5 au mardi 9 décembre 1952, un anticyclone a bloqué au-dessus de Londres la fumée des foyers au charbon, des centrales et des usines, sous une inversion de température.",
+      "Le Met Office indique qu'environ 4 000 décès sont connus, mais que le bilan pourrait être bien plus élevé ; les Archives nationales et le London Museum avancent un total estimé de 12 000 morts.",
+      "Après le rapport du comité présidé par Sir Hugh Beaver, les lois sur la pureté de l'air de 1956 et 1968 ont interdit les émissions de fumée noire et imposé le passage aux combustibles sans fumée."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Cinq jours sous une chape de fumée",
+        "text": "Le matin du vendredi 5 décembre 1952, un brouillard de rayonnement se forme sur Londres par temps clair et froid. Selon le Met Office, un anticyclone stationne alors sur la région : l'air qui descend se réchauffe et crée une inversion de température, qui empêche la fumée de s'élever. Par ce froid, les Londoniens chargent leurs poêles au charbon. Le London Museum ajoute la fumée des centrales électriques au charbon, comme Battersea et Lots Road, celle des usines, et un charbon de qualité médiocre en raison des pénuries de l'après-guerre. Un vent d'est apporte en plus de l'air pollué venu du continent. Le smog ne se dissipe que le mardi 9 décembre."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un bilan longtemps sous-estimé",
+        "text": "Le Met Office indique qu'environ 4 000 personnes sont connues pour être mortes, en précisant que le chiffre pourrait être bien plus élevé. Les Archives nationales britanniques, qui s'appuient sur les relevés hebdomadaires du Registrar General et sur les rapports des coroners, évoquent plus de 4 000 décès dans l'immédiat et 8 000 autres au cours de l'année suivante. Le London Museum retient lui aussi un total estimé de 12 000 morts. Ce second chiffre reste une estimation : les pages consultées ne détaillent pas la méthode utilisée pour l'établir."
+      },
+      {
+        "kind": "fait",
+        "heading": "De la catastrophe à la loi",
+        "text": "Selon les Archives nationales, le gouvernement confie à Sir Hugh Beaver la présidence d'un comité sur la pollution de l'air, qui recommande d'intégrer l'air pur à la politique énergétique, notamment en remplaçant le charbon domestique par des combustibles sans fumée. La City de Londres interdit la fumée dès 1954, rappelle le London Museum. Le Clean Air Act de 1956 crée des zones sans fumée à Londres et encadre la combustion du charbon dans les logements et les usines. Avec la loi de 1968, il interdit les émissions de fumée noire et oblige habitants des villes et industriels à passer aux combustibles sans fumée, selon le Met Office."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce récit éclaire l'actualité",
+        "text": "Le Met Office note qu'un brouillard a encore tué 750 Londoniens en 1962, mais qu'aucun smog de cette ampleur ne s'est reproduit depuis. La pollution a changé de nature : le London Museum explique qu'elle vient aujourd'hui surtout du trafic routier, cite une étude de 2019 liant la pollution à environ 6 000 décès en excès à Londres cette année-là, et rappelle l'instauration de la zone à ultra-faibles émissions (ULEZ) en 2019. L'épisode de 1952 reste l'exemple classique d'une crise sanitaire qui a transformé la réglementation environnementale."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Met Office – The Great Smog of 1952",
+        "url": "https://weather.metoffice.gov.uk/learn-about/weather/case-studies/great-smog"
+      },
+      {
+        "label": "The National Archives (Royaume-Uni) – The Great Smog of 1952",
+        "url": "https://blog.nationalarchives.gov.uk/the-great-smog-of-1952/"
+      },
+      {
+        "label": "London Museum – The Great Smog of 1952",
+        "url": "https://londonmuseum.org.uk/collections/london-stories/the-great-smog-of-1952"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand le grand smog de Londres a-t-il eu lieu ?",
+        "answer": "Du vendredi 5 au mardi 9 décembre 1952."
+      },
+      {
+        "question": "Quel phénomène météorologique a piégé la fumée au-dessus de Londres en 1952 ?",
+        "answer": "Un anticyclone, qui a créé une inversion de température empêchant la fumée de charbon de s'élever."
+      },
+      {
+        "question": "Quel est le bilan humain estimé du grand smog de 1952 ?",
+        "answer": "Environ 4 000 décès connus dans l'immédiat ; les estimations montent à 12 000 morts en comptant les mois suivants."
+      },
+      {
+        "question": "Quelle loi britannique est issue du grand smog de 1952 ?",
+        "answer": "Le Clean Air Act de 1956, complété en 1968, qui a interdit la fumée noire et imposé les combustibles sans fumée."
+      }
+    ]
+  },
+  {
+    "slug": "ariane-501-1996-le-bug-logiciel-qui-a-fait-exploser-une-fusee-en-40-secondes",
+    "title": "Ariane 501, 1996 : le bug logiciel qui a fait exploser une fusée en 40 secondes",
+    "summary": "Le 4 juin 1996, le premier vol d'Ariane 5 s'achève une quarantaine de secondes après le décollage, à Kourou. La commission d'enquête désigne une erreur de conception logicielle : un calcul hérité d'Ariane 4 a dépassé la capacité d'un nombre entier. Ce récit s'appuie sur le communiqué de l'Agence spatiale européenne et sur le rapport de la commission daté du 19 juillet 1996. À l'heure où les logiciels pilotent de plus en plus de systèmes critiques, il rappelle pourquoi réutiliser du code sans le retester peut coûter cher.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 4 juin 1996, lors du vol inaugural d'Ariane 5, le lanceur dévie de sa trajectoire environ 40 secondes après le début de la séquence de vol, à environ 3 700 mètres d'altitude, puis s'autodétruit.",
+      "La commission d'enquête explique que la conversion d'un nombre à virgule flottante de 64 bits en entier signé de 16 bits a provoqué une erreur d'opérande dans les deux centrales inertielles.",
+      "Le logiciel venait d'Ariane 4 : Ariane 5 accélérant horizontalement environ cinq fois plus vite, la variable de biais horizontal a dépassé la limite prévue pour l'ancien lanceur."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Quarante secondes de vol",
+        "text": "Le 4 juin 1996, Ariane 5 décolle pour son premier vol depuis Kourou, en Guyane, à 9 h 33 min 59 s heure locale. Selon le rapport de la commission d'enquête, le lanceur commence à dévier peu après 37 secondes de vol, se disloque vers 39 secondes, puis s'autodétruit à environ 4 kilomètres d'altitude et à 1 kilomètre du pas de tir. L'Agence spatiale européenne résume : environ 40 secondes après le début de la séquence de vol, à 3 700 mètres d'altitude, la fusée a quitté sa trajectoire."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un nombre trop grand pour sa case",
+        "text": "La commission, présidée par le professeur Jacques-Louis Lions, de l'Académie des sciences, a commencé ses travaux le 13 juin 1996. Elle établit que la centrale inertielle de secours, puis la centrale active environ 0,05 seconde plus tard, ont cessé de fonctionner. En cause : une conversion d'un nombre à virgule flottante de 64 bits en entier signé de 16 bits, appliquée à la variable de biais horizontal, a déclenché une erreur d'opérande. Cette conversion n'était pas protégée, et le processeur s'est arrêté."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'héritage d'Ariane 4",
+        "text": "Le rapport indique que la centrale inertielle d'Ariane 5 était pratiquement identique à celle d'Ariane 4, en particulier son logiciel. Or Ariane 5 prend de la vitesse horizontale environ cinq fois plus vite. La fonction d'alignement en cause ne produisait des résultats utiles qu'avant le décollage ; elle continuait pourtant de tourner environ 40 secondes après, une disposition conservée pour rester commune avec Ariane 4."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que la catastrophe a changé",
+        "text": "L'Agence spatiale européenne a retenu plusieurs actions : corriger la centrale inertielle, réexaminer tous les logiciels embarqués, rendre les essais de qualification plus représentatifs et multiplier les recoupements entre essais. Le rapport recommande notamment d'arrêter la fonction d'alignement après le décollage, de tester le système complet avec du matériel réel et de vérifier les plages de valeurs de tous les logiciels de vol. L'épisode reste un cas d'école du génie logiciel : un code éprouvé sur un système peut échouer sur un autre si ses hypothèses ne sont pas revérifiées."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Agence spatiale européenne – Ariane 501, présentation du rapport de la commission d'enquête (1996)",
+        "url": "https://www.esa.int/Newsroom/Press_Releases/Ariane_501_-_Presentation_of_Inquiry_Board_report"
+      },
+      {
+        "label": "Rapport de la commission d'enquête Ariane 501, Paris, 19 juillet 1996 (copie hébergée par l'université du Minnesota)",
+        "url": "https://www-users.cse.umn.edu/%7Earnold/disasters/ariane5rep.html"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand et comment s'est terminé le premier vol d'Ariane 5 ?",
+        "answer": "Le 4 juin 1996, environ 40 secondes après le décollage depuis Kourou : le lanceur a dévié puis s'est autodétruit."
+      },
+      {
+        "question": "Quelle erreur logicielle a provoqué l'échec d'Ariane 501 ?",
+        "answer": "La conversion d'un nombre à virgule flottante de 64 bits en entier signé de 16 bits, non protégée, a provoqué une erreur d'opérande."
+      },
+      {
+        "question": "Pourquoi le logiciel d'Ariane 4 a-t-il échoué sur Ariane 5 ?",
+        "answer": "Ariane 5 accélère horizontalement environ cinq fois plus vite, si bien que la variable de biais horizontal a dépassé la limite prévue."
+      },
+      {
+        "question": "Qui a présidé la commission d'enquête sur Ariane 501 ?",
+        "answer": "Le professeur Jacques-Louis Lions, de l'Académie des sciences."
+      }
+    ]
+  },
+  {
+    "slug": "part-des-profits-les-entreprises-de-l-ue-reculent-pour-la-quatrieme-annee-d",
+    "title": "Part des profits : les entreprises de l'UE reculent pour la quatrième année d'affilée",
+    "summary": "Selon Eurostat, la part des profits des sociétés non financières de l'Union européenne est tombée à 39,8 % de leur valeur ajoutée en 2025, en baisse de 0,2 point sur un an et pour la quatrième année consécutive. La France affiche la part la plus faible de l'UE, à 32,2 %. Données annuelles des comptes de secteurs, publiées le 24 novembre 2026.",
+    "topic": "economie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En 2025, la part des profits des sociétés non financières de l'UE atteint 39,8 % de leur valeur ajoutée, 0,2 point de moins qu'en 2024, selon Eurostat.",
+      "Le recul dure depuis 2021 : 42,0 % cette année-là, puis 41,7 % en 2022, 41,5 % en 2023 et 40,1 % en 2024. Le point le plus bas reste 39,5 %, en 2012.",
+      "La France ferme la marche avec 32,2 %, devant la Slovénie (33,2 %) et le Portugal (34,2 %) ; l'Irlande (74,9 %), Malte (55,2 %) et la Roumanie (51,8 %) sont en tête."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un indicateur en baisse depuis 2021",
+        "text": "Eurostat a publié le 24 novembre 2026 ses données sur la part des profits des sociétés non financières, c'est-à-dire des entreprises dont l'activité principale n'est pas financière. En 2025, cette part s'établit à 39,8 % dans l'Union européenne, contre 40,1 % en 2024. Elle était de 42,0 % en 2021, puis de 41,7 % en 2022 et de 41,5 % en 2023. Sur vingt ans, le sommet a été atteint en 2007, à 42,1 %, et le point le plus bas en 2012, à 39,5 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "De quoi parle-t-on ?",
+        "text": "La part des profits est l'excédent brut d'exploitation divisé par la valeur ajoutée brute. Elle mesure la part de la richesse créée par l'entreprise qui rémunère le capital plutôt que le travail ; c'est le complément de la part des coûts salariaux. Eurostat précise qu'une part basse ne signifie pas seulement des profits faibles : elle peut aussi refléter une économie plus intensive en main-d'œuvre, tandis qu'une part élevée peut traduire une production plus gourmande en capital."
+      },
+      {
+        "kind": "fait",
+        "heading": "De fortes différences entre pays",
+        "text": "L'Irlande enregistre la valeur la plus élevée (74,9 %), ce qu'Eurostat attribue aux grandes multinationales étrangères très capitalistiques installées dans le pays. Suivent Malte (55,2 %) et la Roumanie (51,8 %). À l'autre bout, la France (32,2 %), la Slovénie (33,2 %) et le Portugal (34,2 %) ont les parts les plus faibles."
+      },
+      {
+        "kind": "analyse",
+        "heading": "En France, l'Insee mesure une stabilité récente",
+        "text": "L'Insee suit le même ratio sous le nom de taux de marge, en données trimestrielles. Au deuxième trimestre 2026, il se maintient à 31,5 % de la valeur ajoutée des sociétés non financières françaises, comme au premier trimestre. Selon l'Insee, il reste fortement pénalisé par les termes de l'échange, avec la hausse des prix mondiaux de l'énergie, un effet contrebalancé par la baisse des salaires réels. Les deux chiffres ne portent pas sur la même période ni sur les mêmes méthodes de publication et ne doivent pas être comparés directement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — Profit share of EU businesses down 4 years in a row (24 novembre 2026)",
+        "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261124-3"
+      },
+      {
+        "label": "Insee — Comptes nationaux trimestriels, résultats détaillés du deuxième trimestre 2026",
+        "url": "https://www.insee.fr/fr/statistiques/9039499"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Comment Eurostat définit-il la part des profits d'une entreprise ?",
+        "answer": "C'est l'excédent brut d'exploitation divisé par la valeur ajoutée brute : la part de la richesse créée qui rémunère le capital plutôt que le travail."
+      },
+      {
+        "question": "Quel pays de l'UE avait la part des profits la plus faible en 2025 ?",
+        "answer": "La France, avec 32,2 % de la valeur ajoutée des sociétés non financières, selon Eurostat."
+      }
+    ]
+  },
+  {
+    "slug": "automobile-byd-negocie-le-rachat-de-l-usine-ineos-de-hambach-en-moselle",
+    "title": "Automobile : BYD négocie le rachat de l'usine Ineos de Hambach, en Moselle",
+    "summary": "Le constructeur chinois BYD a annoncé le 24 novembre 2026 être entré en négociations exclusives avec Ineos Automotive pour acquérir son usine de Hambach, en Moselle, où travaillent près de 900 personnes. L'opération reste soumise à la consultation des représentants du personnel. Ni les modèles, ni les volumes, ni le montant de l'investissement n'ont été communiqués.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "BYD confirme des négociations exclusives avec Ineos Automotive pour acquérir l'usine de Hambach, en Moselle, et veut y produire des véhicules conçus pour les automobilistes européens.",
+      "L'usine, l'ancienne Smartville, emploie près de 900 personnes ; Ineos y assemble le 4x4 Grenadier depuis 2022 et prévoit de produire aux États-Unis à partir de 2028.",
+      "L'opération reste soumise à la consultation des instances représentatives du personnel ; aucun modèle, volume ni montant d'investissement n'a été rendu public."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que BYD a annoncé",
+        "text": "Dans un communiqué daté du 24 novembre 2026 à Paris, BYD confirme avoir engagé des négociations exclusives avec Ineos Automotive en vue d'acquérir son usine de production de Hambach. Le groupe indique vouloir y produire des véhicules spécifiquement conçus pour les automobilistes européens, pérenniser l'activité industrielle du site et préserver les emplois locaux. Sa vice-présidente exécutive Stella Li y affirme que l'engagement du groupe envers l'Europe s'inscrit dans le long terme. Le communiqué précise que l'opération reste soumise à la consultation des instances représentatives du personnel."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un site au passé chargé",
+        "text": "L'usine de Hambach a été construite pour la Smart et a ouvert à la fin des années 1990. Ineos Automotive l'a rachetée en 2020 après le retrait de Mercedes-Benz et y assemble depuis 2022 le 4x4 Grenadier, puis le pick-up Quartermaster. Selon la presse régionale, près de 900 personnes y travaillent. Ineos prévoit de produire le Grenadier aux États-Unis à partir de 2028."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Beaucoup d'inconnues",
+        "text": "Le communiqué de BYD ne donne aucun chiffre : ni montant d'investissement, ni capacité de production, ni modèles, ni calendrier. Selon Tout-Metz, Emmanuel Macron a donné rendez-vous au sommet Choose France du 18 janvier pour des annonces détaillées. Les estimations de volumes ou d'investissement qui circulent dans la presse ne sont pas confirmées par l'entreprise."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BYD — Négociations exclusives en vue d'acquérir l'usine de Hambach (24 novembre 2026)",
+        "url": "https://media.byd.com/byd-a-engage-des-negociations-exclusives-en-vue-dacquerir-l-usine-de-hambach-en-france/?lang=fra&media=image&page_media=1"
+      },
+      {
+        "label": "Tout-Metz — BYD veut reprendre l'usine Ineos d'Hambach (25 novembre 2026)",
+        "url": "https://tout-metz.com/moselle-geant-automobile-chinois-byd-veut-reprendre-usine-ineos-hambach-2026-842948"
+      },
+      {
+        "label": "Info du jour — BYD à Hambach (25 novembre 2026)",
+        "url": "https://infodujour.fr/societe/consommation/88229-byd-a-hambach-la-chine-a-la-conquete-de-lindustrie-automobile-francaise"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Quel véhicule Ineos Automotive assemble-t-il à Hambach depuis 2022 ?",
+        "answer": "Le 4x4 Grenadier, puis le pick-up Quartermaster, dans l'ancienne usine construite pour la Smart."
+      }
+    ]
+  },
+  {
+    "slug": "cobalt-la-rdc-suspend-de-nouveau-toutes-ses-exportations-a-partir-du-30-novembre",
+    "title": "Cobalt : la RDC suspend de nouveau toutes ses exportations à partir du 30 novembre",
+    "summary": "Le régulateur congolais des minerais stratégiques, l'Arecoms, a annoncé le 23 novembre 2026 la suspension de toutes les exportations de cobalt de la République démocratique du Congo à partir du 30 novembre, sans date de reprise. Il invoque la chute des prix et l'excès d'offre. Une réévaluation est prévue au bout de quatre mois. Faits rapportés par la presse spécialisée ; le communiqué officiel n'a pas pu être consulté directement.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L'Arecoms, régulateur congolais des marchés des substances minérales stratégiques, suspend toutes les exportations de cobalt à partir du 30 novembre 2026, jusqu'à nouvel ordre.",
+      "Il invoque un déséquilibre persistant du marché : demande faible, stocks en hausse et excès d'offre. Le prix de référence est tombé à 33 525 dollars la tonne le 20 novembre, contre près de 58 000 au premier trimestre.",
+      "C'est un retour en arrière : la RDC avait interdit les exportations en février 2025, puis instauré des quotas en octobre 2025, avec un quota de 96 600 tonnes pour 2026."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une suspension sans date de fin",
+        "text": "Selon l'agence Ecofin et le site Mining.com.au, l'Autorité de régulation et de contrôle des marchés des substances minérales stratégiques (Arecoms) a annoncé le 23 novembre 2026 la suspension de toutes les exportations de cobalt à partir du 30 novembre. La mesure vise les productions industrielles, semi-industrielles, artisanales et à petite échelle. Les exportateurs ont jusqu'au 29 novembre pour achever les expéditions déjà programmées. Elle restera en vigueur jusqu'à une nouvelle décision de l'Arecoms ; une réévaluation est prévue quatre mois après son entrée en vigueur."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des prix en forte baisse",
+        "text": "Le régulateur évoque un déséquilibre persistant du marché du cobalt, lié à une demande faible, à la hausse des stocks et à un excès d'offre. Selon Ecofin, qui cite Trading Economics, le prix de référence approchait 58 000 dollars la tonne au premier trimestre 2026, était d'environ 56 300 dollars le 1er juillet et est tombé à 33 525 dollars le 20 novembre, soit 30,98 % de moins qu'un an plus tôt. De janvier à septembre 2026, la RDC a expédié 61 440 tonnes de cobalt, contre 44 338 tonnes sur toute l'année 2025."
+      },
+      {
+        "kind": "fait",
+        "heading": "Interdiction, quotas, puis nouvelle interdiction",
+        "text": "La RDC avait instauré une interdiction totale des exportations de cobalt en février 2025, remplacée en octobre 2025 par un système de quotas. Le quota annuel pour 2026 était fixé à 96 600 tonnes. Selon Ecofin, les volumes de quota non expédiés ne seront pas reportés. Mining.com.au indique que la RDC produisait, avant ces restrictions, environ les trois quarts du cobalt extrait dans le monde, notamment par CMOC, Glencore et Eurasian Resources Group."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce qu'il faut surveiller",
+        "text": "Le cobalt sert notamment aux batteries. La reprise dépendra d'une nouvelle décision de l'Arecoms, qui doit aussi revoir le système d'attribution des quotas pendant la suspension. Le communiqué officiel du régulateur n'a pas été consulté directement : les faits ci-dessus proviennent de médias spécialisés qui le citent et concordent sur les dates et les chiffres."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Ecofin — DRC suspends cobalt exports again (24 novembre 2026)",
+        "url": "https://www.ecofinagency.com/news-industry/2411-61107-drc-suspends-cobalt-exports-again-to-counter-falling-prices-and-global-oversupply"
+      },
+      {
+        "label": "Mining.com.au — DRC to reinstate cobalt export ban as prices slump (24 novembre 2026)",
+        "url": "https://mining.com.au/drc-to-reinstate-cobalt-export-ban-as-prices-slump/"
+      },
+      {
+        "label": "MiningWrap — DRC suspends cobalt exports again (24 novembre 2026)",
+        "url": "https://miningwrap.co.za/articles/drc-suspends-cobalt-exports-again-as-prices-fall-and-oversupply-builds"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "flashcards": [
+      {
+        "question": "Quel organisme congolais a décidé la suspension des exportations de cobalt en novembre 2026 ?",
+        "answer": "L'Arecoms, l'Autorité de régulation et de contrôle des marchés des substances minérales stratégiques de la RDC."
+      }
+    ]
+  },
+  {
+    "slug": "black-out-la-cre-fixe-a-125-5-millions-le-budget-de-rte-pour-tenir-24-heures",
+    "title": "Black-out : la CRE fixe à 125,5 millions le budget de RTE pour tenir 24 heures",
+    "summary": "La Commission de régulation de l'énergie a fixé à 125,5 millions d'euros, aux prix de 2026, le budget cible du volet « Résilience 24h » du plan de reconstitution du réseau de RTE, contre 129,4 millions demandés. Le programme doit permettre à 763 sites électriques critiques de tenir 24 heures en cas de black-out national. Délibération du 21 octobre 2026, publiée le 17 novembre.",
+    "topic": "energie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Par une délibération du 21 octobre 2026, la CRE fixe à 125,5 millions d'euros de 2026 le budget cible du volet « Résilience 24h » de RTE, contre 129,4 millions proposés, soit environ 3,9 millions de moins.",
+      "Le programme équipe 763 sites électriques critiques pour qu'ils tiennent 24 heures pendant un black-out : 322 groupes électrogènes à installer et 85 cuves à remplacer.",
+      "Si la dépense réelle s'écarte de plus de 5 % du budget cible, RTE reçoit un bonus ou paie une pénalité égale à 20 % de l'écart."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Se préparer à un black-out national",
+        "text": "RTE, le gestionnaire du réseau de transport d'électricité, dispose d'un plan de reconstitution du réseau pour faire face à un black-out national, un événement que la CRE situe à environ une fois tous les cinquante ans. Le droit européen impose que certaines installations critiques, dont les postes électriques indispensables à la reconstitution, résistent 24 heures. Le volet « Résilience 24h » vise à garantir cette autonomie aux 763 sites électriques critiques recensés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que fixe la CRE",
+        "text": "Dans sa délibération n° 2026-196 du 21 octobre 2026, la CRE fixe le budget cible à 125,5 millions d'euros aux prix de 2026, contre 129,4 millions proposés par RTE, soit une baisse de 3 855 milliers d'euros. L'essentiel de l'écart vient de la révision des provisions pour risques spécifiques, dont la probabilité a été ramenée de 45 % à 20 %. Sur les 763 sites, 441 disposent déjà d'au moins un groupe électrogène et 322 n'en ont pas ; 85 cuves de carburant doivent être remplacées. Six sites ont été équipés en 2025 et seize entre janvier et mai 2026."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un mécanisme d'incitation",
+        "text": "Le budget cible s'inscrit dans le tarif d'utilisation des réseaux TURPE 7. Entre 95 % et 105 % du budget cible, il n'y a ni bonus ni pénalité. En dessous de 95 %, RTE reçoit 20 % de l'économie ; au-delà de 105 %, il supporte 20 % du dépassement. La dépense est prévue surtout de 2026 à 2028, pour une fin en 2029."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un budget distinct du programme annuel",
+        "text": "Selon Les Smart Grids, qui a rendu compte de la décision le 24 novembre 2026, ce budget de résilience ne doit pas être confondu avec le programme annuel d'investissements de RTE. Il illustre la manière dont le régulateur contrôle, avant engagement, les gros projets financés par le tarif payé par les consommateurs."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CRE — Délibération n° 2026-196 du 21 octobre 2026, budget cible du volet Résilience 24h",
+        "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261021_2026-196_Budget_cible_PRR.pdf"
+      },
+      {
+        "label": "Les Smart Grids — RTE : la CRE réduit le budget de résilience du réseau (24 novembre 2026)",
+        "url": "https://les-smartgrids.fr/rte-cre-budget-resilience-24h-2026/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-17",
+    "dataCards": [
+      {
+        "id": "budget-cible-resilience-24h",
+        "kind": "comparaison",
+        "headline": "La CRE retient 125,5 M€ contre 129,4 M€ proposés par RTE",
+        "source": {
+          "label": "CRE — Délibération n° 2026-196",
+          "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261021_2026-196_Budget_cible_PRR.pdf"
+        },
+        "asOf": "2026-10-21",
+        "imageQuery": "diesel generator industrial",
+        "items": [
+          {
+            "value": 129.4,
+            "unit": "M€2026",
+            "label": "Budget proposé par RTE",
+            "scope": "Volet Résilience 24h",
+            "period": "2025-2029",
+            "decimals": 1
+          },
+          {
+            "value": 125.5,
+            "unit": "M€2026",
+            "label": "Budget cible fixé par la CRE",
+            "scope": "Volet Résilience 24h",
+            "period": "2025-2029",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "sites-critiques-763",
+        "kind": "stat",
+        "headline": "763 sites électriques critiques doivent tenir 24 heures en cas de black-out",
+        "source": {
+          "label": "CRE — Délibération n° 2026-196",
+          "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261021_2026-196_Budget_cible_PRR.pdf"
+        },
+        "asOf": "2026-10-21",
+        "imageQuery": "electrical substation transformer",
+        "measure": {
+          "value": 763,
+          "unit": "sites",
+          "label": "Sites électriques critiques du volet Résilience 24h",
+          "scope": "Réseau de RTE, France",
+          "period": "2026"
+        }
+      },
+      {
+        "id": "groupes-electrogenes-322",
+        "kind": "stat",
+        "headline": "322 sites critiques n'ont pas encore de groupe électrogène",
+        "source": {
+          "label": "CRE — Délibération n° 2026-196",
+          "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261021_2026-196_Budget_cible_PRR.pdf"
+        },
+        "asOf": "2026-10-21",
+        "imageQuery": "fuel storage tank",
+        "measure": {
+          "value": 322,
+          "unit": "sites",
+          "label": "Sites critiques sans groupe électrogène",
+          "scope": "Réseau de RTE, France",
+          "period": "2026"
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Combien de sites électriques critiques le volet « Résilience 24h » de RTE concerne-t-il ?",
+        "answer": "763 sites, qui doivent pouvoir tenir 24 heures en cas de black-out national."
+      }
+    ]
+  },
+  {
+    "slug": "quantique-bruxelles-propose-un-quantum-act-et-un-fonds-souverain-pour-les",
+    "title": "Quantique : Bruxelles propose un Quantum Act et un fonds souverain pour les technologies",
+    "summary": "Le 25 novembre 2026, à Strasbourg, la Commission européenne a proposé le Quantum Act, un cadre destiné à transformer la recherche européenne en technologies quantiques en produits et services, à sécuriser les chaînes d’approvisionnement et à préparer la cryptographie post-quantique. Le texte pose aussi les bases d’un fonds souverain d’investissement, le Sovereign Tech Equity Fund. Il doit encore être examiné par le Parlement européen et le Conseil ; son financement dépendra des futures décisions budgétaires.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-25",
+    "updatedAt": "2026-11-25",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le Quantum Act repose sur trois piliers : l’excellence de la recherche, la mise en usage des technologies quantiques et la sécurité des systèmes et des approvisionnements.",
+      "Le texte prévoit un nouvel instrument d’investissement, le Sovereign Tech Equity Fund, qui apportera des fonds propres aux technologies jugées essentielles à la souveraineté technologique de l’Union.",
+      "La proposition doit maintenant être examinée par le Parlement européen et le Conseil ; selon la Commission, les futurs financements dépendront des décisions budgétaires et des règles des programmes concernés."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que la Commission a proposé",
+        "text": "La Commission européenne a présenté le 25 novembre 2026 à Strasbourg sa proposition de Quantum Act, un nouveau cadre pour aider l’Europe à passer de la recherche quantique aux produits et services. Le texte s’organise autour de trois piliers : l’excellence de la recherche, la mise en usage des technologies quantiques et la sécurité des systèmes et des approvisionnements. Ces priorités seraient portées par une Quantum Europe Framework Initiative, qui réunirait programmes européens et nationaux. La Commission propose un réseau d’instituts de recherche de premier plan, des « grands défis » sous forme de concours de financement, par exemple pour construire des ordinateurs quantiques capables de continuer à fonctionner malgré des erreurs ou des appareils de navigation fonctionnant sans signal satellite, ainsi que des infrastructures paneuropéennes (ordinateurs et simulateurs quantiques, imagerie médicale) et des pôles d’innovation pour les jeunes entreprises et les PME. Le site spécialisé The Quantum Insider a rendu compte de la même proposition le jour de sa présentation."
+      },
+      {
+        "kind": "fait",
+        "heading": "Sécurité, cryptographie et financement",
+        "text": "La Commission et les États membres surveilleraient les chaînes d’approvisionnement pour repérer les fournisseurs et composants critiques. Le texte prévoit aussi une transition coordonnée vers la cryptographie post-quantique, c’est-à-dire des méthodes de chiffrement conçues pour résister aux futurs ordinateurs quantiques, avec un suivi de l’état de préparation et des garde-fous dans les marchés publics. Enfin, il permet la création du Sovereign Tech Equity Fund, qui fournira des fonds propres et des financements similaires aux technologies essentielles à la souveraineté technologique et à la sécurité économique de l’Union. La Commission indique qu’elle travaillera avec le groupe Banque européenne d’investissement pour l’établir. Le communiqué officiel ne chiffre pas la taille de ce fonds ; le site Tech.eu évoque dans son titre un fonds de 50 milliards d’euros, un montant qui ne figure pas dans le communiqué de la Commission."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une proposition, pas encore une loi",
+        "text": "Le Quantum Act n’est à ce stade qu’une proposition : le Parlement européen et le Conseil doivent l’examiner et peuvent la modifier. La Commission précise elle-même que les futurs financements dépendront des décisions budgétaires et des règles des programmes concernés. Pour situer l’effort, elle rappelle que sa stratégie quantique de 2025 recensait plus de 11 milliards d’euros d’investissements publics dans le quantique par l’Union et ses États membres. Le texte s’inscrit dans l’objectif de faire de l’Europe un leader mondial des technologies quantiques d’ici 2030, aux côtés de l’intelligence artificielle, des semi-conducteurs et du cloud, que la Commission range parmi les technologies critiques."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — Commission proposes Quantum Act and new Sovereign Tech Equity Fund (communiqué, 25 novembre 2026)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2567"
+      },
+      {
+        "label": "Commission européenne — Communiqué IP/26/2567, version PDF",
+        "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_2567/IP_26_2567_EN.pdf"
+      },
+      {
+        "label": "The Quantum Insider — European Commission Proposes Quantum Act and New Sovereign Tech Equity Fund",
+        "url": "https://thequantuminsider.com/2026/11/25/european-commission-proposes-quantum-act-and-new-sovereign-tech-equity-fund/"
+      },
+      {
+        "label": "Tech.eu — EU proposes €50BN equity fund to support quantum and essential sovereign tech",
+        "url": "https://tech.eu/2026/11/25/eu-proposes-eur50-billion-equity-fund-to-support-quantum-and-essential-sovereign-tech"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Qu’est-ce que la cryptographie post-quantique ?",
+        "answer": "Des méthodes de chiffrement conçues pour résister aux futurs ordinateurs quantiques ; le Quantum Act prévoit une transition coordonnée de l’Europe vers ces méthodes."
+      },
+      {
+        "question": "Quel est le rôle prévu du Sovereign Tech Equity Fund ?",
+        "answer": "Fournir des fonds propres et des financements similaires aux technologies jugées essentielles à la souveraineté technologique et à la sécurité économique de l’Union européenne."
+      }
+    ]
+  },
+  {
     "slug": "gaza-la-commission-denonce-l-acces-bloque-a-l-aide-150-000-tentes-attendent",
     "title": "Gaza : la Commission dénonce l'accès bloqué à l'aide, 150 000 tentes attendent dehors",
     "summary": "Devant le Parlement européen le 24 novembre 2026, la commissaire européenne Hadja Lahbib a affirmé que l'aide humanitaire manque moins que l'accès à Gaza. Selon elle, plus de 1 600 personnes ont été tuées depuis l'annonce du cessez-le-feu d'octobre 2025, et certains articles jugés « à double usage » n'entrent qu'un jour par semaine. Le bureau humanitaire de l'ONU (OCHA) confirme que plus de 150 000 tentes attendent hors du territoire après les pluies de début novembre.",

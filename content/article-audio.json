@@ -1,4 +1,12 @@
 {
+ "1960-l-annee-de-l-afrique-17-independances-en-douze-mois": {
+  "src": "/media/audio/1960-l-annee-de-l-afrique-17-independances-en-douze-mois.mp3",
+  "hash": "33469c49138486ab",
+  "updatedAt": "2026-11-25",
+  "duration": 73,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:27:47.154Z"
+ },
  "1973-l-embargo-petrolier-qui-a-invente-les-stocks-strategiques-d-energie": {
   "src": "/media/audio/1973-l-embargo-petrolier-qui-a-invente-les-stocks-strategiques-d-energie.mp3",
   "hash": "5033a45a3abcfea0",
@@ -7,6 +15,22 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T13:49:12.327Z"
  },
+ "2017-le-jour-ou-la-chine-a-ferme-sa-porte-aux-dechets-plastiques-du-monde": {
+  "src": "/media/audio/2017-le-jour-ou-la-chine-a-ferme-sa-porte-aux-dechets-plastiques-du-monde.mp3",
+  "hash": "508093678d09015f",
+  "updatedAt": "2026-11-25",
+  "duration": 78,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:27:47.154Z"
+ },
+ "4-novembre-2006-quand-un-navire-a-plonge-15-millions-de-foyers-europeens-dans-le": {
+  "src": "/media/audio/4-novembre-2006-quand-un-navire-a-plonge-15-millions-de-foyers-europeens-dans-le.mp3",
+  "hash": "b51d8cb3722a266e",
+  "updatedAt": "2026-11-25",
+  "duration": 76,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:27:47.154Z"
+ },
  "alliance-militaire-ce-que-l-article-5-de-l-otan-oblige-vraiment-a-faire": {
   "src": "/media/audio/alliance-militaire-ce-que-l-article-5-de-l-otan-oblige-vraiment-a-faire.mp3",
   "hash": "a930d37d3fc14667",
@@ -14,6 +38,22 @@
   "duration": 74,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
+ },
+ "ariane-501-1996-le-bug-logiciel-qui-a-fait-exploser-une-fusee-en-40-secondes": {
+  "src": "/media/audio/ariane-501-1996-le-bug-logiciel-qui-a-fait-exploser-une-fusee-en-40-secondes.mp3",
+  "hash": "6001fd7e9c29aea9",
+  "updatedAt": "2026-11-25",
+  "duration": 79,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:27:47.154Z"
+ },
+ "automobile-byd-negocie-le-rachat-de-l-usine-ineos-de-hambach-en-moselle": {
+  "src": "/media/audio/automobile-byd-negocie-le-rachat-de-l-usine-ineos-de-hambach-en-moselle.mp3",
+  "hash": "5c207595e62446d5",
+  "updatedAt": "2026-11-25",
+  "duration": 65,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:23:43.898Z"
  },
  "batterie-stationnaire-que-veulent-dire-mw-mwh-et-nombre-de-cycles": {
   "src": "/media/audio/batterie-stationnaire-que-veulent-dire-mw-mwh-et-nombre-de-cycles.mp3",
@@ -39,6 +79,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
  },
+ "black-out-la-cre-fixe-a-125-5-millions-le-budget-de-rte-pour-tenir-24-heures": {
+  "src": "/media/audio/black-out-la-cre-fixe-a-125-5-millions-le-budget-de-rte-pour-tenir-24-heures.mp3",
+  "hash": "255862e0f7e7b10d",
+  "updatedAt": "2026-11-25",
+  "duration": 70,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:23:43.898Z"
+ },
  "cancer-du-sein-le-royaume-uni-lance-le-plus-grand-essai-de-depistage-assiste-par": {
   "src": "/media/audio/cancer-du-sein-le-royaume-uni-lance-le-plus-grand-essai-de-depistage-assiste-par.mp3",
   "hash": "4f17996ba019823b",
@@ -62,6 +110,14 @@
   "duration": 65,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
+ },
+ "cobalt-la-rdc-suspend-de-nouveau-toutes-ses-exportations-a-partir-du-30-novembre": {
+  "src": "/media/audio/cobalt-la-rdc-suspend-de-nouveau-toutes-ses-exportations-a-partir-du-30-novembre.mp3",
+  "hash": "151482358b71d4b7",
+  "updatedAt": "2026-11-25",
+  "duration": 76,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:23:43.898Z"
  },
  "comment-evalue-t-on-un-projet-minier-de-la-ressource-a-la-reserve": {
   "src": "/media/audio/comment-evalue-t-on-un-projet-minier-de-la-ressource-a-la-reserve.mp3",
@@ -151,6 +207,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
  },
+ "doctorats-europeens-marie-curie-1-939-candidatures-20-de-plus-qu-en-2025": {
+  "src": "/media/audio/doctorats-europeens-marie-curie-1-939-candidatures-20-de-plus-qu-en-2025.mp3",
+  "hash": "fcfb7e3d6e6b1598",
+  "updatedAt": "2026-11-25",
+  "duration": 79,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:51:47.910Z"
+ },
  "ebola-en-afrique-de-l-ouest-comment-une-epidemie-partie-d-un-village-a-frappe": {
   "src": "/media/audio/ebola-en-afrique-de-l-ouest-comment-une-epidemie-partie-d-un-village-a-frappe.mp3",
   "hash": "f58006627456fb4d",
@@ -215,6 +279,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-25T08:11:04.179Z"
  },
+ "highland-park-1913-comment-la-chaine-mobile-de-ford-a-change-l-usine": {
+  "src": "/media/audio/highland-park-1913-comment-la-chaine-mobile-de-ford-a-change-l-usine.mp3",
+  "hash": "ff0d075f083242ae",
+  "updatedAt": "2026-11-25",
+  "duration": 71,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:51:47.910Z"
+ },
  "hybrides-chinois-l-ue-impose-des-quotas-d-importation-provisoires-des-le-1er": {
   "src": "/media/audio/hybrides-chinois-l-ue-impose-des-quotas-d-importation-provisoires-des-le-1er.mp3",
   "hash": "ba4aa188f3e3cfcb",
@@ -246,6 +318,14 @@
   "duration": 63,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T13:23:34.182Z"
+ },
+ "john-law-1720-l-envolee-des-actions-de-la-compagnie-des-indes-avant-le-krach": {
+  "src": "/media/audio/john-law-1720-l-envolee-des-actions-de-la-compagnie-des-indes-avant-le-krach.mp3",
+  "hash": "dd2356818be3eafe",
+  "updatedAt": "2026-11-25",
+  "duration": 77,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:51:47.910Z"
  },
  "koko-1988-le-scandale-des-futs-toxiques-qui-a-donne-naissance-a-la-convention-de": {
   "src": "/media/audio/koko-1988-le-scandale-des-futs-toxiques-qui-a-donne-naissance-a-la-convention-de.mp3",
@@ -287,6 +367,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
  },
+ "lehman-brothers-15-septembre-2008-la-faillite-qui-a-fait-basculer-la-crise": {
+  "src": "/media/audio/lehman-brothers-15-septembre-2008-la-faillite-qui-a-fait-basculer-la-crise.mp3",
+  "hash": "db1dac91b7b45351",
+  "updatedAt": "2026-11-25",
+  "duration": 67,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:51:47.910Z"
+ },
  "libye-l-onu-reclame-une-enquete-apres-la-destruction-d-un-navire-russe-a": {
   "src": "/media/audio/libye-l-onu-reclame-une-enquete-apres-la-destruction-d-un-navire-russe-a.mp3",
   "hash": "9a300830e39ab317",
@@ -302,6 +390,14 @@
   "duration": 91,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-25T08:11:04.179Z"
+ },
+ "londres-1952-le-grand-smog-qui-a-conduit-a-la-loi-sur-la-purete-de-l-air": {
+  "src": "/media/audio/londres-1952-le-grand-smog-qui-a-conduit-a-la-loi-sur-la-purete-de-l-air.mp3",
+  "hash": "e54932255e3e7d0b",
+  "updatedAt": "2026-11-25",
+  "duration": 75,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:27:47.154Z"
  },
  "lundi-noir-de-1987-le-krach-qui-a-invente-les-coupe-circuits-boursiers": {
   "src": "/media/audio/lundi-noir-de-1987-le-krach-qui-a-invente-les-coupe-circuits-boursiers.mp3",
@@ -343,6 +439,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T13:29:16.212Z"
  },
+ "part-des-profits-les-entreprises-de-l-ue-reculent-pour-la-quatrieme-annee-d": {
+  "src": "/media/audio/part-des-profits-les-entreprises-de-l-ue-reculent-pour-la-quatrieme-annee-d.mp3",
+  "hash": "6ba1179ee3669003",
+  "updatedAt": "2026-11-25",
+  "duration": 79,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:23:43.898Z"
+ },
  "pib-en-valeur-ou-en-volume-comment-on-mesure-vraiment-la-croissance": {
   "src": "/media/audio/pib-en-valeur-ou-en-volume-comment-on-mesure-vraiment-la-croissance.mp3",
   "hash": "8893be0f820e77e2",
@@ -350,6 +454,14 @@
   "duration": 68,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
+ },
+ "plan-marshall-comment-13-3-milliards-de-dollars-ont-relance-l-europe-d-apres": {
+  "src": "/media/audio/plan-marshall-comment-13-3-milliards-de-dollars-ont-relance-l-europe-d-apres.mp3",
+  "hash": "8013f4e65afed9ad",
+  "updatedAt": "2026-11-25",
+  "duration": 74,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:27:47.154Z"
  },
  "pourquoi-une-jeune-entreprise-ouvre-son-capital-a-des-investisseurs": {
   "src": "/media/audio/pourquoi-une-jeune-entreprise-ouvre-son-capital-a-des-investisseurs.mp3",
@@ -382,6 +494,14 @@
   "duration": 65,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
+ },
+ "quantique-bruxelles-propose-un-quantum-act-et-un-fonds-souverain-pour-les": {
+  "src": "/media/audio/quantique-bruxelles-propose-un-quantum-act-et-un-fonds-souverain-pour-les.mp3",
+  "hash": "885c82d8b9a205c9",
+  "updatedAt": "2026-11-25",
+  "duration": 73,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:23:43.898Z"
  },
  "rdc-des-combats-pres-d-un-hopital-de-l-ituri-perturbent-la-riposte-contre-ebola": {
   "src": "/media/audio/rdc-des-combats-pres-d-un-hopital-de-l-ituri-perturbent-la-riposte-contre-ebola.mp3",
@@ -423,6 +543,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T13:29:16.212Z"
  },
+ "shaba-1977-1978-la-guerre-miniere-qui-a-fait-flamber-le-cobalt": {
+  "src": "/media/audio/shaba-1977-1978-la-guerre-miniere-qui-a-fait-flamber-le-cobalt.mp3",
+  "hash": "3a04e57a1a576a06",
+  "updatedAt": "2026-11-25",
+  "duration": 82,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:27:47.154Z"
+ },
  "soudan-les-drones-ont-cause-pres-de-75-des-morts-civiles-en-2026-selon-l-onu": {
   "src": "/media/audio/soudan-les-drones-ont-cause-pres-de-75-des-morts-civiles-en-2026-selon-l-onu.mp3",
   "hash": "f4e08b03560ff82b",
@@ -462,6 +590,14 @@
   "duration": 78,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T13:29:16.212Z"
+ },
+ "variole-comment-le-monde-a-eradique-une-maladie-pour-la-premiere-fois": {
+  "src": "/media/audio/variole-comment-le-monde-a-eradique-une-maladie-pour-la-premiere-fois.mp3",
+  "hash": "b6918a5650951553",
+  "updatedAt": "2026-11-25",
+  "duration": 75,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-25T13:27:47.154Z"
  },
  "ver-morris-1988-la-premiere-cyberattaque-d-internet": {
   "src": "/media/audio/ver-morris-1988-la-premiere-cyberattaque-d-internet.mp3",

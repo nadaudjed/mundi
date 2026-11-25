@@ -5,6 +5,7 @@
  */
 export const LOCAL_DATA: { key: string; what: string }[] = [
   { key: "mundi:bookmarks", what: "Les publications que vous avez enregistrées (identifiant, titre, date d'enregistrement)." },
+  { key: "mundi:follows:v1", what: "Les dossiers que vous suivez, avec la date du suivi et les mises à jour déjà consultées." },
   { key: "mundi:topics:v1", what: "Les sujets choisis dans « Mes sujets », pour personnaliser l'ordre du fil." },
   { key: "mundi:revision:v1", what: "Votre progression dans « Réviser » : niveau atteint et date de la prochaine révision, pour chaque carte mémoire." },
   { key: "mundi:theme", what: "Le thème choisi avec le bouton clair / sombre, s’il diffère du réglage de l’appareil." },

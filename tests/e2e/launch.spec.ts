@@ -79,11 +79,11 @@ test.describe("page introuvable", () => {
   // Le navigateur signale lui-même la réponse 404 dans la console : c'est attendu ici.
   test.use({ allowedErrors: /status of 404/ });
 
-  test("une adresse inconnue affiche la page 404 avec un retour au fil", async ({ page }) => {
+  test("une adresse inconnue affiche la page 404 avec un retour à l'accueil", async ({ page }) => {
   const res = await page.goto("/cette-page-n-existe-pas/");
   expect(res?.status()).toBe(404);
   await expect(page.getByRole("heading", { name: "Cette page n'existe pas" })).toBeVisible();
-  await page.getByRole("link", { name: "Retour au fil", exact: true }).click();
+  await page.getByRole("link", { name: "Retour à l'accueil", exact: true }).click();
   await expect(page).toHaveURL(/\/$/);
 });
 });

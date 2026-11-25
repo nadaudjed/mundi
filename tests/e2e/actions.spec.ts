@@ -25,8 +25,29 @@ test.describe("Écoute, sauvegarde et navigation", () => {
     await page.goto("/enregistres/");
     await page.reload();
     await expect(page.getByRole("link", { name: first.title })).toBeVisible();
+    // Retrait individuel, puis annulation.
+    await page.getByTestId("saved-remove").first().click();
+    await expect(page.getByTestId("saved-undo")).toBeVisible();
+    await page.getByTestId("saved-undo").getByRole("button", { name: "Annuler" }).click();
+    await expect(page.getByRole("link", { name: first.title })).toBeVisible();
+    // « Tout effacer » demande une confirmation.
     await page.getByRole("button", { name: "Tout effacer" }).click();
+    await expect(page.getByRole("link", { name: first.title })).toBeVisible();
+    await page.getByTestId("saved-clear-confirm").click();
     await expect(page.getByText("Rien d'enregistré pour l'instant")).toBeVisible();
+    await page.getByRole("button", { name: "Annuler" }).click();
+    await expect(page.getByRole("link", { name: first.title })).toBeVisible();
+  });
+
+  test("Bibliothèque : un contenu retiré du site est signalé, pas oublié en silence", async ({ page }) => {
+    await page.goto("/enregistres/");
+    await page.evaluate((slug) => localStorage.setItem("mundi:bookmarks", JSON.stringify([`actualite:${slug}`, "actualite:publication-retiree"])), first.slug);
+    await page.reload();
+    await expect(page.getByTestId("saved-publication")).toHaveCount(1);
+    await expect(page.getByTestId("saved-missing")).toContainText("1 contenu enregistré a été retiré du site");
+    await page.getByRole("button", { name: "Les enlever de la liste" }).click();
+    await expect(page.getByTestId("saved-missing")).toHaveCount(0);
+    await expect(page.getByTestId("saved-publication")).toHaveCount(1);
   });
 
   test("la navigation principale mène à chaque section", async ({ page }) => {

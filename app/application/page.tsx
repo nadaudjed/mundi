@@ -19,7 +19,7 @@ export default function InstallPage() {
           <li>
             Elle <strong>ne fonctionne pas hors connexion</strong> : sans réseau, une page vous l&apos;indique.
           </li>
-          <li>Aucune notification, aucun compte, aucune donnée envoyée.</li>
+          <li>Aucun compte, aucune donnée envoyée. Les notifications d&apos;édition sont désactivées par défaut : vous pouvez les activer dans Mes sujets, si votre appareil le permet.</li>
         </ul>
       </section>
     </div>

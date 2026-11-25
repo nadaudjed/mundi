@@ -57,6 +57,8 @@ export function useBookmarks() {
   }, []);
 
   const clear = useCallback(() => write([]), []);
+  /** Remet une liste (annulation d'un retrait ou d'un effacement). */
+  const restore = useCallback((list: string[]) => write(list), []);
 
-  return { saved, isSaved: (slug: string) => saved.includes(slug), toggle, clear };
+  return { saved, isSaved: (slug: string) => saved.includes(slug), toggle, clear, restore };
 }

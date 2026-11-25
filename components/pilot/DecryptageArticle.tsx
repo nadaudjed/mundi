@@ -48,7 +48,7 @@ export function DecryptageArticle({ a, d, all }: { a: VerifiedPublication; d: De
     <article className="magazine mx-auto max-w-3xl px-5 pt-6 pb-[calc(var(--nav-h)+3rem)] md:px-8 md:pt-10 md:pb-20" data-testid="decryptage-article">
       <ReadingProgress />
       <nav aria-label="Retour" className="flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-muted">
-        <Link href="/" className="hover:text-ink" data-testid="back-to-feed">← Retour au fil</Link>
+        <Link href="/" className="hover:text-ink" data-testid="back-to-feed">← Retour à l&apos;accueil</Link>
         <Link href="/actualites/" className="hover:text-ink">Toutes les publications</Link>
       </nav>
 

@@ -1,5 +1,652 @@
 [
   {
+    "slug": "revue-par-les-pairs-ce-que-valide-vraiment-la-relecture-d-un-article",
+    "title": "Revue par les pairs : ce que valide vraiment la relecture d'un article scientifique",
+    "summary": "Avant d'être publié dans une revue scientifique, un article est en principe relu par d'autres chercheurs du domaine, qui recommandent de l'accepter, de le modifier ou de le refuser. Ce contrôle, appelé revue par les pairs, vise la qualité scientifique, mais il repose sur le jugement de quelques personnes et ne vaut pas preuve définitive : des articles publiés sont parfois retirés ensuite.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La revue par les pairs est la relecture critique qu'exercent entre eux les chercheurs pour garantir la qualité scientifique des publications : le directeur de la revue confie l'article à au moins deux relecteurs spécialistes.",
+      "Les relecteurs rendent un rapport avec corrections, suggestions et avis ; l'article peut être accepté tel quel, accepté avec modifications mineures ou majeures, ou rejeté, souvent après plusieurs allers-retours.",
+      "Le système est jugé imparfait : il repose sur le jugement subjectif de quelques chercheurs, son opacité peut masquer des biais ou des conflits d'intérêts, et une rétractation après publication reste possible."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une relecture entre spécialistes",
+        "text": "Le guide des bibliothèques de l'Université Paris Cité définit la revue par les pairs comme la relecture critique qu'exercent entre eux les chercheurs, afin de garantir la qualité scientifique des publications et de se prémunir contre des résultats incohérents, peu fiables, voire frauduleux. Le Centre Mersenne, plateforme d'édition scientifique, reprend la définition de la direction de l'information scientifique du CNRS : la validation d'un article par un comité de relecteurs. C'est à l'éditeur, ou au directeur de la revue, de choisir ces relecteurs."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le circuit d'un manuscrit",
+        "text": "Selon le guide de l'Université Paris Cité, le directeur de la revue doit assigner au moins deux relecteurs spécialistes par article. Chacun rédige un rapport circonstancié qui comprend des corrections, des suggestions d'amélioration et un avis de publication. Le Centre Mersenne décrit les issues possibles : article accepté tel quel, accepté avec des modifications mineures ou majeures, ou rejeté. Le processus est cyclique et peut demander plusieurs relectures et révisions ; les auteurs restent libres d'accepter ou non une publication sous réserve de modifications."
+      },
+      {
+        "kind": "fait",
+        "heading": "Anonyme ou ouverte",
+        "text": "Traditionnellement, les rapports sont anonymes. En simple aveugle, les relecteurs restent inconnus des auteurs ; en double aveugle, auteurs et relecteurs restent mutuellement inconnus. L'Université Laval rappelle que le double aveugle s'est imposé dans les années 1970. À l'inverse, l'évaluation ouverte identifie les auteurs et les relecteurs, et peut aller jusqu'à rendre publics les rapports d'évaluation ; selon le guide de l'Université Paris Cité, elle est particulièrement adaptée à la révision des prépublications, ces versions diffusées avant la publication en revue."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que la relecture ne garantit pas",
+        "text": "Interrogé par l'Université Laval, le chercheur René Audet estime que le modèle assure la scientificité de la publication, même s'il est imparfait : il repose sur le jugement subjectif de quelques chercheurs, et l'opacité du processus peut masquer des biais. Le guide de l'Université Paris Cité note de son côté que l'opacité des circuits dissimule parfois de véritables conflits d'intérêts, et cite la base Retraction Watch, qui recense les articles retirés après publication. Un article relu par les pairs a donc franchi un contrôle de qualité ; il n'est pas pour autant une vérité acquise, et d'autres travaux peuvent ensuite le confirmer ou le contredire."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Université Paris Cité, bibliothèques, Démystifier l'évaluation par les pairs",
+        "url": "https://u-paris.fr/bibliotheques/wp-content/uploads/sites/34/2021/02/12-DEMYSTIFIER-LEVALUATION.pdf"
+      },
+      {
+        "label": "Centre Mersenne, The peer review process",
+        "url": "https://www.centre-mersenne.org/en/the-peer-review-process/"
+      },
+      {
+        "label": "Université Laval, Trois questions sur le processus d'évaluation des articles par les revues scientifiques (juin 2026)",
+        "url": "https://nouvelles.ulaval.ca/2026/06/15/trois-questions-sur-le-processus-devaluation-des-articles-par-les-revues-scientifiques-323fd08f-b1ef-468b-bb81-04921a6a3afd"
+      }
+    ],
+    "kind": "concept",
+    "dataCards": [
+      {
+        "id": "circuit-revue-pairs",
+        "kind": "explication",
+        "headline": "Le circuit d'un article soumis à une revue scientifique",
+        "source": {
+          "label": "Université Paris Cité, bibliothèques",
+          "url": "https://u-paris.fr/bibliotheques/wp-content/uploads/sites/34/2021/02/12-DEMYSTIFIER-LEVALUATION.pdf"
+        },
+        "asOf": "2021-02-01",
+        "imageQuery": "manuscript red pen corrections",
+        "steps": [
+          {
+            "label": "Attribution",
+            "text": "Le directeur de la revue assigne au moins deux relecteurs spécialistes à l'article.",
+            "nature": "fait"
+          },
+          {
+            "label": "Rapport",
+            "text": "Chaque relecteur rédige un rapport avec corrections, suggestions d'amélioration et avis de publication.",
+            "nature": "fait"
+          },
+          {
+            "label": "Révisions",
+            "text": "Le processus est cyclique : plusieurs relectures et révisions peuvent être nécessaires.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      },
+      {
+        "id": "formes-anonymat-relecture",
+        "kind": "explication",
+        "headline": "Trois façons d'organiser l'anonymat entre auteurs et relecteurs",
+        "source": {
+          "label": "Université Paris Cité, bibliothèques",
+          "url": "https://u-paris.fr/bibliotheques/wp-content/uploads/sites/34/2021/02/12-DEMYSTIFIER-LEVALUATION.pdf"
+        },
+        "asOf": "2021-02-01",
+        "imageQuery": "library journal shelves",
+        "steps": [
+          {
+            "label": "Simple aveugle",
+            "text": "Les relecteurs restent inconnus des auteurs.",
+            "nature": "fait"
+          },
+          {
+            "label": "Double aveugle",
+            "text": "Relecteurs et auteurs sont anonymes et restent mutuellement inconnus.",
+            "nature": "fait"
+          },
+          {
+            "label": "Évaluation ouverte",
+            "text": "Les auteurs et leurs relecteurs sont identifiés et mutuellement connus.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "alternatives"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que la revue par les pairs ?",
+        "answer": "La relecture critique d'un article par d'autres chercheurs du domaine, avant publication, pour garantir sa qualité scientifique."
+      },
+      {
+        "question": "Combien de relecteurs un directeur de revue doit-il en principe assigner à un article ?",
+        "answer": "Au moins deux relecteurs spécialistes, qui rédigent chacun un rapport avec corrections, suggestions et avis de publication."
+      },
+      {
+        "question": "Quelle est la différence entre simple aveugle et double aveugle ?",
+        "answer": "En simple aveugle, les relecteurs restent inconnus des auteurs ; en double aveugle, auteurs et relecteurs restent mutuellement inconnus."
+      },
+      {
+        "question": "Quelles sont les issues possibles d'une revue par les pairs ?",
+        "answer": "L'article peut être accepté tel quel, accepté avec des modifications mineures ou majeures, ou rejeté."
+      },
+      {
+        "question": "Pourquoi un article relu par les pairs n'est-il pas une vérité définitive ?",
+        "answer": "La relecture repose sur le jugement de quelques chercheurs, son opacité peut masquer des biais ou des conflits d'intérêts, et des articles publiés sont parfois retirés ensuite."
+      }
+    ]
+  },
+  {
+    "slug": "comment-nait-et-s-aggrave-une-crise-diplomatique-entre-deux-etats",
+    "title": "Comment naît et s'aggrave une crise diplomatique entre deux États",
+    "summary": "Une crise diplomatique suit souvent une gradation : convocation d'un ambassadeur, rappel pour consultations, expulsion de diplomates déclarés persona non grata, jusqu'à la rupture des relations. La Convention de Vienne de 1961 encadre ces gestes et fixe ce qui reste protégé même au plus fort d'une crise, comme l'inviolabilité des ambassades.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la Convention de Vienne sur les relations diplomatiques de 1961, les relations diplomatiques s'établissent par consentement mutuel, ce qui permet à chaque État de les réduire ou de les rompre.",
+      "L'article 9 permet à l'État d'accueil de déclarer un diplomate persona non grata à tout moment, sans avoir à motiver sa décision ; l'autre État répond souvent par une mesure réciproque.",
+      "Même en cas de rupture, et même en cas de conflit armé, l'État d'accueil doit respecter et protéger les locaux de la mission, qui peuvent être confiés à un État tiers."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un cadre commun : la Convention de Vienne",
+        "text": "La Convention de Vienne sur les relations diplomatiques a été adoptée le 18 avril 1961 et est entrée en vigueur le 24 avril 1964. Son article 2 pose que l'établissement de relations diplomatiques entre États et de missions permanentes se fait par consentement mutuel. Elle protège les diplomates et leurs locaux : selon l'article 22, les locaux de la mission sont inviolables et les agents de l'État d'accueil ne peuvent y entrer qu'avec le consentement du chef de mission ; selon l'article 29, la personne de l'agent diplomatique est inviolable et ne peut être arrêtée ni détenue."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les gestes d'une escalade",
+        "text": "Le juriste Stefan Talmon, dans une analyse publiée en 2020 par l'Université de Bonn, décrit la déclaration de persona non grata comme l'exemple classique d'un acte de rétorsion : une mesure inamicale mais licite. Elle peut servir, comme le rappel d'un ambassadeur pour consultations ou la rupture des relations, à signifier une dégradation des relations bilatérales. L'article 9 de la Convention permet de la prononcer à tout moment, sans avoir à expliquer la décision ; l'État d'origine doit alors rappeler la personne ou mettre fin à ses fonctions. L'article 11 permet aussi à l'État d'accueil d'exiger que l'effectif de la mission reste dans des limites qu'il juge raisonnables et normales."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un exemple de réciprocité",
+        "text": "Stefan Talmon cite l'exemple de l'Allemagne et de la Russie. Après un meurtre commis à Berlin le 23 août 2019, l'Allemagne a déclaré persona non grata deux membres de l'ambassade de Russie le 4 décembre 2019, avec sept jours pour quitter le pays, et a convoqué le même jour l'ambassadeur russe. Le 12 décembre, la Russie a convoqué l'ambassadeur d'Allemagne et déclaré à son tour deux diplomates allemands persona non grata, en invoquant le principe de réciprocité et l'article 9."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quand la crise va jusqu'à la rupture",
+        "text": "L'article 45 de la Convention prévoit le cas où les relations sont rompues ou une mission rappelée. L'État d'accueil doit, même en cas de conflit armé, respecter et protéger les locaux, les biens et les archives de la mission. L'État d'origine peut confier la garde de ces locaux, ainsi que la protection de ses intérêts et de ses ressortissants, à un État tiers acceptable pour l'État d'accueil. Le site juridique Jurist rappelle qu'après l'entrée de la police équatorienne dans l'ambassade du Mexique à Quito, le 5 avril 2024, le Mexique a suspendu ses relations diplomatiques avec l'Équateur et annoncé saisir la Cour internationale de justice."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ces étapes comptent",
+        "text": "Ces gestes forment un langage gradué : chaque cran signale un mécontentement plus fort, tout en laissant une porte de sortie. Une convocation reste un message, un rappel pour consultations peut être levé, alors qu'une rupture coupe le canal officiel. Stefan Talmon note qu'une expulsion sans lien avec un comportement réellement fautif est souvent contre-productive, car l'État visé répond en général par une mesure identique. La Convention n'empêche donc pas les crises, mais elle fixe des limites, comme l'inviolabilité des ambassades, que les États restent tenus de respecter."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Convention de Vienne sur les relations diplomatiques, 1961 (texte publié par le ministère thaïlandais des Affaires étrangères)",
+        "url": "https://image.mfa.go.th/mfa/0/6p4M7ae5k9/VCDR_Eng.pdf"
+      },
+      {
+        "label": "Stefan Talmon, German Practice in International Law, Université de Bonn (décembre 2020)",
+        "url": "https://gpil.jura.uni-bonn.de/?p=2658"
+      },
+      {
+        "label": "Jurist, explainer sur la Convention de Vienne et l'incident Mexique-Équateur (avril 2024)",
+        "url": "https://www.jurist.org/features/2024/04/09/explainer-what-is-the-vienna-convention-on-diplomatic-relations-and-how-does-it-relate-to-the-mexico-ecuador-incident/"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quel traité encadre les relations diplomatiques entre États ?",
+        "answer": "La Convention de Vienne sur les relations diplomatiques, adoptée le 18 avril 1961 et entrée en vigueur le 24 avril 1964."
+      },
+      {
+        "question": "Que signifie déclarer un diplomate persona non grata ?",
+        "answer": "L'État d'accueil signifie qu'il n'accepte plus ce diplomate ; il peut le faire à tout moment sans motiver sa décision, et l'État d'origine doit le rappeler ou mettre fin à ses fonctions."
+      },
+      {
+        "question": "Qu'est-ce qu'un acte de rétorsion en diplomatie ?",
+        "answer": "Une mesure inamicale mais licite, comme une expulsion de diplomates, un rappel d'ambassadeur ou une rupture des relations, qui signale une dégradation des relations."
+      },
+      {
+        "question": "Que devient une ambassade quand deux États rompent leurs relations ?",
+        "answer": "L'État d'accueil doit respecter et protéger ses locaux, biens et archives, même en cas de conflit armé ; leur garde peut être confiée à un État tiers."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-des-emplois-disparaissent-chaque-annee-pendant-que-d-autres-naissent",
+    "title": "Pourquoi des emplois disparaissent chaque année pendant que d'autres naissent",
+    "summary": "L'emploi total d'un pays bouge peu d'une année sur l'autre, mais il cache des flux énormes : en France, selon l'Insee, environ 1,4 million d'emplois salariés sont créés chaque année dans les entreprises marchandes, et presque autant sont détruits. Sur vingt-cinq ans, ces mouvements déplacent aussi l'emploi d'un secteur à l'autre, de l'industrie vers les services, comme le montrent les comptes nationaux publiés par Eurostat (données 2024 et 2025 provisoires).",
+    "topic": "economie",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l'Insee, entre 2009 et 2020, les entreprises marchandes non agricoles ont créé en moyenne 1 421 000 emplois salariés par an et en ont détruit 1 384 000, soit chaque fois 9 % du stock d'emplois de début d'année.",
+      "Ces flux viennent de la naissance et de la disparition d'établissements, mais aussi de la hausse ou de la baisse des effectifs dans les unités qui existent déjà ; les petites entreprises jeunes y pèsent beaucoup.",
+      "Selon Eurostat, l'emploi dans l'industrie hors construction en France est passé de 3 827 000 personnes en 2000 à 3 107 000 en 2025, quand les activités spécialisées, scientifiques, techniques et de soutien passaient de 3 101 000 à 4 878 000."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un solde net qui masque des flux bruts",
+        "text": "L'Insee a mesuré ces mouvements dans une étude parue en novembre 2023 (Insee Première n° 1974). Les entreprises marchandes, hors agriculture, emploient plus de 16 millions de salariés hors intérim au 31 décembre 2020, et 500 000 de plus qu'en 2008. Mais derrière ce solde modeste, chaque année, 1,4 million d'emplois sont créés par de nouveaux établissements ou par la croissance de ceux déjà présents, et presque autant sont détruits par la disparition d'établissements ou par la baisse de l'emploi dans les établissements pérennes. Entre 2009 et 2020, la moyenne annuelle est de 1 421 000 créations pour 1 384 000 destructions, soit un solde de 38 000 emplois par an."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quand le solde bascule",
+        "text": "Le sens du solde suit la conjoncture. Selon l'Insee, les créations dépassent les destructions de 2017 à 2019. À l'inverse, les destructions l'emportent de 2012 à 2014, période de repli de l'emploi, ainsi que lors des récessions liées à la crise financière en 2009 et à la crise sanitaire en 2020. Les flux sont particulièrement élevés parmi les petites entreprises du commerce, de la construction, de la restauration et des services aux entreprises."
+      },
+      {
+        "kind": "fait",
+        "heading": "Qui crée et qui détruit",
+        "text": "Les petites et moyennes entreprises totalisent 62 % des créations et des destructions d'emplois alors qu'elles concentrent 46 % de l'emploi total. Les microentreprises, à elles seules, réalisent 37 % des flux pour 19 % de l'emploi, avec des emplois moins stables : 18 % de contrats à durée déterminée ou limitée, contre 11 % dans l'ensemble des entreprises. L'Insee souligne que le lien apparent entre petite taille et création nette d'emplois s'explique surtout par l'âge : de 2011 à 2020, les entreprises de moins de trois ans réalisent 18 % des créations et 4 % des destructions d'emplois, pour 3 % de l'emploi. Les microentreprises de trois ans ou plus, elles, détruisent plus qu'elles ne créent : 448 000 destructions pour 322 000 créations par an en moyenne. Et 37 % des jeunes microentreprises ne survivent pas au-delà de cinq ans."
+      },
+      {
+        "kind": "fait",
+        "heading": "Sur le long terme, l'emploi change de secteur",
+        "text": "Les comptes nationaux publiés par Eurostat montrent l'effet cumulé de ces flux. En France, l'emploi total est passé de 25 690 000 personnes en 2000 à 30 638 000 en 2025, chiffre provisoire. Dans le même temps, l'industrie hors construction est passée de 3 827 000 à 3 107 000 personnes, tandis que les activités spécialisées, scientifiques et techniques et les services administratifs et de soutien passaient de 3 101 000 à 4 878 000. Les données 2024 et 2025 sont provisoires et peuvent être révisées."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que ces chiffres disent des transitions",
+        "text": "Une économie ne remplace donc pas ses emplois d'un bloc : elle les renouvelle en continu, par des entreprises qui naissent, grandissent, rétrécissent ou ferment. Le solde net, souvent seul commenté, peut être faible alors que des centaines de milliers de personnes changent de poste, d'entreprise ou de secteur. C'est ce qui rend la question des transitions professionnelles centrale : les emplois détruits et les emplois créés ne se trouvent pas forcément dans les mêmes métiers, les mêmes entreprises ni les mêmes secteurs, comme le montre le recul de l'industrie face aux services spécialisés."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Insee Première n° 1974, Les créations d'emplois portées surtout par les PME durant la décennie 2010 (novembre 2023)",
+        "url": "https://www.insee.fr/fr/statistiques/7721566"
+      },
+      {
+        "label": "Eurostat, emploi par branche d'activité, comptes nationaux annuels (nama_10_a10_e)",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10_a10_e/default/table"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Combien d'emplois salariés sont créés chaque année dans les entreprises marchandes en France, selon l'Insee ?",
+        "answer": "Environ 1,4 million par an, et presque autant sont détruits : entre 2009 et 2020, 1 421 000 créations et 1 384 000 destructions en moyenne."
+      },
+      {
+        "question": "D'où viennent les créations et destructions d'emplois mesurées par l'Insee ?",
+        "answer": "De la naissance et de la disparition d'établissements, mais aussi de la hausse ou de la baisse des effectifs dans les établissements qui existent déjà."
+      },
+      {
+        "question": "Pourquoi les petites entreprises semblent-elles créer plus d'emplois nets que les grandes ?",
+        "answer": "Selon l'Insee, c'est surtout un effet d'âge : les entreprises de moins de trois ans réalisent 18 % des créations d'emplois pour 3 % de l'emploi, alors que les microentreprises plus anciennes détruisent plus qu'elles ne créent."
+      },
+      {
+        "question": "Comment l'emploi industriel en France a-t-il évolué entre 2000 et 2025 selon Eurostat ?",
+        "answer": "L'industrie hors construction est passée de 3 827 000 à 3 107 000 personnes (chiffre 2025 provisoire), alors que l'emploi total progressait."
+      }
+    ]
+  },
+  {
+    "slug": "que-sont-les-etf-ces-fonds-qui-copient-un-indice-boursier",
+    "title": "Que sont les ETF, ces fonds qui copient un indice boursier ?",
+    "summary": "Un ETF, ou tracker, est un fonds coté en Bourse qui cherche à reproduire le plus fidèlement possible l'évolution d'un indice. Ses frais sont en général plus bas que ceux d'un fonds géré activement, mais il expose à la baisse de l'indice, à un écart de suivi et, selon les cas, au risque de change ou de liquidité. Les chiffres de marché cités datent de fin 2016, dernière étude de l'AMF consultée sur ce point.",
+    "topic": "finance",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l'AMF, un ETF, également appelé tracker, est un fonds indiciel qui cherche à suivre le plus fidèlement possible l'évolution d'un indice boursier, et dont les parts sont cotées en continu.",
+      "La réplication peut être physique, le fonds achetant les titres de l'indice, ou synthétique, le fonds passant avec une banque un contrat d'échange de performance, appelé swap.",
+      "L'AMF indique des frais souvent inférieurs à 0,5 % par an pour les ETF, contre plus de 1 % par an, voire 1,5 %, pour certains fonds gérés activement ; l'investisseur peut perdre tout ou partie de son capital."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un fonds qui suit un indice",
+        "text": "L'Autorité des marchés financiers définit l'ETF, pour Exchange Traded Fund, comme un fonds indiciel qui cherche à suivre le plus fidèlement possible l'évolution d'un indice boursier. Il s'agit d'une gestion passive : le gérant ne choisit pas les titres, il réplique l'indice de référence. Wikifin, le site d'éducation financière du régulateur belge FSMA, explique que le mot tracker vient de l'anglais to track, suivre, et que les ETF sont des fonds indiciels cotés en bourse, négociables chaque jour, donc plus liquides que des fonds de placement traditionnels."
+      },
+      {
+        "kind": "fait",
+        "heading": "Physique ou synthétique",
+        "text": "Selon l'AMF, un ETF à réplication physique investit directement dans les actions ou les obligations qui composent son indice. Un ETF à réplication synthétique ne détient pas directement ces titres : il passe avec un autre établissement financier, généralement une banque, un contrat d'échange de performance, ou swap. Wikifin précise que, dans ce cas, l'ETF conclut avec une contrepartie des contrats portant sur les valeurs sous-jacentes."
+      },
+      {
+        "kind": "fait",
+        "heading": "Frais et risques",
+        "text": "Dans son guide publié en juin 2026, l'AMF indique que les frais des ETF sont souvent inférieurs à 0,5 % par an, alors que ceux de fonds gérés activement sont supérieurs à 1 % par an, voire 1,5 % pour certaines catégories. S'y ajoutent des frais de courtage et des droits de garde. Le principal risque est la baisse de l'indice : l'investisseur peut perdre tout ou partie du capital investi. L'AMF cite aussi l'écart de suivi, quand l'évolution de l'ETF s'écarte de celle de son indice, le risque de change pour un ETF exposé à une autre devise, et le manque de liquidité de certains ETF plus exotiques. Elle juge les ETF à effet de levier très spéculatifs et inadaptés à un placement à moyen ou long terme."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un marché qui a grandi vite",
+        "text": "Dans une étude présentée en février 2017, l'AMF recensait 477 ETF cotés sur Euronext Paris pour un encours total de 103 milliards d'euros à fin 2016, en hausse de 66 % par rapport à 2014. Elle indiquait que les ETF représentaient plus de 2 850 milliards d'euros d'actifs sous gestion dans le monde, soit 7 % des encours de la gestion collective mondiale. Ces chiffres sont anciens et ne décrivent pas la taille actuelle du marché."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce qu'il faut regarder avant d'acheter",
+        "text": "Un ETF n'est pas un placement sans risque : il reproduit l'indice, à la hausse comme à la baisse. Le choix de l'indice compte donc autant que le choix du fonds ; l'AMF rappelle que certains indices mondiaux sont très concentrés sur les grandes entreprises américaines et invite à vérifier leur composition. Le mode de réplication, les frais totaux, la devise et la liquidité du fonds complètent l'examen."
+      }
+    ],
+    "sources": [
+      {
+        "label": "AMF, Trackers (ETF), espace épargnants",
+        "url": "https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/placements-collectifs/trackers-etf"
+      },
+      {
+        "label": "AMF, Ce qu'il faut savoir sur les ETF avant d'investir (juin 2026)",
+        "url": "https://www.amf-france.org/sites/institutionnel/files/pdf/59268/fr/Ce_qu%27il_faut_savoir_sur_les_ETF_avant_d%27investir.pdf?1788787798"
+      },
+      {
+        "label": "AMF, ETF et risques associés : éclairage sur le marché français (février 2017)",
+        "url": "https://www.amf-france.org/sites/institutionnel/files/pdf/56796/fr/ETF_et_risques_associes__l%27AMF_apporte_un_eclairage_sur_le_marche_francais_des_fonds_indiciels_cotes.pdf?1779067049"
+      },
+      {
+        "label": "Wikifin (FSMA), Fonds indiciels, ETF et trackers",
+        "url": "https://www.wikifin.be/fr/epargner-et-investir/produits-dinvestissement/tracker/quest-ce-quun-tracker"
+      }
+    ],
+    "kind": "concept",
+    "dataCards": [
+      {
+        "id": "etf-euronext-paris-2016",
+        "kind": "stat",
+        "headline": "Encours des ETF cotés sur Euronext Paris à fin 2016",
+        "source": {
+          "label": "AMF",
+          "url": "https://www.amf-france.org/sites/institutionnel/files/pdf/56796/fr/ETF_et_risques_associes__l%27AMF_apporte_un_eclairage_sur_le_marche_francais_des_fonds_indiciels_cotes.pdf?1779067049"
+        },
+        "asOf": "2016-12-31",
+        "imageQuery": "stock exchange trading floor",
+        "measure": {
+          "value": 103,
+          "unit": "milliards d'euros",
+          "label": "Encours sous gestion",
+          "scope": "477 ETF cotés sur Euronext Paris",
+          "period": "fin 2016"
+        },
+        "context": "En hausse de 66 % par rapport à 2014."
+      },
+      {
+        "id": "etf-modes-replication",
+        "kind": "explication",
+        "headline": "Deux façons pour un ETF de copier son indice",
+        "source": {
+          "label": "AMF",
+          "url": "https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/placements-collectifs/trackers-etf"
+        },
+        "asOf": "2026-06-11",
+        "imageQuery": "bank contract signing desk",
+        "steps": [
+          {
+            "label": "Objectif",
+            "text": "Suivre le plus fidèlement possible l'évolution d'un indice boursier.",
+            "nature": "fait"
+          },
+          {
+            "label": "Réplication physique",
+            "text": "Le fonds investit directement dans les actions ou obligations qui composent son indice.",
+            "nature": "fait"
+          },
+          {
+            "label": "Réplication synthétique",
+            "text": "Le fonds ne détient pas les titres et passe un contrat d'échange de performance, un swap, avec une banque.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "alternatives"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Qu'est-ce qu'un ETF ?",
+        "answer": "Un fonds indiciel coté en Bourse, aussi appelé tracker, qui cherche à suivre le plus fidèlement possible l'évolution d'un indice."
+      },
+      {
+        "question": "Quelle différence entre réplication physique et synthétique d'un ETF ?",
+        "answer": "En physique, le fonds achète les titres de l'indice ; en synthétique, il ne les détient pas et passe un contrat d'échange de performance, un swap, avec une banque."
+      },
+      {
+        "question": "Quels frais l'AMF indique-t-elle pour les ETF par rapport aux fonds gérés activement ?",
+        "answer": "Souvent moins de 0,5 % par an pour les ETF, contre plus de 1 % par an, voire 1,5 %, pour certains fonds gérés activement."
+      },
+      {
+        "question": "Qu'est-ce que l'écart de suivi d'un ETF ?",
+        "answer": "Le fait que l'évolution de l'ETF s'écarte de celle de l'indice qu'il est censé reproduire, aussi appelé tracking error."
+      },
+      {
+        "question": "Un ETF peut-il faire perdre de l'argent ?",
+        "answer": "Oui : il suit l'indice à la baisse comme à la hausse, et l'investisseur peut perdre tout ou partie du capital investi."
+      }
+    ]
+  },
+  {
+    "slug": "batteries-barrages-chaleur-comment-stocke-t-on-l-energie",
+    "title": "Batteries, barrages, chaleur : comment stocke-t-on l'énergie ?",
+    "summary": "L'électricité ne se stocke pas telle quelle : on la convertit en une autre forme d'énergie, mécanique, chimique ou thermique, puis on la restitue. Chaque famille a son rendement, sa durée utile et ses contraintes. Cet article s'appuie sur la note de l'Office parlementaire d'évaluation des choix scientifiques et technologiques de septembre 2023 et sur les fiches de l'IFP Énergies nouvelles et d'EDF ; les rendements cités sont des ordres de grandeur.",
+    "topic": "energie",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L'énergie électrique elle-même ne se stocke pas : on la transforme en énergie mécanique (eau pompée, air comprimé, volant d'inertie), électrochimique (batteries) ou thermique, avant de la reconvertir.",
+      "Les stations de transfert d'énergie par pompage restent la forme de stockage la plus courante et la plus économique à grande échelle, avec un rendement de 70 à 85 % selon l'OPECST.",
+      "Les batteries lithium-ion ont un rendement de 90 à 95 % mais servent surtout sur quelques heures ; les stockages par pompage ou air comprimé visent des jours, voire des semaines."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Convertir pour mieux restituer",
+        "text": "Selon la note de l'OPECST de septembre 2023, l'énergie électrique elle-même ne se stocke pas. Les techniques de stockage se rangent en quatre catégories : le stockage mécanique, le stockage électrochimique, le stockage électromagnétique et le stockage par vecteur, hydrogène, chimique ou thermique. Chaque conversion a un coût : une partie de l'énergie est perdue entre la charge et la décharge, ce que mesure le rendement. Les besoins couverts vont de quelques secondes, pour la régulation de fréquence du réseau, à plusieurs mois pour un stockage entre saisons."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le stockage mécanique : l'eau, l'air et la rotation",
+        "text": "Une station de transfert d'énergie par pompage, ou STEP, remonte de l'eau vers un bassin supérieur quand l'électricité est abondante, puis la turbine quand on en a besoin. L'OPECST la décrit comme la forme de stockage la plus courante et la plus économique à grande échelle : début 2023, elle représentait 80 % de l'énergie stockée dans le monde, avec 188 GW installés, dont 5,5 GW en France. Son rendement varie de 70 à 85 %, mais elle exige des investissements élevés et des sites adaptés. L'air comprimé dans des cavités souterraines offre des rendements plus variables, de 40 à 50 % selon l'OPECST ; l'IFP Énergies nouvelles rappelle qu'il existe industriellement depuis 1978, avec la centrale de Huntorf en Allemagne. Le volant d'inertie, une masse qui tourne très vite, atteint 85 à 90 % d'efficacité au démarrage mais se décharge vite : il sert sur quelques minutes."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les batteries : la chimie réversible",
+        "text": "Les batteries stockent l'énergie grâce à des réactions électrochimiques réversibles. Selon l'OPECST, le rendement d'une batterie au plomb tourne autour de 85 %, celui d'une batterie lithium-ion autour de 90 à 95 %, et celui des batteries à circulation, réservées aux usages stationnaires, de l'ordre de 75 %. EDF indique que la batterie lithium-ion est la batterie électrochimique la plus produite, et que les coûts des batteries diminuent année après année tout en restant assez élevés. L'OPECST juge les batteries idéales pour un usage de court terme, de quelques heures."
+      },
+      {
+        "kind": "fait",
+        "heading": "Chaleur et hydrogène : stocker sous une autre forme",
+        "text": "Le stockage thermique garde de la chaleur dans un matériau. Selon l'OPECST, le stockage par chaleur sensible a un rendement de 70 à 80 %, mais une faible cyclabilité. L'IFP Énergies nouvelles rappelle que le chauffage et le refroidissement représentent près de 50 % de la consommation énergétique en Europe, ce qui rend ce stockage utile même sans reconversion en électricité. L'hydrogène produit par électrolyse peut être reconverti en électricité dans une pile à combustible, mais avec un rendement global de seulement 30 % selon l'OPECST, qui l'envisage pour un horizon d'au moins une semaine."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pas de solution unique",
+        "text": "Ces familles ne sont pas en concurrence directe : elles répondent à des durées différentes. Un volant d'inertie lisse des variations de quelques minutes, une batterie déplace l'énergie de quelques heures, une STEP ou l'air comprimé peut couvrir des jours, et l'hydrogène ou la chaleur visent des durées plus longues, au prix de rendements plus faibles. Le choix dépend donc du service attendu, des sites disponibles et du coût, plus que du seul rendement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OPECST, note n° 42 « Comparer les modes de stockage de l'énergie », septembre 2023",
+        "url": "https://questions.assemblee-nationale.fr/dyn/contenu/visualisation/630670/file/OPECST_note_stockage%20NRJ%202023%20bis.pdf"
+      },
+      {
+        "label": "IFP Énergies nouvelles, « Stockage d'énergie »",
+        "url": "https://www.ifpenergiesnouvelles.fr/print/pdf/node/551"
+      },
+      {
+        "label": "EDF, « Tout savoir sur le stockage de l'électricité »",
+        "url": "https://particulier.edf.fr/fr/accueil/guide-energie/electricite/stockage-energie-electricite.html"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Peut-on stocker l'électricité telle quelle ?",
+        "answer": "Non. On la convertit en une autre forme d'énergie, mécanique, électrochimique ou thermique, puis on la reconvertit en électricité."
+      },
+      {
+        "question": "Comment fonctionne une station de transfert d'énergie par pompage (STEP) ?",
+        "answer": "Elle remonte de l'eau vers un bassin supérieur quand l'électricité est abondante, puis la turbine quand on en a besoin, avec un rendement de 70 à 85 %."
+      },
+      {
+        "question": "Sur quelle durée les batteries sont-elles le plus utiles selon l'OPECST ?",
+        "answer": "Sur le court terme, quelques heures. Les STEP et l'air comprimé visent plutôt des jours, voire des semaines."
+      },
+      {
+        "question": "Quel est le rendement d'une batterie lithium-ion selon l'OPECST ?",
+        "answer": "Autour de 90 à 95 %, contre environ 85 % pour une batterie au plomb."
+      },
+      {
+        "question": "Pourquoi l'hydrogène est-il un stockage d'électricité peu efficace ?",
+        "answer": "Parce que le rendement global, de l'électrolyse à la reconversion en électricité, n'est que d'environ 30 % selon l'OPECST."
+      }
+    ]
+  },
+  {
+    "slug": "meteo-ou-climat-pourquoi-faut-il-trente-ans-de-mesures-pour-parler-de-climat",
+    "title": "Météo ou climat : pourquoi faut-il trente ans de mesures pour parler de climat ?",
+    "summary": "La météo décrit le temps qu'il fait un jour donné ; le climat se lit dans des moyennes de longue durée. L'Organisation météorologique mondiale fixe ces moyennes, les « normales », sur trente ans, recalculées tous les dix ans. Météo-France utilise aujourd'hui la période 1991-2020. Les chiffres de réchauffement cités viennent du ministère de la Transition écologique, mis à jour le 24 février 2026, avec 1961-1990 comme référence.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Pour l'OMM, les normales climatologiques standard sont des moyennes de données calculées sur des périodes consécutives de 30 ans, comme 1981-2010 puis 1991-2020, et recalculées tous les dix ans.",
+      "Les normales servent de référence pour comparer un jour, un mois ou une saison au climat ; une période stable, 1961-1990, reste recommandée pour suivre le changement climatique sur le long terme.",
+      "En France, la température moyenne annuelle de la décennie 2015-2024 dépasse de 1,9 °C celle de la période 1961-1990, selon le ministère de la Transition écologique."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Le climat, une affaire de moyennes",
+        "text": "Une journée froide ou un été pluvieux relèvent de la météo : l'état de l'atmosphère à un moment et à un endroit. Le climat, lui, se mesure sur la durée. L'Organisation météorologique mondiale (OMM) définit les normales climatologiques standard comme des moyennes de données climatologiques calculées sur des périodes consécutives de 30 ans : du 1er janvier 1981 au 31 décembre 2010, puis du 1er janvier 1991 au 31 décembre 2020, et ainsi de suite. Auparavant, ces périodes ne se chevauchaient pas (1901-1930, 1931-1960, 1961-1990) ; l'OMM a décidé de les recalculer tous les dix ans. Les normales servent de référence pour comparer des conditions météorologiques ou climatiques récentes ou actuelles."
+      },
+      {
+        "kind": "fait",
+        "heading": "Comment Météo-France calcule une normale",
+        "text": "Pour ses normales 1991-2020, Météo-France reprend la règle de l'OMM : une moyenne calculée sur une période uniforme et relativement longue, d'au moins trois périodes consécutives de dix ans. Le calcul se fait à partir des données quotidiennes des stations de métropole et d'outre-mer, puis en deux temps : des valeurs mensuelles, ensuite la normale à partir de ces valeurs. Des règles écartent les séries trop incomplètes : sur 30 ans, une normale est considérée comme manquante si plus de 6 valeurs manquent. Pour les stations qui n'ont pas 30 ans de mesures, des moyennes de période plus courte sont admises, fondées sur au moins 10 ans d'observations. Outre la moyenne, Météo-France calcule la médiane, les quintiles et les extrêmes absolus."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que disent les mesures en France",
+        "text": "Selon le ministère de la Transition écologique, la température moyenne annuelle en France atteint +1,9 °C sur la décennie 2015-2024 par rapport à la période 1961-1990, et +2,2 °C par rapport au début du XXe siècle. Sur 1959-2021, le réchauffement de la température moyenne annuelle est compris entre +0,2 °C et +0,4 °C par décennie. L'indicateur national repose sur 30 stations météorologiques réparties de manière équilibrée, dont les séries sont homogénéisées pour corriger les changements d'instruments ou d'emplacement. Le ministère souligne que les normales 1991-2020 représentent un climat centré sur les années autour de 2005."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une « normale » qui se déplace",
+        "text": "Parce qu'une normale est recalculée tous les dix ans, elle suit le climat qui change. Une journée « au-dessus des normales » se mesure donc par rapport à une référence déjà plus chaude que celle d'il y a trente ans. C'est pourquoi l'OMM recommande de garder une période stable, 1961-1990, pour évaluer le changement climatique sur le long terme, tandis que les normales récentes servent à décrire le temps du moment. Un épisode froid isolé ne contredit pas une tendance au réchauffement : il relève de la météo, alors que la tendance se lit sur des décennies."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OMM, Recueil des normales climatologiques standard, lettre du 1er avril 2019",
+        "url": "https://extranet.wmo.int/edistrib_exped/grp_prs/_fr/2011_2022_Archives/2019/08791-2019-CLW-CLPA-DMA-CLIN8110_fr.pdf"
+      },
+      {
+        "label": "Météo-France, Normales 1991-2020 : définition, 2022",
+        "url": "https://donneespubliques.meteofrance.fr/client/document/normales-methode_299.pdf"
+      },
+      {
+        "label": "Ministère de la Transition écologique, Impacts du changement climatique : atmosphère, températures et précipitations",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/impacts-du-changement-climatique-atmosphere-temperatures-precipitations"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce qu'une normale climatologique standard selon l'OMM ?",
+        "answer": "Une moyenne de données climatologiques calculée sur une période consécutive de 30 ans, par exemple 1991-2020."
+      },
+      {
+        "question": "Tous les combien de temps les normales climatiques sont-elles recalculées ?",
+        "answer": "Tous les dix ans : après 1981-2010 vient 1991-2020, et ainsi de suite."
+      },
+      {
+        "question": "Quelle période l'OMM recommande-t-elle pour suivre le changement climatique sur le long terme ?",
+        "answer": "La période 1961-1990, jugée relativement stable comme référence."
+      },
+      {
+        "question": "De combien la France s'est-elle réchauffée sur 2015-2024 par rapport à 1961-1990 ?",
+        "answer": "De 1,9 °C en température moyenne annuelle, selon le ministère de la Transition écologique."
+      },
+      {
+        "question": "Pourquoi un épisode froid isolé ne contredit-il pas le réchauffement ?",
+        "answer": "Parce qu'il relève de la météo, le temps d'un moment, alors que le climat et ses tendances se lisent sur des décennies de mesures."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-chiffrer-ses-communications-et-ce-que-le-chiffrement-ne-garantit-pas",
+    "title": "Pourquoi chiffrer ses communications, et ce que le chiffrement ne garantit pas",
+    "summary": "Chiffrer un message, c'est le rendre illisible pour qui ne détient pas la bonne clé. La CNIL et l'Agence nationale de la sécurité des systèmes d'information (ANSSI) décrivent deux grandes familles, à clé secrète partagée et à paire de clés publique et privée, souvent combinées. Le chiffrement protège la confidentialité, mais il ne suffit pas seul : il faut aussi authentifier les messages et protéger les clés. Recommandations tirées des pages de la CNIL (2016 et 2024) et du guide de l'ANSSI de 2021.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la CNIL, le chiffrement assure la confidentialité d'un message : sans la clé, il reste illisible pour les humains comme pour les machines, à la manière d'une enveloppe scellée numérique.",
+      "Le chiffrement symétrique utilise une seule clé secrète, rapide mais à partager ; le chiffrement asymétrique utilise une clé publique pour chiffrer et une clé privée pour déchiffrer, plus lent ; le web en « https » combine les deux.",
+      "L'ANSSI recommande de toujours coupler le chiffrement avec un mécanisme d'authentification de message, et rappelle que la sécurité repose sur la protection des clés, pas sur le secret de l'algorithme."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Rendre un message illisible sans la clé",
+        "text": "La cryptologie, rappelle la CNIL, sert désormais à bien plus qu'au secret : elle garantit aussi l'authenticité et l'intégrité des données. Ses grandes fonctions sont le hachage, la signature numérique et le chiffrement. Le chiffrement, parfois improprement appelé cryptage, assure la confidentialité : la CNIL le compare à une enveloppe scellée numérique, que seul le détenteur de la clé peut ouvrir. Le hachage, lui, produit une empreinte qui permet de vérifier qu'une donnée n'a pas été modifiée, et la signature prouve qu'un message vient bien du détenteur d'une clé privée."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une clé partagée ou une paire de clés",
+        "text": "Dans le chiffrement symétrique, une même clé, dite secrète, sert à chiffrer et à déchiffrer. Il est particulièrement rapide, mais l'expéditeur et le destinataire doivent s'être mis d'accord sur cette clé, ou la transmettre par un autre canal. Dans le chiffrement asymétrique, chacun possède une paire de clés : l'expéditeur chiffre avec la clé publique du destinataire, qui seul peut déchiffrer avec sa clé privée. Cette méthode est plus lente. La CNIL explique qu'on combine souvent les deux : un échange asymétrique sert à partager un secret, puis la suite de la communication est chiffrée de façon symétrique. C'est ce qui se passe quand on visite un site dont l'adresse commence par « https »."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les règles des autorités françaises",
+        "text": "La CNIL recommande, pour le chiffrement symétrique, l'algorithme AES avec des clés de 128, 192 ou 256 bits, jugées suffisantes, ou ChaCha20, et déconseille des algorithmes anciens comme DES, 3DES, MD5 ou SHA-1. Elle demande de protéger les clés secrètes par des droits d'accès restrictifs et un mot de passe robuste, et d'utiliser des bibliothèques auditées. L'ANSSI, dans son guide de sélection d'algorithmes cryptographiques de 2021, vise un niveau de sécurité de l'ordre de 128 bits et précise que la clé publique peut être diffusée, mais que son intégrité doit être assurée, tandis que la clé privée doit rester confidentielle."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que le chiffrement ne fait pas seul",
+        "text": "Chiffrer ne garantit pas qu'un message n'a pas été modifié en route. L'ANSSI qualifie le chiffrement non authentifié de mécanisme à ne pas utiliser seul et demande, sauf impossibilité, de le coupler avec une authentification de message. Elle rappelle aussi qu'un échange de clés doit être authentifié pour résister à un attaquant placé au milieu de la communication, et qu'une même clé ne doit pas servir à plusieurs usages. Enfin, la sécurité doit tenir même si l'attaquant connaît l'algorithme : tout repose sur la qualité et la protection des clés. Un chiffrement solide peut donc être affaibli par une clé mal gardée ou une clé publique dont on n'a pas vérifié l'origine."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNIL, Comprendre les grands principes de la cryptologie et du chiffrement",
+        "url": "https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
+      },
+      {
+        "label": "CNIL, Sécurité : chiffrement, hachage, signature",
+        "url": "https://cnil.fr/fr/securite-chiffrement-hachage-signature"
+      },
+      {
+        "label": "ANSSI, Guide de sélection d'algorithmes cryptographiques, 2021",
+        "url": "https://messervices.cyber.gouv.fr/documents-guides/anssi-guide-selection_crypto-1.0.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Que garantit le chiffrement d'un message ?",
+        "answer": "Sa confidentialité : sans la bonne clé, le message reste illisible, comme dans une enveloppe scellée numérique."
+      },
+      {
+        "question": "Quelle est la différence entre chiffrement symétrique et asymétrique ?",
+        "answer": "Le symétrique utilise une seule clé secrète partagée, rapide ; l'asymétrique chiffre avec une clé publique et déchiffre avec une clé privée, plus lent."
+      },
+      {
+        "question": "Comment un site en « https » chiffre-t-il les échanges ?",
+        "answer": "Il combine les deux méthodes : un échange asymétrique partage un secret, puis la suite de la communication est chiffrée de façon symétrique."
+      },
+      {
+        "question": "Pourquoi l'ANSSI déconseille-t-elle d'utiliser le chiffrement seul ?",
+        "answer": "Parce qu'il ne garantit pas que le message n'a pas été modifié : il faut le coupler avec une authentification de message."
+      },
+      {
+        "question": "Sur quoi repose la sécurité d'un chiffrement selon l'ANSSI ?",
+        "answer": "Sur la qualité et la protection des clés : elle doit tenir même si l'attaquant connaît l'algorithme utilisé."
+      }
+    ]
+  },
+  {
     "slug": "deepfakes-sexuels-l-ue-interdit-les-applis-de-denudage-par-ia-des-le-2-decembre",
     "title": "Deepfakes sexuels : l'UE interdit les applis de « dénudage » par IA dès le 2 décembre",
     "summary": "Devant le Parlement européen le 25 novembre 2026, la commissaire Hadja Lahbib a rappelé qu'une interdiction des applications d'intelligence artificielle qui « dénudent » des personnes entre en vigueur le 2 décembre. Elle découle de la révision du règlement européen sur l'IA, dite omnibus numérique, votée par les eurodéputés le 16 juin 2026 par 423 voix contre 57 et 174 abstentions. La Commission en fait un volet de sa lutte contre la cyberviolence visant les femmes, aux côtés de la directive de 2024 à transposer d'ici juin 2027.",

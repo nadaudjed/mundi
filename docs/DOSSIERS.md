@@ -53,6 +53,14 @@ Sur une preview Netlify seulement (jamais en production) :
 
 La mise à jour simulée n'existe que sur ce téléphone. Pour l'effacer, arrêter de suivre le dossier.
 
+## Trouver un dossier : Explorer et l'accueil
+
+- **Explorer** a un filtre « Dossiers » à côté d'Actualités, Récits et Concepts (adresse `/explorer/?genre=dossiers`). Les dossiers apparaissent aussi dans « Tous », au-dessus des articles, et la recherche les trouve (« cobalt » trouve le dossier). Les anciennes adresses de filtres ne changent pas.
+- La recherche utilise un **index léger** (`dossierIndex()` dans `lib/dossiers.ts`) : titre, introduction, l'essentiel et la rubrique. La chronologie, les chiffres et les mises à jour ne sont pas envoyés à Explorer.
+- La carte du dossier ouvre directement `/dossiers/<id>/`, où se trouve « Suivre ce dossier ».
+- **Accueil** : pendant le pilote, un encadré « Dossier à suivre » mène au dossier dont le statut est `pilote`. Pour le retirer, passer le statut du dossier à `publie`.
+- Sur petit écran, la ligne des formats d'Explorer passe à la ligne au lieu de défiler, pour que chaque filtre reste visible à 320 px.
+
 ## 10 articles prioritaires proposés après le pilote
 
 Les cinq premiers comblent les manques du dossier cobalt. Les cinq suivants préparent les prochains dossiers, sur les sujets où MUNDI a déjà une actualité et un récit.

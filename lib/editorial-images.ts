@@ -1,7 +1,9 @@
 /** Images d'illustration automatiquement collectées auprès de Wikimedia Commons. */
 export type EditorialPhoto={
   slug:string;src:string;alt:string;title:string;credit:string;license:string;
-  licenseUrl:string;sourceUrl:string;kind:"illustration";
+  licenseUrl:string;sourceUrl:string;
+  /** illustration : photo générique ; archive : photo d'époque d'un récit daté (#125). */
+  kind:"illustration"|"archive";
   review:"automated-license-and-title-check";retrievedAt:string;searchQuery:string;
   /** Photo propre à une carte « Données » : la publication et l'identifiant de la carte. */
   publication?:string;card?:string;
@@ -25,7 +27,7 @@ export function validateEditorialPhotos(items:unknown):string[]{
     if(p.slug)seen.add(p.slug);
     if(typeof p.src!=="string"||!(/^\/media\/editorial\/[a-z0-9-]+\.(jpg|png|webp)$/).test(p.src)||p.src.includes(".."))
       errors.push(where+" : image locale requise");
-    if(p.kind!=="illustration"||p.review!=="automated-license-and-title-check")
+    if((p.kind!=="illustration"&&p.kind!=="archive")||p.review!=="automated-license-and-title-check")
       errors.push(where+" : préciser la nature et la vérification automatique");
     for(const k of ["alt","title","credit","license","searchQuery"] as const)
       if(typeof p[k]!=="string"||p[k].trim().length<3||p[k].length>250)

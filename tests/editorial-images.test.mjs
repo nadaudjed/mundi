@@ -43,7 +43,7 @@ test("each approved candidate becomes a local image and an attributed manifest e
  const root=fs.mkdtempSync(path.join(os.tmpdir(),"mundi-photos-"));
  try{
    const fake=Buffer.concat([Buffer.from([0xff,0xd8,0xff,0xe0]),Buffer.alloc(5000)]);
-   const result=await collectEditorialImages([{status:"published",slug:"article-test",title:"Le recyclage textile",topic:"recyclage"}],[],{
+   const result=await collectEditorialImages([{status:"published",slug:"article-test",title:"Ariane 6 : la fusée européenne décolle",topic:"technologie"}],[],{
      root,max:1,search:async()=>({...selectImage([candidate()],"textile recycling"),title:"Textile facility"}),
      download:async()=>({ext:"jpg",buffer:fake}),day:"2026-11-23"
    });
@@ -145,7 +145,7 @@ test("un appel d'offres public reçoit des requêtes parlantes, puis des sujets 
 });
 
 test("une journée complète (48 publications) est couverte en un seul passage", async () => {
-  const articles=Array.from({length:48},(_,i)=>({status:"published",slug:"article-"+i,title:"Le recyclage textile "+i,topic:"recyclage"}));
+  const articles=Array.from({length:48},(_,i)=>({status:"published",slug:"article-"+i,title:"Ariane 6 : la fusée européenne décolle "+i,topic:"technologie"}));
   const fs=await import("node:fs"),os=await import("node:os"),path=await import("node:path");
   const root=fs.mkdtempSync(path.join(os.tmpdir(),"mundi-48-"));
   const result=await collectEditorialImages(articles,[],{root,max:60,
@@ -245,7 +245,9 @@ test("#125 : « souvent », « refusée », « ménages » et une obligation lé
   assert.deepEqual(strong("Une barge refusée dans tous les ports"),[]);
   assert.deepEqual(strong("Fermer les réseaux de gaz : ce qui change pour les ménages"),[]);
   assert.deepEqual(strong("L'UE repousse l'obligation du traçage des déchets"),[]);
-  assert.ok(strong("Les éoliennes en mer produisent plus").includes("wind turbines"));
+  // « wind turbines » reste une recherche, mais de rubrique : jamais publiée seule (#125, commentaire de suivi).
+  assert.ok(queryPlan({title:"Les éoliennes en mer produisent plus",topic:"energie"}).some(x=>x.query==="wind turbines"));
+  assert.deepEqual(strong("Les éoliennes en mer produisent plus"),[]);
   assert.ok(strong("Ariane 6 : la fusée européenne décolle").includes("Ariane 5 rocket"));
 });
 test("#125 : seule une recherche précise tirée du titre publie une photo ; le reste part en révision humaine",async()=>{

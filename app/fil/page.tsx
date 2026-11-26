@@ -11,7 +11,7 @@ export default function FeedPage() {
   // Édition datée (#125) : sélection de la rédaction le jour même (heure de Paris), sinon repli explicite.
   const resolved = todayConfig ? resolveToday(feedPublications, todayConfig, editionNow()) : null;
   const today = resolved
-    ? { edition: resolved.edition, state: resolved.state, picks: resolved.picks.map((p) => ({ slug: p.publication.slug, fallback: p.reason !== "selection" })) }
+    ? { edition: resolved.edition, state: resolved.state, today: resolved.today, picks: resolved.picks.map((p) => ({ slug: p.publication.slug, fallback: p.reason !== "selection" })) }
     : undefined;
   return (
     <>

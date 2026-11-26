@@ -19,6 +19,7 @@ import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { publishableCards, publishableFlashcards } from "./data-cards-check.mjs";
 import { duplicateCheck } from "./duplicate-guard.mjs";
+import { insertBatch } from "./catalogue-insert.mjs";
 
 export const AI_REVIEWER = "Vérificateur IA MUNDI (sans relecture humaine)";
 
@@ -193,7 +194,11 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   const max = Math.max(0, Math.min(48, Number.parseInt(process.env.MUNDI_PUBLISH_PER_DAY || "48", 10) || 0));
   const { published, decisions } = await autopublish(results, existing, { enabled, max });
   for (const d of decisions) console.log("MUNDI autopublish", d.id ?? "", d.topic ?? "", "—", d.decision, d.slug ?? "", (d.reasons ?? []).join(" ; "));
-  if (published.length) writeFileSync(file, JSON.stringify([...published, ...existing], null, 2) + "\n");
-  writeFileSync(resolve("reports/autopublish.json"), JSON.stringify({ date: results.date, published: published.map((p) => p.slug), decisions }, null, 2) + "\n");
-  console.log("MUNDI autopublish: " + published.length + " publication(s) ajoutée(s).");
+  // Écriture par le point d'insertion unique (#125) : le catalogue est relu juste avant, et le lot y est
+  // recontrôlé. Les publications complètes restent dans le rapport (items) pour que le workflow rejoue
+  // l'insertion sur le main le plus récent avant de pousser (lots concurrents).
+  const inserted = insertBatch(published, JSON.parse(readFileSync(file, "utf8")));
+  if (inserted.inserted.length) writeFileSync(file, JSON.stringify(inserted.catalogue, null, 2) + "\n");
+  writeFileSync(resolve("reports/autopublish.json"), JSON.stringify({ date: results.date, published: inserted.inserted, decisions, insertion: inserted.log, items: published }, null, 2) + "\n");
+  console.log("MUNDI autopublish: " + inserted.inserted.length + " publication(s) ajoutée(s).");
 }

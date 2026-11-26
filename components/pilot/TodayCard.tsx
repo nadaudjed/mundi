@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { memo } from "react";
+import { useEditionDayPassed } from "@/lib/use-edition-day";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
 import { KIND_LABEL, publicationKind } from "@/lib/publication-kind";
 import { twoSentences } from "@/lib/today";
@@ -25,6 +26,8 @@ type Props = {
   edition: string;
   /** État de l'édition (#125) : en repli, l'en-tête ne dit plus « Aujourd'hui ». */
   state?: TodayState;
+  /** Date de Paris du build : passé minuit, une édition « du jour » devient « Dernière édition ». */
+  builtFor?: string;
   active: boolean;
   near: boolean;
   /** Sujet ajouté parce qu'un sujet choisi manquait (sélection de secours). */
@@ -35,7 +38,7 @@ type Props = {
 /** En-tête de l'édition selon son état (lib/today.ts). */
 function editionLabel(state?: TodayState): string {
   if (state === "perimee" || state === "automatique") return "Les plus récentes";
-  if (state === "sans-nouveaute") return "Édition";
+  if (state === "sans-nouveaute") return "Dernière édition";
   return "Aujourd'hui";
 }
 
@@ -50,7 +53,8 @@ const editionDate = (d: string) => {
  * sa conséquence), puis « Comprendre » en action principale. Écouter et Enregistrer restent
  * à portée de pouce. Composition « magazine » : ivoire, graphite, rouge MUNDI.
  */
-export const TodayCard = memo(function TodayCard({ publication: p, index, rank, size, edition, state, active, near, fallback, onSkip }: Props) {
+export const TodayCard = memo(function TodayCard({ publication: p, index, rank, size, edition, state: built, builtFor, active, near, fallback, onSkip }: Props) {
+  const state: TodayState | undefined = useEditionDayPassed(builtFor) && (built === "a-jour" || built === undefined) ? "sans-nouveaute" : built;
   const d = p.decryptage;
   const topic = getTopic(p.topic)!;
   const href = publicationPath(p.slug);

@@ -1,0 +1,1182 @@
+[
+ {
+  "commit": "7cfb63c",
+  "at": "2026-11-26T08:10:15+00:00",
+  "items": [
+   {
+    "slug": "deepfakes-sexuels-l-ue-interdit-les-applis-de-denudage-par-ia-des-le-2-decembre",
+    "title": "Deepfakes sexuels : l'UE interdit les applis de « dénudage » par IA dès le 2 décembre",
+    "summary": "Devant le Parlement européen le 25 novembre 2026, la commissaire Hadja Lahbib a rappelé qu'une interdiction des applications d'intelligence artificielle qui « dénudent » des personnes entre en vigueur le 2 décembre. Elle découle de la révision du règlement européen sur l'IA, dite omnibus numérique, votée par les eurodéputés le 16 juin 2026 par 423 voix contre 57 et 174 abstentions. La Commission en fait un volet de sa lutte contre la cyberviolence visant les femmes, aux côtés de la directive de 2024 à transposer d'ici juin 2027.",
+    "kind": "actualite",
+    "topic": "geopolitique",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "À partir du 2 décembre 2026, le règlement européen sur l'IA interdit les systèmes qui génèrent des contenus pédocriminels ou créent, sans consentement, des images, vidéos ou sons montrant les parties intimes ou des activités sexuelles d'une personne identifiable.",
+     "Le Parlement européen a adopté cette révision le 16 juin 2026 par 423 voix pour, 57 contre et 174 abstentions ; les entreprises avaient jusqu'au 2 décembre pour mettre leurs systèmes en conformité.",
+     "Selon la commissaire Hadja Lahbib, des études indiquent que 99 % des deepfakes pornographiques représentent des femmes ; la directive européenne sur les violences faites aux femmes doit être appliquée d'ici juin 2027."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — discours de la commissaire Lahbib au Parlement européen, 25 novembre 2026",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2590"
+     },
+     {
+      "label": "Parlement européen — communiqué sur l'adoption de la révision du règlement IA et l'interdiction des applications de dénudage, 16 juin 2026",
+      "url": "https://www.europarl.europa.eu/news/en/press-room/20260611IPR45207/ai-act-ep-approves-simplification-measures-and-nudifier-app-ban"
+     },
+     {
+      "label": "Digital Policy Alert — entrée en application de l'interdiction le 2 décembre 2026",
+      "url": "https://digitalpolicyalert.org/event/42386-digital-omnibus-on-ai-regulation-prohibiting-nudification-apps-and-ai-systems-generating-or-manipulating-child-sexual-abuse-material-becomes-applicable"
+     }
+    ]
+   },
+   {
+    "slug": "paiements-la-suede-rejoindra-en-2030-la-plateforme-t2-de-la-bce-sans-adopter-l",
+    "title": "Paiements : la Suède rejoindra en 2030 la plateforme T2 de la BCE, sans adopter l'euro",
+    "summary": "La Banque centrale européenne et la banque centrale de Suède, la Riksbank, ont signé le 25 novembre 2026 à Francfort un accord permettant à la Suède de régler ses gros paiements en couronnes sur T2, le système de règlement en temps réel de l'Eurosystème. La migration est visée pour février 2030. Les paiements resteront réglés en couronnes suédoises, en monnaie de banque centrale. Le Danemark utilise déjà T2 pour sa couronne.",
+    "kind": "actualite",
+    "topic": "economie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "Christine Lagarde et le gouverneur de la Riksbank, Erik Thedéen, ont signé le 25 novembre 2026 l'accord de participation de la couronne suédoise à T2, le système de l'Eurosystème pour les paiements de gros montant.",
+     "La migration est visée pour février 2030 : le règlement des gros paiements suédois passera d'une plateforme nationale à une infrastructure européenne partagée, toujours en couronnes et en monnaie de banque centrale.",
+     "La Riksbank avait décidé en 2024 d'utiliser T2 pour son service RIX-RTGS ; T2 traite déjà les paiements de gros montant en couronnes danoises."
+    ],
+    "sources": [
+     {
+      "label": "BCE — ECB and Sveriges Riksbank conclude agreement for Sweden to join T2, 25 novembre 2026",
+      "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261125_1~6333a90f3a.en.html"
+     },
+     {
+      "label": "Riksbank — The Riksbank wants to use the European T2 platform for payment settlement, 2024",
+      "url": "https://www.riksbank.se/en-gb/press-and-published/notices-and-press-releases/press-releases/2024/the-riksbank-wants-to-use-the-european-t2-platform-for-payment-settlement/"
+     },
+     {
+      "label": "RegReportingDesk — Riksbank T2 agreement: RIX-RTGS migration, 26 novembre 2026",
+      "url": "https://regreportingdesk.com/riksbank-t2-agreement-rix-rtgs-migration/"
+     }
+    ]
+   },
+   {
+    "slug": "zone-euro-la-carte-depasse-pour-la-premiere-fois-les-especes-dans-les-magasins",
+    "title": "Zone euro : la carte dépasse pour la première fois les espèces dans les magasins",
+    "summary": "Selon l'étude SPACE publiée par la BCE le 25 novembre 2026, les cartes physiques ont représenté 45 % des paiements en magasin dans la zone euro en 2026, contre 44 % pour les espèces : une première depuis les données comparables de 2016. Les paiements mobiles montent à 9 %. Les espèces restent dominantes pour les petits montants et entre particuliers, et 62 % des consommateurs tiennent à pouvoir payer en liquide. L'enquête porte sur 51 551 personnes interrogées entre septembre 2025 et mai 2026.",
+    "kind": "actualite",
+    "topic": "finance",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "En 2026, les cartes physiques représentent 45 % du nombre de paiements aux points de vente de la zone euro, contre 44 % pour les espèces et 9 % pour le mobile (6 % en 2024).",
+     "Le paiement moyen par carte est tombé de 59 euros en 2019 à 35 euros en 2026, mais les espèces dominent encore sous 20 euros et entre particuliers (44 % des paiements).",
+     "82 % des consommateurs jugent important de pouvoir payer par voie numérique et 62 % de pouvoir payer en espèces ; 85 % trouvent facile l'accès au liquide, contre 87 % en 2024."
+    ],
+    "sources": [
+     {
+      "label": "BCE — Card payments edge past cash in shops, communiqué du 25 novembre 2026",
+      "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261125~26d1ade228.en.html"
+     },
+     {
+      "label": "BCE — Study on the payment attitudes of consumers in the euro area (SPACE) 2026",
+      "url": "https://www.ecb.europa.eu/stats/ecb_surveys/space/html/ecb.space2026.en.html"
+     },
+     {
+      "label": "Banque de France — Les Français continuent d'apprécier les espèces, même si leur usage se réduit, Bulletin n° 256",
+      "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/les-francais-continuent-dapprecier-les-especes-meme-si-leur-usage-se-reduit-au-profit-des-paiements"
+     }
+    ]
+   },
+   {
+    "slug": "parfums-industriels-bruxelles-inflige-471-9-millions-d-euros-a-trois-geants-du",
+    "title": "Parfums industriels : Bruxelles inflige 471,9 millions d'euros à trois géants du secteur",
+    "summary": "La Commission européenne a sanctionné le 25 novembre 2026 les trois premiers producteurs mondiaux de parfums industriels, Firmenich, Givaudan et IFF, pour une entente sur l'Espace économique européen entre mars 2019 et mars 2023. Ils échangeaient des informations sensibles, notamment sur les prix, à propos de leurs relations avec Unilever. Le même jour, l'autorité britannique de la concurrence (CMA) leur a infligé plus de 85 millions de livres. Les trois groupes ont reconnu les faits et transigé.",
+    "kind": "actualite",
+    "topic": "industrie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "La Commission européenne a infligé 471,9 millions d'euros d'amendes au total : 252 363 000 euros à Givaudan, 137 689 000 euros à Firmenich et 81 915 000 euros à IFF.",
+     "L'entente a duré de mars 2019 à mars 2023 : échanges d'informations sur les prix, les tactiques de négociation et une possible surtaxe énergie dans leurs relations avec Unilever, plus gros acheteur mondial de parfums pour produits de consommation.",
+     "L'autorité britannique de la concurrence (CMA) a sanctionné les mêmes groupes le même jour, pour un total de 85 156 000 livres, après une enquête coordonnée avec la Suisse et les États-Unis."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — communiqué IP/26/2574, amendes dans le secteur des parfums, 25 novembre 2026",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2574"
+     },
+     {
+      "label": "Commission européenne — déclaration de Teresa Ribera, 25 novembre 2026",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2589"
+     },
+     {
+      "label": "CMA — dossier 51257, fourniture de parfums",
+      "url": "https://www.gov.uk/cma-cases/suspected-anti-competitive-conduct-in-relation-to-fragrances-and-fragrance-ingredients-51257"
+     },
+     {
+      "label": "CMA — communiqué, amendes de 85 millions de livres, 25 novembre 2026",
+      "url": "https://www.gov.uk/government/news/major-fragrance-suppliers-fined-85-million-by-the-cma-for-illegal-collusion"
+     }
+    ]
+   },
+   {
+    "slug": "gallium-germanium-antimoine-pekin-prolonge-de-deux-mois-son-repit-aux-etats-unis",
+    "title": "Gallium, germanium, antimoine : Pékin prolonge de deux mois son répit aux États-Unis",
+    "summary": "Le ministère chinois du Commerce a prolongé le 24 novembre 2026, jusqu'au 27 janvier 2027, la suspension de son interdiction d'exporter du gallium, du germanium et de l'antimoine vers les États-Unis. Cette suspension, accordée en novembre 2025 lors d'une trêve commerciale entre Donald Trump et Xi Jinping, devait expirer le 27 novembre. Le 9 novembre, Pékin avait déjà repoussé au 10 janvier ses contrôles élargis sur les terres rares et les batteries. Faits rapportés par la presse ; le texte officiel n'a pas pu être consulté directement.",
+    "kind": "actualite",
+    "topic": "materiaux-critiques",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-24",
+    "keyPoints": [
+     "Selon Bloomberg et l'agence ANI, la Chine maintient suspendue jusqu'au 27 janvier 2027 l'interdiction, décidée en décembre 2024, d'exporter du gallium, du germanium et de l'antimoine vers les États-Unis.",
+     "La suspension, accordée en novembre 2025 après une trêve entre Donald Trump et Xi Jinping, devait expirer le 27 novembre 2026 ; les restrictions visant les utilisateurs militaires américains restent en place, selon ANI.",
+     "Selon les estimations de l'USGS pour 2025 citées par Bloomberg, la Chine assure 99 % de la production mondiale de gallium primaire de faible pureté et 36 % de l'antimoine extrait."
+    ],
+    "sources": [
+     {
+      "label": "The Star (dépêche Bloomberg) — China extends pause on US minerals ban to maintain truce, 24 novembre 2026",
+      "url": "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/24/china-extends-pause-on-us-minerals-ban-to-maintain-truce"
+     },
+     {
+      "label": "Open Magazine (avec ANI) — China extends critical mineral export restrictions suspension to US until January 2027, 24 novembre 2026",
+      "url": "https://openthemagazine.com/world/china-extends-critical-mineral-export-restrictions-suspension-to-us-until-january-2027-what-it-means"
+     },
+     {
+      "label": "The News International — China extends suspension of new rare earth controls until January, 10 novembre 2026",
+      "url": "https://www.thenews.com.pk/latest/1423059-china-extends-suspension-of-new-rare-earth-controls-until-january-easing-global-supply-fears"
+     }
+    ]
+   },
+   {
+    "slug": "energie-bruxelles-prolonge-jusqu-en-juin-2027-les-aides-liees-a-la-crise-au",
+    "title": "Énergie : Bruxelles prolonge jusqu'en juin 2027 les aides liées à la crise au Moyen-Orient",
+    "summary": "La Commission européenne a prolongé le 25 novembre 2026 de six mois, jusqu'au 30 juin 2027, son encadrement temporaire des aides d'État lié à la crise au Moyen-Orient, qui devait expirer fin décembre. Il permet aux États de compenser une partie de la hausse des prix du carburant, des engrais et de l'électricité pour l'agriculture, la pêche, le transport et l'industrie énergivore. Depuis avril 2026, 36 mesures de 14 États membres ont été approuvées, pour un budget estimé à plus de 3,7 milliards d'euros.",
+    "kind": "actualite",
+    "topic": "energie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "L'encadrement temporaire des aides d'État lié à la crise au Moyen-Orient, adopté le 29 avril 2026 et valable jusqu'au 31 décembre 2026, est prolongé jusqu'au 30 juin 2027.",
+     "Agriculteurs, pêcheurs et transporteurs peuvent être compensés jusqu'à 70 % de leurs surcoûts de carburant et d'engrais ; une nouvelle enveloppe simplifiée de 50 000 euros par bénéficiaire est ouverte pour le premier semestre 2027.",
+     "La Commission a approuvé 36 mesures notifiées par 14 États membres et 11 modifications de régimes existants, pour un budget estimé à plus de 3,7 milliards d'euros."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — communiqué IP/26/2576, prolongation du METSAF, 25 novembre 2026",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2576"
+     },
+     {
+      "label": "Commission européenne — déclaration de Teresa Ribera, 25 novembre 2026",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2589"
+     },
+     {
+      "label": "Commission européenne — page de l'encadrement METSAF (DG Concurrence)",
+      "url": "https://competition-policy.ec.europa.eu/state-aid/legislation/metsaf_en"
+     },
+     {
+      "label": "Eunews — la Commission prolonge de six mois les aides d'État, 25 novembre 2026",
+      "url": "https://www.eunews.it/en/2026/11/25/the-commission-has-extended-state-aid-for-european-businesses-affected-by-the-energy-crisis-by-a-further-six-months/"
+     }
+    ]
+   },
+   {
+    "slug": "emballages-au-royaume-uni-packuk-fixe-les-ecocontributions-2026-2027-en-hausse",
+    "title": "Emballages au Royaume-Uni : PackUK fixe les écocontributions 2026-2027, en hausse",
+    "summary": "Le 25 novembre 2026, PackUK, l’organisme chargé de la responsabilité élargie du producteur pour les emballages au Royaume-Uni, a publié les tarifs définitifs que les producteurs paieront pour 2026-2027. Ils vont de 192 livres la tonne pour le verre le mieux noté à 697 livres pour le bois le moins bien noté, et augmentent pour presque tous les matériaux par rapport aux estimations publiées en décembre dernier, selon le site spécialisé letsrecycle.com.",
+    "kind": "actualite",
+    "topic": "recyclage",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "Les tarifs 2026-2027 sont fixés par tonne et par matériau, avec trois niveaux selon la recyclabilité : vert, orange (tarif de base) et rouge ; le rouge vaut 1,2 fois le tarif orange, le vert 7,5 % de moins.",
+     "Le tarif de base atteint 505 livres la tonne pour le plastique, 581 livres pour le bois, 215 livres pour le papier-carton et 207 livres pour le verre.",
+     "Selon letsrecycle.com, le tarif orange du plastique dépasse de 11 % l’estimation publiée en décembre dernier, et celui du bois de 29 %."
+    ],
+    "sources": [
+     {
+      "label": "PackUK / GOV.UK — Extended producer responsibility for packaging: confirmed fees 2026 to 2027 (25 novembre 2026)",
+      "url": "https://www.gov.uk/government/publications/confirmed-fees-2026-to-2027-extended-producer-responsibility-for-packaging/extended-producer-responsibility-for-packaging-confirmed-fees-2026-to-2027"
+     },
+     {
+      "label": "letsrecycle.com — PackUK publishes confirmed packaging EPR fees for 2026/27 (25 novembre 2026)",
+      "url": "https://www.letsrecycle.com/news/packuk-publishes-confirmed-packaging-epr-fees-for-2026-27/"
+     }
+    ]
+   },
+   {
+    "slug": "transferts-de-dechets-l-ue-repousse-a-septembre-2027-l-obligation-du-tout",
+    "title": "Transferts de déchets : l’UE repousse à septembre 2027 l’obligation du tout-numérique",
+    "summary": "Le 25 novembre 2026, la Commission européenne et les États membres se sont entendus pour prolonger de huit mois la période de transition des documents « annexe VII », qui accompagnent les transferts de déchets non dangereux destinés au recyclage. L’usage du système numérique européen DIWASS restera facultatif pour ces documents jusqu’au 1er septembre 2027, au lieu du 1er janvier 2027 prévu jusque-là.",
+    "kind": "actualite",
+    "topic": "environnement",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "La Commission européenne et les États membres ont trouvé une « compréhension commune » lors d’une réunion le 25 novembre 2026 : l’usage de DIWASS pour les documents annexe VII reste volontaire jusqu’au 1er septembre 2027.",
+     "La mesure ne concerne que les déchets de la « liste verte », non dangereux et destinés au recyclage ou à une autre valorisation, qui n’exigent pas d’autorisation préalable mais doivent être accompagnés d’un document annexe VII.",
+     "Les transferts soumis à consentement préalable, comme les déchets dangereux ou destinés à l’élimination, passent obligatoirement par DIWASS depuis le 21 mai 2026 ; ce calendrier ne change pas."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne, DG Environnement — EU extends transition period for digital exchange of green-listed waste shipment documents (25 novembre 2026)",
+      "url": "https://environment.ec.europa.eu/news/eu-extends-digital-transition-waste-shipment-documents-2026-11-25_en"
+     },
+     {
+      "label": "letsrecycle.com — EU confirms new deadline for Annex VII DIWASS inclusion (25 novembre 2026)",
+      "url": "https://www.letsrecycle.com/news/eu-confirms-new-deadline-for-annex-vii-diwass-inclusion/"
+     }
+    ]
+   },
+   {
+    "slug": "parfums-bruxelles-inflige-471-9-millions-d-euros-d-amende-a-firmenich-givaudan",
+    "title": "Parfums : Bruxelles inflige 471,9 millions d’euros d’amende à Firmenich, Givaudan et IFF",
+    "summary": "Le 25 novembre 2026, la Commission européenne a sanctionné les trois plus grands producteurs mondiaux de parfums, Firmenich, Givaudan et IFF, pour une entente dans l’Espace économique européen entre mars 2019 et mars 2023. Les trois groupes échangeaient des informations sensibles, notamment sur les prix, à propos de leurs ventes à Unilever. Ils ont coopéré et transigé, ce qui a réduit leurs amendes.",
+    "kind": "actualite",
+    "topic": "entreprises",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "L’amende totale atteint 471,9 millions d’euros : 252 363 000 euros pour Givaudan, 137 689 000 euros pour Firmenich et 81 915 000 euros pour IFF.",
+     "Selon la Commission, les trois groupes ont échangé des informations sur les prix, les tactiques de négociation et un possible supplément énergie dans leurs relations avec Unilever, et se sont engagés à ne pas débaucher leurs salariés respectifs travaillant sur ce client.",
+     "Les trois entreprises ont bénéficié du programme de clémence et d’une réduction de 10 % pour avoir reconnu les faits ; dsm-firmenich indique avoir aussi transigé avec l’autorité britannique de la concurrence."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — Commission fines Firmenich, Givaudan and IFF €471.9 million for participating in an international fragrance cartel (IP/26/2574, 25 novembre 2026)",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2574"
+     },
+     {
+      "label": "dsm-firmenich — dsm-firmenich reaches settlement with European Commission and UK Competition and Markets Authority (25 novembre 2026)",
+      "url": "https://our-company.dsm-firmenich.com/en/our-company/news/press-releases/2026/dsm-firmenich-reaches-settlement-with-european-commission-and-uk-competition-and-markets-authority.html"
+     }
+    ]
+   },
+   {
+    "slug": "rdc-en-ituri-pres-de-six-femmes-sur-dix-disent-subir-plus-de-violences-depuis",
+    "title": "RDC : en Ituri, près de six femmes sur dix disent subir plus de violences depuis Ebola",
+    "summary": "Selon une enquête publiée le 24 novembre 2026 par l’UNICEF, l’organisation congolaise SOFEPADI et l’université Washington de Saint-Louis, près de six femmes et adolescentes sur dix interrogées dans la province de l’Ituri, dans l’est de la République démocratique du Congo, signalent des violences apparues ou aggravées depuis le début de l’épidémie d’Ebola. L’enquête repose sur 1 062 entretiens menés entre le 28 août et le 15 octobre.",
+    "kind": "actualite",
+    "topic": "afrique",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-24",
+    "keyPoints": [
+     "L’enquête porte sur 1 062 entretiens avec des femmes et adolescentes de 15 ans et plus en Ituri : près de six sur dix signalent des violences ou abus apparus ou aggravés depuis le début de l’épidémie.",
+     "Neuf sur dix de celles qui signalent plus de violences citent le stress et la peur liés à l’épidémie ; près de la moitié de celles qui ont cherché de l’aide n’ont pas pu l’obtenir.",
+     "Les visites dans les huit espaces sûrs tenus par SOFEPADI en Ituri sont passées de 1 183 entre janvier et mars à 3 548 entre juillet et septembre ; le volet de protection des femmes et des enfants accuse un déficit de financement de 76 %."
+    ],
+    "sources": [
+     {
+      "label": "UNICEF Canada — Nearly 6 in 10 women and adolescent girls surveyed in Ebola-hit Ituri report increase in violence and abuse (24 novembre 2026)",
+      "url": "https://www.unicef.ca/en/press-release/nearly-6-10-women-and-adolescent-girls-surveyed-ebola-hit-ituri-report-increase"
+     },
+     {
+      "label": "ONU Info — RDC : la peur d’Ebola enferme les victimes de violences dans le silence (24 novembre 2026)",
+      "url": "https://news.un.org/fr/story/2026/11/1159897"
+     },
+     {
+      "label": "Devdiscourse — Nearly 6 in 10 Women and Girls Surveyed in Ituri Report New or Worsening Violence (25 novembre 2026)",
+      "url": "https://www.devdiscourse.com/article/health/4011834-nearly-6-in-10-women-and-girls-surveyed-in-ituri-report-new-or-worsening-violence"
+     }
+    ]
+   },
+   {
+    "slug": "l-il-du-sahara-vu-de-l-espace-un-dome-erode-pas-un-cratere-d-impact",
+    "title": "L’« œil du Sahara » vu de l’espace : un dôme érodé, pas un cratère d’impact",
+    "summary": "Le 25 novembre 2026, la NASA a publié une photographie de la structure du Richat, en Mauritanie, prise depuis la Station spatiale internationale le 14 novembre. Surnommée « l’œil du Sahara », cette formation circulaire a longtemps été prise pour un cratère d’impact. La NASA et l’institut géologique américain USGS la décrivent aujourd’hui comme un dôme soulevé puis érodé. Les sources ne donnent pas exactement la même taille : environ 40 kilomètres selon l’USGS, 45 selon la légende de la NASA.",
+    "kind": "actualite",
+    "topic": "sciences-societe",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "La photographie a été prise depuis la Station spatiale internationale le 14 novembre 2026 et publiée par la NASA le 25 novembre.",
+     "La structure du Richat, en Mauritanie, est un dôme géologique soulevé puis érodé ; l’hypothèse d’un impact d’astéroïde a été écartée par la plupart des scientifiques, selon l’USGS.",
+     "Selon la NASA, le dôme a environ 100 millions d’années et les roches du centre sont plus anciennes que celles des anneaux extérieurs."
+    ],
+    "sources": [
+     {
+      "label": "NASA — Eye of the Sahara (25 novembre 2026)",
+      "url": "https://www.nasa.gov/image-article/eye-of-the-sahara/"
+     },
+     {
+      "label": "USGS — Landsat Sees the Eye of the Sahara",
+      "url": "https://www.usgs.gov/news/featured-story/landsat-sees-eye-sahara"
+     },
+     {
+      "label": "NASA Earth Observatory — The Eye of Sahara",
+      "url": "https://science.nasa.gov/earth/earth-observatory/the-eye-of-sahara-150060/"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "commit": "d4a2c07",
+  "at": "2026-11-26T08:24:48+00:00",
+  "items": [
+   {
+    "slug": "revue-par-les-pairs-ce-que-valide-vraiment-la-relecture-d-un-article",
+    "title": "Revue par les pairs : ce que valide vraiment la relecture d'un article scientifique",
+    "summary": "Avant d'être publié dans une revue scientifique, un article est en principe relu par d'autres chercheurs du domaine, qui recommandent de l'accepter, de le modifier ou de le refuser. Ce contrôle, appelé revue par les pairs, vise la qualité scientifique, mais il repose sur le jugement de quelques personnes et ne vaut pas preuve définitive : des articles publiés sont parfois retirés ensuite.",
+    "kind": "concept",
+    "topic": "sciences-societe",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "La revue par les pairs est la relecture critique qu'exercent entre eux les chercheurs pour garantir la qualité scientifique des publications : le directeur de la revue confie l'article à au moins deux relecteurs spécialistes.",
+     "Les relecteurs rendent un rapport avec corrections, suggestions et avis ; l'article peut être accepté tel quel, accepté avec modifications mineures ou majeures, ou rejeté, souvent après plusieurs allers-retours.",
+     "Le système est jugé imparfait : il repose sur le jugement subjectif de quelques chercheurs, son opacité peut masquer des biais ou des conflits d'intérêts, et une rétractation après publication reste possible."
+    ],
+    "sources": [
+     {
+      "label": "Université Paris Cité, bibliothèques, Démystifier l'évaluation par les pairs",
+      "url": "https://u-paris.fr/bibliotheques/wp-content/uploads/sites/34/2021/02/12-DEMYSTIFIER-LEVALUATION.pdf"
+     },
+     {
+      "label": "Centre Mersenne, The peer review process",
+      "url": "https://www.centre-mersenne.org/en/the-peer-review-process/"
+     },
+     {
+      "label": "Université Laval, Trois questions sur le processus d'évaluation des articles par les revues scientifiques (juin 2026)",
+      "url": "https://nouvelles.ulaval.ca/2026/06/15/trois-questions-sur-le-processus-devaluation-des-articles-par-les-revues-scientifiques-323fd08f-b1ef-468b-bb81-04921a6a3afd"
+     }
+    ]
+   },
+   {
+    "slug": "comment-nait-et-s-aggrave-une-crise-diplomatique-entre-deux-etats",
+    "title": "Comment naît et s'aggrave une crise diplomatique entre deux États",
+    "summary": "Une crise diplomatique suit souvent une gradation : convocation d'un ambassadeur, rappel pour consultations, expulsion de diplomates déclarés persona non grata, jusqu'à la rupture des relations. La Convention de Vienne de 1961 encadre ces gestes et fixe ce qui reste protégé même au plus fort d'une crise, comme l'inviolabilité des ambassades.",
+    "kind": "concept",
+    "topic": "geopolitique",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Selon la Convention de Vienne sur les relations diplomatiques de 1961, les relations diplomatiques s'établissent par consentement mutuel, ce qui permet à chaque État de les réduire ou de les rompre.",
+     "L'article 9 permet à l'État d'accueil de déclarer un diplomate persona non grata à tout moment, sans avoir à motiver sa décision ; l'autre État répond souvent par une mesure réciproque.",
+     "Même en cas de rupture, et même en cas de conflit armé, l'État d'accueil doit respecter et protéger les locaux de la mission, qui peuvent être confiés à un État tiers."
+    ],
+    "sources": [
+     {
+      "label": "Convention de Vienne sur les relations diplomatiques, 1961 (texte publié par le ministère thaïlandais des Affaires étrangères)",
+      "url": "https://image.mfa.go.th/mfa/0/6p4M7ae5k9/VCDR_Eng.pdf"
+     },
+     {
+      "label": "Stefan Talmon, German Practice in International Law, Université de Bonn (décembre 2020)",
+      "url": "https://gpil.jura.uni-bonn.de/?p=2658"
+     },
+     {
+      "label": "Jurist, explainer sur la Convention de Vienne et l'incident Mexique-Équateur (avril 2024)",
+      "url": "https://www.jurist.org/features/2024/04/09/explainer-what-is-the-vienna-convention-on-diplomatic-relations-and-how-does-it-relate-to-the-mexico-ecuador-incident/"
+     }
+    ]
+   },
+   {
+    "slug": "pourquoi-des-emplois-disparaissent-chaque-annee-pendant-que-d-autres-naissent",
+    "title": "Pourquoi des emplois disparaissent chaque année pendant que d'autres naissent",
+    "summary": "L'emploi total d'un pays bouge peu d'une année sur l'autre, mais il cache des flux énormes : en France, selon l'Insee, environ 1,4 million d'emplois salariés sont créés chaque année dans les entreprises marchandes, et presque autant sont détruits. Sur vingt-cinq ans, ces mouvements déplacent aussi l'emploi d'un secteur à l'autre, de l'industrie vers les services, comme le montrent les comptes nationaux publiés par Eurostat (données 2024 et 2025 provisoires).",
+    "kind": "concept",
+    "topic": "economie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Selon l'Insee, entre 2009 et 2020, les entreprises marchandes non agricoles ont créé en moyenne 1 421 000 emplois salariés par an et en ont détruit 1 384 000, soit chaque fois 9 % du stock d'emplois de début d'année.",
+     "Ces flux viennent de la naissance et de la disparition d'établissements, mais aussi de la hausse ou de la baisse des effectifs dans les unités qui existent déjà ; les petites entreprises jeunes y pèsent beaucoup.",
+     "Selon Eurostat, l'emploi dans l'industrie hors construction en France est passé de 3 827 000 personnes en 2000 à 3 107 000 en 2025, quand les activités spécialisées, scientifiques, techniques et de soutien passaient de 3 101 000 à 4 878 000."
+    ],
+    "sources": [
+     {
+      "label": "Insee Première n° 1974, Les créations d'emplois portées surtout par les PME durant la décennie 2010 (novembre 2023)",
+      "url": "https://www.insee.fr/fr/statistiques/7721566"
+     },
+     {
+      "label": "Eurostat, emploi par branche d'activité, comptes nationaux annuels (nama_10_a10_e)",
+      "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10_a10_e/default/table"
+     }
+    ]
+   },
+   {
+    "slug": "que-sont-les-etf-ces-fonds-qui-copient-un-indice-boursier",
+    "title": "Que sont les ETF, ces fonds qui copient un indice boursier ?",
+    "summary": "Un ETF, ou tracker, est un fonds coté en Bourse qui cherche à reproduire le plus fidèlement possible l'évolution d'un indice. Ses frais sont en général plus bas que ceux d'un fonds géré activement, mais il expose à la baisse de l'indice, à un écart de suivi et, selon les cas, au risque de change ou de liquidité. Les chiffres de marché cités datent de fin 2016, dernière étude de l'AMF consultée sur ce point.",
+    "kind": "concept",
+    "topic": "finance",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Selon l'AMF, un ETF, également appelé tracker, est un fonds indiciel qui cherche à suivre le plus fidèlement possible l'évolution d'un indice boursier, et dont les parts sont cotées en continu.",
+     "La réplication peut être physique, le fonds achetant les titres de l'indice, ou synthétique, le fonds passant avec une banque un contrat d'échange de performance, appelé swap.",
+     "L'AMF indique des frais souvent inférieurs à 0,5 % par an pour les ETF, contre plus de 1 % par an, voire 1,5 %, pour certains fonds gérés activement ; l'investisseur peut perdre tout ou partie de son capital."
+    ],
+    "sources": [
+     {
+      "label": "AMF, Trackers (ETF), espace épargnants",
+      "url": "https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/placements-collectifs/trackers-etf"
+     },
+     {
+      "label": "AMF, Ce qu'il faut savoir sur les ETF avant d'investir (juin 2026)",
+      "url": "https://www.amf-france.org/sites/institutionnel/files/pdf/59268/fr/Ce_qu%27il_faut_savoir_sur_les_ETF_avant_d%27investir.pdf?1788787798"
+     },
+     {
+      "label": "AMF, ETF et risques associés : éclairage sur le marché français (février 2017)",
+      "url": "https://www.amf-france.org/sites/institutionnel/files/pdf/56796/fr/ETF_et_risques_associes__l%27AMF_apporte_un_eclairage_sur_le_marche_francais_des_fonds_indiciels_cotes.pdf?1779067049"
+     },
+     {
+      "label": "Wikifin (FSMA), Fonds indiciels, ETF et trackers",
+      "url": "https://www.wikifin.be/fr/epargner-et-investir/produits-dinvestissement/tracker/quest-ce-quun-tracker"
+     }
+    ]
+   },
+   {
+    "slug": "batteries-barrages-chaleur-comment-stocke-t-on-l-energie",
+    "title": "Batteries, barrages, chaleur : comment stocke-t-on l'énergie ?",
+    "summary": "L'électricité ne se stocke pas telle quelle : on la convertit en une autre forme d'énergie, mécanique, chimique ou thermique, puis on la restitue. Chaque famille a son rendement, sa durée utile et ses contraintes. Cet article s'appuie sur la note de l'Office parlementaire d'évaluation des choix scientifiques et technologiques de septembre 2023 et sur les fiches de l'IFP Énergies nouvelles et d'EDF ; les rendements cités sont des ordres de grandeur.",
+    "kind": "concept",
+    "topic": "energie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "L'énergie électrique elle-même ne se stocke pas : on la transforme en énergie mécanique (eau pompée, air comprimé, volant d'inertie), électrochimique (batteries) ou thermique, avant de la reconvertir.",
+     "Les stations de transfert d'énergie par pompage restent la forme de stockage la plus courante et la plus économique à grande échelle, avec un rendement de 70 à 85 % selon l'OPECST.",
+     "Les batteries lithium-ion ont un rendement de 90 à 95 % mais servent surtout sur quelques heures ; les stockages par pompage ou air comprimé visent des jours, voire des semaines."
+    ],
+    "sources": [
+     {
+      "label": "OPECST, note n° 42 « Comparer les modes de stockage de l'énergie », septembre 2023",
+      "url": "https://questions.assemblee-nationale.fr/dyn/contenu/visualisation/630670/file/OPECST_note_stockage%20NRJ%202023%20bis.pdf"
+     },
+     {
+      "label": "IFP Énergies nouvelles, « Stockage d'énergie »",
+      "url": "https://www.ifpenergiesnouvelles.fr/print/pdf/node/551"
+     },
+     {
+      "label": "EDF, « Tout savoir sur le stockage de l'électricité »",
+      "url": "https://particulier.edf.fr/fr/accueil/guide-energie/electricite/stockage-energie-electricite.html"
+     }
+    ]
+   },
+   {
+    "slug": "meteo-ou-climat-pourquoi-faut-il-trente-ans-de-mesures-pour-parler-de-climat",
+    "title": "Météo ou climat : pourquoi faut-il trente ans de mesures pour parler de climat ?",
+    "summary": "La météo décrit le temps qu'il fait un jour donné ; le climat se lit dans des moyennes de longue durée. L'Organisation météorologique mondiale fixe ces moyennes, les « normales », sur trente ans, recalculées tous les dix ans. Météo-France utilise aujourd'hui la période 1991-2020. Les chiffres de réchauffement cités viennent du ministère de la Transition écologique, mis à jour le 24 février 2026, avec 1961-1990 comme référence.",
+    "kind": "concept",
+    "topic": "environnement",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Pour l'OMM, les normales climatologiques standard sont des moyennes de données calculées sur des périodes consécutives de 30 ans, comme 1981-2010 puis 1991-2020, et recalculées tous les dix ans.",
+     "Les normales servent de référence pour comparer un jour, un mois ou une saison au climat ; une période stable, 1961-1990, reste recommandée pour suivre le changement climatique sur le long terme.",
+     "En France, la température moyenne annuelle de la décennie 2015-2024 dépasse de 1,9 °C celle de la période 1961-1990, selon le ministère de la Transition écologique."
+    ],
+    "sources": [
+     {
+      "label": "OMM, Recueil des normales climatologiques standard, lettre du 1er avril 2019",
+      "url": "https://extranet.wmo.int/edistrib_exped/grp_prs/_fr/2011_2022_Archives/2019/08791-2019-CLW-CLPA-DMA-CLIN8110_fr.pdf"
+     },
+     {
+      "label": "Météo-France, Normales 1991-2020 : définition, 2022",
+      "url": "https://donneespubliques.meteofrance.fr/client/document/normales-methode_299.pdf"
+     },
+     {
+      "label": "Ministère de la Transition écologique, Impacts du changement climatique : atmosphère, températures et précipitations",
+      "url": "https://www.ecologie.gouv.fr/politiques-publiques/impacts-du-changement-climatique-atmosphere-temperatures-precipitations"
+     }
+    ]
+   },
+   {
+    "slug": "pourquoi-chiffrer-ses-communications-et-ce-que-le-chiffrement-ne-garantit-pas",
+    "title": "Pourquoi chiffrer ses communications, et ce que le chiffrement ne garantit pas",
+    "summary": "Chiffrer un message, c'est le rendre illisible pour qui ne détient pas la bonne clé. La CNIL et l'Agence nationale de la sécurité des systèmes d'information (ANSSI) décrivent deux grandes familles, à clé secrète partagée et à paire de clés publique et privée, souvent combinées. Le chiffrement protège la confidentialité, mais il ne suffit pas seul : il faut aussi authentifier les messages et protéger les clés. Recommandations tirées des pages de la CNIL (2016 et 2024) et du guide de l'ANSSI de 2021.",
+    "kind": "concept",
+    "topic": "technologie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Selon la CNIL, le chiffrement assure la confidentialité d'un message : sans la clé, il reste illisible pour les humains comme pour les machines, à la manière d'une enveloppe scellée numérique.",
+     "Le chiffrement symétrique utilise une seule clé secrète, rapide mais à partager ; le chiffrement asymétrique utilise une clé publique pour chiffrer et une clé privée pour déchiffrer, plus lent ; le web en « https » combine les deux.",
+     "L'ANSSI recommande de toujours coupler le chiffrement avec un mécanisme d'authentification de message, et rappelle que la sécurité repose sur la protection des clés, pas sur le secret de l'algorithme."
+    ],
+    "sources": [
+     {
+      "label": "CNIL, Comprendre les grands principes de la cryptologie et du chiffrement",
+      "url": "https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
+     },
+     {
+      "label": "CNIL, Sécurité : chiffrement, hachage, signature",
+      "url": "https://cnil.fr/fr/securite-chiffrement-hachage-signature"
+     },
+     {
+      "label": "ANSSI, Guide de sélection d'algorithmes cryptographiques, 2021",
+      "url": "https://messervices.cyber.gouv.fr/documents-guides/anssi-guide-selection_crypto-1.0.pdf"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "commit": "425027e",
+  "at": "2026-11-26T09:13:19+00:00",
+  "items": [
+   {
+    "slug": "centres-de-donnees-en-orbite-spacex-autorise-a-lancer-jusqu-a-un-million-de",
+    "title": "Centres de données en orbite : SpaceX autorisé à lancer jusqu’à un million de satellites",
+    "summary": "Le 25 novembre 2026, la Commission fédérale des communications américaine (FCC) a autorisé SpaceX à placer jusqu’à un million de satellites en orbite basse pour Starmind, un réseau de calcul informatique alimenté par l’énergie solaire, selon les sites spécialisés GeekWire et SpacePolicyOnline. Le premier satellite doit être opérationnel au plus tard en 2033 et la constellation complète en 2040. Rien ne garantit que SpaceX lancera réellement autant d’engins.",
+    "kind": "actualite",
+    "topic": "technologie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "Selon GeekWire, SpaceX peut exploiter ses satellites Starmind entre 500 et 1 002 kilomètres d’altitude ; la FCC a posé des conditions, dont un plan détaillé de réduction des débris orbitaux.",
+     "D’après SpacePolicyOnline, SpaceX doit déployer un satellite d’ici le 25 novembre 2033, 10 % de la constellation d’ici 2035, la moitié d’ici 2038 et le reste d’ici le 25 novembre 2040.",
+     "La FCC a rejeté les objections d’Amazon, de Viasat et de la Société américaine d’astronomie, qui s’inquiète pour l’observation du ciel nocturne ; l’agence estime que les effets sur l’astronomie sortent de sa compétence."
+    ],
+    "sources": [
+     {
+      "label": "GeekWire — FCC clears SpaceX to put up to a million satellites in orbit for Starmind data center network (25 novembre 2026)",
+      "url": "https://www.geekwire.com/2026/fcc-clears-spacex-million-satellites-starmind-data-center/"
+     },
+     {
+      "label": "SpacePolicyOnline — FCC Approves Elon Musk’s One Million Orbital Data Centers (25 novembre 2026)",
+      "url": "https://spacepolicyonline.com/news/fcc-approves-elon-musks-one-million-orbital-data-centers/"
+     },
+     {
+      "label": "Fox Business — FCC clears SpaceX for 1M satellites (25 novembre 2026)",
+      "url": "https://www.foxbusiness.com/politics/data-centers-space-fcc-clears-spacex-1m-satellites-extend-americas-lead-superintelligence"
+     }
+    ]
+   },
+   {
+    "slug": "du-prototype-a-la-serie-pourquoi-une-demonstration-reussie-ne-suffit-pas-a",
+    "title": "Du prototype à la série : pourquoi une démonstration réussie ne suffit pas à produire",
+    "summary": "Un prototype qui fonctionne prouve qu'une technologie marche ; il ne prouve pas qu'on sait la fabriquer en grand nombre, à coût et qualité constants. Pour mesurer ces deux maturités, la Commission européenne utilise l'échelle des niveaux de maturité technologique, dits TRL, et le département américain de la Défense y ajoute une échelle de maturité de fabrication, dite MRL, qui va de la ligne pilote à la production à plein régime.",
+    "kind": "concept",
+    "topic": "industrie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Dans l'échelle TRL utilisée par la Commission européenne pour Horizon 2020, le niveau 7 correspond à la démonstration d'un prototype de système en environnement opérationnel, et le niveau 9 à un système réel éprouvé dans cet environnement.",
+     "Le département américain de la Défense définit en plus dix niveaux de maturité de fabrication : au niveau 8, une ligne pilote est démontrée ; au niveau 9, la production à faible cadence ; au niveau 10, la production à plein régime.",
+     "La fabricabilité y est définie comme la capacité à produire de façon constante au niveau de coût et de qualité requis, ce que la seule démonstration d'un prototype ne garantit pas."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne, Horizon 2020, annexe générale G : niveaux de maturité technologique",
+      "url": "https://ec.europa.eu/research/participants/data/ref/h2020/wp/2014_2015/annexes/h2020-wp1415-annex-g-trl_en.pdf"
+     },
+     {
+      "label": "Département de la Défense des États-Unis, définitions MRL et TRL",
+      "url": "https://at.dod.mil/Portals/129/Atch%202_MRL_TRL_Definitions.pdf"
+     },
+     {
+      "label": "Innovation, Sciences et Développement économique Canada, échelle des niveaux de maturité technologique",
+      "url": "https://ised-isde.canada.ca/site/innovative-solutions-canada/en/node/79"
+     }
+    ]
+   },
+   {
+    "slug": "que-signifie-vraiment-un-taux-de-recyclage",
+    "title": "Que signifie vraiment un taux de recyclage ?",
+    "summary": "Un taux de recyclage rapporte des tonnes recyclées à des tonnes de déchets produits. Le résultat dépend donc de ce que l'on compte au numérateur, de l'endroit où l'on pèse, et du total pris comme dénominateur. Les règles européennes de 2019 imposent de compter les déchets à l'entrée de l'opération de recyclage, pas à la sortie du bac de tri. Les chiffres cités viennent d'Eurostat pour les déchets municipaux, mis à jour le 15 octobre 2026, et du service statistique du ministère de la Transition écologique pour les autres catégories.",
+    "kind": "concept",
+    "topic": "recyclage",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Pour Eurostat, le taux de recyclage des déchets municipaux est la part des déchets municipaux recyclés dans le total des déchets municipaux produits, les deux termes étant mesurés en tonnes.",
+     "Depuis la décision d'exécution 2019/1004 de la Commission, les déchets recyclés sont en principe mesurés au point où ils entrent dans l'opération de recyclage : les refus de tri et les matières retirées avant recyclage ne comptent pas.",
+     "En 2024, le taux atteint 45,5 % en France, contre 49,4 % pour l'Union européenne et 69 % en Allemagne ; Eurostat signale une rupture de série pour la France cette année-là."
+    ],
+    "sources": [
+     {
+      "label": "Eurostat, taux de recyclage des déchets municipaux (cei_wm011)",
+      "url": "https://ec.europa.eu/eurostat/databrowser/view/cei_wm011/default/table"
+     },
+     {
+      "label": "Eurostat, déchets municipaux par opération de gestion (env_wasmun)",
+      "url": "https://ec.europa.eu/eurostat/databrowser/view/env_wasmun/default/table"
+     },
+     {
+      "label": "Eurostat, métadonnées de l'indicateur cei_wm011",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/en/cei_wm011_esmsip2.htm"
+     },
+     {
+      "label": "Commission européenne, décision d'exécution (UE) 2019/1004, EUR-Lex",
+      "url": "https://eur-lex.europa.eu/eli/dec_impl/2019/1004/oj/eng"
+     },
+     {
+      "label": "SDES, Bilan environnemental de la France, production de déchets et recyclage, mai 2021",
+      "url": "https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/bilan-environnemental/16-production-de-dechets-et-recyclage"
+     }
+    ]
+   },
+   {
+    "slug": "comment-fonctionne-une-franchise-marque-savoir-faire-et-redevances",
+    "title": "Comment fonctionne une franchise : marque, savoir-faire et redevances",
+    "summary": "Une franchise lie deux entreprises indépendantes : le franchiseur met à disposition sa marque, son savoir-faire et son assistance, le franchisé exploite le concept à ses risques et paie un droit d'entrée et des redevances. En France, le franchiseur doit remettre un document d'information précontractuelle au moins 20 jours avant la signature. Explications fondées sur les fiches de Service-Public et de Bpifrance Création.",
+    "kind": "concept",
+    "topic": "entreprises",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Bpifrance Création décrit la franchise comme une collaboration entre deux entreprises juridiquement et financièrement indépendantes, reposant sur trois piliers : une marque, un savoir-faire transmis et une assistance technique et commerciale.",
+     "Au moins 20 jours avant la signature du contrat, le franchiseur doit remettre au futur franchisé un document d'information précontractuelle, prévu par l'article L330-3 du code de commerce.",
+     "Le franchisé paie généralement un droit d'entrée et des redevances, en pratique de 2 à 5 % du chiffre d'affaires hors taxes selon Bpifrance Création, et reste un commerçant indépendant responsable de son entreprise."
+    ],
+    "sources": [
+     {
+      "label": "Service-Public Entreprendre, Déroulement du contrat de franchise",
+      "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F37343?lang=fr"
+     },
+     {
+      "label": "Bpifrance Création, Contrat de franchise",
+      "url": "https://bpifrance-creation.fr/encyclopedie/differentes-facons-dentreprendre/entreprendre-franchise/contrat-franchise"
+     }
+    ]
+   },
+   {
+    "slug": "comment-fonctionne-le-mobile-money-l-argent-sur-telephone-sans-compte-bancaire",
+    "title": "Comment fonctionne le mobile money, l'argent sur téléphone sans compte bancaire",
+    "summary": "Le mobile money permet de stocker, d'envoyer et de recevoir de l'argent avec un simple téléphone, sans compte bancaire, grâce à un réseau d'agents qui changent les espèces en monnaie électronique et inversement. L'Afrique concentre la majorité de son activité. Chiffres 2025 tirés du rapport annuel de la GSMA publié en 2026, et données d'inclusion financière de la Banque mondiale publiées en juillet 2025.",
+    "kind": "concept",
+    "topic": "afrique",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Le mobile money est un moyen d'échange et de réserve de valeur numérique utilisant le téléphone mobile, appuyé sur un réseau d'agents ; il ne nécessite pas de compte bancaire.",
+     "En 2025, selon la GSMA, 2,3 milliards de comptes étaient enregistrés dans le monde, dont 593 millions actifs sur 30 jours, et plus de 2 000 milliards de dollars ont transité par ces portefeuilles.",
+     "L'Afrique dans son ensemble pèse 66 % de la valeur des transactions et 59 % des comptes actifs ; la fraude et les taxes sur les transactions restent les principaux freins identifiés par la GSMA."
+    ],
+    "sources": [
+     {
+      "label": "GSMA, communiqué du 24 mars 2026 sur le mobile money en 2025",
+      "url": "https://www.gsma.com/newsroom/press-release/mobile-money-accounted-for-2-trillion-in-transactions-in-2025-doubling-since-2021-as-active-accounts-continue-to-grow/"
+     },
+     {
+      "label": "GSMA, The State of the Industry Report on Mobile Money 2026",
+      "url": "https://www.gsma.com/sotir/wp-content/plugins/plugin_gsma_sotir/reports/The-State-of-the-Industry-Report-2026_English.pdf"
+     },
+     {
+      "label": "Banque mondiale, communiqué Global Findex du 16 juillet 2025",
+      "url": "https://www.worldbank.org/en/news/press-release/2025/07/16/mobile-phone-technology-powers-saving-surge-in-developing-economies"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "commit": "3c120b3",
+  "at": "2026-11-26T09:14:16+00:00",
+  "items": [
+   {
+    "slug": "tracabilite-des-minerais-comment-on-suit-un-metal-de-la-mine-a-l-usine",
+    "title": "Traçabilité des minerais : comment on suit un métal de la mine à l'usine",
+    "summary": "Savoir d'où vient l'étain, le tantale, le tungstène ou l'or d'un appareil suppose de suivre le minerai à travers mines, négociants, fonderies et affineries. Le guide de l'OCDE sur le devoir de diligence et le règlement européen sur les minerais de conflit, appliqué depuis le 1er janvier 2021, organisent ce suivi par des documents, une évaluation des risques et des audits indépendants, sans éliminer le risque de fausses déclarations.",
+    "kind": "concept",
+    "topic": "materiaux-critiques",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Le guide de l'OCDE distingue la chaîne de responsabilité, série de documents qui nomment ceux qui ont détenu le minerai, et la traçabilité, suivi physique du minerai depuis sa mine d'origine jusqu'à la fonderie ou à l'affinerie.",
+     "Il propose cinq étapes : systèmes de gestion, identification et évaluation des risques, gestion des risques, audit au point de contrôle, et compte rendu public de la diligence exercée.",
+     "Le règlement européen s'applique directement aux importateurs de l'Union d'étain, de tantale, de tungstène et d'or depuis le 1er janvier 2021 ; il touche indirectement environ 500 fonderies et affineries."
+    ],
+    "sources": [
+     {
+      "label": "OCDE, Guide sur le devoir de diligence pour des chaînes d'approvisionnement responsables en minerais, introduction pour les entreprises en amont",
+      "url": "https://mneguidelines.oecd.org/Guide-OCDE-sur-le-devoir-de-diligence-pour-des-chaines-d-approvisionnement-responsables-en-minerais.pdf"
+     },
+     {
+      "label": "Commission européenne, The regulation explained (minerais de conflit)",
+      "url": "https://policy.trade.ec.europa.eu/development-and-sustainability/conflict-minerals-regulation/regulation-explained_en"
+     },
+     {
+      "label": "Règlement (UE) 2017/821 du 17 mai 2017, EUR-Lex",
+      "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32017R0821"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "commit": "b7b9838",
+  "at": "2026-11-26T13:18:17+00:00",
+  "items": [
+   {
+    "slug": "sommet-ue-balkans-bruxelles-presse-la-region-de-suivre-le-montenegro-et-l",
+    "title": "Sommet UE-Balkans : Bruxelles presse la région de suivre le Monténégro et l'Albanie",
+    "summary": "Réunis à Bruxelles le 25 novembre 2026, les dirigeants de l'UE et des Balkans occidentaux ont fait le point sur l'élargissement, en l'absence de la Serbie, dont le nouveau gouvernement n'était pas encore formé. Ursula von der Leyen a annoncé des dialogues d'intégration progressive au marché unique avec chaque partenaire dès début 2027 et indiqué que 63 % des étapes de réforme du plan de croissance étaient réalisées, contre 38 % un an plus tôt. Les montants cités restent des annonces : aucun versement n'est encore acté.",
+    "kind": "actualite",
+    "topic": "geopolitique",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "Selon Ursula von der Leyen, l'UE est en voie d'ouvrir et de fermer plus de 100 chapitres de négociation d'adhésion cette année ; le Monténégro approche de la fin des négociations et l'Albanie avance vite.",
+     "Les partenaires ont réalisé 63 % des étapes de réforme prévues par le plan de croissance, contre 38 % un an plus tôt, ce qui pourrait débloquer 338 millions d'euros pour l'Albanie, le Monténégro et la Macédoine du Nord.",
+     "La Serbie était absente : selon Toute l'Europe, son président par intérim Aleksandar Čupić a invoqué des travaux parlementaires urgents, alors que le nouveau gouvernement était encore en formation."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — Statement by President von der Leyen with President Costa following the EU-Western Balkans Summit, 25 novembre 2026",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/statement_26_2591"
+     },
+     {
+      "label": "Toute l'Europe — Sommet UE-Balkans : Bruxelles veut accélérer l'intégration de la région, 26 novembre 2026",
+      "url": "https://www.touteleurope.eu/l-ue-dans-le-monde/sommet-ue-balkans-bruxelles-veut-accelerer-l-integration-de-la-region/"
+     },
+     {
+      "label": "Agence Europe — At EU Summit with countries of region, António Costa and Ursula von der Leyen hope to maintain enlargement momentum, 24 novembre 2026",
+      "url": "https://agenceurope.eu/en/bulletin/article/13989/7/at-eu-summit-with-countries-of-region-antonio-costa-and-ursula-von-der-leyen-hope-to-maintain-enlargement-momentum"
+     }
+    ]
+   },
+   {
+    "slug": "consommateurs-temu-s-engage-a-cesser-faux-rabais-et-jeux-forces-dans-l-ue",
+    "title": "Consommateurs : Temu s'engage à cesser faux rabais et jeux forcés dans l'UE",
+    "summary": "Le 26 novembre 2026, le réseau européen des autorités de protection des consommateurs (CPC) a accepté les engagements de la place de marché en ligne Temu, à l'issue d'une action ouverte en novembre 2024. Temu promet notamment de distinguer les vraies réductions des simples comparaisons de prix, de filtrer les faux avis, de rembourser sous 14 jours et de supprimer les jeux imposés et les messages du type « presque épuisé ». L'action était menée par les autorités irlandaise, belge et allemande, sous la coordination de la Commission européenne.",
+    "kind": "actualite",
+    "topic": "economie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-26",
+    "keyPoints": [
+     "Le réseau CPC a accepté le 26 novembre 2026 les engagements de Temu sur les faux rabais, les faux avis, la vente sous pression, la « gamification » forcée et les informations manquantes ou trompeuses.",
+     "Temu s'engage à rembourser sous 14 jours, à afficher taxes et frais avant le paiement, à installer un détecteur de faux avis et un bouton « commander et payer » sur toutes ses versions européennes.",
+     "Les autorités nationales surveilleront le respect de ces engagements ; en cas de manquement, elles pourront infliger des amendes allant jusqu'à 4 % ou plus du chiffre d'affaires annuel de Temu dans les États concernés."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — Temu commits to complying with EU consumer protection rules, communiqué IP/26/2594 du 26 novembre 2026",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2594"
+     },
+     {
+      "label": "RTÉ — Temu commits to changing some of its commercial practices in EU, 26 novembre 2026",
+      "url": "https://www.rte.ie/news/business/2026/1126/1600757-temu-commits-to-changing-some-commercial-practices-in-eu/"
+     },
+     {
+      "label": "Irish Examiner — Temu commits to changing operations to comply with Irish consumer laws, 26 novembre 2026",
+      "url": "https://www.irishexaminer.com/business/companies/arid-41942832.html"
+     },
+     {
+      "label": "Boursorama (AFP) — E-commerce : Temu s'engage à renforcer les droits des clients en Europe, 26 novembre 2026",
+      "url": "https://www.boursorama.com/actualite-economique/actualites/e-commerce-temu-s-engage-a-renforcer-les-droits-des-clients-en-europe-4f9e9db87957b03641e9f42705334c78"
+     }
+    ]
+   },
+   {
+    "slug": "finance-durable-bruxelles-simplifie-les-criteres-de-la-taxonomie-verte-de-l-ue",
+    "title": "Finance durable : Bruxelles simplifie les critères de la taxonomie verte de l'UE",
+    "summary": "La Commission européenne a adopté le 26 novembre 2026 une version révisée des critères techniques de la taxonomie européenne, le système qui classe les activités économiques considérées comme durables. Elle dit supprimer des exigences inutiles ou redondantes et clarifier la manière de prouver la conformité, sans réduire l'ambition environnementale. Les textes, des actes délégués, n'entreront en application qu'après un examen de quatre mois par le Parlement européen et le Conseil, prolongeable de deux mois.",
+    "kind": "actualite",
+    "topic": "finance",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-26",
+    "keyPoints": [
+     "Le 26 novembre 2026, la Commission a adopté des critères révisés pour la taxonomie européenne, en vigueur depuis 2020, qui fixe les conditions pour qu'une activité soit qualifiée de durable.",
+     "Selon la Commission, les investissements dans des activités alignées sur la taxonomie atteignent 1 200 milliards d'euros depuis 2021 ; les révisions visent à rendre les critères plus clairs et moins coûteux à appliquer.",
+     "Les actes délégués révisés sont transmis au Parlement et au Conseil, qui disposent de quatre mois, prolongeables de deux, pour les examiner avant leur application."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — Daily News du 26 novembre 2026, Commission adopts amended criteria to simplify the EU Taxonomy",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2595"
+     },
+     {
+      "label": "Commission européenne, DG FISMA — Commission adopts amended criteria to simplify the EU taxonomy, 26 novembre 2026",
+      "url": "https://finance.ec.europa.eu/news/commission-adopts-amended-criteria-simplify-eu-taxonomy-2026-11-26_en"
+     },
+     {
+      "label": "Hedgehog — What actually changed in the EU Taxonomy: two acts, one silent consequence, 23 novembre 2026",
+      "url": "https://www.hhc.earth/knowledge-base/articles/what-changed-in-eu-taxonomy"
+     }
+    ]
+   },
+   {
+    "slug": "chaines-d-approvisionnement-l-ue-et-le-bloc-transpacifique-lancent-une-alerte",
+    "title": "Chaînes d'approvisionnement : l'UE et le bloc transpacifique lancent une alerte commune",
+    "summary": "Réunis à Hanoï le 26 novembre 2026 pour leur deuxième dialogue ministériel sur le commerce et l'investissement, l'Union européenne et les douze membres de l'accord de partenariat transpacifique global et progressiste (CPTPP) ont lancé un réseau d'alerte précoce sur les perturbations des chaînes d'approvisionnement. Il doit permettre de repérer plus tôt les risques, d'échanger plus vite les informations et de coordonner les réponses. Sa première réunion est prévue début 2027 ; c'est pour l'instant un outil d'échange entre administrations, sans effet direct sur les droits de douane.",
+    "kind": "actualite",
+    "topic": "industrie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-26",
+    "keyPoints": [
+     "Le réseau d'alerte précoce UE-CPTPP sur les chaînes d'approvisionnement a été lancé le 26 novembre 2026 à Hanoï et tiendra sa première réunion début 2027.",
+     "Il réunira des fonctionnaires chargés d'évaluer les risques de perturbation et leurs effets en cascade, et de partager les bonnes pratiques face à des risques précis.",
+     "Les deux parties ont aussi décidé d'approfondir leur coopération sur le commerce numérique, de partager des informations sur les mesures environnementales liées au commerce et ont réaffirmé leur soutien à une réforme de l'OMC."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — Daily News 26/11/2026, EU launches Supply Chain Early Warning Network with Trans-Pacific bloc",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2595"
+     },
+     {
+      "label": "Devdiscourse (Reuters) — Pacific trade bloc, ASEAN meet in Vietnam as Trump fires new tariff salvo, 26 novembre 2026",
+      "url": "https://www.devdiscourse.com/article/international/4012531-pacific-trade-bloc-asean-meet-in-vietnam-as-trump-fires-new-tariff-salvo"
+     },
+     {
+      "label": "Radio Taiwan International (CNA) — CPTPP et UE : alerte sur les chaînes d'approvisionnement, 26 novembre 2026",
+      "url": "https://www.rti.org.tw/news?uid=3&pid=1053864"
+     },
+     {
+      "label": "newsquawk.com",
+      "url": "https://www.newsquawk.com/headlines/eu-trade-commissioner-efovi-says-an-agreement-has-been-reached-with-the-cptpp-to-establish-a-supply-chain-early-warning-mechanism"
+     }
+    ]
+   },
+   {
+    "slug": "sortie-du-gaz-l-etat-publie-son-guide-pour-fermer-des-reseaux-rue-par-rue",
+    "title": "Sortie du gaz : l'État publie son guide pour fermer des réseaux, rue par rue",
+    "summary": "Le 25 novembre 2026, les ministères chargés de l'énergie et de l'aménagement du territoire ont publié un guide destiné aux 109 « territoires d'électrification » retenus en septembre, pour organiser la sortie progressive du réseau de gaz. Les trois premières feuilles de route ont été signées le même jour par Nevers, la Flandre et Nègrepelisse. La démarche reste incitative : une conduite ne peut fermer que si tous les abonnés qu'elle dessert ont renoncé au gaz, et les premières fermetures ne sont pas attendues avant fin 2027 ou début 2028.",
+    "kind": "actualite",
+    "topic": "energie",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "Le guide publié le 25 novembre 2026 s'adresse aux 109 territoires d'électrification désignés en septembre, qui regroupent 6 700 communes et 14 millions d'habitants selon la presse spécialisée.",
+     "L'objectif affiché est de faire passer la part des logements chauffés au gaz de 39 % à 10 % d'ici 2050, sans obligation légale : un seul abonné restant suffit à maintenir une conduite en service.",
+     "À partir de mars 2027, une aide pouvant atteindre 1 000 euros par logement est prévue pour un ménage qui fait retirer durablement son compteur de gaz ; les premières fermetures sont envisagées fin 2027 ou début 2028."
+    ],
+    "sources": [
+     {
+      "label": "Actu-Environnement — Plan d'électrification : 109 territoires pilotes outillés pour sortir du réseau de gaz, 25 novembre 2026",
+      "url": "https://www.actu-environnement.com/ae/news/guide-sortie-reseau-gaz-territoires-electrification-ministeres-48842.php4"
+     },
+     {
+      "label": "GreenUnivers — Electrification : le gouvernement dévoile son guide pour sortir du gaz, 25 novembre 2026",
+      "url": "https://www.greenunivers.com/2026/11/electrification-le-gouvernement-devoile-son-guide-pour-sortir-du-gaz-439565/"
+     },
+     {
+      "label": "Economie Matin — Gaz : pourquoi votre rue pourrait perdre son réseau dès fin 2027, 26 novembre 2026",
+      "url": "https://www.economiematin.fr/electrification-gaz-cout-menages-communes-2026"
+     },
+     {
+      "label": "L'EnerGeek — 109 territoires bientôt 100 % électriques en France ?, 26 novembre 2026",
+      "url": "https://lenergeek.com/2026/11/26/fermeture-reseaux-gaz-transition-electrique-2027/"
+     }
+    ]
+   },
+   {
+    "slug": "distributeurs-automatiques-bruxelles-autorise-lavazza-a-prendre-le-controle-d",
+    "title": "Distributeurs automatiques : Bruxelles autorise Lavazza à prendre le contrôle d’IVS",
+    "summary": "Le 26 novembre 2026, la Commission européenne a autorisé le torréfacteur italien Luigi Lavazza à acquérir le contrôle exclusif d’IVS Group, opérateur de distributeurs automatiques de boissons et de collations basé au Luxembourg. Examinée selon la procédure simplifiée, l’opération ne pose selon elle pas de problème de concurrence. Elle concrétise un rapprochement engagé dès 2020, dont les termes financiers datent de 2024.",
+    "kind": "actualite",
+    "topic": "entreprises",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-26",
+    "keyPoints": [
+     "La Commission a approuvé le 26 novembre 2026, au titre du règlement européen sur les concentrations, l’acquisition du contrôle exclusif d’IVS Group par Luigi Lavazza, dans le dossier M.12648.",
+     "Selon Bruxelles, la position de marché combinée des deux entreprises reste limitée et l’opération a peu d’effet sur la structure du marché, d’où un examen en procédure simplifiée.",
+     "En 2024, Lavazza prévoyait de porter sa participation à 48,76 % puis de prendre le contrôle total d’IVS en 2027, la société étant alors valorisée environ 650 millions d’euros, selon World Coffee Portal."
+    ],
+    "sources": [
+     {
+      "label": "Commission européenne — Daily News 26/11/2026 : Commission clears acquisition of IVS Group by Luigi Lavazza",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2595"
+     },
+     {
+      "label": "Teleborsa — Commissione UE autorizza acquisto di IVS Group da parte di Luigi Lavazza (26/11/2026)",
+      "url": "https://www.teleborsa.it/News/2026/11/26/commissione-ue-autorizza-acquisto-di-ivs-group-da-parte-di-luigi-lavazza-87.html"
+     },
+     {
+      "label": "World Coffee Portal — Lavazza agrees to fully acquire Italian vending machine operator IVS Group (23/04/2024)",
+      "url": "https://www.worldcoffeeportal.com/news/lavazza-agrees-to-fully-acquire-italian-vending-machine-operator-ivs-group/"
+     }
+    ]
+   },
+   {
+    "slug": "liberia-5-6-milliards-de-dollars-avec-bea-mountain-pour-tripler-la-capacite",
+    "title": "Liberia : 5,6 milliards de dollars avec Bea Mountain pour tripler la capacité électrique",
+    "summary": "Le 25 novembre 2026, le gouvernement libérien a signé avec la société minière Bea Mountain un accord-cadre d’infrastructures de 5,6 milliards de dollars. Il prévoit environ 270 mégawatts de nouvelles capacités électriques, alors que le pays en compte 126 selon la Banque mondiale, ainsi que des routes et un renforcement du réseau. L’accord doit encore être ratifié par le Parlement, et son coût suscite des critiques.",
+    "kind": "actualite",
+    "topic": "afrique",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "L’accord prévoit une centrale hydroélectrique de 100 MW sur la rivière Via, deux centrales sur la rivière Saint-Paul totalisant 110 MW et une centrale à biomasse de 60 MW.",
+     "Il comprend aussi une route de 146 km reliant les centrales aux pôles économiques, un milliard de dollars pour d’autres routes et 230 millions de dollars pour renforcer le réseau électrique.",
+     "Le Conseil des Églises du Liberia, des analystes et des opposants demandent aux parlementaires de ne pas ratifier l’accord en l’état, faute de transparence sur les coûts et le financement."
+    ],
+    "sources": [
+     {
+      "label": "Ecofin Agency — Liberia’s $5.6 Billion Deal to Triple Power Capacity Faces Scrutiny Over Costs and Financing (26/11/2026)",
+      "url": "https://www.ecofinagency.com/news-industry/2611-61186-liberia-s-5-6-billion-deal-to-triple-power-capacity-faces-scrutiny-over-costs-and-financing"
+     },
+     {
+      "label": "Channel Africa (SABC), avec Reuters — Liberia signs $5.6 billion infrastructure deal with Bea Mountain (25/11/2026)",
+      "url": "https://www.channelafrica.co.za/channelafrica/news/liberia-signs-5-6-billion-infrastructure-deal-with-bea-mountain/"
+     }
+    ]
+   },
+   {
+    "slug": "asteroide-dimorphos-la-sonde-hera-devoile-le-cratere-laisse-par-l-impact-de-dart",
+    "title": "Astéroïde Dimorphos : la sonde Hera dévoile le cratère laissé par l’impact de DART",
+    "summary": "Le 25 novembre 2026 à Berlin, l’Agence spatiale européenne a présenté les premières images détaillées de Dimorphos prises par sa sonde Hera, arrivée près du système double Didymos début novembre. Quatre ans après l’impact volontaire de la sonde DART de la NASA, l’astéroïde de 151 mètres porte un cratère qui s’étend sur toute sa largeur et tourne de façon instable. Six mois d’enquête commencent.",
+    "kind": "actualite",
+    "topic": "sciences-societe",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "eventDate": "2026-11-25",
+    "keyPoints": [
+     "Le 26 septembre 2022, la sonde DART de la NASA, de 580 kg, a percuté Dimorphos à 6,1 km/s : c’était le premier test de déviation d’un astéroïde.",
+     "Les images de Hera montrent une face aplatie par un cratère de la taille d’un stade, qui s’étend sur toute la largeur de l’astéroïde, et des centaines de blocs rocheux autour de Didymos et Dimorphos.",
+     "Selon Patrick Michel, responsable scientifique de la mission, Dimorphos a à la fois un cratère, une forme modifiée et une rotation devenue très instable ; l’équipe prévient que la mission ne fait que commencer."
+    ],
+    "sources": [
+     {
+      "label": "Observatoire de la Côte d’Azur — Dimorphos métamorphosé : Hera dévoile la première image post-impact (26/11/2026)",
+      "url": "https://www.oca.eu/fr/a-la-une/6016-dimorphos-metamorphose-hera-devoile-la-premiere-image-post-impact-de-la-lune-de-didymos-quatre-ans-apres-dart"
+     },
+     {
+      "label": "Euronews — ESA releases first images showing 'complete chaos' on asteroid smashed by NASA probe (25/11/2026)",
+      "url": "https://www.euronews.com/2026/11/25/esa-releases-first-images-showing-complete-chaos-on-asteroid-smashed-by-nasa-probe"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "commit": "ad59d8d",
+  "at": "2026-11-26T13:21:56+00:00",
+  "items": [
+   {
+    "slug": "spoutnik-1957-le-bip-venu-de-l-espace-qui-a-fait-naitre-la-nasa",
+    "title": "Spoutnik, 1957 : le bip venu de l'espace qui a fait naître la NASA",
+    "summary": "Le 4 octobre 1957, l'Union soviétique place en orbite Spoutnik 1, une sphère de 58 cm et 83,6 kg qui fait le tour de la Terre en 98 minutes environ. Surpris, les États-Unis accumulent les échecs avec Vanguard avant de réussir Explorer 1 le 31 janvier 1958, puis créent la NASA, qui ouvre le 1er octobre 1958. Ce récit s'appuie sur les archives historiques de la NASA et sur EBSCO. Il éclaire la compétition spatiale actuelle entre puissances, jusqu'aux projets lunaires.",
+    "kind": "recit",
+    "topic": "sciences-societe",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Le 4 octobre 1957, l'URSS lance Spoutnik 1, de la taille d'un ballon de plage : 58 cm de diamètre, 83,6 kg, une orbite en 98 minutes environ, selon la NASA.",
+     "Le 6 décembre 1957, la fusée américaine Vanguard TV-3 explose sur son pas de tir ; Explorer 1 réussit le 31 janvier 1958 et découvre les ceintures de Van Allen.",
+     "Eisenhower signe la loi spatiale le 29 juillet 1958 ; la NASA, bâtie à partir du NACA créé en 1915, ouvre le 1er octobre 1958."
+    ],
+    "sources": [
+     {
+      "label": "NASA, Sputnik and the Dawn of the Space Age",
+      "url": "https://www.nasa.gov/history/sputnik/index.html"
+     },
+     {
+      "label": "NASA, 65 Years Ago: The National Aeronautics and Space Act of 1958 Creates NASA",
+      "url": "https://www.nasa.gov/history/65-years-ago-the-national-aeronautics-and-space-act-of-1958-creates-nasa"
+     },
+     {
+      "label": "EBSCO Research Starters, Congress Creates the National Aeronautics and Space Administration",
+      "url": "https://www.ebsco.com/research-starters/history/congress-creates-national-aeronautics-and-space-administration"
+     }
+    ]
+   },
+   {
+    "slug": "helsinki-1er-aout-1975-l-acte-qui-a-mis-frontieres-et-droits-de-l-homme-sur-la",
+    "title": "Helsinki, 1er août 1975 : l'acte qui a mis frontières et droits de l'homme sur la table",
+    "summary": "Le 1er août 1975, 35 États, dont les États-Unis, le Canada et tous les pays européens sauf l'Albanie, signent à Helsinki l'Acte final de la Conférence sur la sécurité et la coopération en Europe. Le texte réunit dix principes, dont l'intégrité territoriale, et des engagements sur l'économie et les droits de l'homme, qui inspirent ensuite des groupes de surveillance en URSS. Ce récit s'appuie sur l'OSCE, le Bureau de l'historien du département d'État et la Commission américaine sur la sécurité et la coopération en Europe. Il éclaire les débats actuels sur les frontières en Europe.",
+    "kind": "recit",
+    "topic": "geopolitique",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Après des consultations ouvertes en 1972, la conférence s'ouvre à Helsinki du 3 au 7 juillet 1973, se poursuit à Genève du 18 septembre 1973 au 21 juillet 1975 et se conclut à Helsinki le 1er août 1975.",
+     "L'Acte final, signé par 35 États, contient dix principes fondamentaux, surnommés le « Décalogue », et des engagements politico-militaires, économiques et humains.",
+     "Selon le Bureau de l'historien, des militants des droits de l'homme créent des groupes de surveillance d'Helsinki en URSS et en Europe, et la réunion de Belgrade instaure un processus d'examen."
+    ],
+    "sources": [
+     {
+      "label": "Bureau de l'historien, département d'État des États-Unis, Helsinki Final Act, 1975",
+      "url": "https://history.state.gov/milestones/1969-1976/helsinki"
+     },
+     {
+      "label": "OSCE, Helsinki Summit 1975",
+      "url": "https://www.osce.org/mc/58376"
+     },
+     {
+      "label": "Commission sur la sécurité et la coopération en Europe (États-Unis), The Helsinki Final Act",
+      "url": "https://www.csce.gov/publications/the-helsinki-final-act"
+     }
+    ]
+   },
+   {
+    "slug": "herstatt-26-juin-1974-la-faillite-qui-a-fait-naitre-le-comite-de-bale",
+    "title": "Herstatt, 26 juin 1974 : la faillite qui a fait naître le Comité de Bâle",
+    "summary": "Le 26 juin 1974, l'Allemagne de l'Ouest retire sa licence à la banque Herstatt, en pleine journée de travail à New York. Des banques qui avaient déjà payé en marks ne reçoivent jamais les dollars attendus : c'est le « risque Herstatt ». À la fin de 1974, les gouverneurs des banques centrales du G10 créent le comité qui deviendra le Comité de Bâle. Ce récit, fondé sur la Banque des règlements internationaux, la Cité de l'économie et un blog de chercheurs de la Banque d'Angleterre, éclaire les débats actuels sur la sécurité des paiements entre banques.",
+    "kind": "recit",
+    "topic": "finance",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Le 26 juin 1974, le superviseur bancaire ouest-allemand retire sa licence à Bankhaus Herstatt, 35e banque du pays, après la fermeture des banques allemandes mais pendant la journée de travail américaine.",
+     "Des contreparties avaient déjà versé des marks à Herstatt sans recevoir les dollars correspondants à New York : ce décalage entre deux paiements porte depuis le nom de « risque Herstatt ».",
+     "À la fin de 1974, les gouverneurs des banques centrales du G10 créent un comité de contrôle bancaire, réuni pour la première fois en février 1975 : l'ancêtre du Comité de Bâle et de ses accords."
+    ],
+    "sources": [
+     {
+      "label": "Banque des règlements internationaux, History of the Basel Committee",
+      "url": "https://www.bis.org/bcbs/history.htm"
+     },
+     {
+      "label": "Cité de l'économie (Citéco), Collapse of the Herstatt bank and creation of the Basel Committee",
+      "url": "https://www.citeco.fr/10000-years-history-economics/contemporary-world/collapse-of-the-herstatt-bank-in-germany-and-creation-of-the-basel-committee"
+     },
+     {
+      "label": "Bank Underground (Banque d'Angleterre), BoE archives reveal little known lesson from the 1974 failure of Herstatt Bank",
+      "url": "https://bankunderground.co.uk/2015/06/24/boe-archives-reveal-little-known-lesson-from-the-1974-failure-of-herstatt-bank/"
+     }
+    ]
+   },
+   {
+    "slug": "jeudi-d-argent-1980-quand-les-freres-hunt-ont-tente-d-accaparer-le-metal-blanc",
+    "title": "Jeudi d'argent, 1980 : quand les frères Hunt ont tenté d'accaparer le métal blanc",
+    "summary": "Le 27 mars 1980, le cours de l'argent s'effondre après la tentative des frères Hunt, deux héritiers texans, de dominer le marché de ce métal. Il était monté à 49,45 dollars l'once le 17 janvier 1980 et tombe à 10,80 dollars ce « jeudi d'argent ». Ce récit s'appuie sur l'Encyclopædia Britannica, le témoignage du président de la Réserve fédérale Paul Volcker devant le Congrès et le Christian Science Monitor de 1980. Il éclaire les débats actuels sur la concentration et la spéculation sur les métaux.",
+    "kind": "recit",
+    "topic": "materiaux-critiques",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Nelson Bunker Hunt et William Herbert Hunt achètent massivement de l'argent à partir d'un cours de 1,50 dollar l'once ; Britannica estime qu'ils en détiennent pour 4,5 milliards de dollars en 1979.",
+     "L'once atteint 49,45 dollars le 17 janvier 1980, puis tombe à 10,80 dollars le 27 mars 1980 ; Britannica chiffre la perte des frères Hunt à environ 1,7 milliard de dollars.",
+     "Devant le Congrès le 30 avril 1980, Paul Volcker indique que les Bourses avaient relevé les dépôts de garantie et limité les positions en janvier et février, et que la Réserve fédérale n'avait pas d'autorité sur ces marchés."
+    ],
+    "sources": [
+     {
+      "label": "Encyclopædia Britannica, Silver Thursday",
+      "url": "https://www.britannica.com/topic/Silver-Thursday"
+     },
+     {
+      "label": "Paul A. Volcker, déclaration devant la Chambre des représentants, 30 avril 1980 (FRASER, Réserve fédérale de Saint-Louis)",
+      "url": "https://fraser.stlouisfed.org/title/statements-speeches-paul-a-volcker-451/statement-subcommittee-commerce-consumer-monetary-affairs-committee-government-operations-house-representatives-8216/fulltext"
+     },
+     {
+      "label": "Christian Science Monitor, The silver 'meltdown' that wasn't, 1er avril 1980",
+      "url": "https://www.csmonitor.com/1980/0401/040135.html"
+     }
+    ]
+   },
+   {
+    "slug": "mobro-4000-1987-la-barge-d-ordures-dont-personne-ne-voulait",
+    "title": "Mobro 4000, 1987 : la barge d'ordures dont personne ne voulait",
+    "summary": "Au printemps 1987, une barge chargée de plus de 3 000 tonnes de déchets de Long Island a erré pendant des semaines le long des côtes américaines, refusée port après port. Ce récit s'appuie sur Retro Report, la notice historique d'EBSCO et l'encyclopédie Wikipedia, qui divergent sur plusieurs détails. Alors que l'export des déchets reste encadré et contesté, il rappelle comment cette odyssée a fait de la place en décharge un sujet national et nourri l'essor du recyclage.",
+    "kind": "recit",
+    "topic": "recyclage",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Le 22 mars 1987, la barge Mobro 4000 quitte Islip, à Long Island, avec environ 3 168 tonnes de déchets en balles, vers la Caroline du Nord, où un projet prévoyait d'en tirer du méthane.",
+     "Refusée notamment par la Caroline du Nord, la Louisiane, la Floride, le Mexique et le Belize, elle revient vers New York après environ six mille milles ; les déchets sont finalement incinérés à Brooklyn.",
+     "L'affaire a popularisé l'idée d'une pénurie de décharges ; Retro Report la juge en partie exagérée, mais estime qu'elle a aidé à lancer le mouvement du recyclage."
+    ],
+    "sources": [
+     {
+      "label": "Retro Report – A Barge Full of Garbage Helped to Fuel a Recycling Movement",
+      "url": "https://www.retroreport.org/video/voyage-of-the-mobro-4000/"
+     },
+     {
+      "label": "EBSCO Research Starters – Garbage Barge Mobro Cruises U.S. Atlantic and Gulf Coasts",
+      "url": "https://www.ebsco.com/research-starters/history/garbage-barge-mobro-cruises-us-atlantic-and-gulf-coasts"
+     },
+     {
+      "label": "Wikipedia – Mobro 4000",
+      "url": "https://en.wikipedia.org/wiki/Mobro_4000"
+     }
+    ]
+   },
+   {
+    "slug": "amoco-cadiz-1978-la-maree-noire-qui-a-souille-360-km-de-cotes-bretonnes",
+    "title": "Amoco Cadiz, 1978 : la marée noire qui a souillé 360 km de côtes bretonnes",
+    "summary": "Le 16 mars 1978, le pétrolier Amoco Cadiz s'échoue près de Portsall, dans le Finistère, et déverse toute sa cargaison. Ce récit s'appuie sur le Cedre, centre français d'expertise des pollutions accidentelles des eaux, et sur l'agence océanique américaine NOAA, qui divergent sur certains chiffres et sur la cause. Alors que la sécurité du trafic maritime reste un enjeu, il rappelle comment une catastrophe a changé l'organisation de la lutte antipollution en France.",
+    "kind": "recit",
+    "topic": "environnement",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Le 16 mars 1978, le pétrolier libérien Amoco Cadiz, chargé de 223 000 tonnes de pétrole brut selon le Cedre, s'échoue près de Portsall ; toute la cargaison se répand.",
+     "Le Cedre compte 360 km de côtes polluées, de Brest à Saint-Brieuc, entre 19 000 et 37 000 oiseaux morts et 6 400 tonnes d'huîtres perdues.",
+     "Après 14 ans de procès aux États-Unis, 1 257 millions de francs d'indemnités sont obtenus en 1992 ; le Cedre est créé dès le 5 juillet 1978."
+    ],
+    "sources": [
+     {
+      "label": "Cedre – Amoco Cadiz",
+      "url": "https://cedre.fr/resources/accident-reports/amoco-cadiz"
+     },
+     {
+      "label": "Cedre – Our story",
+      "url": "https://cedre.fr/en/about-us/our-story"
+     },
+     {
+      "label": "NOAA Incident News – Amoco Cadiz",
+      "url": "https://incidentnews.noaa.gov/incident/6241"
+     }
+    ]
+   },
+   {
+    "slug": "volkswagen-2015-le-logiciel-truqueur-qui-a-coute-des-milliards-au-constructeur",
+    "title": "Volkswagen, 2015 : le logiciel truqueur qui a coûté des milliards au constructeur",
+    "summary": "Le 18 septembre 2015, l'agence américaine de protection de l'environnement (EPA) et le régulateur californien de l'air (CARB) accusent Volkswagen d'avoir équipé ses voitures diesel d'un logiciel qui trompe les contrôles antipollution. Ce récit s'appuie sur les documents publiés par ces deux autorités. Alors que les constructeurs européens font face à des normes d'émissions de plus en plus strictes, il rappelle comment une fraude technique est devenue l'une des plus lourdes affaires judiciaires de l'industrie automobile.",
+    "kind": "recit",
+    "topic": "entreprises",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Le 18 septembre 2015, l'EPA notifie à Volkswagen, Audi et Volkswagen Group of America une infraction au Clean Air Act pour des voitures diesel de quatre cylindres des années modèles 2009 à 2015.",
+     "Selon l'EPA, ces voitures émettaient en conduite normale jusqu'à 40 fois la norme d'oxydes d'azote ; des chercheurs de l'université de Virginie-Occidentale et de l'ICCT avaient soulevé les premières questions.",
+     "En janvier 2017, Volkswagen accepte de plaider coupable de trois chefs d'accusation criminels et de payer 2,8 milliards de dollars de pénalité pénale, plus 1,5 milliard au civil."
+    ],
+    "sources": [
+     {
+      "label": "EPA – EPA, California Notify Volkswagen of Clean Air Act Violations (18 septembre 2015)",
+      "url": "https://www.epa.gov/archive/epa/newsreleases/epa-california-notify-volkswagen-clean-air-act-violations-carmaker-allegedly-used.html"
+     },
+     {
+      "label": "EPA – Learn About Volkswagen Violations",
+      "url": "https://epa.gov/vw/learn-about-volkswagen-violations"
+     },
+     {
+      "label": "California Air Resources Board – EPA, California Notify Volkswagen of Clean Air Act Violations",
+      "url": "https://ww2.arb.ca.gov/news/epa-california-notify-volkswagen-clean-air-act-violations"
+     }
+    ]
+   },
+   {
+    "slug": "addis-abeba-mai-1963-la-naissance-de-l-organisation-de-l-unite-africaine",
+    "title": "Addis-Abeba, mai 1963 : la naissance de l'Organisation de l'unité africaine",
+    "summary": "Du 22 au 25 mai 1963, les délégués de 32 pays africains se réunissent à Addis-Abeba et fondent l'Organisation de l'unité africaine (OUA). Ce récit s'appuie sur le texte de la Charte archivé par le Haut-Commissariat des Nations unies pour les réfugiés (Refworld), sur South African History Online et sur la notice historique d'EBSCO. Alors que l'Union africaine, qui lui a succédé, est sollicitée sur les crises du continent, il rappelle les compromis fondateurs de l'unité africaine.",
+    "kind": "recit",
+    "topic": "afrique",
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "keyPoints": [
+     "Le 25 mai 1963 à Addis-Abeba, à l'invitation de l'empereur Haïlé Sélassié, les États africains indépendants adoptent la Charte de l'OUA, après une conférence ouverte le 22 mai.",
+     "L'OUA rapproche deux camps rivaux : le groupe de Casablanca, partisan d'une intégration rapide, et le groupe de Monrovia, favorable à une démarche progressive.",
+     "La Charte consacre la souveraineté, l'intégrité territoriale et la non-ingérence ; l'OUA est remplacée en 2002 par l'Union africaine."
+    ],
+    "sources": [
+     {
+      "label": "Refworld (HCR) – Charter of the Organization of African Unity",
+      "url": "https://www.refworld.org/docid/3ae6b36024.html"
+     },
+     {
+      "label": "South African History Online – Organisation of African Unity (OAU)",
+      "url": "https://sahistory.org.za/node/63379"
+     },
+     {
+      "label": "EBSCO Research Starters – Organization of African Unity Is Founded",
+      "url": "https://www.ebsco.com/research-starters/politics-and-government/organization-african-unity-founded"
+     }
+    ]
+   }
+  ]
+ }
+]

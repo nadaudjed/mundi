@@ -20,7 +20,7 @@ export function EditorialPhotoLayer({ photo, near = true, focus }: { photo: Edit
 export function EditorialPhotoCredit({ photo }: { photo: EditorialPhoto }) {
   return (
     <span data-testid="editorial-photo-credit">
-      Photo d&apos;illustration : {photo.credit} ·{" "}
+      {photo.kind === "archive" ? <>Photo d&apos;archive : </> : <>Photo d&apos;illustration : </>}{photo.credit} ·{" "}
       <a href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{photo.license}</a>
       {" · "}
       <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">source Wikimedia Commons</a>

@@ -8,8 +8,8 @@
  * Deux signaux, combinés :
  * 1. une source primaire commune : identifiant de décision ou de communiqué normalisé (IP/26/2574,
  *    ip_26_2574, AT.40826, CELEX, ECLI, DOI…) ou adresse de source identique une fois normalisée ;
- * 2. la similarité du fait : mots du titre et du résumé en commun, chiffres saillants en commun
- *    (471,9 millions ; 252 363 000…), date de l'événement proche.
+ * 2. la similarité du fait : mots du titre et du résumé en commun, éléments du fait en commun
+ *    (entités nommées, action, chiffres saillants comme 471,9 millions ou 252 363 000, date proche).
  *
  * Verdict :
  * - « doublon » (manifeste) : source primaire commune ET même fait → mis en attente, jamais publié ;
@@ -73,6 +73,38 @@ export function salientNumbers(p) {
   return out;
 }
 
+/** Mots à majuscule qui ne désignent pas une entité (début de phrase fréquent, mois, institutions génériques). */
+const NOT_ENTITY = new Set(
+  ("le la les un une des ce cette ces son sa ses leur l d en au aux a dans pour par sur avec selon apres avant comme mais ou il elle ils elles on " +
+    "quand pourquoi comment que qui quoi lundi mardi mercredi jeudi vendredi samedi dimanche janvier fevrier mars avril mai juin juillet aout " +
+    "septembre octobre novembre decembre etat etats union europe europeenne europeen ue the of").split(" "),
+);
+
+/** Entités nommées du titre et du résumé (Firmenich, Givaudan, IFF, Commission…), en minuscules sans accents. */
+export function entities(p) {
+  const out = new Set();
+  for (const m of String([p?.title, p?.summary].join(" . ")).matchAll(/\b(\p{Lu}[\p{L}&'’-]{1,}|[A-Z]{2,6})\b/gu)) {
+    const w = fold(m[1]).replace(/['’].*$/, "");
+    if (w.length >= 3 && !NOT_ENTITY.has(w) && !STOP.has(w)) out.add(w);
+  }
+  return out;
+}
+
+/** Action principale du fait, par famille (une amende, un rachat, une élection…). */
+const ACTIONS = [
+  ["sanction", /\b(amendes?|inflige|sanction\w*|condamn\w*|penalit\w*|fined?)\b/],
+  ["acquisition", /\b(rach[eè]t\w*|acqui\w*|fusion\w*|absorb\w*)\b/],
+  ["election", /\b(elu|elue|election\w*|scrutin|vote)\b/],
+  ["accord", /\b(accords?|traite|signe\w*|ratifi\w*)\b/],
+  ["interdiction", /\b(interdi\w*|bannit|suspend\w*)\b/],
+  ["autorisation", /\b(autoris\w*|approuv\w*|feu vert)\b/],
+  ["aide", /\b(aides? d.etat|subvention\w*|plan de soutien)\b/],
+];
+export function actions(p) {
+  const hay = fold([p?.title, p?.summary].join(" "));
+  return new Set(ACTIONS.filter(([, re]) => re.test(hay)).map(([k]) => k));
+}
+
 const words = (p) =>
   new Set(
     fold([p?.title, p?.summary].join(" "))
@@ -106,7 +138,13 @@ export function compare(candidate, existing) {
   const sharedNumbers = [...nums].filter((x) => otherNums.has(x));
   const similarity = Math.round(jaccard(words(candidate), words(existing)) * 100) / 100;
   const sameDay = daysApart(candidate?.eventDate ?? candidate?.publishedAt, existing?.eventDate ?? existing?.publishedAt) <= 3;
-  return { sharedIds, sharedUrls: [...new Set(sharedUrls)], sharedNumbers, similarity, sameDay };
+  const ents = entities(existing);
+  const sharedEntities = [...entities(candidate)].filter((x) => ents.has(x));
+  const acts = actions(existing);
+  const sharedActions = [...actions(candidate)].filter((x) => acts.has(x));
+  // Un concept ou un récit qui cite le même communiqué n'est pas le même fait qu'une actualité.
+  const sameKind = (candidate?.kind ?? "actualite") === (existing?.kind ?? "actualite");
+  return { sharedIds, sharedUrls: [...new Set(sharedUrls)], sharedNumbers, sharedEntities, sharedActions, similarity, sameDay, sameKind };
 }
 
 /**
@@ -119,7 +157,10 @@ export function duplicateCheck(candidate, catalogue) {
     if (!p || p.slug === candidate?.slug && p === candidate) continue;
     const c = compare(candidate, p);
     const primary = c.sharedIds.length > 0 || c.sharedUrls.length > 0;
-    const sameFact = c.similarity >= 0.6 || (c.sameDay && (c.similarity >= 0.3 || c.sharedNumbers.length >= 2));
+    // Même fait : mêmes termes, ou (même jour, même type) des éléments du fait en commun :
+    // entités ET action ou montant, ou plusieurs chiffres saillants identiques.
+    const facts = c.sharedEntities.length >= 2 && (c.sharedActions.length >= 1 || c.sharedNumbers.length >= 1);
+    const sameFact = c.similarity >= 0.6 || (c.sameDay && c.sameKind && (c.similarity >= 0.3 || c.sharedNumbers.length >= 2 || facts));
     if (primary && sameFact) {
       return { level: "doublon", slug: p.slug, ...c,
         reason: `doublon manifeste de « ${p.slug} » : même source primaire (${[...c.sharedIds, ...c.sharedUrls].slice(0, 2).join(", ")}) et même fait` };

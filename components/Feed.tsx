@@ -18,7 +18,7 @@ import { TodayCard } from "./pilot/TodayCard";
 import type { TodayState } from "@/lib/today";
 
 /** Édition « Aujourd'hui » calculée au build (lib/today.ts) : trois sujets au plus. */
-export type TodayEdition = { edition: string; state?: TodayState; picks: { slug: string; fallback: boolean }[] };
+export type TodayEdition = { edition: string; state?: TodayState; today?: string; picks: { slug: string; fallback: boolean }[] };
 
 /**
  * Entrées du fil : uniquement les publications sourcées, chacune suivie
@@ -278,7 +278,7 @@ export function Feed({ verified = [], mix = true, today }: Props) {
       >
         {entries.map((e, i) =>
           e.kind === "today" ? (
-            <TodayCard key={e.key} publication={e.publication} index={i} rank={e.rank} size={todayEntries.length} edition={today?.edition ?? ""} state={today?.state} active={i === active} near={isNear(i)} fallback={e.fallback} onSkip={() => goTo(todayEntries.length)} />
+            <TodayCard key={e.key} publication={e.publication} index={i} rank={e.rank} size={todayEntries.length} edition={today?.edition ?? ""} state={today?.state} builtFor={today?.today} active={i === active} near={isNear(i)} fallback={e.fallback} onSkip={() => goTo(todayEntries.length)} />
           ) : e.kind === "verified" ? (
             <VerifiedCard key={e.key} publication={e.publication} index={i} position={e.position} total={publications.length} active={i === active} near={isNear(i)} revealed={seen.has(i)} visual={e.visual} />
           ) : e.kind === "data" ? (

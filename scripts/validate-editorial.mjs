@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import { catalogueDuplicates } from "./duplicate-guard.mjs";
 
 const list = JSON.parse(readFileSync(new URL("../content/publications.json", import.meta.url), "utf8"));
 const allowed = new Set(["geopolitique","economie","finance","industrie","materiaux-critiques","energie","recyclage","environnement","technologie","entreprises","afrique","sciences-societe"]);
@@ -34,6 +35,12 @@ for (const [index, p] of list.entries()) {
   if (p.kind !== undefined && !["actualite","concept","recit"].includes(p.kind)) errors.push("kind must be actualite, concept or recit");
   if (p.eventDate !== undefined && (!isDate(p.eventDate) || p.eventDate > p.publishedAt)) errors.push("eventDate must be a date on or before publishedAt");
   if (errors.length) { failed = true; console.error("Publication " + index + " (" + p.slug + "): " + errors.join(", ")); }
+}
+// Doublons manifestes (#125) : vérifié pour toute voie d'écriture, y compris une modification manuelle
+// ou une PR, puisque ce script tourne dans la CI qualité et avant chaque publication automatique.
+for (const d of catalogueDuplicates(list)) {
+  failed = true;
+  console.error("Doublon manifeste : " + d.b + " reprend le fait de " + d.a + " (même source primaire, même fait). Fusionner ou retirer l'un des deux.");
 }
 if (failed) process.exitCode = 1;
 else console.log("Editorial format validated: " + list.length + " publication(s). This does not verify factual accuracy.");

@@ -12,6 +12,7 @@ import { EditorialPhotoCredit } from "../EditorialPhotoLayer";
 import { TypeCover } from "../TypeCover";
 import { Icon } from "../Icon";
 import { LatestPublications } from "./LatestPublications";
+import { EditionHeading } from "./EditionHeading";
 
 const editionDate = (d: string) => {
   const t = Date.parse(d);
@@ -32,15 +33,12 @@ export function HomeEdition({ publications, today, now = editionNow() }: { publi
   const [main, ...secondary] = picks;
   const latest = latestAfter(publications, picks.map((p) => p.slug)).map(toHomeItem);
   const date = editionDate(edition.edition);
-  const heading = edition.state === "a-jour" ? (today?.title ?? "Aujourd'hui") : edition.state === "sans-nouveaute" ? "Édition" : "Les plus récentes";
 
   return (
     <div data-home className="magazine mx-auto max-w-5xl px-4 pt-6 pb-[calc(var(--nav-h)+3rem)] min-[360px]:px-5 md:px-8 md:pt-10 md:pb-20">
       <header className="border-b border-rule pb-4">
-        <p className="text-[0.75rem] font-semibold tracking-[0.12em] text-accent uppercase">
-          {heading}
-          {date && <span className="ml-2 font-normal tracking-normal text-muted normal-case" data-testid="home-edition-date">{date}</span>}
-        </p>
+        {/* Libellé daté ; il change dans le navigateur si minuit passe à Paris (site statique, #125). */}
+        <EditionHeading state={edition.state} title={today?.title} date={date} builtFor={edition.today} selectionDate={edition.selectionDate} />
         {/* Titre de la page pour les lecteurs d'écran (et repère du contrôle de production). */}
         <h1 className="sr-only">MUNDI — fil des publications sourcées</h1>
         <p className="mt-1.5 max-w-2xl text-[0.95rem] leading-relaxed text-muted">
@@ -160,7 +158,7 @@ function EditionNotice({ edition }: { edition: ResolvedToday<FeedPublication> })
   const text =
     edition.state === "perimee"
       ? `La sélection de la rédaction date du ${formatDate(edition.selectionDate)}. En attendant la prochaine, voici les publications les plus récentes, une actualité en tête.`
-      : `Sélection de la rédaction du ${formatDate(edition.selectionDate)} : rien de nouveau n'a été publié depuis.`;
+      : `Dernière édition de la rédaction, datée du ${formatDate(edition.selectionDate)} : rien de nouveau n'a été publié depuis.`;
   return (
     <p className="mt-3 max-w-2xl border-l-2 border-accent pl-3 text-[0.85rem] leading-relaxed text-ink" data-testid="home-edition-notice" data-state={edition.state}>
       {text}

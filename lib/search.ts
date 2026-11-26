@@ -23,3 +23,21 @@ export function searchPublications(publications: readonly FeedPublication[], que
     .sort((a, b) => b.score - a.score || b.publication.publishedAt.localeCompare(a.publication.publishedAt))
     .map((hit) => hit.publication);
 }
+
+/** Même règle pour les dossiers : chaque mot doit apparaître, le titre compte triple. */
+export function searchDossiers<T extends { title: string; intro: string; terms: string; topic: string; updatedAt: string }>(
+  dossiers: readonly T[], query: string,
+): T[] {
+  const terms = normalize(query).split(/\s+/).filter(Boolean);
+  if (!terms.length) return [...dossiers];
+  return dossiers
+    .map((d) => {
+      const title = normalize(d.title);
+      const corpus = normalize([d.title, d.intro, d.terms, getTopic(d.topic)?.name ?? ""].join(" "));
+      if (!terms.every((term) => corpus.includes(term))) return null;
+      return { d, score: terms.reduce((s, term) => s + (title.includes(term) ? 3 : 1), 0) };
+    })
+    .filter((hit): hit is { d: T; score: number } => hit !== null)
+    .sort((a, b) => b.score - a.score || b.d.updatedAt.localeCompare(a.d.updatedAt))
+    .map((hit) => hit.d);
+}

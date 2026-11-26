@@ -46,3 +46,30 @@ export function sortedUpdates<T extends { date: string }>(updates: readonly T[])
 export type DossierSummary = { id: string; title: string; updates: DossierUpdate[] };
 export const dossierSummaries = (): DossierSummary[] =>
   dossiers.map((d) => ({ id: d.id, title: d.title, updates: sortedUpdates(d.updates) }));
+
+/**
+ * Index léger pour Explorer et l'accueil : de quoi chercher et afficher une carte,
+ * sans la chronologie, les chiffres ni les mises à jour du dossier.
+ */
+export type DossierIndexItem = {
+  id: string;
+  title: string;
+  shortTitle: string;
+  intro: string;
+  topic: TopicSlug;
+  updatedAt: string;
+  publicationCount: number;
+  /** Texte cherché en plus du titre et de l'introduction : l'essentiel, en une chaîne. */
+  terms: string;
+};
+export const dossierIndex = (): DossierIndexItem[] =>
+  dossiers.map((d) => ({
+    id: d.id,
+    title: d.title,
+    shortTitle: d.shortTitle,
+    intro: d.intro,
+    topic: d.topic,
+    updatedAt: d.updatedAt,
+    publicationCount: d.publications.length,
+    terms: d.essentiel.join(" "),
+  }));

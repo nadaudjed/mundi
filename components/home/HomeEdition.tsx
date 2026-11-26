@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { dossierIndex, dossierPath, dossiers } from "@/lib/dossiers";
 import { HOME_BATCH, formatOf, latestAfter, stakeOf, toHomeItem } from "@/lib/home";
 import { publicationPath } from "@/lib/publication-links";
 import { selectToday, type TodayConfig } from "@/lib/today";
@@ -56,6 +57,8 @@ export function HomeEdition({ publications, today }: { publications: FeedPublica
         <p className="mt-8 text-base text-muted">Les premières publications arrivent bientôt.</p>
       )}
 
+      <PilotDossier />
+
       {main && (
         <p className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-rule py-4 text-sm text-muted">
           <span>Envie de faire défiler en plein écran, une publication à la fois ?</span>
@@ -110,5 +113,28 @@ function Topic({ publication: p, rank, size, lead = false }: { publication: Feed
         {action.label}
       </Link>
     </article>
+  );
+}
+
+/**
+ * Pendant le pilote (ticket #120) : un lien visible vers le dossier suivi,
+ * pour qu'un lecteur le trouve sans passer par un article ou par Explorer.
+ */
+function PilotDossier() {
+  const pilot = dossierIndex().find((d) => dossiers.find((x) => x.id === d.id)?.status === "pilote");
+  if (!pilot) return null;
+  return (
+    <section aria-labelledby="home-dossier-title" data-testid="home-dossier" className="relative mt-10 border-l-[3px] border-accent bg-surface px-4 py-4 md:px-6 md:py-5">
+      <p className="text-[0.75rem] font-semibold tracking-[0.12em] text-accent uppercase">Nouveau · Dossier à suivre</p>
+      <h2 id="home-dossier-title" className="mt-1.5 font-serif text-[1.5rem] leading-[1.1] text-ink text-balance md:text-[1.75rem]">
+        <Link href={dossierPath(pilot.id)} className="title-link after:absolute after:inset-0">{pilot.title}</Link>
+      </h2>
+      <p className="mt-2 max-w-2xl text-[0.92rem] leading-relaxed text-muted">
+        L&apos;actualité, le récit et les chiffres réunis sur une page. Suivez le dossier pour retrouver ses mises à jour dans Bibliothèque.
+      </p>
+      <p className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-ink" aria-hidden="true">
+        Ouvrir le dossier <Icon name="chevron-right" className="size-4" />
+      </p>
+    </section>
   );
 }

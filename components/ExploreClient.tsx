@@ -3,31 +3,36 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { publicationKind, type PublicationKind } from "@/lib/publication-kind";
-import { searchPublications } from "@/lib/search";
+import type { DossierIndexItem } from "@/lib/dossiers";
+import { searchDossiers, searchPublications } from "@/lib/search";
 import { getTopic, topics } from "@/lib/topics";
 import type { TopicSlug } from "@/lib/types";
 import type { FeedPublication } from "@/lib/verified";
 import { Icon } from "./Icon";
 import { consumeSearchFocus } from "./SearchShortcut";
 import { PublicationTile } from "./PublicationTile";
+import { DossierTile } from "./dossier/DossierTile";
 
 const plural = (n: number, one: string, many = one + "s") => (n > 1 ? many : one);
 
 /**
- * Formats (refonte #113) : « Tous » par défaut, puis trois filtres explicites.
- * Les anciennes adresses (?genre=actualites…) restent valables.
+ * Formats (refonte #113) : « Tous » par défaut, puis des filtres explicites.
+ * Les anciennes adresses (?genre=actualites…) restent valables ; ?genre=dossiers s'ajoute.
+ * Les dossiers ne sont pas des publications : ils ont leur propre carte et leur propre index léger.
  */
-type Genre = { kind: PublicationKind | "tous"; param: string; name: string; hint: string; heading: string };
+type Genre = { kind: PublicationKind | "tous" | "dossier"; param: string; name: string; hint: string; heading: string };
 const GENRES: Genre[] = [
   { kind: "tous", param: "tous", name: "Tous", hint: "Tous les formats", heading: "Toutes les publications" },
   { kind: "actualite", param: "actualites", name: "Actualités", hint: "Ce qui vient de se passer", heading: "Les dernières actualités" },
   { kind: "recit", param: "recits", name: "Récits", hint: "Histoires vraies, épisodes, idées", heading: "Les récits" },
   { kind: "concept", param: "concepts", name: "Concepts", hint: "Les notions pour comprendre", heading: "Les concepts à connaître" },
+  { kind: "dossier", param: "dossiers", name: "Dossiers", hint: "Un sujet suivi dans la durée", heading: "Les dossiers" },
 ];
+const DOSSIERS = GENRES[4];
 const ALL = GENRES[0];
 const genreOf = (param: string | null) => GENRES.find((g) => g.param === param) ?? GENRES[0];
 
-export function ExploreClient({ publications }: { publications: FeedPublication[] }) {
+export function ExploreClient({ publications, dossiers = [] }: { publications: FeedPublication[]; dossiers?: DossierIndexItem[] }) {
   const params = useSearchParams();
   const router = useRouter();
   const [query, setQuery] = useState(params.get("q") ?? "");
@@ -52,22 +57,32 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
   /** Résultats de la recherche, par espace (avant le filtre de rubrique). */
   const found = useMemo(() => {
     const all = searchPublications(publications, query);
-    return Object.fromEntries(GENRES.map((g) => [g.kind, g === ALL ? all : all.filter((p) => publicationKind(p) === g.kind)])) as Record<Genre["kind"], FeedPublication[]>;
+    return Object.fromEntries(GENRES.filter((g) => g !== DOSSIERS).map((g) => [g.kind, g === ALL ? all : all.filter((p) => publicationKind(p) === g.kind)])) as Record<Genre["kind"], FeedPublication[]>;
   }, [publications, query]);
-  const inGenre = found[genre.kind];
-  const results = useMemo(() => (topic ? inGenre.filter((p) => p.topic === topic) : inGenre), [inGenre, topic]);
+  const foundDossiers = useMemo(() => searchDossiers(dossiers, query), [dossiers, query]);
+  /** Nombre de contenus trouvés par format : « Tous » compte aussi les dossiers. */
+  const countOf = (g: Genre) => (g === DOSSIERS ? foundDossiers.length : g === ALL ? found.tous.length + foundDossiers.length : found[g.kind].length);
+  const results = useMemo(() => {
+    const inGenre = genre === DOSSIERS ? [] : found[genre.kind];
+    return topic ? inGenre.filter((p) => p.topic === topic) : inGenre;
+  }, [found, genre, topic]);
+  /** Dossiers affichés : dans « Tous » et « Dossiers », jamais dans les autres formats. */
+  const dossierResults = useMemo(() => {
+    if (genre !== ALL && genre !== DOSSIERS) return [];
+    return topic ? foundDossiers.filter((d) => d.topic === topic) : foundDossiers;
+  }, [foundDossiers, genre, topic]);
   /** Rubriques présentes dans l'espace choisi, pour ne jamais proposer un filtre vide. */
   const genreTopics = useMemo(() => {
-    const inThisGenre = genre === ALL ? publications : publications.filter((p) => publicationKind(p) === genre.kind);
+    const inThisGenre: { topic: string }[] = genre === ALL ? [...publications, ...dossiers] : genre === DOSSIERS ? dossiers : publications.filter((p) => publicationKind(p) === genre.kind);
     return topics
       .map((t) => ({ topic: t, count: inThisGenre.filter((p) => p.topic === t.slug).length }))
       .filter((t) => t.count > 0 || t.topic.slug === topic);
-  }, [publications, genre, topic]);
+  }, [publications, dossiers, genre, topic]);
 
   const searching = query.trim().length > 0;
-  const total = found.tous.length;
-  /** Un format n'apparaît que s'il contient au moins une publication. */
-  const genres = GENRES.filter((g) => g === ALL || g === genre || publications.some((p) => publicationKind(p) === g.kind));
+  const total = countOf(ALL);
+  /** Un format n'apparaît que s'il contient au moins un contenu. */
+  const genres = GENRES.filter((g) => g === ALL || g === genre || (g === DOSSIERS ? dossiers.length > 0 : publications.some((p) => publicationKind(p) === g.kind)));
   const filtered = searching || genre !== ALL || topic !== null;
   const selectedTopic = topic ? getTopic(topic) : null;
   const [lead, ...others] = results;
@@ -79,7 +94,7 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
   return (
     <div className="mt-8">
       <form role="search" onSubmit={(e) => e.preventDefault()} className="relative">
-        <label htmlFor="search" className="sr-only">Rechercher une actualité, un récit ou un concept</label>
+        <label htmlFor="search" className="sr-only">Rechercher une actualité, un récit, un concept ou un dossier</label>
         <Icon name="search" className="pointer-events-none absolute left-0 top-1/2 size-5 -translate-y-1/2 text-muted" />
         <input id="search" ref={input} type="search" value={query} onChange={(e) => setQuery(e.target.value)}
           placeholder="Matières critiques, inflation, énergie…" autoComplete="off" aria-keyshortcuts="/ Control+K Meta+K"
@@ -95,13 +110,14 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
         <span className="font-mono">{total}</span> {searching ? plural(total, "résultat") : plural(total, "contenu")}
         {genres.filter((g) => g !== ALL).map((g) => (
           <span key={g.kind}>
-            {" "}· <span className="font-mono">{found[g.kind].length}</span> {g.name.toLowerCase().replace(/s$/, found[g.kind].length > 1 ? "s" : "")}
+            {" "}· <span className="font-mono">{countOf(g)}</span> {g.name.toLowerCase().replace(/s$/, countOf(g) > 1 ? "s" : "")}
           </span>
         ))}
       </p>
 
-      {/* Formats : Tous, puis Actualités, Récits, Concepts. */}
-      <div role="group" aria-label="Filtrer par format" className="no-scrollbar -mx-5 mt-8 flex gap-x-5 overflow-x-auto border-b border-ink px-5 md:mx-0 md:px-0" data-testid="explore-genres">
+      {/* Formats : Tous, puis Actualités, Récits, Concepts, Dossiers. Sur petit écran, la ligne
+          passe à la ligne au lieu de défiler : chaque filtre reste visible (320 px compris). */}
+      <div role="group" aria-label="Filtrer par format" className="mt-8 flex flex-wrap gap-x-5 gap-y-1 border-b border-ink" data-testid="explore-genres">
         {genres.map((g) => {
           const selected = g === genre;
           return (
@@ -110,7 +126,7 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
               className={"-mb-px min-h-11 shrink-0 border-b-[3px] pb-3 pt-1 text-left transition-colors " + (selected ? "border-accent" : "border-transparent hover:border-rule")}>
               <span className={"flex items-baseline gap-2 whitespace-nowrap font-display text-xl font-semibold leading-tight md:text-2xl " + (selected ? "text-ink" : "text-muted")}>
                 {g.name}
-                <span className="font-mono text-meta font-normal text-muted">{found[g.kind].length}</span>
+                <span className="font-mono text-meta font-normal text-muted">{countOf(g)}</span>
               </span>
               <span className="mt-0.5 hidden text-sm leading-snug text-muted sm:block">{g.hint}</span>
             </button>
@@ -128,13 +144,26 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
         ))}
       </div>
 
+      {genre === ALL && dossierResults.length > 0 && (
+        <section aria-labelledby="dossiers" className="mt-8" data-testid="explore-dossiers">
+          <h2 id="dossiers" className="border-b border-rule pb-2 font-display text-intertitre font-semibold text-ink">
+            {searching ? "Dossiers correspondant à votre recherche" : "Dossiers"}
+          </h2>
+          <div className="mt-4 grid gap-4">
+            {dossierResults.map((d) => <DossierTile key={d.id} dossier={d} />)}
+          </div>
+        </section>
+      )}
+
       <section aria-labelledby="publications" className="mt-8">
         <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-rule pb-2">
           <h2 id="publications" className="font-display text-intertitre font-semibold text-ink">
             {searching ? (genre === ALL ? "Résultats de votre recherche" : `${genre.name} correspondant à votre recherche`) : selectedTopic ? `${genre === ALL ? "Publications" : genre.name} · ${selectedTopic.name}` : genre.heading}
           </h2>
           <span className="flex items-baseline gap-3">
-            <span className="font-mono text-meta text-muted" data-testid="explore-results-count">{results.length} {plural(results.length, "article")}</span>
+            <span className="font-mono text-meta text-muted" data-testid="explore-results-count">
+              {genre === DOSSIERS ? `${dossierResults.length} ${plural(dossierResults.length, "dossier")}` : `${results.length} ${plural(results.length, "article")}`}
+            </span>
             {filtered && (
               <button type="button" onClick={clearFilters} className="min-h-11 text-sm font-semibold text-accent underline-offset-4 hover:underline" data-testid="explore-clear">
                 Effacer les filtres
@@ -142,7 +171,11 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
             )}
           </span>
         </div>
-        {lead ? (
+        {genre === DOSSIERS && dossierResults.length > 0 ? (
+          <div className="mt-6 grid gap-4" data-testid="explore-dossiers">
+            {dossierResults.map((d) => <DossierTile key={d.id} dossier={d} />)}
+          </div>
+        ) : lead ? (
           <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0">
             <div className="lg:border-r lg:border-rule lg:pr-8">
               <PublicationTile publication={lead} featured />
@@ -162,9 +195,9 @@ export function ExploreClient({ publications }: { publications: FeedPublication[
         ) : (
           <p className="mt-5 text-sm leading-relaxed text-muted">
             Rien dans {genre === ALL ? "cette rubrique" : "les " + genre.name.toLowerCase()} pour ces filtres.{" "}
-            {genres.filter((g) => g !== genre && g !== ALL && found[g.kind].length > 0).map((g) => (
+            {genres.filter((g) => g !== genre && g !== ALL && countOf(g) > 0).map((g) => (
               <button key={g.kind} type="button" onClick={() => setGenre(g)} className="mr-3 font-semibold text-accent underline-offset-4 hover:underline">
-                Voir les {found[g.kind].length} {g.name.toLowerCase()}
+                Voir les {countOf(g)} {g.name.toLowerCase()}
               </button>
             ))}
           </p>

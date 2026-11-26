@@ -2,7 +2,9 @@ import Link from "next/link";
 import { dossierIndex, dossierPath, dossiers } from "@/lib/dossiers";
 import { HOME_BATCH, formatOf, latestAfter, stakeOf, toHomeItem } from "@/lib/home";
 import { publicationPath } from "@/lib/publication-links";
-import { selectToday, type TodayConfig } from "@/lib/today";
+import { resolveToday, type ResolvedToday, type TodayConfig } from "@/lib/today";
+import { editionNow } from "@/lib/edition-clock";
+import { formatDate } from "@/lib/format";
 import { getTopic } from "@/lib/topics";
 import { frenchSpacing } from "@/lib/typo";
 import type { FeedPublication } from "@/lib/verified";
@@ -22,24 +24,29 @@ const editionDate = (d: string) => {
  * Pour chaque sujet : format, titre, enjeu en une phrase et une action principale.
  * Le fil plein écran reste disponible à /fil/, en accès explicite.
  */
-export function HomeEdition({ publications, today }: { publications: FeedPublication[]; today: TodayConfig | null }) {
-  const picks = selectToday(publications, today ?? { selection: [] }).map((p) => p.publication);
+export function HomeEdition({ publications, today, now = editionNow() }: { publications: FeedPublication[]; today: TodayConfig | null; now?: Date }) {
+  // Édition datée (#125) : la sélection de la rédaction le jour même (heure de Paris) ; sinon un repli
+  // explicite sur les publications les plus récentes, une actualité en tête.
+  const edition = resolveToday(publications, today, now);
+  const picks = edition.picks.map((p) => p.publication);
   const [main, ...secondary] = picks;
   const latest = latestAfter(publications, picks.map((p) => p.slug)).map(toHomeItem);
-  const date = today ? editionDate(today.edition) : "";
+  const date = editionDate(edition.edition);
+  const heading = edition.state === "a-jour" ? (today?.title ?? "Aujourd'hui") : edition.state === "sans-nouveaute" ? "Édition" : "Les plus récentes";
 
   return (
     <div data-home className="magazine mx-auto max-w-5xl px-4 pt-6 pb-[calc(var(--nav-h)+3rem)] min-[360px]:px-5 md:px-8 md:pt-10 md:pb-20">
       <header className="border-b border-rule pb-4">
         <p className="text-[0.75rem] font-semibold tracking-[0.12em] text-accent uppercase">
-          {today?.title ?? "À la une"}
-          {date && <span className="ml-2 font-normal tracking-normal text-muted normal-case">{date}</span>}
+          {heading}
+          {date && <span className="ml-2 font-normal tracking-normal text-muted normal-case" data-testid="home-edition-date">{date}</span>}
         </p>
         {/* Titre de la page pour les lecteurs d'écran (et repère du contrôle de production). */}
         <h1 className="sr-only">MUNDI — fil des publications sourcées</h1>
         <p className="mt-1.5 max-w-2xl text-[0.95rem] leading-relaxed text-muted">
-          {today?.intro ?? "Une sélection courte, puis toutes les dernières publications."}
+          {edition.state === "a-jour" ? (today?.intro ?? "Une sélection courte, puis toutes les dernières publications.") : "Une sélection courte, puis toutes les dernières publications."}
         </p>
+        <EditionNotice edition={edition} />
       </header>
 
       {main ? (
@@ -105,6 +112,11 @@ function Topic({ publication: p, rank, size, lead = false }: { publication: Feed
         {formatOf(p)}
         {topic && <span className="font-normal text-muted"> · {topic.name}</span>}
       </p>
+      {/* Date du fait (actualité) et date de publication, distinctes de la date de l'édition (#125). */}
+      <p className="mt-0.5 text-[0.72rem] text-muted" data-testid="home-dates">
+        {p.kind === "actualite" && p.eventDate && p.eventDate !== p.publishedAt && <>Fait du {formatDate(p.eventDate)} · </>}
+        Publié le {formatDate(p.publishedAt)}
+      </p>
       <H className={`font-serif mt-1 text-ink text-balance ${lead ? "text-[2rem] leading-[1.05] md:text-[2.5rem]" : "text-[1.5rem] leading-[1.1]"}`}>
         <Link href={href} className="title-link">{title}</Link>
       </H>
@@ -136,5 +148,22 @@ function PilotDossier() {
         Ouvrir le dossier <Icon name="chevron-right" className="size-4" />
       </p>
     </section>
+  );
+}
+
+/**
+ * Repli visible (#125) : quand la sélection de la rédaction n'est pas celle du jour, l'accueil le dit
+ * au lieu de présenter une ancienne sélection comme l'édition d'aujourd'hui.
+ */
+function EditionNotice({ edition }: { edition: ResolvedToday<FeedPublication> }) {
+  if (edition.state === "a-jour" || !edition.selectionDate) return null;
+  const text =
+    edition.state === "perimee"
+      ? `La sélection de la rédaction date du ${formatDate(edition.selectionDate)}. En attendant la prochaine, voici les publications les plus récentes, une actualité en tête.`
+      : `Sélection de la rédaction du ${formatDate(edition.selectionDate)} : rien de nouveau n'a été publié depuis.`;
+  return (
+    <p className="mt-3 max-w-2xl border-l-2 border-accent pl-3 text-[0.85rem] leading-relaxed text-ink" data-testid="home-edition-notice" data-state={edition.state}>
+      {text}
+    </p>
   );
 }

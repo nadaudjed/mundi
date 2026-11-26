@@ -8,7 +8,9 @@
  * - tous les sujets sont admis, y compris sensibles, tant que c'est sourcé (décision du fondateur, 23/11/2026) ;
  * - au moins deux organismes sources différents, et chaque lien répond réellement (contrôle par le script,
  *   sans faire confiance à l'IA) ;
- * - pas de doublon (même titre ou mêmes sources qu'une publication existante).
+ * - pas de doublon (même titre ou mêmes sources qu'une publication existante) ; depuis #125, un brouillon qui
+ *   partage une source primaire (communiqué IP/…, affaire AT.…, CELEX, DOI, même adresse) ET le même fait
+ *   qu'une publication est mis en attente ; une source primaire commune seule est signalée pour revue.
  * Plafond quotidien MUNDI_PUBLISH_PER_DAY (défaut 24) et interrupteur d'urgence : variable MUNDI_AUTOPUBLISH=off.
  * La publication est signalée sur le site comme vérifiée par l'IA, sans relecture humaine.
  */
@@ -16,6 +18,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { publishableCards, publishableFlashcards } from "./data-cards-check.mjs";
+import { duplicateCheck } from "./duplicate-guard.mjs";
 
 export const AI_REVIEWER = "Vérificateur IA MUNDI (sans relecture humaine)";
 
@@ -60,6 +63,10 @@ export function blockers(output, existing) {
   const urls = sources.map((s) => s?.url).sort().join(" ");
   if (existing.some((p) => p.title === d.title || p.slug === slug || p.sources.map((s) => s.url).sort().join(" ") === urls))
     reasons.push("doublon d'une publication existante");
+  else {
+    const dup = duplicateCheck({ ...d, slug, eventDate: d.eventDate ?? output?.date ?? new Date().toISOString().slice(0, 10) }, existing);
+    if (dup?.level === "doublon") reasons.push("en attente : " + dup.reason);
+  }
   return reasons;
 }
 
@@ -169,8 +176,11 @@ export async function autopublish(results, existing, { enabled = true, max = 2, 
       continue;
     }
     const p = toPublication(output, results.date);
+    // Source primaire commune sans même fait : publiable, mais signalé à la rédaction (angles à vérifier).
+    const review = duplicateCheck(p, [...existing, ...published]);
     published.push(p);
-    decisions.push({ id: output.id, topic: output.topic, decision: "publié", slug: p.slug, robotBlockedLinks: links?.blocked ?? [] });
+    decisions.push({ id: output.id, topic: output.topic, decision: "publié", slug: p.slug, robotBlockedLinks: links?.blocked ?? [],
+      ...(review?.level === "revue" ? { revue: review.reason } : {}) });
   }
   return { published, decisions };
 }

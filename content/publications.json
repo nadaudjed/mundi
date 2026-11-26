@@ -2573,7 +2573,7 @@
       {
         "kind": "fait",
         "heading": "Une entente entre les trois géants du secteur",
-        "text": "La Commission européenne a annoncé le 25 novembre 2026 avoir infligé un total de 471,9 millions d'euros d'amendes à Firmenich et Givaudan, basés en Suisse, et à International Flavors & Fragrances (IFF), basé aux États-Unis. Ce sont les trois plus grands producteurs mondiaux de parfums industriels, ces compositions odorantes ajoutées aux lessives, shampoings, déodorants et produits ménagers. Selon la Commission, les trois groupes ont échangé des informations commercialement sensibles sur leurs affaires avec Unilever, plus gros acheteur mondial de parfums pour produits de consommation : hausses de prix, tactiques de négociation, possible surtaxe énergie. Ils se sont aussi entendus pour ne pas débaucher activement leurs salariés travaillant sur le compte Unilever. Givaudan et IFF ont en outre échangé des informations sur l'ensemble de leurs activités de parfums de consommation et, parfois, de parfumerie fine."
+        "text": "La Commission européenne a annoncé le 25 novembre 2026 avoir infligé un total de 471,9 millions d'euros d'amendes à Firmenich et Givaudan, basés en Suisse, et à International Flavors & Fragrances (IFF), basé aux États-Unis. Ce sont les trois plus grands producteurs mondiaux de parfums industriels, ces compositions odorantes ajoutées aux lessives, shampoings, déodorants et produits ménagers. Selon la Commission, les trois groupes ont échangé des informations commercialement sensibles sur leurs affaires avec Unilever, plus gros acheteur mondial de parfums pour produits de consommation : hausses de prix, tactiques de négociation, possible surtaxe énergie, et stratégie face aux demandes d'Unilever de plus de transparence sur la composition et le coût des ingrédients. Ils se sont aussi entendus pour ne pas débaucher activement leurs salariés travaillant sur le compte Unilever. Givaudan et IFF ont en outre échangé des informations sur l'ensemble de leurs activités de parfums de consommation et, parfois, de parfumerie fine."
       },
       {
         "kind": "fait",
@@ -2588,7 +2588,7 @@
       {
         "kind": "analyse",
         "heading": "Pourquoi un fournisseur peu connu pèse sur le panier des ménages",
-        "text": "Devant la presse, la vice-présidente exécutive Teresa Ribera a souligné que ce marché dépasse 4 milliards d'euros en Europe et que les trois groupes en représentent environ la moitié. Selon elle, les parfums peuvent représenter jusqu'à 10 % du coût d'un produit fini comme un shampoing ou une lessive. La Commission ne chiffre pas le surcoût éventuellement répercuté sur les consommateurs : elle indique seulement que le préjudice a pu se transmettre le long de la chaîne d'approvisionnement. Les clients lésés peuvent demander réparation devant les tribunaux nationaux, la décision de la Commission valant preuve de l'infraction."
+        "text": "Devant la presse, la vice-présidente exécutive Teresa Ribera a souligné que ce marché dépasse 4 milliards d'euros en Europe et que les trois groupes en représentent environ la moitié. Selon elle, les parfums peuvent représenter jusqu'à 10 % du coût d'un produit fini comme un shampoing ou une lessive. La Commission ne chiffre pas le surcoût éventuellement répercuté sur les consommateurs : elle indique seulement que le préjudice a pu se transmettre le long de la chaîne d'approvisionnement. Les clients lésés peuvent demander réparation devant les tribunaux nationaux, la décision de la Commission valant preuve de l'infraction. Les amendes sont versées au budget général de l'Union et réduisent d'autant les contributions des États membres l'année suivante."
       }
     ],
     "sources": [
@@ -2691,6 +2691,16 @@
       {
         "question": "Qu'est-ce qu'une transaction dans une affaire d'entente européenne ?",
         "answer": "Les entreprises reconnaissent leur participation à l'entente et leur responsabilité, en échange d'une réduction de 10 % de l'amende."
+      },
+      {
+        "question": "Pourquoi les amendes de Firmenich, Givaudan et IFF ont-elles été réduites par la Commission européenne ?",
+        "answer": "Parce que les trois groupes ont coopéré dans le cadre du programme de clémence et ont reconnu les faits en transigeant, ce qui leur a valu 10 % de réduction supplémentaire."
+      }
+    ],
+    "corrections": [
+      {
+        "date": "2026-11-26",
+        "text": "Un second article publié le même jour sur la même décision (communiqué IP/26/2574) a été fusionné avec celui-ci. Ses apports vérifiés sur la Commission européenne ont été ajoutés : la stratégie commune face aux demandes de transparence d'Unilever et l'affectation des amendes au budget de l'Union. Son ancienne adresse mène ici."
       }
     ]
   },
@@ -2992,35 +3002,11 @@
   {
     "slug": "parfums-bruxelles-inflige-471-9-millions-d-euros-d-amende-a-firmenich-givaudan",
     "title": "Parfums : Bruxelles inflige 471,9 millions d’euros d’amende à Firmenich, Givaudan et IFF",
-    "summary": "Le 25 novembre 2026, la Commission européenne a sanctionné les trois plus grands producteurs mondiaux de parfums, Firmenich, Givaudan et IFF, pour une entente dans l’Espace économique européen entre mars 2019 et mars 2023. Les trois groupes échangeaient des informations sensibles, notamment sur les prix, à propos de leurs ventes à Unilever. Ils ont coopéré et transigé, ce qui a réduit leurs amendes.",
-    "topic": "entreprises",
+    "status": "withdrawn",
+    "withdrawnAt": "2026-11-26",
+    "withdrawalReason": "Doublon de « parfums-industriels-bruxelles-inflige-471-9-millions-d-euros-a-trois-geants-du » : même décision de la Commission (IP/26/2574) publiée deux fois le 26/11/2026. Apports vérifiés fusionnés dans la publication de référence ; l'ancienne adresse redirige vers elle (ticket #125).",
+    "replacedBy": "parfums-industriels-bruxelles-inflige-471-9-millions-d-euros-a-trois-geants-du",
     "publishedAt": "2026-11-26",
-    "updatedAt": "2026-11-26",
-    "status": "published",
-    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
-    "aiVerified": true,
-    "keyPoints": [
-      "L’amende totale atteint 471,9 millions d’euros : 252 363 000 euros pour Givaudan, 137 689 000 euros pour Firmenich et 81 915 000 euros pour IFF.",
-      "Selon la Commission, les trois groupes ont échangé des informations sur les prix, les tactiques de négociation et un possible supplément énergie dans leurs relations avec Unilever, et se sont engagés à ne pas débaucher leurs salariés respectifs travaillant sur ce client.",
-      "Les trois entreprises ont bénéficié du programme de clémence et d’une réduction de 10 % pour avoir reconnu les faits ; dsm-firmenich indique avoir aussi transigé avec l’autorité britannique de la concurrence."
-    ],
-    "sections": [
-      {
-        "kind": "fait",
-        "heading": "Une entente de quatre ans autour d’Unilever",
-        "text": "La Commission européenne a annoncé le 25 novembre 2026 une amende totale de 471,9 millions d’euros contre Firmenich et Givaudan, basés en Suisse, et International Flavors & Fragrances (IFF), basé aux États-Unis, les trois plus grands producteurs mondiaux de parfums. Selon la Commission, les trois groupes ont échangé des informations commercialement sensibles sur leurs relations avec Unilever, le plus gros acheteur mondial de parfums destinés aux produits de grande consommation : hausses de prix, tactiques de négociation, possible supplément énergie, et stratégie face aux demandes de transparence d’Unilever sur la composition et le coût des ingrédients. Ils se sont aussi entendus pour ne pas recruter activement les salariés des autres affectés à ce client. Givaudan et IFF ont en outre échangé des informations sur leurs activités de parfums de grande consommation et, parfois, de parfumerie fine. L’infraction a duré de mars 2019 à mars 2023 et couvrait tout l’Espace économique européen."
-      },
-      {
-        "kind": "fait",
-        "heading": "Clémence et transaction réduisent les amendes",
-        "text": "Après des inspections surprises en mars 2023, les trois entreprises ont demandé à bénéficier du programme de clémence, puis ont transigé avec la Commission. Les réductions accordées pour la clémence sont de 50 % pour IFF, 30 % pour Givaudan et 20 % pour Firmenich ; toutes ont obtenu 10 % de plus pour avoir reconnu leur participation, et Firmenich 5 % au titre d’une participation plus limitée aux échanges. Les amendes finales sont de 252 363 000 euros pour Givaudan, 137 689 000 euros pour Firmenich et 81 915 000 euros pour IFF. De son côté, dsm-firmenich a annoncé le même jour avoir conclu une transaction avec la Commission européenne et avec l’autorité britannique de la concurrence, qui lui inflige 20 640 000 livres. L’enquête a été menée en coordination avec les autorités britannique, suisse et américaine."
-      },
-      {
-        "kind": "analyse",
-        "heading": "Un ingrédient discret des produits du quotidien",
-        "text": "La Commission souligne que les parfums entrent dans des milliers de produits de consommation courante, comme les produits d’hygiène et les lessives, achetés régulièrement par tous les ménages. Selon elle, ce type d’entente peut conduire à des prix plus élevés et à moins de choix pour les consommateurs, car les échanges d’informations réduisent l’incertitude sur le comportement des concurrents et remplacent la concurrence par la coordination. Les amendes sont versées au budget général de l’Union et réduisent d’autant les contributions des États membres l’année suivante."
-      }
-    ],
     "sources": [
       {
         "label": "Commission européenne — Commission fines Firmenich, Givaudan and IFF €471.9 million for participating in an international fragrance cartel (IP/26/2574, 25 novembre 2026)",
@@ -3031,14 +3017,8 @@
         "url": "https://our-company.dsm-firmenich.com/en/our-company/news/press-releases/2026/dsm-firmenich-reaches-settlement-with-european-commission-and-uk-competition-and-markets-authority.html"
       }
     ],
-    "kind": "actualite",
-    "eventDate": "2026-11-25",
-    "flashcards": [
-      {
-        "question": "Pourquoi les amendes de Firmenich, Givaudan et IFF ont-elles été réduites par la Commission européenne ?",
-        "answer": "Parce que les trois groupes ont coopéré dans le cadre du programme de clémence et ont reconnu les faits en transigeant, ce qui leur a valu 10 % de réduction supplémentaire."
-      }
-    ]
+    "summary": "Le 25 novembre 2026, la Commission européenne a sanctionné les trois plus grands producteurs mondiaux de parfums, Firmenich, Givaudan et IFF, pour une entente dans l’Espace économique européen entre mars 2019 et mars 2023. Les trois groupes échangeaient des informations sensibles, notamment sur les prix, à propos de leurs ventes à Unilever. Ils ont coopéré et transigé, ce qui a réduit leurs amendes.",
+    "eventDate": "2026-11-25"
   },
   {
     "slug": "rdc-en-ituri-pres-de-six-femmes-sur-dix-disent-subir-plus-de-violences-depuis",

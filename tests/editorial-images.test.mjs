@@ -219,3 +219,78 @@ test("une même photo n'illustre jamais deux articles : la recherche exclut les 
   assert.equal(result.images.filter(x=>x.sourceUrl===lab.url).length,1);
   assert.equal(result.report[0].status,"no_licensed_photo");
 });
+
+/* #125 — non-régression sur les mauvaises associations du 26/11/2026. */
+import {queryPlan,rejectsForArticle,loadReviews} from "../scripts/collect-editorial-images.mjs";
+import {readFileSync as readJson26} from "node:fs";
+const catalogue26=JSON.parse(readJson26("content/publications.json","utf8"));
+const article26=prefix=>{const p=catalogue26.find(x=>x.slug.startsWith(prefix));assert.ok(p,"article introuvable : "+prefix);return p;};
+const BAD_26=[
+  ["spoutnik-1957","laboratory"],["helsinki-1er-aout","helsinki aout"],["herstatt-26-juin","wind turbines"],
+  ["mobro-4000","Ariane 5 rocket"],["addis-abeba-mai-1963","humanitarian aid distribution"],["sortie-du-gaz","family children"],
+  ["liberia-5-6-milliards","african city"],["comment-fonctionne-une-franchise","franchise marque"],
+  ["comment-nait-et-s-aggrave","wind turbines"],["transferts-de-dechets","European Central Bank"],
+];
+test("#125 : les dix photos hors sujet signalées ne peuvent plus être publiées automatiquement",()=>{
+  for(const [prefix,query] of BAD_26){
+    const plan=queryPlan(article26(prefix));
+    const step=plan.find(x=>x.query===query);
+    // Soit la recherche fautive a disparu, soit elle n'est plus qu'une proposition soumise à la rédaction.
+    assert.ok(!step||step.strength==="faible",prefix+" : « "+query+" » ne doit plus être une recherche forte");
+  }
+});
+test("#125 : « souvent », « refusée », « ménages » et une obligation légale ne déclenchent plus éoliennes, fusée, enfants ou BCE",()=>{
+  const strong=(title,summary="")=>queryPlan({title,summary,topic:"finance"}).filter(x=>x.strength==="forte").map(x=>x.query);
+  assert.deepEqual(strong("Une faillite qui arrive souvent"),[]);
+  assert.deepEqual(strong("Une barge refusée dans tous les ports"),[]);
+  assert.deepEqual(strong("Fermer les réseaux de gaz : ce qui change pour les ménages"),[]);
+  assert.deepEqual(strong("L'UE repousse l'obligation du traçage des déchets"),[]);
+  assert.ok(strong("Les éoliennes en mer produisent plus").includes("wind turbines"));
+  assert.ok(strong("Ariane 6 : la fusée européenne décolle").includes("Ariane 5 rocket"));
+});
+test("#125 : seule une recherche précise tirée du titre publie une photo ; le reste part en révision humaine",async()=>{
+  const fs=await import("node:fs"),os=await import("node:os"),path=await import("node:path");
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),"mundi-125-"));
+  try{
+    const result=await collectEditorialImages([article26("liberia-5-6-milliards")],[],{root,reviews:{items:[]},
+      search:async(q)=>({...selectImage([candidate("File:African Quarter, Djibouti city.jpg")],"african city"),title:"African Quarter, Djibouti city.jpg"}),
+      download:async()=>({ext:"jpg",buffer:Buffer.alloc(5000)})});
+    assert.equal(result.images.length,0);
+    assert.equal(result.report[0].status,"needs_human_review");
+    assert.match(result.report[0].candidate.title,/Djibouti/);
+  }finally{fs.rmSync(root,{recursive:true,force:true})}
+});
+test("#125 : une photo d'une autre époque qu'un récit daté est refusée (Carl Lewis 1983 pour Helsinki 1975)",()=>{
+  const p=article26("helsinki-1er-aout");
+  assert.match(rejectsForArticle(p,{title:"Carl Lewis Helsinki 1983.jpg",url:"x"}),/époque/);
+  assert.equal(rejectsForArticle(p,{title:"Finlandia Hall Helsinki.jpg",url:"y"}),null);
+});
+test("#125 : un article retiré par la rédaction garde sa couverture typographique, et une photo rejetée n'est plus jamais proposée",async()=>{
+  const reviews=loadReviews();
+  const retired=reviews.items.filter(x=>x.status==="retiree");
+  assert.ok(retired.length>=10);
+  // Sans ses cartes « Données » (elles ont leurs propres photos, revues séparément).
+  const {dataCards:_cards,...p}=article26("spoutnik-1957");
+  let searched=0;
+  const result=await collectEditorialImages([p],[],{reviews,search:async()=>{searched++;return null;},download:async()=>{throw new Error("jamais");}});
+  assert.equal(searched,0);
+  assert.equal(result.report.find(r=>r.slug===p.slug).status,"typographic_by_review");
+  const rejectedUrl=retired.find(x=>x.rejected?.length).rejected[0].sourceUrl;
+  const other={status:"published",slug:"autre-article",title:"Le recyclage textile",topic:"recyclage"};
+  const seen=[];
+  await collectEditorialImages([other],[],{reviews,search:async(q,_f,o)=>{seen.push(o.exclude);return null;},download:async()=>null});
+  assert.ok(seen.every(x=>x.has(rejectedUrl)));
+});
+test("#125 : chaque publication du 26/11 a une décision de la rédaction, et aucune photo retirée ne reste au catalogue",()=>{
+  const reviews=loadReviews().items,images=JSON.parse(readJson26("content/editorial-images.json","utf8"));
+  const day=catalogue26.filter(p=>p.status==="published"&&p.publishedAt==="2026-11-26");
+  for(const p of day){
+    const r=reviews.find(x=>x.slug===p.slug);
+    assert.ok(r&&["conservee","retiree","approuvee"].includes(r.status)&&r.reason.length>=20,"décision manquante : "+p.slug);
+    const photo=images.find(x=>x.slug===p.slug);
+    if(r.status==="retiree")assert.equal(photo,undefined,"photo retirée encore publiée : "+p.slug);
+    if(r.status==="conservee")assert.ok(photo,"photo conservée absente : "+p.slug);
+  }
+  const rejected=new Set(reviews.flatMap(x=>(x.rejected??[]).map(y=>y.sourceUrl)));
+  assert.equal(images.filter(x=>rejected.has(x.sourceUrl)).length,0);
+});

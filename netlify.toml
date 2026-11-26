@@ -7,6 +7,20 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Articles fusionnés (doublons, #125) : l'ancienne adresse mène à la publication de référence.
+# Liste à garder identique à content/redirections.json (vérifié par tests/duplicates.test.mjs).
+[[redirects]]
+  from = "/actualites/parfums-bruxelles-inflige-471-9-millions-d-euros-d-amende-a-firmenich-givaudan/*"
+  to = "/actualites/parfums-industriels-bruxelles-inflige-471-9-millions-d-euros-a-trois-geants-du/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/actualites/parfums-bruxelles-inflige-471-9-millions-d-euros-d-amende-a-firmenich-givaudan"
+  to = "/actualites/parfums-industriels-bruxelles-inflige-471-9-millions-d-euros-a-trois-geants-du/"
+  status = 301
+  force = true
+
 # Les récits de démonstration ont été retirés : leurs anciennes adresses mènent à Explorer.
 [[redirects]]
   from = "/recit/*"

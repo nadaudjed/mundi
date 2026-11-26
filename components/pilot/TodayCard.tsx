@@ -8,6 +8,7 @@ import { twoSentences } from "@/lib/today";
 import { frenchSpacing } from "@/lib/typo";
 import { getTopic } from "@/lib/topics";
 import { verificationLabel } from "@/lib/verification";
+import type { TodayState } from "@/lib/today";
 import type { FeedPublication } from "@/lib/verified";
 import { EditorialPhotoLayer } from "../EditorialPhotoLayer";
 import { ListenButton } from "../ListenButton";
@@ -22,12 +23,21 @@ type Props = {
   rank: number;
   size: number;
   edition: string;
+  /** État de l'édition (#125) : en repli, l'en-tête ne dit plus « Aujourd'hui ». */
+  state?: TodayState;
   active: boolean;
   near: boolean;
   /** Sujet ajouté parce qu'un sujet choisi manquait (sélection de secours). */
   fallback: boolean;
   onSkip: () => void;
 };
+
+/** En-tête de l'édition selon son état (lib/today.ts). */
+function editionLabel(state?: TodayState): string {
+  if (state === "perimee" || state === "automatique") return "Les plus récentes";
+  if (state === "sans-nouveaute") return "Édition";
+  return "Aujourd'hui";
+}
 
 const editionDate = (d: string) => {
   const t = Date.parse(d);
@@ -40,7 +50,7 @@ const editionDate = (d: string) => {
  * sa conséquence), puis « Comprendre » en action principale. Écouter et Enregistrer restent
  * à portée de pouce. Composition « magazine » : ivoire, graphite, rouge MUNDI.
  */
-export const TodayCard = memo(function TodayCard({ publication: p, index, rank, size, edition, active, near, fallback, onSkip }: Props) {
+export const TodayCard = memo(function TodayCard({ publication: p, index, rank, size, edition, state, active, near, fallback, onSkip }: Props) {
   const d = p.decryptage;
   const topic = getTopic(p.topic)!;
   const href = publicationPath(p.slug);
@@ -63,7 +73,7 @@ export const TodayCard = memo(function TodayCard({ publication: p, index, rank, 
       {/* En-tête de l'édition : on sait où l'on est et comment passer au fil complet. */}
       <div className="feed-column flex shrink-0 items-center justify-between gap-3 px-5 pt-2 pb-2">
         <p className="min-w-0 truncate text-[0.72rem] font-semibold tracking-[0.12em] text-brick uppercase">
-          Aujourd&apos;hui · {rank + 1}/{size}
+          {editionLabel(state)} · {rank + 1}/{size}
           <span className="ml-2 font-normal tracking-normal text-graphite-2 normal-case max-[359px]:hidden">{editionDate(edition)}</span>
         </p>
         <button type="button" onClick={onSkip} className="shrink-0 text-[0.75rem] font-semibold text-graphite-2 underline underline-offset-2 hover:text-graphite" data-testid="today-skip">
@@ -85,7 +95,7 @@ export const TodayCard = memo(function TodayCard({ publication: p, index, rank, 
         <p className="text-[0.72rem] font-semibold text-brick">
           {topic.name}
           <span className="font-normal text-graphite-2"> · {format}</span>
-          {fallback && <span className="font-normal text-graphite-2"> · sélection de secours</span>}
+          {fallback && state !== "perimee" && <span className="font-normal text-graphite-2"> · sélection de secours</span>}
         </p>
         <h2 className="font-serif mt-1 shrink-0 text-[1.85rem] leading-[1.05] text-balance max-[359px]:text-[1.6rem] md:text-[2.4rem] [@media(max-height:700px)]:text-[1.55rem]">{title}</h2>
         <p className="mt-2 min-h-0 overflow-hidden text-[0.95rem] leading-relaxed text-graphite-2 [@media(max-height:640px)]:text-[0.86rem] [@media(max-height:640px)]:leading-snug [@media(max-height:640px)]:line-clamp-7" data-testid="today-text">{text}</p>

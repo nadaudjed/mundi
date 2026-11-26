@@ -29,7 +29,7 @@ export const PHOTO_QUERIES={
 const HINTS=[
   // Sujets du 25/11 restés sans repère visuel : un jeu de plateau pour Gaza (« diplomacy »), une
   // statue de bronze pour le froid (« fonte à froid »), un enfant centrafricain pour un port libyen.
-  [/aide humanitaire|humanitaire|tentes|r[eé]fugi[eé]s|d[eé]plac[eé]s/i,["humanitarian aid trucks","humanitarian aid distribution","refugee camp tents"]],
+  [/aide humanitaire|humanitaire|\btentes\b|r[eé]fugi[eé]s|\bd[eé]plac[eé]s\b/i,["humanitarian aid trucks","humanitarian aid distribution","refugee camp tents"]],
   [/cancer|d[eé]pistage|mammograph/i,["mammography","breast cancer screening"]],
   [/logement|immobilier|r[eé]novation [eé]nerg|construction de maisons/i,["housing construction","residential building construction"]],
   [/imp[oô]ts?|fiscal|fraude [aà] la TVA|[eé]vasion fiscale/i,["European Commission Berlaymont","euro banknotes and coins"]],
@@ -43,7 +43,8 @@ const HINTS=[
   [/d[eé]chets plastiques|plastique/i,["plastic waste recycling","plastic waste bales"]],
   [/cobalt|shaba|katanga/i,["cobalt mine Congo","copper cobalt mine Katanga"]],
   [/quantique|quantum/i,["quantum computer","quantum computing laboratory"]],
-  [/ariane|fus[eé]e|lanceur spatial/i,["Ariane 5 rocket","rocket launch Kourou"]],
+  // #125 : « fus[eé]e » sans limite de mot trouvait « refusée » (barge Mobro illustrée par Ariane 5).
+  [/\bariane\b|\bfus[eé]es?\b|lanceur spatial/i,["Ariane 5 rocket","rocket launch Kourou"]],
   [/cha[iî]ne mobile|ford|mod[eè]le T/i,["Ford Model T assembly line","Highland Park Ford Plant"]],
   [/doctorat|doctorant|th[eè]se/i,["PhD students laboratory","doctoral students research"]],
   [/ind[eé]pendances?|d[eé]colonisation/i,["independence day Africa 1960","African independence celebration"]],
@@ -53,14 +54,17 @@ const HINTS=[
   [/automobile|voitures?|usine de Hambach/i,["car factory assembly line","electric car production"]],
   [/textil|v[eê]tement|tri des d[eé]chets/i,["textile recycling sorting","clothing recycling"]],
   [/appels? d.offres|march[eé]s? publics?|commande publique/i,["public procurement","government contract signing"]],
-  [/m[eé]nag|enfant|famill/i,["family children","parents with children"]],
-  [/dette|obligation|budget de l[eé]tat/i,["European Central Bank","European Parliament Brussels"]],
+  // #125 : « ménages » (au sens économique) donnait des enfants à moto pour la fermeture des réseaux de gaz.
+  [/\bfamilles?\b|\benfants?\b/i,["family children","parents with children"]],
+  // #125 : « obligation » (légale) donnait la BCE pour les transferts de déchets ; seules les dettes publiques comptent.
+  [/\bdettes? publiques?\b|\bobligations? (d.[ée]tat|souveraines?)\b|budget de l.[ée]tat/i,["European Central Bank","European Parliament Brussels"]],
   [/tr[eé]sorerie|b[eé]n[eé]fice|profit|cash/i,["accounting office","business finance"]],
   [/batterie|lithium|cobalt/i,"battery recycling"],
   [/hydrog[eè]ne/i,"hydrogen energy"],
   [/p[eé]trole|gaz naturel/i,"oil platform"],
   [/photovolta[iï]que|solaire/i,"solar panels"],
-  [/[eé]olien|vent/i,"wind turbines"],
+  // #125 : « vent » sans limite de mot trouvait « souvent » et « peuvent » (éoliennes pour Herstatt et une crise diplomatique).
+  [/[eé]olien|\bvents?\b/i,"wind turbines"],
   [/recherche|laboratoire|exp[eé]rience/i,"laboratory"],
   // Realistic visual cues derived from each story, without claiming that a
   // stock photograph depicts the specific events or people in the article.
@@ -110,29 +114,72 @@ const ALLOWED_LICENSES=new Map([
 ]);
 /* Coupe par caractères (pas par unités UTF-16) : un demi-emoji rendait le JSON illisible au build. */
 const clean=(s,n=160)=>Array.from(String(s??"").replace(/<[^>]*>/g," ").replace(/&(?:nbsp|amp|quot|lt|gt);/gi,m=>({"&nbsp;":" ","&amp;":"&","&quot;":'"',"&lt;":"<","&gt;":">"}[m.toLowerCase()]??m)).replace(/\s+/g," ").trim()).slice(0,n).join("");
-export function imageQueries(article){
+/**
+ * Recherches d'une publication, avec leur force (#125) :
+ * - « forte » : repère visuel précis tiré du TITRE (règles HINTS) ;
+ * - « faible » : repère tiré du seul résumé, mots du titre, ou image générique de la rubrique.
+ * Une photo trouvée par une recherche faible n'est jamais publiée automatiquement : elle part en
+ * révision humaine (rapport), et l'article garde sa couverture typographique. Le 26/11, les dix photos
+ * hors sujet signalées venaient toutes de recherches faibles (rubrique, résumé ou mots du titre).
+ */
+export function queryPlan(article){
   const fromTitle=String(article?.title??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"")
     .replace(/[^a-zA-Z\s-]/g," ").toLowerCase().split(/\s+/).filter(w=>w.length>=4&&!STOPWORDS.has(w)).slice(0,2).join(" ");
   // Prefer the article title; use the summary when a generic title reveals
   // no recognisable visual subject, before trying the general topic fallback.
   const title=String(article?.title??"");
   const summary=String(article?.summary??"").slice(0,300);
-  const hint=(HINTS.find(([pattern])=>pattern.test(title))||
-    HINTS.find(([pattern])=>pattern.test(summary)))?.[1];
+  const inTitle=HINTS.find(([pattern])=>pattern.test(title))?.[1];
+  const hint=inTitle??HINTS.find(([pattern])=>pattern.test(summary))?.[1];
+  const hintStrength=inTitle?"forte":"faible";
   // Specific subjects must NOT fall back to vague "family", "market", or "recycling":
   // those produced lions for human households, a Nepal budget for European public
   // debt, and vandalized bins for textile sorting. Prefer no photo over deception.
   const backups=TOPIC_BACKUPS[article?.topic]??[];
+  const plan=[];
+  const add=(query,strength)=>{if(query&&!plan.some(x=>x.query===query))plan.push({query,strength});};
   if(Array.isArray(hint)){
     // For a European demographic story, do not silently choose a family in an
     // unrelated region. Require a Europe-specific query and geographic evidence.
-    if(hint[0]==="family children"&&/europ|\bUE\b/i.test(title))
-      return hint.map(q=>q+" Europe");
+    if(hint[0]==="family children"&&/europ|\bUE\b/i.test(title)){
+      for(const q of hint)add(q+" Europe",hintStrength);
+      return plan;
+    }
     // Specific subjects keep their strict cues; only the neutral topic backups follow.
-    return [...new Set([...hint,...backups])];
+    for(const q of hint)add(q,hintStrength);
+    for(const q of backups)add(q,"faible");
+    return plan;
   }
   const fallback=PHOTO_QUERIES[article?.topic]??"documentary";
-  return [...new Set([hint,fromTitle.length>=5?fromTitle:null,fallback,...backups].filter(Boolean))];
+  add(hint,hintStrength);
+  if(fromTitle.length>=5)add(fromTitle,"faible");
+  add(fallback,"faible");
+  for(const q of backups)add(q,"faible");
+  return plan;
+}
+export function imageQueries(article){return queryPlan(article).map(x=>x.query);}
+/** Années à quatre chiffres (1800-2099) citées dans un texte. */
+const yearsIn=s=>[...String(s??"").matchAll(/\b(1[89]\d{2}|20\d{2})\b/g)].map(m=>Number(m[1]));
+/**
+ * Contrôle propre à l'article (#125), en plus des licences : une photo datée d'une autre époque
+ * qu'un récit (Carl Lewis à Helsinki en 1983 pour l'Acte final de 1975) est refusée, comme une photo
+ * déjà écartée par la rédaction pour cet article ou un autre (content/editorial-image-reviews.json).
+ */
+export function rejectsForArticle(article,candidate,{rejected=new Set()}={}){
+  if(rejected.has(candidate?.url))return "photo écartée par la rédaction";
+  const own=yearsIn(article?.title);
+  const pictured=yearsIn(candidate?.title);
+  if(own.length&&pictured.length&&!pictured.some(y=>own.some(x=>Math.abs(x-y)<=2)))
+    return "époque différente ("+pictured.join(", ")+" pour un sujet de "+own.join(", ")+")";
+  return null;
+}
+/** Révisions de la rédaction (#125) : photos conservées, retirées (couverture typographique) ou approuvées. */
+export const REVIEWS="content/editorial-image-reviews.json";
+export function loadReviews(root=process.cwd()){
+  const path=resolve(root,REVIEWS);
+  if(!existsSync(path))return {items:[]};
+  const data=JSON.parse(readFileSync(path,"utf8"));
+  return {...data,items:Array.isArray(data?.items)?data.items:[]};
 }
 function validCommonsFileURL(raw){
   try{
@@ -249,6 +296,16 @@ export async function searchCommons(query,fetcher=fetch,options={}){
   }
   return found;
 }
+/** Un fichier précis de Commons, approuvé par la rédaction (« File:… ») : mêmes contrôles de licence et de format. */
+export async function fetchCommonsFile(file,fetcher=fetch){
+  const url=new URL("https://commons.wikimedia.org/w/api.php");
+  for(const [k,v] of Object.entries({action:"query",titles:file,prop:"imageinfo",iiprop:"url|mime|size|extmetadata",
+    iiurlwidth:"1280",format:"json",formatversion:"2"}))url.searchParams.set(k,v);
+  const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
+  if(!reply.ok)throw new Error("Wikimedia Commons HTTP "+reply.status);
+  const data=await reply.json();
+  return selectImage(data?.query?.pages,String(file).replace(/^File:/i,"").replace(/\.[a-z]+$/i,""),{strict:false});
+}
 export async function downloadPhoto(candidate,fetcher=fetch){
   if(!validCommonsFileURL(candidate.src))throw new Error("Image host is not an official Wikimedia thumbnail CDN");
   const res=await fetcher(candidate.src,{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app)"},
@@ -268,21 +325,50 @@ export async function downloadPhoto(candidate,fetcher=fetch){
 }
 export async function collectEditorialImages(articles,existing=[],{
   search=searchCommons,download=downloadPhoto,max=8,root=process.cwd(),
-  day=new Date().toISOString().slice(0,10)
+  day=new Date().toISOString().slice(0,10),reviews=loadReviews(root),fetchFile=fetchCommonsFile
 }={}){
   // Up to 48 publications a day (two editions): one run must be able to cover a whole day.
   const limit=Math.max(0,Math.min(60,Number(max)||0));
   const known=new Set(existing.map(p=>p.slug));
   const out=[...existing],report=[];
+  const review=new Map((reviews?.items??[]).map(x=>[x.slug,x]));
+  const rejected=new Set((reviews?.items??[]).flatMap(x=>(x.rejected??[]).map(r=>r.sourceUrl)));
   for(const p of articles.filter(x=>x?.status==="published")){
     if(known.has(p.slug)||report.filter(x=>x.status==="added").length>=limit)continue;
-    let selected=null,lastError="";
-    for(const query of imageQueries(p)){
+    // Retirée par la rédaction : couverture typographique jusqu'à ce qu'une personne approuve une photo.
+    if(review.get(p.slug)?.status==="retiree"){report.push({slug:p.slug,status:"typographic_by_review"});continue;}
+    let selected=null,lastError="",pending=null;
+    // Photo approuvée par une personne (nom exact du fichier sur Commons) : seule cette photo est acceptée.
+    const approved=review.get(p.slug);
+    if(approved?.status==="approuvee"&&typeof approved.file==="string"){
+      try{
+        const candidate=await fetchFile(approved.file);
+        if(!candidate)throw new Error("fichier approuvé introuvable ou licence refusée");
+        const file=await download(candidate);
+        const local="/media/editorial/"+p.slug+"."+file.ext;
+        const path=resolve(root,"public"+local);
+        mkdirSync(dirname(path),{recursive:true});
+        writeFileSync(path,file.buffer);
+        out.push({slug:p.slug,src:local,alt:typeof approved.alt==="string"&&approved.alt.length>=10?approved.alt:"Photographie d'illustration : "+candidate.title,
+          title:candidate.title,credit:candidate.author,license:candidate.license,licenseUrl:candidate.licenseUrl,sourceUrl:candidate.url,
+          kind:"illustration",review:"automated-license-and-title-check",retrievedAt:day,searchQuery:"approuvée : "+approved.file});
+        known.add(p.slug);report.push({slug:p.slug,status:"added",query:"approved file"});
+      }catch(error){report.push({slug:p.slug,status:"approved_file_failed",error:String(error?.message||error).slice(0,120)});}
+      continue;
+    }
+    for(const {query,strength} of queryPlan(p)){
       try{
         // Jamais deux fois la même photo : le 25/11, un même laboratoire illustrait quatre articles
         // et une même boîte de piles le cobalt congolais comme la guerre du Shaba.
-        const candidate=await search(query,undefined,{exclude:new Set(out.map(x=>x.sourceUrl))});
+        const candidate=await search(query,undefined,{exclude:new Set([...out.map(x=>x.sourceUrl),...rejected])});
         if(!candidate)continue;
+        const refusal=rejectsForArticle(p,candidate,{rejected});
+        if(refusal){lastError=refusal;continue;}
+        // Recherche faible (rubrique, résumé, mots du titre) : proposée à la rédaction, jamais publiée seule.
+        if(strength!=="forte"){
+          pending??={query,title:candidate.title,sourceUrl:candidate.url,credit:candidate.author,license:candidate.license};
+          continue;
+        }
         const file=await download(candidate);
         const local="/media/editorial/"+p.slug+"."+file.ext;
         const path=resolve(root,"public"+local);
@@ -299,9 +385,10 @@ export async function collectEditorialImages(articles,existing=[],{
       }catch(error){lastError=String(error?.message||error).slice(0,120);}
     }
     if(selected){out.push(selected);known.add(p.slug);report.push({slug:p.slug,status:"added",query:selected.searchQuery});}
+    else if(pending)report.push({slug:p.slug,status:"needs_human_review",candidate:pending});
     else report.push({slug:p.slug,status:"no_licensed_photo",error:lastError});
   }
-  return collectCardPhotos(articles,out,report,{search,download,limit,root,day});
+  return collectCardPhotos(articles,out,report,{search,download,limit,root,day,review,rejected});
 }
 /** Slug (et nom de fichier) de la photo propre à une carte « Données ». */
 export const cardPhotoSlug=(publication,card)=>(publication+"-carte-"+card).replace(/-+/g,"-").replace(/^-|-$/g,"");
@@ -311,7 +398,7 @@ export const cardPhotoSlug=(publication,card)=>(publication+"-carte-"+card).repl
  * propre recherche (imageQuery). Rien de trouvé : la carte reste en texte, jamais la photo de l'article.
  * Les photos de cartes retirées du fil sont enlevées du catalogue.
  */
-async function collectCardPhotos(articles,images,report,{search,download,limit,root,day}){
+async function collectCardPhotos(articles,images,report,{search,download,limit,root,day,review=new Map(),rejected=new Set()}){
   const shown=new Map();
   for(const p of articles)if(p?.status==="published"&&p.dataCardsInFeed!==false)
     for(const c of p.dataCards??[])shown.set(cardPhotoSlug(p.slug,c.id),{p,c});
@@ -324,11 +411,14 @@ async function collectCardPhotos(articles,images,report,{search,download,limit,r
   const known=new Set(out.map(x=>x.slug));
   for(const [slug,{p,c}] of shown){
     if(known.has(slug)||typeof c.imageQuery!=="string"||!c.imageQuery.trim())continue;
+    if(review.get(slug)?.status==="retiree"){report.push({slug,status:"typographic_by_review"});continue;}
     if(report.filter(x=>x.status==="added").length>=limit)break;
     const query=c.imageQuery.trim();
     try{
-      const candidate=await search(query,undefined,{exclude:new Set(out.map(x=>x.sourceUrl)),strict:true});
+      const candidate=await search(query,undefined,{exclude:new Set([...out.map(x=>x.sourceUrl),...rejected]),strict:true});
       if(!candidate){report.push({slug,status:"no_card_photo",query});continue;}
+      const refusal=rejectsForArticle(p,candidate,{rejected});
+      if(refusal){report.push({slug,status:"no_card_photo",query,error:refusal});continue;}
       const file=await download(candidate);
       const local="/media/editorial/"+slug+"."+file.ext;
       const path=resolve(root,"public"+local);

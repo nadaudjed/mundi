@@ -1,0 +1,731 @@
+{
+  "description": "Révision humaine des photos d'illustration (ticket #125). retiree : couverture typographique, la collecte automatique ne cherche plus de photo pour cet article ; les photos rejetées ne sont plus jamais proposées. conservee : photo vérifiée (sujet, lieu, époque, crédit, licence). approuvee : ajouter \"file\" (nom exact « File:… » sur Wikimedia Commons) et, si besoin, \"alt\" ; la collecte télécharge alors ce fichier précis, avec les mêmes contrôles de licence.",
+  "items": [
+    {
+      "slug": "spoutnik-1957-le-bip-venu-de-l-espace-qui-a-fait-naitre-la-nasa",
+      "status": "retiree",
+      "reason": "Classe de chimie hongroise (Fortepan) sans lien avec Spoutnik ni la NASA ; trouvée par l'image générique de la rubrique « laboratory ».",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Education, school, chemistry, boys, tableau, laboratory Fortepan 25626.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEducation%2C_school%2C_chemistry%2C_boys%2C_tableau%2C_laboratory_Fortepan_25626.jpg",
+        "credit": "FOTO:FORTEPAN / Angyalföldi Helytörténeti Gyűjtemény",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Education, school, chemistry, boys, tableau, laboratory Fortepan 25626.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEducation%2C_school%2C_chemistry%2C_boys%2C_tableau%2C_laboratory_Fortepan_25626.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "helsinki-1er-aout-1975-l-acte-qui-a-mis-frontieres-et-droits-de-l-homme-sur-la",
+      "status": "retiree",
+      "reason": "Carl Lewis aux championnats du monde d'athlétisme d'Helsinki en 1983 : bon lieu, mauvais événement et mauvaise époque (Acte final de 1975).",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Carl Lewis Helsinki 1983.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACarl_Lewis_Helsinki_1983.jpg",
+        "credit": "https://www.flickr.com/photos/finneye finneye",
+        "license": "CC BY-SA 2.0"
+      },
+      "rejected": [
+        {
+          "title": "Carl Lewis Helsinki 1983.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACarl_Lewis_Helsinki_1983.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "herstatt-26-juin-1974-la-faillite-qui-a-fait-naitre-le-comite-de-bale",
+      "status": "retiree",
+      "reason": "Éoliennes de Paderborn pour une faillite bancaire de 1974 : « vent » trouvé dans « souvent » du résumé.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Paderborn Germany Turbines-of-Paderborn-windfarm-02.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APaderborn_Germany_Turbines-of-Paderborn-windfarm-02.jpg",
+        "credit": "Photo by CEphoto, Uwe Aranas or alternatively © CEphoto, Uwe Aranas",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Paderborn Germany Turbines-of-Paderborn-windfarm-02.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APaderborn_Germany_Turbines-of-Paderborn-windfarm-02.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "jeudi-d-argent-1980-quand-les-freres-hunt-ont-tente-d-accaparer-le-metal-blanc",
+      "status": "retiree",
+      "reason": "Mine de lignite de Garzweiler pour une spéculation sur l'argent à la Bourse en 1980 : ni le métal, ni le lieu, ni l'époque.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Open pit lignite mining in Garzweiler, Germany 03.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOpen_pit_lignite_mining_in_Garzweiler%2C_Germany_03.jpg",
+        "credit": "Stephan Sprinz",
+        "license": "CC BY 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Open pit lignite mining in Garzweiler, Germany 03.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOpen_pit_lignite_mining_in_Garzweiler%2C_Germany_03.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "mobro-4000-1987-la-barge-d-ordures-dont-personne-ne-voulait",
+      "status": "retiree",
+      "reason": "Pièces de la fusée Ariane 5 pour une barge d'ordures new-yorkaise : « fusée » trouvé dans « refusée » du résumé.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Belgian components for the Ariane 5 rocket.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABelgian_components_for_the_Ariane_5_rocket.jpg",
+        "credit": "SpaceMusk",
+        "license": "CC BY-SA 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Belgian components for the Ariane 5 rocket.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABelgian_components_for_the_Ariane_5_rocket.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "amoco-cadiz-1978-la-maree-noire-qui-a-souille-360-km-de-cotes-bretonnes",
+      "status": "conservee",
+      "reason": "Ancre de l'Amoco Cadiz exposée à Portsall : sujet, lieu et navire exacts ; photo récente d'un objet de l'époque, crédit et licence CC conformes.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Amoco Cadiz anchor.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAmoco_Cadiz_anchor.jpg",
+        "credit": "Zubro",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "slug": "volkswagen-2015-le-logiciel-truqueur-qui-a-coute-des-milliards-au-constructeur",
+      "status": "retiree",
+      "reason": "Chaîne de montage de General Motors en Pologne pour le scandale Volkswagen : une autre marque, pouvant laisser croire à une usine du groupe.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "002 Production line - car assembly line in General Motors Manufacturing Poland - Gliwice, Poland.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A002_Production_line_-_car_assembly_line_in_General_Motors_Manufacturing_Poland_-_Gliwice%2C_Poland.jpg",
+        "credit": "Marek Slusarczyk",
+        "license": "CC BY 3.0"
+      },
+      "rejected": [
+        {
+          "title": "002 Production line - car assembly line in General Motors Manufacturing Poland - Gliwice, Poland.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3A002_Production_line_-_car_assembly_line_in_General_Motors_Manufacturing_Poland_-_Gliwice%2C_Poland.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "addis-abeba-mai-1963-la-naissance-de-l-organisation-de-l-unite-africaine",
+      "status": "retiree",
+      "reason": "Aide humanitaire au Congo en 2008 pour la fondation de l'OUA à Addis-Abeba en 1963 : autre pays, autre époque, sujet sensible.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Humanitarian Aid in Congo november 2008edited.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHumanitarian_Aid_in_Congo_november_2008edited.jpg",
+        "credit": "Julien Harneis",
+        "license": "CC BY-SA 2.0"
+      },
+      "rejected": [
+        {
+          "title": "Humanitarian Aid in Congo november 2008edited.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHumanitarian_Aid_in_Congo_november_2008edited.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "sommet-ue-balkans-bruxelles-presse-la-region-de-suivre-le-montenegro-et-l",
+      "status": "retiree",
+      "reason": "Parlement de Budapest pour un sommet UE-Balkans à Bruxelles : mauvais lieu.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Budapest Parliament 4604.JPG",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABudapest_Parliament_4604.JPG",
+        "credit": "Dirk Beyer",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Budapest Parliament 4604.JPG",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABudapest_Parliament_4604.JPG"
+        }
+      ]
+    },
+    {
+      "slug": "consommateurs-temu-s-engage-a-cesser-faux-rabais-et-jeux-forces-dans-l-ue",
+      "status": "retiree",
+      "reason": "Marché flottant en Thaïlande pour un engagement de Temu envers les consommateurs européens : sans rapport.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Damoen Saduk Floating Market.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADamoen_Saduk_Floating_Market.jpg",
+        "credit": "Ahoerstemeier",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Damoen Saduk Floating Market.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADamoen_Saduk_Floating_Market.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "finance-durable-bruxelles-simplifie-les-criteres-de-la-taxonomie-verte-de-l-ue",
+      "status": "retiree",
+      "reason": "Groupe de travail en Afrique de l'Ouest pour la taxonomie verte de l'UE : lieu et sujet différents.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Séance de travail groupe financement durable 02.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AS%C3%A9ance_de_travail_groupe_financement_durable_02.jpg",
+        "credit": "Yasield",
+        "license": "CC BY-SA 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Séance de travail groupe financement durable 02.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AS%C3%A9ance_de_travail_groupe_financement_durable_02.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "chaines-d-approvisionnement-l-ue-et-le-bloc-transpacifique-lancent-une-alerte",
+      "status": "retiree",
+      "reason": "Bâtiment des salins de Frontignan pour un dispositif d'alerte UE-CPTPP : sans rapport (image générique « factory »).",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Building of the Salins de Frontignan 01.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABuilding_of_the_Salins_de_Frontignan_01.jpg",
+        "credit": "Christian Ferrer",
+        "license": "CC BY 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Building of the Salins de Frontignan 01.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABuilding_of_the_Salins_de_Frontignan_01.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "sortie-du-gaz-l-etat-publie-son-guide-pour-fermer-des-reseaux-rue-par-rue",
+      "status": "retiree",
+      "reason": "Cinq enfants sur une moto pour un guide de fermeture des réseaux de gaz : « ménages » interprété comme « famille ».",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Five children on a motorcycle.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFive_children_on_a_motorcycle.jpg",
+        "credit": "Basile Morin",
+        "license": "CC BY-SA 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Five children on a motorcycle.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFive_children_on_a_motorcycle.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "distributeurs-automatiques-bruxelles-autorise-lavazza-a-prendre-le-controle-d",
+      "status": "conservee",
+      "reason": "Distributeurs automatiques dans le métro parisien (2020) : illustre bien le secteur ; aucune marque Lavazza présentée comme telle.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Distributeurs automatiques IVS, métro RATP (2020).jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ADistributeurs_automatiques_IVS%2C_m%C3%A9tro_RATP_(2020).jpg",
+        "credit": "Kevin.B",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "slug": "liberia-5-6-milliards-de-dollars-avec-bea-mountain-pour-tripler-la-capacite",
+      "status": "retiree",
+      "reason": "Quartier africain de Djibouti pour un accord minier au Liberia : mauvais pays (image générique « african city »).",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "African Quarter, Djibouti city (210566665).jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAfrican_Quarter%2C_Djibouti_city_(210566665).jpg",
+        "credit": "Francisco Anzola",
+        "license": "CC BY 3.0"
+      },
+      "rejected": [
+        {
+          "title": "African Quarter, Djibouti city (210566665).jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAfrican_Quarter%2C_Djibouti_city_(210566665).jpg"
+        }
+      ]
+    },
+    {
+      "slug": "asteroide-dimorphos-la-sonde-hera-devoile-le-cratere-laisse-par-l-impact-de-dart",
+      "status": "retiree",
+      "reason": "Laboratoire hongrois ancien (Fortepan) pour la sonde Hera et l'astéroïde Dimorphos : sans rapport.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Laboratory, work, men Fortepan 23220.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALaboratory%2C_work%2C_men_Fortepan_23220.jpg",
+        "credit": "FOTO:FORTEPAN / Éles Andrásné",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Laboratory, work, men Fortepan 23220.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALaboratory%2C_work%2C_men_Fortepan_23220.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "tracabilite-des-minerais-comment-on-suit-un-metal-de-la-mine-a-l-usine",
+      "status": "conservee",
+      "reason": "Mine de fer à ciel ouvert de Schefferville : illustre l'étape « mine » de la traçabilité, sans prétendre montrer une mine citée.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Schefferville open pit mining for iron ore.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASchefferville_open_pit_mining_for_iron_ore.jpg",
+        "credit": "Matti&Keti ; Lorenz.King at JLU Giessen.de",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "slug": "centres-de-donnees-en-orbite-spacex-autorise-a-lancer-jusqu-a-un-million-de",
+      "status": "retiree",
+      "reason": "Panneaux solaires au sol pour des centres de données en orbite : « solaire » trouvé dans le résumé, image trompeuse.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Solar Panels 05 (RaBoe).jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASolar_Panels_05_(RaBoe).jpg",
+        "credit": "Ra Boe",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Solar Panels 05 (RaBoe).jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASolar_Panels_05_(RaBoe).jpg"
+        }
+      ]
+    },
+    {
+      "slug": "du-prototype-a-la-serie-pourquoi-une-demonstration-reussie-ne-suffit-pas-a",
+      "status": "conservee",
+      "reason": "Prototype d'autobus néerlandais présenté en salle : illustre littéralement un prototype avant la série ; photo d'archive créditée.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Nieuwe streekbus prototype B7900, Bestanddeelnr 929-5607.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ANieuwe_streekbus_prototype_B7900%2C_Bestanddeelnr_929-5607.jpg",
+        "credit": "Hans Peters for Anefo",
+        "license": "CC0"
+      }
+    },
+    {
+      "slug": "que-signifie-vraiment-un-taux-de-recyclage",
+      "status": "conservee",
+      "reason": "Poubelle de tri contaminée : illustre directement la différence entre collecte et recyclage effectif.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Example of contaminated recycling bin.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AExample_of_contaminated_recycling_bin.jpg",
+        "credit": "quellatizia",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "slug": "comment-fonctionne-une-franchise-marque-savoir-faire-et-redevances",
+      "status": "retiree",
+      "reason": "Loge maçonnique « la Franchise » (1789) pour la franchise commerciale : homonymie.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Respectable loge de la Franchise, 1789, NJ2134.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARespectable_loge_de_la_Franchise%2C_1789%2C_NJ2134.jpg",
+        "credit": "Anonyme, graveur en médailles - Médailleur",
+        "license": "CC0"
+      },
+      "rejected": [
+        {
+          "title": "Respectable loge de la Franchise, 1789, NJ2134.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARespectable_loge_de_la_Franchise%2C_1789%2C_NJ2134.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "comment-fonctionne-le-mobile-money-l-argent-sur-telephone-sans-compte-bancaire",
+      "status": "conservee",
+      "reason": "Point de paiement M-Pesa : exactement le service décrit, crédit et licence conformes.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "An M-Pesa Payment Till.JPG",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AAn_M-Pesa_Payment_Till.JPG",
+        "credit": "Raidarmax",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "slug": "revue-par-les-pairs-ce-que-valide-vraiment-la-relecture-d-un-article",
+      "status": "retiree",
+      "reason": "Laboratoire ancien générique (Fortepan) pour la relecture d'articles scientifiques : validé seulement parce qu'il correspond à la rubrique.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Laboratory Fortepan 870.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALaboratory_Fortepan_870.jpg",
+        "credit": "FOTO:Fortepan — ID 870 : Adományozó/Donor: UVATERV.",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Laboratory Fortepan 870.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ALaboratory_Fortepan_870.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "comment-nait-et-s-aggrave-une-crise-diplomatique-entre-deux-etats",
+      "status": "retiree",
+      "reason": "Éoliennes en mer pour une crise diplomatique : « vent » trouvé dans « peuvent » du résumé.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Barrow Offshore wind turbines NR.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABarrow_Offshore_wind_turbines_NR.jpg",
+        "credit": "Original: Andy Dingley ; Edit: Muhammad",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Barrow Offshore wind turbines NR.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABarrow_Offshore_wind_turbines_NR.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "pourquoi-des-emplois-disparaissent-chaque-annee-pendant-que-d-autres-naissent",
+      "status": "retiree",
+      "reason": "Dessin (et non photographie) d'un employé stressé, présenté comme « photographie d'illustration ».",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Man Feeling Stressed In The Workplace.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMan_Feeling_Stressed_In_The_Workplace.jpg",
+        "credit": "CIPHR Connect",
+        "license": "CC BY 2.0"
+      },
+      "rejected": [
+        {
+          "title": "Man Feeling Stressed In The Workplace.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMan_Feeling_Stressed_In_The_Workplace.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "que-sont-les-etf-ces-fonds-qui-copient-un-indice-boursier",
+      "status": "retiree",
+      "reason": "Portrait d'un dirigeant d'une société mexicaine de négoce : une personne réelle sans lien avec les ETF.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Rosset - Commercial Director Leeco Trading in Mexico.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARosset_-_Commercial_Director_Leeco_Trading_in_Mexico.jpg",
+        "credit": "Tony2027",
+        "license": "CC0"
+      },
+      "rejected": [
+        {
+          "title": "Rosset - Commercial Director Leeco Trading in Mexico.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARosset_-_Commercial_Director_Leeco_Trading_in_Mexico.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "batteries-barrages-chaleur-comment-stocke-t-on-l-energie",
+      "status": "retiree",
+      "reason": "Recyclage de piles pour un article sur le stockage de l'énergie : sujet différent.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Battery recycling.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABattery_recycling.jpg",
+        "credit": "Santeri Viinamäki",
+        "license": "CC BY-SA 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Battery recycling.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABattery_recycling.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "meteo-ou-climat-pourquoi-faut-il-trente-ans-de-mesures-pour-parler-de-climat",
+      "status": "conservee",
+      "reason": "Technicien sur un mât de mesures au-dessus d'une forêt : illustre la mesure du climat sur la durée.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Monitoring and observation.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMonitoring_and_observation.jpg",
+        "credit": "André Künzelmann",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "slug": "pourquoi-chiffrer-ses-communications-et-ce-que-le-chiffrement-ne-garantit-pas",
+      "status": "retiree",
+      "reason": "Mères et enfants à Pune (Inde) pour le chiffrement des communications : sans rapport, personnes réelles.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Pune, Maharashtra, India, Family, Mothers and their children.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APune%2C_Maharashtra%2C_India%2C_Family%2C_Mothers_and_their_children.jpg",
+        "credit": "© Vyacheslav Argenberg",
+        "license": "CC BY 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Pune, Maharashtra, India, Family, Mothers and their children.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APune%2C_Maharashtra%2C_India%2C_Family%2C_Mothers_and_their_children.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "deepfakes-sexuels-l-ue-interdit-les-applis-de-denudage-par-ia-des-le-2-decembre",
+      "status": "retiree",
+      "reason": "Image de synthèse d'un anneau de centres de données autour de la Terre, présentée comme photographie ; sujet sensible.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Earth Dyson Ring of AI data centers.webp",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEarth_Dyson_Ring_of_AI_data_centers.webp",
+        "credit": "Wikideas1",
+        "license": "CC0"
+      },
+      "rejected": [
+        {
+          "title": "Earth Dyson Ring of AI data centers.webp",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEarth_Dyson_Ring_of_AI_data_centers.webp"
+        }
+      ]
+    },
+    {
+      "slug": "paiements-la-suede-rejoindra-en-2030-la-plateforme-t2-de-la-bce-sans-adopter-l",
+      "status": "conservee",
+      "reason": "Siège de la BCE à Francfort en construction : institution exacte (plateforme T2 de la BCE) ; date de prise de vue visible dans le titre du fichier.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "European Central Bank - building under construction - Frankfurt - Germany - 03.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEuropean_Central_Bank_-_building_under_construction_-_Frankfurt_-_Germany_-_03.jpg",
+        "credit": "Norbert Nagel",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "slug": "zone-euro-la-carte-depasse-pour-la-premiere-fois-les-especes-dans-les-magasins",
+      "status": "retiree",
+      "reason": "Portrait de deux dirigeants d'une société mexicaine de négoce pour les paiements par carte en zone euro : sans rapport.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Rosset - Leeco Trading in Mexico.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARosset_-_Leeco_Trading_in_Mexico.jpg",
+        "credit": "Tony2027",
+        "license": "CC0"
+      },
+      "rejected": [
+        {
+          "title": "Rosset - Leeco Trading in Mexico.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ARosset_-_Leeco_Trading_in_Mexico.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "parfums-industriels-bruxelles-inflige-471-9-millions-d-euros-a-trois-geants-du",
+      "status": "retiree",
+      "reason": "Pavillon des parfums de l'Exposition des arts décoratifs de 1925 pour une amende de 2026 : époque différente, image trompeuse.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "L'Exposition des arts décoratifs, Pavillon des parfums Fontanis, sur le Cours-la-Reine - A45641.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AL'Exposition_des_arts_d%C3%A9coratifs%2C_Pavillon_des_parfums_Fontanis%2C_sur_le_Cours-la-Reine_-_A45641.jpg",
+        "credit": "Dumas Roger",
+        "license": "CC BY-SA 4.0"
+      },
+      "rejected": [
+        {
+          "title": "L'Exposition des arts décoratifs, Pavillon des parfums Fontanis, sur le Cours-la-Reine - A45641.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AL'Exposition_des_arts_d%C3%A9coratifs%2C_Pavillon_des_parfums_Fontanis%2C_sur_le_Cours-la-Reine_-_A45641.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "gallium-germanium-antimoine-pekin-prolonge-de-deux-mois-son-repit-aux-etats-unis",
+      "status": "retiree",
+      "reason": "Schéma scientifique du germanium supraconducteur présenté comme photographie.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Supraleitendes Germanium am HZDR.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASupraleitendes_Germanium_am_HZDR.jpg",
+        "credit": "HZDR/ Sander Münster 3dkosmos",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "Supraleitendes Germanium am HZDR.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASupraleitendes_Germanium_am_HZDR.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "energie-bruxelles-prolonge-jusqu-en-juin-2027-les-aides-liees-a-la-crise-au",
+      "status": "retiree",
+      "reason": "Zone industrielle d'Evere (région bruxelloise) pour un encadrement européen des aides d'État : « Bruxelles » désigne la Commission, pas la ville.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Evere - Region Bruxelloise - Industriegebiet - Kanal der Zenne - Elia - Bruxelles Energie - 1010833.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEvere_-_Region_Bruxelloise_-_Industriegebiet_-_Kanal_der_Zenne_-_Elia_-_Bruxelles_Energie_-_1010833.jpg",
+        "credit": "Horst J. Meuter",
+        "license": "CC BY-SA 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Evere - Region Bruxelloise - Industriegebiet - Kanal der Zenne - Elia - Bruxelles Energie - 1010833.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEvere_-_Region_Bruxelloise_-_Industriegebiet_-_Kanal_der_Zenne_-_Elia_-_Bruxelles_Energie_-_1010833.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "emballages-au-royaume-uni-packuk-fixe-les-ecocontributions-2026-2027-en-hausse",
+      "status": "conservee",
+      "reason": "Balles de bouteilles PET compressées : illustre directement les emballages recyclés concernés par les écocontributions.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Bales of PET bottles closeup.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABales_of_PET_bottles_closeup.jpg",
+        "credit": "Grendelkhan",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "slug": "transferts-de-dechets-l-ue-repousse-a-septembre-2027-l-obligation-du-tout",
+      "status": "retiree",
+      "reason": "Siège de la BCE pour une règle sur les transferts de déchets : « obligation » légale interprétée comme dette publique.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "European Central Bank on seventh of April 2013 from south-east.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEuropean_Central_Bank_on_seventh_of_April_2013_from_south-east.jpg",
+        "credit": "Jürgen Matern",
+        "license": "CC BY-SA 3.0"
+      },
+      "rejected": [
+        {
+          "title": "European Central Bank on seventh of April 2013 from south-east.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AEuropean_Central_Bank_on_seventh_of_April_2013_from_south-east.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "rdc-en-ituri-pres-de-six-femmes-sur-dix-disent-subir-plus-de-violences-depuis",
+      "status": "retiree",
+      "reason": "Étudiants dans une salle informatique pour des violences subies par des femmes en Ituri : sans rapport, sujet sensible.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "University students in a technology learning classroom.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AUniversity_students_in_a_technology_learning_classroom.jpg",
+        "credit": "Ellamaria elshmod",
+        "license": "CC BY-SA 4.0"
+      },
+      "rejected": [
+        {
+          "title": "University students in a technology learning classroom.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AUniversity_students_in_a_technology_learning_classroom.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "l-il-du-sahara-vu-de-l-espace-un-dome-erode-pas-un-cratere-d-impact",
+      "status": "retiree",
+      "reason": "Ksar de Tamentit (Algérie) pour la structure du Richat en Mauritanie : mauvais lieu.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "photo": {
+        "title": "Ksar de Tamentit 02.jpg",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKsar_de_Tamentit_02.jpg",
+        "credit": "Benzita Abdelhadi",
+        "license": "CC BY-SA 4.0"
+      },
+      "rejected": [
+        {
+          "title": "Ksar de Tamentit 02.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKsar_de_Tamentit_02.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "parfums-industriels-bruxelles-inflige-471-9-millions-d-euros-a-trois-geants-du-carte-procedure-entente-parfums",
+      "status": "retiree",
+      "reason": "Immeuble de bureaux à Hong Kong pour la procédure européenne contre l'entente : sans rapport.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "HK YTM Yau Ma Tei Nathan Commercial Building glass wall view 405 Nathan Road 九龍政府合署 Kowloon Government Offices facade Jan-2014.JPG",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AHK_YTM_Yau_Ma_Tei_Nathan_Commercial_Building_glass_wall_view_405_Nathan_Road_%E4%B9%9D%E9%BE%8D%E6%94%BF%E5%BA%9C%E5%90%88%E7%BD%B2_Kowloon_Government_Offices_facade_Jan-2014.JPG"
+        }
+      ]
+    },
+    {
+      "slug": "spoutnik-1957-le-bip-venu-de-l-espace-qui-a-fait-naitre-la-nasa-carte-masse-spoutnik-1",
+      "status": "retiree",
+      "reason": "Galets d'une plage californienne (« beach ball ») pour la masse de Spoutnik 1 : trompeur.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "Bowling Balls Beach 2.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABowling_Balls_Beach_2.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "spoutnik-1957-le-bip-venu-de-l-espace-qui-a-fait-naitre-la-nasa-carte-de-spoutnik-a-la-nasa",
+      "status": "retiree",
+      "reason": "Lancement d'une fusée SpaceX en 2017 pour la naissance de la NASA en 1958 : époque différente.",
+      "reviewedAt": "2026-11-26",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "SES-10 Launch - world's first reflight of an orbital class rocket (33361035200).jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASES-10_Launch_-_world's_first_reflight_of_an_orbital_class_rocket_(33361035200).jpg"
+        }
+      ]
+    }
+  ]
+}

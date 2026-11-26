@@ -3,7 +3,8 @@ import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
 import { formatDate } from "@/lib/format";
 import { publicationPath } from "@/lib/publication-links";
-import { missingFromSelection, selectToday } from "@/lib/today";
+import { missingFromSelection, resolveToday } from "@/lib/today";
+import { editionNow } from "@/lib/edition-clock";
 import { getTopic } from "@/lib/topics";
 import { verificationLabel } from "@/lib/verification";
 import { feedPublications, todayConfig } from "@/lib/verified";
@@ -20,7 +21,8 @@ const SENSITIVE_TOPICS = new Set(["geopolitique", "finance"]);
  */
 export default function TodayStudioPage() {
   const config = todayConfig;
-  const picks = config ? selectToday(feedPublications, config) : [];
+  const resolved = config ? resolveToday(feedPublications, config, editionNow()) : null;
+  const picks = resolved?.picks ?? [];
   const missing = config ? missingFromSelection(feedPublications.map((p) => p.slug), config) : [];
   const rows = picks.map((pick, rank) => {
     const p = pick.publication;
@@ -49,6 +51,13 @@ export default function TodayStudioPage() {
           <p className="mt-6 text-sm text-muted">
             Édition du {formatDate(config.edition)} · {config.selectedBy ?? "sélection de la rédaction"} · {picks.length} sujet{picks.length > 1 ? "s" : ""} affiché{picks.length > 1 ? "s" : ""}
           </p>
+          {resolved && resolved.state !== "a-jour" && (
+            <p className="mt-4 border-l-2 border-amber pl-4 text-sm text-ink" data-testid="today-stale">
+              {resolved.state === "perimee"
+                ? `Sélection périmée : elle date du ${formatDate(config.edition)} et des publications plus récentes existent (jour à Paris : ${formatDate(resolved.today)}). Les lecteurs voient les publications les plus récentes, une actualité en tête. Mettez à jour la date et la sélection dans content/aujourdhui.json.`
+                : `Aucune publication depuis la sélection du ${formatDate(config.edition)} : elle reste affichée, présentée comme l'édition de sa date.`}
+            </p>
+          )}
           {missing.length > 0 && (
             <p className="mt-4 border-l-2 border-amber pl-4 text-sm text-ink" data-testid="today-missing">
               {missing.length} sujet{missing.length > 1 ? "s" : ""} choisi{missing.length > 1 ? "s" : ""} introuvable{missing.length > 1 ? "s" : ""} (retiré ou mal orthographié) : {missing.join(", ")}. La sélection de secours complète avec les publications récentes.
@@ -59,7 +68,7 @@ export default function TodayStudioPage() {
             {review.map(({ pick, rank, p, d, sensitive, toReview }) => (
               <li key={p.slug} className={`border p-4 ${sensitive ? "border-accent" : "border-rule"}`} data-testid="today-review-item" data-sensitive={sensitive ? "true" : "false"}>
                 <p className="text-meta text-muted">
-                  Position {rank + 1} · {getTopic(p.topic)?.name} · {pick.reason === "secours" ? "sélection de secours" : "choisi par la rédaction"}
+                  Position {rank + 1} · {getTopic(p.topic)?.name} · {pick.reason === "selection" ? "choisi par la rédaction" : pick.reason === "actualite" ? "actualité la plus récente (repli)" : "sélection de secours"}
                 </p>
                 <p className="mt-1 font-semibold text-ink">
                   <Link href={publicationPath(p.slug)} className="underline underline-offset-2">{d?.shortTitle ?? p.title}</Link>

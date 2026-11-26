@@ -63,6 +63,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
  },
+ "batteries-barrages-chaleur-comment-stocke-t-on-l-energie": {
+  "src": "/media/audio/batteries-barrages-chaleur-comment-stocke-t-on-l-energie.mp3",
+  "hash": "b3de1cc67e420aac",
+  "updatedAt": "2026-11-26",
+  "duration": 71,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-26T08:34:48.750Z"
+ },
  "batteries-basf-cede-son-activite-de-recyclage-a-la-jeune-pousse-allemande-cylib": {
   "src": "/media/audio/batteries-basf-cede-son-activite-de-recyclage-a-la-jeune-pousse-allemande-cylib.mp3",
   "hash": "7168c77174382662",
@@ -158,6 +166,14 @@
   "duration": 66,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
+ },
+ "comment-nait-et-s-aggrave-une-crise-diplomatique-entre-deux-etats": {
+  "src": "/media/audio/comment-nait-et-s-aggrave-une-crise-diplomatique-entre-deux-etats.mp3",
+  "hash": "d1a5851cab84d59d",
+  "updatedAt": "2026-11-26",
+  "duration": 61,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-26T08:34:48.750Z"
  },
  "creations-d-entreprises-repli-de-4-5-en-octobre-mais-forte-hausse-sur-un-an": {
   "src": "/media/audio/creations-d-entreprises-repli-de-4-5-en-octobre-mais-forte-hausse-sur-un-an.mp3",
@@ -463,6 +479,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T13:23:34.182Z"
  },
+ "meteo-ou-climat-pourquoi-faut-il-trente-ans-de-mesures-pour-parler-de-climat": {
+  "src": "/media/audio/meteo-ou-climat-pourquoi-faut-il-trente-ans-de-mesures-pour-parler-de-climat.mp3",
+  "hash": "71d50b358a5c4f55",
+  "updatedAt": "2026-11-26",
+  "duration": 77,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-26T08:34:48.750Z"
+ },
  "minerais-critiques-l-usgs-prevoit-20-de-capacite-pour-le-graphite-d-ici-2030": {
   "src": "/media/audio/minerais-critiques-l-usgs-prevoit-20-de-capacite-pour-le-graphite-d-ici-2030.mp3",
   "hash": "aaf6271e5848b7b4",
@@ -527,6 +551,22 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-25T13:27:47.154Z"
  },
+ "pourquoi-chiffrer-ses-communications-et-ce-que-le-chiffrement-ne-garantit-pas": {
+  "src": "/media/audio/pourquoi-chiffrer-ses-communications-et-ce-que-le-chiffrement-ne-garantit-pas.mp3",
+  "hash": "2fc056a790b1c0e6",
+  "updatedAt": "2026-11-26",
+  "duration": 75,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-26T08:34:48.750Z"
+ },
+ "pourquoi-des-emplois-disparaissent-chaque-annee-pendant-que-d-autres-naissent": {
+  "src": "/media/audio/pourquoi-des-emplois-disparaissent-chaque-annee-pendant-que-d-autres-naissent.mp3",
+  "hash": "cd5aac4d6b747cb6",
+  "updatedAt": "2026-11-26",
+  "duration": 81,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-26T08:34:48.750Z"
+ },
  "pourquoi-une-jeune-entreprise-ouvre-son-capital-a-des-investisseurs": {
   "src": "/media/audio/pourquoi-une-jeune-entreprise-ouvre-son-capital-a-des-investisseurs.mp3",
   "hash": "df5b7a33a2b6276d",
@@ -567,6 +607,14 @@
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-25T13:23:43.898Z"
  },
+ "que-sont-les-etf-ces-fonds-qui-copient-un-indice-boursier": {
+  "src": "/media/audio/que-sont-les-etf-ces-fonds-qui-copient-un-indice-boursier.mp3",
+  "hash": "06c97d95c39c3f1d",
+  "updatedAt": "2026-11-26",
+  "duration": 68,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-26T08:34:48.750Z"
+ },
  "rdc-des-combats-pres-d-un-hopital-de-l-ituri-perturbent-la-riposte-contre-ebola": {
   "src": "/media/audio/rdc-des-combats-pres-d-un-hopital-de-l-ituri-perturbent-la-riposte-contre-ebola.mp3",
   "hash": "6a1c7bfc725f9f46",
@@ -590,6 +638,14 @@
   "duration": 68,
   "voice": "piper-fr_FR-siwis-medium",
   "generatedAt": "2026-11-24T12:47:37.591Z"
+ },
+ "revue-par-les-pairs-ce-que-valide-vraiment-la-relecture-d-un-article": {
+  "src": "/media/audio/revue-par-les-pairs-ce-que-valide-vraiment-la-relecture-d-un-article.mp3",
+  "hash": "4ecc02627793717b",
+  "updatedAt": "2026-11-26",
+  "duration": 68,
+  "voice": "piper-fr_FR-siwis-medium",
+  "generatedAt": "2026-11-26T08:34:48.750Z"
  },
  "routes-centrales-ports-comment-les-etats-africains-financent-leurs": {
   "src": "/media/audio/routes-centrales-ports-comment-les-etats-africains-financent-leurs.mp3",

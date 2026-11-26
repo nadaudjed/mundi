@@ -1990,5 +1990,19 @@
     "searchQuery": "household waste bins street",
     "publication": "que-signifie-vraiment-un-taux-de-recyclage",
     "card": "france-dechets-produits-2024"
+  },
+  {
+    "slug": "tracabilite-des-minerais-comment-on-suit-un-metal-de-la-mine-a-l-usine",
+    "src": "/media/editorial/tracabilite-des-minerais-comment-on-suit-un-metal-de-la-mine-a-l-usine.jpg",
+    "alt": "Photographie d'illustration : Schefferville open pit mining for iron ore.jpg",
+    "title": "Schefferville open pit mining for iron ore.jpg",
+    "credit": "Matti&Keti ; Lorenz.King at JLU Giessen.de",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASchefferville_open_pit_mining_for_iron_ore.jpg",
+    "kind": "illustration",
+    "review": "automated-license-and-title-check",
+    "retrievedAt": "2026-11-26",
+    "searchQuery": "mining open pit"
   }
 ]

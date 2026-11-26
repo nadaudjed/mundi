@@ -1,5 +1,888 @@
 [
   {
+    "slug": "deepfakes-sexuels-l-ue-interdit-les-applis-de-denudage-par-ia-des-le-2-decembre",
+    "title": "Deepfakes sexuels : l'UE interdit les applis de « dénudage » par IA dès le 2 décembre",
+    "summary": "Devant le Parlement européen le 25 novembre 2026, la commissaire Hadja Lahbib a rappelé qu'une interdiction des applications d'intelligence artificielle qui « dénudent » des personnes entre en vigueur le 2 décembre. Elle découle de la révision du règlement européen sur l'IA, dite omnibus numérique, votée par les eurodéputés le 16 juin 2026 par 423 voix contre 57 et 174 abstentions. La Commission en fait un volet de sa lutte contre la cyberviolence visant les femmes, aux côtés de la directive de 2024 à transposer d'ici juin 2027.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "À partir du 2 décembre 2026, le règlement européen sur l'IA interdit les systèmes qui génèrent des contenus pédocriminels ou créent, sans consentement, des images, vidéos ou sons montrant les parties intimes ou des activités sexuelles d'une personne identifiable.",
+      "Le Parlement européen a adopté cette révision le 16 juin 2026 par 423 voix pour, 57 contre et 174 abstentions ; les entreprises avaient jusqu'au 2 décembre pour mettre leurs systèmes en conformité.",
+      "Selon la commissaire Hadja Lahbib, des études indiquent que 99 % des deepfakes pornographiques représentent des femmes ; la directive européenne sur les violences faites aux femmes doit être appliquée d'ici juin 2027."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce qui devient interdit",
+        "text": "La révision du règlement européen sur l'intelligence artificielle, adoptée par le Parlement européen le 16 juin 2026, interdit les systèmes d'IA qui génèrent des contenus d'abus sexuels sur mineurs, ou qui créent des images, vidéos et sons montrant les parties intimes ou des activités sexuellement explicites d'une personne identifiable, sans son consentement. Selon le Parlement, ces systèmes ne peuvent être mis sur le marché européen que s'ils sont dotés de garde-fous techniques suffisants pour empêcher de tels contenus, et l'interdiction vise aussi ceux qui les utilisent dans ce but. Le vote a réuni 423 voix pour, 57 contre et 174 abstentions. Les entreprises ont jusqu'au 2 décembre 2026 pour mettre leurs systèmes en conformité."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le rappel de la Commission au Parlement",
+        "text": "Le 25 novembre 2026, lors d'un débat au Parlement européen sur la lutte contre les violences fondées sur le genre à l'ère numérique, la commissaire Hadja Lahbib a confirmé que l'interdiction des applications de « dénudage » par IA entrera en vigueur le 2 décembre. Elle a affirmé que le harcèlement, les menaces, le cyberharcèlement et les abus fondés sur l'image visent de façon disproportionnée les femmes et les filles, et cité des études selon lesquelles 99 % des deepfakes pornographiques représentent des femmes. La stratégie européenne pour l'égalité entre les femmes et les hommes 2026-2030 fait de cette cyberviolence l'un de ses objectifs centraux."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les autres outils européens",
+        "text": "La commissaire a cité trois autres leviers. La directive européenne sur la lutte contre la violence à l'égard des femmes, qui érige en infraction les formes les plus répandues de cyberviolence, doit être pleinement appliquée par les États membres d'ici juin 2027. Le règlement sur les services numériques (DSA) est appliqué pour rendre les plateformes plus sûres. Enfin, la Commission prépare un plan d'action sur la protection des enfants contre la criminalité, en ligne et hors ligne."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une règle qui dépendra de son application",
+        "text": "L'interdiction ne vise pas toute image générée par IA : elle porte sur les contenus intimes ou sexuels d'une personne identifiable créés sans consentement, et sur les contenus pédocriminels. Son efficacité dépendra du contrôle par les autorités nationales et de la capacité à atteindre des applications souvent proposées depuis l'extérieur de l'Union. Les sources consultées ne précisent pas le montant des sanctions applicables à cette interdiction précise."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — discours de la commissaire Lahbib au Parlement européen, 25 novembre 2026",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2590"
+      },
+      {
+        "label": "Parlement européen — communiqué sur l'adoption de la révision du règlement IA et l'interdiction des applications de dénudage, 16 juin 2026",
+        "url": "https://www.europarl.europa.eu/news/en/press-room/20260611IPR45207/ai-act-ep-approves-simplification-measures-and-nudifier-app-ban"
+      },
+      {
+        "label": "Digital Policy Alert — entrée en application de l'interdiction le 2 décembre 2026",
+        "url": "https://digitalpolicyalert.org/event/42386-digital-omnibus-on-ai-regulation-prohibiting-nudification-apps-and-ai-systems-generating-or-manipulating-child-sexual-abuse-material-becomes-applicable"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Quelles applications d'IA l'Union européenne interdit-elle à partir du 2 décembre 2026 ?",
+        "answer": "Celles qui créent sans consentement des images, vidéos ou sons montrant les parties intimes ou des activités sexuelles d'une personne identifiable, ainsi que celles qui génèrent des contenus pédocriminels."
+      }
+    ]
+  },
+  {
+    "slug": "paiements-la-suede-rejoindra-en-2030-la-plateforme-t2-de-la-bce-sans-adopter-l",
+    "title": "Paiements : la Suède rejoindra en 2030 la plateforme T2 de la BCE, sans adopter l'euro",
+    "summary": "La Banque centrale européenne et la banque centrale de Suède, la Riksbank, ont signé le 25 novembre 2026 à Francfort un accord permettant à la Suède de régler ses gros paiements en couronnes sur T2, le système de règlement en temps réel de l'Eurosystème. La migration est visée pour février 2030. Les paiements resteront réglés en couronnes suédoises, en monnaie de banque centrale. Le Danemark utilise déjà T2 pour sa couronne.",
+    "topic": "economie",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Christine Lagarde et le gouverneur de la Riksbank, Erik Thedéen, ont signé le 25 novembre 2026 l'accord de participation de la couronne suédoise à T2, le système de l'Eurosystème pour les paiements de gros montant.",
+      "La migration est visée pour février 2030 : le règlement des gros paiements suédois passera d'une plateforme nationale à une infrastructure européenne partagée, toujours en couronnes et en monnaie de banque centrale.",
+      "La Riksbank avait décidé en 2024 d'utiliser T2 pour son service RIX-RTGS ; T2 traite déjà les paiements de gros montant en couronnes danoises."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un accord signé à Francfort",
+        "text": "Selon la BCE, la présidente Christine Lagarde et le gouverneur de la Riksbank Erik Thedéen ont participé le 25 novembre 2026 à la cérémonie de signature de l'accord de participation de la couronne suédoise à T2. T2 est le système de règlement brut en temps réel de l'Eurosystème : il règle, une par une et immédiatement, les paiements de gros montant entre banques en monnaie de banque centrale. L'accord permettra à la Riksbank d'utiliser T2 pour régler les paiements de gros montant en couronnes suédoises. La migration est visée pour février 2030."
+      },
+      {
+        "kind": "fait",
+        "heading": "La couronne reste la monnaie de règlement",
+        "text": "Rejoindre T2 ne signifie pas adopter l'euro. La BCE précise que les paiements continueront d'être réglés en couronnes suédoises, en monnaie de banque centrale. Le règlement des gros paiements suédois passera d'une plateforme nationale à une infrastructure européenne partagée. La Riksbank avait décidé en 2024 de poursuivre le projet d'utiliser la plateforme technique européenne T2 pour son service de règlement RIX-RTGS. T2 prend déjà en charge les paiements de gros montant en couronnes danoises, et la Suède comme le Danemark règlent déjà leurs paiements instantanés sur TIPS, une autre plateforme de l'Eurosystème."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi mutualiser une infrastructure de paiement",
+        "text": "La BCE met en avant les investissements partagés dans la sécurité, la résilience et le développement technique, ainsi que des normes européennes communes. Christine Lagarde y voit un renforcement de l'autonomie stratégique de l'Europe et un système financier plus intégré. Pour Erik Thedéen, le raccordement doit rendre le système suédois plus sûr et plus efficace, au quotidien comme en temps de crise. Selon le site spécialisé RegReportingDesk, qui cite les documents de la Riksbank, la décision de négocier un contrat date du 18 juin 2024 et la migration de RIX-RTGS vers T2 est visée pour février 2030."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qui reste à préciser",
+        "text": "Les sources consultées ne fixent pas encore les tarifs que paieront les banques suédoises après la migration. Un chantier distinct concerne le règlement des titres sur la plateforme T2S, qui n'est pas couvert par l'accord signé le 25 novembre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE — ECB and Sveriges Riksbank conclude agreement for Sweden to join T2, 25 novembre 2026",
+        "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261125_1~6333a90f3a.en.html"
+      },
+      {
+        "label": "Riksbank — The Riksbank wants to use the European T2 platform for payment settlement, 2024",
+        "url": "https://www.riksbank.se/en-gb/press-and-published/notices-and-press-releases/press-releases/2024/the-riksbank-wants-to-use-the-european-t2-platform-for-payment-settlement/"
+      },
+      {
+        "label": "RegReportingDesk — Riksbank T2 agreement: RIX-RTGS migration, 26 novembre 2026",
+        "url": "https://regreportingdesk.com/riksbank-t2-agreement-rix-rtgs-migration/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que T2, que la Suède rejoindra en 2030 ?",
+        "answer": "Le système de règlement brut en temps réel de l'Eurosystème, qui règle une par une et immédiatement les paiements de gros montant entre banques en monnaie de banque centrale."
+      },
+      {
+        "question": "La Suède adopte-t-elle l'euro en rejoignant T2 ?",
+        "answer": "Non : les paiements continueront d'être réglés en couronnes suédoises, en monnaie de banque centrale."
+      }
+    ]
+  },
+  {
+    "slug": "zone-euro-la-carte-depasse-pour-la-premiere-fois-les-especes-dans-les-magasins",
+    "title": "Zone euro : la carte dépasse pour la première fois les espèces dans les magasins",
+    "summary": "Selon l'étude SPACE publiée par la BCE le 25 novembre 2026, les cartes physiques ont représenté 45 % des paiements en magasin dans la zone euro en 2026, contre 44 % pour les espèces : une première depuis les données comparables de 2016. Les paiements mobiles montent à 9 %. Les espèces restent dominantes pour les petits montants et entre particuliers, et 62 % des consommateurs tiennent à pouvoir payer en liquide. L'enquête porte sur 51 551 personnes interrogées entre septembre 2025 et mai 2026.",
+    "topic": "finance",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En 2026, les cartes physiques représentent 45 % du nombre de paiements aux points de vente de la zone euro, contre 44 % pour les espèces et 9 % pour le mobile (6 % en 2024).",
+      "Le paiement moyen par carte est tombé de 59 euros en 2019 à 35 euros en 2026, mais les espèces dominent encore sous 20 euros et entre particuliers (44 % des paiements).",
+      "82 % des consommateurs jugent important de pouvoir payer par voie numérique et 62 % de pouvoir payer en espèces ; 85 % trouvent facile l'accès au liquide, contre 87 % en 2024."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un basculement en magasin",
+        "text": "La Banque centrale européenne a publié le 25 novembre 2026 son étude sur les comportements de paiement des consommateurs de la zone euro (SPACE). Pour la première fois depuis la collecte de données comparables en 2016, les cartes ont été utilisées plus souvent que les espèces aux points de vente physiques, comme les magasins : 45 % des transactions en 2026, contre 44 % pour les espèces. Les paiements mobiles, par téléphone ou montre, passent à 9 %, contre 6 % en 2024 et 3 % en 2022. En valeur, les cartes représentent plus de la moitié des paiements en magasin (51 %)."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les espèces gardent les petits montants",
+        "text": "Tous paiements confondus (magasins, en ligne et entre particuliers), les cartes représentent 43 % des transactions en 2026, contre 39 % en 2024, et les espèces 35 %, contre 40 %. Le paiement moyen par carte est passé de 59 euros en 2019 à 35 euros en 2026 : la carte sert pour des montants de plus en plus faibles. Les espèces dominent toutefois encore les paiements de moins de 20 euros et les paiements entre particuliers, où elles représentent 44 % des transactions, devant le mobile (25 %). La part des espèces en magasin varie de 18 % aux Pays-Bas à 58 % en Slovénie."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des préférences stables",
+        "text": "Les habitudes changent plus vite que les préférences. En magasin, 54 % des consommateurs préfèrent la carte ou un autre moyen sans espèces, 22 % préfèrent le liquide et 23 % n'ont pas de préférence nette, des chiffres quasi inchangés depuis 2022. Pour 82 % des consommateurs, il est important de pouvoir payer par voie numérique, question posée pour la première fois, et pour 62 % de pouvoir payer en espèces. L'accès au liquide recule légèrement : 85 % le jugent facile, contre 87 % en 2024, et 19 % de ceux qui ont tenté un retrait ont rencontré des difficultés. Enfin, 28 % des consommateurs déclarent une tentative de fraude liée aux paiements, et 5 % ont perdu de l'argent."
+      },
+      {
+        "kind": "analyse",
+        "heading": "La France avait déjà basculé",
+        "text": "En France, la Banque de France avait déjà relevé, à partir de l'édition précédente de l'étude publiée en décembre 2024, que le nombre de paiements par carte avait dépassé pour la première fois celui des paiements en espèces dans les commerces en 2024. Elle notait aussi que le recul de l'usage du liquide entre 2016 et 2024 avait été sensiblement le même en France que dans la zone euro. La BCE, qui prépare un éventuel euro numérique, souligne de son côté qu'elle veut préserver le choix du moyen de paiement, espèces comprises."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Les limites de l'enquête",
+        "text": "L'étude repose sur des déclarations et des carnets de paiement de 51 551 personnes interrogées en deux vagues, du 29 septembre au 27 novembre 2025 puis du 16 mars au 15 mai 2026. La BCE avertit que les données en valeur comportent des incertitudes et que les paiements entre particuliers, mesurés autrement en 2026, ne sont pas directement comparables avec les éditions précédentes."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE — Card payments edge past cash in shops, communiqué du 25 novembre 2026",
+        "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261125~26d1ade228.en.html"
+      },
+      {
+        "label": "BCE — Study on the payment attitudes of consumers in the euro area (SPACE) 2026",
+        "url": "https://www.ecb.europa.eu/stats/ecb_surveys/space/html/ecb.space2026.en.html"
+      },
+      {
+        "label": "Banque de France — Les Français continuent d'apprécier les espèces, même si leur usage se réduit, Bulletin n° 256",
+        "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/les-francais-continuent-dapprecier-les-especes-meme-si-leur-usage-se-reduit-au-profit-des-paiements"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "dataCards": [
+      {
+        "id": "paiements-en-magasin-2026",
+        "kind": "comparaison",
+        "headline": "En magasin, la carte passe juste devant les espèces",
+        "source": {
+          "label": "BCE — étude SPACE 2026",
+          "url": "https://www.ecb.europa.eu/stats/ecb_surveys/space/html/ecb.space2026.en.html"
+        },
+        "asOf": "2026-11-25",
+        "imageQuery": "contactless card payment terminal",
+        "items": [
+          {
+            "value": 45,
+            "unit": "%",
+            "label": "Cartes physiques",
+            "scope": "Zone euro, points de vente",
+            "period": "2026",
+            "denominator": "nombre de paiements aux points de vente"
+          },
+          {
+            "value": 44,
+            "unit": "%",
+            "label": "Espèces",
+            "scope": "Zone euro, points de vente",
+            "period": "2026",
+            "denominator": "nombre de paiements aux points de vente"
+          },
+          {
+            "value": 9,
+            "unit": "%",
+            "label": "Mobile",
+            "scope": "Zone euro, points de vente",
+            "period": "2026",
+            "denominator": "nombre de paiements aux points de vente"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "paiement-moyen-carte",
+        "kind": "stat",
+        "headline": "La carte sert pour des achats de plus en plus petits",
+        "source": {
+          "label": "BCE — étude SPACE 2026",
+          "url": "https://www.ecb.europa.eu/stats/ecb_surveys/space/html/ecb.space2026.en.html"
+        },
+        "asOf": "2026-11-25",
+        "imageQuery": "coffee shop counter",
+        "measure": {
+          "value": 35,
+          "unit": "€",
+          "label": "Paiement moyen par carte",
+          "scope": "Zone euro",
+          "period": "2026"
+        },
+        "context": "Il était de 59 euros en 2019."
+      },
+      {
+        "id": "choix-moyen-de-paiement",
+        "kind": "comparaison",
+        "headline": "Les Européens veulent garder les deux options",
+        "source": {
+          "label": "BCE — communiqué SPACE 2026",
+          "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261125~26d1ade228.en.html"
+        },
+        "asOf": "2026-11-25",
+        "note": "Part des consommateurs jugeant cette possibilité importante.",
+        "imageQuery": "euro banknotes wallet",
+        "items": [
+          {
+            "value": 82,
+            "unit": "%",
+            "label": "Pouvoir payer par voie numérique",
+            "scope": "Consommateurs de la zone euro",
+            "period": "2026",
+            "denominator": "consommateurs interrogés"
+          },
+          {
+            "value": 62,
+            "unit": "%",
+            "label": "Pouvoir payer en espèces",
+            "scope": "Consommateurs de la zone euro",
+            "period": "2026",
+            "denominator": "consommateurs interrogés"
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Quel moyen de paiement est le plus utilisé en magasin dans la zone euro en 2026, selon la BCE ?",
+        "answer": "Les cartes physiques, avec 45 % des transactions, juste devant les espèces (44 %)."
+      },
+      {
+        "question": "Pour quels paiements les espèces restent-elles dominantes dans la zone euro ?",
+        "answer": "Les paiements de moins de 20 euros et les paiements entre particuliers, où elles représentent 44 % des transactions."
+      }
+    ]
+  },
+  {
+    "slug": "parfums-industriels-bruxelles-inflige-471-9-millions-d-euros-a-trois-geants-du",
+    "title": "Parfums industriels : Bruxelles inflige 471,9 millions d'euros à trois géants du secteur",
+    "summary": "La Commission européenne a sanctionné le 25 novembre 2026 les trois premiers producteurs mondiaux de parfums industriels, Firmenich, Givaudan et IFF, pour une entente sur l'Espace économique européen entre mars 2019 et mars 2023. Ils échangeaient des informations sensibles, notamment sur les prix, à propos de leurs relations avec Unilever. Le même jour, l'autorité britannique de la concurrence (CMA) leur a infligé plus de 85 millions de livres. Les trois groupes ont reconnu les faits et transigé.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La Commission européenne a infligé 471,9 millions d'euros d'amendes au total : 252 363 000 euros à Givaudan, 137 689 000 euros à Firmenich et 81 915 000 euros à IFF.",
+      "L'entente a duré de mars 2019 à mars 2023 : échanges d'informations sur les prix, les tactiques de négociation et une possible surtaxe énergie dans leurs relations avec Unilever, plus gros acheteur mondial de parfums pour produits de consommation.",
+      "L'autorité britannique de la concurrence (CMA) a sanctionné les mêmes groupes le même jour, pour un total de 85 156 000 livres, après une enquête coordonnée avec la Suisse et les États-Unis."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une entente entre les trois géants du secteur",
+        "text": "La Commission européenne a annoncé le 25 novembre 2026 avoir infligé un total de 471,9 millions d'euros d'amendes à Firmenich et Givaudan, basés en Suisse, et à International Flavors & Fragrances (IFF), basé aux États-Unis. Ce sont les trois plus grands producteurs mondiaux de parfums industriels, ces compositions odorantes ajoutées aux lessives, shampoings, déodorants et produits ménagers. Selon la Commission, les trois groupes ont échangé des informations commercialement sensibles sur leurs affaires avec Unilever, plus gros acheteur mondial de parfums pour produits de consommation : hausses de prix, tactiques de négociation, possible surtaxe énergie. Ils se sont aussi entendus pour ne pas débaucher activement leurs salariés travaillant sur le compte Unilever. Givaudan et IFF ont en outre échangé des informations sur l'ensemble de leurs activités de parfums de consommation et, parfois, de parfumerie fine."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quatre ans d'infraction et des amendes réduites",
+        "text": "L'infraction a commencé en mars 2019 et pris fin en mars 2023, lorsque la Commission a mené des inspections surprises dans les locaux des trois groupes. Elle a ouvert une procédure formelle en novembre 2025. Les trois entreprises ont demandé à bénéficier du programme de clémence, puis ont transigé : elles ont reconnu leur participation et obtenu une réduction de 10 %. Les réductions pour clémence sont de 50 % pour IFF, 30 % pour Givaudan et 20 % pour Firmenich, qui bénéficie aussi d'une circonstance atténuante de 5 % pour sa participation plus limitée. Les amendes finales s'élèvent à 252 363 000 euros pour Givaudan, 137 689 000 euros pour Firmenich et 81 915 000 euros pour IFF. Il s'agit de la 45e transaction depuis la création de cette procédure en 2008."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une sanction parallèle au Royaume-Uni",
+        "text": "L'enquête a été menée en coordination avec l'autorité britannique de la concurrence (CMA), la Commission suisse de la concurrence et le département américain de la Justice. Le 25 novembre 2026, la CMA a rendu sa propre décision d'infraction : elle inflige un total de 85 156 000 livres, rabais de transaction de 20 % compris. Selon son communiqué, Givaudan doit payer 39 960 000 livres, IFF 24 570 000 livres et Firmenich 20 640 000 livres. La CMA avait ouvert son enquête le 7 mars 2023 et clos en mai 2025 le volet concernant l'allemand Symrise, pour des raisons de priorités administratives."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi un fournisseur peu connu pèse sur le panier des ménages",
+        "text": "Devant la presse, la vice-présidente exécutive Teresa Ribera a souligné que ce marché dépasse 4 milliards d'euros en Europe et que les trois groupes en représentent environ la moitié. Selon elle, les parfums peuvent représenter jusqu'à 10 % du coût d'un produit fini comme un shampoing ou une lessive. La Commission ne chiffre pas le surcoût éventuellement répercuté sur les consommateurs : elle indique seulement que le préjudice a pu se transmettre le long de la chaîne d'approvisionnement. Les clients lésés peuvent demander réparation devant les tribunaux nationaux, la décision de la Commission valant preuve de l'infraction."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — communiqué IP/26/2574, amendes dans le secteur des parfums, 25 novembre 2026",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2574"
+      },
+      {
+        "label": "Commission européenne — déclaration de Teresa Ribera, 25 novembre 2026",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2589"
+      },
+      {
+        "label": "CMA — dossier 51257, fourniture de parfums",
+        "url": "https://www.gov.uk/cma-cases/suspected-anti-competitive-conduct-in-relation-to-fragrances-and-fragrance-ingredients-51257"
+      },
+      {
+        "label": "CMA — communiqué, amendes de 85 millions de livres, 25 novembre 2026",
+        "url": "https://www.gov.uk/government/news/major-fragrance-suppliers-fined-85-million-by-the-cma-for-illegal-collusion"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "dataCards": [
+      {
+        "id": "amendes-ue-par-groupe",
+        "kind": "comparaison",
+        "headline": "Givaudan paie la plus lourde amende européenne de l'entente sur les parfums",
+        "source": {
+          "label": "Commission européenne — IP/26/2574",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2574"
+        },
+        "asOf": "2026-11-25",
+        "note": "Montants après réductions pour clémence et transaction.",
+        "imageQuery": "laundry detergent supermarket shelf",
+        "items": [
+          {
+            "value": 252363000,
+            "unit": "€",
+            "label": "Givaudan",
+            "scope": "Amende de la Commission européenne",
+            "period": "Infraction de mars 2019 à mars 2023"
+          },
+          {
+            "value": 137689000,
+            "unit": "€",
+            "label": "Firmenich",
+            "scope": "Amende de la Commission européenne",
+            "period": "Infraction de mars 2019 à mars 2023"
+          },
+          {
+            "value": 81915000,
+            "unit": "€",
+            "label": "IFF",
+            "scope": "Amende de la Commission européenne",
+            "period": "Infraction de mars 2019 à mars 2023"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "procedure-entente-parfums",
+        "kind": "explication",
+        "headline": "De l'inspection surprise à l'amende : les étapes de l'affaire",
+        "source": {
+          "label": "Commission européenne — IP/26/2574",
+          "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2574"
+        },
+        "asOf": "2026-11-25",
+        "imageQuery": "office building glass facade",
+        "steps": [
+          {
+            "label": "Mars 2019",
+            "text": "Début de l'infraction pour les trois groupes.",
+            "nature": "fait"
+          },
+          {
+            "label": "Mars 2023",
+            "text": "Inspections surprises de la Commission, qui mettent fin à l'infraction.",
+            "nature": "fait"
+          },
+          {
+            "label": "Novembre 2025",
+            "text": "Ouverture de la procédure formelle.",
+            "nature": "fait"
+          },
+          {
+            "label": "25 novembre 2026",
+            "text": "Décision de transaction et amendes de 471,9 millions d'euros au total.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Que reproche la Commission européenne à Firmenich, Givaudan et IFF ?",
+        "answer": "D'avoir échangé entre mars 2019 et mars 2023 des informations commercialement sensibles, notamment sur les prix, à propos de leurs affaires avec Unilever."
+      },
+      {
+        "question": "Qu'est-ce qu'une transaction dans une affaire d'entente européenne ?",
+        "answer": "Les entreprises reconnaissent leur participation à l'entente et leur responsabilité, en échange d'une réduction de 10 % de l'amende."
+      }
+    ]
+  },
+  {
+    "slug": "gallium-germanium-antimoine-pekin-prolonge-de-deux-mois-son-repit-aux-etats-unis",
+    "title": "Gallium, germanium, antimoine : Pékin prolonge de deux mois son répit aux États-Unis",
+    "summary": "Le ministère chinois du Commerce a prolongé le 24 novembre 2026, jusqu'au 27 janvier 2027, la suspension de son interdiction d'exporter du gallium, du germanium et de l'antimoine vers les États-Unis. Cette suspension, accordée en novembre 2025 lors d'une trêve commerciale entre Donald Trump et Xi Jinping, devait expirer le 27 novembre. Le 9 novembre, Pékin avait déjà repoussé au 10 janvier ses contrôles élargis sur les terres rares et les batteries. Faits rapportés par la presse ; le texte officiel n'a pas pu être consulté directement.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon Bloomberg et l'agence ANI, la Chine maintient suspendue jusqu'au 27 janvier 2027 l'interdiction, décidée en décembre 2024, d'exporter du gallium, du germanium et de l'antimoine vers les États-Unis.",
+      "La suspension, accordée en novembre 2025 après une trêve entre Donald Trump et Xi Jinping, devait expirer le 27 novembre 2026 ; les restrictions visant les utilisateurs militaires américains restent en place, selon ANI.",
+      "Selon les estimations de l'USGS pour 2025 citées par Bloomberg, la Chine assure 99 % de la production mondiale de gallium primaire de faible pureté et 36 % de l'antimoine extrait."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux mois de répit supplémentaires",
+        "text": "Le ministère chinois du Commerce a annoncé le mardi 24 novembre 2026 qu'il maintenait suspendue jusqu'au 27 janvier l'interdiction des exportations de gallium, de germanium et d'antimoine vers les États-Unis, selon un article de Bloomberg repris par le quotidien malaisien The Star. La suspension devait expirer le vendredi 27 novembre. L'agence indienne ANI, reprise par Open Magazine, rapporte la même échéance et précise que la mesure couvre aussi les matériaux superdurs et un examen allégé de certains produits à double usage liés au graphite. Selon ANI, les restrictions visant les exportations vers des utilisateurs militaires américains ou à des fins militaires ne sont pas levées."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une trêve commerciale reconduite par morceaux",
+        "text": "Pékin avait annoncé en décembre 2024 ces restrictions sur les exportations vers les États-Unis. En novembre 2025, après une trêve conclue entre Donald Trump et Xi Jinping en Corée du Sud, il les a suspendues pour un an. Selon Bloomberg, la prolongation aligne cette mesure sur d'autres volets de la trêve qui courent jusqu'en janvier, dont une pause des contrôles chinois supplémentaires sur les terres rares qui doit expirer le 10 janvier. Le 9 novembre 2026, le ministère chinois du Commerce avait en effet prolongé de deux mois, jusqu'au 10 janvier, la suspension de ses contrôles élargis d'octobre 2025 sur les terres rares, selon The News International."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ces métaux comptent",
+        "text": "Selon les estimations 2025 de l'Institut d'études géologiques des États-Unis (USGS) citées par Bloomberg, la Chine assure 99 % de la production mondiale de gallium primaire de faible pureté, environ 80 % du graphite naturel et 36 % de l'antimoine extrait, et reste le premier producteur et exportateur de germanium métal. Une prolongation de deux mois seulement laisse les industriels sans visibilité au-delà de janvier."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des tensions qui persistent",
+        "text": "Selon Bloomberg, le ministère chinois du Commerce a dénoncé de nouvelles règles américaines restreignant l'accès de la Chine aux puces d'IA avancées via des centres de données à l'étranger, estimant qu'elles violent les engagements des deux dirigeants, et a menacé de contre-mesures. Le texte officiel chinois de la prolongation n'a pas pu être consulté directement : son numéro et sa formulation exacte restent à confirmer."
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Star (dépêche Bloomberg) — China extends pause on US minerals ban to maintain truce, 24 novembre 2026",
+        "url": "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/11/24/china-extends-pause-on-us-minerals-ban-to-maintain-truce"
+      },
+      {
+        "label": "Open Magazine (avec ANI) — China extends critical mineral export restrictions suspension to US until January 2027, 24 novembre 2026",
+        "url": "https://openthemagazine.com/world/china-extends-critical-mineral-export-restrictions-suspension-to-us-until-january-2027-what-it-means"
+      },
+      {
+        "label": "The News International — China extends suspension of new rare earth controls until January, 10 novembre 2026",
+        "url": "https://www.thenews.com.pk/latest/1423059-china-extends-suspension-of-new-rare-earth-controls-until-january-easing-global-supply-fears"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Jusqu'à quand la Chine suspend-elle son interdiction d'exporter gallium, germanium et antimoine vers les États-Unis ?",
+        "answer": "Jusqu'au 27 janvier 2027, selon une prolongation de deux mois annoncée le 24 novembre 2026."
+      }
+    ]
+  },
+  {
+    "slug": "energie-bruxelles-prolonge-jusqu-en-juin-2027-les-aides-liees-a-la-crise-au",
+    "title": "Énergie : Bruxelles prolonge jusqu'en juin 2027 les aides liées à la crise au Moyen-Orient",
+    "summary": "La Commission européenne a prolongé le 25 novembre 2026 de six mois, jusqu'au 30 juin 2027, son encadrement temporaire des aides d'État lié à la crise au Moyen-Orient, qui devait expirer fin décembre. Il permet aux États de compenser une partie de la hausse des prix du carburant, des engrais et de l'électricité pour l'agriculture, la pêche, le transport et l'industrie énergivore. Depuis avril 2026, 36 mesures de 14 États membres ont été approuvées, pour un budget estimé à plus de 3,7 milliards d'euros.",
+    "topic": "energie",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L'encadrement temporaire des aides d'État lié à la crise au Moyen-Orient, adopté le 29 avril 2026 et valable jusqu'au 31 décembre 2026, est prolongé jusqu'au 30 juin 2027.",
+      "Agriculteurs, pêcheurs et transporteurs peuvent être compensés jusqu'à 70 % de leurs surcoûts de carburant et d'engrais ; une nouvelle enveloppe simplifiée de 50 000 euros par bénéficiaire est ouverte pour le premier semestre 2027.",
+      "La Commission a approuvé 36 mesures notifiées par 14 États membres et 11 modifications de régimes existants, pour un budget estimé à plus de 3,7 milliards d'euros."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Six mois de plus pour les secteurs exposés",
+        "text": "La Commission européenne a annoncé le 25 novembre 2026 la prolongation de six mois de son encadrement temporaire des aides d'État lié à la crise au Moyen-Orient, appelé METSAF. Adopté le 29 avril 2026, il devait prendre fin le 31 décembre 2026 ; il court désormais jusqu'au 30 juin 2027. Selon la Commission, la situation continue de peser sur les marchés de l'énergie, avec une volatilité persistante des prix du carburant, des engrais et de l'électricité de gros. La décision fait suite à une consultation des États membres, qui ont largement soutenu la prolongation. La Commission prévoit de réévaluer la situation au printemps 2027."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que les États peuvent financer",
+        "text": "Pour l'agriculture, la pêche, le transport terrestre et le transport maritime de courte distance au sein de l'Union, les États peuvent compenser jusqu'à 70 % des surcoûts d'un bénéficiaire liés à la hausse des prix du carburant et des engrais. Une option simplifiée permet de verser jusqu'à 50 000 euros par bénéficiaire et par période, sans preuve détaillée de la consommation réelle ; la prolongation ouvre une nouvelle enveloppe de ce type pour la période du 1er janvier au 30 juin 2027. Pour les industries énergivores, l'intensité de l'aide sur le coût de l'électricité peut passer de 50 % à 70 % de la consommation éligible, dans la limite de la moitié de la consommation totale du bénéficiaire."
+      },
+      {
+        "kind": "fait",
+        "heading": "3,7 milliards d'euros d'aides déjà approuvés",
+        "text": "Depuis avril, la Commission a approuvé 36 mesures notifiées par 14 États membres, ainsi que 11 modifications de régimes existants, pour un budget estimé à plus de 3,7 milliards d'euros. Le média bruxellois Eunews rapporte les mêmes chiffres et la même échéance du 30 juin 2027. Devant la presse, la vice-présidente exécutive Teresa Ribera a affirmé que, depuis le début du conflit d'Ormuz, l'Europe a payé 150 milliards d'euros de plus pour importer des combustibles fossiles, sans recevoir une molécule d'énergie supplémentaire."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une aide qui ne règle pas la dépendance",
+        "text": "La Commission présente ces aides comme ciblées et temporaires. Teresa Ribera a elle-même reconnu que les subventions ne régleront pas le problème : selon elle, seule la sortie des combustibles fossiles importés apportera des prix de l'énergie stables. La prolongation soulage à court terme les secteurs les plus exposés, mais elle a un coût pour les budgets nationaux et peut créer des écarts entre États selon leurs moyens. La répartition de l'enveloppe de 3,7 milliards d'euros entre pays n'est pas détaillée par la Commission."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — communiqué IP/26/2576, prolongation du METSAF, 25 novembre 2026",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2576"
+      },
+      {
+        "label": "Commission européenne — déclaration de Teresa Ribera, 25 novembre 2026",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2589"
+      },
+      {
+        "label": "Commission européenne — page de l'encadrement METSAF (DG Concurrence)",
+        "url": "https://competition-policy.ec.europa.eu/state-aid/legislation/metsaf_en"
+      },
+      {
+        "label": "Eunews — la Commission prolonge de six mois les aides d'État, 25 novembre 2026",
+        "url": "https://www.eunews.it/en/2026/11/25/the-commission-has-extended-state-aid-for-european-businesses-affected-by-the-energy-crisis-by-a-further-six-months/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Jusqu'à quelle date l'encadrement européen des aides d'État lié à la crise au Moyen-Orient est-il prolongé ?",
+        "answer": "Jusqu'au 30 juin 2027, au lieu du 31 décembre 2026 prévu au départ."
+      }
+    ]
+  },
+  {
+    "slug": "emballages-au-royaume-uni-packuk-fixe-les-ecocontributions-2026-2027-en-hausse",
+    "title": "Emballages au Royaume-Uni : PackUK fixe les écocontributions 2026-2027, en hausse",
+    "summary": "Le 25 novembre 2026, PackUK, l’organisme chargé de la responsabilité élargie du producteur pour les emballages au Royaume-Uni, a publié les tarifs définitifs que les producteurs paieront pour 2026-2027. Ils vont de 192 livres la tonne pour le verre le mieux noté à 697 livres pour le bois le moins bien noté, et augmentent pour presque tous les matériaux par rapport aux estimations publiées en décembre dernier, selon le site spécialisé letsrecycle.com.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Les tarifs 2026-2027 sont fixés par tonne et par matériau, avec trois niveaux selon la recyclabilité : vert, orange (tarif de base) et rouge ; le rouge vaut 1,2 fois le tarif orange, le vert 7,5 % de moins.",
+      "Le tarif de base atteint 505 livres la tonne pour le plastique, 581 livres pour le bois, 215 livres pour le papier-carton et 207 livres pour le verre.",
+      "Selon letsrecycle.com, le tarif orange du plastique dépasse de 11 % l’estimation publiée en décembre dernier, et celui du bois de 29 %."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Des tarifs définitifs pour 2026-2027",
+        "text": "PackUK a publié le 25 novembre 2026, sur le site du gouvernement britannique, les tarifs confirmés de la responsabilité élargie du producteur pour les emballages pour l’année 2026-2027. Ce dispositif fait payer aux entreprises qui mettent des emballages sur le marché une partie du coût de leur gestion en fin de vie. Les montants sont exprimés en livres par tonne, arrondis à la livre. Chaque matériau a trois tarifs, selon l’évaluation de sa recyclabilité : vert, orange et rouge. Le tarif orange sert de base ; le rouge correspond à une hausse de 20 %, et le vert à une baisse de 7,5 %. PackUK précise que la méthode de calcul est la même que pour les tarifs de base 2025-2026."
+      },
+      {
+        "kind": "fait",
+        "heading": "Du verre au bois, des écarts importants",
+        "text": "Selon le tableau publié par PackUK, le tarif de base est de 290 livres la tonne pour l’aluminium, 518 livres pour les composites à base de fibres, 207 livres pour le verre, 215 livres pour le papier et le carton, 505 livres pour le plastique, 296 livres pour l’acier, 581 livres pour le bois et 232 livres pour les autres matériaux. Les tarifs verts vont de 192 livres pour le verre à 538 livres pour le bois, et les tarifs rouges de 249 livres pour le verre à 697 livres pour le bois. Le tableau indique aussi la note majoritaire de chaque matériau : vert pour l’aluminium, le verre, le papier-carton et l’acier, orange pour les composites, rouge pour le plastique, le bois et les autres matériaux."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une hausse par rapport aux estimations",
+        "text": "Le site spécialisé letsrecycle.com indique que les tarifs augmentent pour presque tous les matériaux par rapport aux chiffres indicatifs publiés par PackUK en décembre dernier : le tarif orange du plastique est 11 % plus élevé, et celui du bois 29 %. Louisa Goodfellow, responsable des politiques publiques de l’éco-organisme Ecosurety, citée par ce site, évoque un surcoût de 131 livres la tonne pour le bois et de 50 livres pour le plastique. Selon letsrecycle.com, un projet de politique partagé le 18 novembre 2026 prévoit de relever le multiplicateur appliqué aux emballages notés rouge pour les années suivantes ; il reste à 1,2 pour 2026-2027. Ce projet est soumis à consultation jusqu’au 17 décembre 2026."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PackUK / GOV.UK — Extended producer responsibility for packaging: confirmed fees 2026 to 2027 (25 novembre 2026)",
+        "url": "https://www.gov.uk/government/publications/confirmed-fees-2026-to-2027-extended-producer-responsibility-for-packaging/extended-producer-responsibility-for-packaging-confirmed-fees-2026-to-2027"
+      },
+      {
+        "label": "letsrecycle.com — PackUK publishes confirmed packaging EPR fees for 2026/27 (25 novembre 2026)",
+        "url": "https://www.letsrecycle.com/news/packuk-publishes-confirmed-packaging-epr-fees-for-2026-27/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Comment PackUK module-t-il les écocontributions sur les emballages selon leur recyclabilité ?",
+        "answer": "Avec trois tarifs par matériau : orange (base), rouge (20 % de plus) et vert (7,5 % de moins)."
+      }
+    ]
+  },
+  {
+    "slug": "transferts-de-dechets-l-ue-repousse-a-septembre-2027-l-obligation-du-tout",
+    "title": "Transferts de déchets : l’UE repousse à septembre 2027 l’obligation du tout-numérique",
+    "summary": "Le 25 novembre 2026, la Commission européenne et les États membres se sont entendus pour prolonger de huit mois la période de transition des documents « annexe VII », qui accompagnent les transferts de déchets non dangereux destinés au recyclage. L’usage du système numérique européen DIWASS restera facultatif pour ces documents jusqu’au 1er septembre 2027, au lieu du 1er janvier 2027 prévu jusque-là.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La Commission européenne et les États membres ont trouvé une « compréhension commune » lors d’une réunion le 25 novembre 2026 : l’usage de DIWASS pour les documents annexe VII reste volontaire jusqu’au 1er septembre 2027.",
+      "La mesure ne concerne que les déchets de la « liste verte », non dangereux et destinés au recyclage ou à une autre valorisation, qui n’exigent pas d’autorisation préalable mais doivent être accompagnés d’un document annexe VII.",
+      "Les transferts soumis à consentement préalable, comme les déchets dangereux ou destinés à l’élimination, passent obligatoirement par DIWASS depuis le 21 mai 2026 ; ce calendrier ne change pas."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Huit mois de plus pour les documents papier",
+        "text": "Selon la direction générale de l’environnement de la Commission européenne, la Commission et les États membres ont convenu, lors d’une réunion consacrée au sujet le 25 novembre 2026, de prolonger la période de transition pour l’échange numérique des documents de transfert des déchets de la « liste verte ». Jusqu’ici, ces documents, dits « annexe VII », pouvaient continuer à circuler comme avant, surtout sur papier, jusqu’au 31 décembre 2026, et le système numérique DIWASS devait prendre le relais au 1er janvier 2027. Désormais, son usage restera volontaire jusqu’au 1er septembre 2027 et ne deviendra obligatoire qu’à cette date. Le site spécialisé britannique letsrecycle.com, qui rapporte la même décision, précise que la Commission avait déjà annoncé ce report le 11 novembre 2026."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que contient un document annexe VII",
+        "text": "Les déchets de la liste verte sont des déchets non dangereux envoyés vers le recyclage ou une autre opération de valorisation. Ils peuvent circuler entre pays sans autorisation préalable des autorités, mais chaque transfert doit être accompagné d’un document annexe VII. Selon letsrecycle.com, ce document indique notamment la personne qui organise le transfert, le transporteur, l’importateur, l’installation de valorisation, le type et la quantité de déchets, la date du transfert et l’opération de valorisation prévue. Il sert à la traçabilité et ne constitue pas un permis. Le module numérique de DIWASS consacré à ces transferts est disponible depuis le 15 novembre 2026."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce report",
+        "text": "La Commission explique ce délai par les inquiétudes exprimées par les autorités des États membres et par les entreprises sur leur capacité à utiliser DIWASS pour l’ensemble de ces échanges dès le 1er janvier 2027. DIWASS a été créé par le règlement européen révisé sur les transferts de déchets, avec l’objectif de numériser et de simplifier les procédures de transfert entre pays. Il est déjà obligatoire, depuis le 21 mai 2026, pour les transferts soumis à consentement préalable, notamment les déchets dangereux et les déchets destinés à l’élimination ; letsrecycle.com indique que ces obligations ne sont pas modifiées. D’ici septembre 2027, les autorités et les entreprises peuvent déjà utiliser le système pour les documents annexe VII si elles le souhaitent."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne, DG Environnement — EU extends transition period for digital exchange of green-listed waste shipment documents (25 novembre 2026)",
+        "url": "https://environment.ec.europa.eu/news/eu-extends-digital-transition-waste-shipment-documents-2026-11-25_en"
+      },
+      {
+        "label": "letsrecycle.com — EU confirms new deadline for Annex VII DIWASS inclusion (25 novembre 2026)",
+        "url": "https://www.letsrecycle.com/news/eu-confirms-new-deadline-for-annex-vii-diwass-inclusion/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "dataCards": [
+      {
+        "id": "calendrier-diwass",
+        "kind": "explication",
+        "headline": "DIWASS, le système numérique européen des transferts de déchets, s’impose en plusieurs étapes",
+        "source": {
+          "label": "Commission européenne, DG Environnement",
+          "url": "https://environment.ec.europa.eu/news/eu-extends-digital-transition-waste-shipment-documents-2026-11-25_en"
+        },
+        "asOf": "2026-11-25",
+        "imageQuery": "waste paper bales warehouse",
+        "steps": [
+          {
+            "label": "21 mai 2026",
+            "text": "DIWASS devient obligatoire pour les transferts soumis à consentement préalable, comme les déchets dangereux.",
+            "nature": "fait"
+          },
+          {
+            "label": "15 novembre 2026",
+            "text": "Le module numérique pour les documents annexe VII est disponible dans DIWASS.",
+            "nature": "fait"
+          },
+          {
+            "label": "31 décembre 2026",
+            "text": "Fin de la période où les documents annexe VII pouvaient circuler comme avant, surtout sur papier.",
+            "nature": "fait"
+          },
+          {
+            "label": "1er septembre 2027",
+            "text": "L’usage de DIWASS devient obligatoire pour les documents annexe VII ; il reste volontaire d’ici là.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      },
+      {
+        "id": "contenu-annexe-vii",
+        "kind": "explication",
+        "headline": "Ce que doit indiquer le document annexe VII qui suit un transfert de déchets de la liste verte",
+        "source": {
+          "label": "letsrecycle.com",
+          "url": "https://www.letsrecycle.com/news/eu-confirms-new-deadline-for-annex-vii-diwass-inclusion/"
+        },
+        "asOf": "2026-11-25",
+        "imageQuery": "truck transport documents",
+        "steps": [
+          {
+            "label": "Les acteurs",
+            "text": "La personne qui organise le transfert, le transporteur, l’importateur et l’installation de valorisation.",
+            "nature": "fait"
+          },
+          {
+            "label": "Les déchets",
+            "text": "Le type et la quantité de déchets transportés.",
+            "nature": "fait"
+          },
+          {
+            "label": "Le transfert",
+            "text": "La date du transfert et l’opération de valorisation prévue.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Jusqu’à quelle date l’usage de DIWASS reste-t-il facultatif pour les documents annexe VII ?",
+        "answer": "Jusqu’au 1er septembre 2027 ; il deviendra obligatoire à cette date, au lieu du 1er janvier 2027 prévu auparavant."
+      },
+      {
+        "question": "Qu’est-ce qu’un document annexe VII dans les transferts de déchets ?",
+        "answer": "Un document de traçabilité, et non un permis, qui accompagne les transferts de déchets non dangereux de la liste verte destinés au recyclage ou à une autre valorisation."
+      }
+    ]
+  },
+  {
+    "slug": "parfums-bruxelles-inflige-471-9-millions-d-euros-d-amende-a-firmenich-givaudan",
+    "title": "Parfums : Bruxelles inflige 471,9 millions d’euros d’amende à Firmenich, Givaudan et IFF",
+    "summary": "Le 25 novembre 2026, la Commission européenne a sanctionné les trois plus grands producteurs mondiaux de parfums, Firmenich, Givaudan et IFF, pour une entente dans l’Espace économique européen entre mars 2019 et mars 2023. Les trois groupes échangeaient des informations sensibles, notamment sur les prix, à propos de leurs ventes à Unilever. Ils ont coopéré et transigé, ce qui a réduit leurs amendes.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L’amende totale atteint 471,9 millions d’euros : 252 363 000 euros pour Givaudan, 137 689 000 euros pour Firmenich et 81 915 000 euros pour IFF.",
+      "Selon la Commission, les trois groupes ont échangé des informations sur les prix, les tactiques de négociation et un possible supplément énergie dans leurs relations avec Unilever, et se sont engagés à ne pas débaucher leurs salariés respectifs travaillant sur ce client.",
+      "Les trois entreprises ont bénéficié du programme de clémence et d’une réduction de 10 % pour avoir reconnu les faits ; dsm-firmenich indique avoir aussi transigé avec l’autorité britannique de la concurrence."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une entente de quatre ans autour d’Unilever",
+        "text": "La Commission européenne a annoncé le 25 novembre 2026 une amende totale de 471,9 millions d’euros contre Firmenich et Givaudan, basés en Suisse, et International Flavors & Fragrances (IFF), basé aux États-Unis, les trois plus grands producteurs mondiaux de parfums. Selon la Commission, les trois groupes ont échangé des informations commercialement sensibles sur leurs relations avec Unilever, le plus gros acheteur mondial de parfums destinés aux produits de grande consommation : hausses de prix, tactiques de négociation, possible supplément énergie, et stratégie face aux demandes de transparence d’Unilever sur la composition et le coût des ingrédients. Ils se sont aussi entendus pour ne pas recruter activement les salariés des autres affectés à ce client. Givaudan et IFF ont en outre échangé des informations sur leurs activités de parfums de grande consommation et, parfois, de parfumerie fine. L’infraction a duré de mars 2019 à mars 2023 et couvrait tout l’Espace économique européen."
+      },
+      {
+        "kind": "fait",
+        "heading": "Clémence et transaction réduisent les amendes",
+        "text": "Après des inspections surprises en mars 2023, les trois entreprises ont demandé à bénéficier du programme de clémence, puis ont transigé avec la Commission. Les réductions accordées pour la clémence sont de 50 % pour IFF, 30 % pour Givaudan et 20 % pour Firmenich ; toutes ont obtenu 10 % de plus pour avoir reconnu leur participation, et Firmenich 5 % au titre d’une participation plus limitée aux échanges. Les amendes finales sont de 252 363 000 euros pour Givaudan, 137 689 000 euros pour Firmenich et 81 915 000 euros pour IFF. De son côté, dsm-firmenich a annoncé le même jour avoir conclu une transaction avec la Commission européenne et avec l’autorité britannique de la concurrence, qui lui inflige 20 640 000 livres. L’enquête a été menée en coordination avec les autorités britannique, suisse et américaine."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un ingrédient discret des produits du quotidien",
+        "text": "La Commission souligne que les parfums entrent dans des milliers de produits de consommation courante, comme les produits d’hygiène et les lessives, achetés régulièrement par tous les ménages. Selon elle, ce type d’entente peut conduire à des prix plus élevés et à moins de choix pour les consommateurs, car les échanges d’informations réduisent l’incertitude sur le comportement des concurrents et remplacent la concurrence par la coordination. Les amendes sont versées au budget général de l’Union et réduisent d’autant les contributions des États membres l’année suivante."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — Commission fines Firmenich, Givaudan and IFF €471.9 million for participating in an international fragrance cartel (IP/26/2574, 25 novembre 2026)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2574"
+      },
+      {
+        "label": "dsm-firmenich — dsm-firmenich reaches settlement with European Commission and UK Competition and Markets Authority (25 novembre 2026)",
+        "url": "https://our-company.dsm-firmenich.com/en/our-company/news/press-releases/2026/dsm-firmenich-reaches-settlement-with-european-commission-and-uk-competition-and-markets-authority.html"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Pourquoi les amendes de Firmenich, Givaudan et IFF ont-elles été réduites par la Commission européenne ?",
+        "answer": "Parce que les trois groupes ont coopéré dans le cadre du programme de clémence et ont reconnu les faits en transigeant, ce qui leur a valu 10 % de réduction supplémentaire."
+      }
+    ]
+  },
+  {
+    "slug": "rdc-en-ituri-pres-de-six-femmes-sur-dix-disent-subir-plus-de-violences-depuis",
+    "title": "RDC : en Ituri, près de six femmes sur dix disent subir plus de violences depuis Ebola",
+    "summary": "Selon une enquête publiée le 24 novembre 2026 par l’UNICEF, l’organisation congolaise SOFEPADI et l’université Washington de Saint-Louis, près de six femmes et adolescentes sur dix interrogées dans la province de l’Ituri, dans l’est de la République démocratique du Congo, signalent des violences apparues ou aggravées depuis le début de l’épidémie d’Ebola. L’enquête repose sur 1 062 entretiens menés entre le 28 août et le 15 octobre.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L’enquête porte sur 1 062 entretiens avec des femmes et adolescentes de 15 ans et plus en Ituri : près de six sur dix signalent des violences ou abus apparus ou aggravés depuis le début de l’épidémie.",
+      "Neuf sur dix de celles qui signalent plus de violences citent le stress et la peur liés à l’épidémie ; près de la moitié de celles qui ont cherché de l’aide n’ont pas pu l’obtenir.",
+      "Les visites dans les huit espaces sûrs tenus par SOFEPADI en Ituri sont passées de 1 183 entre janvier et mars à 3 548 entre juillet et septembre ; le volet de protection des femmes et des enfants accuse un déficit de financement de 76 %."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une enquête menée pendant l’épidémie",
+        "text": "Le 24 novembre 2026, l’UNICEF a publié les résultats d’une enquête menée avec SOFEPADI, une organisation congolaise dirigée par des femmes, et l’université Washington de Saint-Louis, aux États-Unis. Selon le communiqué de l’UNICEF, il s’agit de la première surveillance en temps réel des violences contre les femmes et les filles pendant une épidémie de maladie infectieuse. Elle repose sur 1 062 entretiens avec des femmes et adolescentes de 15 ans et plus en Ituri, menés entre le 28 août et le 15 octobre. Près de six sur dix disent que des violences ou abus sont apparus ou se sont aggravés depuis le début de l’épidémie d’Ebola. Plus d’un tiers signalent un contrôle accru sur leurs déplacements, leur argent et leur téléphone, ainsi que des violences émotionnelles et psychologiques ; des violences physiques et sexuelles sont aussi rapportées."
+      },
+      {
+        "kind": "fait",
+        "heading": "Mesures sanitaires, peur et services fermés",
+        "text": "Sept répondantes sur dix vivent dans un foyer où au moins une mesure de riposte a été appliquée, comme l’isolement, la quarantaine ou la recherche des contacts. Parmi celles qui signalent plus de violences, neuf sur dix citent le stress et la peur provoqués par l’épidémie. Près de la moitié des femmes et des filles qui ont tenté d’accéder à des soins ou à un soutien n’y sont pas parvenues. Selon ONU Info, certaines structures d’accueil ont fermé ou changé de vocation, et la honte, la stigmatisation et la peur de la contamination dissuadent de demander de l’aide. Dans les huit espaces sûrs que SOFEPADI a maintenus ouverts en Ituri, les visites sont passées de 1 183 entre janvier et mars à 3 548 entre juillet et septembre."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une aide sous-financée",
+        "text": "Selon l’UNICEF, ses partenaires et lui ont aidé plus de 3 300 victimes de violences basées sur le genre en Ituri et au Nord-Kivu, et près de 175 000 personnes ont reçu un soutien psychologique et psychosocial entre juin et octobre. Mais la protection des enfants et des femmes, y compris les services contre ces violences, accuse un déficit de financement de 76 %. Interrogée par ONU Info, la coordinatrice nationale de SOFEPADI, Sandrine Lusamba, résume l’enjeu : une femme peut être protégée contre Ebola sans être protégée contre la violence. Les partenaires de l’enquête demandent de garder les espaces sûrs ouverts, d’offrir des moyens confidentiels de signalement et de faciliter l’accès aux soins et au soutien psychosocial. Selon ONU Info, l’épidémie a fait environ 5 800 morts sur près de 11 800 cas confirmés."
+      }
+    ],
+    "sources": [
+      {
+        "label": "UNICEF Canada — Nearly 6 in 10 women and adolescent girls surveyed in Ebola-hit Ituri report increase in violence and abuse (24 novembre 2026)",
+        "url": "https://www.unicef.ca/en/press-release/nearly-6-10-women-and-adolescent-girls-surveyed-ebola-hit-ituri-report-increase"
+      },
+      {
+        "label": "ONU Info — RDC : la peur d’Ebola enferme les victimes de violences dans le silence (24 novembre 2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159897"
+      },
+      {
+        "label": "Devdiscourse — Nearly 6 in 10 Women and Girls Surveyed in Ituri Report New or Worsening Violence (25 novembre 2026)",
+        "url": "https://www.devdiscourse.com/article/health/4011834-nearly-6-in-10-women-and-girls-surveyed-in-ituri-report-new-or-worsening-violence"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "Quelle part des femmes et adolescentes interrogées en Ituri signalent plus de violences depuis l’épidémie d’Ebola ?",
+        "answer": "Près de six sur dix, selon une enquête de l’UNICEF, de SOFEPADI et de l’université Washington de Saint-Louis fondée sur 1 062 entretiens."
+      }
+    ]
+  },
+  {
+    "slug": "l-il-du-sahara-vu-de-l-espace-un-dome-erode-pas-un-cratere-d-impact",
+    "title": "L’« œil du Sahara » vu de l’espace : un dôme érodé, pas un cratère d’impact",
+    "summary": "Le 25 novembre 2026, la NASA a publié une photographie de la structure du Richat, en Mauritanie, prise depuis la Station spatiale internationale le 14 novembre. Surnommée « l’œil du Sahara », cette formation circulaire a longtemps été prise pour un cratère d’impact. La NASA et l’institut géologique américain USGS la décrivent aujourd’hui comme un dôme soulevé puis érodé. Les sources ne donnent pas exactement la même taille : environ 40 kilomètres selon l’USGS, 45 selon la légende de la NASA.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La photographie a été prise depuis la Station spatiale internationale le 14 novembre 2026 et publiée par la NASA le 25 novembre.",
+      "La structure du Richat, en Mauritanie, est un dôme géologique soulevé puis érodé ; l’hypothèse d’un impact d’astéroïde a été écartée par la plupart des scientifiques, selon l’USGS.",
+      "Selon la NASA, le dôme a environ 100 millions d’années et les roches du centre sont plus anciennes que celles des anneaux extérieurs."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une cible vue depuis l’orbite",
+        "text": "La NASA a publié le 25 novembre 2026 une image de la structure du Richat, aussi appelée « œil du Sahara », photographiée depuis la Station spatiale internationale le 14 novembre. Selon la légende de la NASA, il s’agit d’un dôme géologique érodé d’environ 100 millions d’années, formé par une activité ignée et un soulèvement, en Mauritanie. Les roches situées au centre de cette « cible » sont plus anciennes que celles qui forment les anneaux extérieurs. La structure est composée de roches ignées et sédimentaires. L’USGS, l’institut d’études géologiques des États-Unis, la situe près de la bordure ouest du désert du Sahara et indique qu’elle est aussi appelée Guelb er Richat."
+      },
+      {
+        "kind": "fait",
+        "heading": "Pas un impact d’astéroïde",
+        "text": "La forme circulaire de la structure a d’abord fait penser à un cratère d’impact, rappelle l’Earth Observatory de la NASA, car les grosses météorites produisent souvent des formes de ce type. Selon l’USGS, la plupart des scientifiques ont depuis conclu qu’elle résulte d’un soulèvement géologique. L’Earth Observatory parle d’un dôme soulevé, ou anticlinal en dôme : au fil du temps, des vitesses d’érosion différentes selon les types de roches exposées au sommet du dôme ont fait apparaître des crêtes circulaires, appelées cuestas. L’USGS ajoute que des vents persistants du nord-est maintiennent une grande partie du dôme libre de sable, ce qui laisse voir les différentes couches de roche."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des mesures qui varient selon les sources",
+        "text": "Les chiffres publiés ne concordent pas tout à fait. La légende de la NASA du 25 novembre 2026 donne 45 kilomètres de diamètre, alors que l’USGS indique que les anneaux les plus extérieurs mesurent environ 40 kilomètres et que l’Earth Observatory de la NASA donne aussi un diamètre d’environ 40 kilomètres. Cet écart peut tenir à la limite retenue pour le bord de la structure, mais les sources ne l’expliquent pas. L’âge d’environ 100 millions d’années ne figure que dans la légende de la NASA ; les pages de l’USGS et de l’Earth Observatory consultées ne donnent pas d’âge."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NASA — Eye of the Sahara (25 novembre 2026)",
+        "url": "https://www.nasa.gov/image-article/eye-of-the-sahara/"
+      },
+      {
+        "label": "USGS — Landsat Sees the Eye of the Sahara",
+        "url": "https://www.usgs.gov/news/featured-story/landsat-sees-eye-sahara"
+      },
+      {
+        "label": "NASA Earth Observatory — The Eye of Sahara",
+        "url": "https://science.nasa.gov/earth/earth-observatory/the-eye-of-sahara-150060/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Qu’est-ce que la structure du Richat, surnommée « œil du Sahara » ?",
+        "answer": "Un dôme géologique soulevé puis érodé, en Mauritanie, que l’on a d’abord pris à tort pour un cratère d’impact."
+      },
+      {
+        "question": "Comment se sont formés les anneaux de la structure du Richat ?",
+        "answer": "Par des vitesses d’érosion différentes selon les types de roches exposées au sommet du dôme, qui ont créé des crêtes circulaires appelées cuestas."
+      }
+    ]
+  },
+  {
     "slug": "doctorats-europeens-marie-curie-1-939-candidatures-20-de-plus-qu-en-2025",
     "title": "Doctorats européens Marie Curie : 1 939 candidatures, 20 % de plus qu’en 2025",
     "summary": "L’appel 2026 des réseaux doctoraux des actions Marie Skłodowska-Curie, clos le 24 novembre, a reçu 1 939 propositions, contre 1 616 en 2025, a annoncé la Commission européenne le 25 novembre 2026. Doté d’un budget indicatif de 628 millions d’euros, il doit financer plus de 150 programmes doctoraux et plus de 2 000 doctorants, à comparer aux 726 765 doctorants recensés par Eurostat dans l’UE en 2024.",

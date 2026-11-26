@@ -1,5 +1,76 @@
 [
   {
+    "slug": "tracabilite-des-minerais-comment-on-suit-un-metal-de-la-mine-a-l-usine",
+    "title": "Traçabilité des minerais : comment on suit un métal de la mine à l'usine",
+    "summary": "Savoir d'où vient l'étain, le tantale, le tungstène ou l'or d'un appareil suppose de suivre le minerai à travers mines, négociants, fonderies et affineries. Le guide de l'OCDE sur le devoir de diligence et le règlement européen sur les minerais de conflit, appliqué depuis le 1er janvier 2021, organisent ce suivi par des documents, une évaluation des risques et des audits indépendants, sans éliminer le risque de fausses déclarations.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le guide de l'OCDE distingue la chaîne de responsabilité, série de documents qui nomment ceux qui ont détenu le minerai, et la traçabilité, suivi physique du minerai depuis sa mine d'origine jusqu'à la fonderie ou à l'affinerie.",
+      "Il propose cinq étapes : systèmes de gestion, identification et évaluation des risques, gestion des risques, audit au point de contrôle, et compte rendu public de la diligence exercée.",
+      "Le règlement européen s'applique directement aux importateurs de l'Union d'étain, de tantale, de tungstène et d'or depuis le 1er janvier 2021 ; il touche indirectement environ 500 fonderies et affineries."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux notions à ne pas confondre",
+        "text": "Le guide de l'OCDE sur le devoir de diligence pour des chaînes d'approvisionnement responsables en minerais, dans sa version d'introduction destinée aux entreprises en amont, distingue deux idées. La chaîne de responsabilité est une série de documents qui identifient les parties ayant détenu le minerai, comme les registres de production, les bordereaux d'expédition ou les certificats d'exportation. La traçabilité désigne le suivi physique du minerai depuis sa mine d'origine jusqu'au site de l'affineur ou de la fonderie. Le guide s'adresse aux mineurs, aux négociants et aux fonderies et affineries."
+      },
+      {
+        "kind": "fait",
+        "heading": "Cinq étapes et un point de contrôle",
+        "text": "L'OCDE décrit cinq étapes : mettre en place de solides systèmes de gestion ; identifier, évaluer et hiérarchiser les risques ; gérer les risques ; faire réaliser un audit au point de contrôle ; rendre compte de l'exercice du devoir de diligence. Ce point de contrôle se situe chez les fonderies et affineries, où passe l'essentiel des minerais de la chaîne tout en impliquant relativement peu d'entreprises. C'est aussi là que des informations utiles à la traçabilité peuvent se perdre. Ces entreprises doivent faire vérifier leur diligence par des audits de tierces parties indépendantes."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que la loi européenne impose",
+        "text": "Selon la Commission européenne, le règlement sur les minerais de conflit couvre l'étain, le tantale, le tungstène et l'or, sous forme de minerais, de concentrés ou de métaux transformés. Ses obligations s'appliquent depuis le 1er janvier 2021 et visent directement entre 600 et 1 000 importateurs de l'Union, et indirectement environ 500 fonderies et affineries. Les importateurs doivent indiquer le pays d'origine, les quantités, la date d'extraction, ainsi que les noms et adresses de leurs fournisseurs ; pour des minerais venant de zones de conflit ou à haut risque, ils doivent aussi préciser la mine, les lieux de regroupement et de traitement et les taxes et redevances payées. Le règlement ne s'applique pas sous certains seuils annuels de volume, fixés de façon qu'au moins 95 % des volumes importés de chaque minerai et métal y soient soumis. Les entreprises situées au-delà du stade du métal n'ont pas d'obligation au titre de ce texte."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Les limites du suivi",
+        "text": "La traçabilité repose largement sur des documents, et donc sur leur sincérité. Le guide de l'OCDE cite parmi les risques une chaîne de responsabilité inexacte ou falsifiée et de fausses déclarations d'origine. La Commission reconnaît que toutes les entreprises de l'Union ne pratiquent pas encore ce devoir de diligence, et que sa liste des zones de conflit ou à haut risque est indicative et non exhaustive. Elle a lancé en 2026 un réexamen, c'est-à-dire une évaluation, du règlement. Le système réduit l'opacité des chaînes d'approvisionnement ; il ne garantit pas à lui seul qu'aucun minerai problématique n'y entre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OCDE, Guide sur le devoir de diligence pour des chaînes d'approvisionnement responsables en minerais, introduction pour les entreprises en amont",
+        "url": "https://mneguidelines.oecd.org/Guide-OCDE-sur-le-devoir-de-diligence-pour-des-chaines-d-approvisionnement-responsables-en-minerais.pdf"
+      },
+      {
+        "label": "Commission européenne, The regulation explained (minerais de conflit)",
+        "url": "https://policy.trade.ec.europa.eu/development-and-sustainability/conflict-minerals-regulation/regulation-explained_en"
+      },
+      {
+        "label": "Règlement (UE) 2017/821 du 17 mai 2017, EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32017R0821"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quelle différence entre chaîne de responsabilité et traçabilité d'un minerai ?",
+        "answer": "La chaîne de responsabilité est une série de documents nommant ceux qui ont détenu le minerai ; la traçabilité est son suivi physique de la mine jusqu'à la fonderie ou l'affinerie."
+      },
+      {
+        "question": "Quelles sont les cinq étapes du devoir de diligence selon l'OCDE ?",
+        "answer": "Systèmes de gestion, identification et évaluation des risques, gestion des risques, audit au point de contrôle, et compte rendu de la diligence exercée."
+      },
+      {
+        "question": "Pourquoi les fonderies et affineries sont-elles un point de contrôle clé ?",
+        "answer": "L'essentiel des minerais y passe alors qu'elles sont relativement peu nombreuses ; c'est aussi là que des informations de traçabilité peuvent se perdre."
+      },
+      {
+        "question": "Quels métaux couvre le règlement européen sur les minerais de conflit ?",
+        "answer": "L'étain, le tantale, le tungstène et l'or, avec des obligations pour les importateurs de l'Union depuis le 1er janvier 2021."
+      }
+    ]
+  },
+  {
     "slug": "centres-de-donnees-en-orbite-spacex-autorise-a-lancer-jusqu-a-un-million-de",
     "title": "Centres de données en orbite : SpaceX autorisé à lancer jusqu’à un million de satellites",
     "summary": "Le 25 novembre 2026, la Commission fédérale des communications américaine (FCC) a autorisé SpaceX à placer jusqu’à un million de satellites en orbite basse pour Starmind, un réseau de calcul informatique alimenté par l’énergie solaire, selon les sites spécialisés GeekWire et SpacePolicyOnline. Le premier satellite doit être opérationnel au plus tard en 2033 et la constellation complète en 2040. Rien ne garantit que SpaceX lancera réellement autant d’engins.",

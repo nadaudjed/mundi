@@ -1,5 +1,645 @@
 [
   {
+    "slug": "spoutnik-1957-le-bip-venu-de-l-espace-qui-a-fait-naitre-la-nasa",
+    "title": "Spoutnik, 1957 : le bip venu de l'espace qui a fait naître la NASA",
+    "summary": "Le 4 octobre 1957, l'Union soviétique place en orbite Spoutnik 1, une sphère de 58 cm et 83,6 kg qui fait le tour de la Terre en 98 minutes environ. Surpris, les États-Unis accumulent les échecs avec Vanguard avant de réussir Explorer 1 le 31 janvier 1958, puis créent la NASA, qui ouvre le 1er octobre 1958. Ce récit s'appuie sur les archives historiques de la NASA et sur EBSCO. Il éclaire la compétition spatiale actuelle entre puissances, jusqu'aux projets lunaires.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 4 octobre 1957, l'URSS lance Spoutnik 1, de la taille d'un ballon de plage : 58 cm de diamètre, 83,6 kg, une orbite en 98 minutes environ, selon la NASA.",
+      "Le 6 décembre 1957, la fusée américaine Vanguard TV-3 explose sur son pas de tir ; Explorer 1 réussit le 31 janvier 1958 et découvre les ceintures de Van Allen.",
+      "Eisenhower signe la loi spatiale le 29 juillet 1958 ; la NASA, bâtie à partir du NACA créé en 1915, ouvre le 1er octobre 1958."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une sphère de 83,6 kilos",
+        "text": "Selon la NASA, l'Union soviétique lance Spoutnik 1 le 4 octobre 1957. Le satellite a à peu près la taille d'un ballon de plage, 58 cm de diamètre, pèse 83,6 kg et fait le tour de la Terre en 98 minutes environ. EBSCO précise qu'il est lancé par une fusée R-7. Le 3 novembre suivant, Spoutnik 2, de 508,3 kg, emporte la chienne Laïka, selon la NASA."
+      },
+      {
+        "kind": "fait",
+        "heading": "La riposte américaine",
+        "text": "La NASA rapporte que le public américain est pris au dépourvu. Le 6 décembre 1957, la fusée Vanguard TV-3 explose sur son pas de tir. L'équipe de l'armée dirigée par Wernher von Braun lance Explorer 1 le 31 janvier 1958 depuis Cap Canaveral ; selon la NASA, le satellite, construit en 84 jours, découvre les ceintures de radiation de Van Allen. EBSCO indique qu'une agence de recherche du Pentagone, l'ARPA, est formée en février 1958."
+      },
+      {
+        "kind": "fait",
+        "heading": "La naissance d'une agence civile",
+        "text": "Le 2 avril 1958, Eisenhower demande au Congrès une agence spatiale civile, selon la NASA. Le texte est adopté définitivement le 16 juillet et signé le 29 juillet 1958. T. Keith Glennan prête serment comme administrateur le 19 août 1958 et la NASA ouvre le 1er octobre 1958. Elle est bâtie à partir du NACA, le comité consultatif pour l'aéronautique créé en 1915, et d'autres agences publiques ; EBSCO date la création du NACA du 3 mars 1915."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un choc qui résonne encore",
+        "text": "Spoutnik a montré qu'une démonstration technique pouvait devenir un événement politique et pousser un pays à réorganiser sa recherche. La création d'une agence civile, distincte de l'armée, a été un choix structurant. La compétition actuelle autour de la Lune, de l'énergie dans l'espace et des constellations de satellites rappelle cette logique : la science spatiale reste aussi un instrument de puissance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "NASA, Sputnik and the Dawn of the Space Age",
+        "url": "https://www.nasa.gov/history/sputnik/index.html"
+      },
+      {
+        "label": "NASA, 65 Years Ago: The National Aeronautics and Space Act of 1958 Creates NASA",
+        "url": "https://www.nasa.gov/history/65-years-ago-the-national-aeronautics-and-space-act-of-1958-creates-nasa"
+      },
+      {
+        "label": "EBSCO Research Starters, Congress Creates the National Aeronautics and Space Administration",
+        "url": "https://www.ebsco.com/research-starters/history/congress-creates-national-aeronautics-and-space-administration"
+      }
+    ],
+    "kind": "recit",
+    "dataCards": [
+      {
+        "id": "masse-spoutnik-1",
+        "kind": "stat",
+        "headline": "Spoutnik 1 ne pesait que 83,6 kg, à peu près la taille d'un ballon de plage",
+        "source": {
+          "label": "NASA",
+          "url": "https://www.nasa.gov/history/sputnik/index.html"
+        },
+        "asOf": "1957-10-04",
+        "imageQuery": "beach ball",
+        "measure": {
+          "value": 83.6,
+          "unit": "kg",
+          "label": "Masse de Spoutnik 1",
+          "scope": "premier satellite artificiel",
+          "period": "lancement du 4 octobre 1957",
+          "decimals": 1
+        }
+      },
+      {
+        "id": "orbite-spoutnik-1",
+        "kind": "stat",
+        "headline": "Un tour complet de la Terre en 98 minutes environ",
+        "source": {
+          "label": "NASA",
+          "url": "https://www.nasa.gov/history/sputnik/index.html"
+        },
+        "asOf": "1957-10-04",
+        "imageQuery": "radio antenna night sky",
+        "measure": {
+          "value": 98,
+          "unit": "minutes",
+          "label": "Durée d'une orbite",
+          "scope": "Spoutnik 1",
+          "period": "octobre 1957"
+        }
+      },
+      {
+        "id": "de-spoutnik-a-la-nasa",
+        "kind": "explication",
+        "headline": "Moins d'un an entre Spoutnik et l'ouverture de la NASA",
+        "source": {
+          "label": "NASA",
+          "url": "https://www.nasa.gov/history/65-years-ago-the-national-aeronautics-and-space-act-of-1958-creates-nasa"
+        },
+        "asOf": "1958-10-01",
+        "imageQuery": "rocket launch pad",
+        "steps": [
+          {
+            "label": "31 janvier 1958",
+            "text": "Explorer 1, premier satellite américain, est lancé de Cap Canaveral.",
+            "nature": "fait"
+          },
+          {
+            "label": "29 juillet 1958",
+            "text": "La loi spatiale créant la NASA est signée.",
+            "nature": "fait"
+          },
+          {
+            "label": "1er octobre 1958",
+            "text": "La NASA ouvre ses portes.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Quand Spoutnik 1 a-t-il été lancé ?",
+        "answer": "Le 4 octobre 1957, par l'Union soviétique."
+      },
+      {
+        "question": "Quelles étaient la taille et la masse de Spoutnik 1 ?",
+        "answer": "Environ la taille d'un ballon de plage : 58 cm de diamètre pour 83,6 kg."
+      },
+      {
+        "question": "Quel a été le premier satellite américain réussi ?",
+        "answer": "Explorer 1, lancé le 31 janvier 1958, qui a découvert les ceintures de Van Allen."
+      },
+      {
+        "question": "Quand la NASA a-t-elle ouvert ?",
+        "answer": "Le 1er octobre 1958, après la signature de la loi spatiale le 29 juillet 1958."
+      }
+    ]
+  },
+  {
+    "slug": "helsinki-1er-aout-1975-l-acte-qui-a-mis-frontieres-et-droits-de-l-homme-sur-la",
+    "title": "Helsinki, 1er août 1975 : l'acte qui a mis frontières et droits de l'homme sur la table",
+    "summary": "Le 1er août 1975, 35 États, dont les États-Unis, le Canada et tous les pays européens sauf l'Albanie, signent à Helsinki l'Acte final de la Conférence sur la sécurité et la coopération en Europe. Le texte réunit dix principes, dont l'intégrité territoriale, et des engagements sur l'économie et les droits de l'homme, qui inspirent ensuite des groupes de surveillance en URSS. Ce récit s'appuie sur l'OSCE, le Bureau de l'historien du département d'État et la Commission américaine sur la sécurité et la coopération en Europe. Il éclaire les débats actuels sur les frontières en Europe.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Après des consultations ouvertes en 1972, la conférence s'ouvre à Helsinki du 3 au 7 juillet 1973, se poursuit à Genève du 18 septembre 1973 au 21 juillet 1975 et se conclut à Helsinki le 1er août 1975.",
+      "L'Acte final, signé par 35 États, contient dix principes fondamentaux, surnommés le « Décalogue », et des engagements politico-militaires, économiques et humains.",
+      "Selon le Bureau de l'historien, des militants des droits de l'homme créent des groupes de surveillance d'Helsinki en URSS et en Europe, et la réunion de Belgrade instaure un processus d'examen."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux ans de négociation",
+        "text": "Selon le Bureau de l'historien du département d'État, des consultations préparatoires commencent à Helsinki en 1972 et la conférence s'ouvre officiellement en juillet 1973. L'OSCE et la Commission américaine sur la sécurité et la coopération en Europe précisent les étapes : une première phase à Helsinki du 3 au 7 juillet 1973, une deuxième à Genève du 18 septembre 1973 au 21 juillet 1975, puis le sommet d'Helsinki le 1er août 1975, où 35 États signent l'Acte final."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que contient le texte",
+        "text": "Selon l'OSCE, l'Acte final énonce dix principes fondamentaux, surnommés le « Décalogue », et s'organise en trois dimensions, ou « corbeilles » : politico-militaire, économique et environnementale, et humaine. Le Bureau de l'historien en décrit quatre : la première regroupe les principes sur l'intégrité territoriale, les frontières, le règlement pacifique des différends et des mesures de confiance ; la deuxième porte sur l'économie ; la troisième sur les droits de l'homme, l'émigration, le regroupement familial et la presse ; la quatrième sur le suivi. Tous les pays européens sauf l'Albanie signent, avec les États-Unis et le Canada."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des engagements repris par les dissidents",
+        "text": "Le Bureau de l'historien indique que des militants des droits de l'homme créent des groupes de surveillance d'Helsinki en Union soviétique et ailleurs en Europe pour contrôler l'application des engagements. La réunion de suivi de Belgrade introduit un processus d'examen de leur mise en œuvre."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi Helsinki revient dans l'actualité",
+        "text": "L'Acte final a mis par écrit, avec la signature de pays des deux blocs, des principes sur l'intégrité territoriale et les frontières, à côté d'engagements sur les droits de l'homme. Ces principes sont régulièrement invoqués dans les crises qui touchent l'intégrité territoriale d'un État européen. Leur poids réel dans l'évolution de la guerre froide reste un sujet d'interprétation."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bureau de l'historien, département d'État des États-Unis, Helsinki Final Act, 1975",
+        "url": "https://history.state.gov/milestones/1969-1976/helsinki"
+      },
+      {
+        "label": "OSCE, Helsinki Summit 1975",
+        "url": "https://www.osce.org/mc/58376"
+      },
+      {
+        "label": "Commission sur la sécurité et la coopération en Europe (États-Unis), The Helsinki Final Act",
+        "url": "https://www.csce.gov/publications/the-helsinki-final-act"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand et par combien d'États l'Acte final d'Helsinki a-t-il été signé ?",
+        "answer": "Le 1er août 1975, par 35 États, dont les États-Unis et le Canada."
+      },
+      {
+        "question": "Quel pays européen n'a pas signé l'Acte final d'Helsinki ?",
+        "answer": "L'Albanie."
+      },
+      {
+        "question": "Que désigne le « Décalogue » de l'Acte final d'Helsinki ?",
+        "answer": "Les dix principes fondamentaux du texte, dont l'intégrité territoriale et le règlement pacifique des différends."
+      },
+      {
+        "question": "Que sont les groupes de surveillance d'Helsinki ?",
+        "answer": "Des groupes de militants des droits de l'homme créés en URSS et en Europe pour contrôler l'application des engagements d'Helsinki."
+      }
+    ]
+  },
+  {
+    "slug": "herstatt-26-juin-1974-la-faillite-qui-a-fait-naitre-le-comite-de-bale",
+    "title": "Herstatt, 26 juin 1974 : la faillite qui a fait naître le Comité de Bâle",
+    "summary": "Le 26 juin 1974, l'Allemagne de l'Ouest retire sa licence à la banque Herstatt, en pleine journée de travail à New York. Des banques qui avaient déjà payé en marks ne reçoivent jamais les dollars attendus : c'est le « risque Herstatt ». À la fin de 1974, les gouverneurs des banques centrales du G10 créent le comité qui deviendra le Comité de Bâle. Ce récit, fondé sur la Banque des règlements internationaux, la Cité de l'économie et un blog de chercheurs de la Banque d'Angleterre, éclaire les débats actuels sur la sécurité des paiements entre banques.",
+    "topic": "finance",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 26 juin 1974, le superviseur bancaire ouest-allemand retire sa licence à Bankhaus Herstatt, 35e banque du pays, après la fermeture des banques allemandes mais pendant la journée de travail américaine.",
+      "Des contreparties avaient déjà versé des marks à Herstatt sans recevoir les dollars correspondants à New York : ce décalage entre deux paiements porte depuis le nom de « risque Herstatt ».",
+      "À la fin de 1974, les gouverneurs des banques centrales du G10 créent un comité de contrôle bancaire, réuni pour la première fois en février 1975 : l'ancêtre du Comité de Bâle et de ses accords."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une banque moyenne fermée au mauvais moment",
+        "text": "Le 26 juin 1974, l'office fédéral de contrôle du crédit ouest-allemand retire sa licence bancaire à Bankhaus Herstatt, une banque de Cologne que le blog Bank Underground, tenu par des chercheurs de la Banque d'Angleterre, décrit comme la 35e plus grande du pays. La Cité de l'économie parle d'une banque de taille moyenne. La décision tombe après la fin de la journée bancaire en Allemagne, mais alors que les banques américaines travaillent encore."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des marks versés, des dollars jamais reçus",
+        "text": "Ce jour-là, des banques avaient conclu des opérations de change avec Herstatt. Selon Bank Underground, elles avaient déjà payé leur part en marks, mais n'ont pas reçu les dollars qui devaient leur être versés à New York. Ce décalage entre les deux jambes d'une opération de change est depuis appelé « risque Herstatt » ou risque de règlement. La Cité de l'économie rapporte que la faillite a provoqué une crise sur les marchés des changes et que le marché interbancaire de New York s'est retrouvé à l'arrêt. Bank Underground ajoute que les banques new-yorkaises ont retenu leurs paiements et que la chambre de compensation de New York a modifié ses règles le 1er juillet 1974 pour permettre d'annuler un paiement le jour ouvré suivant."
+      },
+      {
+        "kind": "fait",
+        "heading": "Naissance du Comité de Bâle",
+        "text": "Selon la Banque des règlements internationaux, les gouverneurs des banques centrales des pays du G10 créent à la fin de 1974 un comité, d'abord appelé Comité des règles et pratiques de contrôle bancaire, après de graves perturbations sur les marchés des changes et bancaires, notamment la faillite de Herstatt. Il se réunit pour la première fois en février 1975 et publie la même année un premier « concordat » sur le partage de la surveillance des banques actives dans plusieurs pays. En juillet 1988, il publie le premier accord de Bâle, qui fixe un ratio minimal de fonds propres de 8 % des actifs pondérés par les risques, à appliquer d'ici fin 1992. La Cité de l'économie attribue l'idée du comité à Peter Cooke, de la Banque d'Angleterre, d'où le nom de « ratio Cooke »."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi l'épisode reste actuel",
+        "text": "Selon la BRI, le comité rassemble aujourd'hui 45 institutions de 28 juridictions et ses accords ont été révisés plusieurs fois, avec Bâle II en 2004 et Bâle III à partir de 2010. Le cas Herstatt rappelle qu'une banque peut faire perdre de l'argent à d'autres non parce qu'elle est géante, mais parce que deux paiements liés ne sont pas réglés au même moment. C'est l'une des raisons pour lesquelles les banques centrales accordent autant d'attention aux infrastructures de paiement et de règlement, un sujet qui revient avec les projets de règlement sur de nouvelles technologies."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Banque des règlements internationaux, History of the Basel Committee",
+        "url": "https://www.bis.org/bcbs/history.htm"
+      },
+      {
+        "label": "Cité de l'économie (Citéco), Collapse of the Herstatt bank and creation of the Basel Committee",
+        "url": "https://www.citeco.fr/10000-years-history-economics/contemporary-world/collapse-of-the-herstatt-bank-in-germany-and-creation-of-the-basel-committee"
+      },
+      {
+        "label": "Bank Underground (Banque d'Angleterre), BoE archives reveal little known lesson from the 1974 failure of Herstatt Bank",
+        "url": "https://bankunderground.co.uk/2015/06/24/boe-archives-reveal-little-known-lesson-from-the-1974-failure-of-herstatt-bank/"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Qu'appelle-t-on le « risque Herstatt » ?",
+        "answer": "Le risque qu'une banque paie sa part d'une opération de change sans recevoir l'autre devise, comme les contreparties de Herstatt en 1974 qui avaient versé des marks sans recevoir de dollars."
+      },
+      {
+        "question": "Quand la banque Herstatt a-t-elle perdu sa licence ?",
+        "answer": "Le 26 juin 1974, après la fermeture des banques allemandes mais pendant la journée bancaire américaine."
+      },
+      {
+        "question": "Quel comité a été créé à la fin de 1974 après la faillite de Herstatt ?",
+        "answer": "Le comité de contrôle bancaire des gouverneurs du G10, devenu le Comité de Bâle, réuni pour la première fois en février 1975."
+      },
+      {
+        "question": "Quel ratio minimal de fonds propres fixe le premier accord de Bâle de 1988 ?",
+        "answer": "8 % des actifs pondérés par les risques, à appliquer d'ici la fin de 1992."
+      }
+    ]
+  },
+  {
+    "slug": "jeudi-d-argent-1980-quand-les-freres-hunt-ont-tente-d-accaparer-le-metal-blanc",
+    "title": "Jeudi d'argent, 1980 : quand les frères Hunt ont tenté d'accaparer le métal blanc",
+    "summary": "Le 27 mars 1980, le cours de l'argent s'effondre après la tentative des frères Hunt, deux héritiers texans, de dominer le marché de ce métal. Il était monté à 49,45 dollars l'once le 17 janvier 1980 et tombe à 10,80 dollars ce « jeudi d'argent ». Ce récit s'appuie sur l'Encyclopædia Britannica, le témoignage du président de la Réserve fédérale Paul Volcker devant le Congrès et le Christian Science Monitor de 1980. Il éclaire les débats actuels sur la concentration et la spéculation sur les métaux.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Nelson Bunker Hunt et William Herbert Hunt achètent massivement de l'argent à partir d'un cours de 1,50 dollar l'once ; Britannica estime qu'ils en détiennent pour 4,5 milliards de dollars en 1979.",
+      "L'once atteint 49,45 dollars le 17 janvier 1980, puis tombe à 10,80 dollars le 27 mars 1980 ; Britannica chiffre la perte des frères Hunt à environ 1,7 milliard de dollars.",
+      "Devant le Congrès le 30 avril 1980, Paul Volcker indique que les Bourses avaient relevé les dépôts de garantie et limité les positions en janvier et février, et que la Réserve fédérale n'avait pas d'autorité sur ces marchés."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux frères et des millions d'onces",
+        "text": "Selon l'Encyclopædia Britannica, Nelson Bunker Hunt et William Herbert Hunt commencent à spéculer sur l'argent quand l'once vaut 1,50 dollar. Ils achètent des contrats à terme portant sur 55 millions d'onces et se font livrer le métal ; Britannica estime qu'ils finissent par en accumuler environ 100 millions d'onces, et qu'en 1979 ils détiennent pour 4,5 milliards de dollars d'argent, soit près de 70 % de l'offre mondiale. Le Christian Science Monitor du 1er avril 1980 avançait, lui, une estimation de 200 millions d'onces : les chiffres de l'époque divergent."
+      },
+      {
+        "kind": "fait",
+        "heading": "Du sommet à l'effondrement",
+        "text": "Britannica indique que l'once d'argent coûte 49,45 dollars le 17 janvier 1980. Dans sa déclaration du 30 avril 1980 devant une sous-commission de la Chambre des représentants, Paul Volcker, président de la Réserve fédérale, explique que les Bourses ont alors fortement relevé les dépôts de garantie et limité les positions individuelles en janvier et février, et que les prix ont ensuite commencé à baisser rapidement. Le jeudi 27 mars 1980, l'once tombe à 10,80 dollars, selon Britannica, qui parle du plus fort effondrement de l'histoire du métal ; les frères Hunt y perdent environ 1,7 milliard de dollars."
+      },
+      {
+        "kind": "fait",
+        "heading": "La Réserve fédérale en première ligne",
+        "text": "Volcker raconte avoir été alerté le mercredi 26 mars à la mi-journée par une maison de courtage et cite la société Engelhard Minerals & Chemical, dont il apprend les contrats à terme le 28 mars ; des négociations ont lieu le 30 mars. Le prêt qui suit est accordé à la Placid Oil Company. Britannica évoque un crédit de 1,1 milliard de dollars de banques new-yorkaises, avec l'accord de la Réserve fédérale. Volcker affirme que la Fed n'est pas à l'origine de ces prêts et qu'elle n'a pas d'autorité sur les marchés de matières premières. Selon le Christian Science Monitor, le 27 mars, les présidents de l'autorité des marchés à terme (CFTC) et de la SEC rencontrent Volcker. Britannica ajoute que les frères seront plus tard condamnés pour avoir tenté illégalement d'accaparer le marché, avec 10 millions de dollars d'amende chacun et une interdiction d'opérer sur les matières premières."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que l'épisode dit des métaux aujourd'hui",
+        "text": "L'affaire montre qu'un petit nombre d'acteurs peut peser sur le prix d'un métal quand les stocks disponibles sont limités, et que les marchés se défendent surtout par des règles de garantie et des limites de position. Ces outils reviennent dans les débats actuels sur les métaux jugés critiques, où quelques pays ou entreprises contrôlent une grande partie de l'offre. Les sources ne concordent pas sur tous les chiffres de 1980, ce qui invite à la prudence sur les estimations des stocks détenus."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Encyclopædia Britannica, Silver Thursday",
+        "url": "https://www.britannica.com/topic/Silver-Thursday"
+      },
+      {
+        "label": "Paul A. Volcker, déclaration devant la Chambre des représentants, 30 avril 1980 (FRASER, Réserve fédérale de Saint-Louis)",
+        "url": "https://fraser.stlouisfed.org/title/statements-speeches-paul-a-volcker-451/statement-subcommittee-commerce-consumer-monetary-affairs-committee-government-operations-house-representatives-8216/fulltext"
+      },
+      {
+        "label": "Christian Science Monitor, The silver 'meltdown' that wasn't, 1er avril 1980",
+        "url": "https://www.csmonitor.com/1980/0401/040135.html"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que le « jeudi d'argent » de 1980 ?",
+        "answer": "L'effondrement du cours de l'argent le 27 mars 1980, tombé à 10,80 dollars l'once après la tentative des frères Hunt d'accaparer le marché."
+      },
+      {
+        "question": "À quel niveau l'once d'argent est-elle montée le 17 janvier 1980 ?",
+        "answer": "À 49,45 dollars, selon l'Encyclopædia Britannica."
+      },
+      {
+        "question": "Quelle part de l'offre mondiale d'argent les frères Hunt détenaient-ils en 1979 selon Britannica ?",
+        "answer": "Près de 70 %, pour une valeur de 4,5 milliards de dollars."
+      },
+      {
+        "question": "Quels outils les Bourses ont-elles utilisés contre la spéculation des Hunt ?",
+        "answer": "Elles ont fortement relevé les dépôts de garantie et limité les positions individuelles en janvier et février 1980."
+      }
+    ]
+  },
+  {
+    "slug": "mobro-4000-1987-la-barge-d-ordures-dont-personne-ne-voulait",
+    "title": "Mobro 4000, 1987 : la barge d'ordures dont personne ne voulait",
+    "summary": "Au printemps 1987, une barge chargée de plus de 3 000 tonnes de déchets de Long Island a erré pendant des semaines le long des côtes américaines, refusée port après port. Ce récit s'appuie sur Retro Report, la notice historique d'EBSCO et l'encyclopédie Wikipedia, qui divergent sur plusieurs détails. Alors que l'export des déchets reste encadré et contesté, il rappelle comment cette odyssée a fait de la place en décharge un sujet national et nourri l'essor du recyclage.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 22 mars 1987, la barge Mobro 4000 quitte Islip, à Long Island, avec environ 3 168 tonnes de déchets en balles, vers la Caroline du Nord, où un projet prévoyait d'en tirer du méthane.",
+      "Refusée notamment par la Caroline du Nord, la Louisiane, la Floride, le Mexique et le Belize, elle revient vers New York après environ six mille milles ; les déchets sont finalement incinérés à Brooklyn.",
+      "L'affaire a popularisé l'idée d'une pénurie de décharges ; Retro Report la juge en partie exagérée, mais estime qu'elle a aidé à lancer le mouvement du recyclage."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un départ de Long Island",
+        "text": "Selon EBSCO et Wikipedia, la barge Mobro 4000, tirée par un remorqueur, quitte Islip, sur Long Island, le 22 mars 1987. Elle transporte environ 3 168 tonnes de déchets compactés en balles, d'après EBSCO ; Retro Report parle de six millions de livres d'ordures. L'opération est montée par Lowell Harrelson, entrepreneur du bâtiment en Alabama. La destination est la Caroline du Nord : EBSCO évoque des terres agricoles proposées pour produire du méthane, Wikipedia un programme pilote à Morehead City, Retro Report une décharge. Les sources ne s'accordent donc pas sur le projet exact."
+      },
+      {
+        "kind": "fait",
+        "heading": "Refusée port après port",
+        "text": "À l'arrivée en Caroline du Nord début avril, la découverte de déchets hospitaliers dans le chargement suscite la méfiance et les autorités demandent à la barge de quitter les eaux de l'État, rapporte EBSCO. Commence alors une errance : la Louisiane refuse le déchargement, la Floride aussi, et la barge se voit opposer des refus au Mexique et au Belize. Retro Report résume : six États et trois pays étrangers l'ont rejetée. Des inspecteurs fédéraux ne trouvent pourtant rien de réellement dangereux, selon Retro Report. Le 18 mai 1987, la barge arrive au large de Brooklyn après environ six mille milles, indique EBSCO."
+      },
+      {
+        "kind": "fait",
+        "heading": "Retour à l'envoyeur",
+        "text": "Commence une bataille judiciaire à New York. EBSCO date le début de l'incinération des déchets au 1er septembre 1987, dans un incinérateur de Brooklyn ; Wikipedia évoque des audiences jusqu'en octobre, une divergence que les pages consultées ne tranchent pas. Les cendres, environ 400 tonnes selon EBSCO et 430 selon Wikipedia, sont enfouies dans la décharge d'Islip. EBSCO précise qu'en échange de l'extension de cette décharge, Islip a dû porter son taux de recyclage d'environ 15 % à 50 %."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une panique utile ? Pourquoi ce récit éclaire l'actualité",
+        "text": "Selon Retro Report, la crainte d'un manque de décharges était exagérée : de nouvelles règles avaient surtout fermé des milliers de petites décharges. Wikipedia note que près de 3 000 décharges municipales ont fermé entre 1982 et 1987 et que l'épisode a pu contribuer à la hausse du recyclage à la fin des années 1980. Retro Report estime que le recyclage a plus que triplé depuis le milieu des années 1980. Le lien de cause à effet reste débattu, mais la barge illustre une question toujours actuelle : un déchet que personne ne veut accueillir finit par revenir à ceux qui l'ont produit."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Retro Report – A Barge Full of Garbage Helped to Fuel a Recycling Movement",
+        "url": "https://www.retroreport.org/video/voyage-of-the-mobro-4000/"
+      },
+      {
+        "label": "EBSCO Research Starters – Garbage Barge Mobro Cruises U.S. Atlantic and Gulf Coasts",
+        "url": "https://www.ebsco.com/research-starters/history/garbage-barge-mobro-cruises-us-atlantic-and-gulf-coasts"
+      },
+      {
+        "label": "Wikipedia – Mobro 4000",
+        "url": "https://en.wikipedia.org/wiki/Mobro_4000"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Qu'était la Mobro 4000 ?",
+        "answer": "Une barge partie d'Islip, à Long Island, le 22 mars 1987, avec environ 3 168 tonnes de déchets que personne n'a voulu accueillir."
+      },
+      {
+        "question": "Combien d'États et de pays ont refusé la barge Mobro 4000 ?",
+        "answer": "Six États et trois pays étrangers, selon Retro Report, dont la Louisiane, la Floride, le Mexique et le Belize."
+      },
+      {
+        "question": "Comment s'est terminée l'odyssée de la Mobro 4000 ?",
+        "answer": "Les déchets ont été incinérés à Brooklyn et les cendres enfouies dans la décharge d'Islip, la ville d'où ils étaient partis."
+      },
+      {
+        "question": "Quel engagement de recyclage a été imposé à Islip après l'affaire de la Mobro 4000 ?",
+        "answer": "Porter son taux de recyclage d'environ 15 % à 50 %, en échange de l'extension de sa décharge, selon EBSCO."
+      }
+    ]
+  },
+  {
+    "slug": "amoco-cadiz-1978-la-maree-noire-qui-a-souille-360-km-de-cotes-bretonnes",
+    "title": "Amoco Cadiz, 1978 : la marée noire qui a souillé 360 km de côtes bretonnes",
+    "summary": "Le 16 mars 1978, le pétrolier Amoco Cadiz s'échoue près de Portsall, dans le Finistère, et déverse toute sa cargaison. Ce récit s'appuie sur le Cedre, centre français d'expertise des pollutions accidentelles des eaux, et sur l'agence océanique américaine NOAA, qui divergent sur certains chiffres et sur la cause. Alors que la sécurité du trafic maritime reste un enjeu, il rappelle comment une catastrophe a changé l'organisation de la lutte antipollution en France.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 16 mars 1978, le pétrolier libérien Amoco Cadiz, chargé de 223 000 tonnes de pétrole brut selon le Cedre, s'échoue près de Portsall ; toute la cargaison se répand.",
+      "Le Cedre compte 360 km de côtes polluées, de Brest à Saint-Brieuc, entre 19 000 et 37 000 oiseaux morts et 6 400 tonnes d'huîtres perdues.",
+      "Après 14 ans de procès aux États-Unis, 1 257 millions de francs d'indemnités sont obtenus en 1992 ; le Cedre est créé dès le 5 juillet 1978."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un échouage devant Portsall",
+        "text": "Le 16 mars 1978, le pétrolier libérien Amoco Cadiz, long de 334 mètres, s'échoue près de Portsall, dans le Finistère. La NOAA indique qu'il faisait route du golfe Arabo-Persique vers Le Havre et situe l'échouage sur les roches de Portsall, à trois milles de la côte. Le Cedre parle d'une coque endommagée ; la NOAA évoque une défaillance de l'appareil à gouverner, aggravée par une mer démontée. Le navire transportait 223 000 tonnes de pétrole brut selon le texte du Cedre, et toute la cargaison s'est répandue, confirment les deux organismes."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une côte souillée sur des centaines de kilomètres",
+        "text": "Le Cedre recense 360 km de côtes polluées, de Brest à Saint-Brieuc. La NOAA décrit une nappe de 18 milles de large et 80 milles de long, et des plages souillées dans 76 communes bretonnes. Le Cedre estime entre 19 000 et 37 000 le nombre d'oiseaux morts, indique que seuls 5 % des oiseaux mazoutés ont survécu et chiffre à 6 400 tonnes la perte d'huîtres. La pêche et l'ostréiculture sont interrompues pendant des semaines et la saison touristique est touchée. Le Cedre estime que les écosystèmes ont mis 6 à 7 ans à se rétablir."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un nettoyage massif et un long procès",
+        "text": "Selon la NOAA, la Marine nationale conduit les opérations en mer et la Sécurité civile le nettoyage des côtes, dans le cadre du plan Polmar. Le Cedre mentionne 7 000 volontaires et militaires et 100 000 tonnes de déchets et d'émulsion collectés ; la NOAA précise que moins de 20 000 tonnes de pétrole ont été récupérées après raffinage. Le Cedre rappelle 14 ans de procès contre Amoco aux États-Unis, qui aboutissent en 1992 à 1 257 millions de francs d'indemnisation, moins de la moitié des demandes initiales."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que la catastrophe a changé, et pourquoi elle éclaire l'actualité",
+        "text": "Le Cedre est créé par décision du Conseil des ministres du 5 juillet 1978 ; le centre écrit lui-même que la marée noire a montré que les leçons du Torrey Canyon, en 1967, avaient été oubliées. Selon le Cedre, la catastrophe a aussi conduit à un dispositif de séparation du trafic au large d'Ouessant pour éloigner les pétroliers des côtes, à une refonte du plan Polmar et à des moyens renforcés pour le préfet maritime. Les écarts entre le Cedre et la NOAA, sur la cause comme sur les chiffres, montrent que le bilan d'une marée noire dépend de la méthode de mesure. L'épisode reste un repère chaque fois qu'un navire en difficulté approche des côtes européennes."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Cedre – Amoco Cadiz",
+        "url": "https://cedre.fr/resources/accident-reports/amoco-cadiz"
+      },
+      {
+        "label": "Cedre – Our story",
+        "url": "https://cedre.fr/en/about-us/our-story"
+      },
+      {
+        "label": "NOAA Incident News – Amoco Cadiz",
+        "url": "https://incidentnews.noaa.gov/incident/6241"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Où et quand l'Amoco Cadiz s'est-il échoué ?",
+        "answer": "Près de Portsall, dans le Finistère, le 16 mars 1978."
+      },
+      {
+        "question": "Quelle longueur de côtes l'Amoco Cadiz a-t-il polluée selon le Cedre ?",
+        "answer": "360 km, de Brest à Saint-Brieuc."
+      },
+      {
+        "question": "Quelle indemnisation a été obtenue après le procès de l'Amoco Cadiz ?",
+        "answer": "1 257 millions de francs en 1992, après 14 ans de procès aux États-Unis, moins de la moitié des demandes initiales."
+      },
+      {
+        "question": "Quel organisme français est né de la marée noire de l'Amoco Cadiz ?",
+        "answer": "Le Cedre, centre d'expertise des pollutions accidentelles des eaux, créé par le Conseil des ministres le 5 juillet 1978."
+      }
+    ]
+  },
+  {
+    "slug": "volkswagen-2015-le-logiciel-truqueur-qui-a-coute-des-milliards-au-constructeur",
+    "title": "Volkswagen, 2015 : le logiciel truqueur qui a coûté des milliards au constructeur",
+    "summary": "Le 18 septembre 2015, l'agence américaine de protection de l'environnement (EPA) et le régulateur californien de l'air (CARB) accusent Volkswagen d'avoir équipé ses voitures diesel d'un logiciel qui trompe les contrôles antipollution. Ce récit s'appuie sur les documents publiés par ces deux autorités. Alors que les constructeurs européens font face à des normes d'émissions de plus en plus strictes, il rappelle comment une fraude technique est devenue l'une des plus lourdes affaires judiciaires de l'industrie automobile.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 18 septembre 2015, l'EPA notifie à Volkswagen, Audi et Volkswagen Group of America une infraction au Clean Air Act pour des voitures diesel de quatre cylindres des années modèles 2009 à 2015.",
+      "Selon l'EPA, ces voitures émettaient en conduite normale jusqu'à 40 fois la norme d'oxydes d'azote ; des chercheurs de l'université de Virginie-Occidentale et de l'ICCT avaient soulevé les premières questions.",
+      "En janvier 2017, Volkswagen accepte de plaider coupable de trois chefs d'accusation criminels et de payer 2,8 milliards de dollars de pénalité pénale, plus 1,5 milliard au civil."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Des voitures propres seulement pendant le test",
+        "text": "Le 18 septembre 2015, l'EPA adresse un avis d'infraction à Volkswagen AG, Audi AG et Volkswagen Group of America. Elle leur reproche d'avoir installé sur des voitures diesel de quatre cylindres, des années modèles 2009 à 2015, un logiciel qui détecte les tests officiels et n'active pleinement le contrôle des émissions que pendant ces tests. Selon le communiqué de l'EPA, environ 499 000 voitures vendues aux États-Unis depuis 2008 sont concernées ; la copie publiée par le régulateur californien (CARB) indique environ 482 000, un écart que les pages ne commentent pas. En conduite normale, ces voitures émettaient jusqu'à 40 fois la norme d'oxydes d'azote."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des chercheurs à l'origine de l'affaire",
+        "text": "Selon l'EPA et le CARB, ce sont des chercheurs de l'université de Virginie-Occidentale, travaillant avec le Conseil international pour un transport propre (ICCT), qui ont les premiers soulevé des questions sur les émissions de ces voitures. Les deux autorités ont alors enquêté. En septembre 2015, mis en demeure de s'expliquer, Volkswagen admet que ses voitures contiennent ces dispositifs d'invalidation. L'EPA précise que l'infraction ne pose pas de problème de sécurité et que les voitures restent légales à la conduite et à la revente."
+      },
+      {
+        "kind": "fait",
+        "heading": "De 2 litres à 3 litres, puis l'addition",
+        "text": "Le 2 novembre 2015, l'EPA émet un second avis visant des moteurs de 3 litres, qui émettaient jusqu'à neuf fois la limite autorisée. Au total, les accords conclus portent sur environ 590 000 véhicules diesel des années modèles 2009 à 2016, selon l'EPA. Le ministère de la Justice dépose plainte le 4 janvier 2016 ; un premier accord de plusieurs milliards de dollars est annoncé le 28 juin 2016, un second le 20 décembre 2016. Le 11 janvier 2017, Volkswagen accepte de plaider coupable de trois chefs d'accusation criminels et de payer une pénalité pénale de 2,8 milliards de dollars, ainsi que 1,5 milliard au titre des procédures civiles."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ce récit éclaire l'actualité",
+        "text": "L'affaire a montré qu'un logiciel embarqué pouvait suffire à contourner une réglementation entière, et que des mesures indépendantes en conditions réelles pouvaient le révéler. Pour une entreprise, elle illustre le coût d'une fraude découverte : au-delà des pénalités, l'obligation de réparer ou de racheter les véhicules et de financer des programmes de réduction des émissions. Cette lecture est une analyse : les documents de l'EPA décrivent la procédure, pas ses effets sur l'industrie."
+      }
+    ],
+    "sources": [
+      {
+        "label": "EPA – EPA, California Notify Volkswagen of Clean Air Act Violations (18 septembre 2015)",
+        "url": "https://www.epa.gov/archive/epa/newsreleases/epa-california-notify-volkswagen-clean-air-act-violations-carmaker-allegedly-used.html"
+      },
+      {
+        "label": "EPA – Learn About Volkswagen Violations",
+        "url": "https://epa.gov/vw/learn-about-volkswagen-violations"
+      },
+      {
+        "label": "California Air Resources Board – EPA, California Notify Volkswagen of Clean Air Act Violations",
+        "url": "https://ww2.arb.ca.gov/news/epa-california-notify-volkswagen-clean-air-act-violations"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand l'EPA a-t-elle accusé Volkswagen d'avoir truqué ses diesels ?",
+        "answer": "Le 18 septembre 2015, par un avis d'infraction au Clean Air Act adressé à Volkswagen, Audi et Volkswagen Group of America."
+      },
+      {
+        "question": "Que faisait le logiciel truqueur de Volkswagen ?",
+        "answer": "Il détectait les tests officiels et n'activait pleinement le contrôle des émissions que pendant ces tests."
+      },
+      {
+        "question": "De combien les diesels Volkswagen de 2 litres dépassaient-ils la norme d'oxydes d'azote ?",
+        "answer": "Jusqu'à 40 fois la norme en conduite normale, selon l'EPA."
+      },
+      {
+        "question": "Qui a soulevé les premières questions sur les émissions des diesels Volkswagen ?",
+        "answer": "Des chercheurs de l'université de Virginie-Occidentale travaillant avec le Conseil international pour un transport propre (ICCT)."
+      },
+      {
+        "question": "Quelle pénalité pénale Volkswagen a-t-il acceptée en 2017 ?",
+        "answer": "2,8 milliards de dollars, en plaidant coupable de trois chefs d'accusation criminels, plus 1,5 milliard au civil."
+      }
+    ]
+  },
+  {
+    "slug": "addis-abeba-mai-1963-la-naissance-de-l-organisation-de-l-unite-africaine",
+    "title": "Addis-Abeba, mai 1963 : la naissance de l'Organisation de l'unité africaine",
+    "summary": "Du 22 au 25 mai 1963, les délégués de 32 pays africains se réunissent à Addis-Abeba et fondent l'Organisation de l'unité africaine (OUA). Ce récit s'appuie sur le texte de la Charte archivé par le Haut-Commissariat des Nations unies pour les réfugiés (Refworld), sur South African History Online et sur la notice historique d'EBSCO. Alors que l'Union africaine, qui lui a succédé, est sollicitée sur les crises du continent, il rappelle les compromis fondateurs de l'unité africaine.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 25 mai 1963 à Addis-Abeba, à l'invitation de l'empereur Haïlé Sélassié, les États africains indépendants adoptent la Charte de l'OUA, après une conférence ouverte le 22 mai.",
+      "L'OUA rapproche deux camps rivaux : le groupe de Casablanca, partisan d'une intégration rapide, et le groupe de Monrovia, favorable à une démarche progressive.",
+      "La Charte consacre la souveraineté, l'intégrité territoriale et la non-ingérence ; l'OUA est remplacée en 2002 par l'Union africaine."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une conférence à Addis-Abeba",
+        "text": "Selon South African History Online (SAHO), des délégués de 32 pays africains se réunissent dans la capitale éthiopienne du 22 au 25 mai 1963. La notice d'EBSCO précise que la rencontre est accueillie par l'empereur Haïlé Sélassié Ier et cite parmi les participants Kwame Nkrumah, Abubakar Tafawa Balewa, Gamal Abdel Nasser, Ahmed Sékou Touré, Julius Nyerere et William Tubman. La Charte, archivée sur Refworld, est conclue « dans la ville d'Addis-Abeba », le 25 mai 1963."
+      },
+      {
+        "kind": "fait",
+        "heading": "Casablanca contre Monrovia",
+        "text": "Avant 1963, les États indépendants sont divisés. SAHO décrit le groupe de Casablanca, avec notamment le Ghana, la Guinée, le Mali, l'Égypte, le Maroc et l'Algérie, partisan d'une intégration continentale complète, et le groupe de Monrovia, avec entre autres le Nigeria, l'Éthiopie, le Liberia et la Tunisie, qui propose d'avancer par étapes. EBSCO indique que le groupe de Casablanca s'est formé en janvier 1961 et celui de Monrovia en mai 1961, et que l'OUA réunit les deux blocs. Les deux sources ne donnent pas exactement la même composition des groupes."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que dit la Charte",
+        "text": "Selon SAHO, la Charte fixe comme objectifs de promouvoir l'unité et la solidarité des États africains, de défendre leur souveraineté, leur intégrité territoriale et leur indépendance, et d'éradiquer toutes les formes de colonialisme en Afrique. Parmi ses principes figurent l'égalité souveraine des États membres, la non-ingérence dans les affaires intérieures de chaque État, le respect de l'intégrité territoriale, le règlement pacifique des différends et le non-alignement. EBSCO souligne que le texte reconnaît l'intégrité territoriale de tous les États africains. L'organisation se dote d'une Conférence des chefs d'État et de gouvernement, d'un Conseil des ministres et d'un secrétariat."
+      },
+      {
+        "kind": "analyse",
+        "heading": "De l'OUA à l'Union africaine, pourquoi ce récit éclaire l'actualité",
+        "text": "Selon SAHO, d'autres États rejoignent ensuite l'organisation, l'Afrique du Sud devenant le 53e et dernier. L'OUA est dissoute en 2002 et remplacée par l'Union africaine, indiquent SAHO et EBSCO ; Refworld précise que la Charte a été remplacée par l'Acte constitutif de l'Union africaine. Le principe de non-ingérence, qui a permis de rassembler des États aux visions opposées, est souvent présenté comme une limite de l'OUA face aux crises internes ; ce jugement relève du débat historique. Il éclaire les discussions actuelles sur la capacité de l'Union africaine à intervenir dans les conflits du continent."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Refworld (HCR) – Charter of the Organization of African Unity",
+        "url": "https://www.refworld.org/docid/3ae6b36024.html"
+      },
+      {
+        "label": "South African History Online – Organisation of African Unity (OAU)",
+        "url": "https://sahistory.org.za/node/63379"
+      },
+      {
+        "label": "EBSCO Research Starters – Organization of African Unity Is Founded",
+        "url": "https://www.ebsco.com/research-starters/politics-and-government/organization-african-unity-founded"
+      }
+    ],
+    "kind": "recit",
+    "flashcards": [
+      {
+        "question": "Quand et où l'Organisation de l'unité africaine a-t-elle été fondée ?",
+        "answer": "Le 25 mai 1963 à Addis-Abeba, en Éthiopie, à l'issue d'une conférence réunissant des délégués de 32 pays africains."
+      },
+      {
+        "question": "Quels deux groupes rivaux l'OUA a-t-elle rapprochés ?",
+        "answer": "Le groupe de Casablanca, partisan d'une intégration rapide, et le groupe de Monrovia, favorable à une démarche par étapes."
+      },
+      {
+        "question": "Quel principe de la Charte de l'OUA interdit de se mêler des affaires d'un autre État ?",
+        "answer": "La non-ingérence dans les affaires intérieures de chaque État."
+      },
+      {
+        "question": "Quelle organisation a succédé à l'OUA ?",
+        "answer": "L'Union africaine, en 2002, dont l'Acte constitutif a remplacé la Charte de l'OUA."
+      }
+    ]
+  },
+  {
     "slug": "sommet-ue-balkans-bruxelles-presse-la-region-de-suivre-le-montenegro-et-l",
     "title": "Sommet UE-Balkans : Bruxelles presse la région de suivre le Monténégro et l'Albanie",
     "summary": "Réunis à Bruxelles le 25 novembre 2026, les dirigeants de l'UE et des Balkans occidentaux ont fait le point sur l'élargissement, en l'absence de la Serbie, dont le nouveau gouvernement n'était pas encore formé. Ursula von der Leyen a annoncé des dialogues d'intégration progressive au marché unique avec chaque partenaire dès début 2027 et indiqué que 63 % des étapes de réforme du plan de croissance étaient réalisées, contre 38 % un an plus tôt. Les montants cités restent des annonces : aucun versement n'est encore acté.",

@@ -1,5 +1,457 @@
 [
   {
+    "slug": "centres-de-donnees-en-orbite-spacex-autorise-a-lancer-jusqu-a-un-million-de",
+    "title": "Centres de données en orbite : SpaceX autorisé à lancer jusqu’à un million de satellites",
+    "summary": "Le 25 novembre 2026, la Commission fédérale des communications américaine (FCC) a autorisé SpaceX à placer jusqu’à un million de satellites en orbite basse pour Starmind, un réseau de calcul informatique alimenté par l’énergie solaire, selon les sites spécialisés GeekWire et SpacePolicyOnline. Le premier satellite doit être opérationnel au plus tard en 2033 et la constellation complète en 2040. Rien ne garantit que SpaceX lancera réellement autant d’engins.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon GeekWire, SpaceX peut exploiter ses satellites Starmind entre 500 et 1 002 kilomètres d’altitude ; la FCC a posé des conditions, dont un plan détaillé de réduction des débris orbitaux.",
+      "D’après SpacePolicyOnline, SpaceX doit déployer un satellite d’ici le 25 novembre 2033, 10 % de la constellation d’ici 2035, la moitié d’ici 2038 et le reste d’ici le 25 novembre 2040.",
+      "La FCC a rejeté les objections d’Amazon, de Viasat et de la Société américaine d’astronomie, qui s’inquiète pour l’observation du ciel nocturne ; l’agence estime que les effets sur l’astronomie sortent de sa compétence."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une autorisation présentée comme une première",
+        "text": "La FCC, le régulateur américain des télécommunications, a autorisé le 25 novembre 2026 SpaceX à envoyer jusqu’à un million de satellites en orbite pour son réseau de traitement de données Starmind, rapporte GeekWire. Fox Business décrit ce réseau comme des modules de calcul en orbite alimentés par l’énergie solaire. Selon GeekWire, le communiqué de l’agence parle de la première autorisation de l’histoire des États-Unis pour une constellation de centres de données dans l’espace. SpacePolicyOnline précise que ces satellites s’ajoutent aux 42 000 satellites Starlink de communication que SpaceX prévoit de déployer. Selon GeekWire, SpaceX pourra les exploiter sur des orbites comprises entre 500 et 1 002 kilomètres d’altitude, et la FCC a fixé plusieurs conditions : communications de secours, mises à jour régulières et plan détaillé de réduction des débris orbitaux."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un calendrier jusqu’en 2040",
+        "text": "Selon SpacePolicyOnline, qui cite la décision de la FCC, SpaceX doit mettre en service un satellite d’ici le 25 novembre 2033, 10 % du total d’ici le 25 novembre 2035, 50 % d’ici le 25 novembre 2038 et le reste d’ici le 25 novembre 2040. Le président de la FCC, Brendan Carr, a présenté la décision comme un moyen de renforcer l’avance américaine en intelligence artificielle, en déplaçant des capacités de calcul hors de la Terre. Fox Business rappelle qu’il n’est pas certain que SpaceX mette réellement un million de satellites en orbite : les opérateurs demandent parfois des autorisations pour plus d’engins qu’ils n’en déploient."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Les astronomes inquiets",
+        "text": "Selon GeekWire, la FCC a rejeté les objections d’Amazon, de Viasat et de la Société américaine d’astronomie. Celle-ci s’est dite « consternée » et estime que la décision compromettra des décennies d’investissements publics dans les observatoires et la possibilité d’observer le ciel nocturne, rapporte SpacePolicyOnline. La fondation Secure World avait demandé un examen technique approfondi, en invoquant les effets cumulés sur un ciel sombre et silencieux. D’après SpacePolicyOnline, la FCC juge que les effets sur l’environnement ou l’astronomie ne relèvent pas de sa compétence. L’agence indique examiner d’autres projets de centres de données orbitaux selon ses procédures habituelles, selon GeekWire."
+      }
+    ],
+    "sources": [
+      {
+        "label": "GeekWire — FCC clears SpaceX to put up to a million satellites in orbit for Starmind data center network (25 novembre 2026)",
+        "url": "https://www.geekwire.com/2026/fcc-clears-spacex-million-satellites-starmind-data-center/"
+      },
+      {
+        "label": "SpacePolicyOnline — FCC Approves Elon Musk’s One Million Orbital Data Centers (25 novembre 2026)",
+        "url": "https://spacepolicyonline.com/news/fcc-approves-elon-musks-one-million-orbital-data-centers/"
+      },
+      {
+        "label": "Fox Business — FCC clears SpaceX for 1M satellites (25 novembre 2026)",
+        "url": "https://www.foxbusiness.com/politics/data-centers-space-fcc-clears-spacex-1m-satellites-extend-americas-lead-superintelligence"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Qu’est-ce que Starmind, autorisé par la FCC le 25 novembre 2026 ?",
+        "answer": "Un projet de SpaceX de jusqu’à un million de satellites en orbite basse servant de centres de données, alimentés par l’énergie solaire."
+      }
+    ]
+  },
+  {
+    "slug": "du-prototype-a-la-serie-pourquoi-une-demonstration-reussie-ne-suffit-pas-a",
+    "title": "Du prototype à la série : pourquoi une démonstration réussie ne suffit pas à produire",
+    "summary": "Un prototype qui fonctionne prouve qu'une technologie marche ; il ne prouve pas qu'on sait la fabriquer en grand nombre, à coût et qualité constants. Pour mesurer ces deux maturités, la Commission européenne utilise l'échelle des niveaux de maturité technologique, dits TRL, et le département américain de la Défense y ajoute une échelle de maturité de fabrication, dite MRL, qui va de la ligne pilote à la production à plein régime.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Dans l'échelle TRL utilisée par la Commission européenne pour Horizon 2020, le niveau 7 correspond à la démonstration d'un prototype de système en environnement opérationnel, et le niveau 9 à un système réel éprouvé dans cet environnement.",
+      "Le département américain de la Défense définit en plus dix niveaux de maturité de fabrication : au niveau 8, une ligne pilote est démontrée ; au niveau 9, la production à faible cadence ; au niveau 10, la production à plein régime.",
+      "La fabricabilité y est définie comme la capacité à produire de façon constante au niveau de coût et de qualité requis, ce que la seule démonstration d'un prototype ne garantit pas."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Mesurer la maturité d'une technologie",
+        "text": "La Commission européenne a fixé pour le programme de recherche Horizon 2020 une échelle de neuf niveaux de maturité technologique. Le niveau 1 correspond à l'observation des principes de base, le niveau 3 à une preuve de concept expérimentale, le niveau 4 à une technologie validée en laboratoire, les niveaux 5 et 6 à une technologie validée puis démontrée en environnement pertinent. Le niveau 7 est la démonstration d'un prototype de système en environnement opérationnel, le niveau 8 un système complet et qualifié, et le niveau 9 un système réel éprouvé en environnement opérationnel ; pour les technologies clés génériques, ce dernier niveau correspond à une fabrication compétitive. Le programme canadien Solutions innovatrices Canada utilise une échelle comparable, dans laquelle le niveau 7 désigne un prototype prêt, par sa forme, son ajustement et sa fonction, pour une démonstration en environnement opérationnel approprié."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une seconde échelle pour la fabrication",
+        "text": "Le département américain de la Défense a défini dix niveaux de maturité de fabrication. Aux niveaux 5 et 6, on sait produire des composants prototypes puis un système ou sous-système prototype dans un environnement pertinent de production. Au niveau 7, on sait produire des systèmes, sous-systèmes ou composants dans un environnement représentatif de la production. Le niveau 8 marque une capacité démontrée sur ligne pilote, prête pour une production initiale à faible cadence. Le niveau 9 démontre cette production à faible cadence et la capacité de lancer la production à plein régime. Le niveau 10 correspond à une production à plein régime démontrée, avec des pratiques de production au plus juste."
+      },
+      {
+        "kind": "fait",
+        "heading": "Coût, qualité, rendement",
+        "text": "Le même document définit la fabricabilité comme la capacité globale à produire de façon constante au niveau de coût et de qualité requis, et la producibilité comme la facilité relative à produire un article qui satisfait aux exigences d'ingénierie, de qualité et de coût. Parmi les activités associées figure l'atteinte d'un rendement de production. Dès les niveaux intermédiaires, la base industrielle doit être évaluée pour identifier les sources de fabrication possibles, et au niveau 7 les plans d'achat des pièces à long délai doivent être en place."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi l'écart entre prototype et série compte",
+        "text": "Ces deux échelles montrent qu'un projet peut être très avancé sur le plan technique et encore immature sur le plan industriel. Un prototype unique peut être ajusté à la main ; une série impose que chaque exemplaire soit identique, que les fournisseurs suivent, et que le coût unitaire tienne. C'est pourquoi l'annonce d'une démonstration réussie ne dit pas, à elle seule, quand un produit sera disponible en volume. Le département américain de la Défense rappelle lui-même que les numéros de niveaux comptent moins que ce qu'ils décrivent."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne, Horizon 2020, annexe générale G : niveaux de maturité technologique",
+        "url": "https://ec.europa.eu/research/participants/data/ref/h2020/wp/2014_2015/annexes/h2020-wp1415-annex-g-trl_en.pdf"
+      },
+      {
+        "label": "Département de la Défense des États-Unis, définitions MRL et TRL",
+        "url": "https://at.dod.mil/Portals/129/Atch%202_MRL_TRL_Definitions.pdf"
+      },
+      {
+        "label": "Innovation, Sciences et Développement économique Canada, échelle des niveaux de maturité technologique",
+        "url": "https://ised-isde.canada.ca/site/innovative-solutions-canada/en/node/79"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Que mesure l'échelle TRL ?",
+        "answer": "La maturité d'une technologie, en neuf niveaux, de l'observation des principes de base au système réel éprouvé en environnement opérationnel."
+      },
+      {
+        "question": "À quel niveau TRL correspond la démonstration d'un prototype en environnement opérationnel ?",
+        "answer": "Au niveau 7 de l'échelle utilisée par la Commission européenne pour Horizon 2020."
+      },
+      {
+        "question": "Que mesure l'échelle MRL du département américain de la Défense ?",
+        "answer": "La maturité de fabrication, en dix niveaux, jusqu'à la ligne pilote, la production à faible cadence puis la production à plein régime."
+      },
+      {
+        "question": "Comment le département américain de la Défense définit-il la fabricabilité ?",
+        "answer": "Comme la capacité globale à produire de façon constante au niveau de coût et de qualité requis."
+      }
+    ]
+  },
+  {
+    "slug": "que-signifie-vraiment-un-taux-de-recyclage",
+    "title": "Que signifie vraiment un taux de recyclage ?",
+    "summary": "Un taux de recyclage rapporte des tonnes recyclées à des tonnes de déchets produits. Le résultat dépend donc de ce que l'on compte au numérateur, de l'endroit où l'on pèse, et du total pris comme dénominateur. Les règles européennes de 2019 imposent de compter les déchets à l'entrée de l'opération de recyclage, pas à la sortie du bac de tri. Les chiffres cités viennent d'Eurostat pour les déchets municipaux, mis à jour le 15 octobre 2026, et du service statistique du ministère de la Transition écologique pour les autres catégories.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Pour Eurostat, le taux de recyclage des déchets municipaux est la part des déchets municipaux recyclés dans le total des déchets municipaux produits, les deux termes étant mesurés en tonnes.",
+      "Depuis la décision d'exécution 2019/1004 de la Commission, les déchets recyclés sont en principe mesurés au point où ils entrent dans l'opération de recyclage : les refus de tri et les matières retirées avant recyclage ne comptent pas.",
+      "En 2024, le taux atteint 45,5 % en France, contre 49,4 % pour l'Union européenne et 69 % en Allemagne ; Eurostat signale une rupture de série pour la France cette année-là."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un rapport entre deux tonnages",
+        "text": "Eurostat définit le taux de recyclage des déchets municipaux comme la part des déchets municipaux recyclés dans le total des déchets municipaux produits. Le ratio s'exprime en pourcentage, car les deux termes sont mesurés dans la même unité, la tonne. Les déchets municipaux comprennent les déchets des ménages et ceux d'autres origines semblables par leur nature et leur composition. Selon Eurostat, ils représentent environ 10 % du total des déchets produits dans l'Union. Depuis l'entrée en vigueur de la décision de 2019, la préparation en vue du réemploi est incluse dans le recyclage ; auparavant, l'indicateur ne comptait que le recyclage matière, le compostage et la digestion anaérobie. Les données sont publiées chaque année, dans les deux ans qui suivent l'année de référence."
+      },
+      {
+        "kind": "fait",
+        "heading": "Où l'on pèse change ce que l'on compte",
+        "text": "La décision d'exécution (UE) 2019/1004 de la Commission fixe les règles de calcul. Le déchet recyclé est la quantité de déchets municipaux au point de calcul, c'est-à-dire le point où les matières entrent dans l'opération qui les transforme en produits, matières ou substances qui ne sont plus des déchets. Les déchets triés mais refusés par l'installation de recyclage ne sont pas comptés. Les matières retirées lors d'un traitement préalable non plus. Les mâchefers d'incinération ne sont pas comptés comme recyclés, à l'exception des métaux qui en sont séparés et recyclés. Mettre un emballage dans le bac de tri ne suffit donc pas à le faire entrer dans le taux."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un même pays, plusieurs taux",
+        "text": "Le périmètre retenu au dénominateur change aussi le chiffre. Dans son bilan environnemental publié en mai 2021, le service statistique du ministère de la Transition écologique indique qu'en 2018, tous déchets confondus, la France atteint un taux de recyclage de 66 %, porté par les déchets minéraux du bâtiment, recyclés à 73,3 %. La même année, seuls 48,5 % des déchets non minéraux non dangereux sont recyclés, et 35 % des déchets dangereux. Pour les déchets ménagers et assimilés, le taux de recyclage matière et organique passe de 24 % en 2000 à près de 43 % en 2017. Un taux de recyclage n'a donc de sens qu'accompagné de la catégorie de déchets qu'il couvre."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Le dénominateur peut faire bouger le taux",
+        "text": "Un taux peut varier parce que l'on recycle davantage, mais aussi parce que le total des déchets produits change. En France, selon Eurostat, les déchets municipaux recyclés passent de 14 505 milliers de tonnes en 2023 à 15 691 milliers de tonnes en 2024, tandis que les déchets produits passent de 36 035 à 34 484 milliers de tonnes. Le taux passe de 40,3 % à 45,5 %. Eurostat signale toutefois une rupture de série en 2024 pour la France, et les valeurs de 2023 sont des estimations : la hausse ne peut pas être lue comme un simple progrès d'une année sur l'autre. Pour comparer deux taux, il faut donc vérifier qu'ils reposent sur la même définition des déchets, le même point de mesure et une série sans rupture."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat, taux de recyclage des déchets municipaux (cei_wm011)",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/cei_wm011/default/table"
+      },
+      {
+        "label": "Eurostat, déchets municipaux par opération de gestion (env_wasmun)",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/env_wasmun/default/table"
+      },
+      {
+        "label": "Eurostat, métadonnées de l'indicateur cei_wm011",
+        "url": "https://ec.europa.eu/eurostat/cache/metadata/en/cei_wm011_esmsip2.htm"
+      },
+      {
+        "label": "Commission européenne, décision d'exécution (UE) 2019/1004, EUR-Lex",
+        "url": "https://eur-lex.europa.eu/eli/dec_impl/2019/1004/oj/eng"
+      },
+      {
+        "label": "SDES, Bilan environnemental de la France, production de déchets et recyclage, mai 2021",
+        "url": "https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/bilan-environnemental/16-production-de-dechets-et-recyclage"
+      }
+    ],
+    "kind": "concept",
+    "dataCards": [
+      {
+        "id": "taux-recyclage-2024",
+        "kind": "comparaison",
+        "headline": "En 2024, la France recycle 45,5 % de ses déchets municipaux, sous la moyenne européenne",
+        "source": {
+          "label": "Eurostat, taux de recyclage des déchets municipaux (cei_wm011)",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/cei_wm011/default/table"
+        },
+        "asOf": "2024-12-31",
+        "note": "Rupture de série pour la France en 2024 ; valeur UE imputée (estimée) par Eurostat.",
+        "imageQuery": "recycling sorting conveyor",
+        "items": [
+          {
+            "value": 69,
+            "unit": "%",
+            "label": "Allemagne",
+            "scope": "Allemagne",
+            "period": "2024",
+            "denominator": "déchets municipaux produits"
+          },
+          {
+            "value": 52.3,
+            "unit": "%",
+            "label": "Italie",
+            "scope": "Italie",
+            "period": "2024",
+            "denominator": "déchets municipaux produits",
+            "decimals": 1
+          },
+          {
+            "value": 49.4,
+            "unit": "%",
+            "label": "Union européenne",
+            "scope": "UE à 27",
+            "period": "2024",
+            "denominator": "déchets municipaux produits",
+            "decimals": 1
+          },
+          {
+            "value": 45.5,
+            "unit": "%",
+            "label": "France",
+            "scope": "France",
+            "period": "2024",
+            "denominator": "déchets municipaux produits",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "france-dechets-produits-2024",
+        "kind": "stat",
+        "headline": "Le dénominateur : 34 484 milliers de tonnes de déchets municipaux produits en France en 2024",
+        "source": {
+          "label": "Eurostat, déchets municipaux par opération de gestion (env_wasmun)",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/env_wasmun/default/table"
+        },
+        "asOf": "2024-12-31",
+        "note": "Rupture de série en 2024.",
+        "imageQuery": "household waste bins street",
+        "measure": {
+          "value": 34484,
+          "unit": "milliers de tonnes",
+          "label": "Déchets municipaux produits",
+          "scope": "France",
+          "period": "2024"
+        },
+        "context": "En 2024, 15 691 milliers de tonnes ont été recyclées."
+      },
+      {
+        "id": "point-de-calcul",
+        "kind": "explication",
+        "headline": "Du bac de tri au taux : seuls les déchets qui entrent dans l'opération de recyclage comptent",
+        "source": {
+          "label": "Commission européenne, décision d'exécution (UE) 2019/1004, EUR-Lex",
+          "url": "https://eur-lex.europa.eu/eli/dec_impl/2019/1004/oj/eng"
+        },
+        "asOf": "2019-06-07",
+        "imageQuery": "paper bales recycling plant",
+        "steps": [
+          {
+            "label": "Tri et traitement préalable",
+            "text": "Les matières retirées avant le recyclage ne sont pas comptées.",
+            "nature": "fait"
+          },
+          {
+            "label": "Refus de l'installation",
+            "text": "Les déchets triés refusés par l'installation de recyclage ne sont pas comptés.",
+            "nature": "fait"
+          },
+          {
+            "label": "Point de calcul",
+            "text": "Est compté ce qui entre dans l'opération qui en fait des produits ou matières qui ne sont plus des déchets.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Comment Eurostat calcule-t-il le taux de recyclage des déchets municipaux ?",
+        "answer": "Il rapporte les tonnes de déchets municipaux recyclés au total des tonnes de déchets municipaux produits, et l'exprime en pourcentage."
+      },
+      {
+        "question": "À quel endroit les déchets recyclés sont-ils mesurés selon les règles européennes de 2019 ?",
+        "answer": "Au point de calcul : là où les matières entrent dans l'opération qui les transforme en produits ou matières qui ne sont plus des déchets."
+      },
+      {
+        "question": "Les déchets refusés par une installation de recyclage comptent-ils dans le taux ?",
+        "answer": "Non. Les déchets triés mais refusés par l'installation, et ceux retirés lors d'un traitement préalable, ne sont pas comptés comme recyclés."
+      },
+      {
+        "question": "Pourquoi un taux de recyclage peut-il monter sans qu'on recycle beaucoup plus ?",
+        "answer": "Parce qu'il dépend aussi du dénominateur : si le total des déchets produits baisse, ou si la méthode change, le taux bouge."
+      },
+      {
+        "question": "Quel était le taux de recyclage des déchets municipaux en France en 2024 selon Eurostat ?",
+        "answer": "45,5 %, avec une rupture de série signalée par Eurostat, contre 49,4 % pour l'Union européenne."
+      }
+    ]
+  },
+  {
+    "slug": "comment-fonctionne-une-franchise-marque-savoir-faire-et-redevances",
+    "title": "Comment fonctionne une franchise : marque, savoir-faire et redevances",
+    "summary": "Une franchise lie deux entreprises indépendantes : le franchiseur met à disposition sa marque, son savoir-faire et son assistance, le franchisé exploite le concept à ses risques et paie un droit d'entrée et des redevances. En France, le franchiseur doit remettre un document d'information précontractuelle au moins 20 jours avant la signature. Explications fondées sur les fiches de Service-Public et de Bpifrance Création.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Bpifrance Création décrit la franchise comme une collaboration entre deux entreprises juridiquement et financièrement indépendantes, reposant sur trois piliers : une marque, un savoir-faire transmis et une assistance technique et commerciale.",
+      "Au moins 20 jours avant la signature du contrat, le franchiseur doit remettre au futur franchisé un document d'information précontractuelle, prévu par l'article L330-3 du code de commerce.",
+      "Le franchisé paie généralement un droit d'entrée et des redevances, en pratique de 2 à 5 % du chiffre d'affaires hors taxes selon Bpifrance Création, et reste un commerçant indépendant responsable de son entreprise."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un contrat entre deux entreprises indépendantes",
+        "text": "Selon Service-Public, le contrat de franchise scelle l'accord entre un franchisé et un franchiseur qui lui accorde le droit d'exploiter sa marque et son savoir-faire pour commercialiser les produits ou services du réseau. Bpifrance Création insiste sur un point : il s'agit d'une collaboration entre deux entreprises juridiquement et financièrement indépendantes. Le contrat repose sur trois piliers : la mise à disposition d'une marque, avec enseigne et logo, la transmission d'un savoir-faire, et une assistance technique et commerciale. Le franchisé est un commerçant indépendant, responsable à part entière de son entreprise, et doit l'afficher auprès de sa clientèle."
+      },
+      {
+        "kind": "fait",
+        "heading": "Qui doit quoi à qui",
+        "text": "Le franchiseur s'engage à transmettre son savoir-faire, à assurer des formations initiale et continue et un support opérationnel et marketing, précise Service-Public. Bpifrance Création y ajoute le soutien publicitaire et le conseil dans le choix de l'emplacement. En échange, le franchisé respecte les normes et les procédures du réseau, participe aux formations et paie un droit d'entrée puis des redevances. Bpifrance Création indique que la redevance représente en pratique 2 à 5 % du chiffre d'affaires hors taxes, parfois de façon dégressive. Le franchisé peut aussi s'engager à s'approvisionner exclusivement ou quasi exclusivement auprès du réseau et à ne pas exploiter la franchise hors d'une zone délimitée ; Service-Public rappelle qu'une exclusivité d'approvisionnement est limitée à dix ans par l'article L330-1 du code de commerce."
+      },
+      {
+        "kind": "fait",
+        "heading": "Vingt jours pour s'informer",
+        "text": "Au moins 20 jours avant la signature du contrat, ou avant le versement d'une somme d'argent, le franchiseur doit remettre au candidat un document d'information précontractuelle, ou DIP, et le projet de contrat. Cette obligation figure à l'article L330-3 du code de commerce, et le contenu du DIP à l'article R330-1. Selon Bpifrance Création, le DIP comprend notamment les comptes annuels des deux derniers exercices, la liste des franchisés ou des 50 plus proches, et les conditions des redevances. Une omission dans ce document peut ouvrir une action en nullité."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un modèle d'équilibre, pas une garantie",
+        "text": "La franchise permet à une marque de s'étendre sans financer chaque point de vente, et au franchisé de démarrer avec un concept déjà rodé. Mais le contrat est le plus souvent rédigé à l'initiative du franchiseur, note Service-Public, et le franchisé porte seul les risques de son entreprise. C'est pourquoi la qualité de l'information avant signature, l'accompagnement réellement fourni et le poids des redevances sont les points à examiner en priorité."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Service-Public Entreprendre, Déroulement du contrat de franchise",
+        "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F37343?lang=fr"
+      },
+      {
+        "label": "Bpifrance Création, Contrat de franchise",
+        "url": "https://bpifrance-creation.fr/encyclopedie/differentes-facons-dentreprendre/entreprendre-franchise/contrat-franchise"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quels sont les trois piliers d'un contrat de franchise ?",
+        "answer": "La mise à disposition d'une marque, la transmission d'un savoir-faire et une assistance technique et commerciale du franchiseur."
+      },
+      {
+        "question": "Le franchisé est-il un salarié du franchiseur ?",
+        "answer": "Non. C'est un commerçant indépendant, responsable à part entière de son entreprise, lié au franchiseur par contrat."
+      },
+      {
+        "question": "Qu'est-ce que le document d'information précontractuelle (DIP) ?",
+        "answer": "Un document que le franchiseur doit remettre au candidat au moins 20 jours avant la signature du contrat de franchise."
+      },
+      {
+        "question": "Combien représente en pratique la redevance d'une franchise selon Bpifrance Création ?",
+        "answer": "De 2 à 5 % du chiffre d'affaires hors taxes, parfois de façon dégressive, en plus d'un droit d'entrée."
+      }
+    ]
+  },
+  {
+    "slug": "comment-fonctionne-le-mobile-money-l-argent-sur-telephone-sans-compte-bancaire",
+    "title": "Comment fonctionne le mobile money, l'argent sur téléphone sans compte bancaire",
+    "summary": "Le mobile money permet de stocker, d'envoyer et de recevoir de l'argent avec un simple téléphone, sans compte bancaire, grâce à un réseau d'agents qui changent les espèces en monnaie électronique et inversement. L'Afrique concentre la majorité de son activité. Chiffres 2025 tirés du rapport annuel de la GSMA publié en 2026, et données d'inclusion financière de la Banque mondiale publiées en juillet 2025.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le mobile money est un moyen d'échange et de réserve de valeur numérique utilisant le téléphone mobile, appuyé sur un réseau d'agents ; il ne nécessite pas de compte bancaire.",
+      "En 2025, selon la GSMA, 2,3 milliards de comptes étaient enregistrés dans le monde, dont 593 millions actifs sur 30 jours, et plus de 2 000 milliards de dollars ont transité par ces portefeuilles.",
+      "L'Afrique dans son ensemble pèse 66 % de la valeur des transactions et 59 % des comptes actifs ; la fraude et les taxes sur les transactions restent les principaux freins identifiés par la GSMA."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un portefeuille dans le téléphone",
+        "text": "La GSMA, l'association mondiale des opérateurs mobiles, reprend la définition du Fonds monétaire international : le mobile money est un moyen d'échange et de réserve de valeur numérique, payé à l'usage, qui utilise le téléphone mobile et s'appuie sur un réseau d'agents. Il ne nécessite pas de compte bancaire. Ces agents sont des points de transaction physiques situés en dehors des agences bancaires et des distributeurs : c'est chez eux que l'on dépose des espèces pour créditer son portefeuille, ou que l'on retire de l'argent liquide. Selon la GSMA, il y avait 30 millions d'agents enregistrés en 2025, dont 11 millions actifs chaque mois."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des chiffres massifs, une activité inégale",
+        "text": "Selon le rapport 2026 de la GSMA sur l'état du secteur, plus de 2 000 milliards de dollars ont circulé par les portefeuilles de mobile money en 2025. Il avait fallu 20 ans pour dépasser 1 000 milliards de dollars de transactions annuelles, et seulement quatre ans pour doubler ce montant. Le monde comptait 2,3 milliards de comptes enregistrés, 13 % de plus qu'un an plus tôt, mais 593 millions seulement étaient actifs sur 30 jours, c'est-à-dire utilisés dans le mois précédent : près de 75 % des comptes restent inactifs chaque mois. L'Afrique subsaharienne compte 1,2 milliard de comptes enregistrés et 341 millions de comptes actifs. À l'échelle du continent africain tout entier, l'Afrique représente 59 % des comptes actifs mondiaux et 66 % de la valeur des transactions."
+      },
+      {
+        "kind": "fait",
+        "heading": "Liens avec les banques et inclusion financière",
+        "text": "Le mobile money ne fonctionne pas à l'écart du système bancaire : en 2025, les virements des banques vers les portefeuilles mobiles ont atteint 167 milliards de dollars, et ceux des portefeuilles vers les banques 163 milliards, selon la GSMA. Les transferts entre utilisateurs de réseaux différents ont progressé de 21 % pour atteindre 85 milliards de dollars, signe d'une interopérabilité croissante. La Banque mondiale indique que la détention d'un compte financier en Afrique subsaharienne est passée de 49 % des adultes en 2021 à 58 %, et que l'usage des comptes de mobile money y est au plus haut niveau mondial. Selon la GSMA, près de 190 millions d'adultes des pays à revenu faible et intermédiaire dépendaient en 2024 du mobile money comme seul compte financier formel."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Les limites : fraude, taxes et retour aux espèces",
+        "text": "Le modèle repose encore beaucoup sur l'argent liquide : en décembre 2025, plus de la moitié des fonds entrant dans l'écosystème étaient des espèces, et 0,76 dollar était retiré pour chaque dollar déposé, selon la GSMA. L'association cite la fraude, encore répandue, et les taxes sur les transactions, qui incitent souvent les utilisateurs à revenir aux espèces, parmi les principaux problèmes. La Banque mondiale souligne aussi les nouveaux risques liés aux transactions numériques sur téléphone : seule environ la moitié des utilisateurs protège son téléphone par un mot de passe. La sécurité du système dépend donc autant des usages et de la régulation que de la technologie."
+      }
+    ],
+    "sources": [
+      {
+        "label": "GSMA, communiqué du 24 mars 2026 sur le mobile money en 2025",
+        "url": "https://www.gsma.com/newsroom/press-release/mobile-money-accounted-for-2-trillion-in-transactions-in-2025-doubling-since-2021-as-active-accounts-continue-to-grow/"
+      },
+      {
+        "label": "GSMA, The State of the Industry Report on Mobile Money 2026",
+        "url": "https://www.gsma.com/sotir/wp-content/plugins/plugin_gsma_sotir/reports/The-State-of-the-Industry-Report-2026_English.pdf"
+      },
+      {
+        "label": "Banque mondiale, communiqué Global Findex du 16 juillet 2025",
+        "url": "https://www.worldbank.org/en/news/press-release/2025/07/16/mobile-phone-technology-powers-saving-surge-in-developing-economies"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Faut-il un compte bancaire pour utiliser le mobile money ?",
+        "answer": "Non. Le mobile money fonctionne avec un téléphone mobile et un réseau d'agents, sans compte bancaire."
+      },
+      {
+        "question": "À quoi servent les agents de mobile money ?",
+        "answer": "Ce sont des points de transaction physiques, hors agences bancaires, où l'on dépose des espèces pour créditer son portefeuille ou retire de l'argent liquide."
+      },
+      {
+        "question": "Que signifie un compte de mobile money « actif sur 30 jours » ?",
+        "answer": "Un compte utilisé au cours du mois précédent. En 2025, 593 millions de comptes sur 2,3 milliards l'étaient, selon la GSMA."
+      },
+      {
+        "question": "Quelle part de la valeur mondiale des transactions de mobile money revient à l'Afrique ?",
+        "answer": "66 % en 2025 pour l'Afrique dans son ensemble, selon la GSMA, avec 59 % des comptes actifs mondiaux."
+      },
+      {
+        "question": "Quels sont les principaux freins au mobile money selon la GSMA ?",
+        "answer": "La fraude, encore répandue, et les taxes sur les transactions, qui poussent souvent les utilisateurs à revenir aux espèces."
+      }
+    ]
+  },
+  {
     "slug": "revue-par-les-pairs-ce-que-valide-vraiment-la-relecture-d-un-article",
     "title": "Revue par les pairs : ce que valide vraiment la relecture d'un article scientifique",
     "summary": "Avant d'être publié dans une revue scientifique, un article est en principe relu par d'autres chercheurs du domaine, qui recommandent de l'accepter, de le modifier ou de le refuser. Ce contrôle, appelé revue par les pairs, vise la qualité scientifique, mais il repose sur le jugement de quelques personnes et ne vaut pas preuve définitive : des articles publiés sont parfois retirés ensuite.",

@@ -27,6 +27,9 @@ for (const site of SITES) {
       await expect(page.locator("[data-motion='ready']")).toHaveCount(1);
       const feedBottom = await page.getByLabel("Fil de découverte").evaluate((el) => el.getBoundingClientRect().bottom);
       const count = await page.locator("[data-index]").count();
+      // Le fil grandit chaque jour (plus de 200 cartes le 27/11) : le temps accordé suit le nombre de cartes,
+      // sinon le test dépasse 30 s dès que de nouvelles photos ajoutent la vérification du visuel.
+      test.setTimeout(30_000 + count * 500);
       let checked = 0;
       for (let i = 0; i < count; i++) {
         const card = page.locator(`[data-index="${i}"]`);

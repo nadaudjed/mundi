@@ -473,6 +473,37 @@ export async function downloadPhoto(candidate,fetcher=fetch){
   if(!signature)throw new Error("Image MIME/signature mismatch");
   return {ext,buffer};
 }
+/**
+ * Photos d'institution (#125, suite du 27/11) : quand la recherche ne trouve rien de sûr, un article dont
+ * l'acteur principal est une grande institution reçoit une photo vérifiée de son siège (nom exact du
+ * fichier sur Wikimedia Commons, licence contrôlée au téléchargement). Plusieurs fichiers par institution :
+ * jamais deux fois la même photo dans le fil ; une fois tous pris, l'article garde sa couverture typographique.
+ * L'ordre compte : l'acteur le plus précis d'abord (Deutsche Börse avant « Bruxelles »).
+ */
+export const INSTITUTION_PHOTOS=[
+  {name:"Deutsche Börse",match:/\bDeutsche B[öo]rse\b/,alt:"Siège de Deutsche Börse, « The Cube », à Eschborn",
+    files:["File:DSC02268 Eschborn Süd und The Cube Deutsche Börse.jpg"]},
+  {name:"Banque centrale européenne",match:/\bBCE\b|Banque centrale européenne/,alt:"Siège de la Banque centrale européenne à Francfort",
+    files:["File:Seat of the ECB, Southwest view 20220213 1.jpg","File:Europäische Zentralbank Frankfurt.jpg"]},
+  {name:"Parlement européen",match:/Parlement européen|eurodéputés/i,alt:"Hémicycle du Parlement européen à Strasbourg",
+    files:["File:European Parliament Strasbourg Hemicycle - Diliff.jpg","File:Hemicycle of the European Parliament, Strasbourg 004.jpg","File:Hemicycle of the European Parliament, Strasbourg 2023 001.jpg"]},
+  {name:"Conseil européen",match:/sommet de Bruxelles|Conseil européen|Conseil de l[’']UE|Vingt-Sept|[Bb]udget européen/,alt:"Bâtiment Europa, siège du Conseil européen à Bruxelles",
+    files:["File:Europa Building (EU Brussels) 24.jpg","File:Europa Building (EU Brussels) 38.jpg","File:Europa Building (EU Brussels) 21.jpg"]},
+  {name:"NASA",match:/\bNASA\b/,alt:"Siège de la NASA à Washington",
+    files:["File:Mary W. Jackson Building - NASA Headquarters (53840040716).jpg","File:NASA Headquarters (53839146142).jpg"]},
+  {name:"Union internationale des télécommunications",match:/\bUIT\b|Union internationale des télécommunications/,alt:"Siège de l'Union internationale des télécommunications à Genève",
+    files:["File:International Telecommunication Union (ITU), Geneva, Switzerland.jpg","File:UIT-Geneva-04.jpg"]},
+  {name:"Commission européenne",match:/^Bruxelles\b|[:,] Bruxelles\b|Commission européenne/,alt:"Le Berlaymont, siège de la Commission européenne à Bruxelles",
+    files:["File:Belgique - Bruxelles - Schuman - Berlaymont - 01.jpg","File:Berlaymont building Brussels.jpg","File:Edificio Berlaymont, Bruselas, Bélgica, 2021-12-15, DD 107.jpg"]},
+];
+/** Institution acteur principal du titre (première règle qui correspond), sinon null. */
+export function institutionFor(article){
+  const title=String(article?.title??"");
+  // Récit daté (Spoutnik, 1957) : le siège actuel de la NASA serait d'une autre époque.
+  if([...title.matchAll(/\b(1[0-9]\d{2})\b/g)].length)return null;
+  return INSTITUTION_PHOTOS.find(x=>x.match.test(title))??null;
+}
+const commonsPage=file=>"https://commons.wikimedia.org/wiki/"+encodeURIComponent(String(file).replace(/^File:/i,"File:").replace(/ /g,"_"));
 export async function collectEditorialImages(articles,existing=[],{
   search=searchCommons,download=downloadPhoto,max=8,root=process.cwd(),
   day=new Date().toISOString().slice(0,10),reviews=loadReviews(root),fetchFile=fetchCommonsFile
@@ -535,6 +566,27 @@ export async function collectEditorialImages(articles,existing=[],{
         };
         break;
       }catch(error){lastError=String(error?.message||error).slice(0,120);}
+    }
+    const institution=selected?null:institutionFor(p);
+    if(institution){
+      const used=new Set([...out.map(x=>x.sourceUrl),...rejected]);
+      for(const file of institution.files){
+        if(used.has(commonsPage(file)))continue;
+        try{
+          const candidate=await fetchFile(file);
+          if(!candidate||used.has(candidate.url))continue;
+          const image=await download(candidate);
+          const local="/media/editorial/"+p.slug+"."+image.ext;
+          const path=resolve(root,"public"+local);
+          mkdirSync(dirname(path),{recursive:true});
+          writeFileSync(path,image.buffer);
+          selected={slug:p.slug,src:local,alt:"Photographie d'illustration : "+institution.alt,
+            title:candidate.title,credit:candidate.author,license:candidate.license,licenseUrl:candidate.licenseUrl,
+            sourceUrl:candidate.url,kind:"illustration",review:"automated-license-and-title-check",
+            retrievedAt:day,searchQuery:"institution : "+institution.name};
+          break;
+        }catch(error){lastError=String(error?.message||error).slice(0,120);}
+      }
     }
     if(selected){out.push(selected);known.add(p.slug);report.push({slug:p.slug,status:"added",query:selected.searchQuery});}
     else if(pending)report.push({slug:p.slug,status:"needs_human_review",candidate:pending});

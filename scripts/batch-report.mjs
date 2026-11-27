@@ -91,6 +91,8 @@ export async function replay(dir, { now = new Date("2026-11-27T08:00:00+01:00") 
           return x ? { url: x.sourceUrl, src: "https://upload.wikimedia.org/x.jpg", title: x.title, author: x.credit, license: x.license, licenseUrl: x.licenseUrl } : null;
         },
         download: async () => ({ ext: "jpg", buffer: Buffer.alloc(16) }),
+        // Rejeu hors ligne : aucun fichier Commons nommé (photos d'institution) n'est téléchargé.
+        fetchFile: async () => null,
       });
       catalogueImages = result.images;
       images.push(...result.report);

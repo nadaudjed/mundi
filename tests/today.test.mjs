@@ -114,7 +114,8 @@ test("édition réelle : sa date est valide et chaque sujet choisi est publié",
   assert.match(today.edition, /^\d{4}-\d{2}-\d{2}$/);
   for (const slug of today.selection) assert.ok(pubs.some((p) => p.slug === slug), "sujet introuvable : " + slug);
   // Le 26/11/2026 au matin, la sélection du 25 passe en repli : une publication du 26 en tête.
-  const r = resolveToday(pubs, today, new Date("2026-11-26T15:00:00+01:00"));
+  // Le catalogue réel grandit chaque jour : on ne garde que ce qui était publié à cette date.
+  const r = resolveToday(pubs.filter((p) => String(p.publishedAt) <= "2026-11-26"), today, new Date("2026-11-26T15:00:00+01:00"));
   if (today.edition < "2026-11-26") {
     assert.equal(r.state, "perimee");
     assert.equal(r.picks[0].publication.kind, "actualite");

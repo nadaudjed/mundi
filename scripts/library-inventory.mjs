@@ -30,8 +30,10 @@ function validApproval(item){
     item.internalDraftPath.startsWith("editorial/reviews/")&&
     Array.isArray(item.sources)&&item.sources.length>=2&&item.sources.every(s=>safeHost(s?.url));
 }
-export function measureLibrary({published,ideas,reserve,sources,stock=null,now="2026-11-23T12:00:00Z"}){
-  if(!Array.isArray(published))throw new Error("Publications must be an array");
+export function measureLibrary({published:all,ideas,reserve,sources,stock=null,now="2026-11-23T12:00:00Z"}){
+  if(!Array.isArray(all))throw new Error("Publications must be an array");
+  // Un article retiré (doublon fusionné, #125) reste dans le fichier pour la traçabilité mais ne compte pas.
+  const published=all.filter(p=>p?.status!=="withdrawn");
   if(!ideas||ideas.format!=="mundi-editorial-ideas-v1"||!Array.isArray(ideas.items))throw new Error("Invalid idea library");
   if(!reserve||reserve.format!=="mundi-approved-reserve-v1"||!Array.isArray(reserve.items))throw new Error("Invalid approved reserve");
   if(!Array.isArray(sources))throw new Error("Invalid sources registry");

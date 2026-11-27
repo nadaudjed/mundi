@@ -39,16 +39,17 @@ jobs:
       - name: Export individual unverified candidate sheets
         if: always()
         run: npm run sources:candidates
-      - name: Upload research artifact (7 days)
+      - name: Upload research artifact (1 day, for the archive job)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mundi-research-inbox
+          # Transmis au job suivant seulement : un jour suffit (dépôt public, données non vérifiées).
+          retention-days: 1
           path: |
             reports/editorial-inbox.json
             reports/editorial-inbox.html
             reports/candidates/
-          retention-days: 7
           if-no-files-found: error
 
   archive:
@@ -75,12 +76,16 @@ jobs:
         with:
           name: mundi-research-inbox
           path: reports
+      - name: Private editorial stock (separate private repository when MUNDI_STOCK_TOKEN is set)
+        env:
+          MUNDI_STOCK_TOKEN: ${{ secrets.MUNDI_STOCK_TOKEN }}
+        run: scripts/stock-remote.sh
       - name: Prepare the isolated private stock branch
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
-          git worktree add --detach "$RUNNER_TEMP/mundi-editorial-stock" origin/editorial-stock
+          git fetch stock refs/heads/editorial-stock:refs/remotes/stock/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/mundi-editorial-stock" stock/editorial-stock
       - name: Accumulate metadata without changing public content
         env:
           MUNDI_STOCK_PATH: ${{ runner.temp }}/mundi-editorial-stock/editorial/library/candidates.json
@@ -100,9 +105,11 @@ jobs:
             echo "No stock changes"
           else
             git -C "$RUNNER_TEMP/mundi-editorial-stock" commit -m "research: update private unverified candidate stock"
-            git -C "$RUNNER_TEMP/mundi-editorial-stock" push origin HEAD:refs/heads/editorial-stock
+            git -C "$RUNNER_TEMP/mundi-editorial-stock" push stock HEAD:refs/heads/editorial-stock
           fi
       - name: Upload internal inventory dashboard (30 days)
+        # Données privées (brouillons, stock) : jamais en artefact sur un dépôt public.
+        if: github.event.repository.private
         uses: actions/upload-artifact@v4
         with:
           name: mundi-editorial-library-dashboard

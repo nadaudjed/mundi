@@ -47,6 +47,8 @@ jobs:
         env:
           MUNDI_IMAGES_MAX: '60'
         run: node scripts/collect-editorial-images.mjs
+      - name: Batch report (photos published, typographic covers, visuals in review)
+        run: node scripts/batch-report.mjs
       - name: Publish local images and their permanent source credits
         shell: bash
         run: |

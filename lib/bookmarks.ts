@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useSyncExternalStore } from "react";
+import { currentSlug } from "./redirections";
 
 /**
  * Enregistrements stockés localement dans le navigateur (localStorage).
@@ -16,11 +17,26 @@ function read(): string[] {
   try {
     const raw = window.localStorage.getItem(KEY);
     const parsed = raw ? JSON.parse(raw) : [];
-    cache = Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === "string") : [];
+    const list: string[] = Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === "string") : [];
+    cache = migrate(list);
   } catch {
     cache = [];
   }
   return cache;
+}
+
+const PREFIX = "actualite:";
+/**
+ * Un article fusionné avec un autre (#125) garde ses favoris : la clé de l'ancien article est remplacée
+ * par celle de la publication de référence, sans doublon. Les autres clés sont inchangées.
+ */
+export function migrate(list: string[]): string[] {
+  const out: string[] = [];
+  for (const key of list) {
+    const next = key.startsWith(PREFIX) ? PREFIX + currentSlug(key.slice(PREFIX.length)) : key;
+    if (!out.includes(next)) out.push(next);
+  }
+  return out;
 }
 
 function write(next: string[]) {

@@ -29,7 +29,7 @@ export const PHOTO_QUERIES={
 const HINTS=[
   // Sujets du 25/11 restés sans repère visuel : un jeu de plateau pour Gaza (« diplomacy »), une
   // statue de bronze pour le froid (« fonte à froid »), un enfant centrafricain pour un port libyen.
-  [/aide humanitaire|humanitaire|tentes|r[eé]fugi[eé]s|d[eé]plac[eé]s/i,["humanitarian aid trucks","humanitarian aid distribution","refugee camp tents"]],
+  [/aide humanitaire|humanitaire|\btentes\b|r[eé]fugi[eé]s|\bd[eé]plac[eé]s\b/i,["humanitarian aid trucks","humanitarian aid distribution","refugee camp tents"]],
   [/cancer|d[eé]pistage|mammograph/i,["mammography","breast cancer screening"]],
   [/logement|immobilier|r[eé]novation [eé]nerg|construction de maisons/i,["housing construction","residential building construction"]],
   [/imp[oô]ts?|fiscal|fraude [aà] la TVA|[eé]vasion fiscale/i,["European Commission Berlaymont","euro banknotes and coins"]],
@@ -43,7 +43,8 @@ const HINTS=[
   [/d[eé]chets plastiques|plastique/i,["plastic waste recycling","plastic waste bales"]],
   [/cobalt|shaba|katanga/i,["cobalt mine Congo","copper cobalt mine Katanga"]],
   [/quantique|quantum/i,["quantum computer","quantum computing laboratory"]],
-  [/ariane|fus[eé]e|lanceur spatial/i,["Ariane 5 rocket","rocket launch Kourou"]],
+  // #125 : « fus[eé]e » sans limite de mot trouvait « refusée » (barge Mobro illustrée par Ariane 5).
+  [/\bariane\b|\bfus[eé]es?\b|lanceur spatial/i,["Ariane 5 rocket","rocket launch Kourou"]],
   [/cha[iî]ne mobile|ford|mod[eè]le T/i,["Ford Model T assembly line","Highland Park Ford Plant"]],
   [/doctorat|doctorant|th[eè]se/i,["PhD students laboratory","doctoral students research"]],
   [/ind[eé]pendances?|d[eé]colonisation/i,["independence day Africa 1960","African independence celebration"]],
@@ -53,14 +54,19 @@ const HINTS=[
   [/automobile|voitures?|usine de Hambach/i,["car factory assembly line","electric car production"]],
   [/textil|v[eê]tement|tri des d[eé]chets/i,["textile recycling sorting","clothing recycling"]],
   [/appels? d.offres|march[eé]s? publics?|commande publique/i,["public procurement","government contract signing"]],
-  [/m[eé]nag|enfant|famill/i,["family children","parents with children"]],
-  [/dette|obligation|budget de l[eé]tat/i,["European Central Bank","European Parliament Brussels"]],
+  // #125 : « ménages » (au sens économique) donnait des enfants à moto pour la fermeture des réseaux de gaz.
+  [/\bfamilles?\b|\benfants?\b/i,["family children","parents with children"]],
+  // #125 : « obligation » (légale) donnait la BCE pour les transferts de déchets ; seules les dettes publiques comptent.
+  [/\bdettes? publiques?\b|\bobligations? (d.[ée]tat|souveraines?)\b|budget de l.[ée]tat/i,["European Central Bank","European Parliament Brussels"]],
   [/tr[eé]sorerie|b[eé]n[eé]fice|profit|cash/i,["accounting office","business finance"]],
-  [/batterie|lithium|cobalt/i,"battery recycling"],
+  // #125 : le stockage de l'énergie illustré par une benne de piles usagées. Le recyclage seulement s'il est le sujet.
+  [/recycl\w* (des |de )?(batteries|piles)|(batteries|piles) usag/i,"battery recycling"],
+  [/batterie|lithium/i,"battery energy storage"],
   [/hydrog[eè]ne/i,"hydrogen energy"],
   [/p[eé]trole|gaz naturel/i,"oil platform"],
   [/photovolta[iï]que|solaire/i,"solar panels"],
-  [/[eé]olien|vent/i,"wind turbines"],
+  // #125 : « vent » sans limite de mot trouvait « souvent » et « peuvent » (éoliennes pour Herstatt et une crise diplomatique).
+  [/[eé]olien|\bvents?\b/i,"wind turbines"],
   [/recherche|laboratoire|exp[eé]rience/i,"laboratory"],
   // Realistic visual cues derived from each story, without claiming that a
   // stock photograph depicts the specific events or people in the article.
@@ -110,29 +116,151 @@ const ALLOWED_LICENSES=new Map([
 ]);
 /* Coupe par caractères (pas par unités UTF-16) : un demi-emoji rendait le JSON illisible au build. */
 const clean=(s,n=160)=>Array.from(String(s??"").replace(/<[^>]*>/g," ").replace(/&(?:nbsp|amp|quot|lt|gt);/gi,m=>({"&nbsp;":" ","&amp;":"&","&quot;":'"',"&lt;":"<","&gt;":">"}[m.toLowerCase()]??m)).replace(/\s+/g," ").trim()).slice(0,n).join("");
-export function imageQueries(article){
+/**
+ * Recherches d'une publication, avec leur force (#125) :
+ * - « forte » : repère visuel précis tiré du TITRE (règles HINTS) ;
+ * - « faible » : repère tiré du seul résumé, mots du titre, ou image générique de la rubrique.
+ * Une photo trouvée par une recherche faible n'est jamais publiée automatiquement : elle part en
+ * révision humaine (rapport), et l'article garde sa couverture typographique. Le 26/11, les dix photos
+ * hors sujet signalées venaient toutes de recherches faibles (rubrique, résumé ou mots du titre).
+ */
+/** Mots à double sens : jamais un repère fort à eux seuls. */
+export const AMBIGUOUS=/\bfranchises?\b|\bvents?\b|\bobligations?\b(?! (d.[ée]tat|souveraines?))/gi;
+/** Le motif trouve-t-il une occurrence qui commence un mot (pas « vent » au milieu de « souvent ») ? */
+export function matchesAtWordStart(pattern,text){
+  const re=new RegExp(pattern.source,pattern.flags.includes("g")?pattern.flags:pattern.flags+"g");
+  const s=String(text??"");
+  for(const m of s.matchAll(re)){
+    const before=m.index>0?s[m.index-1]:"";
+    if(!/[\p{L}\p{N}]/u.test(before))return true;
+  }
+  return false;
+}
+export function queryPlan(article){
   const fromTitle=String(article?.title??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"")
     .replace(/[^a-zA-Z\s-]/g," ").toLowerCase().split(/\s+/).filter(w=>w.length>=4&&!STOPWORDS.has(w)).slice(0,2).join(" ");
   // Prefer the article title; use the summary when a generic title reveals
   // no recognisable visual subject, before trying the general topic fallback.
   const title=String(article?.title??"");
   const summary=String(article?.summary??"").slice(0,300);
-  const hint=(HINTS.find(([pattern])=>pattern.test(title))||
-    HINTS.find(([pattern])=>pattern.test(summary)))?.[1];
+  // Un déclencheur doit commencer un mot (« vent » dans « souvent », « mine » dans « détermine » ne comptent pas).
+  const inTitleRule=HINTS.find(([pattern])=>matchesAtWordStart(pattern,title));
+  const inTitle=inTitleRule?.[1];
+  const hint=inTitle??HINTS.find(([pattern])=>matchesAtWordStart(pattern,summary))?.[1];
+  // Mot ambigu (franchise commerciale ou d'assurance, obligation légale ou financière, vent) : le repère
+  // ne vaut que pour chercher, la photo part en révision humaine.
+  const ambiguous=inTitleRule&&!matchesAtWordStart(inTitleRule[0],title.replace(AMBIGUOUS," "));
+  const titleStrength=inTitle&&!ambiguous?"forte":"faible";
+  // Seul un repère qui nomme un sujet précis (nom propre : « Ariane 5 rocket », « Lehman Brothers
+  // headquarters ») est fort. Un repère de rubrique (« laboratory », « workplace employees »,
+  // « battery recycling ») sert à chercher, jamais à publier seul.
+  const strengthOf=q=>titleStrength==="forte"&&/[A-Z]/.test(q)?"forte":"faible";
   // Specific subjects must NOT fall back to vague "family", "market", or "recycling":
   // those produced lions for human households, a Nepal budget for European public
   // debt, and vandalized bins for textile sorting. Prefer no photo over deception.
   const backups=TOPIC_BACKUPS[article?.topic]??[];
+  const plan=[];
+  const add=(query,strength)=>{if(query&&!plan.some(x=>x.query===query))plan.push({query,strength});};
   if(Array.isArray(hint)){
     // For a European demographic story, do not silently choose a family in an
     // unrelated region. Require a Europe-specific query and geographic evidence.
-    if(hint[0]==="family children"&&/europ|\bUE\b/i.test(title))
-      return hint.map(q=>q+" Europe");
+    if(hint[0]==="family children"&&/europ|\bUE\b/i.test(title)){
+      for(const q of hint)add(q+" Europe",strengthOf(q+" Europe"));
+      return plan;
+    }
     // Specific subjects keep their strict cues; only the neutral topic backups follow.
-    return [...new Set([...hint,...backups])];
+    for(const q of hint)add(q,strengthOf(q));
+    for(const q of backups)add(q,"faible");
+    return plan;
   }
   const fallback=PHOTO_QUERIES[article?.topic]??"documentary";
-  return [...new Set([hint,fromTitle.length>=5?fromTitle:null,fallback,...backups].filter(Boolean))];
+  add(hint,hint&&strengthOf(hint));
+  if(fromTitle.length>=5)add(fromTitle,"faible");
+  add(fallback,"faible");
+  for(const q of backups)add(q,"faible");
+  return plan;
+}
+export function imageQueries(article){return queryPlan(article).map(x=>x.query);}
+/** Années à quatre chiffres (1800-2099) citées dans un texte. */
+const yearsIn=s=>[...String(s??"").matchAll(/\b(1[89]\d{2}|20\d{2})\b/g)].map(m=>Number(m[1]));
+/**
+ * Contrôle propre à l'article (#125), en plus des licences : une photo datée d'une autre époque
+ * qu'un récit (Carl Lewis à Helsinki en 1983 pour l'Acte final de 1975) est refusée, comme une photo
+ * déjà écartée par la rédaction pour cet article ou un autre (content/editorial-image-reviews.json).
+ */
+export function rejectsForArticle(article,candidate,{rejected=new Set()}={}){
+  if(rejected.has(candidate?.url))return "photo écartée par la rédaction";
+  const own=yearsIn(article?.title);
+  const pictured=yearsIn(candidate?.title);
+  if(own.length&&pictured.length&&!pictured.some(y=>own.some(x=>Math.abs(x-y)<=2)))
+    return "époque différente ("+pictured.join(", ")+" pour un sujet de "+own.join(", ")+")";
+  return null;
+}
+/** Lieux reconnus (français et anglais), regroupés : un lieu européen est compatible avec « Europe ». */
+const PLACES=[
+  ["europe",/\b(europ\w*|ue|eu|bruxelles|brussels|strasbourg|luxembourg)\b/],
+  ["france",/\b(france|fran[cç]ais\w*|french|paris|bretagne|brittany|finist[eè]re|portsall|kourou)\b/],
+  ["allemagne",/\b(allemagne|germany|german|deutschland|berlin|hambach)\b/],
+  ["royaume-uni",/\b(royaume-uni|united kingdom|uk|britain|british|england|london|londres)\b/],
+  ["suede",/\b(su[eè]de|sweden|swedish|stockholm)\b/],
+  ["finlande",/\b(finlande|finland|helsinki)\b/],
+  ["etats-unis",/\b([eé]tats-unis|united states|usa|u\.s\.|america\w*|new york|washington|wall street)\b/],
+  ["chine",/\b(chine|china|chinese|chinois\w*|p[eé]kin|beijing)\b/],
+  ["russie",/\b(russie|russia\w*|urss|ussr|soviet\w*|sovi[eé]ti\w*|moscou|moscow)\b/],
+  ["inde",/\b(inde|india\w*|pune|maharashtra|delhi|mumbai)\b/],
+  ["nepal",/\b(n[eé]pal\w*)\b/],
+  ["rdc",/\b(rdc|congo\w*|ituri|katanga|shaba|kinshasa)\b/],
+  ["liberia",/\b(liberia\w*|lib[eé]ria)\b/],
+  ["ethiopie",/\b([eé]thiopie|ethiopia\w*|addis)\b/],
+  ["afrique",/\b(afrique|africa\w*|africain\w*|sahara|sahel)\b/],
+  ["balkans",/\b(balkans?|serbi\w*|albani\w*|bosni\w*|mont[eé]n[eé]gro|montenegro|mac[eé]doine|macedonia|kosovo)\b/],
+];
+const EUROPEAN=new Set(["france","allemagne","suede","finlande","royaume-uni","balkans"]);
+const AFRICAN=new Set(["rdc","liberia","ethiopie"]);
+const foldText=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+export function placesIn(text){
+  const t=String(text??"").toLowerCase();
+  return new Set(PLACES.filter(([,re])=>re.test(t)).map(([k])=>k));
+}
+const compatiblePlace=(a,b)=>a===b||(a==="europe"&&EUROPEAN.has(b))||(b==="europe"&&EUROPEAN.has(a))||(a==="afrique"&&AFRICAN.has(b))||(b==="afrique"&&AFRICAN.has(a));
+/** Sujet central d'un article : entités (noms propres du titre), lieux et époque. */
+export function centralSubject(article){
+  const title=String(article?.title??"");
+  const entities=new Set([...title.matchAll(/\b(\p{Lu}[\p{L}-]{2,}|[A-Z]{2,6})\b/gu)].map(m=>foldText(m[1])).filter(w=>!/^(le|la|les|un|une|des|comment|pourquoi|que|quand|ce|qui|ue|etat)$/.test(w)));
+  return {entities,places:placesIn(title+" "+String(article?.summary??"").slice(0,300)),years:yearsIn(title)};
+}
+/**
+ * Pertinence d'une photo pour un article (#125), à chaque collecte et à chaque remplacement automatique :
+ * le titre et la description de la photo sont confrontés au sujet central. Un conflit de lieu (un budget
+ * népalais pour la dette européenne) ou d'époque refuse la photo ; l'article garde sa couverture
+ * typographique et la photo part en révision. Renvoie null si rien ne s'y oppose, sinon la raison.
+ */
+export function subjectConflict(article,candidate,{rejected=new Set()}={}){
+  const refusal=rejectsForArticle(article,candidate,{rejected});
+  if(refusal)return refusal;
+  const subject=centralSubject(article);
+  const pictured=placesIn(String(candidate?.title??"")+" "+String(candidate?.description??""));
+  if(subject.places.size&&pictured.size&&![...pictured].some(x=>[...subject.places].some(y=>compatiblePlace(x,y))))
+    return "lieu différent ("+[...pictured].join(", ")+" pour un sujet "+[...subject.places].join(", ")+")";
+  return null;
+}
+/** Le titre de la photo nomme-t-il le sujet (au moins deux noms propres du titre de l'article, mots entiers) ? */
+export function namesSubject(article,candidate){
+  const words=new Set(foldText(candidate?.title).split(/[^a-z0-9]+/));
+  return [...centralSubject(article).entities].filter(e=>e.length>=4&&words.has(e)).length>=2;
+}
+/** Archive (photo de l'époque d'un récit daté) ou illustration (photo d'aujourd'hui, générique). */
+export function visualKind(article,candidate){
+  const own=yearsIn(article?.title),pictured=yearsIn(String(candidate?.title??"")+" "+String(candidate?.description??""));
+  return own.length&&pictured.some(y=>own.some(x=>Math.abs(x-y)<=2))?"archive":"illustration";
+}
+/** Révisions de la rédaction (#125) : photos conservées, retirées (couverture typographique) ou approuvées. */
+export const REVIEWS="content/editorial-image-reviews.json";
+export function loadReviews(root=process.cwd()){
+  const path=resolve(root,REVIEWS);
+  if(!existsSync(path))return {items:[]};
+  const data=JSON.parse(readFileSync(path,"utf8"));
+  return {...data,items:Array.isArray(data?.items)?data.items:[]};
 }
 function validCommonsFileURL(raw){
   try{
@@ -218,7 +346,7 @@ export function selectImage(pages,query,{exclude=new Set(),strict=false}={}){
     }
     // The Wikimedia search relevance alone does not prove exact-event identity.
     candidates.push({match,url,src:info.thumburl,
-      title:imageTitle,author:artist,license:clean(ext.LicenseShortName?.value,45),
+      title:imageTitle,description:clean(ext.ImageDescription?.value,300),author:artist,license:clean(ext.LicenseShortName?.value,45),
       licenseUrl:expected,width:info.thumbwidth??info.width,height:info.thumbheight??info.height});
   }
   candidates.sort((a,b)=>b.match-a.match);
@@ -249,6 +377,16 @@ export async function searchCommons(query,fetcher=fetch,options={}){
   }
   return found;
 }
+/** Un fichier précis de Commons, approuvé par la rédaction (« File:… ») : mêmes contrôles de licence et de format. */
+export async function fetchCommonsFile(file,fetcher=fetch){
+  const url=new URL("https://commons.wikimedia.org/w/api.php");
+  for(const [k,v] of Object.entries({action:"query",titles:file,prop:"imageinfo",iiprop:"url|mime|size|extmetadata",
+    iiurlwidth:"1280",format:"json",formatversion:"2"}))url.searchParams.set(k,v);
+  const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
+  if(!reply.ok)throw new Error("Wikimedia Commons HTTP "+reply.status);
+  const data=await reply.json();
+  return selectImage(data?.query?.pages,String(file).replace(/^File:/i,"").replace(/\.[a-z]+$/i,""),{strict:false});
+}
 export async function downloadPhoto(candidate,fetcher=fetch){
   if(!validCommonsFileURL(candidate.src))throw new Error("Image host is not an official Wikimedia thumbnail CDN");
   const res=await fetcher(candidate.src,{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app)"},
@@ -268,21 +406,52 @@ export async function downloadPhoto(candidate,fetcher=fetch){
 }
 export async function collectEditorialImages(articles,existing=[],{
   search=searchCommons,download=downloadPhoto,max=8,root=process.cwd(),
-  day=new Date().toISOString().slice(0,10)
+  day=new Date().toISOString().slice(0,10),reviews=loadReviews(root),fetchFile=fetchCommonsFile
 }={}){
   // Up to 48 publications a day (two editions): one run must be able to cover a whole day.
   const limit=Math.max(0,Math.min(60,Number(max)||0));
   const known=new Set(existing.map(p=>p.slug));
   const out=[...existing],report=[];
+  const review=new Map((reviews?.items??[]).map(x=>[x.slug,x]));
+  const rejected=new Set((reviews?.items??[]).flatMap(x=>(x.rejected??[]).map(r=>r.sourceUrl)));
   for(const p of articles.filter(x=>x?.status==="published")){
     if(known.has(p.slug)||report.filter(x=>x.status==="added").length>=limit)continue;
-    let selected=null,lastError="";
-    for(const query of imageQueries(p)){
+    // Retirée par la rédaction : couverture typographique jusqu'à ce qu'une personne approuve une photo.
+    if(review.get(p.slug)?.status==="retiree"){report.push({slug:p.slug,status:"typographic_by_review"});continue;}
+    let selected=null,lastError="",pending=null;
+    // Photo approuvée par une personne (nom exact du fichier sur Commons) : seule cette photo est acceptée.
+    const approved=review.get(p.slug);
+    if(approved?.status==="approuvee"&&typeof approved.file==="string"){
+      try{
+        const candidate=await fetchFile(approved.file);
+        if(!candidate)throw new Error("fichier approuvé introuvable ou licence refusée");
+        const file=await download(candidate);
+        const local="/media/editorial/"+p.slug+"."+file.ext;
+        const path=resolve(root,"public"+local);
+        mkdirSync(dirname(path),{recursive:true});
+        writeFileSync(path,file.buffer);
+        out.push({slug:p.slug,src:local,alt:typeof approved.alt==="string"&&approved.alt.length>=10?approved.alt:"Photographie d'illustration : "+candidate.title,
+          title:candidate.title,credit:candidate.author,license:candidate.license,licenseUrl:candidate.licenseUrl,sourceUrl:candidate.url,
+          kind:"illustration",review:"automated-license-and-title-check",retrievedAt:day,searchQuery:"approuvée : "+approved.file});
+        known.add(p.slug);report.push({slug:p.slug,status:"added",query:"approved file"});
+      }catch(error){report.push({slug:p.slug,status:"approved_file_failed",error:String(error?.message||error).slice(0,120)});}
+      continue;
+    }
+    for(const {query,strength} of queryPlan(p)){
       try{
         // Jamais deux fois la même photo : le 25/11, un même laboratoire illustrait quatre articles
         // et une même boîte de piles le cobalt congolais comme la guerre du Shaba.
-        const candidate=await search(query,undefined,{exclude:new Set(out.map(x=>x.sourceUrl))});
+        const candidate=await search(query,undefined,{exclude:new Set([...out.map(x=>x.sourceUrl),...rejected])});
         if(!candidate)continue;
+        const refusal=subjectConflict(p,candidate,{rejected});
+        // Conflit avec le sujet : la photo est écartée et proposée en révision, avec la raison.
+        if(refusal){lastError=refusal;pending??={query,title:candidate.title,sourceUrl:candidate.url,credit:candidate.author,license:candidate.license,conflict:refusal};continue;}
+        // Recherche faible (rubrique, résumé, mots du titre) : proposée à la rédaction, jamais publiée seule,
+        // sauf si le titre de la photo nomme le sujet central (deux de ses noms propres : « Amoco Cadiz anchor »).
+        if(strength!=="forte"&&!namesSubject(p,candidate)){
+          pending??={query,title:candidate.title,sourceUrl:candidate.url,credit:candidate.author,license:candidate.license};
+          continue;
+        }
         const file=await download(candidate);
         const local="/media/editorial/"+p.slug+"."+file.ext;
         const path=resolve(root,"public"+local);
@@ -292,16 +461,33 @@ export async function collectEditorialImages(articles,existing=[],{
           slug:p.slug,src:local,alt:"Photographie d'illustration : "+candidate.title,
           title:candidate.title,credit:candidate.author,license:candidate.license,
           licenseUrl:candidate.licenseUrl,sourceUrl:candidate.url,
-          kind:"illustration",review:"automated-license-and-title-check",
+          kind:visualKind(p,candidate),review:"automated-license-and-title-check",
           retrievedAt:day,searchQuery:query
         };
         break;
       }catch(error){lastError=String(error?.message||error).slice(0,120);}
     }
     if(selected){out.push(selected);known.add(p.slug);report.push({slug:p.slug,status:"added",query:selected.searchQuery});}
+    else if(pending)report.push({slug:p.slug,status:"needs_human_review",candidate:pending});
     else report.push({slug:p.slug,status:"no_licensed_photo",error:lastError});
   }
-  return collectCardPhotos(articles,out,report,{search,download,limit,root,day});
+  const result=await collectCardPhotos(articles,out,report,{search,download,limit,root,day,review,rejected});
+  return protectReviewed(existing,result,review);
+}
+/**
+ * Un visuel conservé ou approuvé par une personne n'est jamais remplacé ni retiré par un passage
+ * automatique (#125) : s'il a disparu ou changé, l'entrée d'origine est remise et le rapport le dit.
+ */
+export function protectReviewed(existing,{images,report},review){
+  const guarded=existing.filter(x=>["conservee","approuvee"].includes(review.get(x.slug)?.status));
+  const out=[...images];
+  for(const entry of guarded){
+    const i=out.findIndex(x=>x.slug===entry.slug);
+    if(i>=0&&JSON.stringify(out[i])===JSON.stringify(entry))continue;
+    if(i>=0)out[i]=entry;else out.push(entry);
+    report.push({slug:entry.slug,status:"protected_by_review"});
+  }
+  return {images:out,report};
 }
 /** Slug (et nom de fichier) de la photo propre à une carte « Données ». */
 export const cardPhotoSlug=(publication,card)=>(publication+"-carte-"+card).replace(/-+/g,"-").replace(/^-|-$/g,"");
@@ -311,12 +497,13 @@ export const cardPhotoSlug=(publication,card)=>(publication+"-carte-"+card).repl
  * propre recherche (imageQuery). Rien de trouvé : la carte reste en texte, jamais la photo de l'article.
  * Les photos de cartes retirées du fil sont enlevées du catalogue.
  */
-async function collectCardPhotos(articles,images,report,{search,download,limit,root,day}){
+async function collectCardPhotos(articles,images,report,{search,download,limit,root,day,review=new Map(),rejected=new Set()}){
   const shown=new Map();
   for(const p of articles)if(p?.status==="published"&&p.dataCardsInFeed!==false)
     for(const c of p.dataCards??[])shown.set(cardPhotoSlug(p.slug,c.id),{p,c});
-  const out=images.filter(x=>!x.card||shown.has(x.slug));
-  for(const x of images)if(x.card&&!shown.has(x.slug)){
+  const kept=x=>["conservee","approuvee"].includes(review.get(x.slug)?.status);
+  const out=images.filter(x=>!x.card||shown.has(x.slug)||kept(x));
+  for(const x of images)if(x.card&&!shown.has(x.slug)&&!kept(x)){
     const path=resolve(root,"public"+x.src);
     if(existsSync(path))rmSync(path);
     report.push({slug:x.slug,status:"card_photo_removed"});
@@ -324,11 +511,14 @@ async function collectCardPhotos(articles,images,report,{search,download,limit,r
   const known=new Set(out.map(x=>x.slug));
   for(const [slug,{p,c}] of shown){
     if(known.has(slug)||typeof c.imageQuery!=="string"||!c.imageQuery.trim())continue;
+    if(review.get(slug)?.status==="retiree"){report.push({slug,status:"typographic_by_review"});continue;}
     if(report.filter(x=>x.status==="added").length>=limit)break;
     const query=c.imageQuery.trim();
     try{
-      const candidate=await search(query,undefined,{exclude:new Set(out.map(x=>x.sourceUrl)),strict:true});
+      const candidate=await search(query,undefined,{exclude:new Set([...out.map(x=>x.sourceUrl),...rejected]),strict:true});
       if(!candidate){report.push({slug,status:"no_card_photo",query});continue;}
+      const refusal=subjectConflict(p,candidate,{rejected});
+      if(refusal){report.push({slug,status:"no_card_photo",query,error:refusal});continue;}
       const file=await download(candidate);
       const local="/media/editorial/"+slug+"."+file.ext;
       const path=resolve(root,"public"+local);

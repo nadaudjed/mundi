@@ -1,5 +1,2005 @@
 [
   {
+    "slug": "budget-europeen-2028-2034-le-sommet-de-bruxelles-se-separe-sans-accord",
+    "title": "Budget européen 2028-2034 : le sommet de Bruxelles se sépare sans accord",
+    "summary": "Réunis en Conseil européen extraordinaire le 26 novembre 2026, les dirigeants de l'UE n'ont pas trouvé d'accord sur le cadre financier pluriannuel 2028-2034, après près de 15 heures de discussions. La proposition du président du Conseil européen, António Costa, réduisait de 204 milliards d'euros l'enveloppe proposée par la Commission. Les pays dits « frugaux » jugent l'effort insuffisant, la France refuse toute baisse de ses fonds agricoles. Les négociations doivent reprendre au sommet de décembre. Le prêt de 45 milliards d'euros pour l'Ukraine en 2027 reste lui aussi en suspens.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le Conseil européen extraordinaire du 26 novembre 2026 s'est achevé dans la nuit sans accord sur le budget de l'UE pour 2028-2034 ; la deuxième journée prévue a été annulée.",
+      "La « boîte de négociation » d'António Costa, d'environ 1 780 milliards d'euros, retirait 204 milliards à la proposition de la Commission ; certains pays veulent aller plus loin, d'autres refusent les coupes.",
+      "Ursula von der Leyen juge qu'il reste « beaucoup de travail » ; le dossier revient au sommet de décembre, où le soutien de 45 milliards d'euros à l'Ukraine pour 2027 sera aussi rediscuté."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un sommet sans conclusion",
+        "text": "Les chefs d'État et de gouvernement de l'Union européenne se sont réunis à Bruxelles le 26 novembre 2026 pour un Conseil européen extraordinaire consacré au prochain cadre financier pluriannuel, le budget de long terme de l'UE pour 2028-2034. Après près de 15 heures de discussions, la réunion s'est terminée dans la nuit sans accord, et la seconde journée prévue a été annulée. Dans sa déclaration finale, la présidente de la Commission, Ursula von der Leyen, a salué des progrès sur les nouvelles ressources propres, notamment une taxe sur les services numériques qui « rassemble un large soutien », tout en reconnaissant qu'il restait « beaucoup de travail »."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une enveloppe déjà réduite",
+        "text": "La base de discussion était la « boîte de négociation » présentée le 21 novembre par António Costa, président du Conseil européen. Elle porte sur environ 1 780 milliards d'euros, soit 204 milliards de moins que la proposition initiale de la Commission, une baisse d'environ 10 %. Elle prévoit un panier de nouvelles ressources propres censé rapporter environ 60 milliards d'euros par an, dont un prélèvement de 3 % sur les services numériques. Selon EUalive, António Costa met en avant une hausse des dépenses de compétitivité par rapport au budget actuel 2021-2027, mais c'est sur ces enveloppes que portent les plus fortes réductions par rapport à la proposition de la Commission ; la politique de cohésion subit elle aussi des coupes et que les paiements directs agricoles sont largement préservés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des lignes rouges opposées",
+        "text": "Le groupe des pays dits « frugaux », dont l'Allemagne, les Pays-Bas, l'Autriche et la Suède, juge l'effort insuffisant pour les contributeurs nets. Le chancelier allemand Friedrich Merz a estimé que la baisse ne s'arrêterait pas à 204 milliards. À l'inverse, Emmanuel Macron a refusé toute diminution des fonds agricoles reçus par la France et fixé au 31 décembre la date limite d'un accord. La présidente du Conseil italien, Giorgia Meloni, a jugé les positions encore très éloignées. António Costa a dit vouloir dessiner une « zone d'atterrissage » pour décembre."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'Ukraine et la BCE au menu",
+        "text": "Les dirigeants ont aussi évoqué le soutien à l'Ukraine. La Commission a proposé un instrument qui doit fournir 45 milliards d'euros en 2027 ; Ursula von der Leyen fait état d'un large soutien, mais la Hongrie, la Slovaquie et la République tchèque s'y opposent, et la Bulgarie ne veut participer qu'à la partie non militaire. António Costa a indiqué que la question reviendrait en décembre. Enfin, les dirigeants de la zone euro ont soutenu l'Espagnol Pablo Hernández de Cos pour succéder à Christine Lagarde à la présidence de la Banque centrale européenne ; sa nomination formelle est attendue au Conseil européen de décembre."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce qui se joue en décembre",
+        "text": "Un budget pluriannuel exige l'unanimité des États membres puis l'approbation du Parlement européen, qui juge l'enveloppe trop faible. Les dirigeants doivent se retrouver au sommet ordinaire de décembre, sur la base d'une proposition révisée attendue d'António Costa. L'écart entre ceux qui demandent de nouvelles économies et ceux qui défendent la cohésion et l'agriculture reste le principal obstacle."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — Déclaration d'Ursula von der Leyen avec António Costa après le Conseil européen extraordinaire de novembre 2026",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/statement_26_2603"
+      },
+      {
+        "label": "Euronews — EU summit: Lengthy budget talks fail to yield breakthrough, 26 novembre 2026",
+        "url": "https://www.euronews.com/2026/11/26/eu-summit-leaders-ready-to-spar-over-new-budget-and-ukraine-aid"
+      },
+      {
+        "label": "EUalive — EU leaders end marathon summit without budget deal, pushing crunch talks to December, 27 novembre 2026",
+        "url": "https://eualive.net/eu-leaders-end-marathon-summit-without-budget-deal-pushing-crunch-talks-to-december/"
+      },
+      {
+        "label": "EUalive — Costa trims EU budget proposal by 10% to woo frugal states ahead of summit, 21 novembre 2026",
+        "url": "https://eualive.net/costa-trims-eu-budget-proposal-by-10-to-woo-frugal-states-ahead-of-summit/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que le cadre financier pluriannuel de l'Union européenne ?",
+        "answer": "C'est le budget de long terme de l'UE ; celui en négociation couvre la période 2028-2034 et exige l'unanimité des États puis l'accord du Parlement européen."
+      }
+    ]
+  },
+  {
+    "slug": "bce-en-octobre-un-grand-nombre-de-gouverneurs-etaient-prets-a-relever-les-taux",
+    "title": "BCE : en octobre, un grand nombre de gouverneurs étaient prêts à relever les taux",
+    "summary": "Le compte rendu de la réunion de politique monétaire des 28 et 29 octobre 2026, publié par la Banque centrale européenne le 26 novembre, montre que la pause décidée à l'unanimité cachait une forte pression pour une nouvelle hausse. Un grand nombre de membres du Conseil des gouverneurs auraient pu soutenir un relèvement dès octobre, face au choc énergétique lié au Moyen-Orient. Le taux de dépôt reste à 2,50 % depuis septembre. Selon Eurostat, l'inflation de la zone euro est montée à 3,8 % en septembre puis à 4,0 % en octobre. Les nouvelles projections de décembre seront décisives.",
+    "topic": "finance",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Tous les membres du Conseil des gouverneurs ont approuvé le maintien des taux le 29 octobre, mais un grand nombre d'entre eux auraient pu soutenir une hausse dès cette réunion.",
+      "Le compte rendu juge la « direction » claire : une nouvelle hausse est jugée probable, sauf amélioration nette des perspectives d'inflation, après celles de juin et septembre.",
+      "Le choc vient de l'énergie : le Brent a gagné 13 % à 115 dollars le baril et le gaz 22 % à 97 euros le MWh entre les réunions de septembre et d'octobre."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une pause, mais pas de consensus sur le calendrier",
+        "text": "La Banque centrale européenne a publié le 26 novembre 2026 le compte rendu de la réunion de son Conseil des gouverneurs des 28 et 29 octobre. Ce jour-là, tous les membres ont approuvé la proposition de l'économiste en chef, Philip Lane, de laisser inchangés les trois taux directeurs. Mais le texte indique qu'un grand nombre de membres estimaient que les données confirmaient la nécessité de resserrer encore la politique monétaire et qu'ils auraient pu soutenir une hausse dès cette réunion. Pour eux, la seule question était le moment, la hausse étant jugée nécessaire sauf amélioration nette des perspectives d'inflation."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un taux de dépôt à 2,50 %",
+        "text": "Le taux de la facilité de dépôt, principal taux directeur de la BCE, a été relevé à 2,25 % en juin 2026 puis à 2,50 % en septembre, selon les données de la BCE. Le compte rendu rappelle que ce niveau reste dans la fourchette des estimations du taux neutre établies par les services de la BCE, c'est-à-dire un taux qui ne freine ni ne stimule l'économie. Les membres favorables à la patience ont fait valoir que les conditions de financement s'étaient déjà resserrées et qu'il fallait attendre les projections de décembre, qui intégreront pour la première fois l'année 2029."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'énergie pousse l'inflation",
+        "text": "Entre les réunions de septembre et d'octobre, le prix du pétrole Brent a augmenté de 13 %, à 115 dollars le baril, et celui du gaz de 22 %, à 97 euros le mégawattheure, en raison du conflit au Moyen-Orient, selon la présentation de Philip Lane. L'euro a reculé de 4,0 % face au dollar. Selon Eurostat, l'inflation annuelle de la zone euro, mesurée par l'indice des prix à la consommation harmonisé, est passée de 3,2 % en août à 3,8 % en septembre puis à 4,0 % en octobre ; la hausse des prix de l'énergie a atteint 21 % sur un an en octobre."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la BCE hésite",
+        "text": "Le choc énergétique pousse l'inflation vers le haut mais freine aussi la croissance, ce qui place la BCE devant un arbitrage difficile. Le compte rendu relève que les salaires ne montrent pas encore de réaction marquée et que les effets dits de second tour, quand la hausse des prix se transmet aux salaires puis à d'autres prix, ne se sont pas matérialisés. Il souligne aussi un recul de la demande de crédit et des inquiétudes sur les valorisations boursières liées à l'intelligence artificielle."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Ce qu'il faut surveiller",
+        "text": "Un compte rendu décrit des débats passés, sans engagement sur la décision suivante. Selon l'agence Reuters, la plupart des responsables de la BCE qui se sont exprimés depuis la réunion ont laissé entendre qu'une hausse d'un quart de point serait décidée le 17 décembre, et les marchés l'anticipent. Cette réunion s'appuiera sur de nouvelles projections des services de l'Eurosystème ; la suite dépendra des prix de l'énergie et des données d'inflation."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE — Account of the monetary policy meeting of 28-29 October 2026, publié le 26 novembre 2026",
+        "url": "https://www.ecb.europa.eu/press/accounts/2026/html/ecb.mg261126~ccf28c8071.en.html"
+      },
+      {
+        "label": "BCE — Portail de données, taux de la facilité de dépôt",
+        "url": "https://data.ecb.europa.eu/data/datasets/FM/FM.B.U2.EUR.4F.KR.DFR.LEV"
+      },
+      {
+        "label": "Eurostat — IPCH, taux de variation annuels (prc_hicp_minr)",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+      },
+      {
+        "label": "Reuters, via Global Banking & Finance Review — ECB already had large support for rate hike in Oct, accounts show, 26 novembre 2026",
+        "url": "https://www.globalbankingandfinance.com/ecb-already-large-support-rate-hike-oct-accounts-show/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "dataCards": [
+      {
+        "id": "taux-de-depot-bce",
+        "kind": "stat",
+        "headline": "Le taux de dépôt de la BCE reste à 2,5 % depuis septembre",
+        "source": {
+          "label": "BCE — Portail de données, facilité de dépôt",
+          "url": "https://data.ecb.europa.eu/data/datasets/FM/FM.B.U2.EUR.4F.KR.DFR.LEV"
+        },
+        "asOf": "2026-09-16",
+        "imageQuery": "european central bank tower",
+        "measure": {
+          "value": 2.5,
+          "unit": "%",
+          "label": "Taux de la facilité de dépôt",
+          "scope": "Zone euro",
+          "period": "depuis le 16 septembre 2026",
+          "denominator": "taux d'intérêt annuel rémunérant les dépôts des banques à la BCE"
+        },
+        "context": "Il était de 2,25 % depuis le 17 juin 2026."
+      },
+      {
+        "id": "inflation-zone-euro-2026",
+        "kind": "comparaison",
+        "headline": "L'inflation de la zone euro accélère depuis l'été",
+        "source": {
+          "label": "Eurostat — IPCH (prc_hicp_minr)",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
+        },
+        "asOf": "2026-11-18",
+        "imageQuery": "supermarket price tags",
+        "items": [
+          {
+            "value": 3.2,
+            "unit": "%",
+            "label": "Août 2026",
+            "scope": "Zone euro",
+            "period": "2026-08",
+            "denominator": "variation annuelle des prix à la consommation"
+          },
+          {
+            "value": 3.8,
+            "unit": "%",
+            "label": "Septembre 2026",
+            "scope": "Zone euro",
+            "period": "2026-09",
+            "denominator": "variation annuelle des prix à la consommation"
+          },
+          {
+            "value": 4,
+            "unit": "%",
+            "label": "Octobre 2026",
+            "scope": "Zone euro",
+            "period": "2026-10",
+            "denominator": "variation annuelle des prix à la consommation"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "prix-du-brent-octobre",
+        "kind": "stat",
+        "headline": "Le Brent a gagné 13 % entre septembre et octobre",
+        "source": {
+          "label": "BCE — compte rendu de la réunion d'octobre 2026",
+          "url": "https://www.ecb.europa.eu/press/accounts/2026/html/ecb.mg261126~ccf28c8071.en.html"
+        },
+        "asOf": "2026-10-29",
+        "imageQuery": "oil tanker at sea",
+        "measure": {
+          "value": 115,
+          "unit": "USD par baril",
+          "label": "Prix du pétrole Brent",
+          "scope": "Contrat à échéance la plus proche",
+          "period": "octobre 2026"
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Qu'appelle-t-on un effet de second tour en matière d'inflation ?",
+        "answer": "C'est quand une hausse des prix, par exemple de l'énergie, se transmet aux salaires puis à d'autres prix, ce qui entretient l'inflation."
+      },
+      {
+        "question": "Quel était le taux de dépôt de la BCE après la hausse de septembre 2026 ?",
+        "answer": "2,50 %, après 2,25 % en juin 2026."
+      }
+    ]
+  },
+  {
+    "slug": "stellantis-supprime-l-equipe-de-nuit-de-sochaux-et-500-postes-d-interimaires",
+    "title": "Stellantis supprime l'équipe de nuit de Sochaux et 500 postes d'intérimaires",
+    "summary": "Le constructeur Stellantis réduit la production de son usine de Sochaux, dans le Doubs, qui fabrique les Peugeot 3008 et 5008. Selon l'agence Reuters, l'équipe de nuit mise en place en novembre 2024 est supprimée et 500 des 1 100 intérimaires du site ne seront pas renouvelés à la fin de leur contrat. Le groupe invoque une demande plus faible et une concurrence « nouvelle et agressive », et dit vouloir éviter le chômage partiel. La part des versions électriques doit monter à 47 % de la production à partir de janvier.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "À Sochaux, Stellantis supprime l'équipe de nuit créée en novembre 2024 pour le lancement des Peugeot 3008 et 5008 et revient à deux équipes de jour.",
+      "500 des 1 100 postes d'intérimaires de l'usine ne seront pas renouvelés à l'échéance des contrats ; l'objectif est une production stable de 850 véhicules par jour.",
+      "Les versions électriques des deux modèles doivent représenter 47 % de la production à partir de janvier, contre 20 à 22 % ; une équipe de nuit est maintenue pour préparer les batteries."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Moins d'équipes à Sochaux",
+        "text": "Stellantis a annoncé le 25 novembre 2026 une réduction de la production de son usine de Sochaux, dans le Doubs, où sont assemblés les SUV Peugeot 3008 et 5008, selon l'agence Reuters. L'équipe de nuit, mise en place en novembre 2024 pour accompagner le lancement de ces modèles, est supprimée : l'usine revient à deux équipes de jour. Une équipe de nuit reste toutefois chargée de préparer les packs de batteries des versions électriques."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des intérimaires non renouvelés",
+        "text": "Sur les 1 100 intérimaires que compte le site, 500 ne seront pas renouvelés à la fin de leur contrat. Le groupe vise un niveau de production qu'il juge durablement élevé, de 850 véhicules par jour, et dit vouloir éviter le recours au chômage partiel. Il met en avant une demande plus faible et une concurrence « nouvelle et agressive ». Le syndicat CFE-CGC estime que ces non-renouvellements aggraveront la précarité de nombreux salariés."
+      },
+      {
+        "kind": "fait",
+        "heading": "Plus d'électrique dans la production",
+        "text": "À partir de janvier, les versions électriques des Peugeot 3008 et 5008 doivent représenter 47 % de la production de Sochaux, contre 20 à 22 % jusqu'ici, selon Reuters. Le site The Private Banker, qui reprend ces chiffres le 26 novembre, relie ces ajustements à la concurrence croissante des constructeurs chinois sur le marché européen."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un signal pour l'automobile européenne",
+        "text": "Sochaux est l'un des principaux sites de production de Stellantis en France. Ajuster le nombre d'équipes et d'intérimaires permet à un constructeur de réduire rapidement sa production sans toucher aux salariés permanents. Reuters rappelle que d'autres usines du groupe, comme Mirafiori en Italie, ont aussi connu des arrêts ou des ralentissements répétés."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Reuters, via Euronext — Stellantis to cut production at Sochaux plant in France, 25 novembre 2026",
+        "url": "https://live.euronext.com/en/financial-news/stellantis-cut-production-sochaux-plant-france"
+      },
+      {
+        "label": "The Private Banker — Stellantis Plans More French Plant Stoppages and Drops a Sochaux Night Shift as Chinese Competition Bites, 26 novembre 2026",
+        "url": "https://leprivatebanker.com/2026/11/26/stellantis-plans-more-french-plant-stoppages-and-drops-a-sochaux-night-shift-as-chinese-competition-bites"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Quels modèles sont assemblés à l'usine Stellantis de Sochaux ?",
+        "answer": "Les SUV Peugeot 3008 et 5008, dont les versions électriques doivent représenter 47 % de la production à partir de janvier."
+      }
+    ]
+  },
+  {
+    "slug": "terres-rares-cyclic-materials-choisit-l-allemagne-pour-recycler-des-aimants",
+    "title": "Terres rares : Cyclic Materials choisit l'Allemagne pour recycler des aimants usagés",
+    "summary": "L'entreprise canadienne Cyclic Materials a annoncé le 26 novembre 2026 avoir réservé un terrain à Schkopau, près de Leipzig, pour sa première usine européenne de récupération d'aimants contenant des terres rares. Le site doit traiter 25 000 tonnes par an de produits en fin de vie, comme des moteurs électriques et des disques durs, et démarrer en 2028, selon l'agence Reuters. C'est le premier de cinq sites prévus en Europe. L'entreprise affirme que son réseau européen pourrait couvrir jusqu'à 15 % de la demande annuelle de terres rares de l'UE ; aucun montant d'investissement n'a été communiqué.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Cyclic Materials a signé un accord de réservation de terrain sur le parc industriel de Dow à Schkopau, en Allemagne : le choix du site n'est donc pas encore définitif.",
+      "L'usine doit traiter 25 000 tonnes par an de produits contenant des aimants et produire environ 750 tonnes de concentré, plus de l'acier, de l'aluminium et du cuivre.",
+      "Selon Reuters, elle doit démarrer en 2028 et sera la première de cinq usines européennes reliées à un centre de traitement chimique, dans un marché où la Chine produit 90 % des terres rares raffinées."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un premier site en Allemagne",
+        "text": "Cyclic Materials, entreprise canadienne spécialisée dans le recyclage des aimants permanents, a annoncé le 26 novembre 2026 la signature d'un accord de réservation de terrain sur le Dow ValuePark de Schkopau, en Allemagne, exploité par une filiale du chimiste Dow. Le site doit accueillir sa première usine européenne de récupération des aimants de terres rares contenus dans des produits en fin de vie, comme les moteurs électriques, les disques durs, les drones ou les équipements industriels. Selon l'agence Reuters, l'usine doit démarrer en 2028."
+      },
+      {
+        "kind": "fait",
+        "heading": "25 000 tonnes de déchets par an",
+        "text": "L'installation est conçue pour traiter 25 000 tonnes par an de produits contenant des aimants. D'après le communiqué de l'entreprise, elle doit en tirer environ 750 tonnes par an d'un concentré d'aimants, ainsi que 14 000 tonnes d'acier, 4 600 tonnes d'aluminium et 3 000 tonnes de cuivre. Reuters précise que 25 000 tonnes de déchets donnent environ 225 tonnes d'oxydes de terres rares, et que les métaux autres que les terres rares représentent 40 à 50 % des revenus de l'entreprise."
+      },
+      {
+        "kind": "fait",
+        "heading": "Cinq usines et un centre chimique",
+        "text": "Schkopau doit être le premier de cinq sites de collecte et de traitement prévus en Europe, qui alimenteront un centre unique de traitement chimique, selon Reuters. Avec ce réseau, Cyclic Materials affirme pouvoir couvrir jusqu'à 15 % de la demande annuelle de terres rares de l'Union européenne. L'entreprise, soutenue par Microsoft, Amazon et BMW, a ouvert en septembre 2026 une usine de taille comparable à Mesa, en Arizona. Elle n'a pas communiqué le montant de l'investissement."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi le recyclage compte",
+        "text": "Les aimants permanents aux terres rares équipent les moteurs des voitures électriques et des éoliennes. Selon Reuters, la Chine produit 90 % des terres rares raffinées dans le monde, ce qui rend l'Europe dépendante de ses décisions d'exportation. Récupérer ces métaux dans les déchets offre une source d'approvisionnement locale, mais les volumes restent modestes : 225 tonnes d'oxydes par an pour une usine de cette taille."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des étapes encore à franchir",
+        "text": "Un accord de réservation de terrain ne vaut pas décision définitive de construction. L'objectif de 15 % de la demande européenne repose sur l'ensemble du réseau prévu, et non sur le seul site de Schkopau, et sur une estimation de l'entreprise elle-même."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Cyclic Materials, communiqué via Business Wire — European expansion with site selection for Europe's first-of-its-kind rare earth magnet recovery facility, 26 novembre 2026",
+        "url": "https://www.financialcontent.com/article/bizwire-2026-11-26-cyclic-materials-announces-european-expansion-with-site-selection-for-europes-first-of-its-kind-rare-earth-magnet-recovery-facility"
+      },
+      {
+        "label": "Reuters, via Global Banking & Finance Review — Rare earth recycler Cyclic Materials to expand into Europe and Asia, 26 novembre 2026",
+        "url": "https://www.globalbankingandfinance.com/rare-earth-recycler-cyclic-materials-expand-europe-asia/"
+      },
+      {
+        "label": "Canadian Mining Journal — Cyclic Materials picks Germany for first European plant, 26 novembre 2026",
+        "url": "https://www.canadianminingjournal.com/news/cyclic-materials-picks-germany-for-first-european-plant/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "dataCards": [
+      {
+        "id": "capacite-usine-schkopau",
+        "kind": "stat",
+        "headline": "25 000 tonnes de déchets à aimants traités chaque année",
+        "source": {
+          "label": "Cyclic Materials — communiqué du 26 novembre 2026",
+          "url": "https://www.financialcontent.com/article/bizwire-2026-11-26-cyclic-materials-announces-european-expansion-with-site-selection-for-europes-first-of-its-kind-rare-earth-magnet-recovery-facility"
+        },
+        "asOf": "2026-11-26",
+        "imageQuery": "electric motor scrap pile",
+        "measure": {
+          "value": 25000,
+          "unit": "tonnes par an",
+          "label": "Capacité prévue de l'usine de Schkopau",
+          "scope": "Produits en fin de vie contenant des aimants",
+          "period": "à pleine capacité"
+        }
+      },
+      {
+        "id": "metaux-recuperes-schkopau",
+        "kind": "comparaison",
+        "headline": "Le site récupérera surtout de l'acier, de l'aluminium et du cuivre",
+        "source": {
+          "label": "Cyclic Materials — communiqué du 26 novembre 2026",
+          "url": "https://www.financialcontent.com/article/bizwire-2026-11-26-cyclic-materials-announces-european-expansion-with-site-selection-for-europes-first-of-its-kind-rare-earth-magnet-recovery-facility"
+        },
+        "asOf": "2026-11-26",
+        "imageQuery": "copper wire coils",
+        "items": [
+          {
+            "value": 14000,
+            "unit": "tonnes par an",
+            "label": "Acier",
+            "scope": "Usine de Schkopau",
+            "period": "à pleine capacité"
+          },
+          {
+            "value": 4600,
+            "unit": "tonnes par an",
+            "label": "Aluminium",
+            "scope": "Usine de Schkopau",
+            "period": "à pleine capacité"
+          },
+          {
+            "value": 3000,
+            "unit": "tonnes par an",
+            "label": "Cuivre",
+            "scope": "Usine de Schkopau",
+            "period": "à pleine capacité"
+          },
+          {
+            "value": 750,
+            "unit": "tonnes par an",
+            "label": "Concentré d'aimants",
+            "scope": "Usine de Schkopau",
+            "period": "à pleine capacité"
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Pourquoi recycler les aimants permanents usagés ?",
+        "answer": "Parce qu'ils contiennent des terres rares, dont la Chine produit 90 % de la version raffinée ; les récupérer dans les déchets offre une source d'approvisionnement locale."
+      }
+    ]
+  },
+  {
+    "slug": "electricite-premier-jour-rouge-tempo-de-l-hiver-un-mois-plus-tot-que-l-an",
+    "title": "Électricité : premier jour rouge Tempo de l'hiver, un mois plus tôt que l'an dernier",
+    "summary": "Le jeudi 26 novembre 2026 a été le premier jour rouge de l'hiver pour les abonnés à l'option Tempo d'EDF, désigné par le gestionnaire du réseau RTE. Ce jour-là, le kilowattheure coûte 0,7295 euro de 6 h à 22 h, 4,4 fois plus qu'un jour bleu aux mêmes heures. Ce premier jour rouge arrive 33 jours plus tôt dans la saison que l'hiver précédent. Depuis le 1er novembre, une délibération de la Commission de régulation de l'énergie impose exactement six jours rouges avant le 31 décembre, au plus trois en novembre, et exclut les 24 et 31 décembre.",
+    "topic": "energie",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le 26 novembre 2026 est le premier des 22 jours rouges Tempo de l'hiver 2026-2027 ; il en reste 21 jusqu'au 31 mars.",
+      "Un jour rouge, le kilowattheure coûte 0,7295 euro de 6 h à 22 h et 0,1615 euro la nuit, contre 0,1654 euro en heures pleines un jour bleu.",
+      "Les nouvelles règles de la CRE, en vigueur depuis le 1er novembre, fixent six jours rouges avant le 31 décembre et au plus deux en mars, pour mieux les étaler."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un premier jour rouge précoce",
+        "text": "Le gestionnaire du réseau de transport d'électricité, RTE, a désigné le jeudi 26 novembre 2026 comme premier jour rouge de l'hiver pour l'option Tempo d'EDF, selon le comparateur Selectra. Ces jours correspondent aux périodes de forte demande d'électricité, souvent liées au froid : les prévisions de températures annonçaient entre 1 et 6 °C à Paris. Ce premier jour rouge intervient 33 jours plus tôt dans la saison que lors de l'hiver 2025-2026."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un kilowattheure 4,4 fois plus cher",
+        "text": "Un jour rouge, le prix du kilowattheure atteint 0,7295 euro entre 6 h et 22 h, soit 4,4 fois celui d'un jour bleu aux mêmes heures, fixé à 0,1654 euro. La nuit, de 22 h à 6 h, il redescend à 0,1615 euro. Selon Selectra, faire fonctionner un radiateur de 1 000 watts pendant dix heures coûte 7,30 euros un jour rouge, contre 1,65 euro un jour bleu. L'hiver compte 22 jours rouges, de novembre à mars, hors week-ends et jours fériés : il en reste 21 jusqu'au 31 mars."
+      },
+      {
+        "kind": "fait",
+        "heading": "De nouvelles règles depuis le 1er novembre",
+        "text": "La Commission de régulation de l'énergie a modifié les règles de tirage des jours rouges par une délibération d'octobre 2026, appliquée depuis le 1er novembre, selon le site ECOinfos. Le total reste de 22 jours, mais exactement six doivent être placés avant le 31 décembre, au plus trois en novembre, et au plus deux en mars. Les 24 et 31 décembre ne peuvent plus être rouges. La réforme fait suite à l'hiver précédent, où l'ancien algorithme avait placé 13 jours rouges consécutifs en mars 2026 et un jour rouge le 31 décembre 2025."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi ces jours existent",
+        "text": "L'option Tempo incite environ 900 000 foyers abonnés à réduire leur consommation les jours où le réseau est le plus sollicité, en échange de prix plus bas le reste de l'année. Selon ECOinfos, un jour rouge correspond désormais à un jour de pointe du nouveau mécanisme de capacité, qui sert à garantir la sécurité d'approvisionnement. Avec six jours rouges à placer avant janvier, un mois de décembre doux pourrait les concentrer en fin d'année."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Selectra — Premier jour rouge Tempo ce jeudi 26 novembre, 25 novembre 2026",
+        "url": "https://selectra.info/energie/actualites/marche/jour-rouge-tempo-2026-jeudi-26-novembre"
+      },
+      {
+        "label": "ECOinfos — La CRE épargne le réveillon aux abonnés Tempo et change les règles des jours rouges dès le 1er novembre, 22 octobre 2026",
+        "url": "https://www.les-energies-renouvelables.eu/article/actualites/energies/la-cre-epargne-le-reveillon-aux-abonnes-tempo-et-change-les-regles-des-jours-rouges-des-le-1er-novembre-2365/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Combien de jours rouges compte l'option Tempo d'EDF chaque hiver ?",
+        "answer": "22 jours rouges, de novembre à mars, hors week-ends et jours fériés ; depuis le 1er novembre 2026, six doivent tomber avant le 31 décembre."
+      }
+    ]
+  },
+  {
+    "slug": "angleterre-la-tracabilite-numerique-des-dechets-fait-doubler-les-demandes-de",
+    "title": "Angleterre : la traçabilité numérique des déchets fait doubler les demandes de licence",
+    "summary": "Depuis le 1er octobre 2026, les sites qui reçoivent des déchets en Angleterre doivent déclarer chaque chargement dans un service numérique et noter le numéro de licence du transporteur. Selon des chiffres de l’Environment Agency obtenus par l’entreprise Reconomy au titre de la liberté d’information et publiés le 26 novembre par letsrecycle.com et CircularOnline, les nouvelles demandes de licence de transporteur de déchets ont été en moyenne de 2 878 par semaine dans les trois semaines suivant le lancement, plus du double de la moyenne antérieure de 1 142. Ces données ne portent que sur l’Angleterre et sur quelques semaines.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Les nouvelles demandes de licence de transporteur de déchets en Angleterre ont atteint en moyenne 2 878 par semaine dans les trois semaines après le 1er octobre 2026, contre une moyenne hebdomadaire de 1 142 auparavant, avec un pic de 3 318 la première semaine.",
+      "Selon le ministère britannique de l’environnement (Defra), plus de 12 000 sites autorisés en Angleterre doivent depuis le 1er octobre déclarer en quasi temps réel chaque chargement reçu, avec les coordonnées du transporteur et le code du type de déchet.",
+      "Les chiffres viennent d’une demande d’accès à l’information de Reconomy, une entreprise du secteur ; la période observée est courte et les deux médias qui les publient ne décrivent pas la moyenne de référence de la même façon."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un nouveau service obligatoire depuis le 1er octobre",
+        "text": "Le gouvernement britannique a rendu obligatoire, le 1er octobre 2026, la première étape de son système numérique de suivi des déchets (Digital Waste Tracking). Selon le communiqué du Defra publié ce jour-là, plus de 12 000 sites autorisés à recevoir des déchets en Angleterre doivent déclarer, en quasi temps réel, chaque chargement reçu via le service « Report Receipt of Waste », en indiquant notamment les coordonnées du transporteur et le code qui décrit le type de déchet. Le but affiché est de fournir aux enquêteurs une piste d’audit numérique et de permettre à l’Environment Agency de repérer les activités suspectes. La page de consignes du gouvernement précise que l’obligation vaut pour les sites qui reçoivent des déchets en Angleterre ou au pays de Galles depuis le 1er octobre 2026. Selon letsrecycle.com et CircularOnline, des obligations équivalentes s’appliqueront en Écosse et en Irlande du Nord en janvier 2027, et les transporteurs, courtiers et négociants devront utiliser le système à partir d’octobre 2027 ; le Defra évoque pour sa part une extension aux collecteurs à partir du printemps 2027."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les demandes de licence ont plus que doublé",
+        "text": "Le 26 novembre 2026, letsrecycle.com et CircularOnline ont publié des chiffres obtenus par Reconomy, une entreprise spécialisée dans l’économie circulaire, auprès de l’Environment Agency au titre de la loi sur la liberté d’information. Les nouvelles demandes de licence de transporteur de déchets en Angleterre ont été en moyenne de 2 878 par semaine dans les trois semaines suivant le lancement, contre une moyenne hebdomadaire de 1 142 auparavant. Elles ont culminé à 3 318 la première semaine. Selon letsrecycle.com, la hausse avait commencé avant le lancement, avec une moyenne de 1 444 par semaine sur les six semaines précédentes et 2 208 la dernière semaine de septembre, puis le nombre est redescendu à 2 505 la dernière semaine couverte. Les renouvellements sont restés stables, autour de 420 par semaine. Pour David Gudgeon, responsable des affaires extérieures de Reconomy, ces données montrent que le système incite déjà les transporteurs à détenir une licence valide."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un signal à confirmer",
+        "text": "Comme les sites de réception doivent désormais enregistrer le numéro de licence du transporteur qui leur livre des déchets, un transporteur sans licence a plus de mal à passer inaperçu ; la hausse des demandes est cohérente avec cet effet, mais les chiffres disponibles ne permettent pas de dire combien de transporteurs travaillaient jusque-là sans licence. Les données couvrent l’Angleterre seulement et quelques semaines, et elles proviennent d’une entreprise qui vend des services liés à ces obligations. La moyenne de référence n’est pas décrite de la même façon : letsrecycle.com la situe sur les 52 semaines précédant le 22 octobre 2026, une période qui inclut donc le début du nouveau régime, tandis que CircularOnline parle de la moyenne de 2026 avant le lancement. La réponse de l’Environment Agency elle-même n’est pas publiée par ces médias."
+      }
+    ],
+    "sources": [
+      {
+        "label": "letsrecycle.com — Waste carrier licence applications more than double after DWT launch (26 novembre 2026)",
+        "url": "https://www.letsrecycle.com/news/waste-carrier-licence-applications-more-than-double-after-dwt-launch/"
+      },
+      {
+        "label": "CircularOnline — Waste carrier licence applications more than double following DWT (26 novembre 2026)",
+        "url": "https://www.circularonline.co.uk/news/waste-carrier-licence-applications-more-than-double-following-dwt/"
+      },
+      {
+        "label": "Defra, GOV.UK — No hiding place: new tracking system exposes waste criminals like never before (1er octobre 2026)",
+        "url": "https://www.gov.uk/government/news/no-hiding-place-new-tracking-system-exposes-waste-criminals-like-never-before"
+      },
+      {
+        "label": "GOV.UK — Digital waste tracking: check if you need to report the waste you receive",
+        "url": "https://www.gov.uk/guidance/digital-waste-tracking-check-if-you-need-to-report-the-waste-you-receive"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Que doivent faire, depuis le 1er octobre 2026, les sites qui reçoivent des déchets en Angleterre ?",
+        "answer": "Déclarer en quasi temps réel chaque chargement reçu dans un service numérique, avec notamment les coordonnées du transporteur et le code du type de déchet."
+      }
+    ]
+  },
+  {
+    "slug": "methane-le-parlement-europeen-valide-deux-ans-de-delai-pour-les-importateurs-d",
+    "title": "Méthane : le Parlement européen valide deux ans de délai pour les importateurs d’énergie",
+    "summary": "Le 26 novembre 2026, le Parlement européen a approuvé par 341 voix contre 224, et 31 abstentions, l’accord conclu le 19 novembre avec les États membres pour repousser de deux ans les obligations de surveillance et de déclaration du méthane imposées aux importateurs de pétrole, de gaz et de charbon. Le Conseil doit encore l’approuver formellement. Les ONG environnementales jugent ce report inutile mais saluent le maintien du cœur du texte.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le Parlement européen a approuvé le 26 novembre 2026, par 341 voix pour, 224 contre et 31 abstentions, l’accord qui reporte de deux ans une partie du règlement européen sur le méthane dans le secteur de l’énergie.",
+      "Selon la presse européenne, les obligations de surveillance des importateurs s’appliqueront au 1er janvier 2029 au lieu du 1er janvier 2027 ; le Parlement indique que les importateurs auront jusqu’à mai 2030 pour prouver des normes équivalentes à celles de l’UE.",
+      "La Commission justifie ce report par les tensions sur les marchés de l’énergie liées au conflit au Moyen-Orient ; l’ONG Environmental Defense Fund Europe estime que ces deux années de délai n’étaient pas nécessaires."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un vote en procédure d’urgence",
+        "text": "Réunis en session plénière, les députés européens ont approuvé le jeudi 26 novembre 2026, par 341 voix pour, 224 contre et 31 abstentions, l’accord trouvé le 19 novembre entre les négociateurs du Parlement et du Conseil. Le texte reporte de deux ans les règles de surveillance et de déclaration du méthane qui visent les importateurs de pétrole brut, de gaz naturel et de charbon. Le Parlement a examiné le dossier selon sa procédure d’urgence. D’après son communiqué, les importateurs auront jusqu’à mai 2030 pour démontrer que les contrats d’approvisionnement conclus ou renouvelés depuis le 4 août 2024 ne portent que sur des combustibles soumis à des mesures de surveillance, de déclaration et de vérification équivalentes à celles de l’UE. Le Conseil des ministres doit encore approuver formellement l’accord avant sa publication au Journal officiel de l’Union européenne."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un compromis entre un et trois ans",
+        "text": "La Commission européenne avait proposé en octobre un report d’un an, que les États membres avaient soutenu, tandis que le Parlement s’était prononcé pour trois ans. Selon le média EUobserver, l’accord fixe l’application des règles pour les importateurs au 1er janvier 2029 au lieu du 1er janvier 2027, et laisse jusqu’au 5 août 2030 aux importateurs et aux producteurs européens pour déclarer l’intensité en méthane des combustibles vendus dans l’UE. La possibilité pour les États membres de prolonger encore le délai a été abandonnée : toute nouvelle prolongation nécessiterait une nouvelle loi, selon le même média. Le règlement sur le méthane, entré en vigueur le 4 août 2024, est présenté par le Parlement comme la première législation complète au monde à couvrir aussi les émissions liées aux importations de pétrole, de gaz et de charbon."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Sécurité d’approvisionnement contre climat",
+        "text": "Pour la Commission, ce report temporaire répond à la tension persistante des marchés mondiaux de l’énergie liée au conflit au Moyen-Orient et vise à éviter tout risque supplémentaire pour la sécurité d’approvisionnement ; elle affirme que l’accord préserve l’ambition, l’intégrité et le champ du règlement. Les organisations environnementales voient les choses autrement. Début novembre, plus de 30 organisations de la société civile, dont l’ONG Clean Air Task Force, avaient demandé à la Commission de s’en tenir à un an de délai, estimant que la pression pour des reports plus longs relevait davantage de considérations politiques et industrielles que de preuves. Selon EUobserver, l’Environmental Defense Fund Europe estime que 24 milliards de mètres cubes de méthane fuiront pendant les deux années supplémentaires, une estimation propre à cette ONG, tout en jugeant que l’intégrité du règlement est préservée."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Parlement européen — Methane: deal to delay reporting and monitoring obligations for energy importers (communiqué, session plénière de novembre 2026)",
+        "url": "https://www.europarl.europa.eu/news/en/press-room/20261123IPR49035/methane-deal-to-delay-reporting-and-monitoring-obligations-for-energy-importers"
+      },
+      {
+        "label": "Commission européenne — Daily News du 19 novembre 2026 (MEX/26/2516)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/MEX_26_2516"
+      },
+      {
+        "label": "Clean Air Task Force — More than 30 organisations urge Commission to defend EU regulation (2 novembre 2026)",
+        "url": "https://www.catf.us/2026/11/more-than-30-organisations-urge-commission-to-defend-eu-regulation/"
+      },
+      {
+        "label": "EUobserver — EU gives oil and gas importers until 2029 on methane checks, rules out more delay",
+        "url": "https://euobserver.com/250022/eu-gives-oil-and-gas-importers-until-2029-on-methane-checks-rules-out-more-delay/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "dataCards": [
+      {
+        "id": "vote-parlement-methane",
+        "kind": "stat",
+        "headline": "Le Parlement européen a approuvé le report des règles méthane pour les importateurs par 341 voix pour",
+        "source": {
+          "label": "Parlement européen — communiqué sur le report des obligations méthane",
+          "url": "https://www.europarl.europa.eu/news/en/press-room/20261123IPR49035/methane-deal-to-delay-reporting-and-monitoring-obligations-for-energy-importers"
+        },
+        "asOf": "2026-11-26",
+        "imageQuery": "parliament voting hemicycle",
+        "measure": {
+          "value": 341,
+          "unit": "voix",
+          "label": "Voix pour l’accord de report",
+          "scope": "Parlement européen, session plénière",
+          "period": "26 novembre 2026"
+        },
+        "context": "224 voix contre et 31 abstentions."
+      },
+      {
+        "id": "etapes-report-methane",
+        "kind": "explication",
+        "headline": "Du règlement de 2024 au report de 2026 : les étapes",
+        "source": {
+          "label": "Parlement européen — communiqué sur le report des obligations méthane",
+          "url": "https://www.europarl.europa.eu/news/en/press-room/20261123IPR49035/methane-deal-to-delay-reporting-and-monitoring-obligations-for-energy-importers"
+        },
+        "asOf": "2026-11-26",
+        "imageQuery": "natural gas pipeline valve",
+        "steps": [
+          {
+            "label": "4 août 2024",
+            "text": "Entrée en vigueur du règlement sur le méthane dans le secteur de l’énergie.",
+            "nature": "fait"
+          },
+          {
+            "label": "19 novembre 2026",
+            "text": "Accord entre négociateurs du Parlement et du Conseil sur un report de deux ans.",
+            "nature": "fait"
+          },
+          {
+            "label": "26 novembre 2026",
+            "text": "Le Parlement approuve l’accord en procédure d’urgence.",
+            "nature": "fait"
+          },
+          {
+            "label": "Prochaine étape",
+            "text": "Approbation formelle par le Conseil, puis publication au Journal officiel.",
+            "nature": "fait"
+          },
+          {
+            "label": "Mai 2030",
+            "text": "Date limite pour que les importateurs prouvent des normes de surveillance équivalentes.",
+            "nature": "fait"
+          }
+        ],
+        "layout": "sequence"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Quelles entreprises sont visées par le report de deux ans du règlement européen sur le méthane ?",
+        "answer": "Les importateurs de pétrole brut, de gaz naturel et de charbon, dont les obligations de surveillance et de déclaration du méthane sont repoussées de deux ans."
+      }
+    ]
+  },
+  {
+    "slug": "implant-cerebral-neuralink-annonce-un-essai-pivot-chez-des-malades-de-charcot",
+    "title": "Implant cérébral : Neuralink annonce un essai pivot chez des malades de Charcot",
+    "summary": "Le 25 novembre 2026, l’entreprise américaine Neuralink a annoncé avoir obtenu l’accord de l’Agence américaine des produits alimentaires et médicamenteux (FDA) pour lancer LINK, un essai dit pivot de son interface cerveau-machine implantable, chez des adultes atteints de sclérose latérale amyotrophique (maladie de Charcot). L’autorisation n’est connue que par l’annonce de l’entreprise : la FDA n’a pas publié de communiqué et aucun numéro d’enregistrement de l’essai n’est affiché. Le nombre de participants et les centres ne sont pas précisés.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Neuralink indique avoir reçu l’accord de la FDA pour LINK, qu’elle présente comme le premier essai pivot d’une interface cerveau-machine implantable aux États-Unis ; les inscriptions sont ouvertes.",
+      "L’essai vise des adultes vivant aux États-Unis atteints de sclérose latérale amyotrophique et doit évaluer la sécurité et l’efficacité du système, notamment la capacité à piloter des appareils numériques par la pensée.",
+      "Plus de 30 personnes ont déjà été implantées lors d’études de faisabilité aux États-Unis, au Canada et au Royaume-Uni, selon l’entreprise ; le nombre de participants prévus, les centres et le calendrier ne sont pas publiés."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que Neuralink a annoncé",
+        "text": "Dans une note publiée le 25 novembre 2026, Neuralink, la société d’interfaces cerveau-machine fondée par Elon Musk, affirme avoir reçu l’accord de la FDA pour lancer la LINK Pivotal Study, qu’elle présente comme le premier essai pivot d’une interface cerveau-machine implantable aux États-Unis. L’étude s’adresse à des personnes souffrant de paralysie sévère due à la sclérose latérale amyotrophique, une maladie qui détruit progressivement les neurones commandant les muscles volontaires. Elle doit évaluer la sécurité et l’efficacité du système, vérifier si les participants peuvent contrôler des appareils numériques par la pensée, avec une attention portée à l’autonomie au quotidien, et continuer de mesurer la sécurité et la fiabilité à long terme. L’essai se déroulera dans plusieurs centres cliniques, non nommés, et les inscriptions sont ouvertes."
+      },
+      {
+        "kind": "fait",
+        "heading": "Qui peut participer, et ce qui reste inconnu",
+        "text": "Selon la page de recrutement de Neuralink, l’essai pivot concerne des adultes atteints de la maladie de Charcot vivant aux États-Unis ; les critères généraux de l’entreprise mentionnent un usage faible ou nul des deux mains et des deux bras et la présence d’un aidant régulier, avec une participation d’environ 24 mois. L’entreprise rappelle que plus de 30 personnes ont déjà été implantées dans ses études de faisabilité aux États-Unis, au Canada et au Royaume-Uni. Elle ne précise ni le nombre de participants visés, ni les centres, ni le calendrier. Le site spécialisé The Next Web souligne que le caractère « premier » de l’essai repose sur la seule présentation de Neuralink, et la page de l’essai pivot n’affiche aucun numéro d’enregistrement public, contrairement aux études de faisabilité."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce qu’est un essai pivot pour un dispositif médical",
+        "text": "Un essai pivot est l’étude de stade avancé qu’une entreprise mène généralement avant de demander à la FDA l’autorisation de commercialiser un dispositif ; il n’autorise pas pour autant son usage en dehors de l’essai, rappelle The Next Web. Dans ses recommandations de 2021 sur les interfaces cerveau-machine implantées pour les patients paralysés ou amputés, la FDA indique qu’elle considère généralement ces dispositifs comme présentant un risque important, ce qui les soumet au régime des exemptions pour dispositifs expérimentaux, et recommande un suivi à long terme d’au moins un an. Ces recommandations ne sont pas contraignantes. Une éventuelle mise sur le marché dépendra donc des résultats de l’essai, encore à venir."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Neuralink — Neuralink Receives FDA Approval to Launch LINK Pivotal Study (25 novembre 2026)",
+        "url": "https://neuralink.com/updates/neuralink-receives-fda-approval-to-launch-link-pivotal-study/"
+      },
+      {
+        "label": "Neuralink — Page de recrutement des essais « Device Control »",
+        "url": "https://neuralink.com/trials/device-control/"
+      },
+      {
+        "label": "FDA — Implanted Brain-Computer Interface (BCI) Devices for Patients with Paralysis or Amputation, recommandations (20 mai 2021)",
+        "url": "https://www.hhs.gov/guidance/sites/default/files/hhs-guidance-documents/FDA/Brain-Computer-Interface-Guidance.pdf"
+      },
+      {
+        "label": "The Next Web — Neuralink gets FDA approval for a late-stage brain implant trial in ALS (26 novembre 2026)",
+        "url": "https://thenextweb.com/news/neuralink-fda-approval-link-pivotal-study-als"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Qu’est-ce qu’un essai pivot pour un dispositif médical comme un implant cérébral ?",
+        "answer": "C’est l’étude de stade avancé menée généralement avant de demander l’autorisation de commercialiser le dispositif ; elle n’autorise pas son usage en dehors de l’essai."
+      }
+    ]
+  },
+  {
+    "slug": "vins-de-bordeaux-bio-et-hve-bruxelles-valide-des-prix-d-orientation-entre",
+    "title": "Vins de Bordeaux bio et HVE : Bruxelles valide des prix d’orientation entre producteurs",
+    "summary": "Le 25 novembre 2026, la Commission européenne a rendu un avis favorable sur un accord de durabilité entre producteurs de vins de Bordeaux bio et Haute Valeur Environnementale (HVE). Ils pourront fixer chaque année des prix indicatifs couvrant leurs coûts de production, plus une marge pouvant atteindre 20 %, et négocier collectivement le prix final avec les acheteurs qui l’acceptent. C’est le deuxième avis de ce type, après un accord viticole en Occitanie en 2025.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Les « prix d’orientation » seront fixés chaque année pour chaque norme (bio ou HVE) et pour les AOP Bordeaux rouge et blanc, au niveau des coûts de production plus une marge allant jusqu’à 20 % de ces coûts.",
+      "Les producteurs pourront aussi négocier collectivement le prix final avec chaque acheteur qui l’accepte ; l’accord est prévu pour deux ans.",
+      "La Commission juge l’accord conforme à l’article 210 bis du règlement OCM, qui permet aux agriculteurs de restreindre la concurrence lorsque c’est indispensable pour atteindre des normes de durabilité supérieures aux exigences légales."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un feu vert de Bruxelles pour le vignoble bordelais",
+        "text": "La Commission européenne a publié le 25 novembre 2026 son deuxième avis sur la compatibilité d’un accord de durabilité avec les règles de concurrence dans l’agriculture. Il concerne des producteurs de la région de Bordeaux dont le vin respecte les normes de l’agriculture biologique ou de la certification Haute Valeur Environnementale (HVE). Ces producteurs veulent fixer des prix indicatifs, appelés prix d’orientation, à un niveau couvrant les coûts d’une production conforme à l’une de ces deux normes, auxquels s’ajoute une marge pouvant atteindre 20 % de ces coûts. Ces prix seront fixés chaque année pour chaque norme et pour deux catégories, l’AOP Bordeaux rouge et l’AOP Bordeaux blanc. Pour que ces repères pèsent réellement sur les transactions, les producteurs prévoient aussi de négocier collectivement, avec chaque acheteur qui l’accepte, le prix final appliqué. L’accord doit durer deux ans. La demande d’avis avait été reçue le 27 juillet 2026 ; la Commission disposait de quatre mois pour répondre. Le dossier porte le numéro AT.41084."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une exception encadrée au droit de la concurrence",
+        "text": "En principe, l’article 101 du traité sur le fonctionnement de l’UE interdit les accords entre concurrents qui peuvent faire monter les prix. Mais depuis la réforme de la politique agricole commune pour 2023-2027, l’article 210 bis du règlement portant organisation commune des marchés (OCM) exclut de cette interdiction les accords entre producteurs agricoles qui visent des objectifs de durabilité plus exigeants que la loi, à condition que les restrictions de concurrence soient indispensables. La Commission a conclu que l’accord bordelais remplissait toutes ces conditions. Elle avait rendu un premier avis de ce type le 15 juillet 2025, pour un accord viticole en Occitanie. Les médias agricoles Agra et Vinabox ont relayé la décision dès le 25 et le 26 novembre."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi les producteurs bio et HVE demandent un prix plancher indicatif",
+        "text": "Selon la Commission, la filière viticole française subit une forte surproduction, une évolution des goûts des consommateurs et une sensibilité accrue aux prix, alors que les acheteurs connaissent souvent mal le surcoût d’une production durable. Beaucoup de producteurs bio et HVE sont donc moins rentables que les producteurs conventionnels et pourraient revenir au conventionnel ou cesser de produire. L’accord vise à les inciter à maintenir leurs pratiques. Il ne s’agit toutefois ni d’un prix imposé à tous les Bordeaux ni d’une hausse automatique en rayon, souligne Vinabox : le prix d’orientation reste un point de départ, et le prix réellement payé dépendra de la négociation. Les montants retenus n’ont pas encore été publiés."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Commission européenne — Commission issues positive opinion on the compatibility of a sustainability agreement in the French wine sector with competition rules (IP/26/2573, 25 novembre 2026)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2573"
+      },
+      {
+        "label": "Agra — Vin : le Bordelais reçoit le feu vert de Bruxelles sur des prix d’orientation en bio et HVE (25 novembre 2026)",
+        "url": "https://www.agra.fr/lives/vin-le-bordelais-recoit-le-feu-vert-de-bruxelles-sur-des-prix-dorientation-en-bio-et-hve"
+      },
+      {
+        "label": "Vinabox — Bordeaux bio et HVE : prix indicatifs, marge jusqu’à 20 % validée par l’UE (26 novembre 2026)",
+        "url": "https://www.vinabox.fr/actu/filiere-business/bordeaux-bio-hve-prix-orientation-marge-20-pour-cent-ue-2026/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Qu’est-ce qu’un prix d’orientation dans l’accord des vins de Bordeaux bio et HVE ?",
+        "answer": "Un prix indicatif fixé chaque année au niveau des coûts d’une production bio ou HVE, plus une marge pouvant atteindre 20 % de ces coûts ; le prix final reste négocié avec chaque acheteur."
+      }
+    ]
+  },
+  {
+    "slug": "somalie-le-risque-de-famine-ecarte-a-baidoa-mais-la-malnutrition-infantile",
+    "title": "Somalie : le risque de famine écarté à Baidoa, mais la malnutrition infantile progresse",
+    "summary": "Le 25 novembre 2026, la mise à jour des projections du Cadre intégré de classification de la sécurité alimentaire (IPC) pour la Somalie, couvrant octobre à décembre 2026, conclut que les déplacés de Baidoa ne sont plus menacés de famine. Environ 5,3 millions de personnes restent en insécurité alimentaire aiguë élevée, et le nombre d’enfants à traiter pour malnutrition aiguë augmente légèrement. Les chiffres sont des projections, révisées par rapport à celles d’août.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l’IPC, 5 340 230 personnes, soit 27 % des 19 442 156 analysées, sont projetées en phase 3 (crise) ou pire entre octobre et décembre 2026, dont 1 457 380 en phase 4 (urgence) ; aucune n’est projetée en phase 5 (catastrophe).",
+      "À Baidoa, la part des déplacés en phase 3 ou pire passe de 80 % projetés en août à 65 %, soit environ 77 000 personnes de moins ; le risque de famine n’est plus retenu, grâce notamment à des inondations moins graves que prévu et à une baisse des prix alimentaires.",
+      "La malnutrition s’aggrave : 1 922 250 enfants de moins de cinq ans auront besoin d’un traitement entre juillet 2026 et juin 2027, 7 130 de plus qu’en août, alors que l’aide alimentaire n’atteint qu’environ 70 000 personnes par mois."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Baidoa sort de la zone de risque de famine",
+        "text": "La mise à jour de l’analyse IPC publiée le 25 novembre 2026 par l’Unité d’analyse de la sécurité alimentaire et de la nutrition pour la Somalie (FSNAU), rattachée à la FAO, porte sur la période d’octobre à décembre 2026 et remplace les projections d’août. Pour les personnes déplacées de Baidoa, dans le sud-ouest du pays, le scénario du pire envisagé en août ne s’est pas réalisé : 65 % d’entre elles sont désormais projetées en phase 3 ou pire, contre 80 % en août, soit environ 77 000 personnes de moins (19 %). La part projetée en phase 5, qui était de 5 % en août, tombe à zéro et le risque de famine n’est plus retenu. Ces déplacés restent toutefois en phase 4 (urgence), et environ 335 000 d’entre eux sont encore projetés en crise ou pire."
+      },
+      {
+        "kind": "fait",
+        "heading": "Pourquoi la situation s’est améliorée",
+        "text": "Selon le rapport, les inondations liées à El Niño ont été moins graves que prévu : environ 42 000 déplacements dus aux crues, contre 89 000 attendus en août. Les déplacés ont eu un meilleur accès aux emplois et revenus agricoles, et leur pouvoir d’achat s’est renforcé avec la baisse des prix alimentaires, qui restent néanmoins au-dessus de la moyenne. L’extension des services de santé et de nutrition depuis octobre a aussi joué. À l’échelle nationale, 5 340 230 personnes sur 19 442 156 analysées, soit 27 %, sont projetées en phase 3 ou pire, contre 5,4 millions en août ; 1 457 380 sont en phase 4 et aucune en phase 5."
+      },
+      {
+        "kind": "fait",
+        "heading": "Plus d’enfants malnutris, moins d’aide",
+        "text": "Le nombre d’enfants de moins de cinq ans ayant besoin d’un traitement contre la malnutrition aiguë entre juillet 2026 et juin 2027 est estimé à 1 922 250, soit 7 130 de plus (0,4 %) qu’en août, dont 437 220 cas de malnutrition aiguë sévère. ONU Info précise qu’environ 62 % de ces cas se trouvent dans le sud. Dans le même temps, l’aide alimentaire humanitaire ne devrait atteindre qu’environ 70 000 personnes par mois, soit 0,4 % de la population totale. Faute de financements, 233 sites de nutrition et 380 établissements de santé ont fermé."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une accalmie fragile",
+        "text": "L’amélioration repose sur des conditions qui peuvent s’inverser. Le rapport s’attend à des pluies de la saison Deyr moyennes à supérieures à la normale sur la majeure partie du pays, avec, selon le centre climatique régional ICPAC, 90 % de probabilité de précipitations supérieures à la normale dans le centre et le sud : bénéfiques pour les pâturages, elles peuvent aussi provoquer des crues dans les zones fluviales et basses. Les analystes recommandent de surveiller les pluies, les inondations, l’insécurité, les prix et les maladies comme le choléra ou la rougeole. L’écart entre les besoins et l’aide effectivement distribuée reste le principal facteur de fragilité."
+      }
+    ],
+    "sources": [
+      {
+        "label": "FSNAU (FAO) — Baidoa IDPs no longer at risk of Famine, IPC Somalia update (25 novembre 2026)",
+        "url": "https://fsnau.org/in-focus/nearly-46-million-people-somalia-will-likely-experience-high-levels-acute-food-insecurity"
+      },
+      {
+        "label": "IPC Somalie — Projection Update, Acute Food Insecurity and Malnutrition, octobre-décembre 2026 (rapport multipartenaire, 25 novembre 2026)",
+        "url": "https://fsnau.org/downloads/IPC_Somalia_Projection_Update_Acute_Food_Insecurity_Malnutrition_Oct_Dec2026_Report.pdf"
+      },
+      {
+        "label": "ONU Info — Somalie : le spectre de la famine recule, la malnutrition gagne du terrain (25 novembre 2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159904"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Pourquoi le risque de famine n’est-il plus retenu pour les déplacés de Baidoa, en Somalie, fin 2026 ?",
+        "answer": "Parce que les inondations liées à El Niño ont été moins graves que prévu, que l’accès aux revenus agricoles s’est amélioré et que la baisse des prix alimentaires a renforcé le pouvoir d’achat."
+      }
+    ]
+  },
+  {
+    "slug": "tourbieres-drainees-environ-2-7-du-rechauffement-d-origine-humaine-selon-une",
+    "title": "Tourbières drainées : environ 2,7 % du réchauffement d’origine humaine, selon une étude",
+    "summary": "Une étude publiée le 25 novembre 2026 dans la revue Nature, menée par le MIT avec des chercheurs américains et britanniques, estime que le drainage des tourbières depuis 1800 explique environ 2,7 % du réchauffement actuel d’origine humaine. Ces sols, qui stockent une grande part du carbone des sols de la planète, continuent d’émettre du CO2 pendant des siècles une fois asséchés. L’estimation repose sur des modèles que les auteurs comptent affiner.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l’étude, les tourbières drainées couvrent environ 0,5 % des terres émergées, soit environ 15 % de la surface totale des tourbières ; le Programme des Nations unies pour l’environnement (PNUE) retenait déjà ce chiffre de 15 % en 2021.",
+      "Le drainage expose la tourbe à l’oxygène : elle libère du CO2 pendant des siècles, tout en émettant moins de méthane ; l’étude chiffre ce bilan net, jusque-là supposé réchauffant sans avoir été mesuré.",
+      "Même sans nouveau drainage, maintenir à sec les tourbières déjà drainées pourrait presque doubler le réchauffement cumulé qui leur est dû d’ici 2100, selon les auteurs, qui appellent à remonter le niveau de l’eau."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux siècles de drainage reconstitués",
+        "text": "L’étude « An enduring climatic burden from past peatland drainage », publiée le 25 novembre 2026 dans Nature, est signée par Jevan Yu, César Terrer et Charles Harvey, du Massachusetts Institute of Technology (MIT), avec Etienne Fluet-Chouinard (Pacific Northwest National Laboratory), Susan Page (université de Leicester) et Chris Evans (UK Centre for Ecology and Hydrology). Selon le MIT, l’équipe a cartographié le calendrier et l’étendue du drainage des tourbières de 1800 à 2020, une pratique qui s’est accélérée au cours des 200 dernières années. Elle a constitué une nouvelle base de données des émissions des différents types de tourbières drainées, en complétant des données du GIEC de 2013, et a intégré les émissions des fossés de drainage, qui peuvent être une source importante de méthane. Des modèles reliant les flux de gaz à effet de serre à la profondeur de la nappe d’eau ont permis de comparer la situation réelle à un scénario sans drainage. Résultat : le drainage aurait contribué à environ 2,7 % du réchauffement actuel causé par l’homme."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des puits de carbone devenus sources",
+        "text": "Les tourbières sont des zones humides où la matière végétale s’accumule sans se décomposer complètement. Selon le MIT, elles couvrent environ 3 à 4 % des terres émergées mais stockent environ 30 % du carbone des sols du monde, davantage que toutes les forêts réunies. Le PNUE indiquait en 2021 qu’elles couvrent 3 % des terres, stockent au moins deux fois plus de carbone que l’ensemble des forêts, et que 15 % d’entre elles ont été drainées pour le pâturage, l’agriculture, la sylviculture ou l’exploitation minière. Une fois asséchée, la tourbe est exposée à l’oxygène et se décompose en libérant du CO2, tandis que la production de méthane par les microbes diminue. L’étude conclut que le bilan net de ces deux effets est un réchauffement durable."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi le drainage diffère de la déforestation",
+        "text": "Pour César Terrer, professeur au MIT, le drainage d’une tourbière se distingue d’une coupe de forêt : une fois les arbres abattus, leur biomasse finit par disparaître, alors qu’une tourbière drainée continue d’émettre tant qu’elle reste exposée à l’air, parfois pendant des siècles. D’où un premier message des auteurs : cesser de drainer les tourbières. Restaurer celles qui le sont, en remontant le niveau de l’eau, n’effacerait pas le réchauffement déjà causé, mais éviterait une partie de celui qu’elles ajouteraient d’ici la fin du siècle. Le PNUE recommandait déjà en 2021 de supprimer les subventions qui dégradent les tourbières et d’investir dans leur conservation et leur restauration."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Une estimation appelée à être affinée",
+        "text": "Le chiffre de 2,7 % est issu de modèles ; le MIT indique que ces modèles d’émissions continueront d’être améliorés et que l’équipe veut étudier d’autres facteurs que la profondeur de l’eau. Le communiqué du MIT arrondit lui-même ce résultat à « environ 3 % » dans son sous-titre. L’article de Nature n’a pas pu être consulté directement pour cette rédaction ; les détails proviennent du communiqué de l’institution."
+      }
+    ],
+    "sources": [
+      {
+        "label": "MIT News — Draining peatlands leaves a long legacy of warming (25 novembre 2026)",
+        "url": "https://news.mit.edu/2026/draining-peatlands-leaves-long-warming-legacy-1125"
+      },
+      {
+        "label": "PNUE — Conserve and restore peatlands to slash global emissions (4 novembre 2021)",
+        "url": "https://www.unep.org/en/news-and-stories/press-release/conserve-and-restore-peatlands-slash-global-emissions-new-report"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-25",
+    "flashcards": [
+      {
+        "question": "Pourquoi une tourbière drainée continue-t-elle de réchauffer le climat longtemps après son assèchement ?",
+        "answer": "Parce que la tourbe exposée à l’oxygène se décompose et libère du CO2 pendant des siècles, tant qu’elle reste à l’air, alors que la biomasse d’une forêt abattue finit par disparaître."
+      }
+    ]
+  },
+  {
+    "slug": "comment-un-traite-passe-t-il-de-la-negociation-a-l-application",
+    "title": "Comment un traité passe-t-il de la négociation à l'application ?",
+    "summary": "Signer un traité ne suffit pas à s'engager : entre la négociation et l'application, chaque État doit exprimer son consentement selon ses propres règles, puis le traité doit entrer en vigueur. Cet article s'appuie sur le Manuel des traités publié par l'Organisation des Nations unies et sur la fiche n° 66 de l'Assemblée nationale consacrée à la ratification, mise à jour en septembre 2023.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Une signature simple n'engage pas juridiquement un État : elle se fait sous réserve de ratification, d'acceptation ou d'approbation, mais oblige à ne pas priver le traité de son objet.",
+      "Un État exprime son consentement à être lié par signature définitive, ratification, acceptation, approbation ou adhésion ; ce consentement et l'entrée en vigueur du traité sont deux étapes distinctes.",
+      "En France, le Président négocie et ratifie les traités, mais sept catégories, dont les traités de paix et de commerce, exigent une loi votée par le Parlement, qui ne peut pas les amender."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Négocier, puis signer",
+        "text": "Un traité naît d'une négociation entre États, qui aboutit à l'adoption d'un texte. Vient ensuite la signature. Selon le Manuel des traités de l'ONU, seuls le chef de l'État, le chef du gouvernement ou le ministre des Affaires étrangères peuvent signer sans pleins pouvoirs ; toute autre personne doit présenter des pleins pouvoirs signés par l'une de ces trois autorités. La plupart des signatures sont dites simples : elles se font sous réserve de ratification, d'acceptation ou d'approbation, et l'État ne s'engage donc pas véritablement d'un point de vue juridique à ce moment-là. Il doit toutefois s'abstenir d'actes qui priveraient le traité de son objet et de son but. La signature définitive, sans réserve de ratification, existe aussi, mais elle est surtout utilisée pour les traités bilatéraux."
+      },
+      {
+        "kind": "fait",
+        "heading": "Consentir à être lié",
+        "text": "Pour devenir partie à un traité, un État doit exprimer son consentement à être lié. Le Manuel de l'ONU recense quatre voies : la signature définitive, la ratification, l'acceptation ou l'approbation, et l'adhésion. Il précise que, sauf disposition contraire, un signataire ne devient pas partie au traité par sa seule signature. Il souligne aussi que l'acte par lequel un État exprime son consentement et l'entrée en vigueur du traité sont deux choses différentes : un traité multilatéral peut, par exemple, attendre d'avoir réuni un nombre suffisant de consentements. Les traités désignent souvent un dépositaire, qui reçoit ces actes ; le Secrétaire général de l'ONU l'est pour plus de 550 traités multilatéraux."
+      },
+      {
+        "kind": "fait",
+        "heading": "En France, le Président et le Parlement",
+        "text": "Selon la fiche n° 66 de l'Assemblée nationale, l'article 52 de la Constitution confie au Président de la République le soin de négocier et de ratifier les traités. L'article 53 impose toutefois une loi pour ratifier ou approuver sept catégories : les traités de paix, de commerce, ceux relatifs à l'organisation internationale, ceux qui engagent les finances de l'État, ceux qui modifient des dispositions de nature législative, ceux relatifs à l'état des personnes et ceux qui comportent cession, échange ou adjonction de territoire. Environ un tiers des traités et accords conclus par la France passent ainsi devant le Parlement. Les assemblées votent la loi d'autorisation, mais ne peuvent ni amender le texte du traité ni formuler de réserves."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le contrôle de constitutionnalité",
+        "text": "Depuis la loi constitutionnelle du 25 juin 1992, l'article 54 permet au Président, au Premier ministre, aux présidents des deux assemblées, ou à 60 députés ou 60 sénateurs, de saisir le Conseil constitutionnel d'un engagement international. Si celui-ci juge le traité contraire à la Constitution, l'autorisation de le ratifier ne peut intervenir qu'après une révision constitutionnelle. La fiche de l'Assemblée nationale indique qu'il s'écoule en moyenne 3 ans et 2 mois entre la signature d'un traité et sa ratification par la France."
+      },
+      {
+        "kind": "fait",
+        "heading": "Appliquer et rendre public",
+        "text": "Une fois en vigueur, le traité doit être appliqué. En France, la fiche rappelle que l'arrêt Nicolo du Conseil d'État, en 1989, a consacré la valeur supérieure des traités sur la loi, et que le Conseil d'État annule depuis 2003 le décret de publication d'un accord qui aurait dû passer par le Parlement. À l'échelle mondiale, l'article 102 de la Charte des Nations unies, cité par le Manuel, prévoit que tout traité conclu par un membre de l'ONU après l'entrée en vigueur de la Charte est enregistré au Secrétariat et publié par lui."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi tant d'étapes",
+        "text": "Cette succession d'étapes sépare deux moments : celui où les diplomates s'accordent sur un texte et celui où l'État s'engage vraiment. Le délai entre les deux laisse aux institutions nationales, gouvernement, Parlement et juge constitutionnel, le temps de contrôler l'engagement. Elle explique aussi pourquoi un traité signé peut rester longtemps sans effet, ou ne jamais entrer en vigueur pour un État qui ne le ratifie pas."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Organisation des Nations unies, Manuel des traités",
+        "url": "https://treaties.un.org/doc/source/publications/thb/french.pdf"
+      },
+      {
+        "label": "Assemblée nationale, fiche n° 66 « La ratification des traités », septembre 2023",
+        "url": "https://questions.assemblee-nationale.fr/contenu/telechargement/629173/file/Fiche%2066%20-%20La%20ratification%20des%20trait%C3%A9s.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Une signature simple engage-t-elle juridiquement un État ?",
+        "answer": "Non. Elle se fait sous réserve de ratification, d'acceptation ou d'approbation ; l'État doit seulement s'abstenir d'actes qui priveraient le traité de son objet et de son but."
+      },
+      {
+        "question": "Par quelles voies un État peut-il consentir à être lié par un traité ?",
+        "answer": "Par signature définitive, ratification, acceptation ou approbation, ou adhésion."
+      },
+      {
+        "question": "Le consentement d'un État suffit-il à faire entrer un traité en vigueur ?",
+        "answer": "Non. Le consentement à être lié et l'entrée en vigueur du traité sont deux étapes distinctes."
+      },
+      {
+        "question": "Qui négocie et ratifie les traités en France ?",
+        "answer": "Le Président de la République, selon l'article 52 de la Constitution ; certaines catégories de traités exigent toutefois une loi votée par le Parlement."
+      },
+      {
+        "question": "Le Parlement français peut-il amender un traité qu'il doit autoriser ?",
+        "answer": "Non. Il vote la loi d'autorisation de ratifier, mais ne peut ni amender le texte du traité ni formuler de réserves."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-le-cours-des-monnaies-change-t-il-sans-cesse",
+    "title": "Pourquoi le cours des monnaies change-t-il sans cesse ?",
+    "summary": "Le taux de change est le prix d'une monnaie exprimé dans une autre ; dans un régime flottant, il bouge chaque jour au gré de l'offre et de la demande de devises. Cet article s'appuie sur la fiche « L'éco en bref » de la Banque de France sur le taux de change, version de juillet 2026, sur une page pédagogique de la Banque centrale européenne et sur les taux de référence quotidiens publiés par la BCE.",
+    "topic": "economie",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le taux de change est le prix d'une monnaie par rapport à une autre : un cours EUR/USD de 1,11 signifie qu'un euro permet d'obtenir 1,11 dollar.",
+      "À court terme, il varie avec la conjoncture, la spéculation et les écarts de politique monétaire ; à long terme, la Banque de France le relie aux fondamentaux de l'économie.",
+      "La zone euro laisse flotter sa monnaie : l'Eurosystème n'a pas d'objectif de taux de change, et ses interventions sur le marché n'ont eu lieu qu'à de rares occasions."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un prix fixé par un marché mondial",
+        "text": "Selon la Banque de France, le taux de change d'une monnaie est son prix par rapport à une autre. Dans un régime de change flottant, adopté depuis 1976 par la plupart des grandes économies, dont les États-Unis, la zone euro et le Japon, ce prix évolue librement en fonction de l'offre et de la demande sur le marché des changes. Ce marché réunit des banques commerciales, des banques centrales, de grandes entreprises et des investisseurs institutionnels ; la Banque de France évalue ses transactions à 9 510 milliards de dollars par jour en moyenne en 2025. La BCE publie chaque jour ouvré un taux de référence de l'euro : il était de 1,0975 dollar le 26 novembre 2026, contre 1,1577 dollar le 26 novembre 2025."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce qui fait monter ou baisser une monnaie",
+        "text": "La Banque de France distingue deux horizons. À court terme, les fluctuations peuvent tenir à la situation économique du pays, aux mouvements spéculatifs ou aux différences de politique, en particulier monétaire : une hausse du taux directeur peut rendre les placements dans une monnaie plus intéressants, attirer les investisseurs étrangers et faire monter cette monnaie. Le commerce joue aussi : un pays qui exporte plus qu'il n'importe voit ses partenaires acheter sa monnaie, qui tend à s'apprécier. Enfin, en période de crise, certaines monnaies servent de refuge ; la Banque de France cite le dollar en 2008 puis pendant la crise énergétique. À long terme, selon elle, la valeur d'une monnaie est liée aux fondamentaux de son économie."
+      },
+      {
+        "kind": "fait",
+        "heading": "Flottant, fixe ou entre les deux",
+        "text": "Tous les pays ne laissent pas flotter leur monnaie. Dans un régime fixe, comme au Danemark ou dans les pays de la zone franc, le prix est administré, et il peut être dévalué ou réévalué si le cours officiel est jugé inadapté. Des régimes intermédiaires existent : le yuan chinois est indexé sur un panier de monnaies et ne fluctue que de manière limitée. Parmi les 190 pays membres du FMI, la Banque de France compte 52,6 % de régimes intermédiaires, 34 % de régimes flottants et 13,4 % de régimes fixes."
+      },
+      {
+        "kind": "fait",
+        "heading": "La BCE ne vise pas un cours de l'euro",
+        "text": "Selon la Banque de France, l'Eurosystème, dont elle fait partie, n'a pas d'objectif de taux de change pour l'euro, qui flotte librement ; la BCE rappelle elle aussi que le taux de change n'est pas un objectif de sa politique, centrée sur la stabilité des prix. Une banque centrale peut néanmoins intervenir : pour soutenir sa monnaie, elle vend des devises tirées de ses réserves ; pour la faire baisser, elle en achète. Pour l'euro, ces interventions doivent être concertées avec d'autres banques centrales et n'ont eu lieu qu'à de rares occasions."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Qui gagne, qui perd",
+        "text": "Le cours d'une monnaie touche directement les ménages et les entreprises. Quand l'euro s'apprécie, les produits importés deviennent moins chers, ce que souligne la BCE, mais les exportations européennes sont pénalisées. Une monnaie faible favorise au contraire les exportations à court terme, tout en renchérissant les importations, comme l'énergie, ce qui nourrit l'inflation, et en alourdissant les dettes libellées en devises. C'est pourquoi les entreprises exposées couvrent souvent leur risque de change."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Banque de France, « L'éco en bref : le taux de change », juillet 2026",
+        "url": "https://www.banque-france.fr/system/files/2026-08/Eco-en-bref_Taux_de_change.pdf"
+      },
+      {
+        "label": "Banque centrale européenne, « Quel est le rôle des taux de change ? »",
+        "url": "https://www.ecb.europa.eu/ecb/educational/explainers/tell-me-more/html/role_of_exchange_rates.fr.html"
+      },
+      {
+        "label": "Banque centrale européenne, taux de référence quotidien dollar/euro",
+        "url": "https://data.ecb.europa.eu/data/datasets/EXR/EXR.D.USD.EUR.SP00.A"
+      }
+    ],
+    "kind": "concept",
+    "dataCards": [
+      {
+        "id": "regimes-de-change",
+        "kind": "comparaison",
+        "headline": "Parmi les membres du FMI, les régimes intermédiaires dominent",
+        "source": {
+          "label": "Banque de France, « L'éco en bref : le taux de change », juillet 2026",
+          "url": "https://www.banque-france.fr/system/files/2026-08/Eco-en-bref_Taux_de_change.pdf"
+        },
+        "asOf": "2026-07-01",
+        "imageQuery": "banknotes from many countries",
+        "items": [
+          {
+            "value": 52.6,
+            "unit": "%",
+            "label": "Régime intermédiaire",
+            "scope": "Pays membres du FMI",
+            "period": "selon la fiche de juillet 2026",
+            "denominator": "des 190 pays membres du FMI",
+            "decimals": 1
+          },
+          {
+            "value": 34,
+            "unit": "%",
+            "label": "Régime flottant",
+            "scope": "Pays membres du FMI",
+            "period": "selon la fiche de juillet 2026",
+            "denominator": "des 190 pays membres du FMI",
+            "decimals": 0
+          },
+          {
+            "value": 13.4,
+            "unit": "%",
+            "label": "Régime fixe",
+            "scope": "Pays membres du FMI",
+            "period": "selon la fiche de juillet 2026",
+            "denominator": "des 190 pays membres du FMI",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "marche-des-changes",
+        "kind": "stat",
+        "headline": "Le marché des changes brasse des milliers de milliards chaque jour",
+        "source": {
+          "label": "Banque de France, « L'éco en bref : le taux de change », juillet 2026",
+          "url": "https://www.banque-france.fr/system/files/2026-08/Eco-en-bref_Taux_de_change.pdf"
+        },
+        "asOf": "2025-12-31",
+        "imageQuery": "trading floor screens",
+        "measure": {
+          "value": 9510,
+          "unit": "milliards de dollars",
+          "label": "Transactions quotidiennes moyennes",
+          "scope": "Marché mondial des changes",
+          "period": "2025",
+          "decimals": 0
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Qu'est-ce qu'un taux de change ?",
+        "answer": "Le prix d'une monnaie exprimé dans une autre : un cours EUR/USD de 1,11 signifie qu'un euro permet d'obtenir 1,11 dollar."
+      },
+      {
+        "question": "Comment se fixe le cours d'une monnaie dans un régime flottant ?",
+        "answer": "Il évolue librement en fonction de l'offre et de la demande sur le marché des changes."
+      },
+      {
+        "question": "Pourquoi une hausse du taux directeur peut-elle faire monter une monnaie ?",
+        "answer": "Elle rend les placements dans cette monnaie plus intéressants et attire les investisseurs étrangers."
+      },
+      {
+        "question": "La BCE cherche-t-elle à fixer le cours de l'euro ?",
+        "answer": "Non. L'Eurosystème n'a pas d'objectif de taux de change : l'euro flotte librement, et les interventions sur le marché sont rares."
+      },
+      {
+        "question": "Quel effet une monnaie faible a-t-elle sur l'inflation ?",
+        "answer": "Elle renchérit les produits importés, comme l'énergie, ce qui contribue à l'inflation."
+      }
+    ]
+  },
+  {
+    "slug": "comment-lire-un-bilan-d-entreprise-actif-passif-et-capitaux-propres",
+    "title": "Comment lire un bilan d'entreprise : actif, passif et capitaux propres",
+    "summary": "Le bilan est la photographie du patrimoine d'une entreprise à une date donnée : ce qu'elle possède d'un côté, la façon dont elle le finance de l'autre. Cet article s'appuie sur la fiche de Service Public Entreprendre sur l'actif et le passif, vérifiée le 30 septembre 2025, et sur la présentation de la norme comptable internationale IAS 1 par la Fondation IFRS ; il décrit le bilan français, la norme internationale employant d'autres intitulés.",
+    "topic": "finance",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le bilan présente la situation patrimoniale de l'entreprise à un instant donné, par exemple à la clôture de son exercice comptable, qui dure en général 12 mois.",
+      "À gauche, l'actif regroupe ce que l'entreprise possède : biens durables, dits immobilisés, et biens mobilisables à court terme, comme les stocks, les créances et la trésorerie.",
+      "À droite, le passif montre comment ces actifs sont financés : par les capitaux propres, apportés ou accumulés, et par les dettes et provisions ; les deux colonnes sont toujours égales."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une photographie à une date",
+        "text": "Selon Service Public Entreprendre, le bilan est un document présentant la situation patrimoniale de l'entreprise à un instant donné, par exemple à la clôture de son exercice comptable. Cet exercice dure en général 12 mois, alignés ou non sur l'année civile. Le bilan se présente comme un tableau à deux colonnes : l'actif à gauche, le passif à droite. À l'échelle internationale, la norme IAS 1, publiée par la Fondation IFRS, en fait l'un des états financiers obligatoires, sous le nom d'état de la situation financière établi à la fin de la période, aux côtés du compte de résultat, du tableau des flux de trésorerie, du tableau des variations des capitaux propres et des notes annexes."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'actif : ce que l'entreprise possède",
+        "text": "L'actif regroupe le patrimoine matériel ou immatériel de l'entreprise, qui a une valeur financière positive. Service Public Entreprendre le divise en deux blocs. L'actif immobilisé rassemble les biens d'utilité durable pour l'activité, répartis en immobilisations corporelles, comme des machines ou des bâtiments, incorporelles, comme des brevets, et financières, comme des participations. L'actif circulant rassemble les biens mobilisables à court terme : stocks et en-cours, avances et acomptes versés sur commande, créances, valeurs mobilières de placement, disponibilités et charges constatées d'avance. Il se compose donc des stocks, des créances et du solde du compte bancaire."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le passif : comment l'actif est financé",
+        "text": "Le passif correspond aux moyens de l'entreprise pour financer ses actifs. Il se divise en passif interne et passif externe. Le passif interne, ce sont les capitaux propres : le capital apporté par les associés, les réserves légales et statutaires, le report à nouveau et le résultat de l'exercice, c'est-à-dire le résultat net après impôts. Le passif externe comprend les dettes, dont le montant et l'échéance sont connus, comme les emprunts ou les dettes fiscales et sociales, et les provisions pour risques et charges, qui couvrent des obligations dont le montant ou l'échéance ne sont pas encore connus."
+      },
+      {
+        "kind": "fait",
+        "heading": "Pourquoi les deux colonnes sont égales",
+        "text": "Dans un bilan comptable, l'actif doit toujours être égal au passif. Ce n'est pas une coïncidence : tout ce que possède l'entreprise a été financé soit par ses propriétaires, soit par des tiers. Les capitaux propres sont donc ce qui reste aux associés une fois toutes les dettes et provisions déduites de l'actif. Service Public Entreprendre ajoute que, lorsque les dettes à payer immédiatement dépassent les liquidités disponibles, l'entreprise est en cessation des paiements."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce qu'un lecteur peut en tirer",
+        "text": "Lire un bilan, c'est d'abord comparer les deux colonnes. Des capitaux propres importants par rapport aux dettes signalent une entreprise financée surtout par ses associés ; des dettes lourdes la rendent plus dépendante de ses prêteurs. Comparer l'actif circulant aux dettes de court terme aide à juger si elle pourra payer ses échéances. Mais le bilan ne montre qu'une date : pour savoir si l'entreprise gagne de l'argent au fil de l'année, il faut le lire avec le compte de résultat et le tableau des flux de trésorerie."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Service Public Entreprendre, « Quelle est la différence entre l'actif et le passif d'une entreprise ? », vérifié le 30 septembre 2025",
+        "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F31439?profil=tout"
+      },
+      {
+        "label": "Fondation IFRS, « IAS 1 Presentation of Financial Statements »",
+        "url": "https://www.ifrs.org/issued-standards/list-of-standards/ias-1-presentation-of-financial-statements/"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Que montre le bilan d'une entreprise ?",
+        "answer": "Sa situation patrimoniale à une date donnée, souvent la clôture de l'exercice : ce qu'elle possède à l'actif et la façon dont elle le finance au passif."
+      },
+      {
+        "question": "Quelle différence entre actif immobilisé et actif circulant ?",
+        "answer": "L'actif immobilisé regroupe les biens d'utilité durable, comme les machines ; l'actif circulant, les biens mobilisables à court terme, comme les stocks, les créances et la trésorerie."
+      },
+      {
+        "question": "Que contiennent les capitaux propres ?",
+        "answer": "Le capital apporté, les réserves légales et statutaires, le report à nouveau et le résultat de l'exercice."
+      },
+      {
+        "question": "Qu'est-ce qui distingue une dette d'une provision au passif ?",
+        "answer": "Une dette a un montant et une échéance connus ; une provision couvre une obligation dont le montant ou l'échéance ne sont pas encore connus."
+      },
+      {
+        "question": "Pourquoi l'actif est-il toujours égal au passif ?",
+        "answer": "Parce que tout ce que possède l'entreprise a été financé soit par ses propriétaires, les capitaux propres, soit par des tiers, les dettes et provisions."
+      }
+    ]
+  },
+  {
+    "slug": "comment-une-usine-reduit-elle-sa-consommation-d-energie",
+    "title": "Comment une usine réduit-elle sa consommation d'énergie ?",
+    "summary": "Réduire l'énergie d'une usine commence par mesurer où elle part, puis par corriger les pertes les plus simples avant d'investir dans les procédés. Cet article s'appuie sur la page du ministère de la Transition écologique consacrée à l'audit énergétique, publiée le 1er octobre 2025, sur une plaquette de l'ADEME de septembre 2017 et ses conditions d'aide de 2025, et sur l'organisme de certification AFNOR ; les gains cités par l'ADEME sont des ordres de grandeur.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Tout commence par la mesure : l'audit énergétique est, selon l'ADEME, une photographie à l'instant T des consommations et des usages, qui débouche sur un plan d'actions hiérarchisé.",
+      "En France, une entreprise qui consomme en moyenne au moins 2,75 GWh d'énergie finale par an doit faire un audit tous les quatre ans, et au-delà de 23,6 GWh, un système de management de l'énergie certifié.",
+      "Les leviers vont des réglages sans investissement à la récupération de la chaleur fatale : l'ADEME estimait que l'industrie rejetait 109,5 TWh de chaleur, soit 36 % de ses combustibles."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Mesurer avant d'agir",
+        "text": "Une usine consomme de l'énergie dans des usages très différents : fours, chaudières, séchoirs, compresseurs d'air, froid, moteurs, éclairage et bâtiments. La première étape consiste donc à savoir où va chaque kilowattheure. L'ADEME décrit l'audit énergétique comme une photographie à l'instant T des consommations et des usages : il identifie les économies possibles et préconise un plan d'actions hiérarchisé. La plaquette de l'agence cite aussi des audits spécialisés sur l'éclairage, l'air comprimé, le froid ou la ventilation."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que la loi impose",
+        "text": "Selon le ministère de la Transition écologique, le code de l'énergie impose un audit énergétique ou un système de management de l'énergie aux entreprises qui dépassent certains seuils de consommation. Depuis la loi du 30 avril 2025, dite DDADUE, qui transpose la directive européenne 2023/1791 sur l'efficacité énergétique, une entreprise dont la consommation annuelle moyenne d'énergie finale atteint 2,75 GWh doit faire auditer ses activités en France tous les quatre ans, sauf si elle a mis en place un système de management de l'énergie. À partir de 23,6 GWh, ce système doit être certifié selon la norme ISO 50001. Les services régionaux de l'État contrôlent les justificatifs et peuvent sanctionner."
+      },
+      {
+        "kind": "fait",
+        "heading": "Du réglage simple à l'investissement",
+        "text": "La plaquette de l'ADEME de 2017 conseille de commencer par des actions à portée de main, parfois sans investissement, avant d'investir dans les procédés et les systèmes de production. Elle donne des exemples chiffrés : un variateur électronique de vitesse, qui adapte la production d'air comprimé au besoin réel, peut baisser la consommation jusqu'à 15 % ; un brûleur micro-modulant peut améliorer le rendement d'une chaudière de 2 à 5 %. Un système de management de l'énergie, du type ISO 50001, organise ensuite la démarche dans la durée : audit, plan d'actions, mise en œuvre, suivi et évaluation, avec un objectif d'amélioration continue."
+      },
+      {
+        "kind": "fait",
+        "heading": "Certifier et financer la démarche",
+        "text": "Selon l'AFNOR, l'industrie consomme 18 % de l'énergie finale en France, d'après des données de l'Insee et du SDES. L'organisme rappelle qu'une certification ISO 50001 peut aussi réduire de 20 % à 90 %, selon les cas, le tarif d'utilisation du réseau électrique des industries électro-intensives qui consomment plus de 10 GWh d'électricité par an. Pour les plus petites entreprises, l'ADEME finance en 2025 des audits énergétiques volontaires : ils sont réservés aux entreprises qui consomment moins de 2,75 GWh par an, donc non soumises à l'audit obligatoire, et la subvention peut aller jusqu'à 80 % pour une petite entreprise."
+      },
+      {
+        "kind": "fait",
+        "heading": "La chaleur perdue, un gisement",
+        "text": "Une part importante de l'énergie d'une usine repart sous forme de chaleur dite fatale. L'ADEME estimait ces rejets à 109,5 TWh dans l'industrie, soit 36 % de la consommation de combustibles du secteur, dont 52,9 TWh à plus de 100 °C. Les principales sources étaient la buée des séchoirs et le refroidissement frigorifique, à 27 % chacun, puis les fumées des fours, à 19 %, et celles des chaudières, à 14 %. Cette chaleur peut être récupérée sur un procédé, remontée en température par une pompe à chaleur, puis réutilisée sur place ou distribuée à l'extérieur."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que l'on peut en attendre",
+        "text": "Les gains dépendent beaucoup de l'activité. L'ADEME évoquait des gains potentiels de 10 à 25 % de la facture énergétique annuelle après un audit ; le ministère annonce jusqu'à 30 % d'économies, et plus de 50 % pour la part liée au bâtiment, si les investissements préconisés sont réalisés. Ces chiffres sont des potentiels, pas des résultats garantis : ils supposent de financer les travaux, que l'ADEME aidait en 2017 par des subventions et par les certificats d'économies d'énergie, deux aides qui n'étaient pas cumulables."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Ministère de la Transition écologique, « Audit énergétique et systèmes de management de l'énergie en entreprise », 1er octobre 2025",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/audit-energetique-systemes-management-lenergie-entreprise"
+      },
+      {
+        "label": "ADEME, « Industriels, investissez dans la performance énergétique », septembre 2017",
+        "url": "https://www.auvergne-rhone-alpes.developpement-durable.gouv.fr/IMG/pdf/industriels-investissez-performance-energetique-010320.pdf"
+      },
+      {
+        "label": "AFNOR, « Our Energy Efficiency Solutions for Industry »",
+        "url": "https://www.afnor.org/en/energy-efficiency/industrial-sector/"
+      },
+      {
+        "label": "ADEME, « Conditions d'éligibilité et de financement 2025 », études en faveur de la transition écologique et énergétique des entreprises industrielles",
+        "url": "https://agir.ademe.fr/sites/default/files/%C3%89tudes%20transition%20%C3%A9cologique%20industrie%20-%20Conditions%20d%27%C3%A9ligibilit%C3%A9%20et%20de%20financement%20-%202025.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "À quoi sert un audit énergétique dans une usine ?",
+        "answer": "Selon l'ADEME, c'est une photographie à l'instant T des consommations et des usages, qui identifie les économies possibles et propose un plan d'actions hiérarchisé."
+      },
+      {
+        "question": "À partir de quelle consommation une entreprise française doit-elle faire un audit énergétique ?",
+        "answer": "À partir d'une consommation annuelle moyenne d'énergie finale de 2,75 GWh, tous les quatre ans, sauf si elle a un système de management de l'énergie."
+      },
+      {
+        "question": "Quand un système de management de l'énergie certifié ISO 50001 devient-il obligatoire ?",
+        "answer": "Quand la consommation annuelle moyenne d'énergie finale d'une entreprise atteint 23,6 GWh."
+      },
+      {
+        "question": "Qu'appelle-t-on la chaleur fatale dans l'industrie ?",
+        "answer": "La chaleur rejetée par les procédés sans être utilisée, par exemple la buée des séchoirs ou les fumées des fours ; on peut la récupérer et la réutiliser."
+      },
+      {
+        "question": "Quel gain un variateur de vitesse peut-il apporter sur l'air comprimé ?",
+        "answer": "Selon l'ADEME, adapter la production d'air comprimé au besoin réel avec un variateur électronique de vitesse peut baisser la consommation jusqu'à 15 %."
+      }
+    ]
+  },
+  {
+    "slug": "comment-recycle-t-on-les-metaux-d-une-batterie-lithium-ion",
+    "title": "Comment recycle-t-on les métaux d'une batterie lithium-ion ?",
+    "summary": "Recycler une batterie de voiture électrique, c'est la décharger, la démonter, la broyer en une poudre appelée masse noire, puis en extraire les métaux par la chaleur ou par la chimie. Cet article s'appuie sur une page de Connaissance des Énergies mise à jour le 26 septembre 2024 et sur l'introduction d'un article scientifique publié en 2025 dans la revue ACS Omega ; les volumes à recycler cités sont des projections d'industriels.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Avant tout traitement, la batterie est déchargée, démontée puis broyée ; après tamisage, on obtient la masse noire, une poudre qui concentre lithium, nickel, cobalt, manganèse et graphite.",
+      "La pyrométallurgie fond la matière à haute température et récupère cobalt, nickel et cuivre en alliage, mais perd généralement le lithium, le graphite et l'aluminium et consomme beaucoup d'énergie.",
+      "L'hydrométallurgie dissout la masse noire dans des bains chimiques ; plus sélective, elle domine aujourd'hui l'industrie, mais produit des eaux usées complexes à traiter."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Pourquoi recycler",
+        "text": "Selon Connaissance des Énergies, une batterie dure de huit à quinze ans dans un véhicule avant de perdre en puissance, peut peser jusqu'à 500 kg et représenter jusqu'à 50 % du prix d'une voiture électrique. Jusqu'à 95 % de ses métaux sont potentiellement récupérables. L'article de la revue ACS Omega rappelle que les batteries lithium-ion posent des problèmes de ressources, pour le lithium, le cobalt ou le graphite naturel, dont la disponibilité dépend de la géographie et de la géopolitique, et des problèmes d'environnement : mises en décharge, elles peuvent libérer du cobalt et des composés fluorés et présentent des risques d'incendie."
+      },
+      {
+        "kind": "fait",
+        "heading": "Du pack à la masse noire",
+        "text": "La première étape est mécanique. Les batteries sont totalement déchargées, pour la sécurité, puis démontées. Elles sont ensuite broyées et tamisées : les feuilles d'aluminium et de cuivre et les boîtiers métalliques sont séparés d'une poudre active, faite d'oxydes de lithium, de nickel, de manganèse et de cobalt, de graphite et de résidus d'électrolyte et de liant. Cette poudre est appelée masse noire, ou black mass. Selon l'article d'ACS Omega, elle subit un traitement thermique, vers 100 à 300 °C pour éliminer les solvants de l'électrolyte, ou une pyrolyse, vers 500 à 700 °C pour décomposer les liants plastiques. Connaissance des Énergies souligne que beaucoup de ces opérations sont encore manuelles et exposent à des risques électriques et à des solvants inflammables et polluants."
+      },
+      {
+        "kind": "fait",
+        "heading": "Chaleur ou chimie : deux grandes voies",
+        "text": "L'article d'ACS Omega décrit trois approches. La pyrométallurgie traite la matière à haute température : elle brûle les composés organiques et réduit le cobalt, le nickel et le cuivre en alliages, mais sacrifie généralement le graphite, le lithium et l'aluminium et consomme beaucoup d'énergie. L'hydrométallurgie dissout la masse noire dans un acide ou une base, puis sépare les métaux par précipitation ou extraction par solvant ; plus sélective et opérant à plus basse température, elle domine aujourd'hui le paysage industriel, mais génère des eaux usées complexes et exige un prétraitement poussé. Le recyclage direct, enfin, cherche à récupérer la cathode en conservant sa structure ; prometteur, il reste technologiquement immature à grande échelle."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une filière encore en construction",
+        "text": "Connaissance des Énergies relève qu'il n'existe pas encore de volume suffisant de batteries en fin de vie pour une véritable filière industrielle : les usines traitent surtout des rebuts de fabrication, et le modèle économique reste à prouver. Plusieurs projets européens ont été freinés : le site rapporte qu'Eramet a suspendu en octobre 2024 son projet dans le nord de la France, qui visait 50 000 tonnes de modules par an. Le règlement européen 2023/1542 sur les batteries fixe, selon son résumé officiel sur EUR-Lex, un contenu minimal de matières recyclées à partir du 18 août 2031 pour les batteries industrielles, de démarrage et de véhicules électriques : 16 % pour le cobalt, 85 % pour le plomb, 6 % pour le lithium et 6 % pour le nickel."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Les compromis du recyclage",
+        "text": "Aucun procédé ne récupère tout à faible coût. La voie thermique accepte des batteries variées mais laisse filer une partie du lithium ; la voie chimique récupère davantage de métaux mais demande une matière bien préparée et un traitement des effluents. La rentabilité dépend aussi de la composition des batteries : Connaissance des Énergies note que certaines technologies, comme le lithium-fer-phosphate, ne contiennent pas de cobalt, le métal qui rend le recyclage le plus attractif."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Connaissance des Énergies, « Où en sont les filières de recyclage des batteries des véhicules électriques ? », 26 septembre 2024",
+        "url": "https://www.connaissancedesenergies.org/questions-et-reponses-energies/recyclage-des-batteries-des-vehicules-electriques"
+      },
+      {
+        "label": "ACS Omega, « Pyrolyzed “Black Mass” Feedstocks and Their Synthetic Proxies Relevant to Li-Ion Battery Recycling », 2025",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12198988/"
+      },
+      {
+        "label": "EUR-Lex, résumé du règlement (UE) 2023/1542 relatif aux batteries et aux déchets de batteries",
+        "url": "https://eur-lex.europa.eu/EN/legal-content/summary/sustainability-rules-for-batteries-and-waste-batteries.html"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'appelle-t-on la masse noire dans le recyclage des batteries ?",
+        "answer": "La poudre obtenue après broyage et tamisage des batteries, qui contient lithium, nickel, manganèse, cobalt et graphite."
+      },
+      {
+        "question": "Quelle est la principale limite de la pyrométallurgie ?",
+        "answer": "Elle consomme beaucoup d'énergie et perd généralement le lithium, le graphite et l'aluminium."
+      },
+      {
+        "question": "Comment l'hydrométallurgie sépare-t-elle les métaux ?",
+        "answer": "Elle dissout la masse noire dans un acide ou une base, puis sépare les métaux par précipitation ou extraction par solvant."
+      },
+      {
+        "question": "Pourquoi la filière de recyclage des batteries reste-t-elle limitée ?",
+        "answer": "Il n'y a pas encore assez de batteries en fin de vie : les usines traitent surtout des rebuts de fabrication."
+      },
+      {
+        "question": "Quel contenu recyclé le règlement européen sur les batteries impose-t-il à partir de 2031 ?",
+        "answer": "À partir du 18 août 2031 : 16 % de cobalt, 85 % de plomb, 6 % de lithium et 6 % de nickel, pour les batteries industrielles, de démarrage et de véhicules électriques."
+      }
+    ]
+  },
+  {
+    "slug": "comment-produit-on-l-hydrogene-et-pourquoi-il-reste-surtout-fossile",
+    "title": "Comment produit-on l'hydrogène, et pourquoi il reste surtout fossile",
+    "summary": "L'hydrogène ne se trouve presque pas à l'état pur : il faut l'extraire du gaz naturel, du charbon ou de l'eau, et chaque procédé a son coût et son empreinte carbone. Cet article s'appuie sur le Global Hydrogen Review 2025 de l'Agence internationale de l'énergie, qui porte sur les données 2024, sur la fiche pédagogique de Connaissance des Énergies mise à jour en novembre 2026 et sur l'IFP Énergies nouvelles ; les intensités carbone citées sont des ordres de grandeur.",
+    "topic": "energie",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La demande mondiale d'hydrogène a atteint près de 100 millions de tonnes en 2024 selon l'AIE, surtout pour le raffinage et l'industrie, notamment l'ammoniac et le méthanol.",
+      "L'essentiel est produit à partir d'énergies fossiles, d'abord par vaporeformage du gaz naturel, qui émet environ 9 kg de CO2 par kilo d'hydrogène sans captage selon Connaissance des Énergies.",
+      "L'électrolyse de l'eau peut produire un hydrogène quasi sans émissions si l'électricité est renouvelable ou nucléaire, mais l'hydrogène bas carbone représentait moins de 1 % de la production en 2024."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un gaz très utilisé, mais peu visible",
+        "text": "Selon l'Agence internationale de l'énergie, la demande mondiale d'hydrogène a atteint près de 100 millions de tonnes en 2024, en hausse de 2 % sur un an. Le raffinage et l'industrie en sont les plus gros consommateurs ; les nouveaux usages pèsent moins de 1 % de la demande. Connaissance des Énergies précise que, dans l'industrie, environ 60 % de l'hydrogène sert à fabriquer de l'ammoniac, 30 % du méthanol et 10 % à la sidérurgie, pour réduire directement le minerai de fer. Pour produire cet hydrogène, le monde a consommé en 2024, selon l'AIE, 290 milliards de mètres cubes de gaz naturel et 90 millions de tonnes équivalent charbon."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le vaporeformage, procédé dominant",
+        "text": "L'IFP Énergies nouvelles indique que la production d'hydrogène est assurée aujourd'hui à 95 % par la transformation d'hydrocarbures, par reformage ou gazéification. Le procédé le plus répandu est le vaporeformage du gaz naturel : selon Connaissance des Énergies, il fournit environ 60 % de la production mondiale. Du méthane et de la vapeur d'eau y réagissent à haute température, entre 700 et 1 000 °C, pour donner de l'hydrogène et du monoxyde de carbone, puis du CO2. La gazéification du charbon, deuxième source mondiale, est surtout utilisée en Chine. Une partie de l'hydrogène est aussi coproduite dans les raffineries et la pétrochimie."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'électrolyse : casser l'eau avec de l'électricité",
+        "text": "L'électrolyse sépare l'eau en hydrogène et en oxygène grâce à un courant électrique. Connaissance des Énergies distingue l'électrolyse alcaline, qui fonctionne entre 80 et 160 °C avec un rendement de 60 à 70 %, l'électrolyse à membrane échangeuse de protons, dite PEM, au rendement supérieur d'environ 5 % mais plus coûteuse à cause de sa membrane et de ses métaux nobles, et l'électrolyse à haute température, encore en développement. Selon l'AIE, 2 GW d'électrolyseurs étaient installés dans le monde en 2024, et la Chine représentait 65 % des capacités installées ou ayant fait l'objet d'une décision finale d'investissement."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des émissions qui dépendent du procédé",
+        "text": "Le tableau de Connaissance des Énergies, établi à partir de données de l'AIE, donne des ordres de grandeur : environ 9 kg de CO2 par kilo d'hydrogène produit à partir de gaz naturel sans captage, environ 20 kg à partir de charbon, presque zéro pour une électrolyse alimentée par des renouvelables ou du nucléaire, mais environ 25 kg pour une électrolyse alimentée par un mix électrique moyen. Capter 90 % du CO2 ramène les émissions du gaz naturel à environ 2 kg. L'AIE estimait que la production d'hydrogène bas carbone avait progressé de 10 % en 2024 et était en voie d'atteindre 1 million de tonnes en 2025, soit moins de 1 % de la production."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la bascule est lente",
+        "text": "Le coût explique une grande partie du retard. Selon Connaissance des Énergies, citant l'AIE, l'hydrogène fossile sans captage coûtait en 2025 de moins de 1 à plus de 4 dollars le kilo, contre plus de 3 à plus de 10 dollars pour l'hydrogène issu d'électrolyse renouvelable. L'AIE relève en outre une vague d'annulations : le potentiel des projets bas carbone pour 2030 est tombé à 37 millions de tonnes par an, contre 49 un an plus tôt. Produire de l'hydrogène propre suppose donc à la fois une électricité décarbonée abondante et des acheteurs prêts à payer plus cher."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Agence internationale de l'énergie, Global Hydrogen Review 2025, résumé",
+        "url": "https://www.iea.org/reports/global-hydrogen-review-2025/executive-summary"
+      },
+      {
+        "label": "Agence internationale de l'énergie, communiqué sur le Global Hydrogen Review 2025",
+        "url": "https://www.iea.org/news/low-emissions-hydrogen-projects-are-set-to-grow-strongly-despite-wave-of-cancellations-and-persistent-challenges"
+      },
+      {
+        "label": "Connaissance des Énergies, fiche pédagogique « Production de l'hydrogène », mise à jour le 13 novembre 2026",
+        "url": "https://www.connaissancedesenergies.org/fiche-pedagogique/production-de-lhydrogene"
+      },
+      {
+        "label": "IFP Énergies nouvelles, « L'hydrogène naturel : connaissance et quantification des ressources »",
+        "url": "https://www.ifpenergiesnouvelles.fr/print/pdf/node/711"
+      }
+    ],
+    "kind": "concept",
+    "dataCards": [
+      {
+        "id": "intensite-carbone-hydrogene",
+        "kind": "comparaison",
+        "headline": "Selon le procédé, un kilo d'hydrogène émet de presque rien à 25 kg de CO2",
+        "source": {
+          "label": "Connaissance des Énergies, fiche « Production de l'hydrogène »",
+          "url": "https://www.connaissancedesenergies.org/fiche-pedagogique/production-de-lhydrogene"
+        },
+        "asOf": "2026-11-13",
+        "note": "L'électrolyse alimentée par des renouvelables ou du nucléaire émet presque zéro.",
+        "imageQuery": "steam methane reformer",
+        "items": [
+          {
+            "value": 9,
+            "unit": "kg de CO2 par kg d'hydrogène",
+            "label": "Gaz naturel sans captage",
+            "scope": "Ordre de grandeur, données AIE",
+            "period": "selon la fiche de novembre 2026",
+            "decimals": 0
+          },
+          {
+            "value": 20,
+            "unit": "kg de CO2 par kg d'hydrogène",
+            "label": "Charbon sans captage",
+            "scope": "Ordre de grandeur, données AIE",
+            "period": "selon la fiche de novembre 2026",
+            "decimals": 0
+          },
+          {
+            "value": 25,
+            "unit": "kg de CO2 par kg d'hydrogène",
+            "label": "Électrolyse, mix électrique moyen",
+            "scope": "Ordre de grandeur, données AIE",
+            "period": "selon la fiche de novembre 2026",
+            "decimals": 0
+          },
+          {
+            "value": 2,
+            "unit": "kg de CO2 par kg d'hydrogène",
+            "label": "Gaz naturel avec captage à 90 %",
+            "scope": "Ordre de grandeur, données AIE",
+            "period": "selon la fiche de novembre 2026",
+            "decimals": 0
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "electrolyseurs-installes",
+        "kind": "stat",
+        "headline": "Les électrolyseurs restent rares à l'échelle mondiale",
+        "source": {
+          "label": "Agence internationale de l'énergie, Global Hydrogen Review 2025, résumé",
+          "url": "https://www.iea.org/reports/global-hydrogen-review-2025/executive-summary"
+        },
+        "asOf": "2024-12-31",
+        "imageQuery": "electrolyser stack",
+        "measure": {
+          "value": 2,
+          "unit": "GW",
+          "label": "Capacité d'électrolyse installée",
+          "scope": "Monde",
+          "period": "2024",
+          "decimals": 0
+        },
+        "context": "La Chine représente 65 % des capacités installées ou en décision finale d'investissement."
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Quel est le principal procédé de production d'hydrogène dans le monde ?",
+        "answer": "Le vaporeformage du gaz naturel, qui fournit environ 60 % de la production mondiale."
+      },
+      {
+        "question": "Comment fonctionne l'électrolyse de l'eau ?",
+        "answer": "Un courant électrique sépare l'eau en hydrogène et en oxygène."
+      },
+      {
+        "question": "L'hydrogène produit par électrolyse est-il toujours peu émetteur ?",
+        "answer": "Non. Il est quasi sans émissions avec de l'électricité renouvelable ou nucléaire, mais un mix électrique moyen donne environ 25 kg de CO2 par kilo d'hydrogène."
+      },
+      {
+        "question": "Quelle part de l'hydrogène était bas carbone en 2024 ?",
+        "answer": "Moins de 1 % de la production, selon l'Agence internationale de l'énergie."
+      },
+      {
+        "question": "À quoi sert surtout l'hydrogène dans l'industrie ?",
+        "answer": "Environ 60 % à fabriquer de l'ammoniac, 30 % du méthanol et 10 % à la sidérurgie."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-le-reemploi-passe-avant-le-recyclage-la-hierarchie-des-dechets",
+    "title": "Pourquoi le réemploi passe avant le recyclage : la hiérarchie des déchets expliquée",
+    "summary": "Depuis la directive européenne 2008/98/CE du 19 novembre 2008, les politiques sur les déchets suivent un ordre de priorité : éviter le déchet, le préparer en vue du réemploi, le recycler, le valoriser autrement, et en dernier recours l'éliminer. Le ministère français de la Transition écologique reprend cette hiérarchie. Le texte européen admet des écarts pour certains flux, quand une analyse fondée sur le cycle de vie le justifie.",
+    "topic": "recyclage",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La directive 2008/98/CE fixe un ordre de priorité : prévention, préparation en vue du réemploi, recyclage, autre valorisation comme la valorisation énergétique, puis élimination.",
+      "Le réemploi concerne des produits qui ne sont pas des déchets et servent de nouveau au même usage ; la préparation en vue du réemploi remet en état, par contrôle, nettoyage ou réparation, des objets devenus déchets.",
+      "Selon le ministère de la Transition écologique, l'élimination ne devrait concerner que les déchets ultimes, ceux qui ne sont plus réutilisables ni valorisables dans les conditions du moment."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un ordre de priorité fixé par l'Europe",
+        "text": "L'article 4 de la directive 2008/98/CE relative aux déchets établit une hiérarchie qui s'applique comme ordre de priorité dans la législation et la politique de prévention et de gestion des déchets. Elle compte cinq niveaux : la prévention, la préparation en vue du réemploi, le recyclage, les autres formes de valorisation, notamment énergétique, et enfin l'élimination. Le ministère français de la Transition écologique présente cette hiérarchie comme un ordre de priorité défini au niveau européen, dont la première priorité est d'éviter la production du déchet."
+      },
+      {
+        "kind": "fait",
+        "heading": "Réemploi, réparation, recyclage : de quoi parle-t-on ?",
+        "text": "La directive distingue plusieurs notions. La prévention regroupe les mesures prises avant qu'une substance, une matière ou un produit ne devienne un déchet. Le réemploi désigne l'utilisation de produits ou de composants qui ne sont pas des déchets pour le même usage que celui pour lequel ils ont été conçus. La préparation en vue du réemploi rassemble les opérations de contrôle, de nettoyage ou de réparation par lesquelles des produits devenus déchets peuvent être réemployés sans autre traitement. Le recyclage, lui, retraite les déchets en produits, matières ou substances, et n'inclut pas la valorisation énergétique."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi garder un objet plutôt que le recycler",
+        "text": "L'ordre suit une logique simple : un objet réemployé ou réparé ne devient pas un déchet, alors que le recyclage suppose de collecter, trier et retraiter la matière. Le ministère rappelle que le recyclage inclut l'étape de préparation de la matière, qui devient une matière première de recyclage. La valorisation énergétique utilise des déchets à la place de combustibles. L'élimination, par incinération sans récupération d'énergie ou par stockage en décharge, est présentée par le ministère comme la solution à éviter autant que possible, réservée aux déchets ultimes."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des exceptions possibles",
+        "text": "La hiérarchie n'est pas absolue. La directive prévoit que certains flux de déchets puissent s'en écarter lorsque cela se justifie par une réflexion fondée sur le cycle de vie, c'est-à-dire sur l'ensemble des impacts de la production et de la gestion de ces déchets. Les États doivent encourager les options qui donnent le meilleur résultat global pour l'environnement. En France, le ministère précise que la prévention figure au sommet de la hiérarchie dans l'article L. 541-1 du code de l'environnement, et que les plans de prévention imposés par la directive sont à réviser tous les six ans."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Directive 2008/98/CE relative aux déchets, article 4 (texte publié sur legislation.gov.uk)",
+        "url": "https://www.legislation.gov.uk/eudr/2008/98/article/4"
+      },
+      {
+        "label": "Directive 2008/98/CE relative aux déchets, article 3, définitions (texte publié sur legislation.gov.uk)",
+        "url": "https://www.legislation.gov.uk/eudr/2008/98/article/3"
+      },
+      {
+        "label": "Ministère de la Transition écologique, Gestion des déchets : principes généraux",
+        "url": "https://www.ecologie.gouv.fr/gestion-des-dechets-principes-generaux"
+      },
+      {
+        "label": "Ministère de la Transition écologique, Cadre général de la prévention des déchets",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/cadre-general-prevention-dechets"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quels sont les cinq niveaux de la hiérarchie européenne des déchets ?",
+        "answer": "Prévention, préparation en vue du réemploi, recyclage, autre valorisation comme la valorisation énergétique, puis élimination."
+      },
+      {
+        "question": "Quelle différence entre réemploi et préparation en vue du réemploi ?",
+        "answer": "Le réemploi concerne des produits qui ne sont pas des déchets ; la préparation en vue du réemploi remet en état, par contrôle, nettoyage ou réparation, des objets devenus déchets."
+      },
+      {
+        "question": "Le recyclage comprend-il la valorisation énergétique des déchets ?",
+        "answer": "Non : selon la directive 2008/98/CE, le recyclage retraite la matière et exclut la valorisation énergétique."
+      },
+      {
+        "question": "Peut-on s'écarter de la hiérarchie des déchets ?",
+        "answer": "Oui, pour certains flux, lorsqu'une réflexion fondée sur le cycle de vie montre qu'une autre option est meilleure pour l'environnement."
+      }
+    ]
+  },
+  {
+    "slug": "qualite-de-l-air-quels-polluants-mesurer-et-a-partir-de-quels-seuils",
+    "title": "Qualité de l'air : quels polluants mesurer, et à partir de quels seuils ?",
+    "summary": "Mesurer la qualité de l'air, c'est suivre la concentration de quelques polluants et la comparer à des seuils de référence. Depuis le 22 septembre 2021, l'Organisation mondiale de la santé recommande des seuils plus bas que ceux de 2005 pour six polluants. Ces lignes directrices ne sont pas juridiquement contraignantes ; Santé publique France les utilise comme valeurs cibles pour estimer les bénéfices sanitaires d'un air plus propre.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Les lignes directrices de l'OMS de 2021 portent sur six polluants : particules PM2,5 et PM10, ozone, dioxyde d'azote, dioxyde de soufre et monoxyde de carbone.",
+      "Chaque seuil est associé à une durée de calcul : moyenne annuelle ou pic saisonnier pour l'exposition à long terme, 24 heures ou 8 heures pour l'exposition à court terme.",
+      "Pour les particules fines PM2,5, le seuil annuel recommandé passe de 10 µg/m3 en 2005 à 5 µg/m3 en 2021 ; en France, près de 40 000 décès par an peuvent être attribués à cette exposition."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Six polluants sous surveillance",
+        "text": "Les lignes directrices mondiales de l'OMS sur la qualité de l'air, publiées le 22 septembre 2021, fixent des seuils pour les particules en suspension, PM2,5 et PM10, l'ozone, le dioxyde d'azote, le dioxyde de soufre et le monoxyde de carbone. Les PM2,5 et PM10 désignent des particules dont le diamètre est inférieur à 2,5 et 10 micromètres. Les concentrations s'expriment en microgrammes par mètre cube d'air, et en milligrammes par mètre cube pour le monoxyde de carbone. Selon l'OMS, citée par les Nations unies, environ 7 millions de décès prématurés sont dus chaque année aux effets de la pollution de l'air."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un seuil n'a de sens qu'avec sa durée",
+        "text": "Une mesure de pollution se lit toujours avec la période sur laquelle elle est calculée. Santé publique France distingue l'exposition à long terme, mesurée par une moyenne annuelle ou un pic saisonnier, et l'exposition à court terme, sur 24 heures ou 8 heures. Les seuils journaliers de l'OMS correspondent au 99e percentile, soit 3 à 4 jours de dépassement par an. Pour l'ozone, le pic saisonnier est la moyenne de la concentration maximale journalière sur 8 heures pendant les six mois consécutifs où l'ozone est le plus élevé."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des seuils abaissés en 2021",
+        "text": "Selon le tableau publié par Santé publique France, le seuil annuel recommandé pour les PM2,5 passe de 10 à 5 µg/m3, celui des PM10 de 20 à 15 µg/m3, et celui du dioxyde d'azote de 40 à 10 µg/m3. De nouveaux seuils apparaissent : 25 µg/m3 sur 24 heures pour le dioxyde d'azote, 60 µg/m3 en pic saisonnier pour l'ozone et 4 mg/m3 sur 24 heures pour le monoxyde de carbone. Comme ces niveaux sont difficiles à atteindre dans les pays très pollués, l'OMS propose aussi des objectifs intermédiaires pour améliorer la qualité de l'air par étapes."
+      },
+      {
+        "kind": "analyse",
+        "heading": "De la mesure à l'impact sur la santé",
+        "text": "Les seuils de l'OMS ne sont pas des limites légales, mais des repères sanitaires. Santé publique France s'en sert comme valeurs cibles dans ses évaluations quantitatives d'impact sanitaire, qui estiment ce que gagnerait la population si la pollution baissait. Pour les particules fines PM2,5, l'agence estime que l'exposition représente en moyenne, pour les personnes de 30 ans et plus, une perte d'espérance de vie de près de 8 mois, et que près de 40 000 décès par an peuvent y être attribués en France."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Santé publique France, Pollution de l'air : l'OMS révise ses seuils de référence, 22 septembre 2021",
+        "url": "https://www.santepubliquefrance.fr/les-actualites/pollution-de-lair-loms-revise-ses-seuils-de-reference-pour-les-principaux-polluants-atmospheriques"
+      },
+      {
+        "label": "Centre régional d'information des Nations unies, Pollution de l'air : les nouvelles lignes directrices de l'OMS, 22 septembre 2021",
+        "url": "https://unric.org/fr/pollution-de-lair-les-nouvelles-lignes-directrices-de-loms/"
+      },
+      {
+        "label": "OMS, Lignes directrices OMS relatives à la qualité de l'air, résumé d'orientation",
+        "url": "https://www.who.int/europe/fr/publications/i/item/9789240034433"
+      }
+    ],
+    "kind": "concept",
+    "dataCards": [
+      {
+        "id": "seuil-pm25-oms",
+        "kind": "comparaison",
+        "headline": "Particules fines PM2,5 : l'OMS divise par deux son seuil annuel recommandé",
+        "source": {
+          "label": "Santé publique France",
+          "url": "https://www.santepubliquefrance.fr/les-actualites/pollution-de-lair-loms-revise-ses-seuils-de-reference-pour-les-principaux-polluants-atmospheriques"
+        },
+        "asOf": "2021-09-22",
+        "imageQuery": "air quality monitoring station",
+        "items": [
+          {
+            "value": 10,
+            "unit": "µg/m3",
+            "label": "Seuil OMS 2005",
+            "scope": "PM2,5, moyenne annuelle",
+            "period": "2005"
+          },
+          {
+            "value": 5,
+            "unit": "µg/m3",
+            "label": "Seuil OMS 2021",
+            "scope": "PM2,5, moyenne annuelle",
+            "period": "2021"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "seuil-no2-oms",
+        "kind": "comparaison",
+        "headline": "Dioxyde d'azote : le seuil annuel passe de 40 à 10 µg/m3",
+        "source": {
+          "label": "Santé publique France",
+          "url": "https://www.santepubliquefrance.fr/les-actualites/pollution-de-lair-loms-revise-ses-seuils-de-reference-pour-les-principaux-polluants-atmospheriques"
+        },
+        "asOf": "2021-09-22",
+        "imageQuery": "traffic exhaust pipe",
+        "items": [
+          {
+            "value": 40,
+            "unit": "µg/m3",
+            "label": "Seuil OMS 2005",
+            "scope": "NO2, moyenne annuelle",
+            "period": "2005"
+          },
+          {
+            "value": 10,
+            "unit": "µg/m3",
+            "label": "Seuil OMS 2021",
+            "scope": "NO2, moyenne annuelle",
+            "period": "2021"
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "deces-pm25-france",
+        "kind": "stat",
+        "headline": "En France, près de 40 000 décès par an attribuables aux particules fines",
+        "source": {
+          "label": "Santé publique France",
+          "url": "https://www.santepubliquefrance.fr/les-actualites/pollution-de-lair-loms-revise-ses-seuils-de-reference-pour-les-principaux-polluants-atmospheriques"
+        },
+        "asOf": "2021-09-22",
+        "note": "Estimation de Santé publique France, « près de 40 000 ».",
+        "imageQuery": "hospital corridor",
+        "measure": {
+          "value": 40000,
+          "unit": "décès par an",
+          "label": "Décès attribuables à l'exposition aux PM2,5",
+          "scope": "France",
+          "period": "chaque année"
+        }
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Sur quels polluants portent les lignes directrices de l'OMS de 2021 sur l'air ?",
+        "answer": "Les particules PM2,5 et PM10, l'ozone, le dioxyde d'azote, le dioxyde de soufre et le monoxyde de carbone."
+      },
+      {
+        "question": "Quel est le seuil annuel recommandé par l'OMS en 2021 pour les particules fines PM2,5 ?",
+        "answer": "5 µg/m3 en moyenne annuelle, contre 10 µg/m3 dans les lignes directrices de 2005."
+      },
+      {
+        "question": "Quelle différence entre exposition à long terme et à court terme à la pollution de l'air ?",
+        "answer": "Le long terme se mesure en moyenne annuelle ou en pic saisonnier ; le court terme sur 24 heures ou 8 heures."
+      },
+      {
+        "question": "Les seuils de l'OMS sur la qualité de l'air sont-ils obligatoires ?",
+        "answer": "Non, ils ne sont pas juridiquement contraignants ; ce sont des repères sanitaires, utilisés par exemple comme valeurs cibles par Santé publique France."
+      }
+    ]
+  },
+  {
+    "slug": "comment-entraine-t-on-un-modele-de-langage-donnees-calcul-et-regles",
+    "title": "Comment entraîne-t-on un modèle de langage : données, calcul et règles",
+    "summary": "Entraîner un modèle de langage, c'est d'abord constituer une base de données, puis faire tourner pendant des semaines ou des mois une quantité de calcul considérable. La CNIL décrit les étapes et les précautions sur les données ; la Commission européenne utilise la quantité de calcul d'entraînement, mesurée en FLOP, pour savoir quelles règles du règlement sur l'IA s'appliquent depuis le 2 août 2025.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la CNIL, le développement d'un système d'IA passe par la constitution d'une base de données, l'apprentissage, du premier entraînement aux tests, puis le déploiement.",
+      "La CNIL demande que les données d'entraînement soient limitées à celles strictement nécessaires, nettoyées et prétraitées, et que leur durée de conservation soit fixée.",
+      "La Commission européenne considère comme modèles d'IA à usage général ceux entraînés avec plus de 10^23 FLOP et capables de générer du langage ; au-delà de 10^25 FLOP s'ajoutent des obligations liées au risque systémique."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Tout commence par une base de données",
+        "text": "Pour la CNIL, le développement d'un système d'IA commence par la constitution de la base de données d'entraînement. Celle-ci doit être limitée aux données strictement nécessaires, nettoyées, prétraitées et prêtes à être utilisées pour l'apprentissage. Quand les données sont collectées par moissonnage sur le web, le responsable doit particulièrement veiller à minimiser la collecte, se limiter aux données librement accessibles et définir à l'avance des critères précis. La CNIL souligne aussi que l'annotation des données d'entraînement est déterminante pour la qualité du modèle et pour la protection des droits des personnes."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'apprentissage, une affaire de calcul",
+        "text": "Vient ensuite l'apprentissage, que la CNIL décrit comme allant du premier entraînement du modèle jusqu'à la phase de test ; la phase de développement dure de quelques semaines à plusieurs mois. La quantité de calcul utilisée se mesure en FLOP, des opérations de calcul. Selon une présentation des lignes directrices de la Commission publiée par l'Institut Future of Life, ce calcul combine la taille du modèle, c'est-à-dire son nombre de paramètres, et la taille de l'ensemble de données d'apprentissage ; il compte l'ensemble des entraînements successifs, et un modèle peut ensuite être modifié en aval par un autre acteur."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des seuils de calcul pour appliquer la loi",
+        "text": "Depuis le 2 août 2025, les obligations du règlement européen sur l'IA pour les modèles d'IA à usage général s'appliquent, indique la Commission européenne. Elle considère comme tels les modèles entraînés avec plus de 10^23 FLOP et capables de générer du langage. Leurs fournisseurs doivent respecter des obligations de transparence et de droit d'auteur. Les modèles dépassant 10^25 FLOP sont soumis à des obligations supplémentaires, dont la notification à la Commission et la garantie de la sûreté et de la sécurité du modèle. Les modèles déjà commercialisés doivent se mettre en conformité d'ici le 2 août 2027."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que la mémoire d'un modèle implique",
+        "text": "Un modèle n'est pas qu'un programme : il porte la trace de ses données. La CNIL rappelle, en citant le Comité européen de la protection des données, que le RGPD s'applique dans de nombreux cas aux modèles entraînés sur des données personnelles, en raison de leurs capacités de mémorisation. Elle cite aussi des risques propres à l'apprentissage, comme l'empoisonnement malveillant en cas d'apprentissage continu. D'où l'intérêt de techniques de protection dès l'apprentissage, comme la confidentialité différentielle ou l'apprentissage fédéré, que mentionne la CNIL."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNIL, IA : tenir compte de la protection des données dans la collecte et la gestion des données, 8 avril 2024",
+        "url": "https://www.cnil.fr/fr/tenir-compte-de-la-protection-des-donnees-dans-la-collecte-et-la-gestion-des-donnees"
+      },
+      {
+        "label": "CNIL, IA : la CNIL finalise ses recommandations sur le développement des systèmes d'IA, 22 juillet 2025",
+        "url": "https://cnil.fr/fr/ia-finalisation-recommandations-developpement-des-systemes-ia"
+      },
+      {
+        "label": "Commission européenne, représentation en France, IA Act : les règles relatives aux modèles d'IA à usage général entrent en vigueur, 1er août 2025",
+        "url": "https://france.representation.ec.europa.eu/informations/ia-act-les-regles-de-lue-relatives-aux-modeles-dia-usage-general-entrent-en-vigueur-2025-08-01_fr"
+      },
+      {
+        "label": "Future of Life Institute, Aperçu des lignes directrices pour les modèles GPAI, 30 juillet 2025",
+        "url": "https://artificialintelligenceact.eu/fr/gpai-guidelines-overview/"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quelles sont les grandes étapes du développement d'un système d'IA selon la CNIL ?",
+        "answer": "La constitution de la base de données, l'apprentissage, du premier entraînement aux tests, puis le déploiement."
+      },
+      {
+        "question": "Qu'est-ce qu'un FLOP dans le cas d'un modèle d'IA ?",
+        "answer": "Une opération de calcul ; on compte les FLOP pour mesurer la quantité de calcul utilisée pour entraîner un modèle."
+      },
+      {
+        "question": "À partir de quel calcul d'entraînement un modèle de langage relève-t-il des règles européennes sur l'IA à usage général ?",
+        "answer": "Selon la Commission européenne, plus de 10^23 FLOP pour un modèle capable de générer du langage ; au-delà de 10^25 FLOP s'ajoutent des obligations renforcées."
+      },
+      {
+        "question": "Pourquoi le RGPD peut-il s'appliquer à un modèle d'IA lui-même ?",
+        "answer": "Parce qu'un modèle entraîné sur des données personnelles peut les mémoriser, selon le Comité européen de la protection des données cité par la CNIL."
+      }
+    ]
+  },
+  {
+    "slug": "comment-fixer-un-prix-de-vente-couts-concurrence-et-prix-acceptable",
+    "title": "Comment fixer un prix de vente : coûts, concurrence et prix acceptable",
+    "summary": "Un prix de vente ne se déduit pas d'une seule formule. Bpifrance Création, le service d'information de la banque publique pour les créateurs d'entreprise, recommande de croiser trois analyses, la demande, la concurrence et les coûts, avant de choisir un positionnement. La loi fixe aussi un plancher : en France, revendre un produit en l'état sous son prix d'achat effectif est interdit, sauf exceptions, selon la DGCCRF.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Bpifrance Création propose quatre approches complémentaires pour fixer un prix : analyser la demande, la concurrence, les coûts, puis choisir un positionnement stratégique.",
+      "Le prix de revient est le coût total supporté pour produire, acquérir ou commercialiser un bien ou un service, charges directes et indirectes comprises ; le connaître évite de vendre à perte.",
+      "Selon la DGCCRF, revendre ou annoncer la revente d'un produit en l'état au-dessous de son prix d'achat effectif est interdit, sauf exceptions comme les soldes, la cessation d'activité ou les produits périssables."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Partir de ce que le client est prêt à payer",
+        "text": "Pour Bpifrance Création, la première approche consiste à mesurer l'attente de prix des clients, aussi appelée prix psychologique. On leur pose deux questions : au-dessous de quel prix le produit ne paraîtrait-il pas de bonne qualité, et au-dessus de quel prix serait-il trop cher ? L'analyse des réponses permet de fixer le prix acceptable par le plus grand nombre de clients. Un client peut aussi accepter de payer plus cher un produit jugé de meilleure qualité ou une nouveauté technologique."
+      },
+      {
+        "kind": "fait",
+        "heading": "Regarder les prix des concurrents",
+        "text": "Deuxième approche : relever les prix pratiqués par les concurrents, sur le terrain ou en ligne, dans une grille qui note la date, le produit, le prix public et les éventuelles opérations promotionnelles. Si l'entreprise veut vendre plus cher que ses concurrents, Bpifrance Création conseille de proposer un « plus concurrentiel », c'est-à-dire un service ou un avantage perceptible par le client qui justifie l'écart."
+      },
+      {
+        "kind": "fait",
+        "heading": "Connaître précisément ses coûts",
+        "text": "Troisième approche : le prix de revient. Bpifrance Création le définit comme le coût total supporté par une entreprise pour produire, acquérir ou commercialiser un bien ou un service, en incluant l'ensemble des charges directes et indirectes engagées jusqu'à sa vente. Les coûts directs comprennent par exemple l'achat de marchandises ou de matières premières, les rémunérations ou la sous-traitance. Les coûts indirects regroupent l'étude de marché, la publicité, les commissions, le loyer, l'électricité, les assurances ou la recherche. Sans connaissance précise de ce prix de revient, l'entreprise risque de vendre à perte."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Trois positionnements possibles",
+        "text": "Une fois ces trois analyses faites, Bpifrance Création distingue trois politiques. La pénétration consiste à fixer un prix relativement bas pour attirer un volume important de clients, avec une marge plus faible. L'alignement place le prix au niveau de la concurrence, ce qui est fréquent au démarrage, à condition de vérifier la rentabilité. L'écrémage vise une clientèle haut de gamme avec un prix plus élevé que la concurrence, souvent décorrélé du coût de revient. Le prix n'est donc pas une simple addition de coûts et de marge : il traduit aussi un choix de clientèle."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le plancher fixé par la loi",
+        "text": "En France, la DGCCRF rappelle qu'il est interdit de revendre ou d'annoncer la revente d'un produit en l'état au-dessous de son prix d'achat effectif. Ce prix correspond au prix unitaire net de la facture d'achat, diminué des autres avantages financiers accordés par le fournisseur, et augmenté des taxes sur le chiffre d'affaires, des taxes spécifiques liées à la revente et du prix du transport. Plusieurs exceptions existent : cessation ou changement d'activité, fins de saison, produits démodés ou techniquement dépassés, réapprovisionnement à la baisse, alignement sur un prix plus bas pratiqué légalement par certains petits magasins de la même zone, produits périssables menacés d'altération rapide et soldes. Ces infractions sont des délits punis d'une amende pouvant atteindre 75 000 euros pour une personne physique et 375 000 euros pour une personne morale."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Bpifrance Création, Comment fixer ses prix dans un projet de création d'entreprise ?",
+        "url": "https://bpifrance-creation.fr/encyclopedie/etapes-creation-dune-entreprise/realiser-son-etude-marche/comment-fixer-ses-prix"
+      },
+      {
+        "label": "Bpifrance Création, lexique : prix de revient",
+        "url": "https://bpifrance-creation.fr/prix-revient"
+      },
+      {
+        "label": "DGCCRF, fiche pratique : la revente à perte",
+        "url": "https://www.economie.gouv.fr/dgccrf/Publications/Vie-pratique/Fiches-pratiques/revente-a-perte"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que le prix psychologique d'un produit ?",
+        "answer": "C'est l'attente de prix des clients : le prix qu'ils jugent acceptable, ni trop bas pour paraître de mauvaise qualité, ni trop élevé."
+      },
+      {
+        "question": "Que comprend le prix de revient d'un bien ou d'un service ?",
+        "answer": "Le coût total pour le produire, l'acquérir ou le commercialiser, avec toutes les charges directes et indirectes engagées jusqu'à sa vente."
+      },
+      {
+        "question": "Qu'est-ce qu'une politique de prix d'écrémage ?",
+        "answer": "Fixer un prix plus élevé que la concurrence pour viser une clientèle haut de gamme, souvent sans lien direct avec le coût de revient."
+      },
+      {
+        "question": "Que signifie l'interdiction de la revente à perte en France ?",
+        "answer": "Il est interdit de revendre un produit en l'état au-dessous de son prix d'achat effectif, sauf exceptions comme les soldes ou les produits périssables."
+      }
+    ]
+  },
+  {
+    "slug": "comment-fonctionne-la-zlecaf-la-zone-de-libre-echange-continentale-africaine",
+    "title": "Comment fonctionne la ZLECAf, la zone de libre-échange continentale africaine",
+    "summary": "Signé à Kigali le 21 mars 2018 et entré en vigueur le 30 mai 2019, l'accord sur la Zone de libre-échange continentale africaine prévoit de supprimer progressivement les droits de douane entre pays africains. Les échanges préférentiels ont officiellement commencé le 1er janvier 2021. Les chiffres de signatures et de ratifications cités datent de 2019 pour l'Union africaine et de décembre 2022 pour le Centre du commerce international.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Les membres doivent d'abord supprimer les droits de douane sur 90 % des produits, puis atteindre au moins 97 % ; 7 % des produits peuvent être classés sensibles et 3 % exclus.",
+      "Le calendrier diffère selon les pays : 5 ans pour les produits ordinaires, 10 ans pour les pays les moins avancés, plus longtemps pour les produits sensibles.",
+      "La ZLECAf n'est pas une union douanière : chaque pays garde son propre tarif vis-à-vis du reste du monde, d'où l'importance des règles d'origine."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un accord signé en 2018, appliqué depuis 2021",
+        "text": "L'accord portant création de la Zone de libre-échange continentale africaine, la ZLECAf, a été signé le 21 mars 2018 à Kigali, au Rwanda, par 44 des 55 États membres de l'Union africaine. Il est entré en vigueur le 30 mai 2019, trente jours après le dépôt du 22e instrument de ratification. Selon le Centre du commerce international, agence commune des Nations unies et de l'OMC, les échanges dans le cadre de la ZLECAf ont officiellement commencé le 1er janvier 2021, et en décembre 2022, 54 des 55 États membres de l'Union africaine, tous sauf l'Érythrée, avaient signé le texte. Le secrétariat de la ZLECAf est installé à Accra, au Ghana."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des droits de douane supprimés par étapes",
+        "text": "Les produits sont répartis en trois catégories. Au moins 90 % des lignes tarifaires sont des produits non sensibles, dont les droits doivent être supprimés en 5 ans, ou en 10 ans pour les pays les moins avancés. Les produits sensibles, 7 % des lignes, disposent de 10 ans, après une période de transition de 5 ans, et de 13 ans pour les pays les moins avancés. Enfin, une liste d'exclusion d'au plus 3 % des lignes n'est pas libéralisée, mais ces produits exclus ne doivent pas dépasser 10 % de la valeur des importations venant des autres États parties. La baisse des tarifs est linéaire, et l'objectif final est de couvrir au moins 97 % des marchandises."
+      },
+      {
+        "kind": "fait",
+        "heading": "Règles d'origine, services et litiges",
+        "text": "Comme la ZLECAf n'est pas une union douanière, sans tarif extérieur commun, il faut prouver qu'un produit est bien africain pour bénéficier des préférences. Les règles d'origine, inscrites à l'annexe 2 de l'accord, s'appuient sur trois approches : la teneur en valeur régionale, le changement de position tarifaire et un processus de fabrication spécifique. L'accord-cadre est complété par des protocoles : marchandises, services et règlement des différends d'abord, puis investissement, concurrence et propriété intellectuelle, et enfin commerce électronique. Le règlement des différends, inspiré de celui de l'OMC, n'est ouvert qu'aux États parties, pas directement aux entreprises."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une mise en œuvre plus lente que le texte",
+        "text": "Signer ne suffit pas à faire circuler les marchandises. Le Centre du commerce international note qu'aucun commerce n'avait eu lieu jusqu'à récemment, notamment parce que les règles d'origine n'étaient pas achevées. Pour amorcer les échanges, une Initiative de commerce guidé a été lancée en octobre 2022 entre huit pays, dont le Cameroun, l'Égypte, le Ghana et le Kenya, pour 96 produits. Les obstacles non tarifaires, comme les formalités ou les normes, doivent être signalés et traités par un mécanisme en ligne. En 2019, le Policy Center for the New South relevait qu'aucun calendrier ni objectif chiffré n'avait été précisé pour ces obstacles."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Centre du commerce international, Découvrir la ZLECAf, décembre 2022",
+        "url": "https://www.macmap.org/offlinedocument/AfCFTA/Discover_AfCFTA_ITC_16122022_fr.pdf"
+      },
+      {
+        "label": "Union africaine, rapport d'étape sur la ZLECAf présenté au sommet de Niamey, juillet 2019",
+        "url": "https://au.int/sites/default/files/documents/37938-doc-champions_report_afcfta_f.pdf"
+      },
+      {
+        "label": "Policy Center for the New South, La ZLECAf, c'est presque parti, 11 juillet 2019",
+        "url": "https://www.policycenter.ma/opinion/la-zlecaf-c%E2%80%99est-presque-parti"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quand l'accord sur la ZLECAf est-il entré en vigueur ?",
+        "answer": "Le 30 mai 2019, après sa signature à Kigali le 21 mars 2018 ; les échanges ont officiellement commencé le 1er janvier 2021."
+      },
+      {
+        "question": "Quelle part des produits doit d'abord être libérée de droits de douane dans la ZLECAf ?",
+        "answer": "90 % des lignes tarifaires, puis au moins 97 % ; 7 % peuvent être sensibles et 3 % exclus."
+      },
+      {
+        "question": "Pourquoi les règles d'origine sont-elles essentielles dans la ZLECAf ?",
+        "answer": "Parce que la ZLECAf n'est pas une union douanière : sans tarif extérieur commun, il faut prouver qu'un produit est africain pour obtenir les préférences."
+      },
+      {
+        "question": "Qu'est-ce que l'Initiative de commerce guidé de la ZLECAf ?",
+        "answer": "Un programme lancé en octobre 2022 pour faire démarrer les échanges préférentiels entre huit pays, pour 96 produits."
+      }
+    ]
+  },
+  {
+    "slug": "comment-verifier-une-information-virale-remonter-a-l-original-et-recouper",
+    "title": "Comment vérifier une information virale : remonter à l'original et recouper",
+    "summary": "Une photo très partagée ou une vidéo spectaculaire ne prouvent rien à elles seules. Deux guides d'éducation aux médias, celui de l'organisation First Draft (édition française de juin 2020) et l'affiche « Fausses infos » du CLEMI (février 2023), proposent la même démarche : retrouver le contenu d'origine, identifier qui l'a produit, quand, où et pourquoi, puis chercher d'autres sources qui confirment.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-27",
+    "updatedAt": "2026-11-27",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "First Draft résume la vérification en cinq piliers : provenance, source, date, localisation et mobile, chacun posé sous forme de question sur le contenu et son auteur.",
+      "Retrouver le contenu d'origine est, pour First Draft, le contrôle le plus important et celui à faire en premier ; la recherche d'image inversée aide à retrouver la première version d'une photo.",
+      "Le CLEMI rappelle qu'une information très partagée n'est pas forcément vraie et qu'il faut vérifier si d'autres médias la confirment avec d'autres sources."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Cinq questions à poser à tout contenu",
+        "text": "Le guide « La vérification de l'information en ligne » de First Draft, organisation spécialisée dans la lutte contre la désinformation, organise le travail autour de cinq piliers. La provenance : s'agit-il du compte, de l'article ou du contenu initial ? La source : qui l'a créé ou qui a pris l'image ? La date : quand a-t-il été créé ? La localisation : où le compte a-t-il été ouvert ou le contenu publié ? Le mobile : pourquoi ? Plus on en sait sur chaque pilier, plus la vérification est fiable. Avant même de commencer, le guide invite à se demander si le contenu est lié à un événement qui a réellement eu lieu."
+      },
+      {
+        "kind": "fait",
+        "heading": "Remonter jusqu'au contenu d'origine",
+        "text": "Pour First Draft, retrouver le contenu d'origine est le contrôle le plus important, celui qu'il faut toujours faire en premier. Beaucoup d'images circulent après avoir été téléchargées puis republiées ailleurs. La recherche d'image inversée, proposée par des outils comme Google Images, Yandex ou TinEye, permet de retrouver des versions plus anciennes d'une même photo ; pour une vidéo, on peut capturer une image et la rechercher de la même façon. Le guide conseille aussi d'archiver ce que l'on trouve, avec des captures d'écran, et, quand c'est possible, de contacter directement la personne qui a pris l'image avant d'affirmer quoi que ce soit sur son identité."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les réflexes de base selon le CLEMI",
+        "text": "L'affiche « Fausses infos » du CLEMI, le service d'éducation aux médias du ministère de l'Éducation nationale, insiste sur quelques réflexes. Plus les sources sont différentes, plus l'information a des chances d'être vraie ; il faut se demander si elle provient directement des personnes concernées. La date compte : une information ancienne n'est peut-être plus vraie. Il faut regarder où elle est publiée, sur un média connu comme sérieux ou sur un site inconnu. Une photo ou une vidéo ne sont pas des preuves suffisantes, car elles peuvent être truquées. Enfin, ce n'est pas parce qu'un contenu est très partagé sur les réseaux sociaux qu'il est vrai."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une vérification rarement infaillible",
+        "text": "Les deux guides convergent : la viralité d'un contenu ne dit rien de sa véracité, et le recoupement par d'autres sources reste la règle. First Draft souligne que la vérification n'est presque jamais infaillible et qu'il faut être honnête sur ce que l'on sait et ce que l'on ne sait pas. Il met aussi en garde : dans certaines conditions, même réfuter un contenu peut renforcer une fausse rumeur, d'où l'intérêt de bien choisir quand et comment en parler. Même des journalistes ou des experts sérieux peuvent se tromper, rappelle le CLEMI."
+      }
+    ],
+    "sources": [
+      {
+        "label": "First Draft, La vérification de l'information en ligne, guide essentiel, édition française, juin 2020",
+        "url": "https://firstdraftnews.org/wp-content/uploads/2020/07/Verifying_Online_Information_Digital_AW_FR.pdf"
+      },
+      {
+        "label": "CLEMI, affiche « Fausses infos », hors-série n° 15, février 2023",
+        "url": "https://www.clemi.fr/sites/default/files/clemi/RepereEMI/fausses_infos_poster.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quels sont les cinq piliers de la vérification selon First Draft ?",
+        "answer": "La provenance, la source, la date, la localisation et le mobile d'un contenu."
+      },
+      {
+        "question": "Quel contrôle faut-il faire en premier pour vérifier un contenu en ligne ?",
+        "answer": "Retrouver le contenu d'origine : c'est le contrôle le plus important selon le guide de First Draft."
+      },
+      {
+        "question": "À quoi sert une recherche d'image inversée ?",
+        "answer": "À retrouver des versions plus anciennes d'une photo, et donc sa première publication, avec des outils comme Google Images, Yandex ou TinEye."
+      },
+      {
+        "question": "Une photo très partagée sur les réseaux sociaux est-elle une preuve ?",
+        "answer": "Non : une photo peut être truquée, et ce n'est pas parce qu'un contenu est très partagé qu'il est vrai."
+      }
+    ]
+  },
+  {
     "slug": "spoutnik-1957-le-bip-venu-de-l-espace-qui-a-fait-naitre-la-nasa",
     "title": "Spoutnik, 1957 : le bip venu de l'espace qui a fait naître la NASA",
     "summary": "Le 4 octobre 1957, l'Union soviétique place en orbite Spoutnik 1, une sphère de 58 cm et 83,6 kg qui fait le tour de la Terre en 98 minutes environ. Surpris, les États-Unis accumulent les échecs avec Vanguard avant de réussir Explorer 1 le 31 janvier 1958, puis créent la NASA, qui ouvre le 1er octobre 1958. Ce récit s'appuie sur les archives historiques de la NASA et sur EBSCO. Il éclaire la compétition spatiale actuelle entre puissances, jusqu'aux projets lunaires.",

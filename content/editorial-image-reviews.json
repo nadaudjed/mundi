@@ -726,6 +726,45 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASES-10_Launch_-_world's_first_reflight_of_an_orbital_class_rocket_(33361035200).jpg"
         }
       ]
+    },
+    {
+      "slug": "mers-du-sud-1720-la-bulle-qui-a-ruine-londres-et-porte-walpole-au-pouvoir",
+      "status": "photo_rejetee",
+      "reason": "Rue actuelle de Walpole (Massachusetts) pour Robert Walpole et la bulle des mers du Sud de 1720 : homonyme, lieu et époque différents.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "Main Street looking south, Walpole MA.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMain_Street_looking_south%2C_Walpole_MA.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "terres-rares-cyclic-materials-choisit-l-allemagne-pour-recycler-des-aimants",
+      "status": "photo_rejetee",
+      "reason": "Schéma de synthèse de nucléotides cycliques pour l'entreprise Cyclic Materials : simple homonymie du mot « Cyclic ».",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "Cyclic nucleotide synthesis.png",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACyclic_nucleotide_synthesis.png"
+        }
+      ]
+    },
+    {
+      "slug": "somalie-le-risque-de-famine-ecarte-a-baidoa-mais-la-malnutrition-infantile",
+      "status": "photo_rejetee",
+      "reason": "Photo de Baidoa en 1992, lors d'une autre famine, pour une actualité de novembre 2026 : époque différente.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "Baidoa 1992 Somalia.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABaidoa_1992_Somalia.jpg"
+        }
+      ]
     }
   ]
 }

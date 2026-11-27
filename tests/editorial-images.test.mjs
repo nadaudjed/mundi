@@ -316,3 +316,18 @@ test("#125 suite : un nom propre du titre cherche une photo, publiée seulement 
   const neuralink={title:"Implant cérébral : Neuralink annonce un essai pivot chez des malades de Charcot",summary:"La société Neuralink a annoncé un essai."};
   assert.equal(citesName(neuralink,{title:"Jean-Martin Charcot portrait.jpg"}),false);
 });
+
+test("#125 suite : photos publiées à tort le 27/11 par la recherche de noms (Cyclic, Walpole, Baidoa)", () => {
+  // Tous les mots du nom : « Cyclic nucleotide synthesis » ne cite pas Cyclic Materials.
+  const cyclic={title:"Terres rares : Cyclic Materials choisit l'Allemagne pour recycler des aimants",summary:"La société Cyclic Materials va recycler des aimants.",publishedAt:"2026-11-27"};
+  assert.equal(citesName(cyclic,{title:"Cyclic nucleotide synthesis.png"}),false);
+  assert.equal(citesName(cyclic,{title:"Cyclic Materials plant Kingston.jpg"}),true);
+  // Récit d'avant 1900 : une rue actuelle de Walpole (Massachusetts) refusée, un document d'époque accepté.
+  const walpole={title:"Mers du Sud, 1720 : la bulle qui a ruiné Londres et porté Walpole au pouvoir",summary:"En 1720, la Compagnie des mers du Sud s'effondre ; Robert Walpole prend la tête du gouvernement.",publishedAt:"2026-11-27"};
+  assert.equal(citesName(walpole,{title:"Main Street looking south, Walpole MA.jpg"}),false);
+  assert.equal(citesName(walpole,{title:"Sir Robert Walpole, 1740, by Jean-Baptiste van Loo.jpg"}),true);
+  // Actualité : pas de photo datée de plus de dix ans.
+  const baidoa={title:"Somalie : le risque de famine écarté à Baidoa, mais la malnutrition infantile persiste",summary:"À Baidoa, la malnutrition des enfants reste élevée.",publishedAt:"2026-11-27"};
+  assert.equal(citesName(baidoa,{title:"Baidoa 1992 Somalia.jpg"}),false);
+  assert.equal(citesName(baidoa,{title:"Baidoa market 2023.jpg"}),true);
+});

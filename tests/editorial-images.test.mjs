@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {imageQueries,selectImage,searchCommons,downloadPhoto,collectEditorialImages} from "../scripts/collect-editorial-images.mjs";
+import {imageQueries,selectImage,searchCommons,downloadPhoto,collectEditorialImages,distinctiveNames,citesName} from "../scripts/collect-editorial-images.mjs";
 function candidate(title="File:Textile recycling facility.jpg",license="CC BY 4.0",url="https://creativecommons.org/licenses/by/4.0/"){
   return {title,imageinfo:[{mime:"image/jpeg",thumburl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/test.jpg/1400px-test.jpg",
     width:1600,height:1000,thumbwidth:1400,thumbheight:875,extmetadata:{
@@ -202,7 +202,9 @@ test("sujets du 25/11 : des repères visuels précis au lieu d'un jeu de plateau
   assert.equal(first("Premier froid de l'hiver : chaque degré perdu ajoute 2 300 MW de demande électrique","energie"),"electricity pylons winter");
   assert.equal(first("Cancer du sein : le Royaume-Uni lance le plus grand essai de dépistage assisté par IA","technologie"),"mammography");
   assert.equal(first("Logement : l'investissement des ménages de l'UE tombe à 8,1 %, au plus bas depuis 2015","economie"),"housing construction");
-  assert.equal(first("Libye : l’ONU réclame une enquête après la destruction d’un navire russe à Benghazi","afrique"),"naval ship harbour");
+  // Nom propre du titre d'abord (publiable seulement si la photo cite Benghazi), puis le repère du sujet.
+  const libye=imageQueries({title:"Libye : l’ONU réclame une enquête après la destruction d’un navire russe à Benghazi",topic:"afrique"});
+  assert.deepEqual(libye.slice(0,2),["Benghazi","naval ship harbour"]);
   assert.equal(first("Impôts non collectés : l'UE perd plus de 200 milliards d'euros par an, selon Bruxelles","finance"),"European Commission Berlaymont");
   assert.ok(imageQueries({title:"!!!",topic:"geopolitique"}).includes("diplomatic conference"));
 });
@@ -295,4 +297,22 @@ test("#125 : chaque publication du 26/11 a une décision de la rédaction, et au
   }
   const rejected=new Set(reviews.flatMap(x=>(x.rejected??[]).map(y=>y.sourceUrl)));
   assert.equal(images.filter(x=>rejected.has(x.sourceUrl)).length,0);
+});
+
+test("#125 suite : un nom propre du titre cherche une photo, publiée seulement si elle le cite", () => {
+  const kodak={title:"Kodak : l'inventeur de l'appareil photo numérique en 1975, en faillite en 2012",summary:"Steven Sasson, ingénieur chez Kodak, invente en 1975 le premier appareil photo numérique.",topic:"technologie"};
+  assert.deepEqual(distinctiveNames(kodak),["Kodak"]);
+  assert.equal(queryPlan(kodak)[0].query,"Kodak");
+  assert.equal(queryPlan(kodak)[0].strength,"nom");
+  assert.equal(citesName(kodak,{title:"Kodak Tower Rochester.jpg"}),true);
+  assert.equal(citesName(kodak,{title:"Office paper FOV 100.png"}),false);
+  // Mots courants en début de titre, pays et institutions génériques : pas un nom à chercher.
+  assert.deepEqual(distinctiveNames({title:"Terres rares : un prix « hors Chine » apparaît aux États-Unis",summary:"Le prix des terres rares."}),[]);
+  assert.deepEqual(distinctiveNames({title:"Méthane : le Parlement européen valide deux ans de délai",summary:"Le méthane importé."}),[]);
+  // Sujet daté en tête de titre (« Suez, 1956 »), et le second nom seul n'est jamais cherché.
+  const suez={title:"Suez, 1956 : quand l'Égypte de Nasser a nationalisé le canal",summary:"Le 26 juillet 1956, Nasser annonce la nationalisation."};
+  assert.deepEqual(distinctiveNames(suez),["Suez","Nasser"]);
+  assert.deepEqual(queryPlan(suez).filter(x=>x.strength==="nom").map(x=>x.query),["Suez Nasser","Suez"]);
+  const neuralink={title:"Implant cérébral : Neuralink annonce un essai pivot chez des malades de Charcot",summary:"La société Neuralink a annoncé un essai."};
+  assert.equal(citesName(neuralink,{title:"Jean-Martin Charcot portrait.jpg"}),false);
 });

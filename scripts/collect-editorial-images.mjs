@@ -161,24 +161,37 @@ export function queryPlan(article){
   const backups=TOPIC_BACKUPS[article?.topic]??[];
   const plan=[];
   const add=(query,strength)=>{if(query&&!plan.some(x=>x.query===query))plan.push({query,strength});};
+  // Noms propres du titre : après les repères forts, avant les recherches faibles. La photo n'est publiée
+  // que si son titre cite le premier nom. Les deux noms ensemble, puis le premier seul (le second seul
+  // trompe : « Charcot » pour Neuralink).
+  const names=distinctiveNames(article);
+  const byName=[];
+  if(names.length>1)byName.push(names.join(" "));
+  if(names[0])byName.push(names[0]);
+  const withNames=list=>{
+    const lead=list.findIndex(x=>x.strength!=="forte");
+    const at=lead<0?list.length:lead;
+    const extra=byName.filter(q=>!list.some(x=>x.query===q)).map(query=>({query,strength:"nom"}));
+    return [...list.slice(0,at),...extra,...list.slice(at)];
+  };
   if(Array.isArray(hint)){
     // For a European demographic story, do not silently choose a family in an
     // unrelated region. Require a Europe-specific query and geographic evidence.
     if(hint[0]==="family children"&&/europ|\bUE\b/i.test(title)){
       for(const q of hint)add(q+" Europe",strengthOf(q+" Europe"));
-      return plan;
+      return withNames(plan);
     }
     // Specific subjects keep their strict cues; only the neutral topic backups follow.
     for(const q of hint)add(q,strengthOf(q));
     for(const q of backups)add(q,"faible");
-    return plan;
+    return withNames(plan);
   }
   const fallback=PHOTO_QUERIES[article?.topic]??"documentary";
   add(hint,hint&&strengthOf(hint));
   if(fromTitle.length>=5)add(fromTitle,"faible");
   add(fallback,"faible");
   for(const q of backups)add(q,"faible");
-  return plan;
+  return withNames(plan);
 }
 export function imageQueries(article){return queryPlan(article).map(x=>x.query);}
 /** Années à quatre chiffres (1800-2099) citées dans un texte. */
@@ -248,6 +261,47 @@ export function subjectConflict(article,candidate,{rejected=new Set()}={}){
 export function namesSubject(article,candidate){
   const words=new Set(foldText(candidate?.title).split(/[^a-z0-9]+/));
   return [...centralSubject(article).entities].filter(e=>e.length>=4&&words.has(e)).length>=2;
+}
+/**
+ * Noms propres distinctifs du titre (#125, suite) : groupes de mots à majuscule (« Deutsche Börse »,
+ * « Stellantis », « Neuralink »), hors lieux (gérés par le contrôle de lieu) et hors mots courants mis
+ * en majuscule en début de titre (« Terres rares », « Comment »). Un mot de début de titre ne compte
+ * que s'il revient avec une majuscule dans le résumé.
+ */
+// Mots à majuscule qui ne désignent pas un sujet photographiable précis : institutions génériques,
+// pays et régions (une photo « de la Somalie » ou « de l'Ukraine » n'illustre pas le fait), points cardinaux.
+const NOT_NAME=/^(ue|eu|onu|union|europeenne|europeen|etat|etats|unis|etats-unis|comment|pourquoi|que|quand|quel|quelle|les|des|une|parlement|autorite|organisation|sommet|bloc|agence|banque|groupe|commission|conseil|comite|cour|tribunal|gouvernement|ministere|lune|terre|nord|sud|est|ouest|mers?|tempo|irlande|angleterre|ecosse|royaume|uni|centrafrique|somalie|egypte|ukraine|russie|chine|japon|inde|bresil|bosnie|serbie|londres|rome|madrid|afrique|asie|amerique|mexique|canada|australie|liberia|congo|rdc|mali|niger|soudan|ethiopie|kenya|nigeria|maroc|algerie|tunisie|turquie|iran|irak|israel|gaza|liban|syrie|pologne|hongrie|roumanie|grece|portugal|espagne|italie|suisse|autriche|belgique|pays|bas|suede|norvege|finlande|danemark)$/;
+export function distinctiveNames(article){
+  const title=String(article?.title??"");
+  const summary=String(article?.summary??"");
+  const phrases=[];
+  for(const m of title.matchAll(/(?:\p{Lu}[\p{L}0-9-]*(?=[\s,:;.!?»)’']|$)[ \t]*)+/gu)){
+    let words=m[0].trim().split(/\s+/).filter(w=>w.length>=3);
+    let datedSubject=false;
+    if(m.index===0&&words.length){
+      // Mot de début de titre : sujet s'il est daté (« Suez, 1956 ») ou s'il revient avec une majuscule au milieu
+      // d'une phrase du résumé ; sinon simple majuscule de phrase (« Terres rares », « Méthane : »).
+      const first=words[0];
+      const esc=first.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+      // « Dayton, novembre 1995 », « Suez, 1956 » : sujet daté.
+      const datedLead=new RegExp("^"+esc+"\\s*,\\s*(\\d|janvier|f[ée]vrier|mars|avril|mai|juin|juillet|ao[uû]t|septembre|octobre|novembre|d[ée]cembre)","iu").test(title);
+      // Revient avec une majuscule au milieu d'une phrase du résumé (« ... le groupe Kodak ... »).
+      const namedInSummary=new RegExp("[\\p{Ll},;:’']\\s*"+esc+"([^\\p{L}]|$)","u").test(summary);
+      datedSubject=datedLead;
+      if(!datedLead&&!namedInSummary)words=words.slice(1);
+    }
+    words=words.filter(w=>!placesIn(w).size&&!NOT_NAME.test(foldText(w)));
+    // Un nom d'un seul mot court (« Hunt ») est trop ambigu pour une recherche de photo.
+    if(words.length&&(words.length>1||words[0].length>=5||datedSubject||/^[\p{Lu}0-9-]{3,}$/u.test(words[0])))phrases.push(words.join(" "));
+  }
+  return [...new Set(phrases)].slice(0,2);
+}
+/** Le titre de la photo cite-t-il le premier nom propre de l'article, sujet de la recherche (mot entier) ? */
+export function citesName(article,candidate){
+  const main=distinctiveNames(article)[0];
+  if(!main)return false;
+  const words=new Set(foldText(candidate?.title).split(/[^a-z0-9]+/));
+  return foldText(main).split(/[^a-z0-9]+/).filter(w=>w.length>=4).some(w=>words.has(w));
 }
 /** Archive (photo de l'époque d'un récit daté) ou illustration (photo d'aujourd'hui, générique). */
 export function visualKind(article,candidate){
@@ -448,7 +502,7 @@ export async function collectEditorialImages(articles,existing=[],{
         if(refusal){lastError=refusal;pending??={query,title:candidate.title,sourceUrl:candidate.url,credit:candidate.author,license:candidate.license,conflict:refusal};continue;}
         // Recherche faible (rubrique, résumé, mots du titre) : proposée à la rédaction, jamais publiée seule,
         // sauf si le titre de la photo nomme le sujet central (deux de ses noms propres : « Amoco Cadiz anchor »).
-        if(strength!=="forte"&&!namesSubject(p,candidate)){
+        if(strength==="nom"?!citesName(p,candidate):strength!=="forte"&&!namesSubject(p,candidate)){
           pending??={query,title:candidate.title,sourceUrl:candidate.url,credit:candidate.author,license:candidate.license};
           continue;
         }

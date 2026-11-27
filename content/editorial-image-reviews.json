@@ -730,13 +730,17 @@
     {
       "slug": "mers-du-sud-1720-la-bulle-qui-a-ruine-londres-et-porte-walpole-au-pouvoir",
       "status": "photo_rejetee",
-      "reason": "Rue actuelle de Walpole (Massachusetts) pour Robert Walpole et la bulle des mers du Sud de 1720 : homonyme, lieu et époque différents.",
+      "reason": "Rue actuelle puis plan de 1882 de Walpole (Massachusetts) pour Robert Walpole et la bulle des mers du Sud de 1720 : homonyme, lieu et époque différents.",
       "reviewedAt": "2026-11-27",
       "ticket": 125,
       "rejected": [
         {
           "title": "Main Street looking south, Walpole MA.jpg",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMain_Street_looking_south%2C_Walpole_MA.jpg"
+        },
+        {
+          "title": "Walpole, Massachusetts - 1882 G3764.W18A3 1882O43.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AWalpole%2C_Massachusetts_-_1882_G3764.W18A3_1882O43.jpg"
         }
       ]
     },
@@ -810,6 +814,45 @@
       "reason": "Archive d'époque : les deux auteurs de la loi, photographiés en 1929.",
       "reviewedAt": "2026-11-27",
       "ticket": 125
+    },
+    {
+      "slug": "suez-1956-quand-l-egypte-de-nasser-a-nationalise-le-canal",
+      "status": "photo_rejetee",
+      "reason": "Nasser sur le front de Suez en 1968 (guerre d'usure) pour la nationalisation du canal de 1956 : autre événement, douze ans plus tard.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "President Nasser's visit to the Suez front with Egypt's top military commanders during the War of Attrition.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APresident_Nasser's_visit_to_the_Suez_front_with_Egypt's_top_military_commanders_during_the_War_of_Attrition.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom-carte-sr1-profil-de-mission",
+      "status": "photo_rejetee",
+      "reason": "Panneau solaire de la sonde Juno pour un vaisseau à propulsion nucléaire : autre engin, autre énergie.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "One of Juno's solar panels.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOne_of_Juno's_solar_panels.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom-carte-sr1-contrat-apl",
+      "status": "photo_rejetee",
+      "reason": "Local technique d'une école norvégienne pour le contrat du vaisseau SR-1 Freedom : sans rapport.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125,
+      "rejected": [
+        {
+          "title": "Teknisk rom (School build. Lilleh. Norway 2024-09. Mechan. room Air ventil. Hot water Heat recov. unit) Aggregat Luft Termometre Isolerte rør kanaler Stige",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATeknisk_rom_(School_build._Lilleh._Norway_2024-09._Mechan._room_Air_ventil._Hot_water_Heat_recov._unit)_Aggregat_Luft_Termometre_Isolerte_r%C3%B8r_kanaler_Stige_etc_IMG_0343.jpg"
+        }
+      ]
     }
   ]
 }

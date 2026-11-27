@@ -301,7 +301,7 @@ export function distinctiveNames(article){
  * Le titre de la photo cite-t-il le premier nom propre de l'article, sujet de la recherche ? (#125, suite)
  * Tous les mots du nom doivent y figurer (« Cyclic Materials » ne valide pas « Cyclic nucleotide
  * synthesis »). Un récit d'avant 1900 (Walpole, 1720) n'accepte qu'un document d'époque daté : une rue
- * actuelle de Walpole (Massachusetts) n'illustre pas Robert Walpole. Une actualité n'accepte pas une
+ * actuelle ou un plan de 1882 de Walpole (Massachusetts) n'illustrent pas Robert Walpole. Une actualité n'accepte pas une
  * photo datée de plus de dix ans (Baidoa en 1992 pour la malnutrition de 2026).
  */
 export function citesName(article,candidate){
@@ -311,8 +311,12 @@ export function citesName(article,candidate){
   const needed=foldText(main).split(/[^a-z0-9]+/).filter(w=>w.length>=3);
   if(!needed.length||!needed.every(w=>words.has(w)))return false;
   const own=[...String(article?.title??"").matchAll(/\b(1[0-9]\d{2}|20\d{2})\b/g)].map(m=>Number(m[1]));
-  const pictured=[...(String(candidate?.title??"")+" "+String(candidate?.description??"")).matchAll(/\b(1[0-9]\d{2}|20\d{2})\b/g)].map(m=>Number(m[1]));
-  if(own.length&&Math.min(...own)<1900)return pictured.some(y=>y<=1950);
+  const pictured=[...(String(candidate?.title??"")+" "+String(candidate?.description??"")+" "+String(candidate?.author??"")).matchAll(/\b(1[0-9]\d{2}|20\d{2})\b/g)].map(m=>Number(m[1]));
+  // Récit daté : la photo doit être de l'époque. Avant 1900, un document daté au plus 60 ans après
+  // (un plan de Walpole, Massachusetts, en 1882 n'illustre pas 1720) ; après 1900, à 5 ans près quand
+  // la photo est datée (Nasser en 1968, guerre d'usure, n'illustre pas la nationalisation de 1956).
+  if(own.length&&Math.min(...own)<1900)return pictured.some(y=>own.some(x=>y>=x-30&&y<=x+60));
+  if(own.length&&pictured.length&&!pictured.some(y=>own.some(x=>Math.abs(x-y)<=5)))return false;
   if(!own.length){
     const now=Number(String(article?.publishedAt??"").slice(0,4))||new Date().getFullYear();
     if(pictured.some(y=>y<now-10))return false;

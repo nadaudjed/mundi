@@ -5,6 +5,9 @@ import { expect, test, type Page } from "@playwright/test";
  * Les deux adresses publiques sont servies par le site local (interception réseau) : le navigateur
  * les traite comme deux origines distinctes, chacune avec son propre stockage.
  */
+// Sans service worker : ses requêtes échappent à l'interception et iraient aux vrais sites publics.
+test.use({ serviceWorkers: "block" });
+
 const LEGACY = "https://mundiapptest.netlify.app";
 const OFFICIAL = "https://mundi.nadaudjacques004.workers.dev";
 

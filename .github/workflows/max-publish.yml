@@ -33,6 +33,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Private editorial stock (separate private repository when MUNDI_STOCK_TOKEN is set)
+        env:
+          MUNDI_STOCK_TOKEN: ${{ secrets.MUNDI_STOCK_TOKEN }}
+        run: scripts/stock-remote.sh
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -51,8 +55,8 @@ jobs:
           ED="${INPUT_EDITION:-}"
           if [ -z "$ED" ]; then if [ "$(date -u +%H)" -ge 11 ]; then ED=aprem; else ED=matin; fi; fi
           case "$ED" in matin) DAY="$DATE";; aprem) DAY="$DATE-aprem";; *) echo "Invalid edition"; exit 1;; esac
-          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
-          git worktree add --detach "$RUNNER_TEMP/mundi-stock" origin/editorial-stock
+          git fetch stock refs/heads/editorial-stock:refs/remotes/stock/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/mundi-stock" stock/editorial-stock
           DIR="$RUNNER_TEMP/mundi-stock/editorial/agents/max/$DAY"
           echo "day=$DAY" >> "$GITHUB_OUTPUT"
           echo "edition=$ED" >> "$GITHUB_OUTPUT"
@@ -84,9 +88,9 @@ jobs:
           if git -C "$S" diff --cached --quiet; then echo "Nothing to archive"; exit 0; fi
           git -C "$S" commit -m "agents: archive Max day $DAY"
           for attempt in 1 2 3 4; do
-            git -C "$S" fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
-            git -C "$S" rebase origin/editorial-stock
-            if git -C "$S" push origin HEAD:refs/heads/editorial-stock; then break; fi
+            git -C "$S" fetch stock refs/heads/editorial-stock:refs/remotes/stock/editorial-stock
+            git -C "$S" rebase stock/editorial-stock
+            if git -C "$S" push stock HEAD:refs/heads/editorial-stock; then break; fi
             if [ "$attempt" -eq 4 ]; then echo "::error::Private stock push failed; publication blocked."; exit 1; fi
             sleep 3
           done
@@ -111,9 +115,9 @@ jobs:
           if ! git -C "$S" diff --cached --quiet; then
             git -C "$S" commit -m "max: link issues $DAY"
             for attempt in 1 2 3 4; do
-              git -C "$S" fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
-              git -C "$S" rebase origin/editorial-stock
-              if git -C "$S" push origin HEAD:refs/heads/editorial-stock; then break; fi
+              git -C "$S" fetch stock refs/heads/editorial-stock:refs/remotes/stock/editorial-stock
+              git -C "$S" rebase stock/editorial-stock
+              if git -C "$S" push stock HEAD:refs/heads/editorial-stock; then break; fi
               if [ "$attempt" -eq 4 ]; then echo "::warning::link-issues.json not saved"; fi
               sleep 3
             done
@@ -145,7 +149,7 @@ jobs:
               "| Validés par le vérificateur | "+r.machineChecked+" |","| Publiés par ce passage | "+a.published.length+" |",""].join("\n");
             require("fs").appendFileSync(process.env.GITHUB_STEP_SUMMARY,md);'
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && github.event.repository.private
         with:
           name: mundi-max-newsroom
           path: |

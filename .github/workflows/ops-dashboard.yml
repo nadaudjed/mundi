@@ -21,6 +21,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Private editorial stock (separate private repository when MUNDI_STOCK_TOKEN is set)
+        env:
+          MUNDI_STOCK_TOKEN: ${{ secrets.MUNDI_STOCK_TOKEN }}
+        run: scripts/stock-remote.sh
       - name: Setup Node 22
         uses: actions/setup-node@v4
         with:
@@ -29,10 +33,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
-          git worktree add --detach "$RUNNER_TEMP/stock" origin/editorial-stock
+          git fetch stock refs/heads/editorial-stock:refs/remotes/stock/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/stock" stock/editorial-stock
       - name: Check that Netlify shows the latest articles
         continue-on-error: true
+        env:
+          MUNDI_SITE_URL: ${{ vars.MUNDI_SITE_URL }}
         run: node scripts/check-live-netlify.mjs
       - name: Build the internal dashboard
         id: ops
@@ -41,7 +47,7 @@ jobs:
           MUNDI_DAILY_BUDGET_USD: ${{ vars.MUNDI_DAILY_BUDGET_USD || '10' }}
         run: node scripts/ops-dashboard.mjs
       - name: Upload private dashboard (30 days)
-        if: always()
+        if: always() && github.event.repository.private
         uses: actions/upload-artifact@v4
         with:
           name: mundi-ops-dashboard

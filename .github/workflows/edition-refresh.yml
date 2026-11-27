@@ -2,7 +2,7 @@ name: MUNDI — édition du jour après minuit (Paris)
 
 # Le site est statique (#125) : sans nouveau commit, l'accueil construit la veille resterait
 # « Aujourd'hui ». Juste après minuit à Paris, ce workflow déclenche un nouveau build Netlify
-# (crochet de déploiement, secret NETLIFY_BUILD_HOOK), puis vérifie que le site servi porte bien
+# (crochet de déploiement Netlify ou Cloudflare Pages, secret MUNDI_DEPLOY_HOOK ou NETLIFY_BUILD_HOOK), puis vérifie que le site servi porte bien
 # la date du jour. Sans le secret, il le signale ; le navigateur affiche de toute façon
 # « Dernière édition » dès que minuit est passé (lib/use-edition-day.ts). Aucun appel payant.
 on:
@@ -35,17 +35,18 @@ jobs:
       - name: Trigger a Netlify build
         if: steps.when.outputs.go == 'true'
         env:
-          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+          HOOK: ${{ secrets.MUNDI_DEPLOY_HOOK || secrets.NETLIFY_BUILD_HOOK }}
         run: |
           if [ -z "$HOOK" ]; then
-            echo "::warning::Secret NETLIFY_BUILD_HOOK absent : ajouter un crochet de déploiement Netlify (Site configuration > Build hooks) dans les secrets du dépôt."
+            echo "::warning::Secret MUNDI_DEPLOY_HOOK absent : ajouter le crochet de déploiement (Cloudflare Pages : Settings > Builds > Deploy hooks ; Netlify : Build hooks) dans les secrets du dépôt."
             exit 0
           fi
           curl -fsS -X POST -d '{}' "$HOOK" > /dev/null
-          echo "Build Netlify demandé."
+          echo "Nouveau build demandé."
           sleep 240
       - name: Verify the served edition date
         if: steps.when.outputs.go == 'true'
         env:
+          MUNDI_SITE_URL: ${{ vars.MUNDI_SITE_URL }}
           MUNDI_CHECK_EDITION: "1"
         run: node scripts/check-live-netlify.mjs

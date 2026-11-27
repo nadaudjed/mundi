@@ -7,7 +7,9 @@ import {readFileSync,writeFileSync,mkdirSync} from "node:fs";
 import {resolve} from "node:path";
 import {pathToFileURL} from "node:url";
 
-const SITE="https://mundiapptest.netlify.app";
+// Adresse du site en production : variable MUNDI_SITE_URL (dépôt : Settings > Variables), sinon Netlify.
+const SITE=(process.env.MUNDI_SITE_URL||"https://mundiapptest.netlify.app").replace(/\/+$/,"");
+const HOST=new URL(SITE).hostname;
 const sleep=ms=>new Promise(done=>setTimeout(done,ms));
 export function checkTargets(publications){
   if(!Array.isArray(publications))throw new Error("Published catalog must be an array");
@@ -41,7 +43,7 @@ export async function probe(site,targets,fetcher=fetch){
       status=response.status;
       const effective=new URL(response.url??site+t.path);
       if(!response.ok)error="HTTP "+status;
-      else if(effective.hostname!=="mundiapptest.netlify.app")error="Unexpected redirect";
+      else if(effective.hostname!==HOST)error="Unexpected redirect";
       else{
         const html=await response.text();
         if(html.length<250)error="HTML response too small";

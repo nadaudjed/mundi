@@ -24,6 +24,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+      - name: Private editorial stock (separate private repository when MUNDI_STOCK_TOKEN is set)
+        env:
+          MUNDI_STOCK_TOKEN: ${{ secrets.MUNDI_STOCK_TOKEN }}
+        run: scripts/stock-remote.sh
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
@@ -56,8 +60,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
-          git worktree add --detach "$RUNNER_TEMP/mundi-editorial-stock" origin/editorial-stock
+          git fetch stock refs/heads/editorial-stock:refs/remotes/stock/editorial-stock
+          git worktree add --detach "$RUNNER_TEMP/mundi-editorial-stock" stock/editorial-stock
           mkdir -p "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days"
           cp reports/agents-results.json "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days/2026-11-23.json"
           cp reports/agents-plan.json "$RUNNER_TEMP/mundi-editorial-stock/editorial/agents/days/2026-11-23-plan.json"
@@ -78,9 +82,9 @@ jobs:
           else
             git -C "$worktree" commit -m "agents: recover and archive reviewed dossiers from failed run 45217101017"
             for attempt in 1 2 3 4; do
-              git -C "$worktree" fetch origin refs/heads/editorial-stock:refs/remotes/origin/editorial-stock
-              git -C "$worktree" rebase origin/editorial-stock
-              if git -C "$worktree" push origin HEAD:refs/heads/editorial-stock; then
+              git -C "$worktree" fetch stock refs/heads/editorial-stock:refs/remotes/stock/editorial-stock
+              git -C "$worktree" rebase stock/editorial-stock
+              if git -C "$worktree" push stock HEAD:refs/heads/editorial-stock; then
                 echo "Recovered dossiers archived, attempt $attempt"
                 break
               fi
@@ -112,7 +116,7 @@ jobs:
           scripts/publish-to-main.sh "agents: recover publications verified in original run 45217101017"
       - name: Archive replay publication decisions for audit
         uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && github.event.repository.private
         with:
           name: mundi-recovered-2026-11-23
           path: reports/autopublish.json

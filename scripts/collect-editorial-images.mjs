@@ -426,7 +426,7 @@ export async function searchCommons(query,fetcher=fetch,options={}){
   for(const [k,v] of Object.entries({action:"query",generator:"search",gsrsearch:query,
     gsrnamespace:"6",gsrlimit:options.strict?"40":"18",prop:"imageinfo",iiprop:"url|mime|size|extmetadata",
     iiurlwidth:"1280",format:"json",formatversion:"2"}))url.searchParams.set(k,v);
-  const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
+  const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundi.nadaudjacques004.workers.dev; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
   if(!reply.ok)throw new Error("Wikimedia Commons HTTP "+reply.status);
   const data=await reply.json();
   const found=selectImage(data?.query?.pages,query,options);
@@ -451,14 +451,14 @@ export async function fetchCommonsFile(file,fetcher=fetch){
   const url=new URL("https://commons.wikimedia.org/w/api.php");
   for(const [k,v] of Object.entries({action:"query",titles:file,prop:"imageinfo",iiprop:"url|mime|size|extmetadata",
     iiurlwidth:"1280",format:"json",formatversion:"2"}))url.searchParams.set(k,v);
-  const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
+  const reply=await fetcher(url.toString(),{headers:{"User-Agent":"MUNDI/1.0 (https://mundi.nadaudjacques004.workers.dev; editorial image selection)","Accept":"application/json"},signal:AbortSignal.timeout(20000)});
   if(!reply.ok)throw new Error("Wikimedia Commons HTTP "+reply.status);
   const data=await reply.json();
   return selectImage(data?.query?.pages,String(file).replace(/^File:/i,"").replace(/\.[a-z]+$/i,""),{strict:false});
 }
 export async function downloadPhoto(candidate,fetcher=fetch){
   if(!validCommonsFileURL(candidate.src))throw new Error("Image host is not an official Wikimedia thumbnail CDN");
-  const res=await fetcher(candidate.src,{headers:{"User-Agent":"MUNDI/1.0 (https://mundiapptest.netlify.app)"},
+  const res=await fetcher(candidate.src,{headers:{"User-Agent":"MUNDI/1.0 (https://mundi.nadaudjacques004.workers.dev)"},
     redirect:"error",signal:AbortSignal.timeout(25000)});
   if(!res.ok)throw new Error("Image download HTTP "+res.status);
   const type=(res.headers.get("content-type")||"").split(";")[0].trim().toLowerCase();

@@ -1,6 +1,6 @@
 import { getStore } from "@netlify/blobs";
 import webpush from "web-push";
-import { planEdition } from "../lib/edition.mjs";
+import { planEdition } from "../../lib/push-edition.mjs";
 
 /**
  * Lancée par Netlify après chaque déploiement réussi. En production seulement :

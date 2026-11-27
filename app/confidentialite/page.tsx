@@ -50,6 +50,11 @@ export default function PrivacyPage() {
           Si vous installez l&apos;application, votre navigateur garde aussi une copie des fichiers du site (styles, scripts, polices) et une page
           « hors connexion ». Aucune donnée personnelle n&apos;y est mise.
         </p>
+        <p className="mt-4 text-[0.95rem] leading-relaxed text-ink/85">
+          MUNDI a changé d&apos;adresse : ces données restent rattachées à l&apos;ancienne. La page{" "}
+          <a href="/transfert/" className="font-medium text-ink underline underline-offset-4">Transférer mes données</a> les emporte vers la
+          nouvelle, dans le lien lui-même (la partie après « # », que le navigateur n&apos;envoie à aucun serveur) ou dans un fichier que vous gardez.
+        </p>
         <div className="mt-5">
           <ClearLocalData />
         </div>
@@ -59,12 +64,12 @@ export default function PrivacyPage() {
         <h2 id="tiers" className="font-display text-2xl font-semibold text-ink">Quand d&apos;autres services interviennent</h2>
         <ul className="mt-4 space-y-3 text-[0.95rem] leading-relaxed text-ink/85">
           <li>
-            <strong className="font-semibold text-ink">Hébergement.</strong> Le site est hébergé par Netlify. Comme tout hébergeur, il reçoit
+            <strong className="font-semibold text-ink">Hébergement.</strong> Le site est hébergé par Cloudflare. Comme tout hébergeur, il reçoit
             les informations techniques nécessaires pour afficher les pages (par exemple l&apos;adresse IP de votre connexion).
           </li>
           <li>
             <strong className="font-semibold text-ink">Notifications.</strong> Seulement si vous les activez dans « Mes sujets ». Votre
-            navigateur fournit alors une adresse technique d&apos;abonnement, gardée chez Netlify pour envoyer l&apos;annonce des éditions
+            navigateur fournit alors une adresse technique d&apos;abonnement, gardée chez Cloudflare pour envoyer l&apos;annonce des éditions
             (via le service de notifications de votre appareil : Apple, Google ou Mozilla). Ni nom, ni e-mail, ni historique de lecture.
             Désactiver l&apos;interrupteur supprime cette adresse.
           </li>

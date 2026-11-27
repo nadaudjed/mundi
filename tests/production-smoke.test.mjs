@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {checkTargets,probe} from "../scripts/check-live-netlify.mjs";
+import {checkTargets,probe} from "../scripts/check-live-site.mjs";
 const pages=[{status:"published",slug:"actualite-verifiee",title:"Une actualité vérifiée avec prudence"}];
 test("production targets cover home, news index and the published story",()=>{
   const v=checkTargets(pages);
@@ -11,10 +11,10 @@ test("production targets cover home, news index and the published story",()=>{
 test("smoke passes only with actual news HTML on the expected host",async()=>{
   const targets=checkTargets(pages),html="<html><head><title>MUNDI Réviser les actualités et les cours</title></head><body>MUNDI — fil des publications sourcées — Publications documentées — Explorer les sujets et les publications — Une actualité vérifiée</body></html>".repeat(6);
   const fetcher=async url=>({ok:true,status:200,url,text:async()=>html});
-  assert.equal((await probe("https://mundiapptest.netlify.app",targets,fetcher)).ok,true);
-  assert.equal((await probe("https://mundiapptest.netlify.app",targets,async url=>
+  assert.equal((await probe("https://mundi.nadaudjacques004.workers.dev",targets,fetcher)).ok,true);
+  assert.equal((await probe("https://mundi.nadaudjacques004.workers.dev",targets,async url=>
     ({ok:true,status:200,url,text:async()=>"<html><body>no public story</body></html>".repeat(15)}))).ok,false);
-  assert.equal((await probe("https://mundiapptest.netlify.app",targets,async url=>
+  assert.equal((await probe("https://mundi.nadaudjacques004.workers.dev",targets,async url=>
     ({ok:false,status:404,url,text:async()=>html}))).ok,false);
   await assert.rejects(probe("https://untrusted.example",targets,fetcher),/Unexpected host/);
 });

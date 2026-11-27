@@ -3,6 +3,7 @@
 import { useBookmarks } from "@/lib/bookmarks";
 import { Icon } from "./Icon";
 import { useToast } from "./Toast";
+import { SITE_URL } from "@/lib/site";
 
 type Variant = "rail" | "inline" | "paper";
 
@@ -32,7 +33,8 @@ export function ShareButton({ slug, title, path, variant = "inline" }: { slug: s
   const toast = useToast();
 
   async function share() {
-    const url = `${window.location.origin}${path ?? `/actualites/${slug}/`}`;
+    // Lien partagé : toujours l'adresse officielle (#129), même depuis l'ancienne adresse ou un aperçu.
+    const url = `${SITE_URL}${path ?? `/actualites/${slug}/`}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: `${title} — MUNDI`, url });

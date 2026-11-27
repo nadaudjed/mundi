@@ -1,14 +1,20 @@
 #!/usr/bin/env node
 /**
  * MUNDI production smoke check, no API keys and no publishing.
- * Inspect the real Netlify host, not a GitHub CI/Netlify deploy-preview.
+ * Inspecte l'adresse officielle (Cloudflare Workers, #129), pas un aperçu : pages, nouveautés, date de
+ * l'édition, version déployée, liens de partage, redirections, notifications, et l'ancienne adresse Netlify.
  */
 import {readFileSync,writeFileSync,mkdirSync} from "node:fs";
 import {resolve} from "node:path";
 import {pathToFileURL} from "node:url";
 
-// Adresse du site en production : variable MUNDI_SITE_URL (dépôt : Settings > Variables), sinon Netlify.
-const SITE=(process.env.MUNDI_SITE_URL||"https://mundiapptest.netlify.app").replace(/\/+$/,"");
+// Adresse officielle : variable MUNDI_SITE_URL (dépôt : Settings > Variables), sinon Cloudflare Workers.
+export const OFFICIAL="https://mundi.nadaudjacques004.workers.dev";
+export const LEGACY="https://mundiapptest.netlify.app";
+// Une ancienne valeur netlify.app est ignorée : l'adresse officielle est désormais Cloudflare (#129).
+const configured=/\.netlify\.app/.test(process.env.MUNDI_SITE_URL||"")?"":process.env.MUNDI_SITE_URL;
+if(configured===""&&process.env.MUNDI_SITE_URL)console.log("::warning::Variable MUNDI_SITE_URL = ancienne adresse Netlify, ignorée : la remplacer par "+OFFICIAL+" (Settings > Secrets and variables > Actions > Variables).");
+const SITE=(configured||OFFICIAL).replace(/\/+$/,"");
 const HOST=new URL(SITE).hostname;
 const sleep=ms=>new Promise(done=>setTimeout(done,ms));
 export function checkTargets(publications){
@@ -65,7 +71,7 @@ export function editionCheck(html,now=new Date()){
   const served=String(html??"").match(/data-edition-today="(\d{4}-\d{2}-\d{2})"/)?.[1]??null;
   const expected=parisDay(now);
   if(!served)return {ok:false,served,expected,error:"Accueil sans date d'édition (data-edition-today) : vérifier que le dernier déploiement contient le correctif #125."};
-  if(served<expected)return {ok:false,served,expected,error:`Le site servi date du ${served} alors qu'on est le ${expected} à Paris : relancer un déploiement Netlify (crochet NETLIFY_BUILD_HOOK ou « Trigger deploy »).`};
+  if(served<expected)return {ok:false,served,expected,error:`Le site servi date du ${served} alors qu'on est le ${expected} à Paris : relancer le workflow « édition du jour après minuit » ou un déploiement Cloudflare (Workers & Pages > mundi > Deployments).`};
   return {ok:true,served,expected};
 }
 /**
@@ -100,9 +106,56 @@ export async function probeAssets(site,targets,fetcher=fetch){
   }
   return results;
 }
+/**
+ * Contrôles propres au changement d'adresse (#129), sur le HTML et les réponses du site officiel.
+ * fetcher(url,{redirect}) → Response. Chaque contrôle renvoie {label,ok,detail}.
+ */
+const meta=(html,prop)=>String(html).match(new RegExp(`<meta[^>]+property="${prop}"[^>]+content="([^"]*)"`))?.[1]??null;
+const canonical=html=>String(html).match(/<link[^>]+rel="canonical"[^>]+href="([^"]*)"/)?.[1]??null;
+export function shareCheck(label,html,site,path){
+  const url=meta(html,"og:url"),img=meta(html,"og:image"),can=canonical(html);
+  const bad=[];
+  if(url!==site+path)bad.push("og:url "+(url??"absent"));
+  if(can!==null&&can!==site+path)bad.push("canonical "+can);
+  if(!img||!img.startsWith(site+"/"))bad.push("og:image "+(img??"absente"));
+  if(/netlify\.app/.test(String(html).match(/<head>[\s\S]*<\/head>/)?.[0]??""))bad.push("l'en-tête cite encore netlify.app");
+  return {label,ok:bad.length===0,detail:bad.join(" ; ")||"liens de partage sur "+new URL(site).hostname};
+}
+export async function migrationChecks(site,publications,{fetcher=fetch,redirections=[],legacy=LEGACY}={}){
+  const get=(u,o={})=>fetcher(u,{redirect:"follow",signal:AbortSignal.timeout(15000),headers:{"User-Agent":"MUNDI-Production-Smoke/1.0"},...o});
+  const out=[];
+  const run=async(label,fn)=>{try{out.push({label,...(await fn())})}catch(e){out.push({label,ok:false,detail:String(e?.message||e).slice(0,150)})}};
+  const latest=publications.filter(p=>p?.status==="published").sort((a,b)=>String(b.publishedAt).localeCompare(String(a.publishedAt)))[0];
+  await run("Accueil : partage",async()=>shareCheck("Accueil : partage",await (await get(site+"/")).text(),site,"/"));
+  if(latest)await run("Article : partage",async()=>{const p="/actualites/"+latest.slug+"/";return shareCheck("Article : partage",await (await get(site+p)).text(),site,p)});
+  await run("Dossier cobalt",async()=>{const p="/dossiers/cobalt-congolais/";const r=await get(site+p);const html=await r.text();const c=shareCheck("",html,site,p);
+    return {ok:r.ok&&html.includes("Suivre ce dossier")&&c.ok,detail:r.ok?(html.includes("Suivre ce dossier")?c.detail:"bouton « Suivre ce dossier » absent"):"HTTP "+r.status}});
+  await run("Bibliothèque et transfert",async()=>{const a=await get(site+"/enregistres/"),b=await get(site+"/transfert/");const ok=a.ok&&b.ok&&(await a.text()).includes("/transfert/");return {ok,detail:ok?"lien de récupération présent":"HTTP "+a.status+" / "+b.status}});
+  await run("Manifeste",async()=>{const r=await get(site+"/manifest.webmanifest");const m=r.ok?await r.json():null;return {ok:m?.start_url==="/",detail:r.ok?"start_url "+m?.start_url:"HTTP "+r.status}});
+  for(const r of redirections)await run("Ancienne URL "+r.from.slice(0,24)+"…",async()=>{const res=await get(site+"/actualites/"+r.from+"/?ref=controle");const u=new URL(res.url);
+    const ok=res.ok&&u.origin===site&&u.pathname==="/actualites/"+r.to+"/";return {ok,detail:ok?"mène à "+u.pathname:"arrivée "+u.pathname+" (HTTP "+res.status+")"}});
+  await run("Notifications",async()=>{const r=await get(site+"/api/push",{headers:{Accept:"application/json"}});const j=await r.json();return {ok:r.ok&&typeof j.enabled==="boolean",info:true,detail:j.enabled?"ouvertes (clé publique servie)":"indisponibles (enabled: false) : secrets VAPID à ajouter sur Cloudflare"}});
+  await run("Ancienne adresse Netlify",async()=>{const r=await get(legacy+"/explorer/?q=cobalt",{redirect:"manual"});const loc=r.headers.get("location")??"";
+    const moved=[301,302,308].includes(r.status)&&loc.startsWith(site+"/explorer/");const t=await get(legacy+"/transfert/",{redirect:"manual"});
+    return {ok:moved&&t.status===200,info:true,detail:moved?"redirige ("+r.status+") vers "+loc+" ; /transfert/ "+(t.status===200?"servie":"HTTP "+t.status):"pas encore redirigée (HTTP "+r.status+")"}});
+  return out;
+}
+/** Version déployée : out/version.json, écrit au build (scripts/cloudflare-files.mjs). */
+export async function deployedVersion(site,fetcher=fetch){
+  try{const r=await fetcher(site+"/version.json",{cache:"no-store",signal:AbortSignal.timeout(15000),headers:{"User-Agent":"MUNDI-Production-Smoke/1.0"}});return r.ok?await r.json():null}catch{return null}
+}
+
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
   const publications=JSON.parse(readFileSync("content/publications.json","utf8"));
   const targets=checkTargets(publications);
+  // MUNDI_EXPECT_COMMIT (contrôle après fusion sur main) : attendre que Cloudflare serve ce commit, 12 min au plus.
+  const commit=process.env.MUNDI_EXPECT_COMMIT;
+  if(commit){
+    let v=null;
+    for(let i=0;i<36;i++){v=await deployedVersion(SITE);if(v?.commit===commit)break;if(i===0)console.log("En attente du déploiement Cloudflare du commit "+commit.slice(0,7)+"…");await sleep(20000)}
+    if(v?.commit!==commit)console.log("FAIL version : Cloudflare sert "+JSON.stringify(v)+" au lieu du commit "+commit+". Vérifier Workers & Pages > mundi > Deployments (build échoué ?).");
+    process.env.MUNDI_EXPECT_BUILD=v?.commit===commit?v.build:"commit "+commit;
+  }
   let report;
   for(let attempt=1;attempt<=6;attempt++){
     report={...(await probe(SITE,targets)),attempt,checkedAt:new Date().toISOString(),
@@ -119,14 +172,21 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
     const home=await fetch(SITE+"/",{headers:{Accept:"text/html","User-Agent":"MUNDI-Production-Smoke/1.0"},signal:AbortSignal.timeout(15000)});
     report.edition=editionCheck(await home.text());
   }catch(e){report.edition={ok:false,error:String(e?.message||e).slice(0,150)}}
+  report.migration=await migrationChecks(SITE,publications,{redirections:read("content/redirections.json")});
+  report.version=await deployedVersion(SITE);
+  // MUNDI_EXPECT_BUILD : identifiant du build que le workflow vient de déployer (écart de version = échec).
+  const expect=process.env.MUNDI_EXPECT_BUILD;
+  report.versionOk=!expect||report.version?.build===expect;
+  console.log((report.versionOk?"OK ":"FAIL ")+"version servie "+JSON.stringify(report.version)+(expect?" (attendue : "+expect+")":""));
+  report.migration.forEach(x=>console.log((x.ok?"OK ":x.info?"INFO ":"FAIL ")+x.label+" — "+x.detail));
   // MUNDI_CHECK_EDITION=1 (passage d'après minuit) : une édition périmée fait échouer le contrôle.
-  if(report.assets.some(x=>!x.ok)||(process.env.MUNDI_CHECK_EDITION==="1"&&!report.edition.ok))report.ok=false;
+  if(report.assets.some(x=>!x.ok)||(process.env.MUNDI_CHECK_EDITION==="1"&&!report.edition.ok)||!report.versionOk||report.migration.some(x=>!x.ok&&!x.info))report.ok=false;
   report.assets.filter(x=>!x.ok).forEach(x=>console.log("FAIL "+x.path+" — "+x.error));
   console.log((report.edition.ok?"OK ":"ATTENTION ")+"édition servie "+(report.edition.served??"?")+" (Paris : "+(report.edition.expected??"?")+")"+(report.edition.error?" — "+report.edition.error:""));
   mkdirSync("reports",{recursive:true});
   writeFileSync("reports/production-smoke.json",JSON.stringify(report,null,2)+"\n");
   if(process.env.GITHUB_STEP_SUMMARY){
-    const md=["## MUNDI — Netlify production smoke", "",report.ok?"Production verified":"Production NOT yet verified","",
+    const md=["## MUNDI — contrôle de production ("+HOST+")", "",report.ok?"Production verified":"Production NOT yet verified","",
       "Source SHA: "+(process.env.GITHUB_SHA||"unknown"),
       "Expected publications in code: "+report.expectedPublications,
       "Attempts: "+report.attempt,"",
@@ -134,6 +194,9 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
       "","Photos et MP3 des dernières publications :",
       ...report.assets.map(x=>"- "+(x.ok?"✅":"❌")+" `"+x.path+"` "+(x.error||"HTTP "+x.status)),
       "","Édition servie : "+(report.edition.served??"inconnue")+" (Paris : "+(report.edition.expected??"?")+") "+(report.edition.ok?"✅":"⚠️ "+report.edition.error),
+      "","Version servie : "+(report.version?("build `"+report.version.build+"`, commit `"+String(report.version.commit).slice(0,7)+"`, édition "+report.version.editionDay):"inconnue (version.json absent)")+(report.versionOk?" ✅":" ❌ attendue "+expect),
+      "","Changement d'adresse (#129) :",
+      ...report.migration.map(x=>"- "+(x.ok?"✅":x.info?"ℹ️":"❌")+" "+x.label+" — "+x.detail),
       "","This validates pages and deployed content availability, not editorial factual accuracy."].join("\n");
     writeFileSync(process.env.GITHUB_STEP_SUMMARY,md+"\n",{flag:"a"});
   }

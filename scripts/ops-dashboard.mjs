@@ -3,7 +3,7 @@
  * MUNDI — tableau de bord interne de fonctionnement (privé, aucune publication, aucun appel d'IA).
  *
  * Lit : la réserve privée `editorial-stock` (pistes RSS, journées des agents, registre),
- * content/publications.json et, si présent, le rapport de contrôle Netlify.
+ * content/publications.json et, si présent, le rapport de contrôle du site officiel.
  * Produit : reports/ops-dashboard.json, reports/ops-dashboard.html et reports/ops-alerts.md.
  * Les alertes signalent une collecte en panne, des agents muets, un site non à jour ou un coût anormal.
  */
@@ -75,10 +75,10 @@ export function buildDashboard({ stock = null, days = [], publications = [], smo
     topicsCovered: Object.values(byTopic).filter((n) => n > 0).length,
     corrections: pubs.filter((p) => Array.isArray(p.corrections) && p.corrections.length).length };
 
-  // 4. Netlify
+  // 4. Site officiel (Cloudflare Workers)
   const site = smoke ? { ok: smoke.ok === true, checkedAt: smoke.checkedAt ?? null,
     failures: (smoke.results || []).filter((r) => !r.ok).map((r) => r.path + " " + (r.error || "")) } : null;
-  if (site && !site.ok) alerts.push("Netlify n'affiche pas tous les derniers contenus : " + site.failures.join(" ; "));
+  if (site && !site.ok) alerts.push("Le site officiel n'affiche pas tous les derniers contenus : " + site.failures.join(" ; "));
 
   const totals = agentDays.reduce((t, d) => {
     for (const k of ["missions", "drafts", "accepted", "rejected", "published"]) t[k] += d[k] || 0;
@@ -111,7 +111,7 @@ ${d.alerts.length ? `<div class="alert"><strong>${d.alerts.length} alerte(s)</st
 <div class="wrap">${table(["Jour", "Missions (J/P)", "Brouillons", "Acceptés", "Rejetés", "Publiés", "Appels API", "Recherches", "Coût estimé"], d.agents.days.map((x) => row([x.date, `${x.missions} (${x.journalists}/${x.professors})`, x.drafts, x.accepted, x.rejected, x.published, x.usage?.calls ?? "non mesuré", x.usage?.webSearches ?? "—", x.usage ? "~" + x.usage.estimatedUsd + " $" : "non mesuré"])))}</div>
 ${d.agents.days.slice(-1).map((x) => `<h3>Erreurs et rejets du ${esc(x.date)}</h3><div class="wrap">${table(["Rubrique", "Rôle", "Cause"], [...x.errors.map((e) => row([e.topic, e.role, e.error])), ...x.rejectedDetails.map((r) => row([r.topic, "rejeté", r.title + " — " + r.reasons.join(" ; ")]))])}</div>`).join("")}
 <h2>Bibliothèque</h2><p>${d.library.total} articles publiés (${d.library.aiVerifiedOnly} vérifiés par l'IA seulement, ${d.library.humanReviewed} relus par un humain) ; ${d.library.topicsCovered}/12 rubriques couvertes.</p>
-<h2>Netlify</h2><p>${d.site ? (d.site.ok ? "Site vérifié : les derniers articles sont en ligne." : "Problème : " + esc(d.site.failures.join(" ; "))) : "Contrôle non exécuté."}</p>
+<h2>Site officiel</h2><p>${d.site ? (d.site.ok ? "Site vérifié : les derniers articles sont en ligne." : "Problème : " + esc(d.site.failures.join(" ; "))) : "Contrôle non exécuté."}</p>
 </body></html>`;
 }
 

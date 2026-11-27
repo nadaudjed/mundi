@@ -74,7 +74,12 @@ c'est définitif.
 - `scripts/stock-remote.sh` : les workflows lisent et écrivent le stock par le remote `stock`. Il pointe vers `mundi-stock` avec le secret `MUNDI_STOCK_TOKEN`, et échoue sans lui.
 - `editorial/agents/MAX_TASKS.md` : les tâches Claude clonent `mundi-stock`.
 - `scripts/cloudflare-files.mjs` : après le build, il écrit `out/_redirects` à partir de `netlify.toml`. On garde ainsi une seule liste de redirections.
-- `MUNDI_SITE_URL` : c'est l'adresse du site pour les liens de partage (`lib/site.ts`) et pour le contrôle après mise en ligne (`check-live-netlify.mjs`).
+- `MUNDI_SITE_URL` : c'est l'adresse du site pour les liens de partage (`lib/site.ts`) et pour le contrôle après mise en ligne (`check-live-site.mjs`).
 - Mentions légales : l'hébergeur affiché est Cloudflare quand le site est construit par Cloudflare.
 - Le rafraîchissement de minuit accepte un crochet Cloudflare (`MUNDI_DEPLOY_HOOK`).
 - Notifications d'édition : elles ne sont pas activées aujourd'hui (pas de clés). Sur Cloudflare, elles restent « bientôt disponibles ». Les deux fonctions Netlify ne sont pas portées.
+
+> **Mise à jour du 27 novembre (#129)** : le site tourne sur **Cloudflare Workers**, pas Pages, à
+> l'adresse officielle https://mundi.nadaudjacques004.workers.dev. Les étapes à jour (secrets du
+> déploiement de minuit, notifications, redirection de Netlify, retour arrière) sont dans
+> [`docs/CLOUDFLARE.md`](CLOUDFLARE.md). Les notifications sont désormais portées sur le Worker.

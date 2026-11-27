@@ -338,6 +338,7 @@ test("#125 suite : un article porté par une institution reçoit une photo véri
   assert.equal(institutionFor({title:"Budget européen 2028-2034 : le sommet de Bruxelles se sépare sans accord"}).name,"Conseil européen");
   assert.equal(institutionFor({title:"Communications lunaires : l’UIT adopte sa première résolution sur l’exploration de la Lune"}).name,"Union internationale des télécommunications");
   assert.equal(institutionFor({title:"Comment lire un bilan d'entreprise : actif, passif et capitaux propres"}),null);
+  assert.equal(institutionFor({title:"Spoutnik, 1957 : le bip venu de l'espace qui a fait naître la NASA"}),null);
   assert.ok(INSTITUTION_PHOTOS.every(x=>x.files.length&&x.files.every(f=>f.startsWith("File:"))));
   const articles=[
     {slug:"evaluations-parlement",status:"published",title:"Évaluations environnementales : le Parlement européen vote un plafond de 300 jours",summary:"Vote.",topic:"environnement"},

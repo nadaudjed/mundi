@@ -499,6 +499,8 @@ export const INSTITUTION_PHOTOS=[
 /** Institution acteur principal du titre (première règle qui correspond), sinon null. */
 export function institutionFor(article){
   const title=String(article?.title??"");
+  // Récit daté (Spoutnik, 1957) : le siège actuel de la NASA serait d'une autre époque.
+  if([...title.matchAll(/\b(1[0-9]\d{2})\b/g)].length)return null;
   return INSTITUTION_PHOTOS.find(x=>x.match.test(title))??null;
 }
 const commonsPage=file=>"https://commons.wikimedia.org/wiki/"+encodeURIComponent(String(file).replace(/^File:/i,"File:").replace(/ /g,"_"));

@@ -42,7 +42,7 @@ jobs:
           MUNDI_ACTION: ${{ inputs.action }}
           MUNDI_NOTE: ${{ inputs.note }}
         run: node scripts/correct-publication.mjs
-      - name: Validate, build and publish to main (Netlify redeploys)
+      - name: Validate, build and publish to main (Cloudflare redeploys)
         shell: bash
         env:
           MUNDI_ACTION: ${{ inputs.action }}

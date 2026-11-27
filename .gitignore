@@ -168,3 +168,7 @@ reports/
 
 # Site de test avec publications inventées (tests E2E uniquement)
 out-fixtures/
+
+# Wrangler (wrangler dev / deploy en local)
+.wrangler/
+.dev.vars

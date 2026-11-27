@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { disablePush, enablePush, pushState, type PushState } from "@/lib/push";
+import { disablePush, enablePush, pushState, testPush, type PushState } from "@/lib/push";
 
 const HELP: Record<Exclude<PushState, "loading" | "on" | "off">, string> = {
   "ios-install": "Sur iPhone, ajoutez d'abord MUNDI à l'écran d'accueil (Partager, puis « Sur l'écran d'accueil »), puis ouvrez l'application pour activer les notifications.",
@@ -24,6 +24,7 @@ const STATE_LABEL: Record<Exclude<PushState, "loading">, string> = {
 export function NotificationsToggle() {
   const [state, setState] = useState<PushState>("loading");
   const [busy, setBusy] = useState(false);
+  const [test, setTest] = useState<"idle" | "sent" | "failed">("idle");
   useEffect(() => {
     let alive = true;
     pushState().then((s) => alive && setState(s)).catch(() => alive && setState("unsupported"));
@@ -59,6 +60,20 @@ export function NotificationsToggle() {
         <p className="max-w-2xl text-sm leading-relaxed text-muted" role="status">{HELP[state]}</p>
       )}
       {state === "on" && <p className="mt-2 text-sm text-muted" role="status">C&apos;est activé : une notification le matin et une l&apos;après-midi, au plus.</p>}
+      {state === "on" && (
+        <p className="mt-2 text-sm">
+          <button type="button" disabled={busy} onClick={async () => setTest((await testPush()) ? "sent" : "failed")}
+            className="font-medium text-ink underline underline-offset-4 disabled:opacity-60" data-testid="notifications-test">
+            M&apos;envoyer une notification d&apos;essai
+          </button>
+          {test === "sent" && <span role="status" className="ml-2 text-muted">Envoyée : elle arrive dans quelques secondes.</span>}
+          {test === "failed" && <span role="status" className="ml-2 text-muted">L&apos;essai n&apos;est pas parti. Réessayez dans une minute.</span>}
+        </p>
+      )}
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+        MUNDI a changé d&apos;adresse : un abonnement pris sur l&apos;ancienne adresse ne suit pas. Pour continuer à être prévenu, activez
+        l&apos;interrupteur ici, sur la nouvelle adresse (sur iPhone, depuis la nouvelle icône ajoutée à l&apos;écran d&apos;accueil).
+      </p>
       <details className="mt-4 max-w-2xl text-sm text-muted">
         <summary className="cursor-pointer font-medium text-ink">Désactivées, indisponibles ou bloquées : quelle différence ?</summary>
         <dl className="mt-2 space-y-2 leading-relaxed">

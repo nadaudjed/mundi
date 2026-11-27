@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { editionName, planEdition, validSubscription } from "../netlify/lib/edition.mjs";
+import { editionName, planEdition, validSubscription } from "../lib/push-edition.mjs";
 
 const items = [{ slug: "b", title: "Deuxième" }, { slug: "a", title: "Premier" }];
 

@@ -3,7 +3,7 @@
 /**
  * Notifications d'édition (Web Push), avec l'accord explicite de la personne.
  * Le navigateur fournit une adresse technique d'abonnement, gardée par le site
- * (Netlify) : ni nom, ni e-mail, ni historique de lecture.
+ * (Worker Cloudflare, worker/push-api.mjs) : ni nom, ni e-mail, ni historique de lecture.
  */
 export type PushState = "loading" | "unsupported" | "ios-install" | "unavailable" | "denied" | "off" | "on";
 const API = "/api/push";
@@ -67,4 +67,13 @@ export async function disablePush(): Promise<PushState> {
     await sub.unsubscribe();
   }
   return "off";
+}
+
+/** Envoie une notification d'essai à cet appareil seulement (au plus une par minute). */
+export async function testPush(): Promise<boolean> {
+  const reg = await navigator.serviceWorker.getRegistration("/");
+  const sub = await reg?.pushManager.getSubscription();
+  if (!sub) return false;
+  const res = await fetch(`${API}/test`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ endpoint: sub.endpoint }) }).catch(() => null);
+  return Boolean(res?.ok);
 }

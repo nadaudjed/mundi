@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { getStore } from "@netlify/blobs";
-import { validSubscription } from "../lib/edition.mjs";
+import { validSubscription } from "../../lib/push-edition.mjs";
 
 /**
  * /api/push : abonnement aux notifications d'édition.

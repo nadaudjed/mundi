@@ -1,10 +1,16 @@
 name: MUNDI — édition du jour après minuit (Paris)
 
 # Le site est statique (#125) : sans nouveau commit, l'accueil construit la veille resterait
-# « Aujourd'hui ». Juste après minuit à Paris, ce workflow déclenche un nouveau build Netlify
-# (crochet de déploiement Netlify ou Cloudflare Pages, secret MUNDI_DEPLOY_HOOK ou NETLIFY_BUILD_HOOK), puis vérifie que le site servi porte bien
-# la date du jour. Sans le secret, il le signale ; le navigateur affiche de toute façon
-# « Dernière édition » dès que minuit est passé (lib/use-edition-day.ts). Aucun appel payant.
+# « Aujourd'hui ». Juste après minuit à Paris, ce workflow reconstruit et redéploie le Worker
+# Cloudflare officiel (#129, wrangler.jsonc), puis vérifie sur https://mundi.nadaudjacques004.workers.dev
+# que la version servie est bien celle qu'il vient de publier et qu'elle porte la date du jour.
+#
+# Déploiement, dans cet ordre :
+#   1. secrets CLOUDFLARE_API_TOKEN et CLOUDFLARE_ACCOUNT_ID : build ici puis `npx wrangler deploy` ;
+#   2. sinon secret MUNDI_DEPLOY_HOOK : crochet de déploiement (ancien réglage, Netlify ou Pages) ;
+#   3. sinon : avertissement, et seul le contrôle tourne. Le navigateur affiche de toute façon
+#      « Dernière édition » dès que minuit est passé (lib/use-edition-day.ts).
+# Aucun appel payant. Voir docs/CLOUDFLARE.md.
 on:
   schedule:
     - cron: '2 23 * * *'   # 00h02 Paris en hiver
@@ -21,32 +27,66 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: npm
       - name: Only after midnight in Paris
         id: when
         run: |
           H=$(TZ=Europe/Paris date +%H)
           if [ "$H" = "00" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; else echo "go=false" >> "$GITHUB_OUTPUT"; echo "Pas minuit à Paris ($H h) : rien à faire."; fi
-      - name: Trigger a Netlify build
+      - name: Choose how to deploy
+        id: how
         if: steps.when.outputs.go == 'true'
         env:
-          HOOK: ${{ secrets.MUNDI_DEPLOY_HOOK || secrets.NETLIFY_BUILD_HOOK }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          HOOK: ${{ secrets.MUNDI_DEPLOY_HOOK }}
         run: |
-          if [ -z "$HOOK" ]; then
-            echo "::warning::Secret MUNDI_DEPLOY_HOOK absent : ajouter le crochet de déploiement (Cloudflare Pages : Settings > Builds > Deploy hooks ; Netlify : Build hooks) dans les secrets du dépôt."
-            exit 0
+          if [ -n "$CF_TOKEN" ] && [ -n "$CF_ACCOUNT" ]; then echo "mode=wrangler" >> "$GITHUB_OUTPUT"
+          elif [ -n "$HOOK" ]; then echo "mode=hook" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=none" >> "$GITHUB_OUTPUT"
+            echo "::warning::Secrets CLOUDFLARE_API_TOKEN et CLOUDFLARE_ACCOUNT_ID absents : l'édition de minuit n'est pas redéployée. Voir docs/CLOUDFLARE.md."
           fi
+      - name: Build the site
+        if: steps.how.outputs.mode == 'wrangler'
+        env:
+          MUNDI_BUILD_ID: refresh-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+          cat out/version.json
+      - name: Deploy the Cloudflare Worker
+        if: steps.how.outputs.mode == 'wrangler'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 deploy --message "Édition du jour après minuit (run ${{ github.run_id }})"
+      - name: Trigger the deploy hook
+        if: steps.how.outputs.mode == 'hook'
+        env:
+          HOOK: ${{ secrets.MUNDI_DEPLOY_HOOK }}
+        run: |
           curl -fsS -X POST -d '{}' "$HOOK" > /dev/null
-          echo "Nouveau build demandé."
+          echo "Nouveau build demandé au crochet ; attente du déploiement."
           sleep 240
-      - name: Verify the served edition date
+      - name: Verify the served version and edition date on the official address
         if: steps.when.outputs.go == 'true'
         env:
           MUNDI_SITE_URL: ${{ vars.MUNDI_SITE_URL }}
           MUNDI_CHECK_EDITION: "1"
-        run: node scripts/check-live-netlify.mjs
+          MUNDI_EXPECT_BUILD: ${{ steps.how.outputs.mode == 'wrangler' && format('refresh-{0}-{1}', github.run_id, github.run_attempt) || '' }}
+        run: node scripts/check-live-site.mjs
+      - name: Upload the report
+        uses: actions/upload-artifact@v4
+        if: always() && steps.when.outputs.go == 'true'
+        with:
+          name: mundi-edition-refresh
+          path: reports/production-smoke.json
+          retention-days: 14
+          if-no-files-found: warn

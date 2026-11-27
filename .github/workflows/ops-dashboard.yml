@@ -35,11 +35,11 @@ jobs:
           set -euo pipefail
           git fetch stock refs/heads/editorial-stock:refs/remotes/stock/editorial-stock
           git worktree add --detach "$RUNNER_TEMP/stock" stock/editorial-stock
-      - name: Check that Netlify shows the latest articles
+      - name: Check that the official site shows the latest articles
         continue-on-error: true
         env:
           MUNDI_SITE_URL: ${{ vars.MUNDI_SITE_URL }}
-        run: node scripts/check-live-netlify.mjs
+        run: node scripts/check-live-site.mjs
       - name: Build the internal dashboard
         id: ops
         env:

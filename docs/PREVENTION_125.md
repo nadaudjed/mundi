@@ -51,7 +51,7 @@ horaire (`editorial-images.yml`) et à chaque remplacement automatique.
 ## 4. Rapports
 
 - **Par lot** (`scripts/batch-report.mjs`, résumé du workflow et `reports/lot.md`) : doublons bloqués et propositions, revues demandées, entrées bloquées, photos publiées ou protégées, couvertures typographiques, visuels en révision et date de la sélection.
-- **Après déploiement** (`scripts/check-live-netlify.mjs`) : domaine principal, pages clés, cinq dernières publications, leurs photos et leurs MP3 (type de fichier vérifié) et date de l'édition servie. Chaque erreur nomme l'article et l'action à mener.
+- **Après déploiement** (`scripts/check-live-site.mjs`) : domaine principal, pages clés, cinq dernières publications, leurs photos et leurs MP3 (type de fichier vérifié) et date de l'édition servie. Chaque erreur nomme l'article et l'action à mener.
 - **Preuve** : `node scripts/batch-report.mjs --replay tests/fixtures/lot-2026-11-26` rejoue les six passages du 26/11, puis les relance. Les tests correspondants sont dans `tests/replay-2026-11-26.test.mjs`.
 
 ## Voies de publication

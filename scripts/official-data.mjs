@@ -28,7 +28,7 @@ export const OFFICIAL_HOSTS = [
   "www.insee.fr", "bdm.insee.fr", "www.data.gouv.fr",
   "data-api.ecb.europa.eu", "www.ecb.europa.eu", "api.worldbank.org", "sdmx.oecd.org", "www.imf.org",
 ];
-const UA = "MUNDI-redaction/1.0 (+https://mundiapptest.netlify.app)";
+const UA = "MUNDI-redaction/1.0 (+https://mundi.nadaudjacques004.workers.dev)";
 
 async function get(url, { fetcher = fetch, accept } = {}) {
   let last;

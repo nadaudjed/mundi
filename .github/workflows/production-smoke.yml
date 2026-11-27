@@ -1,4 +1,4 @@
-name: MUNDI — Netlify production smoke test
+name: MUNDI — contrôle de production (Cloudflare Workers)
 
 on:
   workflow_dispatch:
@@ -6,8 +6,11 @@ on:
     branches: [main]
     paths:
       - 'content/publications.json'
-      - 'scripts/check-live-netlify.mjs'
+      - 'scripts/check-live-site.mjs'
       - '.github/workflows/production-smoke.yml'
+      - 'wrangler.jsonc'
+      - 'worker/**'
+      - 'scripts/cloudflare-files.mjs'
   schedule:
     - cron: '15 12 * * *'
 
@@ -17,7 +20,7 @@ permissions:
 jobs:
   production-smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 20
     steps:
       - name: Checkout current publications
         uses: actions/checkout@v4
@@ -27,10 +30,12 @@ jobs:
           node-version: "22"
       - name: Unit tests for production checker
         run: node --test tests/production-smoke.test.mjs
-      - name: Verify real Netlify deployment and latest public story
+      - name: Verify the official Cloudflare address and latest public story
         env:
           MUNDI_SITE_URL: ${{ vars.MUNDI_SITE_URL }}
-        run: node scripts/check-live-netlify.mjs
+          # Après une fusion sur main : la version servie doit être ce commit (déployé par Workers Builds).
+          MUNDI_EXPECT_COMMIT: ${{ github.event_name == 'push' && github.sha || '' }}
+        run: node scripts/check-live-site.mjs
       - name: Upload availability report
         uses: actions/upload-artifact@v4
         if: always()

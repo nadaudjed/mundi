@@ -23,7 +23,7 @@ test("healthy days produce counts, costs and only real alerts", () => {
   assert.match(renderHtml(d), /web search reported an error/);
 });
 
-test("stale collection, silent agents, overspend and a stale Netlify site raise alerts", () => {
+test("stale collection, silent agents, overspend and a stale official site raise alerts", () => {
   const d = buildDashboard({ now, budgetUsd: 1,
     stock: { ...stock, latestCollection: { ...stock.latestCollection, at: "2026-11-23T06:00:00Z", sourceHealth: [] } },
     days: [day("2026-11-23", { generated: 0 })],
@@ -33,7 +33,7 @@ test("stale collection, silent agents, overspend and a stale Netlify site raise 
   assert.match(all, /tâche quotidienne semble arrêtée/);
   assert.match(all, /aucun brouillon produit/);
   assert.match(all, /au-dessus du seuil/);
-  assert.match(all, /Netlify n'affiche pas/);
+  assert.match(all, /site officiel n'affiche pas/);
 });
 
 test("HTML escapes agent-written text", () => {

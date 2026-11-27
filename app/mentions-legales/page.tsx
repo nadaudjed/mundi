@@ -32,18 +32,9 @@ export default function LegalPage() {
         <div>
           <dt className="font-semibold text-ink">Hébergeur</dt>
           <dd className="mt-1 text-muted">
-            {/* Hébergeur réel du build : Cloudflare (Pages fournit CF_PAGES, Workers Builds WORKERS_CI), sinon Netlify. */}
-            {process.env.CF_PAGES || process.env.WORKERS_CI ? (
-              <>
-                Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis ·{" "}
-                <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">cloudflare.com</a>
-              </>
-            ) : (
-              <>
-                Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, États-Unis ·{" "}
-                <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">netlify.com</a>
-              </>
-            )}
+            {/* Adresse officielle sur Cloudflare Workers (#129) ; l'ancienne adresse Netlify ne fait que rediriger. */}
+            Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis ·{" "}
+            <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">cloudflare.com</a>
           </dd>
         </div>
         <div>

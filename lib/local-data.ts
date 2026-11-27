@@ -13,5 +13,6 @@ export const LOCAL_DATA: { key: string; what: string }[] = [
   { key: "mundi:feed-position", what: "L’écran du Fil où vous étiez (sessionStorage), pour y revenir avec le bouton Retour ; effacé à la fermeture de l’onglet." },
   { key: "mundi:feed-seed", what: "Le tirage qui mélange un peu l’ordre du Fil (sessionStorage), pour garder le même ordre dans cet onglet ; effacé à sa fermeture." },
   { key: "mundi:intro:v2", what: "L’heure de votre première visite, pour ne jouer l’animation d’entrée qu’une seule fois." },
+  { key: "mundi:transfert", what: "Sur l’ancienne adresse seulement : la date à laquelle vous avez emporté vos données vers la nouvelle adresse, pour ne plus vous proposer le transfert." },
   { key: "mundi:motion-paused", what: "Ancien réglage « pause des décors animés », qui n’est plus utilisé : les décors ne bougent plus. Effacé avec le reste." },
 ];

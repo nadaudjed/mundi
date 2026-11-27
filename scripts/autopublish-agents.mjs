@@ -97,9 +97,9 @@ export async function checkLinks(urls, { fetcher = fetch, searchedUrls = [] } = 
   const searched = new Set(searchedUrls.map(norm));
   const bad = [], blocked = [], ok = [];
   for (const url of urls) {
-    let status = await probe(url, fetcher, "MUNDI-link-check/1.1 (+https://mundiapptest.netlify.app)");
+    let status = await probe(url, fetcher, "MUNDI-link-check/1.1 (+https://mundi.nadaudjacques004.workers.dev)");
     if (!(status >= 200 && status < 300) && (status === 0 || BOT_BLOCK.has(status)))
-      status = await probe(url, fetcher, "Mozilla/5.0 (compatible; MUNDI-link-check/1.1; +https://mundiapptest.netlify.app)");
+      status = await probe(url, fetcher, "Mozilla/5.0 (compatible; MUNDI-link-check/1.1; +https://mundi.nadaudjacques004.workers.dev)");
     if (status >= 200 && status < 300) ok.push(url);
     else if (BOT_BLOCK.has(status) && searched.has(norm(url))) blocked.push(url);
     else bad.push(url + (status ? " (HTTP " + status + ")" : " (injoignable)"));

@@ -13,11 +13,14 @@ if [ -n "${MUNDI_STOCK_TOKEN:-}" ]; then
   echo "::add-mask::$MUNDI_STOCK_TOKEN"
   URL="https://github.com/$REPO.git"
   git remote add stock "$URL"
-  # actions/checkout ajoute un en-tête d'authentification pour tout github.com (jeton du dépôt du site) ;
-  # une règle plus précise, propre à l'adresse du stock, la remplace pour ce dépôt seulement.
+  # actions/checkout ajoute un en-tête d'authentification pour tout github.com (jeton du dépôt du site).
+  # Git cumule les en-têtes : une valeur vide, propre à l'adresse du stock, vide la liste, puis la clé du
+  # stock est ajoutée. Sans cette remise à zéro, GitHub refuse la requête (« Duplicate header »).
   AUTH=$(printf 'x-access-token:%s' "$MUNDI_STOCK_TOKEN" | base64 -w0)
   echo "::add-mask::$AUTH"
-  git config "http.$URL/.extraheader" "AUTHORIZATION: basic $AUTH"
+  git config --unset-all "http.$URL/.extraheader" 2>/dev/null || true
+  git config --add "http.$URL/.extraheader" ""
+  git config --add "http.$URL/.extraheader" "AUTHORIZATION: basic $AUTH"
   echo "Stock éditorial : dépôt privé $REPO."
 else
   git remote add stock "$(git remote get-url origin)"

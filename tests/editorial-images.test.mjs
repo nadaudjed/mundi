@@ -355,3 +355,16 @@ test("#125 suite : un article porté par une institution reçoit une photo véri
   assert.notEqual(images[0].sourceUrl,images[1].sourceUrl);
   assert.ok(images.every(x=>x.searchQuery==="institution : Parlement européen"&&x.alt.includes("Hémicycle")));
 });
+
+test("#125 suite : archive du domaine public acceptée (marque domaine public), toujours créditée", () => {
+  const pd=candidate("File:Smoot and Hawley standing together, April 11, 1929.jpg","Public domain","");
+  const pic=selectImage([pd],"Smoot Hawley");
+  assert.equal(pic.license,"Domaine public");
+  assert.equal(pic.licenseUrl,"https://creativecommons.org/publicdomain/mark/1.0/");
+  assert.equal(pic.author,"Photo & Artist");
+  const anonymous=candidate("File:Smoot and Hawley.jpg","Public domain","");delete anonymous.imageinfo[0].extmetadata.Artist;
+  assert.equal(selectImage([anonymous],"Smoot Hawley"),null);
+  // Les révisions approuvées du 27/11 désignent des fichiers Commons exacts.
+  const reviews=JSON.parse(readJson26("content/editorial-image-reviews.json","utf8")).items.filter(x=>x.status==="approuvee");
+  assert.ok(reviews.length>=5&&reviews.every(x=>x.file.startsWith("File:")&&x.alt.length>=10&&x.reason.length>=20));
+});

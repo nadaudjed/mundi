@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {imageQueries,selectImage,searchCommons,downloadPhoto,collectEditorialImages,distinctiveNames,citesName} from "../scripts/collect-editorial-images.mjs";
+import {imageQueries,selectImage,searchCommons,downloadPhoto,collectEditorialImages,distinctiveNames,citesName,institutionFor,INSTITUTION_PHOTOS} from "../scripts/collect-editorial-images.mjs";
 function candidate(title="File:Textile recycling facility.jpg",license="CC BY 4.0",url="https://creativecommons.org/licenses/by/4.0/"){
   return {title,imageinfo:[{mime:"image/jpeg",thumburl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/test.jpg/1400px-test.jpg",
     width:1600,height:1000,thumbwidth:1400,thumbheight:875,extmetadata:{
@@ -330,4 +330,26 @@ test("#125 suite : photos publiées à tort le 27/11 par la recherche de noms (C
   const baidoa={title:"Somalie : le risque de famine écarté à Baidoa, mais la malnutrition infantile persiste",summary:"À Baidoa, la malnutrition des enfants reste élevée.",publishedAt:"2026-11-27"};
   assert.equal(citesName(baidoa,{title:"Baidoa 1992 Somalia.jpg"}),false);
   assert.equal(citesName(baidoa,{title:"Baidoa market 2023.jpg"}),true);
+});
+
+test("#125 suite : un article porté par une institution reçoit une photo vérifiée de son siège, jamais deux fois la même", async () => {
+  assert.equal(institutionFor({title:"Bruxelles autorise sans condition le rachat d'Allfunds par Deutsche Börse"}).name,"Deutsche Börse");
+  assert.equal(institutionFor({title:"BCE : en octobre, un grand nombre de gouverneurs étaient prêts à relever les taux"}).name,"Banque centrale européenne");
+  assert.equal(institutionFor({title:"Budget européen 2028-2034 : le sommet de Bruxelles se sépare sans accord"}).name,"Conseil européen");
+  assert.equal(institutionFor({title:"Communications lunaires : l’UIT adopte sa première résolution sur l’exploration de la Lune"}).name,"Union internationale des télécommunications");
+  assert.equal(institutionFor({title:"Comment lire un bilan d'entreprise : actif, passif et capitaux propres"}),null);
+  assert.ok(INSTITUTION_PHOTOS.every(x=>x.files.length&&x.files.every(f=>f.startsWith("File:"))));
+  const articles=[
+    {slug:"evaluations-parlement",status:"published",title:"Évaluations environnementales : le Parlement européen vote un plafond de 300 jours",summary:"Vote.",topic:"environnement"},
+    {slug:"methane-parlement",status:"published",title:"Méthane : le Parlement européen valide deux ans de délai pour les importateurs d’énergie",summary:"Vote.",topic:"environnement"},
+  ];
+  const fetched=[];
+  const fetchFile=async(file)=>{fetched.push(file);const name=file.replace(/^File:/,"");
+    return {url:"https://commons.wikimedia.org/wiki/"+encodeURIComponent(file.replace(/ /g,"_")),src:"https://upload.wikimedia.org/x.jpg",title:name,author:"Photographe",license:"CC BY-SA 3.0",licenseUrl:"https://creativecommons.org/licenses/by-sa/3.0/"};};
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),"mundi-inst-"));
+  const {images}=await collectEditorialImages(articles,[],{search:async()=>null,download:async()=>({ext:"jpg",buffer:Buffer.from([0xff,0xd8,1,2])}),
+    fetchFile,root,reviews:{items:[]},day:"2026-11-27"});
+  assert.equal(images.length,2);
+  assert.notEqual(images[0].sourceUrl,images[1].sourceUrl);
+  assert.ok(images.every(x=>x.searchQuery==="institution : Parlement européen"&&x.alt.includes("Hémicycle")));
 });

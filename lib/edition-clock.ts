@@ -6,7 +6,7 @@
 export function editionNow(): Date {
   const fixed = process.env.MUNDI_TEST_NOW;
   if (!fixed) return new Date();
-  if (process.env.NETLIFY || process.env.CONTEXT || process.env.CF_PAGES) throw new Error("MUNDI_TEST_NOW est réservé aux tests locaux.");
+  if (process.env.NETLIFY || process.env.CONTEXT || process.env.CF_PAGES || process.env.WORKERS_CI) throw new Error("MUNDI_TEST_NOW est réservé aux tests locaux.");
   const d = new Date(fixed);
   if (Number.isNaN(d.getTime())) throw new Error("MUNDI_TEST_NOW invalide : " + fixed);
   return d;

@@ -1,0 +1,13 @@
+// MUNDI sur Cloudflare (Workers Builds) : site statique seul, sans code serveur.
+// Build : `npm run build` (export Next.js dans out/, plus out/_redirects généré depuis netlify.toml).
+// Déploiement : `npx wrangler deploy` publie le dossier out/ comme fichiers statiques.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mundi",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

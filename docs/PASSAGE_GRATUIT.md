@@ -71,8 +71,8 @@ c'est définitif.
 
 ## Ce qui a été adapté dans le code
 
-- `scripts/stock-remote.sh` : les workflows lisent et écrivent le stock par le remote `stock`. Il pointe vers `mundi-stock` quand le secret `MUNDI_STOCK_TOKEN` existe, sinon vers l'ancienne branche, pour que rien ne casse avant la bascule.
-- `editorial/agents/MAX_TASKS.md` : les tâches Claude clonent `mundi-stock`, avec un repli sur l'ancienne branche tant qu'il n'existe pas.
+- `scripts/stock-remote.sh` : les workflows lisent et écrivent le stock par le remote `stock`. Il pointe vers `mundi-stock` avec le secret `MUNDI_STOCK_TOKEN`, et échoue sans lui.
+- `editorial/agents/MAX_TASKS.md` : les tâches Claude clonent `mundi-stock`.
 - `scripts/cloudflare-files.mjs` : après le build, il écrit `out/_redirects` à partir de `netlify.toml`. On garde ainsi une seule liste de redirections.
 - `MUNDI_SITE_URL` : c'est l'adresse du site pour les liens de partage (`lib/site.ts`) et pour le contrôle après mise en ligne (`check-live-netlify.mjs`).
 - Mentions légales : l'hébergeur affiché est Cloudflare quand le site est construit par Cloudflare.

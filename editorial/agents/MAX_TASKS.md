@@ -47,10 +47,9 @@ viennent de là, pas d'un média qui les reprend. Le vérificateur refait la mê
 cd /home/user/mundi 2>/dev/null || { git clone https://github.com/nadaudjed/mundi /home/user/mundi && cd /home/user/mundi; }
 git fetch origin main && git checkout -q --detach origin/main
 rm -rf ../mundi-stock && git worktree prune
-# Stock privé : dépôt séparé nadaudjed/mundi-stock (le dépôt du site peut être public). Tant qu'il n'existe pas,
-# ancienne branche editorial-stock de ce dépôt. Les commandes suivantes sont les mêmes dans les deux cas.
-git clone -q --branch editorial-stock https://github.com/nadaudjed/mundi-stock ../mundi-stock 2>/dev/null \
-  || { git fetch origin editorial-stock && git worktree add --detach ../mundi-stock origin/editorial-stock; }
+# Stock privé : dépôt séparé nadaudjed/mundi-stock, seul emplacement du stock (le dépôt mundi est public).
+# Si ce clone échoue, ARRÊTER la tâche et le signaler : ne jamais créer ni pousser editorial-stock dans mundi.
+git clone -q --branch editorial-stock https://github.com/nadaudjed/mundi-stock ../mundi-stock
 ```
 
 Pour pousser vers la branche privée (jamais de force) :

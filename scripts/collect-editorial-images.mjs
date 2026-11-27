@@ -114,6 +114,7 @@ const ALLOWED_LICENSES=new Map([
   ["cc by 2.0","https://creativecommons.org/licenses/by/2.0/"],
   ["cc by-sa 2.0","https://creativecommons.org/licenses/by-sa/2.0/"]
 ]);
+const PUBLIC_DOMAIN_MARK="https://creativecommons.org/publicdomain/mark/1.0/";
 /* Coupe par caractères (pas par unités UTF-16) : un demi-emoji rendait le JSON illisible au build. */
 const clean=(s,n=160)=>Array.from(String(s??"").replace(/<[^>]*>/g," ").replace(/&(?:nbsp|amp|quot|lt|gt);/gi,m=>({"&nbsp;":" ","&amp;":"&","&quot;":'"',"&lt;":"<","&gt;":">"}[m.toLowerCase()]??m)).replace(/\s+/g," ").trim()).slice(0,n).join("");
 /**
@@ -367,8 +368,11 @@ export function selectImage(pages,query,{exclude=new Set(),strict=false}={}){
     const ext=info?.extmetadata??{};
     const license=clean(ext.LicenseShortName?.value,45).toLowerCase();
     const licenseUrl=clean(ext.LicenseUrl?.value,250);
-    const expected=ALLOWED_LICENSES.get(license);
-    if(!expected||!validLicenseURL(licenseUrl,expected))continue;
+    // Domaine public (#125, suite) : archives d'époque (Smoot et Hawley en 1929, photos de la Library of
+    // Congress…). Commons n'y joint pas de lien de licence : la page renvoie à la marque « domaine public ».
+    const publicDomain=license==="public domain";
+    const expected=publicDomain?PUBLIC_DOMAIN_MARK:ALLOWED_LICENSES.get(license);
+    if(!expected||(!publicDomain&&!validLicenseURL(licenseUrl,expected)))continue;
     const artist=clean(ext.Attribution?.value||ext.Artist?.value,140);
     if(!artist)continue;
     if(!["image/jpeg","image/png","image/webp"].includes(info.mime))continue;
@@ -415,7 +419,7 @@ export function selectImage(pages,query,{exclude=new Set(),strict=false}={}){
     }
     // The Wikimedia search relevance alone does not prove exact-event identity.
     candidates.push({match,url,src:info.thumburl,
-      title:imageTitle,description:clean(ext.ImageDescription?.value,300),author:artist,license:clean(ext.LicenseShortName?.value,45),
+      title:imageTitle,description:clean(ext.ImageDescription?.value,300),author:artist,license:publicDomain?"Domaine public":clean(ext.LicenseShortName?.value,45),
       licenseUrl:expected,width:info.thumbwidth??info.width,height:info.thumbheight??info.height});
   }
   candidates.sort((a,b)=>b.match-a.match);
@@ -532,7 +536,7 @@ export async function collectEditorialImages(articles,existing=[],{
         writeFileSync(path,file.buffer);
         out.push({slug:p.slug,src:local,alt:typeof approved.alt==="string"&&approved.alt.length>=10?approved.alt:"Photographie d'illustration : "+candidate.title,
           title:candidate.title,credit:candidate.author,license:candidate.license,licenseUrl:candidate.licenseUrl,sourceUrl:candidate.url,
-          kind:"illustration",review:"automated-license-and-title-check",retrievedAt:day,searchQuery:"approuvée : "+approved.file});
+          kind:visualKind(p,candidate),review:"automated-license-and-title-check",retrievedAt:day,searchQuery:"approuvée : "+approved.file});
         known.add(p.slug);report.push({slug:p.slug,status:"added",query:"approved file"});
       }catch(error){report.push({slug:p.slug,status:"approved_file_failed",error:String(error?.message||error).slice(0,120)});}
       continue;

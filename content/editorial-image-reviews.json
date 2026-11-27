@@ -765,6 +765,51 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABaidoa_1992_Somalia.jpg"
         }
       ]
+    },
+    {
+      "slug": "allemagne-accord-salarial-pour-3-7-millions-de-salaries-de-la-metallurgie",
+      "status": "approuvee",
+      "file": "File:2022-11-16 Warnstreik Tarifrunde IG Metall und Elektro, Beginn Opernplatz Hannover, 12.jpg",
+      "alt": "Grève d'avertissement d'IG Metall pendant les négociations salariales de la métallurgie, Hanovre, 2022",
+      "reason": "Photo d'une négociation salariale d'IG Metall dans la métallurgie allemande : même syndicat, même branche.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125
+    },
+    {
+      "slug": "terres-rares-un-prix-hors-chine-apparait-aux-etats-unis-jusqu-a-60-plus-cher",
+      "status": "approuvee",
+      "file": "File:Mountain Pass Rare Earth Mine & Processing Facility.jpg",
+      "alt": "Mine et usine de terres rares de Mountain Pass, en Californie",
+      "reason": "La principale mine de terres rares des États-Unis, au cœur d'un prix « hors Chine ».",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125
+    },
+    {
+      "slug": "france-la-hausse-des-prix-de-l-energie-ralentit-a-19-2-sur-un-an-en-novembre",
+      "status": "approuvee",
+      "file": "File:Compteur Linky tout juste installé (France).jpg",
+      "alt": "Compteur électrique Linky dans un logement en France",
+      "reason": "Compteur électrique d'un foyer français, pour une hausse des prix de l'énergie en France.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125
+    },
+    {
+      "slug": "crise-de-l-etain-octobre-1985-quand-le-stock-regulateur-mondial-a-fait-faillite",
+      "status": "approuvee",
+      "file": "File:LME Entrance.jpg",
+      "alt": "Entrée du London Metal Exchange, la bourse des métaux de Londres",
+      "reason": "Le London Metal Exchange, où la cotation de l'étain a été suspendue en octobre 1985 ; photo actuelle, présentée comme illustration.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125
+    },
+    {
+      "slug": "smoot-hawley-juin-1930-la-hausse-des-droits-de-douane-qui-a-aggrave-la-crise",
+      "status": "approuvee",
+      "file": "File:Smoot and Hawley standing together, April 11, 1929.jpg",
+      "alt": "Le sénateur Reed Smoot et le représentant Willis Hawley, le 11 avril 1929",
+      "reason": "Archive d'époque : les deux auteurs de la loi, photographiés en 1929.",
+      "reviewedAt": "2026-11-27",
+      "ticket": 125
     }
   ]
 }

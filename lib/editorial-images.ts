@@ -14,7 +14,9 @@ const LICENSES=["https://creativecommons.org/licenses/by/4.0/",
   "https://creativecommons.org/licenses/by-sa/3.0/",
   "https://creativecommons.org/licenses/by/2.0/",
   "https://creativecommons.org/licenses/by-sa/2.0/",
-  "https://creativecommons.org/publicdomain/zero/1.0/"];
+  "https://creativecommons.org/publicdomain/zero/1.0/",
+  // Archives du domaine public (Wikimedia Commons, sans lien de licence propre) : marque « domaine public ».
+  "https://creativecommons.org/publicdomain/mark/1.0/"];
 const HTTPS=(s:unknown,host:string)=>{try{const u=new URL(String(s));return u.protocol==="https:"&&u.hostname===host&&!u.username&&!u.password;}catch{return false;}};
 export function validateEditorialPhotos(items:unknown):string[]{
   if(!Array.isArray(items))return ["Catalogue photographique invalide"];

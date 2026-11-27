@@ -1984,20 +1984,6 @@
     "searchQuery": "Dayton"
   },
   {
-    "slug": "mers-du-sud-1720-la-bulle-qui-a-ruine-londres-et-porte-walpole-au-pouvoir",
-    "src": "/media/editorial/mers-du-sud-1720-la-bulle-qui-a-ruine-londres-et-porte-walpole-au-pouvoir.jpg",
-    "alt": "Photographie d'illustration : Main Street looking south, Walpole MA.jpg",
-    "title": "Main Street looking south, Walpole MA.jpg",
-    "credit": "John Phelan",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMain_Street_looking_south%2C_Walpole_MA.jpg",
-    "kind": "illustration",
-    "review": "automated-license-and-title-check",
-    "retrievedAt": "2026-11-27",
-    "searchQuery": "Walpole"
-  },
-  {
     "slug": "kodak-l-inventeur-de-l-appareil-photo-numerique-en-1975-en-faillite-en-2012",
     "src": "/media/editorial/kodak-l-inventeur-de-l-appareil-photo-numerique-en-1975-en-faillite-en-2012.jpg",
     "alt": "Photographie d'illustration : Kodak-Vollenda620-detail.jpg",
@@ -2026,20 +2012,6 @@
     "searchQuery": "Stellantis"
   },
   {
-    "slug": "terres-rares-cyclic-materials-choisit-l-allemagne-pour-recycler-des-aimants",
-    "src": "/media/editorial/terres-rares-cyclic-materials-choisit-l-allemagne-pour-recycler-des-aimants.png",
-    "alt": "Photographie d'illustration : Cyclic nucleotide synthesis.png",
-    "title": "Cyclic nucleotide synthesis.png",
-    "credit": "Dugalmaguire",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ACyclic_nucleotide_synthesis.png",
-    "kind": "illustration",
-    "review": "automated-license-and-title-check",
-    "retrievedAt": "2026-11-27",
-    "searchQuery": "Cyclic Materials"
-  },
-  {
     "slug": "implant-cerebral-neuralink-annonce-un-essai-pivot-chez-des-malades-de-charcot",
     "src": "/media/editorial/implant-cerebral-neuralink-annonce-un-essai-pivot-chez-des-malades-de-charcot.jpg",
     "alt": "Photographie d'illustration : Elon Musk unveiling Neuralink.jpg",
@@ -2066,19 +2038,5 @@
     "review": "automated-license-and-title-check",
     "retrievedAt": "2026-11-27",
     "searchQuery": "Bordeaux"
-  },
-  {
-    "slug": "somalie-le-risque-de-famine-ecarte-a-baidoa-mais-la-malnutrition-infantile",
-    "src": "/media/editorial/somalie-le-risque-de-famine-ecarte-a-baidoa-mais-la-malnutrition-infantile.jpg",
-    "alt": "Photographie d'illustration : Baidoa 1992 Somalia.jpg",
-    "title": "Baidoa 1992 Somalia.jpg",
-    "credit": "John Martinez Pavliga from Berkeley, USA",
-    "license": "CC BY 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABaidoa_1992_Somalia.jpg",
-    "kind": "illustration",
-    "review": "automated-license-and-title-check",
-    "retrievedAt": "2026-11-27",
-    "searchQuery": "Baidoa"
   }
 ]

@@ -346,6 +346,7 @@ test("#125 suite : un article porté par une institution reçoit une photo véri
   const fetched=[];
   const fetchFile=async(file)=>{fetched.push(file);const name=file.replace(/^File:/,"");
     return {url:"https://commons.wikimedia.org/wiki/"+encodeURIComponent(file.replace(/ /g,"_")),src:"https://upload.wikimedia.org/x.jpg",title:name,author:"Photographe",license:"CC BY-SA 3.0",licenseUrl:"https://creativecommons.org/licenses/by-sa/3.0/"};};
+  const fs=await import("node:fs"),os=await import("node:os"),path=await import("node:path");
   const root=fs.mkdtempSync(path.join(os.tmpdir(),"mundi-inst-"));
   const {images}=await collectEditorialImages(articles,[],{search:async()=>null,download:async()=>({ext:"jpg",buffer:Buffer.from([0xff,0xd8,1,2])}),
     fetchFile,root,reviews:{items:[]},day:"2026-11-27"});

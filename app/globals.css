@@ -426,7 +426,7 @@ body:has([data-mini-player]) main {
   animation: feed-pop var(--motion-quick) ease-out;
 }
 @keyframes feed-pop {
-  from { opacity: 0; transform: translateY(-4px); }
+  from { opacity: 0; transform: translateY(-8px) scale(0.9); }
 }
 /* Arrivée sur la première carte après « Début du fil » : bref repère, sans défilement animé. */
 [data-feed] [data-landed] {
@@ -452,13 +452,13 @@ body:has([data-mini-player]) main {
   animation: motion-pop var(--motion-quick, 140ms) ease-out;
 }
 @keyframes motion-pop {
-  from { transform: scale(0.8); opacity: 0.4; }
+  from { transform: scale(0.55); opacity: 0; }
 }
 [data-interacted] .motion-rise {
   animation: motion-rise var(--motion-panel, 210ms) ease-out;
 }
 @keyframes motion-rise {
-  from { transform: translateY(6px); opacity: 0; }
+  from { transform: translateY(14px); opacity: 0; }
 }
 /* Appui sur une carte ou un filtre : léger enfoncement, sans retarder le lien. */
 .press {
@@ -467,7 +467,7 @@ body:has([data-mini-player]) main {
   transition-timing-function: ease-out;
 }
 .press:active {
-  transform: scale(0.985);
+  transform: scale(0.97);
 }
 @media (prefers-reduced-motion: reduce) {
   .press:active { transform: none; }

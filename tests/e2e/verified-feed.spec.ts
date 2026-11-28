@@ -203,6 +203,16 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.locator('[data-index="0"]')).toBeInViewport({ ratio: 0.9 });
   });
 
+  test("tablette et ordinateur : les commandes du fil sont dans la barre du site, pas sur une seconde barre", async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name === "mobile", "barre du site des écrans larges");
+    await page.goto("/fil/");
+    await expect(page.getByTestId("feed-topbar")).toBeHidden();
+    const controls = page.locator("[data-site-header]").getByTestId("feed-header-controls");
+    await expect(controls.getByRole("button", { name: /Choisir un sujet/ })).toBeVisible();
+    await scrollFeedTo(page, 5);
+    await expect(controls.getByTestId("feed-back-to-start")).toBeVisible();
+  });
+
   test("« Début du fil » garde le sujet choisi", async ({ page }) => {
     await page.goto("/fil/");
     await page.getByRole("button", { name: /Choisir un sujet/ }).click();

@@ -91,7 +91,7 @@ export function DataCardView({ card, position, total, topicColor, revealed = tru
     >
       {/* Sans photo, un fond approuvé reste possible derrière les chiffres. */}
       {!photo && backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} />}
-      <div className={`relative flex h-full flex-col ${photo ? "pt-12" : ""}`}>
+      <div className={`relative flex h-full flex-col ${photo ? "pt-12 md:pt-0" : ""}`}>
       {/* Photo d'illustration de la publication : bandeau en haut (téléphone), moitié droite (écran large). */}
       {photo && (
         <div className="relative min-h-[16svh] shrink-[100] grow basis-[32svh] overflow-hidden border-b border-ivory/10 wide:absolute wide:inset-y-0 wide:right-0 wide:left-[50%] wide:min-h-0 wide:border-b-0 wide:border-l" data-testid="data-photo">

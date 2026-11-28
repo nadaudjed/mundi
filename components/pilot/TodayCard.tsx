@@ -72,7 +72,7 @@ export const TodayCard = memo(function TodayCard({ publication: p, index, rank, 
       data-fallback={fallback ? "true" : undefined}
       aria-roledescription="sujet du jour"
       aria-label={`Aujourd'hui, sujet ${rank + 1} sur ${size} : ${title}`}
-      className="magazine relative flex h-full snap-start snap-always flex-col overflow-hidden bg-ivory pt-12 text-graphite"
+      className="magazine relative flex h-full snap-start snap-always flex-col overflow-hidden bg-ivory pt-12 text-graphite md:pt-0"
     >
       {/* En-tête de l'édition : on sait où l'on est et comment passer au fil complet. */}
       <div className="feed-column flex shrink-0 items-center justify-between gap-3 px-5 pt-2 pb-2">
@@ -89,9 +89,9 @@ export const TodayCard = memo(function TodayCard({ publication: p, index, rank, 
         {d?.visual ? (
           <DecryptageVisual decryptage={d} photo={p.photo} word={topic.name} variant="card" publication={p} />
         ) : p.photo ? (
-          <EditorialPhotoLayer photo={p.photo} near={near} fallback={<MundiCover publication={p} tone="paper" className="absolute inset-0 wide:pt-12" />} />
+          <EditorialPhotoLayer photo={p.photo} near={near} fallback={<MundiCover publication={p} tone="paper" className="absolute inset-0" />} />
         ) : (
-          <MundiCover publication={p} tone="paper" className="absolute inset-0 wide:pt-12" />
+          <MundiCover publication={p} tone="paper" className="absolute inset-0" />
         )}
       </div>
 

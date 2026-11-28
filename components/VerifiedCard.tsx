@@ -54,16 +54,16 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
       data-testid="verified-card"
       aria-roledescription="publication sourcée"
       aria-label={`Publication ${position + 1} sur ${total} : ${p.title}`}
-      className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night pt-12 text-ivory"
+      className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night pt-12 text-ivory md:pt-0"
     >
       {/* Visuel : en haut sur téléphone, moitié droite sur écran large. */}
       <div className="relative h-[26svh] min-h-[5rem] shrink-0 [@media(max-height:640px)]:h-[19svh] overflow-hidden border-b border-ivory/10 sm:h-auto! sm:min-h-[30svh] sm:flex-1 wide:absolute! wide:inset-y-0 wide:right-0 wide:left-[50%] wide:min-h-0 wide:border-b-0 wide:border-l" data-testid="card-visual">
         {photo ? (
-          <EditorialPhotoLayer photo={photo} near={near} fallback={<MundiCover publication={p} className="absolute inset-0 wide:pt-12" />} />
+          <EditorialPhotoLayer photo={photo} near={near} fallback={<MundiCover publication={p} className="absolute inset-0" />} />
         ) : backdrop && !figure ? (
           <SceneLayer backdrop={backdrop} focus={p.scene?.focus} />
         ) : (
-          <MundiCover publication={p} className="absolute inset-0 wide:pt-12" />
+          <MundiCover publication={p} className="absolute inset-0" />
         )}
       </div>
 

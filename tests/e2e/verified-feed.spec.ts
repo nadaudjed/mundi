@@ -182,6 +182,50 @@ test.describe("Site de test : publications inventées approuvées", () => {
     await expect(page.locator('[data-index="5"]')).toBeInViewport({ ratio: 0.9 });
   });
 
+  test("« Début du fil » apparaît après deux écrans et ramène directement à la première carte (ticket 137)", async ({ page }) => {
+    await page.goto("/fil/");
+    const button = page.getByTestId("feed-back-to-start");
+    await expect(button).toHaveCount(0);
+    await scrollFeedTo(page, 1);
+    await expect(button).toHaveCount(0);
+    await scrollFeedTo(page, 5);
+    await expect(button).toBeVisible();
+    await expect(button).toHaveText("Début du fil");
+    await button.click();
+    await expect(page.locator('[data-index="0"]')).toBeInViewport({ ratio: 0.9 });
+    await expect(page.locator('[data-index="0"]')).toBeFocused();
+    await expect(page.getByTestId("feed-announce")).toHaveText("Retour au début du fil");
+    await expect(page).toHaveURL(/\/fil\/$/);
+    await expect(button).toHaveCount(0);
+    // Le bouton de fin reste un second accès.
+    await scrollFeedTo(page, 6);
+    await page.getByTestId("feed-transition").getByRole("button", { name: "Revoir depuis le début" }).click();
+    await expect(page.locator('[data-index="0"]')).toBeInViewport({ ratio: 0.9 });
+  });
+
+  test("« Début du fil » garde le sujet choisi", async ({ page }) => {
+    await page.goto("/fil/");
+    await page.getByRole("button", { name: /Choisir un sujet/ }).click();
+    await page.getByRole("group", { name: "Filtrer le fil par sujet" }).getByRole("button", { name: "Énergie" }).click();
+    await scrollFeedTo(page, 3);
+    await page.getByTestId("feed-back-to-start").click();
+    await expect(page.locator('[data-index="0"]')).toBeInViewport({ ratio: 0.9 });
+    await expect(page.locator('[data-index="0"]')).toHaveAttribute("data-publication", FIRST);
+    await expect(page.getByTestId("verified-card")).toHaveCount(1);
+    await expect(page.getByRole("button", { name: /Choisir un sujet/ })).toContainText(/Énergie|Sujets/);
+  });
+
+  test("après « Début du fil », ouvrir un article puis revenir ramène à la première carte", async ({ page }) => {
+    await page.goto("/fil/");
+    await scrollFeedTo(page, 5);
+    await page.getByTestId("feed-back-to-start").click();
+    await expect(page.locator('[data-index="0"]')).toBeInViewport({ ratio: 0.9 });
+    await page.locator('[data-index="0"]').getByRole("link", { name: "Lire la publication" }).click();
+    await expect(page).toHaveURL(new RegExp(`/actualites/${FIRST}/$`));
+    await page.goBack();
+    await expect(page.locator('[data-index="0"]')).toBeInViewport({ ratio: 0.9 });
+  });
+
   test("le résumé de la carte s'arrête sur une ligne entière, au-dessus des boutons", async ({ page }, testInfo) => {
     await page.goto("/fil/");
     const card = page.locator('[data-index="0"]');

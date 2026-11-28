@@ -215,6 +215,32 @@ export function Feed({ verified = [], mix = true, today }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   }, [currentIndex, goTo]);
 
+  /** Annonce discrète pour les lecteurs d'écran (retour au début du fil). */
+  const [announce, setAnnounce] = useState("");
+  /**
+   * « Début du fil » : saut direct à la première carte du flux en cours (même filtre,
+   * même ordre), sans défiler à travers toutes les cartes. Le focus passe sur la
+   * première carte pour que le clavier et les lecteurs d'écran repartent de là.
+   */
+  const backToStart = useCallback(() => {
+    const el = scroller.current;
+    if (!el) return;
+    el.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    setActive(0);
+    setSeen((prev) => new Set(prev).add(0));
+    const first = el.children[0] as HTMLElement | undefined;
+    if (first) {
+      first.setAttribute("tabindex", "-1");
+      first.focus({ preventScroll: true });
+      first.setAttribute("data-landed", "");
+      window.setTimeout(() => first.removeAttribute("data-landed"), 600);
+    }
+    setAnnounce("");
+    requestAnimationFrame(() => setAnnounce("Retour au début du fil"));
+  }, []);
+  /** Le bouton apparaît une fois deux écrans dépassés. */
+  const showBackToStart = active >= 2;
+
   function changeFilter(next: TopicSlug | "all") {
     setFilter(next);
     setTopicsOpen(false);
@@ -235,9 +261,21 @@ export function Feed({ verified = [], mix = true, today }: Props) {
             <span className="max-[359px]:sr-only">MUNDI</span>
           </Link>
           <div className="flex min-w-0 items-center gap-3">
-            <span className="md:hidden">
-              <InstallChip compact />
-            </span>
+            {showBackToStart ? (
+              <button
+                type="button"
+                onClick={backToStart}
+                data-testid="feed-back-to-start"
+                className="feed-pop flex shrink-0 items-center gap-1 rounded-sm border border-ivory/30 px-2.5 py-1 text-[0.8rem] font-semibold text-ivory transition hover:border-ivory"
+              >
+                <Icon name="chevron-up" className="size-3.5" />
+                Début du fil
+              </button>
+            ) : (
+              <span className="md:hidden">
+                <InstallChip compact />
+              </span>
+            )}
             <button
               type="button"
               onClick={() => setTopicsOpen((o) => !o)}
@@ -309,6 +347,8 @@ export function Feed({ verified = [], mix = true, today }: Props) {
         )}
         <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />
       </div>
+
+      <p className="sr-only" aria-live="polite" data-testid="feed-announce">{announce}</p>
 
       <RefreshIndicator pull={pull} status={refresh} onShow={showFresh} />
 

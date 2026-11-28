@@ -2280,5 +2280,49 @@
     "searchQuery": "factory assembly line",
     "publication": "climat-des-affaires-la-france-decroche-en-novembre-l-union-europeenne-se-tient",
     "card": "climat-affaires-insee"
+  },
+  {
+    "slug": "pourquoi-les-prix-augmentent-ils-demande-couts-salaires-et-anticipations",
+    "src": "/media/editorial/pourquoi-les-prix-augmentent-ils-demande-couts-salaires-et-anticipations.jpg",
+    "alt": "Photographie d'illustration : Saint Matthieu, l'offre et la demande 55-o.art.pub-stmatt-02.jpg",
+    "title": "Saint Matthieu, l'offre et la demande 55-o.art.pub-stmatt-02.jpg",
+    "credit": "Simon Pierre Barrette ( Cephas ( talk ))",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASaint_Matthieu%2C_l'offre_et_la_demande_55-o.art.pub-stmatt-02.jpg",
+    "kind": "illustration",
+    "review": "automated-license-and-title-check",
+    "retrievedAt": "2026-11-28",
+    "searchQuery": "Demande"
+  },
+  {
+    "slug": "d-ou-vient-le-cout-d-un-produit-manufacture-travail-achats-energie-et-marge",
+    "src": "/media/editorial/d-ou-vient-le-cout-d-un-produit-manufacture-travail-achats-energie-et-marge.jpg",
+    "alt": "Photographie d'illustration : Bourse du travail de Toulouse by Mikani.JPG",
+    "title": "Bourse du travail de Toulouse by Mikani.JPG",
+    "credit": "Mikani",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ABourse_du_travail_de_Toulouse_by_Mikani.JPG",
+    "kind": "illustration",
+    "review": "automated-license-and-title-check",
+    "retrievedAt": "2026-11-28",
+    "searchQuery": "Travail"
+  },
+  {
+    "slug": "d-ou-vient-le-cout-d-un-produit-manufacture-travail-achats-energie-et-marge-carte-decomposition-biens-manufactures",
+    "src": "/media/editorial/d-ou-vient-le-cout-d-un-produit-manufacture-travail-achats-energie-et-marge-carte-decomposition-biens-manufactures.jpg",
+    "alt": "Photographie d'illustration : Flower in hair, Betty Gumbetter adds glamour to the assembly line 8b07364v.jpg",
+    "title": "Flower in hair, Betty Gumbetter adds glamour to the assembly line 8b07364v.jpg",
+    "credit": "Ann Rosener",
+    "license": "Domaine public",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFlower_in_hair%2C_Betty_Gumbetter_adds_glamour_to_the_assembly_line_8b07364v.jpg",
+    "kind": "illustration",
+    "review": "automated-license-and-title-check",
+    "retrievedAt": "2026-11-28",
+    "searchQuery": "factory assembly line",
+    "publication": "d-ou-vient-le-cout-d-un-produit-manufacture-travail-achats-energie-et-marge",
+    "card": "decomposition-biens-manufactures"
   }
 ]

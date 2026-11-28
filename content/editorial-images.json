@@ -2324,5 +2324,37 @@
     "searchQuery": "factory assembly line",
     "publication": "d-ou-vient-le-cout-d-un-produit-manufacture-travail-achats-energie-et-marge",
     "card": "decomposition-biens-manufactures"
+  },
+  {
+    "slug": "ports-de-l-ue-record-de-423-4-millions-de-passagers-maritimes-en-2025-carte-trois-pays-en-tete",
+    "src": "/media/editorial/ports-de-l-ue-record-de-423-4-millions-de-passagers-maritimes-en-2025-carte-trois-pays-en-tete.jpg",
+    "alt": "Photographie d'illustration : Flickr - ronsaunders47 - THE THASSOS-KEROMOTI FERRY WITH CONCRETE DOLPHINS...jpg",
+    "title": "Flickr - ronsaunders47 - THE THASSOS-KEROMOTI FERRY WITH CONCRETE DOLPHINS...jpg",
+    "credit": "Ronald Saunders from Warrington, UK",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AFlickr_-_ronsaunders47_-_THE_THASSOS-KEROMOTI_FERRY_WITH_CONCRETE_DOLPHINS...jpg",
+    "kind": "illustration",
+    "review": "automated-license-and-title-check",
+    "retrievedAt": "2026-11-28",
+    "searchQuery": "greek island ferry",
+    "publication": "ports-de-l-ue-record-de-423-4-millions-de-passagers-maritimes-en-2025",
+    "card": "trois-pays-en-tete"
+  },
+  {
+    "slug": "ports-de-l-ue-record-de-423-4-millions-de-passagers-maritimes-en-2025-carte-premiers-ports",
+    "src": "/media/editorial/ports-de-l-ue-record-de-423-4-millions-de-passagers-maritimes-en-2025-carte-premiers-ports.jpg",
+    "alt": "Photographie d'illustration : Sicilia Messina tango7174.jpg",
+    "title": "Sicilia Messina tango7174.jpg",
+    "credit": "Tango7174",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASicilia_Messina_tango7174.jpg",
+    "kind": "illustration",
+    "review": "automated-license-and-title-check",
+    "retrievedAt": "2026-11-28",
+    "searchQuery": "strait of messina ferry",
+    "publication": "ports-de-l-ue-record-de-423-4-millions-de-passagers-maritimes-en-2025",
+    "card": "premiers-ports"
   }
 ]

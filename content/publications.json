@@ -1,5 +1,552 @@
 [
   {
+    "slug": "pourquoi-les-prix-augmentent-ils-demande-couts-salaires-et-anticipations",
+    "title": "Pourquoi les prix augmentent-ils ? Demande, coûts, salaires et anticipations",
+    "summary": "L'inflation n'est pas la hausse d'un prix isolé mais une hausse générale qui réduit ce qu'un euro permet d'acheter. Elle naît d'un déséquilibre entre l'offre et la demande, de chocs de coûts comme l'énergie, puis parfois d'une boucle entre prix, salaires et anticipations. Cet article s'appuie sur les notes explicatives de la BCE, sur un billet de la Banque de France consacré à l'inflation post-pandémie et sur les moyennes annuelles de l'indice des prix harmonisé publiées par Eurostat pour la France, de 2021 à 2025.",
+    "topic": "economie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la BCE, on parle d'inflation lorsque les prix augmentent globalement, et non seulement ceux de quelques produits : avec le temps, chaque euro permet d'acheter moins.",
+      "Les causes se combinent : une demande qui repart plus vite que l'offre, des coûts qui grimpent comme l'énergie, puis des salaires et des anticipations qui peuvent entretenir la hausse.",
+      "En France, l'inflation harmonisée est passée de 2,1 % en 2021 à 5,9 % en 2022 et 5,7 % en 2023, selon Eurostat ; l'énergie (+23,8 % en 2022) puis l'alimentation (+11,4 % en 2023) ont mené la hausse."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une hausse générale, pas celle d'un seul produit",
+        "text": "Dans une économie de marché, certains prix montent et d'autres baissent en permanence. La BCE réserve le mot inflation au cas où les prix augmentent globalement : chaque euro permet alors d'acheter moins de produits, et la valeur de la monnaie s'érode. Pour la mesurer, Eurostat suit un panier d'environ 700 biens et services consommés par les ménages de la zone euro, l'indice des prix à la consommation harmonisé. Chaque produit y pèse selon la part qu'il représente dans les dépenses moyennes : le café, avec le thé et le cacao, compte pour 0,4 %, l'essence et les autres carburants pour 4,6 %. Une même hausse en pourcentage de l'essence pèse donc environ dix fois plus que celle du café."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quand la demande court plus vite que l'offre",
+        "text": "Premier mécanisme : la demande dépasse ce que les entreprises peuvent produire. La BCE l'illustre avec la réouverture de 2021 : les ménages ont dépensé une partie de l'épargne accumulée pendant les confinements, alors que les chaînes d'approvisionnement restaient désorganisées, avec une pénurie de conteneurs et de semi-conducteurs. Lorsque les entreprises ne parviennent pas à suivre le rythme des achats, les prix augmentent, c'est la loi de l'offre et de la demande. En période de croissance, note aussi la BCE, il est plus facile pour une entreprise d'augmenter ses prix sans perdre de clients."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quand les coûts de production grimpent",
+        "text": "Deuxième mécanisme : un choc sur les coûts, que les entreprises répercutent sur leurs prix de vente. L'énergie en est l'exemple type, car une grande partie des coûts des entreprises et des ménages en dépend. Selon la BCE, l'accélération de l'inflation fin 2021 était attribuable pour moitié à la hausse des prix de l'énergie. Pour la France, la Banque de France conclut que les chocs de prix de l'énergie, puis ceux de l'alimentation à partir de 2022, ont été les moteurs de l'inflation post-pandémie, tandis que l'effet des chocs sur les chaînes d'approvisionnement serait resté faible. Les moyennes annuelles d'Eurostat le montrent : en France, les prix de l'énergie ont augmenté de 23,8 % en 2022, et ceux de l'alimentation de 11,4 % en 2023."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Salaires et anticipations : ce qui fait durer l'inflation",
+        "text": "Un choc ponctuel peut s'installer si les prix et les salaires s'entraînent mutuellement. La BCE explique que des salariés qui obtiennent des hausses pour compenser le coût de la vie augmentent les coûts des entreprises, qui peuvent à leur tour relever leurs prix ; si ménages et entreprises s'attendent à ce que l'inflation dure, elle peut effectivement progresser. Les économistes parlent d'effet de second tour. La Banque de France estime que les chocs récents n'ont pas déclenché de spirale prix-salaires en France, et que la réponse de l'inflation à un choc de matières premières, si elle est forte, est de courte durée, sauf tensions persistantes sur le marché du travail."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des rythmes différents selon les secteurs",
+        "text": "Tous les prix ne bougent pas ensemble. Selon Eurostat, en France, l'inflation harmonisée a été de 2,1 % en 2021, 5,9 % en 2022, 5,7 % en 2023, 2,3 % en 2024 et 0,9 % en 2025. L'énergie a été la plus volatile : +10,6 % en 2021, +23,8 % en 2022, puis -5,4 % en 2025. L'alimentation a pris le relais avec +6,0 % en 2022 et +11,4 % en 2023. Les services ont évolué plus lentement mais plus durablement : +3,2 % en 2022, +3,9 % en 2023 et +3,2 % en 2024. Ces écarts reflètent la nature des coûts : les services dépendent davantage des salaires, l'énergie et l'alimentation des cours mondiaux."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que peut faire la banque centrale",
+        "text": "La BCE a pour mission de maintenir une inflation faible, stable et prévisible, à 2 % à moyen terme. Elle agit surtout par les taux d'intérêt, qui rendent le crédit plus ou moins cher et freinent ou soutiennent la demande. Mais la BCE souligne elle-même que la politique monétaire agit avec un temps de retard et ne peut contrer les flambées ponctuelles de prix : relever les taux ne crée ni conteneurs ni énergie supplémentaires. Son rôle principal est donc d'éviter qu'un choc de coûts ne se transforme en inflation durable par les salaires et les anticipations."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE, « Qu'est-ce que l'inflation ? », note explicative",
+        "url": "https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me-more/html/what_is_inflation.fr.html"
+      },
+      {
+        "label": "BCE, « Pourquoi l'inflation est-elle aussi élevée actuellement ? », 16 novembre 2021",
+        "url": "https://www.ecb.europa.eu/ecb/educational/explainers/tell-me-more/html/high_inflation.fr.html"
+      },
+      {
+        "label": "Banque de France, billet n° 363, « Quelles sont les causes de l'inflation post-pandémie en France ? », P. Aldama, H. Le Bihan, C. Le Gall, 2024",
+        "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/quelles-sont-les-causes-de-linflation-post-pandemie-en-France"
+      },
+      {
+        "label": "Eurostat, IPCH, taux de variation annuels moyens (prc_hicp_aind), France, mis à jour le 6 février 2026",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_aind/default/table"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'appelle-t-on inflation selon la BCE ?",
+        "answer": "Une hausse globale des prix, et non celle de quelques produits seulement : avec le temps, chaque euro permet d'acheter moins."
+      },
+      {
+        "question": "Pourquoi une hausse de l'essence pèse-t-elle plus sur l'indice des prix que celle du café ?",
+        "answer": "Parce que chaque produit pèse selon sa part dans les dépenses des ménages : 4,6 % pour l'essence et les carburants contre 0,4 % pour le café, le thé et le cacao."
+      },
+      {
+        "question": "Qu'est-ce qu'un effet de second tour ?",
+        "answer": "Quand une hausse des prix entraîne des hausses de salaires et des anticipations d'inflation durable, qui poussent à leur tour les prix vers le haut."
+      },
+      {
+        "question": "Quels chocs ont surtout alimenté l'inflation post-pandémie en France selon la Banque de France ?",
+        "answer": "Les chocs de prix de l'énergie, puis ceux de l'alimentation à partir de 2022 ; les perturbations d'approvisionnement auraient joué un rôle faible."
+      },
+      {
+        "question": "Pourquoi relever les taux ne suffit-il pas contre une flambée ponctuelle des prix ?",
+        "answer": "Parce que la politique monétaire agit avec retard et ne crée ni énergie ni capacités de production supplémentaires ; elle sert surtout à éviter que le choc ne devienne durable."
+      }
+    ]
+  },
+  {
+    "slug": "comment-survient-une-crise-bancaire-liquidite-solvabilite-et-contagion",
+    "title": "Comment survient une crise bancaire ? Liquidité, solvabilité et contagion",
+    "summary": "Une banque peut tomber parce qu'elle a perdu trop d'argent, ou parce qu'elle ne peut plus rembourser à temps des déposants qui retirent tous leurs fonds en même temps, et une faillite peut en entraîner d'autres. Cet article s'appuie sur la fiche « Les crises bancaires » de la Banque de France, publiée en décembre 2024, et sur la note explicative de la BCE consacrée au prêteur en dernier ressort.",
+    "topic": "finance",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Une banque transforme des dépôts disponibles à tout moment en prêts de long terme : ses actifs peuvent être insuffisants ou pas assez liquides pour rembourser d'un coup tous les déposants.",
+      "Une crise de solvabilité vient de pertes qui épuisent les fonds propres ; une crise de liquidité survient quand la banque ne trouve plus de fonds, et une panique bancaire peut aller très vite.",
+      "Pour limiter la contagion, les autorités combinent réglementation, garantie des dépôts jusqu'à 100 000 euros, résolution bancaire et prêts d'urgence de la banque centrale aux banques solvables."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un métier fondé sur la transformation",
+        "text": "Selon la Banque de France, l'activité d'une banque consiste à transformer des dépôts en prêts avec des maturités différentes. Les dépôts peuvent être retirés à tout moment, alors que les crédits accordés aux ménages et aux entreprises ne sont remboursés qu'au fil des années. Les liquidités, c'est-à-dire les sommes en caisse, permettent à la banque d'honorer ses engagements au quotidien. Ce décalage est utile à l'économie, mais il rend la banque fragile : si trop de déposants demandent leur argent en même temps, ses actifs peuvent être insuffisants ou pas assez liquides pour tout rembourser immédiatement."
+      },
+      {
+        "kind": "fait",
+        "heading": "Deux portes d'entrée : la solvabilité et la liquidité",
+        "text": "La Banque de France définit les crises bancaires par une chute de la rentabilité, voire une faillite, d'une ou plusieurs banques. Le premier scénario est celui de lourdes pertes, sur des crédits non remboursés ou des placements dépréciés, qui épuisent tout ou partie des fonds propres : capital, réserves et titres de dette hybride. La banque devient alors insolvable. Le second est une crise de liquidité : le marché des prêts interbancaires se ferme pour la banque en difficulté, qui ne trouve plus de quoi financer ses activités quotidiennes. La BCE rappelle qu'une banque peut être à court de liquidité tout en restant solvable, si ses fonds sont immobilisés dans des prêts à long terme accordés à ses clients."
+      },
+      {
+        "kind": "fait",
+        "heading": "La panique bancaire, un emballement très rapide",
+        "text": "Lorsque les clients doutent, ils retirent massivement leurs dépôts : on parle de panique bancaire, ou de bank run. Selon la Banque de France, cette fuite des dépôts aggrave la crise en augmentant le besoin de liquidités, et le phénomène peut aller très vite, en quelques heures. La Silicon Valley Bank, aux États-Unis, a ainsi perdu 25 % de ses dépôts en une journée en 2023. Elle avait placé une grande partie de ses dépôts en titres d'État américains, dépréciés par la hausse des taux, et a été déclarée en faillite le 10 mars 2023 ; le fonds américain de garantie des dépôts a absorbé environ 18 milliards de dollars de pertes, selon la fiche de la Banque de France."
+      },
+      {
+        "kind": "fait",
+        "heading": "La contagion, ou l'effet domino",
+        "text": "Les banques se prêtent entre elles et détiennent des créances les unes sur les autres. Une faillite peut donc provoquer des défaillances en chaîne : c'est ce que la Banque de France appelle l'effet de domino sur l'ensemble du secteur bancaire. La crise des subprimes aux États-Unis et la faillite de Lehman Brothers en 2008 en sont l'exemple le plus connu. En 2023, les faillites de la Silicon Valley Bank, de la Signature Bank et de la First Republic Bank aux États-Unis ont été suivies des difficultés du Crédit Suisse en Europe."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les pare-feux : règles, garantie, résolution et prêteur en dernier ressort",
+        "text": "Face à ces risques, une réglementation propre au secteur bancaire a été mise en place au XXe siècle ; elle porte notamment sur la solvabilité, la liquidité, la gouvernance et le contrôle interne, et les règles de solvabilité ont été renforcées depuis 2008. En France, le Fonds de garantie des dépôts et de résolution, créé en 1999, sécurise les dépôts de chaque client à hauteur de 100 000 euros, ce qui réduit l'intérêt de se précipiter au guichet. La résolution bancaire permet de préserver les fonctions critiques d'une banque défaillante. Enfin, la banque centrale peut agir en prêteur en dernier ressort : dans la zone euro, la banque centrale nationale accorde une fourniture de liquidités d'urgence, sous le contrôle de la BCE. Cette aide est temporaire, a un prix et est réservée aux banques solvables."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la distinction compte",
+        "text": "Distinguer liquidité et solvabilité n'est pas qu'une question de vocabulaire. Une banque saine mais momentanément à court d'argent peut être sauvée par un prêt temporaire ; une banque dont les pertes ont effacé les fonds propres a besoin d'être recapitalisée, cédée ou mise en résolution. La difficulté, en pleine crise, est que les deux problèmes se nourrissent : une panique peut obliger une banque à vendre ses actifs à perte, et transformer une crise de liquidité en crise de solvabilité. C'est pourquoi les autorités cherchent à agir tôt, avant que la défiance ne se propage aux autres établissements."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Banque de France, « Les crises bancaires », fiche ABC de l'économie, décembre 2024 (PDF)",
+        "url": "https://www.banque-france.fr/system/files/2024-12/Eco_Bref-Crises-bancaires.pdf"
+      },
+      {
+        "label": "Banque de France, « Les crises bancaires », page ABC de l'économie",
+        "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/les-crises-bancaires"
+      },
+      {
+        "label": "BCE, « Qu'est-ce qu'un prêteur en dernier ressort ? », note explicative, 26 août 2019",
+        "url": "https://www.ecb.europa.eu/explainers/tell-me-more/html/what-is-a-lender-of-last-resort.fr.html"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que la transformation bancaire ?",
+        "answer": "Le fait de transformer des dépôts, disponibles à tout moment, en prêts remboursés sur plusieurs années, avec des maturités différentes."
+      },
+      {
+        "question": "Quelle différence entre une crise de solvabilité et une crise de liquidité ?",
+        "answer": "Dans la première, des pertes épuisent les fonds propres de la banque ; dans la seconde, la banque ne trouve plus de fonds à court terme, même si elle peut rester solvable."
+      },
+      {
+        "question": "Qu'est-ce qu'une panique bancaire ou bank run ?",
+        "answer": "Un retrait massif et rapide des dépôts par des clients inquiets, qui aggrave la crise en augmentant le besoin de liquidités de la banque."
+      },
+      {
+        "question": "Jusqu'à quel montant les dépôts sont-ils garantis en France ?",
+        "answer": "Jusqu'à 100 000 euros par client, par le Fonds de garantie des dépôts et de résolution créé en 1999."
+      },
+      {
+        "question": "À quelles banques est réservée l'aide d'urgence en liquidité dans la zone euro ?",
+        "answer": "Aux banques solvables à court de liquidité ; cette aide est temporaire, a un prix et est contrôlée par la BCE."
+      }
+    ]
+  },
+  {
+    "slug": "d-ou-vient-le-cout-d-un-produit-manufacture-travail-achats-energie-et-marge",
+    "title": "D'où vient le coût d'un produit manufacturé ? Travail, achats, énergie et marge",
+    "summary": "Le prix de sortie d'usine d'un bien rémunère bien plus que les salariés de l'usine : il paie aussi les achats de matières, de composants, d'énergie et de services, eux-mêmes produits par d'autres salariés, ici ou à l'étranger. Cet article s'appuie sur une étude de l'Insee qui décompose la production française en 2015 à partir des comptes nationaux, sur une étude Insee-SDES consacrée au choc énergétique de 2022 et sur les chiffres clés de l'industrie européenne publiés par Eurostat.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Pour les biens manufacturés en France, le travail des salariés de l'usine ne pèse que 18,1 % de la production en valeur en 2015, contre 34,8 % pour les achats importés, selon l'Insee.",
+      "Les achats de l'usine contiennent eux-mêmes du travail, dit indirect : transport, commerce, services financiers, intérim, plastiques ou métaux produits en France, soit 19,4 % pour les biens manufacturés.",
+      "L'énergie peut faire bondir la facture : en 2022, celle des établissements industriels de 20 salariés ou plus a augmenté de 54 %, et un sur deux a relevé ses prix, selon l'Insee et le SDES."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Décomposer la valeur d'un produit",
+        "text": "Pour savoir d'où vient le coût d'un produit, l'Insee décompose la valeur de la production à partir des comptes nationaux. Elle se partage entre le coût du travail direct, c'est-à-dire la rémunération des salariés de l'entreprise, les consommations intermédiaires, c'est-à-dire les achats de biens et services utilisés pour produire, et un reste qui rassemble les profits et les impôts sur la production nets des subventions. L'étude, publiée en 2019, porte sur l'année 2015 ; l'Insee estime que la structure productive est restée relativement stable depuis, malgré les variations du prix des matières premières ou du coût du travail."
+      },
+      {
+        "kind": "fait",
+        "heading": "Dans l'usine, le travail pèse moins que les achats",
+        "text": "Pour les biens manufacturés, le coût du travail direct représente 18,1 % de la production en valeur, contre 28,3 % pour les services marchands et 25,5 % pour la construction. L'industrie, peu intensive en travail, dépend davantage de ses achats : les consommations intermédiaires importées pèsent 34,8 % de la production des biens manufacturés, contre 19,7 % pour l'ensemble de l'économie. C'est notamment le cas, selon l'Insee, des produits du raffinage, des matériels de transport, des produits chimiques, du textile ou des équipements électriques. Pour les biens manufacturés les plus exportés, les achats importés atteignent 41 % de la production en moyenne, contre 31 % pour les autres."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le travail caché dans les achats",
+        "text": "Les achats d'une usine contiennent eux-mêmes du travail, réalisé par les salariés des fournisseurs : l'Insee parle de coût du travail indirect. Il représente 19,4 % de la production des biens manufacturés, une part proche de celle des autres secteurs marchands. Il provient en grande partie de services utilisés de façon systématique, comme les services financiers, juridiques et comptables, le commerce et le transport, ou l'intérim, ainsi que, dans l'industrie, de produits plastiques ou métalliques fabriqués en France. Le reste de la production, qui regroupe profits et impôts nets, en représente 27,7 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'énergie, un coût qui peut s'envoler",
+        "text": "L'énergie est l'un des achats les plus volatils. Selon l'étude de l'Insee et du service statistique du ministère de la Transition écologique, le prix de l'électricité payé par les entreprises a augmenté de 38 % entre 2019 et 2022, et celui du gaz a doublé. En 2022, la facture énergétique des établissements industriels de 20 salariés ou plus a augmenté de 54 %, alors que leur consommation baissait de 5 %. La hausse les touche directement, mais aussi indirectement, par le prix de leurs autres achats. Pour y faire face, un établissement sur deux a déclaré avoir augmenté ses prix en 2022, et 45 % avoir comprimé leur marge."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi le prix de vente suit ses coûts avec retard",
+        "text": "Cette mécanique explique comment une hausse de coûts se propage. Eurostat rappelle que l'indice des prix à la production industrielle, fondé sur les prix de vente des producteurs, peut être un indicateur avancé des tensions inflationnistes : les prix industriels de l'Union européenne ont augmenté de 28,6 % au total entre 2005 et 2021. Une hausse des salaires, de l'énergie ou des composants importés se répercute de fournisseur en fournisseur, en cascade, avant d'atteindre le produit fini. Chaque entreprise choisit alors entre relever ses prix, réduire sa marge ou modifier sa façon de produire, et l'étude de 2022 montre que beaucoup ont combiné les trois."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Insee Analyses n° 45, « La part des bas et moyens salaires dans la production : l'importance des coûts indirects », L. Koehl et O. Simon, mars 2019",
+        "url": "https://www.insee.fr/fr/statistiques/3901151"
+      },
+      {
+        "label": "Insee et SDES, « Impact de la hausse des prix de l'énergie en 2022 sur l'activité des entreprises et leur consommation d'énergie », Insee Références, décembre 2023",
+        "url": "https://www.insee.fr/fr/statistiques/7678588"
+      },
+      {
+        "label": "Eurostat, Key figures on European business 2022, chapitre Industrie",
+        "url": "https://ec.europa.eu/eurostat/cache/htmlpub/key-figures-on-european-business-2022/industry.html"
+      }
+    ],
+    "kind": "concept",
+    "dataCards": [
+      {
+        "id": "decomposition-biens-manufactures",
+        "kind": "comparaison",
+        "headline": "Dans un bien manufacturé, les achats importés pèsent presque deux fois plus que le travail des salariés de l'usine",
+        "source": {
+          "label": "Insee Analyses n° 45",
+          "url": "https://www.insee.fr/fr/statistiques/3901151"
+        },
+        "asOf": "2015-12-31",
+        "imageQuery": "factory assembly line",
+        "items": [
+          {
+            "value": 18.1,
+            "unit": "%",
+            "label": "Coût du travail direct",
+            "scope": "Biens manufacturés, France",
+            "period": "2015",
+            "denominator": "production en valeur",
+            "decimals": 1
+          },
+          {
+            "value": 19.4,
+            "unit": "%",
+            "label": "Coût du travail indirect",
+            "scope": "Biens manufacturés, France",
+            "period": "2015",
+            "denominator": "production en valeur",
+            "decimals": 1
+          },
+          {
+            "value": 34.8,
+            "unit": "%",
+            "label": "Consommations intermédiaires importées",
+            "scope": "Biens manufacturés, France",
+            "period": "2015",
+            "denominator": "production en valeur",
+            "decimals": 1
+          },
+          {
+            "value": 27.7,
+            "unit": "%",
+            "label": "Autres : profits et impôts nets",
+            "scope": "Biens manufacturés, France",
+            "period": "2015",
+            "denominator": "production en valeur",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "facture-energie-industrie-2022",
+        "kind": "stat",
+        "headline": "En 2022, la facture énergétique de l'industrie a bondi de 54 % malgré une consommation en baisse de 5 %",
+        "source": {
+          "label": "Insee et SDES",
+          "url": "https://www.insee.fr/fr/statistiques/7678588"
+        },
+        "asOf": "2022-12-31",
+        "imageQuery": "industrial gas meter",
+        "measure": {
+          "value": 54,
+          "unit": "%",
+          "label": "Hausse de la facture énergétique",
+          "scope": "Établissements industriels de 20 salariés ou plus, France",
+          "period": "2022",
+          "denominator": "facture énergétique de 2021"
+        },
+        "context": "Après une hausse de 40 % en 2021."
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Qu'est-ce qu'une consommation intermédiaire ?",
+        "answer": "Un bien ou un service acheté par une entreprise et utilisé pour produire : matières, composants, énergie, transport ou services."
+      },
+      {
+        "question": "Qu'appelle-t-on coût du travail indirect ?",
+        "answer": "Le travail contenu dans les achats d'une entreprise, réalisé par les salariés de ses fournisseurs."
+      },
+      {
+        "question": "Quelle part pèse le travail des salariés de l'usine dans la production des biens manufacturés en France ?",
+        "answer": "18,1 % de la production en valeur en 2015, selon l'Insee, contre 34,8 % pour les achats importés."
+      },
+      {
+        "question": "Comment les industriels ont-ils réagi à la hausse de l'énergie en 2022 ?",
+        "answer": "Un établissement sur deux a augmenté ses prix et 45 % ont comprimé leur marge, alors que leur facture énergétique bondissait de 54 %."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-la-biodiversite-compte-ce-que-la-nature-fournit-et-ce-que-son-declin",
+    "title": "Pourquoi la biodiversité compte : ce que la nature fournit et ce que son déclin menace",
+    "summary": "La biodiversité n'est pas qu'une liste d'espèces : les écosystèmes produisent de la nourriture, filtrent l'eau, pollinisent les cultures et amortissent les chocs. L'évaluation mondiale de l'IPBES de 2019, l'évaluation de l'IPBES sur les pollinisateurs de 2016 et une fiche de la Commission européenne de 2020 décrivent ces services, l'ampleur du déclin et ses causes. Les montants cités sont des estimations, incomplètes de l'aveu même de leurs auteurs.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la Commission européenne, la moitié du produit intérieur brut mondial, soit 40 000 milliards d'euros, dépend directement de la nature, qui produit la nourriture, filtre l'eau et fournit l'air.",
+      "L'IPBES estime qu'environ 1 million d'espèces animales et végétales sont menacées d'extinction et classe cinq causes directes, en tête desquelles les changements d'usage des terres et de la mer.",
+      "Plus des trois quarts des principales catégories de cultures vivrières mondiales dépendent de la pollinisation animale ; l'IPBES chiffre la valeur marchande annuelle concernée entre 235 et 577 milliards de dollars."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que les écosystèmes fournissent",
+        "text": "La Commission européenne résume l'enjeu dans sa fiche sur la stratégie de l'UE en faveur de la biodiversité : la nature produit la nourriture que nous mangeons, filtre l'eau que nous buvons et nous fournit l'air que nous respirons. Elle contribue aussi au bien-être mental et physique et reste, selon la Commission, la clé de la capacité de la société à faire face au changement climatique. La même fiche estime que la moitié du produit intérieur brut mondial, soit 40 000 milliards d'euros, dépend directement de la nature. L'IPBES, la plateforme intergouvernementale scientifique sur la biodiversité, parle de « contributions de la nature aux populations », un patrimoine commun selon Sandra Díaz, citée dans le communiqué de l'évaluation mondiale."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'exemple de la pollinisation",
+        "text": "La pollinisation illustre le lien entre espèces sauvages et économie. Dans son évaluation de 2016 sur les pollinisateurs, l'IPBES indique que près de 90 % des plantes sauvages à fleurs dépendent, au moins en partie, du transfert de pollen par les animaux, et que plus des trois quarts des principales catégories de cultures vivrières mondiales en dépendent aussi. La production agricole directement liée aux pollinisateurs représente 5 à 8 % de la production agricole mondiale, pour une valeur marchande annuelle de 235 à 577 milliards de dollars, en dollars de 2015. L'IPBES précise que ce montant est établi mais incomplet. Le volume des cultures dépendant des pollinisateurs a augmenté de 300 % au cours des cinq dernières décennies, et 16,5 % des pollinisateurs vertébrés sont menacés d'extinction au niveau mondial."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un déclin mesuré",
+        "text": "Le communiqué de l'IPBES de mai 2019, qui présente son évaluation mondiale, affirme que la nature décline globalement à un rythme sans précédent dans l'histoire humaine et qu'environ 1 million d'espèces animales et végétales sont menacées d'extinction. Depuis 1900, l'abondance moyenne des espèces locales dans la plupart des grands habitats terrestres a diminué d'au moins 20 %. Environ 66 % du milieu marin a été significativement modifié par l'action humaine, et la dégradation des sols a réduit de 23 % la productivité de l'ensemble de la surface terrestre mondiale. L'IPBES classe cinq causes directes, par ordre décroissant : les changements d'usage des terres et de la mer, l'exploitation directe de certains organismes, le changement climatique, la pollution et les espèces exotiques envahissantes."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la perte se paie",
+        "text": "La Commission souligne que les écosystèmes endommagés sont plus fragiles, ce qui rend les sociétés plus vulnérables aux événements extrêmes et aux nouvelles maladies. L'IPBES ajoute que les tendances négatives freineront l'atteinte des objectifs de développement durable dans 80 % des cas évalués, soit 35 cibles sur 44. Ces estimations ont des limites : les valeurs en dollars ou en euros ne couvrent qu'une partie des services, et beaucoup de contributions de la nature, comme le bien-être, n'ont pas de prix de marché. Elles montrent surtout que la biodiversité est une infrastructure dont dépendent l'agriculture, l'eau et la santé."
+      }
+    ],
+    "sources": [
+      {
+        "label": "IPBES, communiqué « Le dangereux déclin de la nature », évaluation mondiale, mai 2019 (version française, Fondation pour la recherche sur la biodiversité)",
+        "url": "https://www.fondationbiodiversite.fr/wp-content/uploads/2019/05/20190504-IPBES7-Media-Release-Global-Assessment-Final-Errata2-FRE.pdf"
+      },
+      {
+        "label": "IPBES, résumé à l'intention des décideurs de l'évaluation des pollinisateurs, de la pollinisation et de la production alimentaire, 2016 (ministère de l'Agriculture)",
+        "url": "https://agriculture.gouv.fr/telecharger/83055"
+      },
+      {
+        "label": "Commission européenne, fiche « Stratégie de l'UE en faveur de la biodiversité », mai 2020",
+        "url": "https://commission.europa.eu/system/files/2020-05/env-20-002_factsheet1-vbo-fr-c.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quelle part du PIB mondial dépend directement de la nature selon la Commission européenne ?",
+        "answer": "La moitié du produit intérieur brut mondial, soit 40 000 milliards d'euros."
+      },
+      {
+        "question": "Combien d'espèces animales et végétales sont menacées d'extinction selon l'IPBES ?",
+        "answer": "Environ 1 million d'espèces animales et végétales."
+      },
+      {
+        "question": "Quelle est la première cause directe du déclin de la biodiversité selon l'IPBES ?",
+        "answer": "Les changements d'usage des terres et de la mer, devant l'exploitation directe, le climat, la pollution et les espèces envahissantes."
+      },
+      {
+        "question": "Quelle part des principales cultures vivrières mondiales dépend de la pollinisation animale ?",
+        "answer": "Plus des trois quarts des principales catégories de cultures vivrières mondiales."
+      },
+      {
+        "question": "Pourquoi des écosystèmes endommagés rendent-ils les sociétés plus vulnérables ?",
+        "answer": "Parce qu'ils sont plus fragiles, ce qui expose davantage aux événements extrêmes et aux nouvelles maladies."
+      }
+    ]
+  },
+  {
+    "slug": "qu-est-ce-qu-un-avantage-concurrentiel-couts-difference-reseau-et-marque",
+    "title": "Qu'est-ce qu'un avantage concurrentiel : coûts, différence, réseau et marque",
+    "summary": "Une entreprise dispose d'un avantage concurrentiel quand elle peut durablement faire payer plus cher ou produire moins cher que ses rivales. La théorie du positionnement de Michael Porter, présentée par l'Institut pour la stratégie et la compétitivité de Harvard, distingue ces deux voies ; le Conseil d'analyse économique, l'OCDE et l'Autorité de la concurrence montrent comment effets de réseau, données, échelle et marque peuvent renforcer une position, au point de poser des questions de concurrence.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l'Institut pour la stratégie et la compétitivité de Harvard, un bon positionnement se traduit soit par un prix plus élevé, soit par des coûts plus bas que ceux des concurrents.",
+      "Le Conseil d'analyse économique explique que les économies d'échelle et les effets de réseau favorisent la concentration des marchés numériques, et que les données collectées peuvent être une source d'avantage concurrentiel.",
+      "Pour l'OCDE, le pouvoir de marché est la capacité de maintenir des prix supérieurs, ou une qualité inférieure, au niveau concurrentiel ; effets de réseau, économies d'échelle et marque peuvent freiner l'entrée de rivaux."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux façons de battre ses rivaux",
+        "text": "L'Institut pour la stratégie et la compétitivité de la Harvard Business School, qui présente les travaux de Michael Porter, résume l'idée ainsi : un positionnement réussi doit se traduire par un prix plus élevé ou par des coûts plus bas pour l'entreprise. Pour obtenir un prix plus élevé, elle doit apporter aux clients une valeur distinctive : c'est la différenciation. Pour rivaliser sur les coûts, elle doit trouver le bon équilibre entre prix et qualité acceptable : c'est la domination par les coûts. Dans les deux cas, l'avantage naît des choix faits parmi les centaines d'activités que l'entreprise réalise, de la conception à la distribution."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quand la taille et le réseau s'en mêlent",
+        "text": "Certains avantages se renforcent d'eux-mêmes. Le Conseil d'analyse économique (CAE) note que les économies d'échelle et les effets de réseau favorisent la concentration des marchés numériques. L'effet de réseau signifie que les consommateurs sont plus attirés par une entreprise qui donne accès à un large réseau. Le CAE ajoute que les données collectées par les plateformes peuvent être une source d'avantage concurrentiel. L'Autorité de la concurrence relève de son côté que certains grands acteurs bénéficient d'effets de réseau importants liés à leur vaste communauté d'utilisateurs ou aux données auxquelles ils ont accès, ainsi que d'une forte capacité financière."
+      },
+      {
+        "kind": "fait",
+        "heading": "De l'avantage au pouvoir de marché",
+        "text": "L'OCDE définit le pouvoir de marché comme la capacité d'une entreprise à maintenir des prix supérieurs, ou une qualité inférieure, au niveau qui prévaudrait en concurrence. Dans une note de son comité de la concurrence, elle cite les effets de réseau et les économies d'échelle parmi les barrières à l'entrée, et mentionne aussi les effets liés à la marque. Une marque reconnue, un réseau d'utilisateurs ou un coût unitaire très bas rendent plus difficile l'arrivée de nouveaux concurrents."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un avantage n'est jamais acquis",
+        "text": "Un avantage concurrentiel est donc une position relative, pas une propriété figée : il dépend des choix de l'entreprise, mais aussi de ceux de ses rivaux et des clients. Le CAE invite d'ailleurs à relativiser la faiblesse des barrières à l'entrée souvent prêtée au numérique. Lorsque l'avantage devient si fort qu'il empêche toute concurrence, il entre dans le champ des autorités de concurrence, qui ne sanctionnent pas la réussite elle-même mais les pratiques qui en abusent."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Institute for Strategy and Competitiveness, Harvard Business School, « Strategic Positioning »",
+        "url": "https://www.isc.hbs.edu/strategy/business-strategy/Pages/strategic-positioning.aspx"
+      },
+      {
+        "label": "Conseil d'analyse économique, note n° 60 sur les plateformes numériques",
+        "url": "https://cae-eco.fr/static/pdf/cae-note060.pdf"
+      },
+      {
+        "label": "OCDE, Comité de la concurrence, document DAF/COMP(2022)5",
+        "url": "https://one.oecd.org/document/DAF/COMP(2022)5/fr/pdf"
+      },
+      {
+        "label": "Autorité de la concurrence, contribution du 21 février 2020",
+        "url": "https://www.autoritedelaconcurrence.fr/fr/entityprint/pdf/node/6891"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quelles sont les deux grandes voies d'un avantage concurrentiel selon Porter ?",
+        "answer": "Faire payer un prix plus élevé grâce à la différenciation, ou avoir des coûts plus bas que les concurrents."
+      },
+      {
+        "question": "Qu'est-ce que la différenciation ?",
+        "answer": "Apporter aux clients une valeur distinctive qui permet de vendre plus cher."
+      },
+      {
+        "question": "Qu'est-ce qu'un effet de réseau ?",
+        "answer": "Les consommateurs sont plus attirés par une entreprise qui donne accès à un large réseau d'utilisateurs."
+      },
+      {
+        "question": "Comment l'OCDE définit-elle le pouvoir de marché ?",
+        "answer": "La capacité d'une entreprise à maintenir des prix supérieurs, ou une qualité inférieure, au niveau concurrentiel."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-la-demographie-pese-sur-l-economie-le-dividende-demographique-explique",
+    "title": "Pourquoi la démographie pèse sur l'économie : le dividende démographique expliqué",
+    "summary": "La pyramide des âges d'un pays influence sa croissance : quand la part des personnes en âge de travailler augmente par rapport aux personnes à charge, une fenêtre s'ouvre. Le FNUAP, le Population Reference Bureau et le FMI appellent ce mécanisme le dividende démographique et insistent sur ses conditions : éducation, santé, emploi. Les projections pour l'Afrique subsaharienne citées ici reposent sur le scénario de fécondité moyenne des Nations unies et datent de 2016.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le FNUAP définit le dividende démographique comme la croissance économique potentielle liée à l'évolution de la pyramide des âges, quand la part des 15-64 ans dépasse celle des personnes hors âge de travailler.",
+      "Le dividende n'est pas automatique : la fécondité doit baisser nettement, et il faut investir dans l'éducation et la santé et créer des emplois décents, soulignent le FNUAP et le Population Reference Bureau.",
+      "Selon le FMI, l'Afrique subsaharienne, un peu plus de 800 millions d'habitants en 2010, pourrait atteindre 3,7 milliards en 2100 et fournir pratiquement toute la hausse mondiale du nombre d'actifs."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une affaire de pyramide des âges",
+        "text": "La démographie agit sur l'économie à travers la structure par âge. Le FNUAP, le Fonds des Nations unies pour la population, définit le dividende démographique comme la croissance économique potentielle liée à l'évolution de la pyramide des âges, principalement lorsque la proportion de la population active, de 15 à 64 ans, est supérieure à celle des personnes hors âge de travailler. Il survient quand le ratio entre population active et personnes à charge s'accroît. Le Population Reference Bureau le décrit comme la croissance économique rapide résultant de la baisse de la mortalité et de la fécondité."
+      },
+      {
+        "kind": "fait",
+        "heading": "La transition démographique ouvre la fenêtre",
+        "text": "Ce mouvement découle de la transition démographique, c'est-à-dire du passage de taux de fécondité et de mortalité élevés à des taux faibles, rappelle le FNUAP. Tant que la fécondité reste élevée, la charge pèse sur les adultes : dans les pays les moins développés, plus de 40 % de la population a moins de 15 ans et dépend du soutien financier des adultes en âge de travailler, note le Population Reference Bureau. Selon lui, la fécondité doit baisser de manière substantielle pour que les pays récoltent le dividende ; avec moins d'enfants, les familles disposent d'un revenu accru et peuvent davantage épargner et investir."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'Afrique subsaharienne, cas d'école",
+        "text": "Un article de la revue Finances & Développement du FMI, publié en 2016, applique ce raisonnement à l'Afrique subsaharienne. Sa population, un peu plus de 800 millions en 2010, devrait plus que quadrupler d'ici à 2100 pour atteindre 3,7 milliards, selon le scénario de fécondité moyenne des Nations unies. Son poids dans la population mondiale passerait de moins de 12 % à environ 35 %, et la région serait à l'origine de pratiquement 100 % de la hausse de 2 milliards du nombre d'actifs dans le monde ; sa part de la population active mondiale grimperait d'environ 10 % à 37 % en 2100. Les auteurs soulignent que ce potentiel suppose des politiques adaptées."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un potentiel, pas une garantie",
+        "text": "Plus d'actifs ne signifie pas plus de richesse si les emplois manquent. Le FNUAP indique que, dans les pays les moins avancés, environ 80 % de la population active est au chômage, sous-employée ou employée irrégulièrement, et insiste sur l'éducation, la santé sexuelle et reproductive et l'existence d'emplois décents. À l'inverse, le FMI rappelle que la population active devrait reculer dans une grande partie du reste du monde, qui vieillit. La démographie fixe ainsi un cadre, mais ce sont les politiques d'éducation, de santé et d'emploi qui transforment ou non ce cadre en croissance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "FNUAP, « Le dividende démographique »",
+        "url": "https://www.unfpa.org/fr/le-dividende-d%C3%A9mographique"
+      },
+      {
+        "label": "Population Reference Bureau, J. Gribble et J. Bremner, « Atteindre un dividende démographique », 2012",
+        "url": "https://www.prb.org/wp-content/uploads/2012/12/demographic-dividend-fr.pdf"
+      },
+      {
+        "label": "FMI, Finances & Développement, V. Thakoor et J. Wakeman-Linn, « Mettre à profit la nouvelle donne démographique », mars 2016",
+        "url": "https://www.imf.org/external/pubs/ft/fandd/fre/2016/03/pdf/thakoor.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que le dividende démographique ?",
+        "answer": "La croissance économique potentielle liée à l'évolution de la pyramide des âges, quand la part des 15-64 ans dépasse celle des personnes à charge."
+      },
+      {
+        "question": "Qu'appelle-t-on transition démographique ?",
+        "answer": "Le passage de taux de fécondité et de mortalité élevés à des taux de fécondité et de mortalité faibles."
+      },
+      {
+        "question": "Pourquoi la baisse de la fécondité aide-t-elle à récolter le dividende ?",
+        "answer": "Avec moins d'enfants, les familles disposent d'un revenu accru et peuvent davantage épargner et investir."
+      },
+      {
+        "question": "Quelle population le FMI projette-t-il pour l'Afrique subsaharienne en 2100 ?",
+        "answer": "3,7 milliards d'habitants, selon le scénario de fécondité moyenne des Nations unies, contre un peu plus de 800 millions en 2010."
+      },
+      {
+        "question": "Pourquoi plus d'actifs ne garantit-il pas plus de croissance ?",
+        "answer": "Parce qu'il faut des emplois décents, de l'éducation et de la santé ; sinon les actifs restent au chômage ou sous-employés."
+      }
+    ]
+  },
+  {
     "slug": "zone-euro-la-masse-monetaire-m3-croit-de-3-6-sur-un-an-en-octobre",
     "title": "Zone euro : la masse monétaire M3 croît de 3,6 % sur un an en octobre",
     "summary": "Selon la BCE, la croissance annuelle de l’agrégat monétaire large M3 de la zone euro est restée stable à 3,6 % en octobre 2026, le chiffre de septembre ayant été révisé de 3,5 % à 3,6 %. Le crédit aux entreprises accélère à 4,5 %, celui aux ménages reste à 3,1 %. En France, la Banque de France indique que la composante française de M3 progresse de 2,4 % sur un an ; ces données d’octobre sont provisoires.",

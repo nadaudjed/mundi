@@ -1,5 +1,1686 @@
 [
   {
+    "slug": "mer-noire-kiev-propose-un-cessez-le-feu-pour-ses-exportations-agricoles",
+    "title": "Mer Noire : Kiev propose un cessez-le-feu pour ses exportations agricoles",
+    "summary": "Le 27 novembre 2026, le ministre ukrainien des Affaires étrangères, Andrii Sybiha, a annoncé que l’Ukraine avait proposé un cessez-le-feu en mer Noire afin de rétablir la liberté de navigation et d’assurer ses exportations agricoles. Kiev dit attendre la réponse de Moscou, qui voudrait y inclure l’arrêt des attaques ukrainiennes contre son secteur pétrolier. Début octobre, le Kremlin avait déjà rejeté une trêve limitée en mer Noire. Aucun volume d’exportation récent n’a été communiqué avec l’annonce.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Andrii Sybiha a présenté l’offre le 27 novembre lors de la conférence « Food from Ukraine » : Kiev se dit prêt à rétablir la liberté de navigation en mer Noire et à garantir des exportations agricoles sans interruption.",
+      "L’offre a été transmise aux partenaires internationaux ; le ministre a remercié l’Inde, la Turquie et l’Égypte pour leur rôle dans la désescalade, et a déclaré attendre désormais une réponse de la Russie.",
+      "Selon Reuters, Moscou demande que la trêve couvre l’arrêt des attaques ukrainiennes contre son secteur pétrolier ; Kiev ne l’envisage que dans le cadre d’un accord plus large de cessez-le-feu énergétique."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une offre centrée sur les céréales",
+        "text": "Le vendredi 27 novembre 2026, lors de la conférence « Food from Ukraine », le chef de la diplomatie ukrainienne, Andrii Sybiha, a annoncé une proposition de cessez-le-feu en mer Noire. Selon Al Jazeera, qui s’appuie sur l’AFP et Reuters, Kiev se dit prêt à rétablir la liberté de navigation et à garantir l’exportation ininterrompue de ses produits agricoles. « Toutes nos propositions ont été transmises », a déclaré le ministre, selon Al Jazeera. Il a ajouté que l’Ukraine attendait maintenant une réponse de la Russie."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des médiateurs et une divergence sur le pétrole",
+        "text": "D’après la dépêche de Reuters reprise par Business Standard, Andrii Sybiha a remercié l’Inde, la Turquie et l’Égypte pour leur rôle « actif et important » dans la désescalade en mer Noire. Le principal point de friction porte sur le périmètre de la trêve : la Russie a proposé que l’Ukraine suspende ses attaques contre le secteur pétrolier russe, alors que Kiev ne l’envisagerait que dans un accord plus large de cessez-le-feu sur l’énergie. Le ministre a aussi accusé Moscou d’exigences « irréalistes ». Le même jour, Vladimir Poutine assistait à la levée des couleurs d’un nouveau sous-marin à propulsion nucléaire, selon les agences russes citées par Al Jazeera."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des précédents",
+        "text": "La question des corridors maritimes n’est pas nouvelle : la Russie s’est retirée en juillet 2023 de l’accord céréalier conclu en 2022 sous l’égide des Nations unies et de la Turquie. En août 2026, Reuters faisait état d’une chute de 76 % sur un an des exportations ukrainiennes de céréales, et le 31 octobre le secrétaire d’État américain Marco Rubio indiquait que Washington examinait des propositions turques et indiennes sur les expéditions de céréales et d’énergie. Moscou avait déjà écarté une trêve limitée en mer Noire : le 2 octobre 2026, le porte-parole du Kremlin, Dmitri Peskov, estimait que des « arrangements au coup par coup » ne pouvaient pas rapprocher d’un règlement de paix, selon le Hürriyet Daily News. Andrii Sybiha indiquait alors que Kiev avait reçu quatre propositions de cessez-le-feu, de la Turquie, de l’Inde, de l’Égypte et des États-Unis, et se disait prêt à une trêve sur l’énergie et la mer Noire, « mais seulement dans cette combinaison »."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Al Jazeera (avec AFP et Reuters) — Kyiv offers Black Sea ceasefire",
+        "url": "https://aljazeera.com/news/2026/11/27/kyiv-offers-black-sea-ceasefire-as-putin-expands-russias-navy"
+      },
+      {
+        "label": "Business Standard (Reuters) — Ukraine submits Black Sea truce offer",
+        "url": "https://business-standard.com/world-news/ukraine-submits-black-sea-truce-offer-waits-for-russian-response-minister-126112701458_1.html"
+      },
+      {
+        "label": "Hürriyet Daily News — Russia rejects limited Black Sea truce (3 octobre 2026)",
+        "url": "https://www.hurriyetdailynews.com/russia-rejects-limited-black-sea-truce-227650"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "flashcards": [
+      {
+        "question": "Que propose l’Ukraine en mer Noire depuis le 27 novembre 2026 ?",
+        "answer": "Un cessez-le-feu en mer Noire pour rétablir la liberté de navigation et assurer ses exportations agricoles sans interruption."
+      },
+      {
+        "question": "Sur quel point la Russie et l’Ukraine divergent-elles à propos de cette trêve ?",
+        "answer": "Moscou veut y inclure l’arrêt des attaques ukrainiennes contre son secteur pétrolier ; Kiev ne l’envisage que dans un accord plus large de cessez-le-feu énergétique."
+      }
+    ]
+  },
+  {
+    "slug": "ports-de-l-ue-record-de-423-4-millions-de-passagers-maritimes-en-2025",
+    "title": "Ports de l'UE : record de 423,4 millions de passagers maritimes en 2025",
+    "summary": "Selon Eurostat, qui a publié le 27 novembre 2026 ses données sur le transport maritime de passagers, les ports de l’UE ont accueilli 423,4 millions de passagers en 2025, un record depuis le début des séries comparables en 2002. L’Italie, la Grèce et le Danemark concentrent plus de la moitié du trafic. Les chiffres portent sur 22 pays de l’UE ayant un transport maritime de passagers.",
+    "topic": "economie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En 2025, 423,4 millions de passagers ont transité par les ports de l’UE, soit 5,5 millions de plus qu’en 2024 et 5,2 millions de plus qu’en 2019, avant les perturbations liées au Covid.",
+      "Trois pays traitent plus de la moitié du trafic : l’Italie (96,5 millions, 22,8 % du total de l’UE), la Grèce (81,2 millions, 19,2 %) et le Danemark (42,1 millions, 9,9 %).",
+      "Les trois premiers ports sont italiens et pèsent 8,5 % des passagers, environ un sur douze : Messine (12,8 millions), Reggio de Calabre (12,6 millions) et Naples (10,7 millions)."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un plus haut depuis 2002",
+        "text": "D’après les données publiées par Eurostat le 27 novembre 2026, les ports de l’Union européenne ont traité 423,4 millions de passagers maritimes en 2025. C’est le niveau le plus élevé depuis le début de la collecte de données comparables, en 2002. Le trafic progresse de 5,5 millions de passagers par rapport à 2024 et dépasse de 5,2 millions celui de 2019, l’année précédant les perturbations causées par le Covid dans les transports et le tourisme. Eurostat précise que ces chiffres couvrent 22 pays : la Tchéquie, le Luxembourg, la Hongrie, l’Autriche et la Slovaquie n’ont pas de transport maritime, la Roumanie n’a pas de transport de passagers et l’Estonie ne fournit que des données nationales."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un trafic très concentré",
+        "text": "En 2025, 97,5 % du transport maritime de passagers de l’UE s’est fait dans 11 pays, qui ont chacun enregistré plus de 13 millions de passagers. L’Italie arrive en tête avec 96,5 millions de passagers, soit 22,8 % du total, devant la Grèce (81,2 millions, 19,2 %) et le Danemark (42,1 millions, 9,9 %). Sur un an, la plus forte hausse revient à l’Italie (+3,0 millions) et la plus forte baisse à la France (-0,9 million). Par rapport à 2019, l’Italie progresse de 10,0 millions, tandis que la Suède recule de 5,9 millions."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des traversées courtes plus que des croisières",
+        "text": "Le classement des ports montre le poids des liaisons de proximité. Les 20 premiers ports pour les passagers concentrent 36,0 % du trafic de l’UE. Les trois plus fréquentés, Messine (12,8 millions), Reggio de Calabre (12,6 millions) et Naples (10,7 millions), sont tous italiens ; Messine et Reggio se font face de part et d’autre du détroit de Messine. Viennent ensuite Le Pirée, en Grèce (10,4 millions), et Helsinki, en Finlande (9,5 millions). Ces volumes comptent des passagers, pas des personnes distinctes : un même voyageur peut être compté à chaque embarquement ou débarquement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — EU ports reach a record 423.4 million passengers (27 novembre 2026)",
+        "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261127-1"
+      },
+      {
+        "label": "BTA, agence de presse bulgare — chiffres Eurostat 2025 sur les ports",
+        "url": "https://www.bta.bg/en/news/economy/1256144-bulgarian-ports-handle-10-000-passengers-in-2025-twice-as-many-as-in-2024"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "dataCards": [
+      {
+        "id": "record-passagers-2025",
+        "kind": "stat",
+        "headline": "Les ports de l’UE ont accueilli 423,4 millions de passagers en 2025, un record depuis 2002",
+        "source": {
+          "label": "Eurostat",
+          "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261127-1"
+        },
+        "asOf": "2025-12-31",
+        "imageQuery": "passenger ferry harbour",
+        "measure": {
+          "value": 423.4,
+          "unit": "millions de passagers",
+          "label": "Passagers maritimes dans les ports de l’UE",
+          "scope": "UE (22 pays déclarants)",
+          "period": "2025",
+          "decimals": 1
+        },
+        "context": "5,5 millions de plus qu’en 2024 et 5,2 millions de plus qu’en 2019."
+      },
+      {
+        "id": "trois-pays-en-tete",
+        "kind": "comparaison",
+        "headline": "L’Italie, la Grèce et le Danemark traitent plus de la moitié des passagers maritimes de l’UE",
+        "source": {
+          "label": "Eurostat",
+          "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261127-1"
+        },
+        "asOf": "2025-12-31",
+        "imageQuery": "greek island ferry",
+        "items": [
+          {
+            "value": 96.5,
+            "unit": "millions de passagers",
+            "label": "Italie",
+            "scope": "Ports italiens",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 81.2,
+            "unit": "millions de passagers",
+            "label": "Grèce",
+            "scope": "Ports grecs",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 42.1,
+            "unit": "millions de passagers",
+            "label": "Danemark",
+            "scope": "Ports danois",
+            "period": "2025",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "premiers-ports",
+        "kind": "comparaison",
+        "headline": "Messine, Reggio de Calabre et Naples, les trois ports de passagers les plus fréquentés de l’UE",
+        "source": {
+          "label": "Eurostat",
+          "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261127-1"
+        },
+        "asOf": "2025-12-31",
+        "imageQuery": "strait of messina ferry",
+        "items": [
+          {
+            "value": 12.8,
+            "unit": "millions de passagers",
+            "label": "Messine",
+            "scope": "Port de Messine (Italie)",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 12.6,
+            "unit": "millions de passagers",
+            "label": "Reggio de Calabre",
+            "scope": "Port de Reggio de Calabre (Italie)",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 10.7,
+            "unit": "millions de passagers",
+            "label": "Naples",
+            "scope": "Port de Naples (Italie)",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 10.4,
+            "unit": "millions de passagers",
+            "label": "Le Pirée",
+            "scope": "Port du Pirée (Grèce)",
+            "period": "2025",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Combien de passagers maritimes les ports de l’UE ont-ils accueillis en 2025 ?",
+        "answer": "423,4 millions, un record depuis le début des données comparables en 2002, selon Eurostat."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-le-prix-de-l-electricite-varie-t-il-d-heure-en-heure",
+    "title": "Pourquoi le prix de l'électricité varie-t-il d'heure en heure ?",
+    "summary": "Sur le marché de gros, le prix de l'électricité se fixe heure par heure, au coût de la dernière centrale nécessaire pour couvrir la demande. Comme l'électricité se stocke mal, il bouge avec la météo, la consommation et les interconnexions, jusqu'à devenir négatif. Cet article s'appuie sur la note n° 76 du Conseil d'analyse économique (mars 2023) et sur deux documents de la Commission de régulation de l'énergie, dont son rapport de surveillance des marchés de gros pour 2025, publié en juin 2026.",
+    "topic": "energie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le prix spot équilibre le marché heure par heure : il correspond au coût variable de la dernière centrale appelée selon l'ordre de mérite, et il est versé à tous les producteurs retenus.",
+      "L'électricité se stockant mal, l'offre doit égaler la demande à chaque instant : le prix varie avec la consommation, le vent, le soleil et les échanges entre pays.",
+      "En France, le prix journalier a atteint 61,1 €/MWh en moyenne en 2025, avec un record de 513 heures à prix négatifs ; en milieu de journée, au pic de production solaire, les prix sont surtout proches de zéro, selon la CRE."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un prix fixé par la dernière centrale appelée",
+        "text": "Sur le marché de gros, les producteurs proposent leur électricité heure par heure. Selon le Conseil d'analyse économique, le prix spot est le prix du mégawattheure qui équilibre ce marché horaire. Il correspond au coût marginal, c'est-à-dire au coût variable de fonctionnement, de la dernière unité de production mise en service selon le principe de l'ordre de mérite : on appelle d'abord les moyens les moins chers à faire tourner, puis les plus coûteux jusqu'à couvrir la demande. Ce prix est versé à tous les producteurs appelés ; ceux dont les coûts d'exploitation sont plus bas reçoivent donc un surplus. La CRE rappelle que cette tarification au prix marginal est le fonctionnement naturel de tout marché de matières premières."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une marchandise qui se stocke mal",
+        "text": "Le CAE souligne que l'électricité a une faible stockabilité : les marchés de gros sont donc structurés au pas horaire, car un déséquilibre entre production et consommation perturberait la fréquence électrique. La CRE note que des contrats au pas de 15 minutes ont même été introduits sur les marchés couplés européens. Selon le CAE, le prix varie très fréquemment, à la hausse comme à la baisse, en fonction des tensions entre l'offre et la demande, et il est par nature volatil puisque plusieurs technologies, aux coûts très différents, coexistent dans les parcs de production."
+      },
+      {
+        "kind": "fait",
+        "heading": "Soleil, vent et prix négatifs",
+        "text": "Les éoliennes et les panneaux solaires ont un coût variable très faible. Quand ils tournent à plein régime, le CAE prévoit des prix très faibles, voire négatifs. C'est ce qu'observe la CRE : en France, la fréquence des prix négatifs a atteint un nouveau record de 513 heures en 2025, contre 352 en 2024, avec surtout des prix proches de zéro en milieu de journée en raison du pic de production solaire. L'écart moyen entre les deux heures les plus chères et les deux heures les moins chères d'une journée, l'indicateur TB2, a augmenté de 25 % en 2025. À l'inverse, aux heures de pointe, il faut faire appel à des équipements coûteux, utilisés pour la sécurité d'approvisionnement."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que montrent les chiffres de 2025",
+        "text": "Selon la CRE, les prix journaliers ont atteint 61,1 €/MWh en moyenne en 2025, une légère hausse de 6 % par rapport à 2024. La production française a atteint 547,5 TWh, dont 373 TWh de nucléaire, tandis que les centrales thermiques à flamme n'ont produit que 18,7 TWh, moins de 4 % du mix. La France a enregistré un record d'exportations nettes, à 92,3 TWh, et figure parmi les marchés de gros d'électricité les moins chers d'Europe."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Le rôle du gaz et des contrats de long terme",
+        "text": "Lorsque la dernière centrale appelée fonctionne au gaz, le prix de l'électricité suit celui du gaz : le CAE pointe la trop forte dépendance de l'Europe au gaz pour produire de l'électricité, qui a exposé le système à sa volatilité lors de la crise. Pour s'en protéger, l'électricité peut être achetée à l'avance sur les marchés à terme, à un prix fixé à la signature, beaucoup moins volatil que le prix spot. Des contrats de long terme existent aussi : les contrats pour différence, organisés par une entité publique, versent aux producteurs l'écart entre un prix fixe et le prix de gros, et les contrats privés de gré à gré, appelés PPA, en sont une variante. Avec la fin de l'Arenh le 31 décembre 2025, souligne la CRE, le marché de gros joue désormais un rôle prépondérant dans la formation du prix payé par les consommateurs."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Conseil d'analyse économique, « Le triple défi de la réforme du marché européen de l'électricité », note n° 76, mars 2023",
+        "url": "https://cae-eco.fr/static/pdf/cae076-marcheelectricite-2303121-v3.pdf"
+      },
+      {
+        "label": "CRE, rapport de surveillance des marchés de gros de l'électricité et du gaz naturel en 2025, juin 2026",
+        "url": "https://www.cre.fr/fileadmin/Documents/Rapports_et_etudes/2026/Rapport_de_surveillance_2025.pdf"
+      },
+      {
+        "label": "CRE, synthèse de sa réponse à la consultation de la Commission européenne sur le marché de l'électricité, février 2023",
+        "url": "https://www.cre.fr/fileadmin/Documents/Actualites/import/Note_market_design_CP_CE_fevrier_2023-fr.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que l'ordre de mérite sur le marché de l'électricité ?",
+        "answer": "Le classement des centrales de la moins chère à la plus chère à faire fonctionner : on les appelle dans cet ordre jusqu'à couvrir la demande."
+      },
+      {
+        "question": "Quel coût fixe le prix spot de l'électricité ?",
+        "answer": "Le coût variable de fonctionnement de la dernière centrale mise en service pour équilibrer l'offre et la demande ; ce prix est versé à tous les producteurs appelés."
+      },
+      {
+        "question": "Pourquoi le marché de gros de l'électricité fonctionne-t-il heure par heure ?",
+        "answer": "Parce que l'électricité se stocke mal : production et consommation doivent s'équilibrer à chaque instant, sinon la fréquence du réseau est perturbée."
+      },
+      {
+        "question": "Combien d'heures à prix négatifs la France a-t-elle connues en 2025 ?",
+        "answer": "513 heures, un record, contre 352 en 2024, selon la CRE."
+      },
+      {
+        "question": "Qu'est-ce qu'un contrat pour différence dans l'électricité ?",
+        "answer": "Un contrat, souvent organisé par une entité publique, qui verse au producteur l'écart entre un prix fixe et le prix de gros."
+      }
+    ]
+  },
+  {
+    "slug": "comment-fonctionne-un-satellite-de-communication-orbite-relais-et-couverture",
+    "title": "Comment fonctionne un satellite de communication : orbite, relais et couverture",
+    "summary": "Un satellite de communication reçoit un signal radio venu du sol, l'amplifie et le renvoie vers la Terre. Selon l'altitude choisie, il couvre une vaste zone depuis un point fixe du ciel ou défile vite au-dessus du sol, ce qui impose de grandes constellations. Explications tirées des dossiers du CNES et des pages de l'Agence spatiale européenne, dont certaines sont des contenus d'archives de 2009 et 2020.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le satellite sert de relais : son ou ses répéteurs captent le signal émis par une station au sol, l'amplifient et le renvoient vers la Terre, selon le CNES et l'ESA.",
+      "En orbite géostationnaire, à 35 786 km au-dessus de l'équateur, un satellite semble immobile ; trois satellites régulièrement espacés suffisent pour une couverture presque mondiale, indique l'ESA.",
+      "En orbite basse, à quelques centaines de kilomètres, le délai de transmission est plus court, mais chaque satellite n'est visible que 10 à 20 minutes d'un même lieu, d'où des constellations de dizaines d'engins."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un relais dans le ciel",
+        "text": "Le principe est celui d'un relais. Selon l'ESA, le signal est reçu par le satellite, amplifié puis renvoyé vers la Terre. Le CNES décrit une charge utile composée d'un ou plusieurs répéteurs qui amplifient les signaux captés. Au sol, le système s'appuie sur des stations d'ancrage au réseau terrestre, équipées de grandes antennes de plusieurs mètres de diamètre, et sur des terminaux à bas coût. Les signaux ressemblent à ceux de la télévision terrestre, mais leur fréquence est en général 3 à 50 fois plus élevée, précise l'ESA, et les antennes des utilisateurs peuvent ne mesurer que 40 à 50 cm de diamètre."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'orbite géostationnaire, un point fixe",
+        "text": "L'orbite géostationnaire est une orbite circulaire située à 35 786 km au-dessus de l'équateur, selon l'ESA ; le CNES parle d'environ 36 000 km. Le satellite y boucle un tour en 23 heures 56 minutes et 4 secondes, au même rythme que la rotation de la Terre : vu du sol, il paraît immobile, ce qui permet des liaisons permanentes avec des antennes fixes. Chaque satellite voit une grande partie du globe, si bien que trois satellites régulièrement espacés suffisent pour une couverture presque mondiale, indique l'ESA. Le satellite rejoint cette orbite avec ses propres moteurs après le lancement."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'orbite basse, rapide et proche",
+        "text": "L'ESA situe l'orbite basse sous 2 000 km d'altitude ; les satellites y font le tour de la Terre en environ 90 minutes, à quelques centaines de kilomètres. Cette proximité réduit le délai dû au trajet du signal : selon le CNES, il peut y être jusqu'à 50 fois plus court. En contrepartie, un satellite n'est visible d'un même endroit que 10 à 20 minutes, et il faut déployer une constellation de plusieurs dizaines de satellites pour assurer un service continu. L'ESA cite des systèmes de 48, 66, 77, 80, voire 288 satellites."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des contraintes qui dictent les choix",
+        "text": "Le choix d'orbite est donc un compromis entre couverture, délai et nombre d'engins. Les satellites doivent aussi résister aux débris, aux micrométéorites et aux grands écarts de températures. Leur vie dure en moyenne entre 5 et 15 ans, selon le CNES, et s'achève souvent quand ils ont épuisé leur carburant, appelé ergol. Le CNES signale aussi des recherches sur les liaisons optiques par laser, qui offriraient des débits 10 à 100 fois supérieurs à ceux des radiofréquences."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNES, « La communication par satellite, comment ça marche ? »",
+        "url": "https://cnes.fr/dossiers/telecommunications"
+      },
+      {
+        "label": "CNES, dossier « Les satellites »",
+        "url": "https://cnes.fr/dossiers/satellites"
+      },
+      {
+        "label": "ESA, « Orbits », Connectivity and Secure Communications (2009)",
+        "url": "https://www.esa.int/Applications/Connectivity_and_Secure_Communications/Orbits"
+      },
+      {
+        "label": "ESA, « Types of orbits » (contenu d'archives, 2020)",
+        "url": "https://www.esa.int/Our_Activities/Space_Transportation/Types_of_orbits"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Que fait un satellite de communication du signal qu'il reçoit du sol ?",
+        "answer": "Il le capte avec ses répéteurs, l'amplifie et le renvoie vers la Terre."
+      },
+      {
+        "question": "À quelle altitude se trouve l'orbite géostationnaire selon l'ESA ?",
+        "answer": "À 35 786 km au-dessus de l'équateur."
+      },
+      {
+        "question": "Pourquoi un satellite géostationnaire semble-t-il immobile depuis le sol ?",
+        "answer": "Parce qu'il fait un tour en 23 h 56 min 4 s, au rythme de la rotation de la Terre."
+      },
+      {
+        "question": "Combien de satellites géostationnaires suffisent pour une couverture presque mondiale ?",
+        "answer": "Trois satellites régulièrement espacés."
+      },
+      {
+        "question": "Pourquoi faut-il des constellations de dizaines de satellites en orbite basse ?",
+        "answer": "Parce que chaque satellite n'est visible d'un même lieu que 10 à 20 minutes."
+      }
+    ]
+  },
+  {
+    "slug": "comment-la-diaspora-peut-elle-investir-au-dela-des-envois-d-argent-aux-familles",
+    "title": "Comment la diaspora peut-elle investir au-delà des envois d'argent aux familles ?",
+    "summary": "Les envois de fonds des migrants vers l'Afrique subsaharienne ont atteint 55 milliards de dollars en 2023 selon l'estimation révisée de la Banque mondiale (décembre 2024), mais l'essentiel sert aux besoins immédiats des familles. Le dossier de la Journée internationale des envois de fonds familiaux, coordonnée par le FIDA, estime qu'environ un quart pourrait financer des projets de long terme, à condition que les frais baissent et que des services financiers adaptés existent. Les chiffres 2024 de la Banque mondiale sont des estimations.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la Banque mondiale, les remises vers l'Afrique subsaharienne ont atteint 55 milliards de dollars en 2023 (+1,0 %, estimation révisée de décembre 2024), et les envois vers les pays à revenu faible et intermédiaire ont dépassé les investissements étrangers directs et l'aide publique.",
+      "Envoyer 200 dollars vers l'Afrique subsaharienne coûtait en moyenne 7,9 % en 2023, bien au-dessus de la cible de 3 % fixée par les objectifs de développement durable pour 2030.",
+      "Le dossier de la Journée des envois de fonds estime que 75 % des fonds couvrent des besoins immédiats et que les 25 % restants, plus de 170 milliards de dollars par an, peuvent viser le long terme."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Des flux plus gros que l'aide",
+        "text": "Les envois de fonds des migrants sont devenus une source majeure de financement extérieur. La Banque mondiale indique qu'en 2023 ils ont excédé, pour les pays à revenu faible et intermédiaire, le montant des investissements étrangers directs et de l'aide publique au développement. Vers l'Afrique subsaharienne, ils ont atteint 55 milliards de dollars en 2023, en hausse de 1,0 %, selon l'estimation révisée publiée par la Banque mondiale en décembre 2024. Pour 2024, la Banque mondiale estimait le total vers les pays à revenu faible et intermédiaire à 685 milliards de dollars, et notait qu'au cours de la dernière décennie ces envois avaient progressé de 57 % tandis que les IDE reculaient de 41 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un argent d'abord consacré au quotidien",
+        "text": "Ces sommes servent surtout à vivre. Selon le dossier 2025 de la Journée internationale des envois de fonds familiaux, environ 75 % des envois couvrent des besoins immédiats ; les 25 % restants, plus de 170 milliards de dollars par an, peuvent être mobilisés pour des objectifs de plus long terme. Le même document estime l'épargne annuelle de la diaspora des pays en développement à environ 400 milliards de dollars. Il rappelle qu'environ 200 millions de travailleurs migrants envoient des fonds à quelque 800 millions de membres de leur famille, et que dans les pays à faible revenu d'Afrique les ménages qui en reçoivent sont 84 % plus susceptibles de déclarer n'avoir jamais souffert de pénurie alimentaire."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le coût des transferts, premier frein",
+        "text": "Chaque transfert est amputé de frais. Au quatrième trimestre 2023, envoyer 200 dollars coûtait en moyenne 6,4 % dans le monde, et 7,9 % vers l'Afrique subsaharienne, selon la Banque mondiale, bien au-delà de l'objectif de 3 %. La cible 10.c des objectifs de développement durable prévoit de réduire ces coûts à moins de 3 % d'ici à 2030 ; le dossier de la Journée des envois de fonds estime qu'à ce niveau, les familles pourraient économiser jusqu'à 20 milliards de dollars par an."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des conditions pour passer à l'investissement",
+        "text": "Faire de la diaspora un investisseur suppose donc deux choses : que moins d'argent se perde en frais, et que l'épargne trouve des placements accessibles depuis l'étranger. Le dossier de la Journée des envois de fonds recommande d'étendre et d'adapter les services financiers pour permettre aux migrants d'investir dans les PME de leur pays d'origine. La réussite dépend aussi de la gouvernance des projets : sans transparence ni suivi, l'épargne des migrants risque de rester orientée vers la consommation familiale, qui demeure par ailleurs un filet de sécurité essentiel."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Banque mondiale, communiqué du 26 juin 2024 sur les remises migratoires",
+        "url": "https://www.banquemondiale.org/fr/news/press-release/2024/06/26/remittances-slowed-in-2023-expected-to-grow-faster-in-2024"
+      },
+      {
+        "label": "Banque mondiale, blog « Envois de fonds des migrants » du 18 décembre 2024",
+        "url": "https://blogs.worldbank.org/fr/voices/envois-de-fonds-migrants-2024"
+      },
+      {
+        "label": "Journée internationale des envois de fonds familiaux (FIDA), « Les transferts de fonds et les objectifs de développement durable », 2025",
+        "url": "https://familyremittances.org/wp-content/uploads/2025/06/IDFR2025_remittances-and-SDGs_v02_fr.pdf"
+      },
+      {
+        "label": "Nations unies, Journée internationale des envois de fonds familiaux",
+        "url": "https://www.un.org/fr/observances/remittances-day"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Combien la diaspora a-t-elle envoyé vers l'Afrique subsaharienne en 2023 selon la Banque mondiale ?",
+        "answer": "55 milliards de dollars, en hausse de 1,0 %, selon l'estimation révisée de décembre 2024."
+      },
+      {
+        "question": "Quelle part des envois de fonds sert aux besoins immédiats des familles ?",
+        "answer": "Environ 75 % ; les 25 % restants peuvent viser des objectifs de long terme."
+      },
+      {
+        "question": "Combien coûtait en moyenne l'envoi de 200 dollars vers l'Afrique subsaharienne en 2023 ?",
+        "answer": "7,9 %, bien au-dessus de l'objectif de 3 %."
+      },
+      {
+        "question": "Quel objectif les ODD fixent-ils pour le coût des envois de fonds ?",
+        "answer": "Le réduire à moins de 3 % d'ici à 2030."
+      },
+      {
+        "question": "Que recommande le dossier de la Journée des envois de fonds pour favoriser l'investissement ?",
+        "answer": "Étendre et adapter les services financiers pour que les migrants investissent dans les PME de leur pays d'origine."
+      }
+    ]
+  },
+  {
+    "slug": "le-soft-power-peut-il-changer-les-rapports-de-force-entre-etats",
+    "title": "Le soft power peut-il changer les rapports de force entre États ?",
+    "summary": "Le soft power désigne la capacité d'un pays à attirer et à persuader plutôt qu'à contraindre. Forgé par Joseph Nye à la fin des années 1980, le concept est présenté par le Centre Weatherhead de Harvard ; la France en a fait une doctrine avec sa feuille de route de l'influence de décembre 2021.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la présentation de l'ouvrage de Joseph Nye publiée par Harvard, le soft power repose sur la capacité d'attirer et de persuader, quand le hard power, issu de la force militaire ou économique, repose sur la capacité de contraindre.",
+      "Il naît de l'attrait de la culture d'un pays, de ses idéaux politiques et de ses politiques ; Nye souligne que le hard power reste crucial dans un monde d'États soucieux de leur indépendance.",
+      "La France a présenté le 14 décembre 2021 une feuille de route de l'influence, décrite par son ministère des Affaires étrangères comme sa première doctrine consolidée en matière de soft power, avec dix orientations et six priorités stratégiques."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Attirer plutôt que contraindre",
+        "text": "Le politologue américain Joseph Nye a forgé l'expression « soft power » à la fin des années 1980, rappelle le Centre Weatherhead pour les affaires internationales de l'université Harvard, qui présente son ouvrage de 2005, Soft Power: The Means to Success in World Politics. Le soft power réside dans la capacité d'attirer et de persuader. Il s'oppose au hard power, la capacité de contraindre, qui découle de la puissance militaire ou économique d'un pays. Selon Nye, le soft power naît de l'attrait de la culture d'un pays, de ses idéaux politiques et de ses politiques."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un concept devenu politique publique",
+        "text": "Les États ont repris l'idée à leur compte. Le ministère français de l'Europe et des Affaires étrangères a présenté le 14 décembre 2021 une feuille de route de l'influence, qu'il décrit comme la première doctrine consolidée de la France en matière de soft power, avec dix orientations et six priorités stratégiques pour son réseau."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que le soft power peut, et ne peut pas, faire",
+        "text": "Le soft power agit lentement : il façonne des préférences, rend des alliances plus faciles et des positions plus acceptables, mais il ne remplace ni une armée ni une économie. Nye lui-même note, dans la présentation de Harvard, que le terme est souvent employé à tort et que le hard power reste crucial pour des États qui veulent préserver leur indépendance. Il peut donc infléchir les rapports de force, surtout combiné à des moyens matériels mais rarement les renverser seul."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Weatherhead Center for International Affairs, Harvard, présentation de « Soft Power: The Means to Success in World Politics », J. Nye, 2005",
+        "url": "https://wcfia.harvard.edu/publications/soft-power-means-success-world-politics"
+      },
+      {
+        "label": "Ministère de l'Europe et des Affaires étrangères, « Roadmap for France's soft power » (feuille de route de l'influence), 14 décembre 2021",
+        "url": "https://www.diplomatie.gouv.fr/en/le-ministere/publications-programmes-et-documentation-institutionnelle/publications/documents-institutionnels/feuille-de-route-de-l-influence"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que le soft power selon Joseph Nye ?",
+        "answer": "La capacité d'un pays à attirer et à persuader, plutôt qu'à contraindre."
+      },
+      {
+        "question": "D'où vient le hard power ?",
+        "answer": "De la puissance militaire ou économique d'un pays, qui lui donne la capacité de contraindre."
+      },
+      {
+        "question": "Quelles sont les trois sources du soft power selon Nye ?",
+        "answer": "L'attrait de la culture d'un pays, de ses idéaux politiques et de ses politiques."
+      },
+      {
+        "question": "Quand la France a-t-elle présenté sa feuille de route de l'influence ?",
+        "answer": "Le 14 décembre 2021, comme première doctrine consolidée en matière de soft power."
+      },
+      {
+        "question": "Pourquoi le soft power ne suffit-il pas seul ?",
+        "answer": "Parce que, selon Nye, le hard power reste crucial pour des États qui veulent préserver leur indépendance."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-les-prix-augmentent-ils-demande-couts-salaires-et-anticipations",
+    "title": "Pourquoi les prix augmentent-ils ? Demande, coûts, salaires et anticipations",
+    "summary": "L'inflation n'est pas la hausse d'un prix isolé mais une hausse générale qui réduit ce qu'un euro permet d'acheter. Elle naît d'un déséquilibre entre l'offre et la demande, de chocs de coûts comme l'énergie, puis parfois d'une boucle entre prix, salaires et anticipations. Cet article s'appuie sur les notes explicatives de la BCE, sur un billet de la Banque de France consacré à l'inflation post-pandémie et sur les moyennes annuelles de l'indice des prix harmonisé publiées par Eurostat pour la France, de 2021 à 2025.",
+    "topic": "economie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la BCE, on parle d'inflation lorsque les prix augmentent globalement, et non seulement ceux de quelques produits : avec le temps, chaque euro permet d'acheter moins.",
+      "Les causes se combinent : une demande qui repart plus vite que l'offre, des coûts qui grimpent comme l'énergie, puis des salaires et des anticipations qui peuvent entretenir la hausse.",
+      "En France, l'inflation harmonisée est passée de 2,1 % en 2021 à 5,9 % en 2022 et 5,7 % en 2023, selon Eurostat ; l'énergie (+23,8 % en 2022) puis l'alimentation (+11,4 % en 2023) ont mené la hausse."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une hausse générale, pas celle d'un seul produit",
+        "text": "Dans une économie de marché, certains prix montent et d'autres baissent en permanence. La BCE réserve le mot inflation au cas où les prix augmentent globalement : chaque euro permet alors d'acheter moins de produits, et la valeur de la monnaie s'érode. Pour la mesurer, Eurostat suit un panier d'environ 700 biens et services consommés par les ménages de la zone euro, l'indice des prix à la consommation harmonisé. Chaque produit y pèse selon la part qu'il représente dans les dépenses moyennes : le café, avec le thé et le cacao, compte pour 0,4 %, l'essence et les autres carburants pour 4,6 %. Une même hausse en pourcentage de l'essence pèse donc environ dix fois plus que celle du café."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quand la demande court plus vite que l'offre",
+        "text": "Premier mécanisme : la demande dépasse ce que les entreprises peuvent produire. La BCE l'illustre avec la réouverture de 2021 : les ménages ont dépensé une partie de l'épargne accumulée pendant les confinements, alors que les chaînes d'approvisionnement restaient désorganisées, avec une pénurie de conteneurs et de semi-conducteurs. Lorsque les entreprises ne parviennent pas à suivre le rythme des achats, les prix augmentent, c'est la loi de l'offre et de la demande. En période de croissance, note aussi la BCE, il est plus facile pour une entreprise d'augmenter ses prix sans perdre de clients."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quand les coûts de production grimpent",
+        "text": "Deuxième mécanisme : un choc sur les coûts, que les entreprises répercutent sur leurs prix de vente. L'énergie en est l'exemple type, car une grande partie des coûts des entreprises et des ménages en dépend. Selon la BCE, l'accélération de l'inflation fin 2021 était attribuable pour moitié à la hausse des prix de l'énergie. Pour la France, la Banque de France conclut que les chocs de prix de l'énergie, puis ceux de l'alimentation à partir de 2022, ont été les moteurs de l'inflation post-pandémie, tandis que l'effet des chocs sur les chaînes d'approvisionnement serait resté faible. Les moyennes annuelles d'Eurostat le montrent : en France, les prix de l'énergie ont augmenté de 23,8 % en 2022, et ceux de l'alimentation de 11,4 % en 2023."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Salaires et anticipations : ce qui fait durer l'inflation",
+        "text": "Un choc ponctuel peut s'installer si les prix et les salaires s'entraînent mutuellement. La BCE explique que des salariés qui obtiennent des hausses pour compenser le coût de la vie augmentent les coûts des entreprises, qui peuvent à leur tour relever leurs prix ; si ménages et entreprises s'attendent à ce que l'inflation dure, elle peut effectivement progresser. Les économistes parlent d'effet de second tour. La Banque de France estime que les chocs récents n'ont pas déclenché de spirale prix-salaires en France, et que la réponse de l'inflation à un choc de matières premières, si elle est forte, est de courte durée, sauf tensions persistantes sur le marché du travail."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des rythmes différents selon les secteurs",
+        "text": "Tous les prix ne bougent pas ensemble. Selon Eurostat, en France, l'inflation harmonisée a été de 2,1 % en 2021, 5,9 % en 2022, 5,7 % en 2023, 2,3 % en 2024 et 0,9 % en 2025. L'énergie a été la plus volatile : +10,6 % en 2021, +23,8 % en 2022, puis -5,4 % en 2025. L'alimentation a pris le relais avec +6,0 % en 2022 et +11,4 % en 2023. Les services ont évolué plus lentement mais plus durablement : +3,2 % en 2022, +3,9 % en 2023 et +3,2 % en 2024. Ces écarts reflètent la nature des coûts : les services dépendent davantage des salaires, l'énergie et l'alimentation des cours mondiaux."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que peut faire la banque centrale",
+        "text": "La BCE a pour mission de maintenir une inflation faible, stable et prévisible, à 2 % à moyen terme. Elle agit surtout par les taux d'intérêt, qui rendent le crédit plus ou moins cher et freinent ou soutiennent la demande. Mais la BCE souligne elle-même que la politique monétaire agit avec un temps de retard et ne peut contrer les flambées ponctuelles de prix : relever les taux ne crée ni conteneurs ni énergie supplémentaires. Son rôle principal est donc d'éviter qu'un choc de coûts ne se transforme en inflation durable par les salaires et les anticipations."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE, « Qu'est-ce que l'inflation ? », note explicative",
+        "url": "https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me-more/html/what_is_inflation.fr.html"
+      },
+      {
+        "label": "BCE, « Pourquoi l'inflation est-elle aussi élevée actuellement ? », 16 novembre 2021",
+        "url": "https://www.ecb.europa.eu/ecb/educational/explainers/tell-me-more/html/high_inflation.fr.html"
+      },
+      {
+        "label": "Banque de France, billet n° 363, « Quelles sont les causes de l'inflation post-pandémie en France ? », P. Aldama, H. Le Bihan, C. Le Gall, 2024",
+        "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/quelles-sont-les-causes-de-linflation-post-pandemie-en-France"
+      },
+      {
+        "label": "Eurostat, IPCH, taux de variation annuels moyens (prc_hicp_aind), France, mis à jour le 6 février 2026",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_aind/default/table"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'appelle-t-on inflation selon la BCE ?",
+        "answer": "Une hausse globale des prix, et non celle de quelques produits seulement : avec le temps, chaque euro permet d'acheter moins."
+      },
+      {
+        "question": "Pourquoi une hausse de l'essence pèse-t-elle plus sur l'indice des prix que celle du café ?",
+        "answer": "Parce que chaque produit pèse selon sa part dans les dépenses des ménages : 4,6 % pour l'essence et les carburants contre 0,4 % pour le café, le thé et le cacao."
+      },
+      {
+        "question": "Qu'est-ce qu'un effet de second tour ?",
+        "answer": "Quand une hausse des prix entraîne des hausses de salaires et des anticipations d'inflation durable, qui poussent à leur tour les prix vers le haut."
+      },
+      {
+        "question": "Quels chocs ont surtout alimenté l'inflation post-pandémie en France selon la Banque de France ?",
+        "answer": "Les chocs de prix de l'énergie, puis ceux de l'alimentation à partir de 2022 ; les perturbations d'approvisionnement auraient joué un rôle faible."
+      },
+      {
+        "question": "Pourquoi relever les taux ne suffit-il pas contre une flambée ponctuelle des prix ?",
+        "answer": "Parce que la politique monétaire agit avec retard et ne crée ni énergie ni capacités de production supplémentaires ; elle sert surtout à éviter que le choc ne devienne durable."
+      }
+    ]
+  },
+  {
+    "slug": "comment-survient-une-crise-bancaire-liquidite-solvabilite-et-contagion",
+    "title": "Comment survient une crise bancaire ? Liquidité, solvabilité et contagion",
+    "summary": "Une banque peut tomber parce qu'elle a perdu trop d'argent, ou parce qu'elle ne peut plus rembourser à temps des déposants qui retirent tous leurs fonds en même temps, et une faillite peut en entraîner d'autres. Cet article s'appuie sur la fiche « Les crises bancaires » de la Banque de France, publiée en décembre 2024, et sur la note explicative de la BCE consacrée au prêteur en dernier ressort.",
+    "topic": "finance",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Une banque transforme des dépôts disponibles à tout moment en prêts de long terme : ses actifs peuvent être insuffisants ou pas assez liquides pour rembourser d'un coup tous les déposants.",
+      "Une crise de solvabilité vient de pertes qui épuisent les fonds propres ; une crise de liquidité survient quand la banque ne trouve plus de fonds, et une panique bancaire peut aller très vite.",
+      "Pour limiter la contagion, les autorités combinent réglementation, garantie des dépôts jusqu'à 100 000 euros, résolution bancaire et prêts d'urgence de la banque centrale aux banques solvables."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un métier fondé sur la transformation",
+        "text": "Selon la Banque de France, l'activité d'une banque consiste à transformer des dépôts en prêts avec des maturités différentes. Les dépôts peuvent être retirés à tout moment, alors que les crédits accordés aux ménages et aux entreprises ne sont remboursés qu'au fil des années. Les liquidités, c'est-à-dire les sommes en caisse, permettent à la banque d'honorer ses engagements au quotidien. Ce décalage est utile à l'économie, mais il rend la banque fragile : si trop de déposants demandent leur argent en même temps, ses actifs peuvent être insuffisants ou pas assez liquides pour tout rembourser immédiatement."
+      },
+      {
+        "kind": "fait",
+        "heading": "Deux portes d'entrée : la solvabilité et la liquidité",
+        "text": "La Banque de France définit les crises bancaires par une chute de la rentabilité, voire une faillite, d'une ou plusieurs banques. Le premier scénario est celui de lourdes pertes, sur des crédits non remboursés ou des placements dépréciés, qui épuisent tout ou partie des fonds propres : capital, réserves et titres de dette hybride. La banque devient alors insolvable. Le second est une crise de liquidité : le marché des prêts interbancaires se ferme pour la banque en difficulté, qui ne trouve plus de quoi financer ses activités quotidiennes. La BCE rappelle qu'une banque peut être à court de liquidité tout en restant solvable, si ses fonds sont immobilisés dans des prêts à long terme accordés à ses clients."
+      },
+      {
+        "kind": "fait",
+        "heading": "La panique bancaire, un emballement très rapide",
+        "text": "Lorsque les clients doutent, ils retirent massivement leurs dépôts : on parle de panique bancaire, ou de bank run. Selon la Banque de France, cette fuite des dépôts aggrave la crise en augmentant le besoin de liquidités, et le phénomène peut aller très vite, en quelques heures. La Silicon Valley Bank, aux États-Unis, a ainsi perdu 25 % de ses dépôts en une journée en 2023. Elle avait placé une grande partie de ses dépôts en titres d'État américains, dépréciés par la hausse des taux, et a été déclarée en faillite le 10 mars 2023 ; le fonds américain de garantie des dépôts a absorbé environ 18 milliards de dollars de pertes, selon la fiche de la Banque de France."
+      },
+      {
+        "kind": "fait",
+        "heading": "La contagion, ou l'effet domino",
+        "text": "Les banques se prêtent entre elles et détiennent des créances les unes sur les autres. Une faillite peut donc provoquer des défaillances en chaîne : c'est ce que la Banque de France appelle l'effet de domino sur l'ensemble du secteur bancaire. La crise des subprimes aux États-Unis et la faillite de Lehman Brothers en 2008 en sont l'exemple le plus connu. En 2023, les faillites de la Silicon Valley Bank, de la Signature Bank et de la First Republic Bank aux États-Unis ont été suivies des difficultés du Crédit Suisse en Europe."
+      },
+      {
+        "kind": "fait",
+        "heading": "Les pare-feux : règles, garantie, résolution et prêteur en dernier ressort",
+        "text": "Face à ces risques, une réglementation propre au secteur bancaire a été mise en place au XXe siècle ; elle porte notamment sur la solvabilité, la liquidité, la gouvernance et le contrôle interne, et les règles de solvabilité ont été renforcées depuis 2008. En France, le Fonds de garantie des dépôts et de résolution, créé en 1999, sécurise les dépôts de chaque client à hauteur de 100 000 euros, ce qui réduit l'intérêt de se précipiter au guichet. La résolution bancaire permet de préserver les fonctions critiques d'une banque défaillante. Enfin, la banque centrale peut agir en prêteur en dernier ressort : dans la zone euro, la banque centrale nationale accorde une fourniture de liquidités d'urgence, sous le contrôle de la BCE. Cette aide est temporaire, a un prix et est réservée aux banques solvables."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la distinction compte",
+        "text": "Distinguer liquidité et solvabilité n'est pas qu'une question de vocabulaire. Une banque saine mais momentanément à court d'argent peut être sauvée par un prêt temporaire ; une banque dont les pertes ont effacé les fonds propres a besoin d'être recapitalisée, cédée ou mise en résolution. La difficulté, en pleine crise, est que les deux problèmes se nourrissent : une panique peut obliger une banque à vendre ses actifs à perte, et transformer une crise de liquidité en crise de solvabilité. C'est pourquoi les autorités cherchent à agir tôt, avant que la défiance ne se propage aux autres établissements."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Banque de France, « Les crises bancaires », fiche ABC de l'économie, décembre 2024 (PDF)",
+        "url": "https://www.banque-france.fr/system/files/2024-12/Eco_Bref-Crises-bancaires.pdf"
+      },
+      {
+        "label": "Banque de France, « Les crises bancaires », page ABC de l'économie",
+        "url": "https://www.banque-france.fr/fr/publications-et-statistiques/publications/les-crises-bancaires"
+      },
+      {
+        "label": "BCE, « Qu'est-ce qu'un prêteur en dernier ressort ? », note explicative, 26 août 2019",
+        "url": "https://www.ecb.europa.eu/explainers/tell-me-more/html/what-is-a-lender-of-last-resort.fr.html"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que la transformation bancaire ?",
+        "answer": "Le fait de transformer des dépôts, disponibles à tout moment, en prêts remboursés sur plusieurs années, avec des maturités différentes."
+      },
+      {
+        "question": "Quelle différence entre une crise de solvabilité et une crise de liquidité ?",
+        "answer": "Dans la première, des pertes épuisent les fonds propres de la banque ; dans la seconde, la banque ne trouve plus de fonds à court terme, même si elle peut rester solvable."
+      },
+      {
+        "question": "Qu'est-ce qu'une panique bancaire ou bank run ?",
+        "answer": "Un retrait massif et rapide des dépôts par des clients inquiets, qui aggrave la crise en augmentant le besoin de liquidités de la banque."
+      },
+      {
+        "question": "Jusqu'à quel montant les dépôts sont-ils garantis en France ?",
+        "answer": "Jusqu'à 100 000 euros par client, par le Fonds de garantie des dépôts et de résolution créé en 1999."
+      },
+      {
+        "question": "À quelles banques est réservée l'aide d'urgence en liquidité dans la zone euro ?",
+        "answer": "Aux banques solvables à court de liquidité ; cette aide est temporaire, a un prix et est contrôlée par la BCE."
+      }
+    ]
+  },
+  {
+    "slug": "d-ou-vient-le-cout-d-un-produit-manufacture-travail-achats-energie-et-marge",
+    "title": "D'où vient le coût d'un produit manufacturé ? Travail, achats, énergie et marge",
+    "summary": "Le prix de sortie d'usine d'un bien rémunère bien plus que les salariés de l'usine : il paie aussi les achats de matières, de composants, d'énergie et de services, eux-mêmes produits par d'autres salariés, ici ou à l'étranger. Cet article s'appuie sur une étude de l'Insee qui décompose la production française en 2015 à partir des comptes nationaux, sur une étude Insee-SDES consacrée au choc énergétique de 2022 et sur les chiffres clés de l'industrie européenne publiés par Eurostat.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Pour les biens manufacturés en France, le travail des salariés de l'usine ne pèse que 18,1 % de la production en valeur en 2015, contre 34,8 % pour les achats importés, selon l'Insee.",
+      "Les achats de l'usine contiennent eux-mêmes du travail, dit indirect : transport, commerce, services financiers, intérim, plastiques ou métaux produits en France, soit 19,4 % pour les biens manufacturés.",
+      "L'énergie peut faire bondir la facture : en 2022, celle des établissements industriels de 20 salariés ou plus a augmenté de 54 %, et un sur deux a relevé ses prix, selon l'Insee et le SDES."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Décomposer la valeur d'un produit",
+        "text": "Pour savoir d'où vient le coût d'un produit, l'Insee décompose la valeur de la production à partir des comptes nationaux. Elle se partage entre le coût du travail direct, c'est-à-dire la rémunération des salariés de l'entreprise, les consommations intermédiaires, c'est-à-dire les achats de biens et services utilisés pour produire, et un reste qui rassemble les profits et les impôts sur la production nets des subventions. L'étude, publiée en 2019, porte sur l'année 2015 ; l'Insee estime que la structure productive est restée relativement stable depuis, malgré les variations du prix des matières premières ou du coût du travail."
+      },
+      {
+        "kind": "fait",
+        "heading": "Dans l'usine, le travail pèse moins que les achats",
+        "text": "Pour les biens manufacturés, le coût du travail direct représente 18,1 % de la production en valeur, contre 28,3 % pour les services marchands et 25,5 % pour la construction. L'industrie, peu intensive en travail, dépend davantage de ses achats : les consommations intermédiaires importées pèsent 34,8 % de la production des biens manufacturés, contre 19,7 % pour l'ensemble de l'économie. C'est notamment le cas, selon l'Insee, des produits du raffinage, des matériels de transport, des produits chimiques, du textile ou des équipements électriques. Pour les biens manufacturés les plus exportés, les achats importés atteignent 41 % de la production en moyenne, contre 31 % pour les autres."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le travail caché dans les achats",
+        "text": "Les achats d'une usine contiennent eux-mêmes du travail, réalisé par les salariés des fournisseurs : l'Insee parle de coût du travail indirect. Il représente 19,4 % de la production des biens manufacturés, une part proche de celle des autres secteurs marchands. Il provient en grande partie de services utilisés de façon systématique, comme les services financiers, juridiques et comptables, le commerce et le transport, ou l'intérim, ainsi que, dans l'industrie, de produits plastiques ou métalliques fabriqués en France. Le reste de la production, qui regroupe profits et impôts nets, en représente 27,7 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'énergie, un coût qui peut s'envoler",
+        "text": "L'énergie est l'un des achats les plus volatils. Selon l'étude de l'Insee et du service statistique du ministère de la Transition écologique, le prix de l'électricité payé par les entreprises a augmenté de 38 % entre 2019 et 2022, et celui du gaz a doublé. En 2022, la facture énergétique des établissements industriels de 20 salariés ou plus a augmenté de 54 %, alors que leur consommation baissait de 5 %. La hausse les touche directement, mais aussi indirectement, par le prix de leurs autres achats. Pour y faire face, un établissement sur deux a déclaré avoir augmenté ses prix en 2022, et 45 % avoir comprimé leur marge."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi le prix de vente suit ses coûts avec retard",
+        "text": "Cette mécanique explique comment une hausse de coûts se propage. Eurostat rappelle que l'indice des prix à la production industrielle, fondé sur les prix de vente des producteurs, peut être un indicateur avancé des tensions inflationnistes : les prix industriels de l'Union européenne ont augmenté de 28,6 % au total entre 2005 et 2021. Une hausse des salaires, de l'énergie ou des composants importés se répercute de fournisseur en fournisseur, en cascade, avant d'atteindre le produit fini. Chaque entreprise choisit alors entre relever ses prix, réduire sa marge ou modifier sa façon de produire, et l'étude de 2022 montre que beaucoup ont combiné les trois."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Insee Analyses n° 45, « La part des bas et moyens salaires dans la production : l'importance des coûts indirects », L. Koehl et O. Simon, mars 2019",
+        "url": "https://www.insee.fr/fr/statistiques/3901151"
+      },
+      {
+        "label": "Insee et SDES, « Impact de la hausse des prix de l'énergie en 2022 sur l'activité des entreprises et leur consommation d'énergie », Insee Références, décembre 2023",
+        "url": "https://www.insee.fr/fr/statistiques/7678588"
+      },
+      {
+        "label": "Eurostat, Key figures on European business 2022, chapitre Industrie",
+        "url": "https://ec.europa.eu/eurostat/cache/htmlpub/key-figures-on-european-business-2022/industry.html"
+      }
+    ],
+    "kind": "concept",
+    "dataCards": [
+      {
+        "id": "decomposition-biens-manufactures",
+        "kind": "comparaison",
+        "headline": "Dans un bien manufacturé, les achats importés pèsent presque deux fois plus que le travail des salariés de l'usine",
+        "source": {
+          "label": "Insee Analyses n° 45",
+          "url": "https://www.insee.fr/fr/statistiques/3901151"
+        },
+        "asOf": "2015-12-31",
+        "imageQuery": "factory assembly line",
+        "items": [
+          {
+            "value": 18.1,
+            "unit": "%",
+            "label": "Coût du travail direct",
+            "scope": "Biens manufacturés, France",
+            "period": "2015",
+            "denominator": "production en valeur",
+            "decimals": 1
+          },
+          {
+            "value": 19.4,
+            "unit": "%",
+            "label": "Coût du travail indirect",
+            "scope": "Biens manufacturés, France",
+            "period": "2015",
+            "denominator": "production en valeur",
+            "decimals": 1
+          },
+          {
+            "value": 34.8,
+            "unit": "%",
+            "label": "Consommations intermédiaires importées",
+            "scope": "Biens manufacturés, France",
+            "period": "2015",
+            "denominator": "production en valeur",
+            "decimals": 1
+          },
+          {
+            "value": 27.7,
+            "unit": "%",
+            "label": "Autres : profits et impôts nets",
+            "scope": "Biens manufacturés, France",
+            "period": "2015",
+            "denominator": "production en valeur",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "facture-energie-industrie-2022",
+        "kind": "stat",
+        "headline": "En 2022, la facture énergétique de l'industrie a bondi de 54 % malgré une consommation en baisse de 5 %",
+        "source": {
+          "label": "Insee et SDES",
+          "url": "https://www.insee.fr/fr/statistiques/7678588"
+        },
+        "asOf": "2022-12-31",
+        "imageQuery": "industrial gas meter",
+        "measure": {
+          "value": 54,
+          "unit": "%",
+          "label": "Hausse de la facture énergétique",
+          "scope": "Établissements industriels de 20 salariés ou plus, France",
+          "period": "2022",
+          "denominator": "facture énergétique de 2021"
+        },
+        "context": "Après une hausse de 40 % en 2021."
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Qu'est-ce qu'une consommation intermédiaire ?",
+        "answer": "Un bien ou un service acheté par une entreprise et utilisé pour produire : matières, composants, énergie, transport ou services."
+      },
+      {
+        "question": "Qu'appelle-t-on coût du travail indirect ?",
+        "answer": "Le travail contenu dans les achats d'une entreprise, réalisé par les salariés de ses fournisseurs."
+      },
+      {
+        "question": "Quelle part pèse le travail des salariés de l'usine dans la production des biens manufacturés en France ?",
+        "answer": "18,1 % de la production en valeur en 2015, selon l'Insee, contre 34,8 % pour les achats importés."
+      },
+      {
+        "question": "Comment les industriels ont-ils réagi à la hausse de l'énergie en 2022 ?",
+        "answer": "Un établissement sur deux a augmenté ses prix et 45 % ont comprimé leur marge, alors que leur facture énergétique bondissait de 54 %."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-la-biodiversite-compte-ce-que-la-nature-fournit-et-ce-que-son-declin",
+    "title": "Pourquoi la biodiversité compte : ce que la nature fournit et ce que son déclin menace",
+    "summary": "La biodiversité n'est pas qu'une liste d'espèces : les écosystèmes produisent de la nourriture, filtrent l'eau, pollinisent les cultures et amortissent les chocs. L'évaluation mondiale de l'IPBES de 2019, l'évaluation de l'IPBES sur les pollinisateurs de 2016 et une fiche de la Commission européenne de 2020 décrivent ces services, l'ampleur du déclin et ses causes. Les montants cités sont des estimations, incomplètes de l'aveu même de leurs auteurs.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la Commission européenne, la moitié du produit intérieur brut mondial, soit 40 000 milliards d'euros, dépend directement de la nature, qui produit la nourriture, filtre l'eau et fournit l'air.",
+      "L'IPBES estime qu'environ 1 million d'espèces animales et végétales sont menacées d'extinction et classe cinq causes directes, en tête desquelles les changements d'usage des terres et de la mer.",
+      "Plus des trois quarts des principales catégories de cultures vivrières mondiales dépendent de la pollinisation animale ; l'IPBES chiffre la valeur marchande annuelle concernée entre 235 et 577 milliards de dollars."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Ce que les écosystèmes fournissent",
+        "text": "La Commission européenne résume l'enjeu dans sa fiche sur la stratégie de l'UE en faveur de la biodiversité : la nature produit la nourriture que nous mangeons, filtre l'eau que nous buvons et nous fournit l'air que nous respirons. Elle contribue aussi au bien-être mental et physique et reste, selon la Commission, la clé de la capacité de la société à faire face au changement climatique. La même fiche estime que la moitié du produit intérieur brut mondial, soit 40 000 milliards d'euros, dépend directement de la nature. L'IPBES, la plateforme intergouvernementale scientifique sur la biodiversité, parle de « contributions de la nature aux populations », un patrimoine commun selon Sandra Díaz, citée dans le communiqué de l'évaluation mondiale."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'exemple de la pollinisation",
+        "text": "La pollinisation illustre le lien entre espèces sauvages et économie. Dans son évaluation de 2016 sur les pollinisateurs, l'IPBES indique que près de 90 % des plantes sauvages à fleurs dépendent, au moins en partie, du transfert de pollen par les animaux, et que plus des trois quarts des principales catégories de cultures vivrières mondiales en dépendent aussi. La production agricole directement liée aux pollinisateurs représente 5 à 8 % de la production agricole mondiale, pour une valeur marchande annuelle de 235 à 577 milliards de dollars, en dollars de 2015. L'IPBES précise que ce montant est établi mais incomplet. Le volume des cultures dépendant des pollinisateurs a augmenté de 300 % au cours des cinq dernières décennies, et 16,5 % des pollinisateurs vertébrés sont menacés d'extinction au niveau mondial."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un déclin mesuré",
+        "text": "Le communiqué de l'IPBES de mai 2019, qui présente son évaluation mondiale, affirme que la nature décline globalement à un rythme sans précédent dans l'histoire humaine et qu'environ 1 million d'espèces animales et végétales sont menacées d'extinction. Depuis 1900, l'abondance moyenne des espèces locales dans la plupart des grands habitats terrestres a diminué d'au moins 20 %. Environ 66 % du milieu marin a été significativement modifié par l'action humaine, et la dégradation des sols a réduit de 23 % la productivité de l'ensemble de la surface terrestre mondiale. L'IPBES classe cinq causes directes, par ordre décroissant : les changements d'usage des terres et de la mer, l'exploitation directe de certains organismes, le changement climatique, la pollution et les espèces exotiques envahissantes."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi la perte se paie",
+        "text": "La Commission souligne que les écosystèmes endommagés sont plus fragiles, ce qui rend les sociétés plus vulnérables aux événements extrêmes et aux nouvelles maladies. L'IPBES ajoute que les tendances négatives freineront l'atteinte des objectifs de développement durable dans 80 % des cas évalués, soit 35 cibles sur 44. Ces estimations ont des limites : les valeurs en dollars ou en euros ne couvrent qu'une partie des services, et beaucoup de contributions de la nature, comme le bien-être, n'ont pas de prix de marché. Elles montrent surtout que la biodiversité est une infrastructure dont dépendent l'agriculture, l'eau et la santé."
+      }
+    ],
+    "sources": [
+      {
+        "label": "IPBES, communiqué « Le dangereux déclin de la nature », évaluation mondiale, mai 2019 (version française, Fondation pour la recherche sur la biodiversité)",
+        "url": "https://www.fondationbiodiversite.fr/wp-content/uploads/2019/05/20190504-IPBES7-Media-Release-Global-Assessment-Final-Errata2-FRE.pdf"
+      },
+      {
+        "label": "IPBES, résumé à l'intention des décideurs de l'évaluation des pollinisateurs, de la pollinisation et de la production alimentaire, 2016 (ministère de l'Agriculture)",
+        "url": "https://agriculture.gouv.fr/telecharger/83055"
+      },
+      {
+        "label": "Commission européenne, fiche « Stratégie de l'UE en faveur de la biodiversité », mai 2020",
+        "url": "https://commission.europa.eu/system/files/2020-05/env-20-002_factsheet1-vbo-fr-c.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quelle part du PIB mondial dépend directement de la nature selon la Commission européenne ?",
+        "answer": "La moitié du produit intérieur brut mondial, soit 40 000 milliards d'euros."
+      },
+      {
+        "question": "Combien d'espèces animales et végétales sont menacées d'extinction selon l'IPBES ?",
+        "answer": "Environ 1 million d'espèces animales et végétales."
+      },
+      {
+        "question": "Quelle est la première cause directe du déclin de la biodiversité selon l'IPBES ?",
+        "answer": "Les changements d'usage des terres et de la mer, devant l'exploitation directe, le climat, la pollution et les espèces envahissantes."
+      },
+      {
+        "question": "Quelle part des principales cultures vivrières mondiales dépend de la pollinisation animale ?",
+        "answer": "Plus des trois quarts des principales catégories de cultures vivrières mondiales."
+      },
+      {
+        "question": "Pourquoi des écosystèmes endommagés rendent-ils les sociétés plus vulnérables ?",
+        "answer": "Parce qu'ils sont plus fragiles, ce qui expose davantage aux événements extrêmes et aux nouvelles maladies."
+      }
+    ]
+  },
+  {
+    "slug": "qu-est-ce-qu-un-avantage-concurrentiel-couts-difference-reseau-et-marque",
+    "title": "Qu'est-ce qu'un avantage concurrentiel : coûts, différence, réseau et marque",
+    "summary": "Une entreprise dispose d'un avantage concurrentiel quand elle peut durablement faire payer plus cher ou produire moins cher que ses rivales. La théorie du positionnement de Michael Porter, présentée par l'Institut pour la stratégie et la compétitivité de Harvard, distingue ces deux voies ; le Conseil d'analyse économique, l'OCDE et l'Autorité de la concurrence montrent comment effets de réseau, données, échelle et marque peuvent renforcer une position, au point de poser des questions de concurrence.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l'Institut pour la stratégie et la compétitivité de Harvard, un bon positionnement se traduit soit par un prix plus élevé, soit par des coûts plus bas que ceux des concurrents.",
+      "Le Conseil d'analyse économique explique que les économies d'échelle et les effets de réseau favorisent la concentration des marchés numériques, et que les données collectées peuvent être une source d'avantage concurrentiel.",
+      "Pour l'OCDE, le pouvoir de marché est la capacité de maintenir des prix supérieurs, ou une qualité inférieure, au niveau concurrentiel ; effets de réseau, économies d'échelle et marque peuvent freiner l'entrée de rivaux."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux façons de battre ses rivaux",
+        "text": "L'Institut pour la stratégie et la compétitivité de la Harvard Business School, qui présente les travaux de Michael Porter, résume l'idée ainsi : un positionnement réussi doit se traduire par un prix plus élevé ou par des coûts plus bas pour l'entreprise. Pour obtenir un prix plus élevé, elle doit apporter aux clients une valeur distinctive : c'est la différenciation. Pour rivaliser sur les coûts, elle doit trouver le bon équilibre entre prix et qualité acceptable : c'est la domination par les coûts. Dans les deux cas, l'avantage naît des choix faits parmi les centaines d'activités que l'entreprise réalise, de la conception à la distribution."
+      },
+      {
+        "kind": "fait",
+        "heading": "Quand la taille et le réseau s'en mêlent",
+        "text": "Certains avantages se renforcent d'eux-mêmes. Le Conseil d'analyse économique (CAE) note que les économies d'échelle et les effets de réseau favorisent la concentration des marchés numériques. L'effet de réseau signifie que les consommateurs sont plus attirés par une entreprise qui donne accès à un large réseau. Le CAE ajoute que les données collectées par les plateformes peuvent être une source d'avantage concurrentiel. L'Autorité de la concurrence relève de son côté que certains grands acteurs bénéficient d'effets de réseau importants liés à leur vaste communauté d'utilisateurs ou aux données auxquelles ils ont accès, ainsi que d'une forte capacité financière."
+      },
+      {
+        "kind": "fait",
+        "heading": "De l'avantage au pouvoir de marché",
+        "text": "L'OCDE définit le pouvoir de marché comme la capacité d'une entreprise à maintenir des prix supérieurs, ou une qualité inférieure, au niveau qui prévaudrait en concurrence. Dans une note de son comité de la concurrence, elle cite les effets de réseau et les économies d'échelle parmi les barrières à l'entrée, et mentionne aussi les effets liés à la marque. Une marque reconnue, un réseau d'utilisateurs ou un coût unitaire très bas rendent plus difficile l'arrivée de nouveaux concurrents."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un avantage n'est jamais acquis",
+        "text": "Un avantage concurrentiel est donc une position relative, pas une propriété figée : il dépend des choix de l'entreprise, mais aussi de ceux de ses rivaux et des clients. Le CAE invite d'ailleurs à relativiser la faiblesse des barrières à l'entrée souvent prêtée au numérique. Lorsque l'avantage devient si fort qu'il empêche toute concurrence, il entre dans le champ des autorités de concurrence, qui ne sanctionnent pas la réussite elle-même mais les pratiques qui en abusent."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Institute for Strategy and Competitiveness, Harvard Business School, « Strategic Positioning »",
+        "url": "https://www.isc.hbs.edu/strategy/business-strategy/Pages/strategic-positioning.aspx"
+      },
+      {
+        "label": "Conseil d'analyse économique, note n° 60 sur les plateformes numériques",
+        "url": "https://cae-eco.fr/static/pdf/cae-note060.pdf"
+      },
+      {
+        "label": "OCDE, Comité de la concurrence, document DAF/COMP(2022)5",
+        "url": "https://one.oecd.org/document/DAF/COMP(2022)5/fr/pdf"
+      },
+      {
+        "label": "Autorité de la concurrence, contribution du 21 février 2020",
+        "url": "https://www.autoritedelaconcurrence.fr/fr/entityprint/pdf/node/6891"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Quelles sont les deux grandes voies d'un avantage concurrentiel selon Porter ?",
+        "answer": "Faire payer un prix plus élevé grâce à la différenciation, ou avoir des coûts plus bas que les concurrents."
+      },
+      {
+        "question": "Qu'est-ce que la différenciation ?",
+        "answer": "Apporter aux clients une valeur distinctive qui permet de vendre plus cher."
+      },
+      {
+        "question": "Qu'est-ce qu'un effet de réseau ?",
+        "answer": "Les consommateurs sont plus attirés par une entreprise qui donne accès à un large réseau d'utilisateurs."
+      },
+      {
+        "question": "Comment l'OCDE définit-elle le pouvoir de marché ?",
+        "answer": "La capacité d'une entreprise à maintenir des prix supérieurs, ou une qualité inférieure, au niveau concurrentiel."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-la-demographie-pese-sur-l-economie-le-dividende-demographique-explique",
+    "title": "Pourquoi la démographie pèse sur l'économie : le dividende démographique expliqué",
+    "summary": "La pyramide des âges d'un pays influence sa croissance : quand la part des personnes en âge de travailler augmente par rapport aux personnes à charge, une fenêtre s'ouvre. Le FNUAP, le Population Reference Bureau et le FMI appellent ce mécanisme le dividende démographique et insistent sur ses conditions : éducation, santé, emploi. Les projections pour l'Afrique subsaharienne citées ici reposent sur le scénario de fécondité moyenne des Nations unies et datent de 2016.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le FNUAP définit le dividende démographique comme la croissance économique potentielle liée à l'évolution de la pyramide des âges, quand la part des 15-64 ans dépasse celle des personnes hors âge de travailler.",
+      "Le dividende n'est pas automatique : la fécondité doit baisser nettement, et il faut investir dans l'éducation et la santé et créer des emplois décents, soulignent le FNUAP et le Population Reference Bureau.",
+      "Selon le FMI, l'Afrique subsaharienne, un peu plus de 800 millions d'habitants en 2010, pourrait atteindre 3,7 milliards en 2100 et fournir pratiquement toute la hausse mondiale du nombre d'actifs."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une affaire de pyramide des âges",
+        "text": "La démographie agit sur l'économie à travers la structure par âge. Le FNUAP, le Fonds des Nations unies pour la population, définit le dividende démographique comme la croissance économique potentielle liée à l'évolution de la pyramide des âges, principalement lorsque la proportion de la population active, de 15 à 64 ans, est supérieure à celle des personnes hors âge de travailler. Il survient quand le ratio entre population active et personnes à charge s'accroît. Le Population Reference Bureau le décrit comme la croissance économique rapide résultant de la baisse de la mortalité et de la fécondité."
+      },
+      {
+        "kind": "fait",
+        "heading": "La transition démographique ouvre la fenêtre",
+        "text": "Ce mouvement découle de la transition démographique, c'est-à-dire du passage de taux de fécondité et de mortalité élevés à des taux faibles, rappelle le FNUAP. Tant que la fécondité reste élevée, la charge pèse sur les adultes : dans les pays les moins développés, plus de 40 % de la population a moins de 15 ans et dépend du soutien financier des adultes en âge de travailler, note le Population Reference Bureau. Selon lui, la fécondité doit baisser de manière substantielle pour que les pays récoltent le dividende ; avec moins d'enfants, les familles disposent d'un revenu accru et peuvent davantage épargner et investir."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'Afrique subsaharienne, cas d'école",
+        "text": "Un article de la revue Finances & Développement du FMI, publié en 2016, applique ce raisonnement à l'Afrique subsaharienne. Sa population, un peu plus de 800 millions en 2010, devrait plus que quadrupler d'ici à 2100 pour atteindre 3,7 milliards, selon le scénario de fécondité moyenne des Nations unies. Son poids dans la population mondiale passerait de moins de 12 % à environ 35 %, et la région serait à l'origine de pratiquement 100 % de la hausse de 2 milliards du nombre d'actifs dans le monde ; sa part de la population active mondiale grimperait d'environ 10 % à 37 % en 2100. Les auteurs soulignent que ce potentiel suppose des politiques adaptées."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un potentiel, pas une garantie",
+        "text": "Plus d'actifs ne signifie pas plus de richesse si les emplois manquent. Le FNUAP indique que, dans les pays les moins avancés, environ 80 % de la population active est au chômage, sous-employée ou employée irrégulièrement, et insiste sur l'éducation, la santé sexuelle et reproductive et l'existence d'emplois décents. À l'inverse, le FMI rappelle que la population active devrait reculer dans une grande partie du reste du monde, qui vieillit. La démographie fixe ainsi un cadre, mais ce sont les politiques d'éducation, de santé et d'emploi qui transforment ou non ce cadre en croissance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "FNUAP, « Le dividende démographique »",
+        "url": "https://www.unfpa.org/fr/le-dividende-d%C3%A9mographique"
+      },
+      {
+        "label": "Population Reference Bureau, J. Gribble et J. Bremner, « Atteindre un dividende démographique », 2012",
+        "url": "https://www.prb.org/wp-content/uploads/2012/12/demographic-dividend-fr.pdf"
+      },
+      {
+        "label": "FMI, Finances & Développement, V. Thakoor et J. Wakeman-Linn, « Mettre à profit la nouvelle donne démographique », mars 2016",
+        "url": "https://www.imf.org/external/pubs/ft/fandd/fre/2016/03/pdf/thakoor.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que le dividende démographique ?",
+        "answer": "La croissance économique potentielle liée à l'évolution de la pyramide des âges, quand la part des 15-64 ans dépasse celle des personnes à charge."
+      },
+      {
+        "question": "Qu'appelle-t-on transition démographique ?",
+        "answer": "Le passage de taux de fécondité et de mortalité élevés à des taux de fécondité et de mortalité faibles."
+      },
+      {
+        "question": "Pourquoi la baisse de la fécondité aide-t-elle à récolter le dividende ?",
+        "answer": "Avec moins d'enfants, les familles disposent d'un revenu accru et peuvent davantage épargner et investir."
+      },
+      {
+        "question": "Quelle population le FMI projette-t-il pour l'Afrique subsaharienne en 2100 ?",
+        "answer": "3,7 milliards d'habitants, selon le scénario de fécondité moyenne des Nations unies, contre un peu plus de 800 millions en 2010."
+      },
+      {
+        "question": "Pourquoi plus d'actifs ne garantit-il pas plus de croissance ?",
+        "answer": "Parce qu'il faut des emplois décents, de l'éducation et de la santé ; sinon les actifs restent au chômage ou sous-employés."
+      }
+    ]
+  },
+  {
+    "slug": "zone-euro-la-masse-monetaire-m3-croit-de-3-6-sur-un-an-en-octobre",
+    "title": "Zone euro : la masse monétaire M3 croît de 3,6 % sur un an en octobre",
+    "summary": "Selon la BCE, la croissance annuelle de l’agrégat monétaire large M3 de la zone euro est restée stable à 3,6 % en octobre 2026, le chiffre de septembre ayant été révisé de 3,5 % à 3,6 %. Le crédit aux entreprises accélère à 4,5 %, celui aux ménages reste à 3,1 %. En France, la Banque de France indique que la composante française de M3 progresse de 2,4 % sur un an ; ces données d’octobre sont provisoires.",
+    "topic": "finance",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La croissance annuelle de M3 s’établit à 3,6 % en octobre 2026, comme en septembre (révisé de 3,5 %), et en moyenne sur les trois mois jusqu’à octobre ; M1, qui regroupe billets, pièces et dépôts à vue, ralentit à 2,4 % contre 2,7 %.",
+      "Les prêts ajustés aux sociétés non financières progressent de 4,5 % sur un an, contre 4,3 % en septembre (révisé de 4,2 %) ; ceux aux ménages restent à 3,1 %.",
+      "Les instruments négociables (M3-M2) accélèrent à 9,8 % contre 7,3 % ; côté France, la composante française de M3 de la zone euro augmente pour atteindre 2,4 % sur un an, selon la Banque de France."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "M3 stable, M1 en ralentissement",
+        "text": "La Banque centrale européenne a publié ses statistiques monétaires d’octobre 2026. Le taux de croissance annuel de l’agrégat large M3 reste à 3,6 %, inchangé par rapport à septembre, dont le chiffre a été révisé de 3,5 % à 3,6 % ; la moyenne sur les trois mois jusqu’à octobre est aussi de 3,6 %. Dans le détail, l’agrégat étroit M1, qui comprend la monnaie en circulation et les dépôts à vue, ralentit à 2,4 % contre 2,7 %. Les dépôts à court terme autres que les dépôts à vue (M2-M1) progressent de 4,7 %, contre 4,6 %, et les instruments négociables (M3-M2) accélèrent à 9,8 %, contre 7,3 %. M1 contribue pour 1,6 point à la croissance de M3, contre 1,8 point en septembre."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le crédit aux entreprises accélère",
+        "text": "Le taux de croissance annuel des prêts ajustés au secteur privé est de 4,3 % en octobre, contre 4,4 % en septembre. Les prêts aux sociétés non financières progressent de 4,5 %, contre 4,3 % (chiffre révisé de 4,2 %), tandis que ceux aux ménages restent à 3,1 %. Du côté des dépôts, la croissance de ceux des ménages ralentit à 2,2 % contre 2,4 %, et celle des dépôts des sociétés non financières à 4,8 % contre 5,4 %. En France, la Banque de France indique, pour octobre 2026 et en données provisoires, que la croissance sur un an de la composante française de M3 de la zone euro augmente pour atteindre 2,4 %."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que mesurent ces agrégats",
+        "text": "M3 additionne les moyens de paiement et les placements très liquides détenus par les ménages et les entreprises de la zone euro ; sa croissance renseigne sur la création monétaire, qui passe surtout par le crédit bancaire. Selon la BCE, les créances sur le secteur privé apportent 3,4 points à la croissance de M3 en octobre, et les avoirs extérieurs nets 2,3 points. Ces statistiques ne disent pas à elles seules où va l’inflation : elles font partie des éléments que la BCE examine, avec l’analyse économique, pour fixer ses taux. Les chiffres d’un mois peuvent en outre être révisés, comme l’a été septembre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE — Monetary developments in the euro area: October 2026",
+        "url": "https://www.ecb.europa.eu//press/stats/md/html/ecb.md2610~4bad1d63b5.en.html"
+      },
+      {
+        "label": "Banque de France — Monnaie et concours à l’économie, 2026-10",
+        "url": "https://www.banque-france.fr/fr/statistiques/monnaie/monnaie-et-concours-leconomie-2026-10"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Que regroupe l’agrégat monétaire M1 de la zone euro ?",
+        "answer": "La monnaie en circulation (billets et pièces) et les dépôts à vue."
+      },
+      {
+        "question": "Quelle était la croissance annuelle de M3 dans la zone euro en octobre 2026 ?",
+        "answer": "3,6 %, comme en septembre, selon la BCE."
+      }
+    ]
+  },
+  {
+    "slug": "airbus-concertation-ouverte-sur-sa-future-usine-de-mats-reacteurs-pres-de",
+    "title": "Airbus : concertation ouverte sur sa future usine de mâts réacteurs près de Toulouse",
+    "summary": "Une concertation préalable sur le projet d’usine de mâts réacteurs d’Airbus à Cornebarrieu (Haute-Garonne), décidée par la Commission nationale du débat public le 1er juillet 2026, se tient du 24 novembre 2026 au 16 février 2027, selon Air Journal. Le coût est estimé jusqu’à 900 millions d’euros au stade de la saisine ; les chiffres d’emplois et le calendrier sont ceux présentés par Airbus et peuvent évoluer.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La CNDP a décidé le 1er juillet 2026 d’organiser une concertation préalable sur le projet « Saint-Éloi du futur » d’Airbus Operations, garantie par Isabelle Barthe et Emilie Varraud ; elle court du 24 novembre 2026 au 16 février 2027.",
+      "Le projet occupe 48 hectares de terres agricoles appartenant à Airbus à Cornebarrieu, près de l’aéroport de Toulouse-Blagnac, avec jusqu’à 260 000 m² de bâtiments et un coût estimé jusqu’à 900 millions d’euros.",
+      "Airbus évoque jusqu’à 3 500 salariés à terme, dont environ 700 emplois directs nouveaux, des travaux possibles à partir de 2029 et le rapatriement des mâts de l’A220, aujourd’hui fabriqués à Wichita, aux États-Unis."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une concertation sous l’égide de la CNDP",
+        "text": "Saisie le 8 juin 2026 par le directeur de site d’Airbus Operations SAS, la Commission nationale du débat public (CNDP) a décidé le 1er juillet 2026 d’organiser une concertation préalable sur le « projet de construction d’une usine de fabrication de mâts réacteurs à Cornebarrieu ». Elle a désigné deux garantes, Isabelle Barthe et Emilie Varraud, et confié l’organisation au maître d’ouvrage. Selon Air Journal, la concertation se déroule du 24 novembre 2026 au 16 février 2027 : le public peut y donner son avis sur l’opportunité et les caractéristiques du projet avant les demandes d’autorisation."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une usine pour les pièces qui relient moteurs et ailes",
+        "text": "Les mâts réacteurs sont les structures qui fixent les moteurs sous les ailes. Airbus les fabrique aujourd’hui sur son site historique de Saint-Éloi, dans le quartier des Minimes à Toulouse, que l’entreprise décrit comme saturé. Le nouveau site s’étendrait sur 48 hectares de terres agricoles dont Airbus est propriétaire, à Cornebarrieu, en bordure de Colomiers et près de l’aéroport de Toulouse-Blagnac, avec jusqu’à 260 000 m² de bâtiments, selon Air Journal et Aerospatium. Le coût est estimé jusqu’à 900 millions d’euros au stade de la saisine. Airbus prévoit d’y rapatrier les mâts de l’A220, fabriqués à Wichita, aux États-Unis, en passant d’abord par un site provisoire ; Saint-Éloi continuerait à produire des mâts pendant au moins la prochaine décennie."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Un calendrier long et encore incertain",
+        "text": "Selon Air Journal, les travaux pourraient commencer en mars 2029, les premiers bâtiments entrer en service en juin 2031 et l’extension se poursuivre jusqu’en 2037 ; un précédent article du même site évoquait une extension en 2035. Airbus avance jusqu’à 3 500 salariés à terme, dont environ 700 emplois directs nouveaux. La seconde phase suppose une modification du plan local d’urbanisme de Toulouse Métropole. Ces chiffres sont des projections du porteur de projet, soumises à la concertation puis aux autorisations ; Airbus juge d’ailleurs que la durée des procédures, environ deux ans et demi, retarde le démarrage du site."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNDP — Décision n° 2026/58/Airbus Saint-Éloi du futur/1 (1er juillet 2026)",
+        "url": "https://www.debatpublic.fr/sites/default/files/2026-07/DECISION_2026_58_AIRBUS%20SAINT-ELOI%20DU%20FUTUR_1.pdf"
+      },
+      {
+        "label": "Air Journal — Airbus veut investir jusqu’à 900 millions d’euros dans les mâts réacteurs (11 novembre 2026)",
+        "url": "https://www.air-journal.fr/2026-11-11-pres-de-toulouse-airbus-veut-investir-jusqu-900-millions-deuros-dans-les-mats-reacteurs-5278779.html"
+      },
+      {
+        "label": "Air Journal — Airbus réclame des procédures environnementales allégées (25 octobre 2026)",
+        "url": "https://www.air-journal.fr/2026-10-25-airbus-reclame-des-procedures-environnementales-allegees-pour-ses-sites-face-a-la-concurrence-de-boeing-et-comac-5278483.html"
+      },
+      {
+        "label": "Aerospatium — Airbus veut une nouvelle usine à 900 M€ (13 novembre 2026)",
+        "url": "https://www.aerospatium.info/airbus-veut-une-nouvelle-usine-a-900-me/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "À quoi sert un mât réacteur sur un avion ?",
+        "answer": "C’est la structure qui fixe le moteur sous l’aile de l’avion."
+      }
+    ]
+  },
+  {
+    "slug": "terres-rares-le-qatar-et-les-etats-unis-signent-un-protocole-sur-les-minerais",
+    "title": "Terres rares : le Qatar et les États-Unis signent un protocole sur les minerais critiques",
+    "summary": "Le 23 novembre 2026, à Washington, le Qatar et les États-Unis ont signé un protocole d’accord sur les minerais critiques et les terres rares, en marge de leur huitième dialogue stratégique. Le texte vise les chaînes d’approvisionnement de l’extraction à la transformation. Aucun montant, projet ni calendrier n’a été rendu public.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le ministre d’État qatarien chargé du commerce extérieur, Ahmed bin Mohammed Al-Sayed, a signé le protocole avec Jacob Helberg, sous-secrétaire d’État américain à la croissance économique, l’énergie et l’environnement.",
+      "Le protocole porte sur les minerais critiques et les terres rares, de l’extraction à la transformation ; un partenariat distinct sur l’intelligence artificielle a été signé avec le secrétaire au Commerce Howard Lutnick.",
+      "Ni engagement financier, ni lieu de projet, ni calendrier n’ont été communiqués ; le fonds souverain qatarien QIA avait déjà promis 180 millions de dollars à TechMet en août 2024."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux accords signés à Washington",
+        "text": "Selon Mining.com.au, Ahmed bin Mohammed Al-Sayed, ministre d’État qatarien chargé du commerce extérieur, et Jacob Helberg, sous-secrétaire d’État américain chargé de la croissance économique, de l’énergie et de l’environnement, ont signé le 23 novembre 2026 un protocole d’accord sur les minerais critiques et les terres rares, en marge du huitième dialogue stratégique entre le Qatar et les États-Unis. Arab News, qui cite l’agence de presse qatarienne QNA et le ministère qatarien du Commerce et de l’Industrie, précise que le ministre a aussi signé un partenariat sur l’intelligence artificielle avec le secrétaire américain au Commerce, Howard Lutnick."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un texte sans montant ni projet",
+        "text": "Le protocole vise à renforcer les chaînes d’approvisionnement en minerais critiques, de l’extraction jusqu’à la transformation. Mais, selon les deux sources, aucun engagement financier, aucun lieu de projet et aucun calendrier n’ont été communiqués. Arab News rappelle que le Qatar a rejoint en janvier l’initiative Pax Silica et signé le 15 novembre la déclaration de San Francisco, et que l’Autorité qatarienne d’investissement (QIA) s’était engagée en août 2024 à apporter 180 millions de dollars à TechMet, une société d’investissement dans les métaux critiques."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une diplomatie des minerais qui s’étend",
+        "text": "Ce protocole s’ajoute aux initiatives déjà rejointes par le Qatar, comme Pax Silica, et aux investissements de son fonds souverain dans le secteur, tel l’engagement envers TechMet. Un protocole d’accord n’est pas un contrat : il fixe un cadre de coopération, sans obligation chiffrée. Sa portée réelle dépendra des projets et des financements qui seront, ou non, annoncés ensuite, ce que les communiqués relayés par Arab News et Mining.com.au ne précisent pas."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Arab News — Qatar, US sign AI pact and critical minerals deal (25 novembre 2026)",
+        "url": "https://arabnews.com/business/qatar-us-sign-ai-pact-and-critical-minerals-deal-to-bolster-supply-chains-3013961"
+      },
+      {
+        "label": "Mining.com.au — Qatar, US sign critical minerals and AI pacts (26 novembre 2026)",
+        "url": "https://mining.com.au/qatar-us-sign-critical-minerals-and-ai-pacts/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "flashcards": [
+      {
+        "question": "Qu’ont signé le Qatar et les États-Unis le 23 novembre 2026 sur les minerais critiques ?",
+        "answer": "Un protocole d’accord sur les minerais critiques et les terres rares, de l’extraction à la transformation, sans montant ni calendrier publiés."
+      }
+    ]
+  },
+  {
+    "slug": "electricite-pas-de-reversement-du-nucleaire-sur-les-factures-en-2027-selon-la",
+    "title": "Électricité : pas de reversement du nucléaire sur les factures en 2027, selon la CRE",
+    "summary": "Dans une délibération du 19 novembre 2026 mise en ligne le 26 novembre, la Commission de régulation de l’énergie propose un tarif unitaire nul pour la minoration du versement nucléaire universel en 2027. Les revenus attendus du nucléaire historique, estimés à 65,63 €/MWh au 1er novembre 2026, restent sous le seuil de taxation de 78 €/MWh. Il s’agit d’une proposition fondée sur des simulations de prix.",
+    "topic": "energie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La CRE propose, par sa délibération n° 2026-224 du 19 novembre 2026, un tarif unitaire nul de minoration du versement nucléaire universel (VNU) pour l’année 2027 : aucune baisse liée à ce dispositif n’apparaîtrait sur les factures.",
+      "Le VNU redistribue aux consommateurs une partie des revenus du parc nucléaire historique au-delà de seuils fixés pour 2026-2028 à 78 €/MWh (taxation) et 110 €/MWh (écrêtement), en euros de 2026, indexés sur l’inflation.",
+      "La CRE estime les revenus du nucléaire pour 2027 à 65,63 €/MWh en moyenne, et retient pour son calcul un premier quartile de 64,74 €/MWh, deux valeurs sous le seuil de 78 €/MWh."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une minoration nulle proposée pour 2027",
+        "text": "La Commission de régulation de l’énergie (CRE) a mis en ligne le 26 novembre 2026 sa délibération n° 2026-224 du 19 novembre, qui porte proposition du tarif unitaire de la minoration du versement nucléaire universel pour 2027. Ce tarif s’applique aux kilowattheures fournis aux consommateurs finals : il est calculé pour que la baisse de recettes des fournisseurs corresponde aux sommes qui leur sont versées en compensation. La CRE « propose en conséquence un tarif unitaire de la minoration nul pour l’année 2027 ». En dessous de 1 €/MWh, la réglementation prévoit de toute façon un tarif de zéro."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des revenus du nucléaire sous le seuil",
+        "text": "Le versement nucléaire universel, créé par l’article 17 de la loi de finances pour 2025, a succédé à l’Arenh, qui a pris fin le 31 décembre 2025. Il associe une taxe sur l’utilisation de combustible nucléaire pour produire de l’électricité et un reversement des sommes collectées. Un arrêté du 11 février 2026 fixe pour 2026-2028 un seuil de taxation de 78 €2026/MWh et un seuil d’écrêtement de 110 €2026/MWh, indexés sur l’inflation pour 2027 et 2028. Or la CRE estime les revenus du nucléaire historique pour 2027 à 65,63 €/MWh, moyenne de scénarios simulés au 1er novembre 2026, et retient pour le calcul le premier quartile, 64,74 €/MWh. Les deux sont sous le seuil de taxation : la taxe ne devrait pas se déclencher, et il n’y a rien à reverser."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que cela change pour les consommateurs",
+        "text": "Concrètement, le dispositif ne réduirait pas les factures d’électricité en 2027. Cela ne signifie pas que l’électricité sera bon marché : le VNU ne joue qu’en cas de prix de marché élevés, lorsque les revenus d’EDF tirés de ses centrales historiques dépassent les seuils. D’après une analyse d’Alliance des énergies publiée le 1er octobre 2026, le prélèvement est de 50 % au-delà de 78 €/MWh et de 90 % au-delà de 110 €/MWh, et l’estimation de la CRE publiée en juillet 2026 était de 63,82 €/MWh : la dernière estimation, plus récente, reste dans le même ordre de grandeur. Le résultat dépend des prix futurs, qui restent incertains."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CRE — Délibération n° 2026-224 du 19 novembre 2026 (page)",
+        "url": "https://www.cre.fr/documents/deliberations/tarif-unitaire-de-la-minoration-du-versement-nucleaire-universel-pour-la-periode-dapplication-2027.html"
+      },
+      {
+        "label": "CRE — Délibération n° 2026-224, texte intégral (PDF)",
+        "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261119_2026-224_Proposition_TU_2027.pdf"
+      },
+      {
+        "label": "Alliance des énergies — Parc nucléaire et prix de l’électricité en 2027 (1er octobre 2026)",
+        "url": "https://alliancedesenergies.fr/guide/prix-electricite-nucleaire-france-2027/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Qu’est-ce que le versement nucléaire universel (VNU) ?",
+        "answer": "Un dispositif qui taxe les revenus du parc nucléaire historique au-delà de certains seuils et reverse les sommes aux consommateurs, en remplacement de l’Arenh."
+      },
+      {
+        "question": "Pourquoi la CRE propose-t-elle une minoration nulle pour 2027 ?",
+        "answer": "Parce que les revenus estimés du nucléaire en 2027, autour de 65 €/MWh, restent sous le seuil de taxation de 78 €/MWh."
+      }
+    ]
+  },
+  {
+    "slug": "el-nino-ajoute-de-nouveaux-foyers-de-faim-alertent-la-fao-et-le-pam",
+    "title": "El Niño ajoute de nouveaux foyers de faim, alertent la FAO et le PAM",
+    "summary": "Le 27 novembre 2026, l’Organisation des Nations unies pour l’alimentation et l’agriculture (FAO) et le Programme alimentaire mondial (PAM) ont publié leur rapport semestriel d’alerte précoce sur les « points chauds » de la faim, pour la période de décembre 2026 à mai 2027. Ils en comptent 16, contre 13 en juin. Trois des quatre nouvelles zones sont liées au phénomène climatique El Niño, qui gagne en intensité : l’Afrique australe, le corridor sec d’Amérique centrale et le nord-est de l’Ouganda. Les conflits restent la première cause du risque de famine. Ces projections sont des alertes, pas des certitudes.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La FAO et le PAM recensent 16 points chauds de la faim pour décembre 2026 à mai 2027, contre 13 dans leur rapport de juin 2026 ; le Liban sort de la liste.",
+      "El Niño, qui pourrait être l’un des plus intenses jamais observés selon le PAM, explique trois des quatre nouvelles zones : Afrique australe, corridor sec d’Amérique centrale et nord-est de l’Ouganda.",
+      "Jusqu’à 3 millions de personnes au Zimbabwe, 2,6 millions au Malawi et 1,8 million au Mozambique sont concernées d’ici mars 2027, et 3,2 millions au Guatemala entre octobre 2026 et février 2027."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Seize points chauds au lieu de treize",
+        "text": "Deux fois par an, la FAO et le PAM publient un rapport d’alerte précoce, Hunger Hotspots, qui signale les régions où l’insécurité alimentaire aiguë risque de s’aggraver dans les mois suivants. L’édition publiée le 27 novembre 2026 à Rome couvre la période de décembre 2026 à mai 2027 et compte 16 points chauds, contre 13 dans le rapport de juin. Les situations les plus préoccupantes concernent le Soudan, le Soudan du Sud, la Somalie, une partie du Nigeria et le Yémen. Au Soudan, 13 zones du Darfour-Nord et du Kordofan-Sud sont menacées de famine d’ici janvier 2027 dans le pire scénario réaliste. Le Liban est retiré de la liste."
+      },
+      {
+        "kind": "fait",
+        "heading": "El Niño, nouveau moteur de la faim",
+        "text": "Selon le communiqué du PAM, El Niño, le réchauffement périodique des eaux du Pacifique tropical qui bouleverse les régimes de pluie, gagne en force et pourrait être l’un des plus intenses jamais enregistrés. Trois des quatre nouveaux points chauds lui sont liés. En Afrique australe, qui entre dans la liste avec l’Eswatini, le Malawi, le Mozambique, la Zambie et le Zimbabwe, des conditions plus sèches et plus chaudes menacent les semis et les futures récoltes. Jusqu’à 3 millions de personnes au Zimbabwe, 2,6 millions au Malawi et 1,8 million au Mozambique sont concernées d’ici mars 2027. Dans le corridor sec d’Amérique centrale, la première saison de récolte de 2026 a été la plus sèche depuis quatre décennies, avec des pertes dépassant 75 % dans de nombreuses zones ; au Guatemala, 3,2 millions de personnes sont concernées entre octobre 2026 et février 2027. Le nord-est de l’Ouganda complète la liste ; le Tchad y entre aussi, mais en raison du conflit au Soudan voisin."
+      },
+      {
+        "kind": "fait",
+        "heading": "Moins d’argent pour répondre",
+        "text": "Pour les cinq points chauds les plus préoccupants, le financement humanitaire consacré à la sécurité alimentaire et à la nutrition a chuté de 62 % en trois ans, de 5,1 milliards de dollars en 2022 à 2 milliards en 2025, selon la FAO et le PAM. Le directeur général de la FAO, Qu Dongyu, juge que les pires scénarios ne sont pas inévitables."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Climat et conflits se cumulent",
+        "text": "Le rapport montre que deux types de causes s’additionnent. Dans les zones de guerre comme le Soudan, c’est le conflit qui empêche de cultiver et d’acheminer l’aide. Dans les régions agricoles d’Afrique australe et d’Amérique centrale, c’est la sécheresse annoncée qui menace des récoltes dont dépendent des millions de familles. Dans ce second cas, les deux agences misent sur l’action anticipée : agir avant le choc, par exemple en fournissant semences ou aides avant la récolte manquée, plutôt qu’après."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des prévisions, pas des certitudes",
+        "text": "Les chiffres sont des projections fondées sur des prévisions climatiques et des scénarios. Si El Niño se révèle moins intense que prévu, ou si l’aide arrive à temps, la situation pourrait être moins grave qu’annoncé ; à l’inverse, une sécheresse plus marquée pourrait l’aggraver."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PAM — El Niño Adds New Hunger Hotspots as Conflict Continues to Drive Risk of Famine, Warn FAO and WFP (27 novembre 2026)",
+        "url": "https://www.wfp.org/news/el-nino-adds-new-hunger-hotspots-conflict-continues-drive-risk-famine-warn-fao-and-wfp"
+      },
+      {
+        "label": "ONU Info — El Niño fait apparaître de nouveaux foyers de faim dans le monde (27 novembre 2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159914"
+      },
+      {
+        "label": "Anadolu, repris par A News — El Nino, conflicts expected to worsen hunger in 16 hotspots, UN warns (27 novembre 2026)",
+        "url": "https://www.anews.com.tr/world/2026/11/27/el-nino-conflicts-expected-to-worsen-hunger-in-16-hotspots-un-warns"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "flashcards": [
+      {
+        "question": "Combien de points chauds de la faim la FAO et le PAM recensent-ils pour décembre 2026 à mai 2027 ?",
+        "answer": "Seize, contre treize dans leur rapport de juin 2026."
+      },
+      {
+        "question": "Quelles régions entrent dans la liste des points chauds de la faim à cause d’El Niño fin 2026 ?",
+        "answer": "L’Afrique australe, le corridor sec d’Amérique centrale et le nord-est de l’Ouganda."
+      }
+    ]
+  },
+  {
+    "slug": "huawei-reconnu-coupable-aux-etats-unis-de-fraude-et-de-vol-de-secrets",
+    "title": "Huawei reconnu coupable aux États-Unis de fraude et de vol de secrets industriels",
+    "summary": "Le 24 novembre 2026, un jury fédéral de Brooklyn, à New York, a déclaré le groupe chinois de télécommunications Huawei coupable de 10 des 12 chefs d’accusation qui le visaient, dont la fraude bancaire, la violation de sanctions américaines liées à l’Iran et le complot de vol de secrets industriels, selon le magazine TIME, International Business Times et World Today Journal. Il a en revanche été acquitté de l’accusation de racket organisé, la plus lourde, et de complot d’entrave à la justice. Huawei annonce faire appel. La peine doit être fixée en septembre 2027.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Un jury fédéral de Brooklyn a déclaré Huawei coupable le 24 novembre 2026 de 10 des 12 chefs, dont fraude bancaire et électronique, violations de sanctions et complot de vol de secrets industriels.",
+      "Huawei a été acquitté du complot de racket organisé, dit RICO, et du complot d’entrave à la justice ; l’entreprise conteste les condamnations et annonce un appel.",
+      "Les secrets industriels concernaient notamment Cisco, T-Mobile, Fujitsu, Quintel et CNEX ; l’audience sur la peine est prévue en septembre 2027 devant la juge Ann Donnelly."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un verdict après deux mois de procès",
+        "text": "Le mardi 24 novembre 2026, un jury du tribunal fédéral de Brooklyn a rendu son verdict dans le procès pénal de Huawei, ouvert en septembre. Selon TIME, International Business Times et World Today Journal, le géant chinois des télécommunications a été reconnu coupable de 10 des 12 chefs d’accusation : fraude bancaire et fraude électronique, violations de sanctions américaines, complot de vol de secrets industriels et, selon TIME, blanchiment d’argent. Les accusations de fraude portaient sur la façon dont Huawei avait présenté à des banques ses activités en Iran."
+      },
+      {
+        "kind": "fait",
+        "heading": "Acquitté de l’accusation la plus lourde",
+        "text": "Le jury a en revanche acquitté Huawei du complot de racket organisé, poursuivi au titre de la loi américaine dite RICO, et du complot d’entrave à la justice. L’avocat de l’entreprise, Brian Heberlig, avait plaidé qu’il s’agissait de concurrence et non de complot. Huawei a contesté les condamnations restantes et annoncé faire appel. L’audience de détermination de la peine est prévue en septembre 2027 devant la juge Ann Donnelly ; s’agissant d’une entreprise, les sanctions possibles sont des amendes, des confiscations et des restitutions."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des entreprises américaines visées",
+        "text": "Les secrets industriels en cause appartenaient notamment à Cisco, dont du code source de routeurs, à T-Mobile, pour un bras robotisé de test de téléphones, ainsi qu’à Fujitsu, Quintel et CNEX, selon TIME. Le procureur fédéral Joseph Nocella Jr. a jugé que peu de crimes étaient aussi graves que les agissements de Huawei sur plusieurs décennies ; pour le FBI, le succès de l’entreprise reposait sur la tromperie et le vol."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un dossier au cœur de la rivalité technologique",
+        "text": "Cette condamnation intervient après près de huit ans de procédure. Elle s’inscrit dans la confrontation entre Washington et Pékin sur les technologies de télécommunications, où Huawei, numéro un mondial des équipements de réseau, est déjà soumis à des restrictions d’exportation américaines. Le verdict ne change pas à lui seul ces restrictions, mais il renforce juridiquement les accusations portées depuis des années par les autorités américaines."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Une procédure encore longue",
+        "text": "La décision n’est pas définitive : Huawei a annoncé un appel, et la peine ne sera connue qu’en 2027. Une cour d’appel pourrait confirmer, réduire ou annuler tout ou partie des condamnations. Les comptes rendus disponibles reposent sur la presse ; le communiqué officiel du ministère américain de la Justice n’a pas pu être consulté."
+      }
+    ],
+    "sources": [
+      {
+        "label": "TIME, repris par Yahoo News — China’s Huawei Convicted in U.S. Over Bank Fraud, Iran Ties (25 novembre 2026)",
+        "url": "https://www.yahoo.com/news/us/articles/china-huawei-convicted-u-over-093000678.html"
+      },
+      {
+        "label": "International Business Times, repris par Yahoo News — Huawei Found Guilty In Major US Corporate Espionage And Iran Sanctions Case (24 novembre 2026)",
+        "url": "https://www.yahoo.com/news/us/articles/huawei-found-guilty-major-us-225328401.html"
+      },
+      {
+        "label": "World Today Journal — Huawei Found Guilty on 10 of 12 Counts (25 novembre 2026)",
+        "url": "https://world-today-journal.com/huawei-found-guilty-on-10-of-12-counts-including-bank-fraud-sanctions-violations-trade-secret-theft/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "De quelle accusation la plus lourde Huawei a-t-il été acquitté à Brooklyn en novembre 2026 ?",
+        "answer": "Du complot de racket organisé, poursuivi au titre de la loi américaine dite RICO."
+      }
+    ]
+  },
+  {
+    "slug": "climat-des-affaires-la-france-decroche-en-novembre-l-union-europeenne-se-tient",
+    "title": "Climat des affaires : la France décroche en novembre, l’Union européenne se tient",
+    "summary": "En novembre 2026, l’indicateur du climat économique de la Commission européenne, publié par Eurostat le 27 novembre, tombe à 93,7 pour la France, contre 96 en octobre, alors qu’il ne recule que de 96,5 à 96 pour l’ensemble de l’Union européenne. L’Insee, avec son propre indicateur publié le 20 novembre, constate aussi une baisse du climat des affaires en France métropolitaine, de 97,1 à 94,6. Les deux indicateurs sont normalisés autour d’une moyenne de long terme ; ce sont des données d’enquête, désaisonnalisées, qui mesurent l’opinion des chefs d’entreprise et non l’activité réalisée.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon les données de la Commission européenne diffusées par Eurostat le 27 novembre 2026, l’indicateur du climat économique de la France passe de 96 en octobre à 93,7 en novembre.",
+      "Pour l’Union européenne à 27, le même indicateur ne recule que légèrement, de 96,5 à 96, et l’Allemagne progresse de 94,1 à 94,5.",
+      "L’Insee, avec son indicateur du climat des affaires tous secteurs, mesure aussi une baisse en France métropolitaine : 94,6 en novembre, contre 97,1 en octobre."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un recul plus marqué en France",
+        "text": "Les enquêtes de conjoncture menées pour la Commission européenne auprès des entreprises et des consommateurs donnent, pour la France, un indicateur du climat économique de 93,7 en novembre 2026, contre 96 en septembre et en octobre. Les données, désaisonnalisées, ont été mises en ligne par Eurostat le 27 novembre. Pour l’Union européenne à 27, l’indicateur passe de 96,5 en octobre à 96 en novembre ; pour l’Allemagne, il progresse légèrement, de 94,1 à 94,5."
+      },
+      {
+        "kind": "fait",
+        "heading": "Industrie, services et commerce en repli",
+        "text": "Le détail par secteur montre en France une dégradation de la confiance dans l’industrie, dont le solde passe de -1,5 en octobre à -3,8 en novembre, dans les services, de -2,8 à -4, et dans le commerce de détail, de -16,6 à -18. La construction reste stable, à -20,4 contre -20,7. À l’échelle de l’Union, la confiance dans les services reste positive, à 5,6, quand celle de la France est négative. Seule la confiance des consommateurs français s’améliore un peu, de -21,9 à -20,2, tout en restant inférieure à la moyenne européenne de -16,5."
+      },
+      {
+        "kind": "fait",
+        "heading": "L’Insee fait le même constat",
+        "text": "L’Institut national de la statistique et des études économiques (Insee) calcule son propre indicateur du climat des affaires, tous secteurs, pour la France métropolitaine. Mis à jour le 20 novembre 2026, il s’établit à 94,6 en novembre, après 97,1 en octobre et 96,3 en septembre."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que mesurent ces indicateurs",
+        "text": "Ces indicateurs synthétisent les réponses de chefs d’entreprise sur leur activité passée, leurs carnets de commandes et leurs perspectives. Ils ne mesurent pas la production ou le chiffre d’affaires effectivement réalisés, mais l’opinion des dirigeants. Les soldes sectoriels sont la différence entre la part de réponses positives et la part de réponses négatives : un solde négatif signifie que les pessimistes l’emportent. Les deux indicateurs synthétiques, celui de la Commission et celui de l’Insee, ne sont pas construits de la même façon et ne se comparent pas point par point ; c’est leur évolution qui est parlante."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Un signal à confirmer",
+        "text": "Un mois de baisse ne suffit pas à conclure à un retournement de l’activité. Si le recul se confirmait dans les prochaines enquêtes, il pourrait annoncer un ralentissement de l’investissement et de l’embauche dans les entreprises françaises ; à l’inverse, un rebond en décembre en ferait un simple à-coup."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — Indicateurs de confiance et du climat économique, données mensuelles (ei_bssi_m_r2), mise à jour du 27 novembre 2026",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/ei_bssi_m_r2/default/table"
+      },
+      {
+        "label": "Insee — Indicateur du climat des affaires, tous secteurs, France métropolitaine (série 001565530)",
+        "url": "https://www.insee.fr/fr/statistiques/serie/001565530"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "dataCards": [
+      {
+        "id": "climat-economique-france-ue-allemagne",
+        "kind": "comparaison",
+        "headline": "En novembre 2026, le climat économique de la France passe sous ceux de l’Union européenne et de l’Allemagne",
+        "source": {
+          "label": "Eurostat — ei_bssi_m_r2",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/ei_bssi_m_r2/default/table"
+        },
+        "asOf": "2026-11-27",
+        "note": "Indicateur du climat économique de la Commission européenne, données désaisonnalisées.",
+        "imageQuery": "european flags brussels",
+        "items": [
+          {
+            "value": 93.7,
+            "unit": "indice",
+            "label": "France",
+            "scope": "France",
+            "period": "novembre 2026",
+            "decimals": 1
+          },
+          {
+            "value": 94.5,
+            "unit": "indice",
+            "label": "Allemagne",
+            "scope": "Allemagne",
+            "period": "novembre 2026",
+            "decimals": 1
+          },
+          {
+            "value": 96,
+            "unit": "indice",
+            "label": "Union européenne",
+            "scope": "Union européenne à 27",
+            "period": "novembre 2026",
+            "decimals": 0
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "climat-affaires-insee",
+        "kind": "stat",
+        "headline": "L’indicateur de l’Insee recule à 94,6 en novembre 2026, après 97,1 en octobre",
+        "source": {
+          "label": "Insee — série 001565530",
+          "url": "https://www.insee.fr/fr/statistiques/serie/001565530"
+        },
+        "asOf": "2026-11-20",
+        "imageQuery": "factory assembly line",
+        "measure": {
+          "value": 94.6,
+          "unit": "indice",
+          "label": "Climat des affaires, tous secteurs",
+          "scope": "France métropolitaine",
+          "period": "novembre 2026",
+          "decimals": 1
+        },
+        "context": "97,1 en octobre 2026"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Que signifie un solde d’opinion négatif dans une enquête de conjoncture ?",
+        "answer": "Que la part de chefs d’entreprise ayant une opinion négative dépasse celle des réponses positives : les pessimistes l’emportent."
+      }
+    ]
+  },
+  {
+    "slug": "ebola-en-rdc-plus-de-12-000-cas-confirmes-pres-de-5-900-morts",
+    "title": "Ebola en RDC : plus de 12 000 cas confirmés, près de 5 900 morts",
+    "summary": "L’épidémie d’Ebola due au virus Bundibugyo, déclarée en mai en République démocratique du Congo, a dépassé les 12 000 cas confirmés. Selon le Centre européen de prévention et de contrôle des maladies (ECDC), qui reprend les chiffres disponibles au 25 novembre 2026, la RDC compte 12 021 cas confirmés, dont 5 904 décès, pour des données arrêtées au 24 novembre. ONU Info, le 26 novembre, cite les autorités sanitaires congolaises : huit provinces et 69 zones de santé touchées. L’Ituri concentre plus des deux tiers des cas. Il n’existe ni vaccin ni traitement approuvé contre ce virus.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l’ECDC, au 25 novembre 2026, la RDC recensait 12 021 cas confirmés d’Ebola, dont 5 904 décès, pour des données allant jusqu’au 24 novembre.",
+      "Selon ONU Info, qui cite les autorités sanitaires congolaises, l’épidémie touche 69 zones de santé dans huit provinces ; l’Ituri compte 8 140 cas confirmés et 3 843 décès.",
+      "L’épidémie, la 17e du pays, est due au virus Bundibugyo, contre lequel il n’existe ni vaccin ni traitement approuvé ; les violences armées gênent la riposte."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Le cap des 12 000 cas confirmés",
+        "text": "Le Centre européen de prévention et de contrôle des maladies (ECDC) indique dans sa mise à jour du 26 novembre 2026 qu’au 25 novembre, la République démocratique du Congo comptait 12 021 cas confirmés d’Ebola, dont 5 904 décès, pour des données arrêtées au 24 novembre. Une semaine plus tôt, dans sa mise à jour du 19 novembre, l’agence européenne en recensait 11 504. ONU Info, le service d’information des Nations unies, rapporte le 26 novembre le même nombre de décès, 5 904, selon les autorités sanitaires congolaises. Le dernier décompte journalier, effectué le 24 novembre, fait état de 66 nouveaux cas et de 37 décès."
+      },
+      {
+        "kind": "fait",
+        "heading": "Huit provinces, l’Ituri au centre",
+        "text": "Selon ONU Info, l’épidémie touche 69 zones de santé réparties dans huit provinces : l’Ituri, le Nord-Kivu, le Sud-Kivu, le Haut-Uélé, le Bas-Uélé, la Tshopo, le Nord-Ubangi et le Sud-Ubangi. L’Ituri, dans le nord-est du pays, concentre à lui seul 8 140 cas confirmés et 3 843 décès, soit plus des deux tiers des cas confirmés cumulés. Les autorités de Kinshasa font aussi état de 1 092 personnes hospitalisées ou en isolement, de 3 332 personnes guéries et d’un taux de suivi des contacts de 85,1 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un virus sans vaccin ni traitement approuvé",
+        "text": "Cette épidémie, la 17e d’Ebola en RDC, a été déclarée en mai 2026. Elle est due au virus Bundibugyo, l’une des espèces du virus Ebola, contre laquelle il n’existe aucun vaccin ni traitement approuvé, rappelle ONU Info. Depuis la fin juillet, c’est la plus importante de l’histoire du pays en nombre de cas."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une riposte entravée par l’insécurité",
+        "text": "ONU Info souligne que les affrontements armés, la dégradation des routes, la méfiance et la désinformation compliquent la lutte contre la maladie. Cette semaine, des combats ont empêché l’accès à certaines communautés et réduit les effectifs de certains centres de traitement. Le 24 novembre, les Casques bleus de la Mission de l’ONU en RDC (MONUSCO) ont évacué dix agents de santé, dont un médecin et des infirmiers, de l’hôpital général de référence d’Akwe, en Ituri. Le chef de l’Organisation mondiale de la santé pour l’Afrique, Mohamed Janabi, a rappelé que les soins de santé ne doivent jamais être pris pour cible."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des chiffres à lire avec prudence",
+        "text": "Les totaux portent sur les cas confirmés en laboratoire et sont communiqués par les autorités congolaises, puis repris par les organisations internationales avec quelques jours de décalage. Dans les zones que les équipes ne peuvent pas atteindre à cause des combats, une partie des malades peut échapper au dépistage : le nombre réel d’infections pourrait donc être plus élevé que les chiffres officiels."
+      }
+    ],
+    "sources": [
+      {
+        "label": "ONU Info — Ebola en RDC : la barre des 12 000 cas franchie, plus de 5 900 décès (26 novembre 2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159911"
+      },
+      {
+        "label": "ECDC — Ebola disease caused by Bundibugyo virus, multi-country, 2026 : mises à jour",
+        "url": "https://www.ecdc.europa.eu/en/public-health-events/2026-eip-00026"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Quel virus est à l’origine de l’épidémie d’Ebola déclarée en RDC en mai 2026 ?",
+        "answer": "Le virus Bundibugyo, une espèce du virus Ebola contre laquelle il n’existe ni vaccin ni traitement approuvé."
+      },
+      {
+        "question": "Quelle province de RDC concentre la majorité des cas d’Ebola fin novembre 2026 ?",
+        "answer": "L’Ituri, dans le nord-est du pays, avec 8 140 cas confirmés et 3 843 décès, soit plus des deux tiers des cas confirmés."
+      }
+    ]
+  },
+  {
+    "slug": "rougeole-les-deces-au-plus-bas-en-2025-mais-la-vaccination-reste-incomplete",
+    "title": "Rougeole : les décès au plus bas en 2025, mais la vaccination reste incomplète",
+    "summary": "Selon un rapport de l’Organisation mondiale de la santé (OMS) publié le 27 novembre 2026, la rougeole a tué environ 72 000 personnes dans le monde en 2025, soit 91 % de moins qu’en 2000. Mais près de 10 millions de personnes ont été infectées, 59 pays ont connu des flambées importantes et plus de 29 millions d’enfants n’étaient pas ou pas assez vaccinés. La couverture mondiale reste de 84 % pour la première dose et de 77 % pour la seconde. Les chiffres sont des estimations de l’OMS pour l’année 2025, reprises par l’agence Reuters et ONU Info.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L’OMS estime à environ 72 000 le nombre de décès dus à la rougeole en 2025, une baisse de 91 % par rapport à l’an 2000 ; plus de 60 millions de vies auraient été sauvées par la vaccination depuis 2000.",
+      "Près de 10 millions de personnes ont été infectées en 2025 et 59 pays ont connu des flambées importantes ou perturbatrices, dont onze dans des pays qui avaient éliminé la maladie.",
+      "La couverture vaccinale mondiale atteint 84 % pour la première dose et 77 % pour la seconde, avec de forts écarts : 69 % et 57 % dans les pays à faible revenu, 93 % et 91 % dans les pays à revenu élevé."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Des décès au plus bas depuis 2000",
+        "text": "Le 27 novembre 2026, l’OMS a publié son rapport annuel sur les progrès vers l’élimination de la rougeole dans le monde, de 2000 à 2025, paru dans son Relevé épidémiologique hebdomadaire. Selon ses estimations, environ 72 000 personnes sont mortes de la rougeole en 2025, soit 91 % de moins qu’en 2000. Depuis cette date, la vaccination aurait sauvé plus de 60 millions de vies. Selon l’agence Reuters, qui cite l’OMS, le nombre de décès était d’environ 769 000 en 2000. Le directeur général de l’OMS, Tedros Adhanom Ghebreyesus, a souligné que les décès dus à la rougeole n’avaient jamais été aussi peu nombreux, grâce aux vaccins."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des infections encore nombreuses",
+        "text": "La maladie continue pourtant de circuler. L’OMS fait état de près de 10 millions de personnes infectées en 2025 ; Reuters donne le chiffre de 9,8 millions de cas, contre 37,8 millions en 2000. Près de la moitié des cas mondiaux ont été enregistrés dans la région Asie du Sud-Est de l’OMS. Dans les Amériques, environ 73 000 personnes ont été infectées en 2025, un nombre multiplié par huit depuis 2000. Au total, 59 pays ont connu des flambées importantes ou perturbatrices : 18 pays à faible revenu, 34 à revenu intermédiaire et 7 à revenu élevé. Onze flambées ont touché des pays qui avaient été déclarés exempts de la maladie."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une vaccination qui plafonne",
+        "text": "En 2025, 84 % des enfants dans le monde ont reçu la première dose du vaccin contre la rougeole et 77 % la seconde. Les écarts sont forts : 69 % et 57 % dans les pays à faible revenu, contre 93 % et 91 % dans les pays à revenu élevé. Plus de 29 millions d’enfants n’étaient pas ou pas assez vaccinés ; selon Reuters, 20,8 millions ont manqué la première dose et 8,3 millions la seconde. Fin 2025, 95 pays étaient reconnus comme ayant éliminé la rougeole ou ayant maintenu cette élimination."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi les flambées reviennent",
+        "text": "La rougeole est l’une des maladies les plus contagieuses : tant qu’une partie des enfants n’est pas vaccinée, le virus trouve des personnes à infecter. Kate O’Brien, directrice de la vaccination à l’OMS, citée par Reuters, estime que les reculs récents ne sont pas un échec du vaccin, mais un échec à atteindre chaque enfant. Pour Tedros Adhanom Ghebreyesus, l’élimination n’est pas une ligne d’arrivée : elle doit être défendue avec deux doses de vaccin pour chaque enfant, partout. Certains pays qui avaient éliminé la maladie perdent aujourd’hui ce statut, selon l’OMS."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des estimations, pas un décompte",
+        "text": "Les chiffres de décès et d’infections sont des estimations modélisées par l’OMS, car de nombreux cas ne sont jamais déclarés. Ils peuvent être révisés dans les éditions suivantes du rapport, et leur comparaison avec 2000 dépend de la qualité des données disponibles à l’époque."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OMS — Historic low in measles deaths, but immunization gaps threaten progress (27 novembre 2026)",
+        "url": "https://www.who.int/news/item/27-11-2026-historic-low-in-measles-deaths--but-immunization-gaps-threaten-progress"
+      },
+      {
+        "label": "Reuters, repris par WMBD — Global measles deaths fall to historic low in 2025, WHO says (27 novembre 2026)",
+        "url": "https://wmbdradio.com/2026/11/27/global-measles-deaths-fall-to-historic-low-in-2025-who-says/"
+      },
+      {
+        "label": "ONU Info — La rougeole recule dans le monde, mais reprend du terrain dans plusieurs pays (27 novembre 2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159917"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "flashcards": [
+      {
+        "question": "Combien de personnes la rougeole a-t-elle tuées dans le monde en 2025, selon l’OMS ?",
+        "answer": "Environ 72 000, soit 91 % de moins qu’en 2000."
+      },
+      {
+        "question": "Quelle part des enfants du monde a reçu la seconde dose du vaccin contre la rougeole en 2025 ?",
+        "answer": "77 %, contre 84 % pour la première dose, selon l’OMS."
+      }
+    ]
+  },
+  {
     "slug": "bruxelles-autorise-sans-condition-le-rachat-d-allfunds-par-deutsche-borse",
     "title": "Bruxelles autorise sans condition le rachat d'Allfunds par Deutsche Börse",
     "summary": "La Commission européenne a autorisé sans condition, au titre du règlement européen sur les concentrations, le rachat d'Allfunds, plateforme de distribution de fonds d'investissement, par le groupe boursier allemand Deutsche Börse. La décision a été annoncée le 27 novembre 2026. L'opération, évaluée à 5,35 milliards d'euros selon l'agence Reuters, avait été notifiée le 22 octobre. Bruxelles estime que plusieurs concurrents crédibles restent présents sur chaque marché. La finalisation, qui dépend encore d'autres autorisations réglementaires, est attendue au premier semestre 2027.",

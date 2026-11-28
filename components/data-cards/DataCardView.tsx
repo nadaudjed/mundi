@@ -171,8 +171,9 @@ function VisualArea({ visual, placeholder, light }: { visual?: VisualSlot; place
 
 function Value({ m, display, big }: { m: Measure; display: boolean; big?: boolean }) {
   return (
-    <span className="whitespace-nowrap">
-      <span className={`${display ? "font-display" : ""} ${big ? "text-[3.4rem] leading-none [@media(max-height:740px)]:text-[2.6rem]" : "text-2xl"} font-semibold tabular-nums`}>{formatValue(m)}</span>{" "}
+    // Le chiffre reste sur une ligne ; une unité longue (« millions de passagers ») passe à la ligne à 320 px.
+    <span>
+      <span className={`whitespace-nowrap ${display ? "font-display" : ""} ${big ? "text-[3.4rem] leading-none [@media(max-height:740px)]:text-[2.6rem]" : "text-2xl"} font-semibold tabular-nums`}>{formatValue(m)}</span>{" "}
       <span className={big ? "text-lg font-semibold" : "text-sm font-semibold"}>{m.unit}</span>
     </span>
   );

@@ -1,5 +1,525 @@
 [
   {
+    "slug": "mer-noire-kiev-propose-un-cessez-le-feu-pour-ses-exportations-agricoles",
+    "title": "Mer Noire : Kiev propose un cessez-le-feu pour ses exportations agricoles",
+    "summary": "Le 27 novembre 2026, le ministre ukrainien des Affaires étrangères, Andrii Sybiha, a annoncé que l’Ukraine avait proposé un cessez-le-feu en mer Noire afin de rétablir la liberté de navigation et d’assurer ses exportations agricoles. Kiev dit attendre la réponse de Moscou, qui voudrait y inclure l’arrêt des attaques ukrainiennes contre son secteur pétrolier. Début octobre, le Kremlin avait déjà rejeté une trêve limitée en mer Noire. Aucun volume d’exportation récent n’a été communiqué avec l’annonce.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Andrii Sybiha a présenté l’offre le 27 novembre lors de la conférence « Food from Ukraine » : Kiev se dit prêt à rétablir la liberté de navigation en mer Noire et à garantir des exportations agricoles sans interruption.",
+      "L’offre a été transmise aux partenaires internationaux ; le ministre a remercié l’Inde, la Turquie et l’Égypte pour leur rôle dans la désescalade, et a déclaré attendre désormais une réponse de la Russie.",
+      "Selon Reuters, Moscou demande que la trêve couvre l’arrêt des attaques ukrainiennes contre son secteur pétrolier ; Kiev ne l’envisage que dans le cadre d’un accord plus large de cessez-le-feu énergétique."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une offre centrée sur les céréales",
+        "text": "Le vendredi 27 novembre 2026, lors de la conférence « Food from Ukraine », le chef de la diplomatie ukrainienne, Andrii Sybiha, a annoncé une proposition de cessez-le-feu en mer Noire. Selon Al Jazeera, qui s’appuie sur l’AFP et Reuters, Kiev se dit prêt à rétablir la liberté de navigation et à garantir l’exportation ininterrompue de ses produits agricoles. « Toutes nos propositions ont été transmises », a déclaré le ministre, selon Al Jazeera. Il a ajouté que l’Ukraine attendait maintenant une réponse de la Russie."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des médiateurs et une divergence sur le pétrole",
+        "text": "D’après la dépêche de Reuters reprise par Business Standard, Andrii Sybiha a remercié l’Inde, la Turquie et l’Égypte pour leur rôle « actif et important » dans la désescalade en mer Noire. Le principal point de friction porte sur le périmètre de la trêve : la Russie a proposé que l’Ukraine suspende ses attaques contre le secteur pétrolier russe, alors que Kiev ne l’envisagerait que dans un accord plus large de cessez-le-feu sur l’énergie. Le ministre a aussi accusé Moscou d’exigences « irréalistes ». Le même jour, Vladimir Poutine assistait à la levée des couleurs d’un nouveau sous-marin à propulsion nucléaire, selon les agences russes citées par Al Jazeera."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des précédents",
+        "text": "La question des corridors maritimes n’est pas nouvelle : la Russie s’est retirée en juillet 2023 de l’accord céréalier conclu en 2022 sous l’égide des Nations unies et de la Turquie. En août 2026, Reuters faisait état d’une chute de 76 % sur un an des exportations ukrainiennes de céréales, et le 31 octobre le secrétaire d’État américain Marco Rubio indiquait que Washington examinait des propositions turques et indiennes sur les expéditions de céréales et d’énergie. Moscou avait déjà écarté une trêve limitée en mer Noire : le 2 octobre 2026, le porte-parole du Kremlin, Dmitri Peskov, estimait que des « arrangements au coup par coup » ne pouvaient pas rapprocher d’un règlement de paix, selon le Hürriyet Daily News. Andrii Sybiha indiquait alors que Kiev avait reçu quatre propositions de cessez-le-feu, de la Turquie, de l’Inde, de l’Égypte et des États-Unis, et se disait prêt à une trêve sur l’énergie et la mer Noire, « mais seulement dans cette combinaison »."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Al Jazeera (avec AFP et Reuters) — Kyiv offers Black Sea ceasefire",
+        "url": "https://aljazeera.com/news/2026/11/27/kyiv-offers-black-sea-ceasefire-as-putin-expands-russias-navy"
+      },
+      {
+        "label": "Business Standard (Reuters) — Ukraine submits Black Sea truce offer",
+        "url": "https://business-standard.com/world-news/ukraine-submits-black-sea-truce-offer-waits-for-russian-response-minister-126112701458_1.html"
+      },
+      {
+        "label": "Hürriyet Daily News — Russia rejects limited Black Sea truce (3 octobre 2026)",
+        "url": "https://www.hurriyetdailynews.com/russia-rejects-limited-black-sea-truce-227650"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "flashcards": [
+      {
+        "question": "Que propose l’Ukraine en mer Noire depuis le 27 novembre 2026 ?",
+        "answer": "Un cessez-le-feu en mer Noire pour rétablir la liberté de navigation et assurer ses exportations agricoles sans interruption."
+      },
+      {
+        "question": "Sur quel point la Russie et l’Ukraine divergent-elles à propos de cette trêve ?",
+        "answer": "Moscou veut y inclure l’arrêt des attaques ukrainiennes contre son secteur pétrolier ; Kiev ne l’envisage que dans un accord plus large de cessez-le-feu énergétique."
+      }
+    ]
+  },
+  {
+    "slug": "ports-de-l-ue-record-de-423-4-millions-de-passagers-maritimes-en-2025",
+    "title": "Ports de l'UE : record de 423,4 millions de passagers maritimes en 2025",
+    "summary": "Selon Eurostat, qui a publié le 27 novembre 2026 ses données sur le transport maritime de passagers, les ports de l’UE ont accueilli 423,4 millions de passagers en 2025, un record depuis le début des séries comparables en 2002. L’Italie, la Grèce et le Danemark concentrent plus de la moitié du trafic. Les chiffres portent sur 22 pays de l’UE ayant un transport maritime de passagers.",
+    "topic": "economie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "En 2025, 423,4 millions de passagers ont transité par les ports de l’UE, soit 5,5 millions de plus qu’en 2024 et 5,2 millions de plus qu’en 2019, avant les perturbations liées au Covid.",
+      "Trois pays traitent plus de la moitié du trafic : l’Italie (96,5 millions, 22,8 % du total de l’UE), la Grèce (81,2 millions, 19,2 %) et le Danemark (42,1 millions, 9,9 %).",
+      "Les trois premiers ports sont italiens et pèsent 8,5 % des passagers, environ un sur douze : Messine (12,8 millions), Reggio de Calabre (12,6 millions) et Naples (10,7 millions)."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un plus haut depuis 2002",
+        "text": "D’après les données publiées par Eurostat le 27 novembre 2026, les ports de l’Union européenne ont traité 423,4 millions de passagers maritimes en 2025. C’est le niveau le plus élevé depuis le début de la collecte de données comparables, en 2002. Le trafic progresse de 5,5 millions de passagers par rapport à 2024 et dépasse de 5,2 millions celui de 2019, l’année précédant les perturbations causées par le Covid dans les transports et le tourisme. Eurostat précise que ces chiffres couvrent 22 pays : la Tchéquie, le Luxembourg, la Hongrie, l’Autriche et la Slovaquie n’ont pas de transport maritime, la Roumanie n’a pas de transport de passagers et l’Estonie ne fournit que des données nationales."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un trafic très concentré",
+        "text": "En 2025, 97,5 % du transport maritime de passagers de l’UE s’est fait dans 11 pays, qui ont chacun enregistré plus de 13 millions de passagers. L’Italie arrive en tête avec 96,5 millions de passagers, soit 22,8 % du total, devant la Grèce (81,2 millions, 19,2 %) et le Danemark (42,1 millions, 9,9 %). Sur un an, la plus forte hausse revient à l’Italie (+3,0 millions) et la plus forte baisse à la France (-0,9 million). Par rapport à 2019, l’Italie progresse de 10,0 millions, tandis que la Suède recule de 5,9 millions."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des traversées courtes plus que des croisières",
+        "text": "Le classement des ports montre le poids des liaisons de proximité. Les 20 premiers ports pour les passagers concentrent 36,0 % du trafic de l’UE. Les trois plus fréquentés, Messine (12,8 millions), Reggio de Calabre (12,6 millions) et Naples (10,7 millions), sont tous italiens ; Messine et Reggio se font face de part et d’autre du détroit de Messine. Viennent ensuite Le Pirée, en Grèce (10,4 millions), et Helsinki, en Finlande (9,5 millions). Ces volumes comptent des passagers, pas des personnes distinctes : un même voyageur peut être compté à chaque embarquement ou débarquement."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — EU ports reach a record 423.4 million passengers (27 novembre 2026)",
+        "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261127-1"
+      },
+      {
+        "label": "BTA, agence de presse bulgare — chiffres Eurostat 2025 sur les ports",
+        "url": "https://www.bta.bg/en/news/economy/1256144-bulgarian-ports-handle-10-000-passengers-in-2025-twice-as-many-as-in-2024"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "dataCards": [
+      {
+        "id": "record-passagers-2025",
+        "kind": "stat",
+        "headline": "Les ports de l’UE ont accueilli 423,4 millions de passagers en 2025, un record depuis 2002",
+        "source": {
+          "label": "Eurostat",
+          "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261127-1"
+        },
+        "asOf": "2025-12-31",
+        "imageQuery": "passenger ferry harbour",
+        "measure": {
+          "value": 423.4,
+          "unit": "millions de passagers",
+          "label": "Passagers maritimes dans les ports de l’UE",
+          "scope": "UE (22 pays déclarants)",
+          "period": "2025",
+          "decimals": 1
+        },
+        "context": "5,5 millions de plus qu’en 2024 et 5,2 millions de plus qu’en 2019."
+      },
+      {
+        "id": "trois-pays-en-tete",
+        "kind": "comparaison",
+        "headline": "L’Italie, la Grèce et le Danemark traitent plus de la moitié des passagers maritimes de l’UE",
+        "source": {
+          "label": "Eurostat",
+          "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261127-1"
+        },
+        "asOf": "2025-12-31",
+        "imageQuery": "greek island ferry",
+        "items": [
+          {
+            "value": 96.5,
+            "unit": "millions de passagers",
+            "label": "Italie",
+            "scope": "Ports italiens",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 81.2,
+            "unit": "millions de passagers",
+            "label": "Grèce",
+            "scope": "Ports grecs",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 42.1,
+            "unit": "millions de passagers",
+            "label": "Danemark",
+            "scope": "Ports danois",
+            "period": "2025",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "premiers-ports",
+        "kind": "comparaison",
+        "headline": "Messine, Reggio de Calabre et Naples, les trois ports de passagers les plus fréquentés de l’UE",
+        "source": {
+          "label": "Eurostat",
+          "url": "https://ec.europa.eu/eurostat/product?code=ddn-20261127-1"
+        },
+        "asOf": "2025-12-31",
+        "imageQuery": "strait of messina ferry",
+        "items": [
+          {
+            "value": 12.8,
+            "unit": "millions de passagers",
+            "label": "Messine",
+            "scope": "Port de Messine (Italie)",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 12.6,
+            "unit": "millions de passagers",
+            "label": "Reggio de Calabre",
+            "scope": "Port de Reggio de Calabre (Italie)",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 10.7,
+            "unit": "millions de passagers",
+            "label": "Naples",
+            "scope": "Port de Naples (Italie)",
+            "period": "2025",
+            "decimals": 1
+          },
+          {
+            "value": 10.4,
+            "unit": "millions de passagers",
+            "label": "Le Pirée",
+            "scope": "Port du Pirée (Grèce)",
+            "period": "2025",
+            "decimals": 1
+          }
+        ],
+        "presentation": "echelle-commune"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Combien de passagers maritimes les ports de l’UE ont-ils accueillis en 2025 ?",
+        "answer": "423,4 millions, un record depuis le début des données comparables en 2002, selon Eurostat."
+      }
+    ]
+  },
+  {
+    "slug": "pourquoi-le-prix-de-l-electricite-varie-t-il-d-heure-en-heure",
+    "title": "Pourquoi le prix de l'électricité varie-t-il d'heure en heure ?",
+    "summary": "Sur le marché de gros, le prix de l'électricité se fixe heure par heure, au coût de la dernière centrale nécessaire pour couvrir la demande. Comme l'électricité se stocke mal, il bouge avec la météo, la consommation et les interconnexions, jusqu'à devenir négatif. Cet article s'appuie sur la note n° 76 du Conseil d'analyse économique (mars 2023) et sur deux documents de la Commission de régulation de l'énergie, dont son rapport de surveillance des marchés de gros pour 2025, publié en juin 2026.",
+    "topic": "energie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le prix spot équilibre le marché heure par heure : il correspond au coût variable de la dernière centrale appelée selon l'ordre de mérite, et il est versé à tous les producteurs retenus.",
+      "L'électricité se stockant mal, l'offre doit égaler la demande à chaque instant : le prix varie avec la consommation, le vent, le soleil et les échanges entre pays.",
+      "En France, le prix journalier a atteint 61,1 €/MWh en moyenne en 2025, avec un record de 513 heures à prix négatifs ; en milieu de journée, au pic de production solaire, les prix sont surtout proches de zéro, selon la CRE."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un prix fixé par la dernière centrale appelée",
+        "text": "Sur le marché de gros, les producteurs proposent leur électricité heure par heure. Selon le Conseil d'analyse économique, le prix spot est le prix du mégawattheure qui équilibre ce marché horaire. Il correspond au coût marginal, c'est-à-dire au coût variable de fonctionnement, de la dernière unité de production mise en service selon le principe de l'ordre de mérite : on appelle d'abord les moyens les moins chers à faire tourner, puis les plus coûteux jusqu'à couvrir la demande. Ce prix est versé à tous les producteurs appelés ; ceux dont les coûts d'exploitation sont plus bas reçoivent donc un surplus. La CRE rappelle que cette tarification au prix marginal est le fonctionnement naturel de tout marché de matières premières."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une marchandise qui se stocke mal",
+        "text": "Le CAE souligne que l'électricité a une faible stockabilité : les marchés de gros sont donc structurés au pas horaire, car un déséquilibre entre production et consommation perturberait la fréquence électrique. La CRE note que des contrats au pas de 15 minutes ont même été introduits sur les marchés couplés européens. Selon le CAE, le prix varie très fréquemment, à la hausse comme à la baisse, en fonction des tensions entre l'offre et la demande, et il est par nature volatil puisque plusieurs technologies, aux coûts très différents, coexistent dans les parcs de production."
+      },
+      {
+        "kind": "fait",
+        "heading": "Soleil, vent et prix négatifs",
+        "text": "Les éoliennes et les panneaux solaires ont un coût variable très faible. Quand ils tournent à plein régime, le CAE prévoit des prix très faibles, voire négatifs. C'est ce qu'observe la CRE : en France, la fréquence des prix négatifs a atteint un nouveau record de 513 heures en 2025, contre 352 en 2024, avec surtout des prix proches de zéro en milieu de journée en raison du pic de production solaire. L'écart moyen entre les deux heures les plus chères et les deux heures les moins chères d'une journée, l'indicateur TB2, a augmenté de 25 % en 2025. À l'inverse, aux heures de pointe, il faut faire appel à des équipements coûteux, utilisés pour la sécurité d'approvisionnement."
+      },
+      {
+        "kind": "fait",
+        "heading": "Ce que montrent les chiffres de 2025",
+        "text": "Selon la CRE, les prix journaliers ont atteint 61,1 €/MWh en moyenne en 2025, une légère hausse de 6 % par rapport à 2024. La production française a atteint 547,5 TWh, dont 373 TWh de nucléaire, tandis que les centrales thermiques à flamme n'ont produit que 18,7 TWh, moins de 4 % du mix. La France a enregistré un record d'exportations nettes, à 92,3 TWh, et figure parmi les marchés de gros d'électricité les moins chers d'Europe."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Le rôle du gaz et des contrats de long terme",
+        "text": "Lorsque la dernière centrale appelée fonctionne au gaz, le prix de l'électricité suit celui du gaz : le CAE pointe la trop forte dépendance de l'Europe au gaz pour produire de l'électricité, qui a exposé le système à sa volatilité lors de la crise. Pour s'en protéger, l'électricité peut être achetée à l'avance sur les marchés à terme, à un prix fixé à la signature, beaucoup moins volatil que le prix spot. Des contrats de long terme existent aussi : les contrats pour différence, organisés par une entité publique, versent aux producteurs l'écart entre un prix fixe et le prix de gros, et les contrats privés de gré à gré, appelés PPA, en sont une variante. Avec la fin de l'Arenh le 31 décembre 2025, souligne la CRE, le marché de gros joue désormais un rôle prépondérant dans la formation du prix payé par les consommateurs."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Conseil d'analyse économique, « Le triple défi de la réforme du marché européen de l'électricité », note n° 76, mars 2023",
+        "url": "https://cae-eco.fr/static/pdf/cae076-marcheelectricite-2303121-v3.pdf"
+      },
+      {
+        "label": "CRE, rapport de surveillance des marchés de gros de l'électricité et du gaz naturel en 2025, juin 2026",
+        "url": "https://www.cre.fr/fileadmin/Documents/Rapports_et_etudes/2026/Rapport_de_surveillance_2025.pdf"
+      },
+      {
+        "label": "CRE, synthèse de sa réponse à la consultation de la Commission européenne sur le marché de l'électricité, février 2023",
+        "url": "https://www.cre.fr/fileadmin/Documents/Actualites/import/Note_market_design_CP_CE_fevrier_2023-fr.pdf"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que l'ordre de mérite sur le marché de l'électricité ?",
+        "answer": "Le classement des centrales de la moins chère à la plus chère à faire fonctionner : on les appelle dans cet ordre jusqu'à couvrir la demande."
+      },
+      {
+        "question": "Quel coût fixe le prix spot de l'électricité ?",
+        "answer": "Le coût variable de fonctionnement de la dernière centrale mise en service pour équilibrer l'offre et la demande ; ce prix est versé à tous les producteurs appelés."
+      },
+      {
+        "question": "Pourquoi le marché de gros de l'électricité fonctionne-t-il heure par heure ?",
+        "answer": "Parce que l'électricité se stocke mal : production et consommation doivent s'équilibrer à chaque instant, sinon la fréquence du réseau est perturbée."
+      },
+      {
+        "question": "Combien d'heures à prix négatifs la France a-t-elle connues en 2025 ?",
+        "answer": "513 heures, un record, contre 352 en 2024, selon la CRE."
+      },
+      {
+        "question": "Qu'est-ce qu'un contrat pour différence dans l'électricité ?",
+        "answer": "Un contrat, souvent organisé par une entité publique, qui verse au producteur l'écart entre un prix fixe et le prix de gros."
+      }
+    ]
+  },
+  {
+    "slug": "comment-fonctionne-un-satellite-de-communication-orbite-relais-et-couverture",
+    "title": "Comment fonctionne un satellite de communication : orbite, relais et couverture",
+    "summary": "Un satellite de communication reçoit un signal radio venu du sol, l'amplifie et le renvoie vers la Terre. Selon l'altitude choisie, il couvre une vaste zone depuis un point fixe du ciel ou défile vite au-dessus du sol, ce qui impose de grandes constellations. Explications tirées des dossiers du CNES et des pages de l'Agence spatiale européenne, dont certaines sont des contenus d'archives de 2009 et 2020.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le satellite sert de relais : son ou ses répéteurs captent le signal émis par une station au sol, l'amplifient et le renvoient vers la Terre, selon le CNES et l'ESA.",
+      "En orbite géostationnaire, à 35 786 km au-dessus de l'équateur, un satellite semble immobile ; trois satellites régulièrement espacés suffisent pour une couverture presque mondiale, indique l'ESA.",
+      "En orbite basse, à quelques centaines de kilomètres, le délai de transmission est plus court, mais chaque satellite n'est visible que 10 à 20 minutes d'un même lieu, d'où des constellations de dizaines d'engins."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un relais dans le ciel",
+        "text": "Le principe est celui d'un relais. Selon l'ESA, le signal est reçu par le satellite, amplifié puis renvoyé vers la Terre. Le CNES décrit une charge utile composée d'un ou plusieurs répéteurs qui amplifient les signaux captés. Au sol, le système s'appuie sur des stations d'ancrage au réseau terrestre, équipées de grandes antennes de plusieurs mètres de diamètre, et sur des terminaux à bas coût. Les signaux ressemblent à ceux de la télévision terrestre, mais leur fréquence est en général 3 à 50 fois plus élevée, précise l'ESA, et les antennes des utilisateurs peuvent ne mesurer que 40 à 50 cm de diamètre."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'orbite géostationnaire, un point fixe",
+        "text": "L'orbite géostationnaire est une orbite circulaire située à 35 786 km au-dessus de l'équateur, selon l'ESA ; le CNES parle d'environ 36 000 km. Le satellite y boucle un tour en 23 heures 56 minutes et 4 secondes, au même rythme que la rotation de la Terre : vu du sol, il paraît immobile, ce qui permet des liaisons permanentes avec des antennes fixes. Chaque satellite voit une grande partie du globe, si bien que trois satellites régulièrement espacés suffisent pour une couverture presque mondiale, indique l'ESA. Le satellite rejoint cette orbite avec ses propres moteurs après le lancement."
+      },
+      {
+        "kind": "fait",
+        "heading": "L'orbite basse, rapide et proche",
+        "text": "L'ESA situe l'orbite basse sous 2 000 km d'altitude ; les satellites y font le tour de la Terre en environ 90 minutes, à quelques centaines de kilomètres. Cette proximité réduit le délai dû au trajet du signal : selon le CNES, il peut y être jusqu'à 50 fois plus court. En contrepartie, un satellite n'est visible d'un même endroit que 10 à 20 minutes, et il faut déployer une constellation de plusieurs dizaines de satellites pour assurer un service continu. L'ESA cite des systèmes de 48, 66, 77, 80, voire 288 satellites."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des contraintes qui dictent les choix",
+        "text": "Le choix d'orbite est donc un compromis entre couverture, délai et nombre d'engins. Les satellites doivent aussi résister aux débris, aux micrométéorites et aux grands écarts de températures. Leur vie dure en moyenne entre 5 et 15 ans, selon le CNES, et s'achève souvent quand ils ont épuisé leur carburant, appelé ergol. Le CNES signale aussi des recherches sur les liaisons optiques par laser, qui offriraient des débits 10 à 100 fois supérieurs à ceux des radiofréquences."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNES, « La communication par satellite, comment ça marche ? »",
+        "url": "https://cnes.fr/dossiers/telecommunications"
+      },
+      {
+        "label": "CNES, dossier « Les satellites »",
+        "url": "https://cnes.fr/dossiers/satellites"
+      },
+      {
+        "label": "ESA, « Orbits », Connectivity and Secure Communications (2009)",
+        "url": "https://www.esa.int/Applications/Connectivity_and_Secure_Communications/Orbits"
+      },
+      {
+        "label": "ESA, « Types of orbits » (contenu d'archives, 2020)",
+        "url": "https://www.esa.int/Our_Activities/Space_Transportation/Types_of_orbits"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Que fait un satellite de communication du signal qu'il reçoit du sol ?",
+        "answer": "Il le capte avec ses répéteurs, l'amplifie et le renvoie vers la Terre."
+      },
+      {
+        "question": "À quelle altitude se trouve l'orbite géostationnaire selon l'ESA ?",
+        "answer": "À 35 786 km au-dessus de l'équateur."
+      },
+      {
+        "question": "Pourquoi un satellite géostationnaire semble-t-il immobile depuis le sol ?",
+        "answer": "Parce qu'il fait un tour en 23 h 56 min 4 s, au rythme de la rotation de la Terre."
+      },
+      {
+        "question": "Combien de satellites géostationnaires suffisent pour une couverture presque mondiale ?",
+        "answer": "Trois satellites régulièrement espacés."
+      },
+      {
+        "question": "Pourquoi faut-il des constellations de dizaines de satellites en orbite basse ?",
+        "answer": "Parce que chaque satellite n'est visible d'un même lieu que 10 à 20 minutes."
+      }
+    ]
+  },
+  {
+    "slug": "comment-la-diaspora-peut-elle-investir-au-dela-des-envois-d-argent-aux-familles",
+    "title": "Comment la diaspora peut-elle investir au-delà des envois d'argent aux familles ?",
+    "summary": "Les envois de fonds des migrants vers l'Afrique subsaharienne ont atteint 55 milliards de dollars en 2023 selon l'estimation révisée de la Banque mondiale (décembre 2024), mais l'essentiel sert aux besoins immédiats des familles. Le dossier de la Journée internationale des envois de fonds familiaux, coordonnée par le FIDA, estime qu'environ un quart pourrait financer des projets de long terme, à condition que les frais baissent et que des services financiers adaptés existent. Les chiffres 2024 de la Banque mondiale sont des estimations.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la Banque mondiale, les remises vers l'Afrique subsaharienne ont atteint 55 milliards de dollars en 2023 (+1,0 %, estimation révisée de décembre 2024), et les envois vers les pays à revenu faible et intermédiaire ont dépassé les investissements étrangers directs et l'aide publique.",
+      "Envoyer 200 dollars vers l'Afrique subsaharienne coûtait en moyenne 7,9 % en 2023, bien au-dessus de la cible de 3 % fixée par les objectifs de développement durable pour 2030.",
+      "Le dossier de la Journée des envois de fonds estime que 75 % des fonds couvrent des besoins immédiats et que les 25 % restants, plus de 170 milliards de dollars par an, peuvent viser le long terme."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Des flux plus gros que l'aide",
+        "text": "Les envois de fonds des migrants sont devenus une source majeure de financement extérieur. La Banque mondiale indique qu'en 2023 ils ont excédé, pour les pays à revenu faible et intermédiaire, le montant des investissements étrangers directs et de l'aide publique au développement. Vers l'Afrique subsaharienne, ils ont atteint 55 milliards de dollars en 2023, en hausse de 1,0 %, selon l'estimation révisée publiée par la Banque mondiale en décembre 2024. Pour 2024, la Banque mondiale estimait le total vers les pays à revenu faible et intermédiaire à 685 milliards de dollars, et notait qu'au cours de la dernière décennie ces envois avaient progressé de 57 % tandis que les IDE reculaient de 41 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un argent d'abord consacré au quotidien",
+        "text": "Ces sommes servent surtout à vivre. Selon le dossier 2025 de la Journée internationale des envois de fonds familiaux, environ 75 % des envois couvrent des besoins immédiats ; les 25 % restants, plus de 170 milliards de dollars par an, peuvent être mobilisés pour des objectifs de plus long terme. Le même document estime l'épargne annuelle de la diaspora des pays en développement à environ 400 milliards de dollars. Il rappelle qu'environ 200 millions de travailleurs migrants envoient des fonds à quelque 800 millions de membres de leur famille, et que dans les pays à faible revenu d'Afrique les ménages qui en reçoivent sont 84 % plus susceptibles de déclarer n'avoir jamais souffert de pénurie alimentaire."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le coût des transferts, premier frein",
+        "text": "Chaque transfert est amputé de frais. Au quatrième trimestre 2023, envoyer 200 dollars coûtait en moyenne 6,4 % dans le monde, et 7,9 % vers l'Afrique subsaharienne, selon la Banque mondiale, bien au-delà de l'objectif de 3 %. La cible 10.c des objectifs de développement durable prévoit de réduire ces coûts à moins de 3 % d'ici à 2030 ; le dossier de la Journée des envois de fonds estime qu'à ce niveau, les familles pourraient économiser jusqu'à 20 milliards de dollars par an."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Des conditions pour passer à l'investissement",
+        "text": "Faire de la diaspora un investisseur suppose donc deux choses : que moins d'argent se perde en frais, et que l'épargne trouve des placements accessibles depuis l'étranger. Le dossier de la Journée des envois de fonds recommande d'étendre et d'adapter les services financiers pour permettre aux migrants d'investir dans les PME de leur pays d'origine. La réussite dépend aussi de la gouvernance des projets : sans transparence ni suivi, l'épargne des migrants risque de rester orientée vers la consommation familiale, qui demeure par ailleurs un filet de sécurité essentiel."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Banque mondiale, communiqué du 26 juin 2024 sur les remises migratoires",
+        "url": "https://www.banquemondiale.org/fr/news/press-release/2024/06/26/remittances-slowed-in-2023-expected-to-grow-faster-in-2024"
+      },
+      {
+        "label": "Banque mondiale, blog « Envois de fonds des migrants » du 18 décembre 2024",
+        "url": "https://blogs.worldbank.org/fr/voices/envois-de-fonds-migrants-2024"
+      },
+      {
+        "label": "Journée internationale des envois de fonds familiaux (FIDA), « Les transferts de fonds et les objectifs de développement durable », 2025",
+        "url": "https://familyremittances.org/wp-content/uploads/2025/06/IDFR2025_remittances-and-SDGs_v02_fr.pdf"
+      },
+      {
+        "label": "Nations unies, Journée internationale des envois de fonds familiaux",
+        "url": "https://www.un.org/fr/observances/remittances-day"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Combien la diaspora a-t-elle envoyé vers l'Afrique subsaharienne en 2023 selon la Banque mondiale ?",
+        "answer": "55 milliards de dollars, en hausse de 1,0 %, selon l'estimation révisée de décembre 2024."
+      },
+      {
+        "question": "Quelle part des envois de fonds sert aux besoins immédiats des familles ?",
+        "answer": "Environ 75 % ; les 25 % restants peuvent viser des objectifs de long terme."
+      },
+      {
+        "question": "Combien coûtait en moyenne l'envoi de 200 dollars vers l'Afrique subsaharienne en 2023 ?",
+        "answer": "7,9 %, bien au-dessus de l'objectif de 3 %."
+      },
+      {
+        "question": "Quel objectif les ODD fixent-ils pour le coût des envois de fonds ?",
+        "answer": "Le réduire à moins de 3 % d'ici à 2030."
+      },
+      {
+        "question": "Que recommande le dossier de la Journée des envois de fonds pour favoriser l'investissement ?",
+        "answer": "Étendre et adapter les services financiers pour que les migrants investissent dans les PME de leur pays d'origine."
+      }
+    ]
+  },
+  {
+    "slug": "le-soft-power-peut-il-changer-les-rapports-de-force-entre-etats",
+    "title": "Le soft power peut-il changer les rapports de force entre États ?",
+    "summary": "Le soft power désigne la capacité d'un pays à attirer et à persuader plutôt qu'à contraindre. Forgé par Joseph Nye à la fin des années 1980, le concept est présenté par le Centre Weatherhead de Harvard ; la France en a fait une doctrine avec sa feuille de route de l'influence de décembre 2021.",
+    "topic": "geopolitique",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon la présentation de l'ouvrage de Joseph Nye publiée par Harvard, le soft power repose sur la capacité d'attirer et de persuader, quand le hard power, issu de la force militaire ou économique, repose sur la capacité de contraindre.",
+      "Il naît de l'attrait de la culture d'un pays, de ses idéaux politiques et de ses politiques ; Nye souligne que le hard power reste crucial dans un monde d'États soucieux de leur indépendance.",
+      "La France a présenté le 14 décembre 2021 une feuille de route de l'influence, décrite par son ministère des Affaires étrangères comme sa première doctrine consolidée en matière de soft power, avec dix orientations et six priorités stratégiques."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Attirer plutôt que contraindre",
+        "text": "Le politologue américain Joseph Nye a forgé l'expression « soft power » à la fin des années 1980, rappelle le Centre Weatherhead pour les affaires internationales de l'université Harvard, qui présente son ouvrage de 2005, Soft Power: The Means to Success in World Politics. Le soft power réside dans la capacité d'attirer et de persuader. Il s'oppose au hard power, la capacité de contraindre, qui découle de la puissance militaire ou économique d'un pays. Selon Nye, le soft power naît de l'attrait de la culture d'un pays, de ses idéaux politiques et de ses politiques."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un concept devenu politique publique",
+        "text": "Les États ont repris l'idée à leur compte. Le ministère français de l'Europe et des Affaires étrangères a présenté le 14 décembre 2021 une feuille de route de l'influence, qu'il décrit comme la première doctrine consolidée de la France en matière de soft power, avec dix orientations et six priorités stratégiques pour son réseau."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que le soft power peut, et ne peut pas, faire",
+        "text": "Le soft power agit lentement : il façonne des préférences, rend des alliances plus faciles et des positions plus acceptables, mais il ne remplace ni une armée ni une économie. Nye lui-même note, dans la présentation de Harvard, que le terme est souvent employé à tort et que le hard power reste crucial pour des États qui veulent préserver leur indépendance. Il peut donc infléchir les rapports de force, surtout combiné à des moyens matériels mais rarement les renverser seul."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Weatherhead Center for International Affairs, Harvard, présentation de « Soft Power: The Means to Success in World Politics », J. Nye, 2005",
+        "url": "https://wcfia.harvard.edu/publications/soft-power-means-success-world-politics"
+      },
+      {
+        "label": "Ministère de l'Europe et des Affaires étrangères, « Roadmap for France's soft power » (feuille de route de l'influence), 14 décembre 2021",
+        "url": "https://www.diplomatie.gouv.fr/en/le-ministere/publications-programmes-et-documentation-institutionnelle/publications/documents-institutionnels/feuille-de-route-de-l-influence"
+      }
+    ],
+    "kind": "concept",
+    "flashcards": [
+      {
+        "question": "Qu'est-ce que le soft power selon Joseph Nye ?",
+        "answer": "La capacité d'un pays à attirer et à persuader, plutôt qu'à contraindre."
+      },
+      {
+        "question": "D'où vient le hard power ?",
+        "answer": "De la puissance militaire ou économique d'un pays, qui lui donne la capacité de contraindre."
+      },
+      {
+        "question": "Quelles sont les trois sources du soft power selon Nye ?",
+        "answer": "L'attrait de la culture d'un pays, de ses idéaux politiques et de ses politiques."
+      },
+      {
+        "question": "Quand la France a-t-elle présenté sa feuille de route de l'influence ?",
+        "answer": "Le 14 décembre 2021, comme première doctrine consolidée en matière de soft power."
+      },
+      {
+        "question": "Pourquoi le soft power ne suffit-il pas seul ?",
+        "answer": "Parce que, selon Nye, le hard power reste crucial pour des États qui veulent préserver leur indépendance."
+      }
+    ]
+  },
+  {
     "slug": "pourquoi-les-prix-augmentent-ils-demande-couts-salaires-et-anticipations",
     "title": "Pourquoi les prix augmentent-ils ? Demande, coûts, salaires et anticipations",
     "summary": "L'inflation n'est pas la hausse d'un prix isolé mais une hausse générale qui réduit ce qu'un euro permet d'acheter. Elle naît d'un déséquilibre entre l'offre et la demande, de chocs de coûts comme l'énergie, puis parfois d'une boucle entre prix, salaires et anticipations. Cet article s'appuie sur les notes explicatives de la BCE, sur un billet de la Banque de France consacré à l'inflation post-pandémie et sur les moyennes annuelles de l'indice des prix harmonisé publiées par Eurostat pour la France, de 2021 à 2025.",

@@ -2,6 +2,7 @@ import publications from "@/content/publications.json";
 import { topics } from "./topics";
 import type { TopicSlug } from "./types";
 import type { PublicationKind } from "./publication-kind";
+import type { CoverHint } from "./covers";
 
 export type EditorialSection = { kind: "fait" | "analyse" | "hypothese"; heading: string; text: string };
 export type EditorialSource = { label: string; url: string };
@@ -25,6 +26,8 @@ export type Publication = {
    * à partir du seul contenu de l'article. 1 à 6 ; question terminée par « ? », réponse courte.
    */
   flashcards?: Flashcard[];
+  /** Couverture sans photo (ticket 136) : traitement imposé, année du fait ou mot-clé court. */
+  cover?: CoverHint;
 };
 
 export type Flashcard = { question: string; answer: string };
@@ -60,8 +63,19 @@ export function validatePublication(value: unknown): string[] {
   if (p.corrections !== undefined && (!Array.isArray(p.corrections) || !p.corrections.every(c => c && date(c.date) && text(c.text, 10)))) errors.push("Corrections invalides");
   if (p.kind !== undefined && p.kind !== "actualite" && p.kind !== "concept" && p.kind !== "recit") errors.push("Genre invalide (actualite, concept ou recit)");
   if (p.eventDate !== undefined && (!date(p.eventDate) || (date(p.publishedAt) && (p.eventDate as string) > (p.publishedAt as string)))) errors.push("Date de l'événement invalide (ou postérieure à la publication)");
+  if (p.cover !== undefined && !validCover(p.cover)) errors.push("Couverture invalide (traitement chiffre, date, concept ou actualite ; année de 4 chiffres ou période ; mot-clé de 2 à 24 caractères)");
   if (p.flashcards !== undefined && !validFlashcards(p.flashcards)) errors.push("Cartes mémoire invalides (1 à 6 ; question de 10 à 160 caractères finissant par « ? », réponse de 3 à 280 caractères)");
   return errors;
+}
+
+function validCover(v: unknown): boolean {
+  if (!v || typeof v !== "object" || Array.isArray(v)) return false;
+  const c = v as Record<string, unknown>;
+  if (Object.keys(c).some((k) => !["treatment", "date", "word"].includes(k))) return false;
+  if (c.treatment !== undefined && !["chiffre", "date", "concept", "actualite"].includes(String(c.treatment))) return false;
+  if (c.date !== undefined && !(typeof c.date === "string" && /^\d{3,4}(?:[–-]\d{2,4})?$/.test(c.date))) return false;
+  if (c.word !== undefined && !(typeof c.word === "string" && c.word.trim().length >= 2 && c.word.trim().length <= 24)) return false;
+  return true;
 }
 
 function validFlashcards(v: unknown): boolean {

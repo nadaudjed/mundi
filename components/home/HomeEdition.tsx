@@ -9,7 +9,8 @@ import { getTopic } from "@/lib/topics";
 import { frenchSpacing } from "@/lib/typo";
 import type { FeedPublication } from "@/lib/verified";
 import { EditorialPhotoCredit } from "../EditorialPhotoLayer";
-import { TypeCover } from "../TypeCover";
+import { MundiCover } from "../MundiCover";
+import { coverOf } from "@/lib/covers";
 import { Icon } from "../Icon";
 import { LatestPublications } from "./LatestPublications";
 import { EditionHeading } from "./EditionHeading";
@@ -98,13 +99,15 @@ function Topic({ publication: p, rank, size, lead = false }: { publication: Feed
           // eslint-disable-next-line @next/next/no-img-element
           <img src={p.photo.src} alt="" decoding="async" loading={lead ? "eager" : "lazy"} fetchPriority={lead ? "high" : "low"} className="photo absolute inset-0 h-full w-full object-cover" data-testid="home-photo" />
         ) : (
-          <TypeCover word={topic?.name ?? ""} tone="paper" className="absolute inset-0" />
+          <MundiCover publication={p} tone="paper" size={lead ? "lg" : "compact"} className="absolute inset-0" />
         )}
       </Link>
-      {p.photo && (
+      {p.photo ? (
         <p className="mt-1.5 text-[0.7rem] leading-snug text-muted">
           <EditorialPhotoCredit photo={p.photo} />
         </p>
+      ) : (
+        <CoverSource publication={p} />
       )}
       <p className="mt-3 text-[0.75rem] font-semibold text-accent" data-testid="home-format">
         {formatOf(p)}
@@ -162,6 +165,18 @@ function EditionNotice({ edition }: { edition: ResolvedToday<FeedPublication> })
   return (
     <p className="mt-3 max-w-2xl border-l-2 border-accent pl-3 text-[0.85rem] leading-relaxed text-ink" data-testid="home-edition-notice" data-state={edition.state}>
       {text}
+    </p>
+  );
+}
+
+/** Couverture « chiffre clé » : la source de la valeur reste accessible sous l'image. */
+function CoverSource({ publication: p }: { publication: FeedPublication }) {
+  const figure = coverOf(p).figure;
+  if (!figure) return null;
+  return (
+    <p className="mt-1.5 text-[0.7rem] leading-snug text-muted" data-testid="cover-source">
+      Chiffre clé :{" "}
+      <a href={figure.source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{figure.source.label}</a>
     </p>
   );
 }

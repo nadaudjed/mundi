@@ -19,6 +19,7 @@ import { RelatedPublications } from "@/components/RelatedPublications";
 import { feedPublications } from "@/lib/verified";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { keyFigureOf } from "@/lib/covers";
+import { MundiCover } from "@/components/MundiCover";
 import type { ComparisonCard } from "@/lib/data-cards";
 import { DecryptageArticle } from "@/components/pilot/DecryptageArticle";
 import { DossierLink } from "@/components/dossier/DossierLink";
@@ -109,6 +110,11 @@ export default async function PublicationPage({ params }: { params: Promise<Para
             <EditorialPhotoCredit photo={a.photo} />
           </figcaption>
         </figure>
+      )}
+      {!a.photo && !figure && (
+        <div className="mt-6" data-testid="publication-cover">
+          <MundiCover publication={a} tone="page" className="relative aspect-[16/9] w-full md:aspect-[21/9]" />
+        </div>
       )}
       {a.corrections && a.corrections.length > 0 && (
         <aside className="mt-6 border-l-2 border-amber py-1 pl-4 text-sm text-ink" data-testid="corrections" aria-label="Corrections">

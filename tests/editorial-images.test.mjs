@@ -326,6 +326,12 @@ test("#125 suite : photos publiées à tort le 27/11 par la recherche de noms (C
   const walpole={title:"Mers du Sud, 1720 : la bulle qui a ruiné Londres et porté Walpole au pouvoir",summary:"En 1720, la Compagnie des mers du Sud s'effondre ; Robert Walpole prend la tête du gouvernement.",publishedAt:"2026-11-27"};
   assert.equal(citesName(walpole,{title:"Main Street looking south, Walpole MA.jpg"}),false);
   assert.equal(citesName(walpole,{title:"Sir Robert Walpole, 1740, by Jean-Baptiste van Loo.jpg"}),true);
+  // Plan de 1882 de Walpole (Massachusetts) : homonyme, 160 ans après le récit.
+  assert.equal(citesName(walpole,{title:"Walpole, Massachusetts - 1882 G3764.W18A3 1882O43.jpg"}),false);
+  // Récit daté après 1900 : une photo datée d'une autre époque est refusée, une photo de l'époque acceptée.
+  const suez={title:"Suez, 1956 : quand l'Égypte de Nasser a nationalisé le canal",summary:"Le 26 juillet 1956, Nasser nationalise la Compagnie du canal de Suez.",publishedAt:"2026-11-27"};
+  assert.equal(citesName(suez,{title:"President Nasser's visit to the Suez front during the War of Attrition.jpg",author:"Hassan Diab from Akher Sa'a magazine, November 20th 1968"}),false);
+  assert.equal(citesName(suez,{title:"Nasser at Suez, 1956.jpg"}),true);
   // Actualité : pas de photo datée de plus de dix ans.
   const baidoa={title:"Somalie : le risque de famine écarté à Baidoa, mais la malnutrition infantile persiste",summary:"À Baidoa, la malnutrition des enfants reste élevée.",publishedAt:"2026-11-27"};
   assert.equal(citesName(baidoa,{title:"Baidoa 1992 Somalia.jpg"}),false);

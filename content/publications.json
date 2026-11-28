@@ -1,5 +1,619 @@
 [
   {
+    "slug": "zone-euro-la-masse-monetaire-m3-croit-de-3-6-sur-un-an-en-octobre",
+    "title": "Zone euro : la masse monétaire M3 croît de 3,6 % sur un an en octobre",
+    "summary": "Selon la BCE, la croissance annuelle de l’agrégat monétaire large M3 de la zone euro est restée stable à 3,6 % en octobre 2026, le chiffre de septembre ayant été révisé de 3,5 % à 3,6 %. Le crédit aux entreprises accélère à 4,5 %, celui aux ménages reste à 3,1 %. En France, la Banque de France indique que la composante française de M3 progresse de 2,4 % sur un an ; ces données d’octobre sont provisoires.",
+    "topic": "finance",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La croissance annuelle de M3 s’établit à 3,6 % en octobre 2026, comme en septembre (révisé de 3,5 %), et en moyenne sur les trois mois jusqu’à octobre ; M1, qui regroupe billets, pièces et dépôts à vue, ralentit à 2,4 % contre 2,7 %.",
+      "Les prêts ajustés aux sociétés non financières progressent de 4,5 % sur un an, contre 4,3 % en septembre (révisé de 4,2 %) ; ceux aux ménages restent à 3,1 %.",
+      "Les instruments négociables (M3-M2) accélèrent à 9,8 % contre 7,3 % ; côté France, la composante française de M3 de la zone euro augmente pour atteindre 2,4 % sur un an, selon la Banque de France."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "M3 stable, M1 en ralentissement",
+        "text": "La Banque centrale européenne a publié ses statistiques monétaires d’octobre 2026. Le taux de croissance annuel de l’agrégat large M3 reste à 3,6 %, inchangé par rapport à septembre, dont le chiffre a été révisé de 3,5 % à 3,6 % ; la moyenne sur les trois mois jusqu’à octobre est aussi de 3,6 %. Dans le détail, l’agrégat étroit M1, qui comprend la monnaie en circulation et les dépôts à vue, ralentit à 2,4 % contre 2,7 %. Les dépôts à court terme autres que les dépôts à vue (M2-M1) progressent de 4,7 %, contre 4,6 %, et les instruments négociables (M3-M2) accélèrent à 9,8 %, contre 7,3 %. M1 contribue pour 1,6 point à la croissance de M3, contre 1,8 point en septembre."
+      },
+      {
+        "kind": "fait",
+        "heading": "Le crédit aux entreprises accélère",
+        "text": "Le taux de croissance annuel des prêts ajustés au secteur privé est de 4,3 % en octobre, contre 4,4 % en septembre. Les prêts aux sociétés non financières progressent de 4,5 %, contre 4,3 % (chiffre révisé de 4,2 %), tandis que ceux aux ménages restent à 3,1 %. Du côté des dépôts, la croissance de ceux des ménages ralentit à 2,2 % contre 2,4 %, et celle des dépôts des sociétés non financières à 4,8 % contre 5,4 %. En France, la Banque de France indique, pour octobre 2026 et en données provisoires, que la croissance sur un an de la composante française de M3 de la zone euro augmente pour atteindre 2,4 %."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que mesurent ces agrégats",
+        "text": "M3 additionne les moyens de paiement et les placements très liquides détenus par les ménages et les entreprises de la zone euro ; sa croissance renseigne sur la création monétaire, qui passe surtout par le crédit bancaire. Selon la BCE, les créances sur le secteur privé apportent 3,4 points à la croissance de M3 en octobre, et les avoirs extérieurs nets 2,3 points. Ces statistiques ne disent pas à elles seules où va l’inflation : elles font partie des éléments que la BCE examine, avec l’analyse économique, pour fixer ses taux. Les chiffres d’un mois peuvent en outre être révisés, comme l’a été septembre."
+      }
+    ],
+    "sources": [
+      {
+        "label": "BCE — Monetary developments in the euro area: October 2026",
+        "url": "https://www.ecb.europa.eu//press/stats/md/html/ecb.md2610~4bad1d63b5.en.html"
+      },
+      {
+        "label": "Banque de France — Monnaie et concours à l’économie, 2026-10",
+        "url": "https://www.banque-france.fr/fr/statistiques/monnaie/monnaie-et-concours-leconomie-2026-10"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Que regroupe l’agrégat monétaire M1 de la zone euro ?",
+        "answer": "La monnaie en circulation (billets et pièces) et les dépôts à vue."
+      },
+      {
+        "question": "Quelle était la croissance annuelle de M3 dans la zone euro en octobre 2026 ?",
+        "answer": "3,6 %, comme en septembre, selon la BCE."
+      }
+    ]
+  },
+  {
+    "slug": "airbus-concertation-ouverte-sur-sa-future-usine-de-mats-reacteurs-pres-de",
+    "title": "Airbus : concertation ouverte sur sa future usine de mâts réacteurs près de Toulouse",
+    "summary": "Une concertation préalable sur le projet d’usine de mâts réacteurs d’Airbus à Cornebarrieu (Haute-Garonne), décidée par la Commission nationale du débat public le 1er juillet 2026, se tient du 24 novembre 2026 au 16 février 2027, selon Air Journal. Le coût est estimé jusqu’à 900 millions d’euros au stade de la saisine ; les chiffres d’emplois et le calendrier sont ceux présentés par Airbus et peuvent évoluer.",
+    "topic": "industrie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La CNDP a décidé le 1er juillet 2026 d’organiser une concertation préalable sur le projet « Saint-Éloi du futur » d’Airbus Operations, garantie par Isabelle Barthe et Emilie Varraud ; elle court du 24 novembre 2026 au 16 février 2027.",
+      "Le projet occupe 48 hectares de terres agricoles appartenant à Airbus à Cornebarrieu, près de l’aéroport de Toulouse-Blagnac, avec jusqu’à 260 000 m² de bâtiments et un coût estimé jusqu’à 900 millions d’euros.",
+      "Airbus évoque jusqu’à 3 500 salariés à terme, dont environ 700 emplois directs nouveaux, des travaux possibles à partir de 2029 et le rapatriement des mâts de l’A220, aujourd’hui fabriqués à Wichita, aux États-Unis."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une concertation sous l’égide de la CNDP",
+        "text": "Saisie le 8 juin 2026 par le directeur de site d’Airbus Operations SAS, la Commission nationale du débat public (CNDP) a décidé le 1er juillet 2026 d’organiser une concertation préalable sur le « projet de construction d’une usine de fabrication de mâts réacteurs à Cornebarrieu ». Elle a désigné deux garantes, Isabelle Barthe et Emilie Varraud, et confié l’organisation au maître d’ouvrage. Selon Air Journal, la concertation se déroule du 24 novembre 2026 au 16 février 2027 : le public peut y donner son avis sur l’opportunité et les caractéristiques du projet avant les demandes d’autorisation."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une usine pour les pièces qui relient moteurs et ailes",
+        "text": "Les mâts réacteurs sont les structures qui fixent les moteurs sous les ailes. Airbus les fabrique aujourd’hui sur son site historique de Saint-Éloi, dans le quartier des Minimes à Toulouse, que l’entreprise décrit comme saturé. Le nouveau site s’étendrait sur 48 hectares de terres agricoles dont Airbus est propriétaire, à Cornebarrieu, en bordure de Colomiers et près de l’aéroport de Toulouse-Blagnac, avec jusqu’à 260 000 m² de bâtiments, selon Air Journal et Aerospatium. Le coût est estimé jusqu’à 900 millions d’euros au stade de la saisine. Airbus prévoit d’y rapatrier les mâts de l’A220, fabriqués à Wichita, aux États-Unis, en passant d’abord par un site provisoire ; Saint-Éloi continuerait à produire des mâts pendant au moins la prochaine décennie."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Un calendrier long et encore incertain",
+        "text": "Selon Air Journal, les travaux pourraient commencer en mars 2029, les premiers bâtiments entrer en service en juin 2031 et l’extension se poursuivre jusqu’en 2037 ; un précédent article du même site évoquait une extension en 2035. Airbus avance jusqu’à 3 500 salariés à terme, dont environ 700 emplois directs nouveaux. La seconde phase suppose une modification du plan local d’urbanisme de Toulouse Métropole. Ces chiffres sont des projections du porteur de projet, soumises à la concertation puis aux autorisations ; Airbus juge d’ailleurs que la durée des procédures, environ deux ans et demi, retarde le démarrage du site."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CNDP — Décision n° 2026/58/Airbus Saint-Éloi du futur/1 (1er juillet 2026)",
+        "url": "https://www.debatpublic.fr/sites/default/files/2026-07/DECISION_2026_58_AIRBUS%20SAINT-ELOI%20DU%20FUTUR_1.pdf"
+      },
+      {
+        "label": "Air Journal — Airbus veut investir jusqu’à 900 millions d’euros dans les mâts réacteurs (11 novembre 2026)",
+        "url": "https://www.air-journal.fr/2026-11-11-pres-de-toulouse-airbus-veut-investir-jusqu-900-millions-deuros-dans-les-mats-reacteurs-5278779.html"
+      },
+      {
+        "label": "Air Journal — Airbus réclame des procédures environnementales allégées (25 octobre 2026)",
+        "url": "https://www.air-journal.fr/2026-10-25-airbus-reclame-des-procedures-environnementales-allegees-pour-ses-sites-face-a-la-concurrence-de-boeing-et-comac-5278483.html"
+      },
+      {
+        "label": "Aerospatium — Airbus veut une nouvelle usine à 900 M€ (13 novembre 2026)",
+        "url": "https://www.aerospatium.info/airbus-veut-une-nouvelle-usine-a-900-me/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "À quoi sert un mât réacteur sur un avion ?",
+        "answer": "C’est la structure qui fixe le moteur sous l’aile de l’avion."
+      }
+    ]
+  },
+  {
+    "slug": "terres-rares-le-qatar-et-les-etats-unis-signent-un-protocole-sur-les-minerais",
+    "title": "Terres rares : le Qatar et les États-Unis signent un protocole sur les minerais critiques",
+    "summary": "Le 23 novembre 2026, à Washington, le Qatar et les États-Unis ont signé un protocole d’accord sur les minerais critiques et les terres rares, en marge de leur huitième dialogue stratégique. Le texte vise les chaînes d’approvisionnement de l’extraction à la transformation. Aucun montant, projet ni calendrier n’a été rendu public.",
+    "topic": "materiaux-critiques",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Le ministre d’État qatarien chargé du commerce extérieur, Ahmed bin Mohammed Al-Sayed, a signé le protocole avec Jacob Helberg, sous-secrétaire d’État américain à la croissance économique, l’énergie et l’environnement.",
+      "Le protocole porte sur les minerais critiques et les terres rares, de l’extraction à la transformation ; un partenariat distinct sur l’intelligence artificielle a été signé avec le secrétaire au Commerce Howard Lutnick.",
+      "Ni engagement financier, ni lieu de projet, ni calendrier n’ont été communiqués ; le fonds souverain qatarien QIA avait déjà promis 180 millions de dollars à TechMet en août 2024."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Deux accords signés à Washington",
+        "text": "Selon Mining.com.au, Ahmed bin Mohammed Al-Sayed, ministre d’État qatarien chargé du commerce extérieur, et Jacob Helberg, sous-secrétaire d’État américain chargé de la croissance économique, de l’énergie et de l’environnement, ont signé le 23 novembre 2026 un protocole d’accord sur les minerais critiques et les terres rares, en marge du huitième dialogue stratégique entre le Qatar et les États-Unis. Arab News, qui cite l’agence de presse qatarienne QNA et le ministère qatarien du Commerce et de l’Industrie, précise que le ministre a aussi signé un partenariat sur l’intelligence artificielle avec le secrétaire américain au Commerce, Howard Lutnick."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un texte sans montant ni projet",
+        "text": "Le protocole vise à renforcer les chaînes d’approvisionnement en minerais critiques, de l’extraction jusqu’à la transformation. Mais, selon les deux sources, aucun engagement financier, aucun lieu de projet et aucun calendrier n’ont été communiqués. Arab News rappelle que le Qatar a rejoint en janvier l’initiative Pax Silica et signé le 15 novembre la déclaration de San Francisco, et que l’Autorité qatarienne d’investissement (QIA) s’était engagée en août 2024 à apporter 180 millions de dollars à TechMet, une société d’investissement dans les métaux critiques."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une diplomatie des minerais qui s’étend",
+        "text": "Ce protocole s’ajoute aux initiatives déjà rejointes par le Qatar, comme Pax Silica, et aux investissements de son fonds souverain dans le secteur, tel l’engagement envers TechMet. Un protocole d’accord n’est pas un contrat : il fixe un cadre de coopération, sans obligation chiffrée. Sa portée réelle dépendra des projets et des financements qui seront, ou non, annoncés ensuite, ce que les communiqués relayés par Arab News et Mining.com.au ne précisent pas."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Arab News — Qatar, US sign AI pact and critical minerals deal (25 novembre 2026)",
+        "url": "https://arabnews.com/business/qatar-us-sign-ai-pact-and-critical-minerals-deal-to-bolster-supply-chains-3013961"
+      },
+      {
+        "label": "Mining.com.au — Qatar, US sign critical minerals and AI pacts (26 novembre 2026)",
+        "url": "https://mining.com.au/qatar-us-sign-critical-minerals-and-ai-pacts/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-23",
+    "flashcards": [
+      {
+        "question": "Qu’ont signé le Qatar et les États-Unis le 23 novembre 2026 sur les minerais critiques ?",
+        "answer": "Un protocole d’accord sur les minerais critiques et les terres rares, de l’extraction à la transformation, sans montant ni calendrier publiés."
+      }
+    ]
+  },
+  {
+    "slug": "electricite-pas-de-reversement-du-nucleaire-sur-les-factures-en-2027-selon-la",
+    "title": "Électricité : pas de reversement du nucléaire sur les factures en 2027, selon la CRE",
+    "summary": "Dans une délibération du 19 novembre 2026 mise en ligne le 26 novembre, la Commission de régulation de l’énergie propose un tarif unitaire nul pour la minoration du versement nucléaire universel en 2027. Les revenus attendus du nucléaire historique, estimés à 65,63 €/MWh au 1er novembre 2026, restent sous le seuil de taxation de 78 €/MWh. Il s’agit d’une proposition fondée sur des simulations de prix.",
+    "topic": "energie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La CRE propose, par sa délibération n° 2026-224 du 19 novembre 2026, un tarif unitaire nul de minoration du versement nucléaire universel (VNU) pour l’année 2027 : aucune baisse liée à ce dispositif n’apparaîtrait sur les factures.",
+      "Le VNU redistribue aux consommateurs une partie des revenus du parc nucléaire historique au-delà de seuils fixés pour 2026-2028 à 78 €/MWh (taxation) et 110 €/MWh (écrêtement), en euros de 2026, indexés sur l’inflation.",
+      "La CRE estime les revenus du nucléaire pour 2027 à 65,63 €/MWh en moyenne, et retient pour son calcul un premier quartile de 64,74 €/MWh, deux valeurs sous le seuil de 78 €/MWh."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Une minoration nulle proposée pour 2027",
+        "text": "La Commission de régulation de l’énergie (CRE) a mis en ligne le 26 novembre 2026 sa délibération n° 2026-224 du 19 novembre, qui porte proposition du tarif unitaire de la minoration du versement nucléaire universel pour 2027. Ce tarif s’applique aux kilowattheures fournis aux consommateurs finals : il est calculé pour que la baisse de recettes des fournisseurs corresponde aux sommes qui leur sont versées en compensation. La CRE « propose en conséquence un tarif unitaire de la minoration nul pour l’année 2027 ». En dessous de 1 €/MWh, la réglementation prévoit de toute façon un tarif de zéro."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des revenus du nucléaire sous le seuil",
+        "text": "Le versement nucléaire universel, créé par l’article 17 de la loi de finances pour 2025, a succédé à l’Arenh, qui a pris fin le 31 décembre 2025. Il associe une taxe sur l’utilisation de combustible nucléaire pour produire de l’électricité et un reversement des sommes collectées. Un arrêté du 11 février 2026 fixe pour 2026-2028 un seuil de taxation de 78 €2026/MWh et un seuil d’écrêtement de 110 €2026/MWh, indexés sur l’inflation pour 2027 et 2028. Or la CRE estime les revenus du nucléaire historique pour 2027 à 65,63 €/MWh, moyenne de scénarios simulés au 1er novembre 2026, et retient pour le calcul le premier quartile, 64,74 €/MWh. Les deux sont sous le seuil de taxation : la taxe ne devrait pas se déclencher, et il n’y a rien à reverser."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que cela change pour les consommateurs",
+        "text": "Concrètement, le dispositif ne réduirait pas les factures d’électricité en 2027. Cela ne signifie pas que l’électricité sera bon marché : le VNU ne joue qu’en cas de prix de marché élevés, lorsque les revenus d’EDF tirés de ses centrales historiques dépassent les seuils. D’après une analyse d’Alliance des énergies publiée le 1er octobre 2026, le prélèvement est de 50 % au-delà de 78 €/MWh et de 90 % au-delà de 110 €/MWh, et l’estimation de la CRE publiée en juillet 2026 était de 63,82 €/MWh : la dernière estimation, plus récente, reste dans le même ordre de grandeur. Le résultat dépend des prix futurs, qui restent incertains."
+      }
+    ],
+    "sources": [
+      {
+        "label": "CRE — Délibération n° 2026-224 du 19 novembre 2026 (page)",
+        "url": "https://www.cre.fr/documents/deliberations/tarif-unitaire-de-la-minoration-du-versement-nucleaire-universel-pour-la-periode-dapplication-2027.html"
+      },
+      {
+        "label": "CRE — Délibération n° 2026-224, texte intégral (PDF)",
+        "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/261119_2026-224_Proposition_TU_2027.pdf"
+      },
+      {
+        "label": "Alliance des énergies — Parc nucléaire et prix de l’électricité en 2027 (1er octobre 2026)",
+        "url": "https://alliancedesenergies.fr/guide/prix-electricite-nucleaire-france-2027/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Qu’est-ce que le versement nucléaire universel (VNU) ?",
+        "answer": "Un dispositif qui taxe les revenus du parc nucléaire historique au-delà de certains seuils et reverse les sommes aux consommateurs, en remplacement de l’Arenh."
+      },
+      {
+        "question": "Pourquoi la CRE propose-t-elle une minoration nulle pour 2027 ?",
+        "answer": "Parce que les revenus estimés du nucléaire en 2027, autour de 65 €/MWh, restent sous le seuil de taxation de 78 €/MWh."
+      }
+    ]
+  },
+  {
+    "slug": "el-nino-ajoute-de-nouveaux-foyers-de-faim-alertent-la-fao-et-le-pam",
+    "title": "El Niño ajoute de nouveaux foyers de faim, alertent la FAO et le PAM",
+    "summary": "Le 27 novembre 2026, l’Organisation des Nations unies pour l’alimentation et l’agriculture (FAO) et le Programme alimentaire mondial (PAM) ont publié leur rapport semestriel d’alerte précoce sur les « points chauds » de la faim, pour la période de décembre 2026 à mai 2027. Ils en comptent 16, contre 13 en juin. Trois des quatre nouvelles zones sont liées au phénomène climatique El Niño, qui gagne en intensité : l’Afrique australe, le corridor sec d’Amérique centrale et le nord-est de l’Ouganda. Les conflits restent la première cause du risque de famine. Ces projections sont des alertes, pas des certitudes.",
+    "topic": "environnement",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "La FAO et le PAM recensent 16 points chauds de la faim pour décembre 2026 à mai 2027, contre 13 dans leur rapport de juin 2026 ; le Liban sort de la liste.",
+      "El Niño, qui pourrait être l’un des plus intenses jamais observés selon le PAM, explique trois des quatre nouvelles zones : Afrique australe, corridor sec d’Amérique centrale et nord-est de l’Ouganda.",
+      "Jusqu’à 3 millions de personnes au Zimbabwe, 2,6 millions au Malawi et 1,8 million au Mozambique sont concernées d’ici mars 2027, et 3,2 millions au Guatemala entre octobre 2026 et février 2027."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Seize points chauds au lieu de treize",
+        "text": "Deux fois par an, la FAO et le PAM publient un rapport d’alerte précoce, Hunger Hotspots, qui signale les régions où l’insécurité alimentaire aiguë risque de s’aggraver dans les mois suivants. L’édition publiée le 27 novembre 2026 à Rome couvre la période de décembre 2026 à mai 2027 et compte 16 points chauds, contre 13 dans le rapport de juin. Les situations les plus préoccupantes concernent le Soudan, le Soudan du Sud, la Somalie, une partie du Nigeria et le Yémen. Au Soudan, 13 zones du Darfour-Nord et du Kordofan-Sud sont menacées de famine d’ici janvier 2027 dans le pire scénario réaliste. Le Liban est retiré de la liste."
+      },
+      {
+        "kind": "fait",
+        "heading": "El Niño, nouveau moteur de la faim",
+        "text": "Selon le communiqué du PAM, El Niño, le réchauffement périodique des eaux du Pacifique tropical qui bouleverse les régimes de pluie, gagne en force et pourrait être l’un des plus intenses jamais enregistrés. Trois des quatre nouveaux points chauds lui sont liés. En Afrique australe, qui entre dans la liste avec l’Eswatini, le Malawi, le Mozambique, la Zambie et le Zimbabwe, des conditions plus sèches et plus chaudes menacent les semis et les futures récoltes. Jusqu’à 3 millions de personnes au Zimbabwe, 2,6 millions au Malawi et 1,8 million au Mozambique sont concernées d’ici mars 2027. Dans le corridor sec d’Amérique centrale, la première saison de récolte de 2026 a été la plus sèche depuis quatre décennies, avec des pertes dépassant 75 % dans de nombreuses zones ; au Guatemala, 3,2 millions de personnes sont concernées entre octobre 2026 et février 2027. Le nord-est de l’Ouganda complète la liste ; le Tchad y entre aussi, mais en raison du conflit au Soudan voisin."
+      },
+      {
+        "kind": "fait",
+        "heading": "Moins d’argent pour répondre",
+        "text": "Pour les cinq points chauds les plus préoccupants, le financement humanitaire consacré à la sécurité alimentaire et à la nutrition a chuté de 62 % en trois ans, de 5,1 milliards de dollars en 2022 à 2 milliards en 2025, selon la FAO et le PAM. Le directeur général de la FAO, Qu Dongyu, juge que les pires scénarios ne sont pas inévitables."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Climat et conflits se cumulent",
+        "text": "Le rapport montre que deux types de causes s’additionnent. Dans les zones de guerre comme le Soudan, c’est le conflit qui empêche de cultiver et d’acheminer l’aide. Dans les régions agricoles d’Afrique australe et d’Amérique centrale, c’est la sécheresse annoncée qui menace des récoltes dont dépendent des millions de familles. Dans ce second cas, les deux agences misent sur l’action anticipée : agir avant le choc, par exemple en fournissant semences ou aides avant la récolte manquée, plutôt qu’après."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des prévisions, pas des certitudes",
+        "text": "Les chiffres sont des projections fondées sur des prévisions climatiques et des scénarios. Si El Niño se révèle moins intense que prévu, ou si l’aide arrive à temps, la situation pourrait être moins grave qu’annoncé ; à l’inverse, une sécheresse plus marquée pourrait l’aggraver."
+      }
+    ],
+    "sources": [
+      {
+        "label": "PAM — El Niño Adds New Hunger Hotspots as Conflict Continues to Drive Risk of Famine, Warn FAO and WFP (27 novembre 2026)",
+        "url": "https://www.wfp.org/news/el-nino-adds-new-hunger-hotspots-conflict-continues-drive-risk-famine-warn-fao-and-wfp"
+      },
+      {
+        "label": "ONU Info — El Niño fait apparaître de nouveaux foyers de faim dans le monde (27 novembre 2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159914"
+      },
+      {
+        "label": "Anadolu, repris par A News — El Nino, conflicts expected to worsen hunger in 16 hotspots, UN warns (27 novembre 2026)",
+        "url": "https://www.anews.com.tr/world/2026/11/27/el-nino-conflicts-expected-to-worsen-hunger-in-16-hotspots-un-warns"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "flashcards": [
+      {
+        "question": "Combien de points chauds de la faim la FAO et le PAM recensent-ils pour décembre 2026 à mai 2027 ?",
+        "answer": "Seize, contre treize dans leur rapport de juin 2026."
+      },
+      {
+        "question": "Quelles régions entrent dans la liste des points chauds de la faim à cause d’El Niño fin 2026 ?",
+        "answer": "L’Afrique australe, le corridor sec d’Amérique centrale et le nord-est de l’Ouganda."
+      }
+    ]
+  },
+  {
+    "slug": "huawei-reconnu-coupable-aux-etats-unis-de-fraude-et-de-vol-de-secrets",
+    "title": "Huawei reconnu coupable aux États-Unis de fraude et de vol de secrets industriels",
+    "summary": "Le 24 novembre 2026, un jury fédéral de Brooklyn, à New York, a déclaré le groupe chinois de télécommunications Huawei coupable de 10 des 12 chefs d’accusation qui le visaient, dont la fraude bancaire, la violation de sanctions américaines liées à l’Iran et le complot de vol de secrets industriels, selon le magazine TIME, International Business Times et World Today Journal. Il a en revanche été acquitté de l’accusation de racket organisé, la plus lourde, et de complot d’entrave à la justice. Huawei annonce faire appel. La peine doit être fixée en septembre 2027.",
+    "topic": "technologie",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Un jury fédéral de Brooklyn a déclaré Huawei coupable le 24 novembre 2026 de 10 des 12 chefs, dont fraude bancaire et électronique, violations de sanctions et complot de vol de secrets industriels.",
+      "Huawei a été acquitté du complot de racket organisé, dit RICO, et du complot d’entrave à la justice ; l’entreprise conteste les condamnations et annonce un appel.",
+      "Les secrets industriels concernaient notamment Cisco, T-Mobile, Fujitsu, Quintel et CNEX ; l’audience sur la peine est prévue en septembre 2027 devant la juge Ann Donnelly."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un verdict après deux mois de procès",
+        "text": "Le mardi 24 novembre 2026, un jury du tribunal fédéral de Brooklyn a rendu son verdict dans le procès pénal de Huawei, ouvert en septembre. Selon TIME, International Business Times et World Today Journal, le géant chinois des télécommunications a été reconnu coupable de 10 des 12 chefs d’accusation : fraude bancaire et fraude électronique, violations de sanctions américaines, complot de vol de secrets industriels et, selon TIME, blanchiment d’argent. Les accusations de fraude portaient sur la façon dont Huawei avait présenté à des banques ses activités en Iran."
+      },
+      {
+        "kind": "fait",
+        "heading": "Acquitté de l’accusation la plus lourde",
+        "text": "Le jury a en revanche acquitté Huawei du complot de racket organisé, poursuivi au titre de la loi américaine dite RICO, et du complot d’entrave à la justice. L’avocat de l’entreprise, Brian Heberlig, avait plaidé qu’il s’agissait de concurrence et non de complot. Huawei a contesté les condamnations restantes et annoncé faire appel. L’audience de détermination de la peine est prévue en septembre 2027 devant la juge Ann Donnelly ; s’agissant d’une entreprise, les sanctions possibles sont des amendes, des confiscations et des restitutions."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des entreprises américaines visées",
+        "text": "Les secrets industriels en cause appartenaient notamment à Cisco, dont du code source de routeurs, à T-Mobile, pour un bras robotisé de test de téléphones, ainsi qu’à Fujitsu, Quintel et CNEX, selon TIME. Le procureur fédéral Joseph Nocella Jr. a jugé que peu de crimes étaient aussi graves que les agissements de Huawei sur plusieurs décennies ; pour le FBI, le succès de l’entreprise reposait sur la tromperie et le vol."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Un dossier au cœur de la rivalité technologique",
+        "text": "Cette condamnation intervient après près de huit ans de procédure. Elle s’inscrit dans la confrontation entre Washington et Pékin sur les technologies de télécommunications, où Huawei, numéro un mondial des équipements de réseau, est déjà soumis à des restrictions d’exportation américaines. Le verdict ne change pas à lui seul ces restrictions, mais il renforce juridiquement les accusations portées depuis des années par les autorités américaines."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Une procédure encore longue",
+        "text": "La décision n’est pas définitive : Huawei a annoncé un appel, et la peine ne sera connue qu’en 2027. Une cour d’appel pourrait confirmer, réduire ou annuler tout ou partie des condamnations. Les comptes rendus disponibles reposent sur la presse ; le communiqué officiel du ministère américain de la Justice n’a pas pu être consulté."
+      }
+    ],
+    "sources": [
+      {
+        "label": "TIME, repris par Yahoo News — China’s Huawei Convicted in U.S. Over Bank Fraud, Iran Ties (25 novembre 2026)",
+        "url": "https://www.yahoo.com/news/us/articles/china-huawei-convicted-u-over-093000678.html"
+      },
+      {
+        "label": "International Business Times, repris par Yahoo News — Huawei Found Guilty In Major US Corporate Espionage And Iran Sanctions Case (24 novembre 2026)",
+        "url": "https://www.yahoo.com/news/us/articles/huawei-found-guilty-major-us-225328401.html"
+      },
+      {
+        "label": "World Today Journal — Huawei Found Guilty on 10 of 12 Counts (25 novembre 2026)",
+        "url": "https://world-today-journal.com/huawei-found-guilty-on-10-of-12-counts-including-bank-fraud-sanctions-violations-trade-secret-theft/"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-24",
+    "flashcards": [
+      {
+        "question": "De quelle accusation la plus lourde Huawei a-t-il été acquitté à Brooklyn en novembre 2026 ?",
+        "answer": "Du complot de racket organisé, poursuivi au titre de la loi américaine dite RICO."
+      }
+    ]
+  },
+  {
+    "slug": "climat-des-affaires-la-france-decroche-en-novembre-l-union-europeenne-se-tient",
+    "title": "Climat des affaires : la France décroche en novembre, l’Union européenne se tient",
+    "summary": "En novembre 2026, l’indicateur du climat économique de la Commission européenne, publié par Eurostat le 27 novembre, tombe à 93,7 pour la France, contre 96 en octobre, alors qu’il ne recule que de 96,5 à 96 pour l’ensemble de l’Union européenne. L’Insee, avec son propre indicateur publié le 20 novembre, constate aussi une baisse du climat des affaires en France métropolitaine, de 97,1 à 94,6. Les deux indicateurs sont normalisés autour d’une moyenne de long terme ; ce sont des données d’enquête, désaisonnalisées, qui mesurent l’opinion des chefs d’entreprise et non l’activité réalisée.",
+    "topic": "entreprises",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon les données de la Commission européenne diffusées par Eurostat le 27 novembre 2026, l’indicateur du climat économique de la France passe de 96 en octobre à 93,7 en novembre.",
+      "Pour l’Union européenne à 27, le même indicateur ne recule que légèrement, de 96,5 à 96, et l’Allemagne progresse de 94,1 à 94,5.",
+      "L’Insee, avec son indicateur du climat des affaires tous secteurs, mesure aussi une baisse en France métropolitaine : 94,6 en novembre, contre 97,1 en octobre."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Un recul plus marqué en France",
+        "text": "Les enquêtes de conjoncture menées pour la Commission européenne auprès des entreprises et des consommateurs donnent, pour la France, un indicateur du climat économique de 93,7 en novembre 2026, contre 96 en septembre et en octobre. Les données, désaisonnalisées, ont été mises en ligne par Eurostat le 27 novembre. Pour l’Union européenne à 27, l’indicateur passe de 96,5 en octobre à 96 en novembre ; pour l’Allemagne, il progresse légèrement, de 94,1 à 94,5."
+      },
+      {
+        "kind": "fait",
+        "heading": "Industrie, services et commerce en repli",
+        "text": "Le détail par secteur montre en France une dégradation de la confiance dans l’industrie, dont le solde passe de -1,5 en octobre à -3,8 en novembre, dans les services, de -2,8 à -4, et dans le commerce de détail, de -16,6 à -18. La construction reste stable, à -20,4 contre -20,7. À l’échelle de l’Union, la confiance dans les services reste positive, à 5,6, quand celle de la France est négative. Seule la confiance des consommateurs français s’améliore un peu, de -21,9 à -20,2, tout en restant inférieure à la moyenne européenne de -16,5."
+      },
+      {
+        "kind": "fait",
+        "heading": "L’Insee fait le même constat",
+        "text": "L’Institut national de la statistique et des études économiques (Insee) calcule son propre indicateur du climat des affaires, tous secteurs, pour la France métropolitaine. Mis à jour le 20 novembre 2026, il s’établit à 94,6 en novembre, après 97,1 en octobre et 96,3 en septembre."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Ce que mesurent ces indicateurs",
+        "text": "Ces indicateurs synthétisent les réponses de chefs d’entreprise sur leur activité passée, leurs carnets de commandes et leurs perspectives. Ils ne mesurent pas la production ou le chiffre d’affaires effectivement réalisés, mais l’opinion des dirigeants. Les soldes sectoriels sont la différence entre la part de réponses positives et la part de réponses négatives : un solde négatif signifie que les pessimistes l’emportent. Les deux indicateurs synthétiques, celui de la Commission et celui de l’Insee, ne sont pas construits de la même façon et ne se comparent pas point par point ; c’est leur évolution qui est parlante."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Un signal à confirmer",
+        "text": "Un mois de baisse ne suffit pas à conclure à un retournement de l’activité. Si le recul se confirmait dans les prochaines enquêtes, il pourrait annoncer un ralentissement de l’investissement et de l’embauche dans les entreprises françaises ; à l’inverse, un rebond en décembre en ferait un simple à-coup."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Eurostat — Indicateurs de confiance et du climat économique, données mensuelles (ei_bssi_m_r2), mise à jour du 27 novembre 2026",
+        "url": "https://ec.europa.eu/eurostat/databrowser/view/ei_bssi_m_r2/default/table"
+      },
+      {
+        "label": "Insee — Indicateur du climat des affaires, tous secteurs, France métropolitaine (série 001565530)",
+        "url": "https://www.insee.fr/fr/statistiques/serie/001565530"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "dataCards": [
+      {
+        "id": "climat-economique-france-ue-allemagne",
+        "kind": "comparaison",
+        "headline": "En novembre 2026, le climat économique de la France passe sous ceux de l’Union européenne et de l’Allemagne",
+        "source": {
+          "label": "Eurostat — ei_bssi_m_r2",
+          "url": "https://ec.europa.eu/eurostat/databrowser/view/ei_bssi_m_r2/default/table"
+        },
+        "asOf": "2026-11-27",
+        "note": "Indicateur du climat économique de la Commission européenne, données désaisonnalisées.",
+        "imageQuery": "european flags brussels",
+        "items": [
+          {
+            "value": 93.7,
+            "unit": "indice",
+            "label": "France",
+            "scope": "France",
+            "period": "novembre 2026",
+            "decimals": 1
+          },
+          {
+            "value": 94.5,
+            "unit": "indice",
+            "label": "Allemagne",
+            "scope": "Allemagne",
+            "period": "novembre 2026",
+            "decimals": 1
+          },
+          {
+            "value": 96,
+            "unit": "indice",
+            "label": "Union européenne",
+            "scope": "Union européenne à 27",
+            "period": "novembre 2026",
+            "decimals": 0
+          }
+        ],
+        "presentation": "echelle-commune"
+      },
+      {
+        "id": "climat-affaires-insee",
+        "kind": "stat",
+        "headline": "L’indicateur de l’Insee recule à 94,6 en novembre 2026, après 97,1 en octobre",
+        "source": {
+          "label": "Insee — série 001565530",
+          "url": "https://www.insee.fr/fr/statistiques/serie/001565530"
+        },
+        "asOf": "2026-11-20",
+        "imageQuery": "factory assembly line",
+        "measure": {
+          "value": 94.6,
+          "unit": "indice",
+          "label": "Climat des affaires, tous secteurs",
+          "scope": "France métropolitaine",
+          "period": "novembre 2026",
+          "decimals": 1
+        },
+        "context": "97,1 en octobre 2026"
+      }
+    ],
+    "flashcards": [
+      {
+        "question": "Que signifie un solde d’opinion négatif dans une enquête de conjoncture ?",
+        "answer": "Que la part de chefs d’entreprise ayant une opinion négative dépasse celle des réponses positives : les pessimistes l’emportent."
+      }
+    ]
+  },
+  {
+    "slug": "ebola-en-rdc-plus-de-12-000-cas-confirmes-pres-de-5-900-morts",
+    "title": "Ebola en RDC : plus de 12 000 cas confirmés, près de 5 900 morts",
+    "summary": "L’épidémie d’Ebola due au virus Bundibugyo, déclarée en mai en République démocratique du Congo, a dépassé les 12 000 cas confirmés. Selon le Centre européen de prévention et de contrôle des maladies (ECDC), qui reprend les chiffres disponibles au 25 novembre 2026, la RDC compte 12 021 cas confirmés, dont 5 904 décès, pour des données arrêtées au 24 novembre. ONU Info, le 26 novembre, cite les autorités sanitaires congolaises : huit provinces et 69 zones de santé touchées. L’Ituri concentre plus des deux tiers des cas. Il n’existe ni vaccin ni traitement approuvé contre ce virus.",
+    "topic": "afrique",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "Selon l’ECDC, au 25 novembre 2026, la RDC recensait 12 021 cas confirmés d’Ebola, dont 5 904 décès, pour des données allant jusqu’au 24 novembre.",
+      "Selon ONU Info, qui cite les autorités sanitaires congolaises, l’épidémie touche 69 zones de santé dans huit provinces ; l’Ituri compte 8 140 cas confirmés et 3 843 décès.",
+      "L’épidémie, la 17e du pays, est due au virus Bundibugyo, contre lequel il n’existe ni vaccin ni traitement approuvé ; les violences armées gênent la riposte."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Le cap des 12 000 cas confirmés",
+        "text": "Le Centre européen de prévention et de contrôle des maladies (ECDC) indique dans sa mise à jour du 26 novembre 2026 qu’au 25 novembre, la République démocratique du Congo comptait 12 021 cas confirmés d’Ebola, dont 5 904 décès, pour des données arrêtées au 24 novembre. Une semaine plus tôt, dans sa mise à jour du 19 novembre, l’agence européenne en recensait 11 504. ONU Info, le service d’information des Nations unies, rapporte le 26 novembre le même nombre de décès, 5 904, selon les autorités sanitaires congolaises. Le dernier décompte journalier, effectué le 24 novembre, fait état de 66 nouveaux cas et de 37 décès."
+      },
+      {
+        "kind": "fait",
+        "heading": "Huit provinces, l’Ituri au centre",
+        "text": "Selon ONU Info, l’épidémie touche 69 zones de santé réparties dans huit provinces : l’Ituri, le Nord-Kivu, le Sud-Kivu, le Haut-Uélé, le Bas-Uélé, la Tshopo, le Nord-Ubangi et le Sud-Ubangi. L’Ituri, dans le nord-est du pays, concentre à lui seul 8 140 cas confirmés et 3 843 décès, soit plus des deux tiers des cas confirmés cumulés. Les autorités de Kinshasa font aussi état de 1 092 personnes hospitalisées ou en isolement, de 3 332 personnes guéries et d’un taux de suivi des contacts de 85,1 %."
+      },
+      {
+        "kind": "fait",
+        "heading": "Un virus sans vaccin ni traitement approuvé",
+        "text": "Cette épidémie, la 17e d’Ebola en RDC, a été déclarée en mai 2026. Elle est due au virus Bundibugyo, l’une des espèces du virus Ebola, contre laquelle il n’existe aucun vaccin ni traitement approuvé, rappelle ONU Info. Depuis la fin juillet, c’est la plus importante de l’histoire du pays en nombre de cas."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Une riposte entravée par l’insécurité",
+        "text": "ONU Info souligne que les affrontements armés, la dégradation des routes, la méfiance et la désinformation compliquent la lutte contre la maladie. Cette semaine, des combats ont empêché l’accès à certaines communautés et réduit les effectifs de certains centres de traitement. Le 24 novembre, les Casques bleus de la Mission de l’ONU en RDC (MONUSCO) ont évacué dix agents de santé, dont un médecin et des infirmiers, de l’hôpital général de référence d’Akwe, en Ituri. Le chef de l’Organisation mondiale de la santé pour l’Afrique, Mohamed Janabi, a rappelé que les soins de santé ne doivent jamais être pris pour cible."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des chiffres à lire avec prudence",
+        "text": "Les totaux portent sur les cas confirmés en laboratoire et sont communiqués par les autorités congolaises, puis repris par les organisations internationales avec quelques jours de décalage. Dans les zones que les équipes ne peuvent pas atteindre à cause des combats, une partie des malades peut échapper au dépistage : le nombre réel d’infections pourrait donc être plus élevé que les chiffres officiels."
+      }
+    ],
+    "sources": [
+      {
+        "label": "ONU Info — Ebola en RDC : la barre des 12 000 cas franchie, plus de 5 900 décès (26 novembre 2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159911"
+      },
+      {
+        "label": "ECDC — Ebola disease caused by Bundibugyo virus, multi-country, 2026 : mises à jour",
+        "url": "https://www.ecdc.europa.eu/en/public-health-events/2026-eip-00026"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-26",
+    "flashcards": [
+      {
+        "question": "Quel virus est à l’origine de l’épidémie d’Ebola déclarée en RDC en mai 2026 ?",
+        "answer": "Le virus Bundibugyo, une espèce du virus Ebola contre laquelle il n’existe ni vaccin ni traitement approuvé."
+      },
+      {
+        "question": "Quelle province de RDC concentre la majorité des cas d’Ebola fin novembre 2026 ?",
+        "answer": "L’Ituri, dans le nord-est du pays, avec 8 140 cas confirmés et 3 843 décès, soit plus des deux tiers des cas confirmés."
+      }
+    ]
+  },
+  {
+    "slug": "rougeole-les-deces-au-plus-bas-en-2025-mais-la-vaccination-reste-incomplete",
+    "title": "Rougeole : les décès au plus bas en 2025, mais la vaccination reste incomplète",
+    "summary": "Selon un rapport de l’Organisation mondiale de la santé (OMS) publié le 27 novembre 2026, la rougeole a tué environ 72 000 personnes dans le monde en 2025, soit 91 % de moins qu’en 2000. Mais près de 10 millions de personnes ont été infectées, 59 pays ont connu des flambées importantes et plus de 29 millions d’enfants n’étaient pas ou pas assez vaccinés. La couverture mondiale reste de 84 % pour la première dose et de 77 % pour la seconde. Les chiffres sont des estimations de l’OMS pour l’année 2025, reprises par l’agence Reuters et ONU Info.",
+    "topic": "sciences-societe",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28",
+    "status": "published",
+    "reviewedBy": "Vérificateur IA MUNDI (sans relecture humaine)",
+    "aiVerified": true,
+    "keyPoints": [
+      "L’OMS estime à environ 72 000 le nombre de décès dus à la rougeole en 2025, une baisse de 91 % par rapport à l’an 2000 ; plus de 60 millions de vies auraient été sauvées par la vaccination depuis 2000.",
+      "Près de 10 millions de personnes ont été infectées en 2025 et 59 pays ont connu des flambées importantes ou perturbatrices, dont onze dans des pays qui avaient éliminé la maladie.",
+      "La couverture vaccinale mondiale atteint 84 % pour la première dose et 77 % pour la seconde, avec de forts écarts : 69 % et 57 % dans les pays à faible revenu, 93 % et 91 % dans les pays à revenu élevé."
+    ],
+    "sections": [
+      {
+        "kind": "fait",
+        "heading": "Des décès au plus bas depuis 2000",
+        "text": "Le 27 novembre 2026, l’OMS a publié son rapport annuel sur les progrès vers l’élimination de la rougeole dans le monde, de 2000 à 2025, paru dans son Relevé épidémiologique hebdomadaire. Selon ses estimations, environ 72 000 personnes sont mortes de la rougeole en 2025, soit 91 % de moins qu’en 2000. Depuis cette date, la vaccination aurait sauvé plus de 60 millions de vies. Selon l’agence Reuters, qui cite l’OMS, le nombre de décès était d’environ 769 000 en 2000. Le directeur général de l’OMS, Tedros Adhanom Ghebreyesus, a souligné que les décès dus à la rougeole n’avaient jamais été aussi peu nombreux, grâce aux vaccins."
+      },
+      {
+        "kind": "fait",
+        "heading": "Des infections encore nombreuses",
+        "text": "La maladie continue pourtant de circuler. L’OMS fait état de près de 10 millions de personnes infectées en 2025 ; Reuters donne le chiffre de 9,8 millions de cas, contre 37,8 millions en 2000. Près de la moitié des cas mondiaux ont été enregistrés dans la région Asie du Sud-Est de l’OMS. Dans les Amériques, environ 73 000 personnes ont été infectées en 2025, un nombre multiplié par huit depuis 2000. Au total, 59 pays ont connu des flambées importantes ou perturbatrices : 18 pays à faible revenu, 34 à revenu intermédiaire et 7 à revenu élevé. Onze flambées ont touché des pays qui avaient été déclarés exempts de la maladie."
+      },
+      {
+        "kind": "fait",
+        "heading": "Une vaccination qui plafonne",
+        "text": "En 2025, 84 % des enfants dans le monde ont reçu la première dose du vaccin contre la rougeole et 77 % la seconde. Les écarts sont forts : 69 % et 57 % dans les pays à faible revenu, contre 93 % et 91 % dans les pays à revenu élevé. Plus de 29 millions d’enfants n’étaient pas ou pas assez vaccinés ; selon Reuters, 20,8 millions ont manqué la première dose et 8,3 millions la seconde. Fin 2025, 95 pays étaient reconnus comme ayant éliminé la rougeole ou ayant maintenu cette élimination."
+      },
+      {
+        "kind": "analyse",
+        "heading": "Pourquoi les flambées reviennent",
+        "text": "La rougeole est l’une des maladies les plus contagieuses : tant qu’une partie des enfants n’est pas vaccinée, le virus trouve des personnes à infecter. Kate O’Brien, directrice de la vaccination à l’OMS, citée par Reuters, estime que les reculs récents ne sont pas un échec du vaccin, mais un échec à atteindre chaque enfant. Pour Tedros Adhanom Ghebreyesus, l’élimination n’est pas une ligne d’arrivée : elle doit être défendue avec deux doses de vaccin pour chaque enfant, partout. Certains pays qui avaient éliminé la maladie perdent aujourd’hui ce statut, selon l’OMS."
+      },
+      {
+        "kind": "hypothese",
+        "heading": "Des estimations, pas un décompte",
+        "text": "Les chiffres de décès et d’infections sont des estimations modélisées par l’OMS, car de nombreux cas ne sont jamais déclarés. Ils peuvent être révisés dans les éditions suivantes du rapport, et leur comparaison avec 2000 dépend de la qualité des données disponibles à l’époque."
+      }
+    ],
+    "sources": [
+      {
+        "label": "OMS — Historic low in measles deaths, but immunization gaps threaten progress (27 novembre 2026)",
+        "url": "https://www.who.int/news/item/27-11-2026-historic-low-in-measles-deaths--but-immunization-gaps-threaten-progress"
+      },
+      {
+        "label": "Reuters, repris par WMBD — Global measles deaths fall to historic low in 2025, WHO says (27 novembre 2026)",
+        "url": "https://wmbdradio.com/2026/11/27/global-measles-deaths-fall-to-historic-low-in-2025-who-says/"
+      },
+      {
+        "label": "ONU Info — La rougeole recule dans le monde, mais reprend du terrain dans plusieurs pays (27 novembre 2026)",
+        "url": "https://news.un.org/fr/story/2026/11/1159917"
+      }
+    ],
+    "kind": "actualite",
+    "eventDate": "2026-11-27",
+    "flashcards": [
+      {
+        "question": "Combien de personnes la rougeole a-t-elle tuées dans le monde en 2025, selon l’OMS ?",
+        "answer": "Environ 72 000, soit 91 % de moins qu’en 2000."
+      },
+      {
+        "question": "Quelle part des enfants du monde a reçu la seconde dose du vaccin contre la rougeole en 2025 ?",
+        "answer": "77 %, contre 84 % pour la première dose, selon l’OMS."
+      }
+    ]
+  },
+  {
     "slug": "bruxelles-autorise-sans-condition-le-rachat-d-allfunds-par-deutsche-borse",
     "title": "Bruxelles autorise sans condition le rachat d'Allfunds par Deutsche Börse",
     "summary": "La Commission européenne a autorisé sans condition, au titre du règlement européen sur les concentrations, le rachat d'Allfunds, plateforme de distribution de fonds d'investissement, par le groupe boursier allemand Deutsche Börse. La décision a été annoncée le 27 novembre 2026. L'opération, évaluée à 5,35 milliards d'euros selon l'agence Reuters, avait été notifiée le 22 octobre. Bruxelles estime que plusieurs concurrents crédibles restent présents sur chaque marché. La finalisation, qui dépend encore d'autres autorisations réglementaires, est attendue au premier semestre 2027.",

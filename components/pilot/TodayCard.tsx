@@ -14,7 +14,7 @@ import type { FeedPublication } from "@/lib/verified";
 import { EditorialPhotoLayer } from "../EditorialPhotoLayer";
 import { ListenButton } from "../ListenButton";
 import { SaveButton } from "../StoryActions";
-import { TypeCover } from "../TypeCover";
+import { MundiCover } from "../MundiCover";
 import { DecryptageVisual } from "./DecryptageVisual";
 
 type Props = {
@@ -72,7 +72,7 @@ export const TodayCard = memo(function TodayCard({ publication: p, index, rank, 
       data-fallback={fallback ? "true" : undefined}
       aria-roledescription="sujet du jour"
       aria-label={`Aujourd'hui, sujet ${rank + 1} sur ${size} : ${title}`}
-      className="magazine relative flex h-full snap-start snap-always flex-col overflow-hidden bg-ivory pt-12 text-graphite"
+      className="magazine relative flex h-full snap-start snap-always flex-col overflow-hidden bg-ivory pt-12 text-graphite md:pt-0"
     >
       {/* En-tête de l'édition : on sait où l'on est et comment passer au fil complet. */}
       <div className="feed-column flex shrink-0 items-center justify-between gap-3 px-5 pt-2 pb-2">
@@ -87,11 +87,11 @@ export const TodayCard = memo(function TodayCard({ publication: p, index, rank, 
 
       <div className="relative mx-5 h-[24svh] min-h-[5rem] shrink-0 overflow-hidden bg-ivory-2 [@media(min-height:760px)]:h-[33svh] [@media(max-height:640px)]:h-[13svh] sm:mx-auto sm:h-[32svh] sm:w-full sm:max-w-[36rem] wide:absolute! wide:inset-y-0 wide:right-0 wide:left-[50%] wide:mx-0! wide:h-auto! wide:max-w-none! wide:w-auto! wide:border-l wide:border-graphite/10" data-testid="card-visual" data-visual-kind={visualType ?? (p.photo ? "photo" : "typographie")}>
         {d?.visual ? (
-          <DecryptageVisual decryptage={d} photo={p.photo} word={topic.name} variant="card" />
+          <DecryptageVisual decryptage={d} photo={p.photo} word={topic.name} variant="card" publication={p} />
         ) : p.photo ? (
-          <EditorialPhotoLayer photo={p.photo} near={near} />
+          <EditorialPhotoLayer photo={p.photo} near={near} fallback={<MundiCover publication={p} tone="paper" className="absolute inset-0" />} />
         ) : (
-          <TypeCover word={topic.name} tone="paper" className="absolute inset-0" />
+          <MundiCover publication={p} tone="paper" className="absolute inset-0" />
         )}
       </div>
 

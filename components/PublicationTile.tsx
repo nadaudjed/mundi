@@ -7,6 +7,7 @@ import { verificationLabel } from "@/lib/verification";
 import type { FeedPublication } from "@/lib/verified";
 import { EditorialPhotoCredit } from "./EditorialPhotoLayer";
 import { KeyFigure } from "./KeyFigure";
+import { MundiCover } from "./MundiCover";
 import { NewsDate } from "./NewsDate";
 
 /**
@@ -33,7 +34,11 @@ export function PublicationTile({ publication: p, featured = false, headingLevel
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={p.photo.src} alt="" loading="eager" decoding="async" className="photo aspect-[3/2] w-full object-cover" />
         </Link>
-      ) : null)}
+      ) : (
+        <Link href={href} tabIndex={-1} aria-hidden="true" className="mb-5 block">
+          <MundiCover publication={p} tone="page" className="relative aspect-[3/2] w-full" />
+        </Link>
+      ))}
       <p className="text-meta font-semibold text-accent">
         {topic.name}
       </p>

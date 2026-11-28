@@ -2,7 +2,6 @@
 
 import { memo } from "react";
 import Link from "next/link";
-import { formatValue } from "@/lib/data-cards";
 import { keyFigureOf } from "@/lib/covers";
 import { formatDate } from "@/lib/format";
 import { publicationKey, publicationPath } from "@/lib/publication-links";
@@ -14,7 +13,7 @@ import { FitLines } from "./FitLines";
 import { NewsDate } from "./NewsDate";
 import { ListenButton } from "./ListenButton";
 import { SaveButton, ShareButton } from "./StoryActions";
-import { TypeCover } from "./TypeCover";
+import { MundiCover } from "./MundiCover";
 import { SceneLayer } from "./scene/SceneLayer";
 import { EditorialPhotoLayer, EditorialPhotoCredit } from "./EditorialPhotoLayer";
 
@@ -55,23 +54,16 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
       data-testid="verified-card"
       aria-roledescription="publication sourcée"
       aria-label={`Publication ${position + 1} sur ${total} : ${p.title}`}
-      className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night pt-12 text-ivory"
+      className="relative flex h-full snap-start snap-always flex-col overflow-hidden bg-night pt-12 text-ivory md:pt-0"
     >
       {/* Visuel : en haut sur téléphone, moitié droite sur écran large. */}
       <div className="relative h-[26svh] min-h-[5rem] shrink-0 [@media(max-height:640px)]:h-[19svh] overflow-hidden border-b border-ivory/10 sm:h-auto! sm:min-h-[30svh] sm:flex-1 wide:absolute! wide:inset-y-0 wide:right-0 wide:left-[50%] wide:min-h-0 wide:border-b-0 wide:border-l" data-testid="card-visual">
         {photo ? (
-          <EditorialPhotoLayer photo={photo} near={near} />
-        ) : figure ? (
-          <div aria-hidden="true" className="absolute inset-0 flex items-end bg-night-2 p-5 md:p-8">
-            <span className="font-display text-[clamp(3.5rem,12vw,8rem)] leading-[0.9] font-semibold tracking-[-0.03em] text-brick-light">
-              {formatValue(figure.measure)}
-              <span className="ml-2 align-baseline text-[0.28em] tracking-normal text-ivory/85">{figure.measure.unit}</span>
-            </span>
-          </div>
-        ) : backdrop ? (
+          <EditorialPhotoLayer photo={photo} near={near} fallback={<MundiCover publication={p} className="absolute inset-0" />} />
+        ) : backdrop && !figure ? (
           <SceneLayer backdrop={backdrop} focus={p.scene?.focus} />
         ) : (
-          <TypeCover word={topic.name} className="absolute inset-0 bg-night-2" />
+          <MundiCover publication={p} className="absolute inset-0" />
         )}
       </div>
 
@@ -101,7 +93,7 @@ export const VerifiedCard = memo(function VerifiedCard({ publication: p, index, 
           {/* Une seule ligne grise : visuel, contrôle, dates, sources. */}
           <p className="mt-3 shrink-0 text-meta text-ivory/70" data-testid="verified-meta">
             <span data-testid="verified-credit">
-              {photo ? <EditorialPhotoCredit photo={photo} /> : backdrop ? `Fond : ${backdrop.credit} · ${backdrop.license}` : figure ? `Chiffre clé : ${figure.source.label}` : "Visuel typographique MUNDI"}
+              {photo ? <EditorialPhotoCredit photo={photo} /> : backdrop && !figure ? `Fond : ${backdrop.credit} · ${backdrop.license}` : figure ? `Chiffre clé : ${figure.source.label}` : "Couverture MUNDI, motif décoratif"}
             </span>{" "}
             · <span data-testid="verification-label">{verificationLabel(p)}</span> · publié le{" "}
             <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>

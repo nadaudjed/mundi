@@ -20,7 +20,7 @@ export function SiteHeader() {
   const pathname = usePathname();
   return (
     <header data-site-header className="sticky top-0 z-40 border-b border-rule bg-page pt-[env(safe-area-inset-top)] text-ink">
-      <div className="mx-auto flex h-[var(--header-bar-h)] max-w-6xl items-stretch gap-6 px-5 lg:px-8">
+      <div className="mx-auto flex h-[var(--header-bar-h)] max-w-6xl items-stretch gap-6 px-5 max-lg:md:gap-3 lg:px-8">
         <span className="flex items-center">
           <Logo />
         </span>
@@ -45,6 +45,8 @@ export function SiteHeader() {
           </ul>
         </nav>
         <div className="ml-auto flex items-center gap-1">
+          {/* Fil (tablette et ordinateur) : « Début du fil » et le choix du sujet viennent ici (components/Feed.tsx). */}
+          <div id="feed-header-slot" className="hidden items-center empty:hidden md:flex lg:mr-2" />
           <span className="hidden lg:inline-flex">
             <InstallChip tone="dark" />
           </span>
@@ -61,7 +63,7 @@ export function SiteHeader() {
             className={`flex h-11 min-w-11 items-center justify-center gap-2 rounded-sm px-1 text-sm font-medium hover:text-accent ${isActive(pathname, "/mes-sujets/") ? "text-accent" : "text-ink"}`}
           >
             <Icon name="sliders" className="size-5" />
-            <span className="hidden lg:inline" aria-hidden="true">Mes sujets</span>
+            <span className="hidden whitespace-nowrap xl:inline" aria-hidden="true">Mes sujets</span>
           </Link>
         </div>
       </div>

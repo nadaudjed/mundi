@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore, type RefObject } from "react";
+import { createPortal } from "react-dom";
 import { mixFeed, newFeedSeed } from "@/lib/feed-mix";
 import { personalized, useInterests } from "@/lib/preferences";
 import { getTopic, topics } from "@/lib/topics";
@@ -43,6 +44,23 @@ const FEED_POSITION_KEY = "mundi:feed-position";
 /** Tirage du mélange pour cet onglet : le même ordre tant que l'onglet reste ouvert. */
 const FEED_SEED_KEY = "mundi:feed-seed";
 
+/** Emplacement prévu dans SiteHeader pour les commandes du fil. */
+export const FEED_HEADER_SLOT = "feed-header-slot";
+
+const DESKTOP_QUERY = "(min-width: 768px)";
+/** Tablette et ordinateur (même seuil que md: dans Tailwind). */
+function useDesktop() {
+  return useSyncExternalStore(
+    (cb) => {
+      const mq = window.matchMedia(DESKTOP_QUERY);
+      mq.addEventListener("change", cb);
+      return () => mq.removeEventListener("change", cb);
+    },
+    () => window.matchMedia(DESKTOP_QUERY).matches,
+    () => false,
+  );
+}
+
 /** Lit (ou crée) le tirage de cet onglet ; 0 si le mélange est désactivé. */
 function readSeed(mix: boolean): number {
   if (!mix) return 0;
@@ -61,6 +79,13 @@ export function Feed({ verified = [], mix = true, today }: Props) {
   const [filter, setFilter] = useState<TopicSlug | "all">("all");
   const [active, setActive] = useState(0);
   const [topicsOpen, setTopicsOpen] = useState(false);
+  const desktop = useDesktop();
+  /** Emplacement des commandes du fil dans la barre du site (tablette et ordinateur). */
+  const [headerSlot, setHeaderSlot] = useState<HTMLElement | null>(null);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setHeaderSlot(document.getElementById(FEED_HEADER_SLOT)));
+    return () => cancelAnimationFrame(frame);
+  }, []);
   /** Écrans déjà révélés : leur texte reste affiché quand on revient en arrière. */
   const [seen, setSeen] = useState<ReadonlySet<number>>(() => new Set([0]));
   // Les révélations typographiques ne masquent le texte qu'une fois le fil interactif.
@@ -215,6 +240,32 @@ export function Feed({ verified = [], mix = true, today }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   }, [currentIndex, goTo]);
 
+  /** Annonce discrète pour les lecteurs d'écran (retour au début du fil). */
+  const [announce, setAnnounce] = useState("");
+  /**
+   * « Début du fil » : saut direct à la première carte du flux en cours (même filtre,
+   * même ordre), sans défiler à travers toutes les cartes. Le focus passe sur la
+   * première carte pour que le clavier et les lecteurs d'écran repartent de là.
+   */
+  const backToStart = useCallback(() => {
+    const el = scroller.current;
+    if (!el) return;
+    el.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    setActive(0);
+    setSeen((prev) => new Set(prev).add(0));
+    const first = el.children[0] as HTMLElement | undefined;
+    if (first) {
+      first.setAttribute("tabindex", "-1");
+      first.focus({ preventScroll: true });
+      first.setAttribute("data-landed", "");
+      window.setTimeout(() => first.removeAttribute("data-landed"), 600);
+    }
+    setAnnounce("");
+    requestAnimationFrame(() => setAnnounce("Retour au début du fil"));
+  }, []);
+  /** Le bouton apparaît une fois deux écrans dépassés. */
+  const showBackToStart = active >= 2;
+
   function changeFilter(next: TopicSlug | "all") {
     setFilter(next);
     setTopicsOpen(false);
@@ -225,51 +276,70 @@ export function Feed({ verified = [], mix = true, today }: Props) {
 
   const filterLabel = filter === "all" ? "Pour vous" : (getTopic(filter)?.name ?? "Pour vous");
 
+  /** Couleurs des commandes : sur le fond nuit du fil (téléphone) ou dans la barre du site. */
+  const ctl = (tone: "night" | "page") =>
+    `flex shrink-0 items-center gap-1 rounded-sm border px-2.5 py-1 text-[0.8rem] font-semibold transition ${
+      tone === "night" ? "border-ivory/30 text-ivory hover:border-ivory" : "border-rule-strong text-ink hover:border-ink"
+    }`;
+  const backButton = (tone: "night" | "page") => (
+    <button type="button" onClick={backToStart} data-testid="feed-back-to-start" className={`feed-pop ${ctl(tone)} ${tone === "page" ? "max-lg:h-8 max-lg:px-2" : ""}`}>
+      <Icon name="chevron-up" className="size-3.5" />
+      {/* Tablette : la barre du site est étroite, l'intitulé reste lu par les lecteurs d'écran. */}
+      <span className={tone === "page" ? "max-lg:sr-only" : ""}>Début du fil</span>
+    </button>
+  );
+  const topicsButton = (tone: "night" | "page") => (
+    <button type="button" onClick={() => setTopicsOpen((o) => !o)} aria-expanded={topicsOpen} aria-controls="feed-topics" className={`${ctl(tone)} gap-1.5`}>
+      <span className="sr-only">Choisir un sujet : </span>
+      <span className={`max-w-[7rem] truncate ${tone === "night" ? "max-[419px]:sr-only" : ""}`}>{filterLabel}</span>
+      {tone === "night" && <span className="min-[420px]:hidden" aria-hidden="true">Sujets</span>}
+      <Icon name="chevron-down" className={`size-3.5 transition-transform ${topicsOpen ? "rotate-180" : ""}`} />
+    </button>
+  );
+  const topicsPanel = (
+    <div id="feed-topics" role="group" aria-label="Filtrer le fil par sujet" className="motion-rise w-full max-w-sm rounded-md border border-ivory/20 bg-night p-4 text-ivory shadow-lg">
+      <p className="text-meta font-semibold text-ivory/70">Sujets du fil</p>
+      <ul className="mt-2">
+        <FilterChip label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />
+        {feedTopics.map((t) => (
+          <FilterChip key={t.slug} label={t.name} active={filter === t.slug} onClick={() => changeFilter(t.slug)} />
+        ))}
+      </ul>
+      <Link href="/mes-sujets/" className="mt-3 inline-flex text-[0.8rem] font-semibold text-brick-light underline-offset-2 hover:underline">
+        Personnaliser mon fil
+      </Link>
+      {interests.length > 0 && <p className="mt-1 text-xs text-ivory/70">{interests.length} centre{interests.length > 1 ? "s" : ""} d’intérêt · des découvertes restent proposées</p>}
+    </div>
+  );
+
   return (
     <div ref={root} data-feed className="feed-h relative bg-night">
-      {/* Barre du fil : marque (téléphone), choix du sujet. Fond uni, sans flou. */}
-      <div data-testid="feed-topbar" className="absolute inset-x-0 top-0 z-30 border-b border-ivory/10 bg-night">
-        <div className="flex h-12 items-center justify-between gap-2 px-4 md:px-8">
-          <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.2em] text-ivory md:invisible" aria-label="MUNDI, retour à l’accueil">
+      {/* Barre du fil (téléphone) : marque, choix du sujet. Fond uni, sans flou.
+          Tablette et ordinateur : les mêmes commandes rejoignent la barre du site (une seule barre). */}
+      <div data-testid="feed-topbar" className="absolute inset-x-0 top-0 z-30 border-b border-ivory/10 bg-night md:hidden">
+        <div className="flex h-12 items-center justify-between gap-2 px-4">
+          <Link href="/" className="flex shrink-0 items-center gap-2 text-sm font-semibold tracking-[0.2em] text-ivory" aria-label="MUNDI, retour à l’accueil">
             <LogoMark className="size-5" />
             <span className="max-[359px]:sr-only">MUNDI</span>
           </Link>
-          <div className="flex min-w-0 items-center gap-3">
-            <span className="md:hidden">
-              <InstallChip compact />
-            </span>
-            <button
-              type="button"
-              onClick={() => setTopicsOpen((o) => !o)}
-              aria-expanded={topicsOpen}
-              aria-controls="feed-topics"
-              className="flex shrink-0 items-center gap-1.5 rounded-sm border border-ivory/30 px-2.5 py-1 text-[0.8rem] font-semibold text-ivory transition hover:border-ivory"
-            >
-              <span className="sr-only">Choisir un sujet : </span>
-              <span className="max-w-[7rem] truncate max-[419px]:sr-only">{filterLabel}</span>
-              <span className="min-[420px]:hidden" aria-hidden="true">Sujets</span>
-              <Icon name="chevron-down" className={`size-3.5 transition-transform ${topicsOpen ? "rotate-180" : ""}`} />
-            </button>
-          </div>
-        </div>
-        {topicsOpen && (
-          <div className="flex justify-end px-4 pb-3 md:px-8">
-            <div id="feed-topics" role="group" aria-label="Filtrer le fil par sujet" className="w-full max-w-sm rounded-md border border-ivory/20 bg-night p-4">
-              <p className="text-meta font-semibold text-ivory/70">Sujets du fil</p>
-              <ul className="mt-2">
-                <FilterChip label="Pour vous" active={filter === "all"} onClick={() => changeFilter("all")} />
-                {feedTopics.map((t) => (
-                  <FilterChip key={t.slug} label={t.name} active={filter === t.slug} onClick={() => changeFilter(t.slug)} />
-                ))}
-              </ul>
-              <Link href="/mes-sujets/" className="mt-3 inline-flex text-[0.8rem] font-semibold text-brick-light underline-offset-2 hover:underline">
-                Personnaliser mon fil
-              </Link>
-              {interests.length > 0 && <p className="mt-1 text-xs text-ivory/70">{interests.length} centre{interests.length > 1 ? "s" : ""} d’intérêt · des découvertes restent proposées</p>}
+          {!desktop && (
+            <div className="flex min-w-0 items-center gap-3">
+              {showBackToStart ? backButton("night") : <InstallChip compact />}
+              {topicsButton("night")}
             </div>
-          </div>
-        )}
+          )}
+        </div>
+        {!desktop && topicsOpen && <div className="flex justify-end px-4 pb-3">{topicsPanel}</div>}
       </div>
+      {desktop && headerSlot &&
+        createPortal(
+          <div className="relative flex items-center gap-2" data-testid="feed-header-controls">
+            {showBackToStart && backButton("page")}
+            {topicsButton("page")}
+            {topicsOpen && <div className="absolute top-full right-0 z-50 mt-2 w-80">{topicsPanel}</div>}
+          </div>,
+          headerSlot,
+        )}
 
       <div
         ref={scroller}
@@ -309,6 +379,8 @@ export function Feed({ verified = [], mix = true, today }: Props) {
         )}
         <TransitionCard index={entries.length} count={verified.length} onRestart={() => goTo(0)} />
       </div>
+
+      <p className="sr-only" aria-live="polite" data-testid="feed-announce">{announce}</p>
 
       <RefreshIndicator pull={pull} status={refresh} onShow={showFresh} />
 
@@ -530,7 +602,7 @@ function RefreshIndicator({ pull, status, onShow }: { pull: number; status: Refr
     : status.state === "offline" ? "Pas de connexion : réessayez plus tard"
     : null;
   return (
-    <div className="pointer-events-none absolute inset-x-0 top-12 z-20 flex justify-center px-4" aria-live="polite" data-testid="feed-refresh">
+    <div className="pointer-events-none absolute inset-x-0 top-12 z-20 flex justify-center px-4 md:top-0" aria-live="polite" data-testid="feed-refresh">
       {status.state === "fresh" && !pulling ? (
         <button type="button" onClick={onShow} className="pointer-events-auto mt-3 rounded-full bg-ivory px-4 py-2 text-sm font-semibold text-night shadow-lg" data-testid="feed-refresh-fresh">
           {status.count > 1 ? `${status.count} nouveaux articles` : "1 nouvel article"} · Afficher

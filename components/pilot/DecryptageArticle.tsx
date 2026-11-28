@@ -128,7 +128,7 @@ export function DecryptageArticle({ a, d, all }: { a: VerifiedPublication; d: De
         {d.visual && (
           <figure className="mt-5" data-testid="decryptage-figure">
             {d.visual.type !== "graphique" && <p className="font-serif mb-3 text-[1.45rem] leading-tight text-ink">{d.visual.title}</p>}
-            <DecryptageVisual decryptage={d} photo={a.photo} word={topic?.name ?? "MUNDI"} variant="article" />
+            <DecryptageVisual decryptage={d} photo={a.photo} word={topic?.name ?? "MUNDI"} variant="article" publication={a} />
             <figcaption className="mt-2 text-meta leading-relaxed text-muted">
               {d.visual.caption} <VisualCredit visual={d.visual} photo={a.photo} />
             </figcaption>

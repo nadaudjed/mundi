@@ -91,7 +91,7 @@ export function DataCardView({ card, position, total, topicColor, revealed = tru
     >
       {/* Sans photo, un fond approuvé reste possible derrière les chiffres. */}
       {!photo && backdrop && <SceneLayer backdrop={backdrop} focus={card.scene?.focus} />}
-      <div className={`relative flex h-full flex-col ${photo ? "pt-12" : ""}`}>
+      <div className={`relative flex h-full flex-col ${photo ? "pt-12 md:pt-0" : ""}`}>
       {/* Photo d'illustration de la publication : bandeau en haut (téléphone), moitié droite (écran large). */}
       {photo && (
         <div className="relative min-h-[16svh] shrink-[100] grow basis-[32svh] overflow-hidden border-b border-ivory/10 wide:absolute wide:inset-y-0 wide:right-0 wide:left-[50%] wide:min-h-0 wide:border-b-0 wide:border-l" data-testid="data-photo">
@@ -171,8 +171,9 @@ function VisualArea({ visual, placeholder, light }: { visual?: VisualSlot; place
 
 function Value({ m, display, big }: { m: Measure; display: boolean; big?: boolean }) {
   return (
-    <span className="whitespace-nowrap">
-      <span className={`${display ? "font-display" : ""} ${big ? "text-[3.4rem] leading-none [@media(max-height:740px)]:text-[2.6rem]" : "text-2xl"} font-semibold tabular-nums`}>{formatValue(m)}</span>{" "}
+    // Le chiffre reste sur une ligne ; une unité longue (« millions de passagers ») passe à la ligne à 320 px.
+    <span>
+      <span className={`whitespace-nowrap ${display ? "font-display" : ""} ${big ? "text-[3.4rem] leading-none [@media(max-height:740px)]:text-[2.6rem]" : "text-2xl"} font-semibold tabular-nums`}>{formatValue(m)}</span>{" "}
       <span className={big ? "text-lg font-semibold" : "text-sm font-semibold"}>{m.unit}</span>
     </span>
   );

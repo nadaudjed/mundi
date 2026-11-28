@@ -16,7 +16,7 @@ export function FollowButton({ id, title, updateIds }: { id: string; title: stri
       >
         {followed ? "Arrêter de suivre ce dossier" : "Suivre ce dossier"}
       </button>
-      <p className="mt-2 text-sm text-muted" role="status">
+      <p key={followed ? "on" : "off"} className="motion-rise mt-2 text-sm text-muted" role="status">
         {storageFailed
           ? "Le suivi n'a pas pu être gardé sur cet appareil (stockage indisponible ou bloqué). Il sera oublié en fermant la page."
           : followed

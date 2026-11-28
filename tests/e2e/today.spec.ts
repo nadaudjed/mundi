@@ -78,11 +78,11 @@ test.describe("Édition « Aujourd'hui »", () => {
 
   test.describe("repli", () => {
     test.use({ allowedErrors: /404|Failed to load resource/ });
-    test("visuel introuvable : couverture typographique, jamais une image cassée", async ({ page }) => {
+    test("visuel introuvable : couverture MUNDI, jamais une image cassée", async ({ page }) => {
       await page.route("**/media/pilote/**", (route) => route.fulfill({ status: 404, body: "" }));
       await page.goto("/fil/");
       const visual = page.locator('[data-index="0"]').getByTestId("card-visual");
-      await expect(visual.locator('[data-visual="typographie"]')).toBeVisible();
+      await expect(visual.locator('[data-visual="couverture"]')).toBeVisible();
       await expect(visual.locator("img")).toHaveCount(0);
     });
   });

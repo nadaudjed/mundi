@@ -2220,5 +2220,37 @@
     "searchQuery": "electrolyser stack",
     "publication": "comment-produit-on-l-hydrogene-et-pourquoi-il-reste-surtout-fossile",
     "card": "electrolyseurs-installes"
+  },
+  {
+    "slug": "propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom-carte-sr1-profil-de-mission",
+    "src": "/media/editorial/propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom-carte-sr1-profil-de-mission.jpg",
+    "alt": "Photographie d'illustration : Solar panel with magnetomerter at the end.jpg",
+    "title": "Solar panel with magnetomerter at the end.jpg",
+    "credit": "Photo credit: NASA/Jack Pfaller",
+    "license": "Domaine public",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASolar_panel_with_magnetomerter_at_the_end.jpg",
+    "kind": "illustration",
+    "review": "automated-license-and-title-check",
+    "retrievedAt": "2026-11-28",
+    "searchQuery": "spacecraft solar panel array",
+    "publication": "propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom",
+    "card": "sr1-profil-de-mission"
+  },
+  {
+    "slug": "propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom-carte-sr1-contrat-apl",
+    "src": "/media/editorial/propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom-carte-sr1-contrat-apl.jpg",
+    "alt": "Photographie d'illustration : Teknisk rom (School build. Lilleh. Norway 2024-09. Mechan. room Air ventil. Hot water Heat recov. unit) varmtvann isolerte rør målere termometere sirkulasj",
+    "title": "Teknisk rom (School build. Lilleh. Norway 2024-09. Mechan. room Air ventil. Hot water Heat recov. unit) varmtvann isolerte rør målere termometere sirkulasj",
+    "credit": "Wolfmann",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATeknisk_rom_(School_build._Lilleh._Norway_2024-09._Mechan._room_Air_ventil._Hot_water_Heat_recov._unit)_varmtvann_isolerte_r%C3%B8r_m%C3%A5lere_termometere_sirkulasjonspumpe_strupeventil_radiatorer_gulvvarme_elkabler_etc_IMG_0307.jpg",
+    "kind": "illustration",
+    "review": "automated-license-and-title-check",
+    "retrievedAt": "2026-11-28",
+    "searchQuery": "heat pipe radiator panel",
+    "publication": "propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom",
+    "card": "sr1-contrat-apl"
   }
 ]

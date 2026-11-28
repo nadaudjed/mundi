@@ -830,27 +830,35 @@
     },
     {
       "slug": "propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom-carte-sr1-profil-de-mission",
-      "status": "photo_rejetee",
-      "reason": "Panneau solaire de la sonde Juno pour un vaisseau à propulsion nucléaire : autre engin, autre énergie.",
+      "status": "retiree",
+      "reason": "Panneau solaire de la sonde Juno pour un vaisseau à propulsion nucléaire : autre engin, autre énergie. La recherche de la carte (« spacecraft solar panel array ») ne ramène que des photos sans rapport : la carte reste en texte.",
       "reviewedAt": "2026-11-27",
       "ticket": 125,
       "rejected": [
         {
           "title": "One of Juno's solar panels.jpg",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AOne_of_Juno's_solar_panels.jpg"
+        },
+        {
+          "title": "Solar panel with magnetomerter at the end.jpg",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ASolar_panel_with_magnetomerter_at_the_end.jpg"
         }
       ]
     },
     {
       "slug": "propulsion-nucleaire-la-nasa-fige-l-architecture-de-son-vaisseau-sr-1-freedom-carte-sr1-contrat-apl",
-      "status": "photo_rejetee",
-      "reason": "Local technique d'une école norvégienne pour le contrat du vaisseau SR-1 Freedom : sans rapport.",
+      "status": "retiree",
+      "reason": "Local technique d'une école norvégienne pour le contrat du vaisseau SR-1 Freedom : sans rapport. La recherche de la carte (« heat pipe radiator panel ») ne ramène que des photos sans rapport : la carte reste en texte.",
       "reviewedAt": "2026-11-27",
       "ticket": 125,
       "rejected": [
         {
           "title": "Teknisk rom (School build. Lilleh. Norway 2024-09. Mechan. room Air ventil. Hot water Heat recov. unit) Aggregat Luft Termometre Isolerte rør kanaler Stige",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATeknisk_rom_(School_build._Lilleh._Norway_2024-09._Mechan._room_Air_ventil._Hot_water_Heat_recov._unit)_Aggregat_Luft_Termometre_Isolerte_r%C3%B8r_kanaler_Stige_etc_IMG_0343.jpg"
+        },
+        {
+          "title": "Teknisk rom (School build. Lilleh. Norway 2024-09. Mechan. room Air ventil. Hot water Heat recov. unit) varmtvann isolerte rør målere termometere sirkulasj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File%3ATeknisk_rom_(School_build._Lilleh._Norway_2024-09._Mechan._room_Air_ventil._Hot_water_Heat_recov._unit)_varmtvann_isolerte_r%C3%B8r_m%C3%A5lere_termometere_sirkulasjonspumpe_strupeventil_radiatorer_gulvvarme_elkabler_etc_IMG_0307.jpg"
         }
       ]
     }

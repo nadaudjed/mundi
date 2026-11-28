@@ -93,7 +93,7 @@ function Topic({ publication: p, rank, size, lead = false }: { publication: Feed
   const H = lead ? "h2" : "h3";
   return (
     <article data-testid="home-topic" data-publication={p.slug} data-rank={rank} aria-label={`Sujet ${rank} sur ${size} : ${title}`} className="min-w-0">
-      <Link href={href} tabIndex={-1} aria-hidden="true" className={`relative block overflow-hidden bg-ivory-2 ${lead ? "aspect-[16/9] md:aspect-[3/2]" : "aspect-[16/9]"}`}>
+      <Link href={href} tabIndex={-1} aria-hidden="true" className={`press relative block overflow-hidden bg-ivory-2 ${lead ? "aspect-[16/9] md:aspect-[3/2]" : "aspect-[16/9]"}`}>
         {p.photo ? (
           // Photo d'illustration de Commons : la première est chargée en priorité, les suivantes à l'approche.
           // eslint-disable-next-line @next/next/no-img-element

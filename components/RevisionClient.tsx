@@ -102,7 +102,7 @@ export function RevisionClient({ cards: publicCards }: { cards: ReviewCard[] }) 
               {story.type === "idees" ? "Essayez de rappeler à voix haute les trois idées essentielles avant de révéler la réponse." : "Cherchez la réponse de tête avant de la révéler."}
             </p>
             {revealed ? (
-              <div className="mt-7" data-testid="revision-answer">
+              <div className="motion-rise mt-7" data-testid="revision-answer">
                 {typeof story.answer === "string" ? (
                   <p className={story.type === "chiffre" ? "font-display text-4xl font-semibold text-accent" : "max-w-2xl border-l-2 border-accent pl-4 text-lg leading-relaxed text-ink"}>{story.answer}</p>
                 ) : (

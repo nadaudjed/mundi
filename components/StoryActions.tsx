@@ -23,7 +23,7 @@ export function SaveButton({ slug, title, variant = "inline" }: { slug: string; 
       aria-label={saved ? `Retirer « ${title} » des enregistrements` : `Enregistrer « ${title} »`}
       className={buttonClass(variant, saved)}
     >
-      <Icon name={saved ? "bookmark-filled" : "bookmark"} className="size-5" />
+      <Icon key={saved ? "on" : "off"} name={saved ? "bookmark-filled" : "bookmark"} className="motion-pop size-5" />
       <span className={variant === "inline" ? "" : "sr-only"}>{saved ? "Enregistré" : "Enregistrer"}</span>
     </button>
   );

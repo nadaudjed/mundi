@@ -49,7 +49,8 @@ for (const width of [320, 390]) {
       await page.locator("#contenu").getByRole("button", { name: "Écouter le résumé" }).first().click();
       const mini = page.getByTestId("mini-player");
       await expect(mini).toHaveAttribute("data-phase", "playing");
-      // Le mini-lecteur tient dans l'écran et ne passe pas sous le dock.
+      // Le mini-lecteur tient dans l'écran et ne passe pas sous le dock (mesuré une fois son apparition terminée).
+      await mini.evaluate((el) => Promise.all(el.getAnimations().map((a) => a.finished)));
       const box = (await mini.boundingBox())!;
       expect(box.x).toBeGreaterThanOrEqual(0);
       expect(box.x + box.width).toBeLessThanOrEqual(width);

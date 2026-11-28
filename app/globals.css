@@ -443,6 +443,36 @@ body:has([data-mini-player]) main {
   outline-offset: -4px;
 }
 
+/*
+ * Retours d'action (ticket 137, livraison 2). Ils ne jouent qu'après le premier geste
+ * du lecteur (html[data-interacted], posé par ToastProvider) : la première lecture d'une
+ * page reste immédiate, même sans CSS d'animation. Seuls transform et opacity bougent.
+ */
+[data-interacted] .motion-pop {
+  animation: motion-pop var(--motion-quick, 140ms) ease-out;
+}
+@keyframes motion-pop {
+  from { transform: scale(0.8); opacity: 0.4; }
+}
+[data-interacted] .motion-rise {
+  animation: motion-rise var(--motion-panel, 210ms) ease-out;
+}
+@keyframes motion-rise {
+  from { transform: translateY(6px); opacity: 0; }
+}
+/* Appui sur une carte ou un filtre : léger enfoncement, sans retarder le lien. */
+.press {
+  transition-property: transform, color, background-color, border-color;
+  transition-duration: var(--motion-quick, 140ms);
+  transition-timing-function: ease-out;
+}
+.press:active {
+  transform: scale(0.985);
+}
+@media (prefers-reduced-motion: reduce) {
+  .press:active { transform: none; }
+}
+
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;

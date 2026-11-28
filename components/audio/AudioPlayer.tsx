@@ -160,7 +160,7 @@ function MiniPlayer() {
       data-phase={phase}
       role="region"
       aria-label="Lecteur audio"
-      className="fixed inset-x-0 bottom-[var(--nav-h)] z-40 border-t border-rule bg-surface text-ink md:inset-x-auto md:right-4 md:bottom-4 md:w-[24rem] md:border"
+      className="motion-rise fixed inset-x-0 bottom-[var(--nav-h)] z-40 border-t border-rule bg-surface text-ink md:inset-x-auto md:right-4 md:bottom-4 md:w-[24rem] md:border"
     >
       <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[2px] bg-rule">
         <span className="block h-full bg-accent transition-[width] duration-500 motion-reduce:transition-none" style={{ width: pct + "%" }} />

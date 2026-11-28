@@ -161,7 +161,7 @@ export function ExploreClient({ publications, dossiers = [] }: { publications: F
             {searching ? (genre === ALL ? "Résultats de votre recherche" : `${genre.name} correspondant à votre recherche`) : selectedTopic ? `${genre === ALL ? "Publications" : genre.name} · ${selectedTopic.name}` : genre.heading}
           </h2>
           <span className="flex items-baseline gap-3">
-            <span className="font-mono text-meta text-muted" data-testid="explore-results-count">
+            <span key={`${genre.param}:${topic ?? ""}:${results.length}`} className="motion-pop font-mono text-meta text-muted" data-testid="explore-results-count">
               {genre === DOSSIERS ? `${dossierResults.length} ${plural(dossierResults.length, "dossier")}` : `${results.length} ${plural(results.length, "article")}`}
             </span>
             {filtered && (
@@ -176,7 +176,7 @@ export function ExploreClient({ publications, dossiers = [] }: { publications: F
             {dossierResults.map((d) => <DossierTile key={d.id} dossier={d} />)}
           </div>
         ) : lead ? (
-          <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0">
+          <div key={`${genre.param}:${topic ?? ""}`} className="motion-rise mt-6 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-0">
             <div className="lg:border-r lg:border-rule lg:pr-8">
               <PublicationTile publication={lead} featured />
             </div>
@@ -208,6 +208,6 @@ export function ExploreClient({ publications, dossiers = [] }: { publications: F
 }
 
 function chip(selected: boolean) {
-  return "shrink-0 whitespace-nowrap rounded-full border px-3.5 py-1.5 text-sm font-semibold transition-colors " +
+  return "press shrink-0 whitespace-nowrap rounded-full border px-3.5 py-1.5 text-sm font-semibold transition-colors " +
     (selected ? "border-ink bg-ink text-on-ink" : "border-rule text-ink hover:border-ink");
 }
